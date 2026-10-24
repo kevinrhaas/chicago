@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""V17 exact NEAR delivery gate with independent additive MID gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
+"""V18 exact NEAR delivery gate with independent additive MID gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
 from pathlib import Path
 import argparse,hashlib,json,math,struct
-EXPECTED_CONTRACT='860b7df7c8d25e1aa372a0a4250f92e4dfffb2c7cfbd14450b9db329cf5fc910'
+EXPECTED_CONTRACT='0601f79860e09d615a197431ce680333ffba6a422ad7793e003665ab4af993bf'
 
 def read(path):
     b=path.read_bytes();assert struct.unpack_from('<III',b)==(0x46546c67,2,len(b)), 'Invalid GLB envelope'
@@ -63,22 +63,8 @@ def component(j,b,part,kind):
     start=part['triangle_start_in_batch']*36;out=stream[start:start+part['triangles']*36];assert len(out)==part['triangles']*36;return out
 
 def protected_signatures(j,b):
-    part=hashlib.sha256();count=0
-    original=[p for p in j['extras']['parts'] if p['name']!='rear_quarter_recessed_surface']
-    assert len(original)==466
-    for i,p in enumerate(original):
-        if p['name']=='rear_quarter_panel':continue
-        part.update(struct.pack('<I',i));part.update(json.dumps([p['name'],p['frame'],p['material'],p['triangles']],separators=(',',':')).encode())
-        for kind in ['POSITION','NORMAL']:part.update(component(j,b,p,kind))
-        count+=1
-    mesh=hashlib.sha256();streams=0
-    original_meshes=[(i,row) for i,row in enumerate(j['meshes']) if row['name']!='surface_vehicle_body_6']
-    assert len(original_meshes)==24
-    for old_i,(i,row) in enumerate(original_meshes):
-        if row['name']=='surface_vehicle_body_0':continue
-        mesh.update(struct.pack('<I',old_i));mesh.update(row['name'].encode())
-        for kind in ['POSITION','NORMAL']:mesh.update(raw_stream(j,b,i,kind));streams+=1
-    return {'parts':count,'protected_part_PN_sha256':part.hexdigest(),'mesh_streams':streams,'protected_mesh_PN_sha256':mesh.hexdigest()}
+    from lamp_geometry import protected_signatures_v18
+    return protected_signatures_v18(j,b)
 
 def subtree(j,i):
     yield i
@@ -110,29 +96,34 @@ def check_near(directory,source_directory):
     assert hashlib.sha256(contract_path.read_bytes()).hexdigest()==EXPECTED_CONTRACT,'Exact reviewed near contract changed'
     c=json.loads(contract_path.read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     master=directory/'brougham-source.glb';near=directory/'brougham-near.glb'
-    assert sha(master)==c['raw_sha256'] and master.stat().st_size==c['raw_bytes'],'Exact V17 rawmaster'
-    assert sha(near)==c['near_sha256'] and near.stat().st_size==c['near_bytes'],'Exact V17 indexednear'
+    assert sha(master)==c['raw_sha256'] and master.stat().st_size==c['raw_bytes'],'Exact V18 rawmaster'
+    assert sha(near)==c['near_sha256'] and near.stat().st_size==c['near_bytes'],'Exact V18 indexednear'
     for name,digest in c['source_files'].items():assert sha(source_directory/name)==digest,'Exact reviewed producer/source/recipe/license '+name
     for name,digest in c['delivery_metadata_files'].items():assert sha(directory/name)==digest,'Exact delivery metadata/license '+name
     j,b=read(master);d,db=read(near);signature,tri=expanded(j,b);near_signature,near_tri=expanded(d,db)
-    assert tri==near_tri==c['triangles']==33502 and signature==near_signature==c['expanded_PN_sha256'],'Actual near expanded triangles/P-N'
+    assert tri==near_tri==c['triangles']==33374 and signature==near_signature==c['expanded_PN_sha256'],'Actual near expanded triangles/P-N'
     for key in ['nodes','materials','scenes','scene','extras','extensionsUsed']:assert j.get(key)==d.get(key),'Preserved raw/near '+key
-    assert len(j['nodes'])==42 and len(j['meshes'])==25 and len(j['materials'])==7 and len(j['extras']['parts'])==468
+    assert len(j['nodes'])==42 and len(j['meshes'])==25 and len(j['materials'])==7 and len(j['extras']['parts'])==480
     assert not any(j.get(k) or d.get(k) for k in ['images','textures','skins','animations']) and all('uri' not in q for doc in [j,d] for q in doc['buffers'])
     for doc,bin in [(j,b),(d,db)]:assert decoded_bounds(doc,bin,world_nodes(doc))==c['bounds_m'],'Actual full native envelope'
-    assert protected_signatures(j,b)==c['protected_V15_streams'],'464part/46stream role-mapped V15 baseline'
+    assert protected_signatures(j,b)==c['protected_V17_streams'],'450part/44stream exact V17 non-lamp baseline'
     params=json.loads((source_directory/'parameters.json').read_text());extra=j['extras'];assert extra['parameters']==params
+    from lamp_geometry import keyed,lamp_surfaces
+    assert lamp_surfaces(keyed(j,b),params)==456, 'Actual rounded-lamp winding/recessed aperture seams'
     assert extra['license']=='GPL-3.0-or-later' and extra['units']=='m' and extra['up_axis']=='+Y' and extra['forward_axis']=='+Z' and extra['root_datum']=='ground midpoint between axles'
     assert extra['source_id']=='studebaker_1893_illustrated_souvenir' and extra['source_reference']['scan_leaf']=='0095' and extra['source_reference']['sha256']==c['reference_sha256']
     assert all(extra[k] is False for k in ['door_interaction_enabled','boarding_enabled','traffic_enabled','occupants'])
     side=json.loads((directory/'brougham.json').read_text());assert side['source_master_sha256']==c['raw_sha256'] and side['parameters_sha256']==c['source_files']['parameters.json']
+    assert sha(here/'mid-contract.json')==c['mid_contract_sha256'], 'Exact current mid-contract binding'
+    from check_mid import check_mid_provenance
+    check_mid_provenance(side,c,json.loads((here/'mid-contract.json').read_text()))
     assert side['grade']=='reconstructed' and side['license']=='GPL-3.0-or-later' and side['scene_eligibility']==c['scene_eligibility'] and extra['scene_year']==1904
     assert len(side['lods'])==2 and [r['detail'] for r in side['lods']]==['near','mid'] and side['lods'][0]['indexed_sha256']==c['near_sha256'] and side['lod_runtime_selection_enabled'] is True
     world=world_nodes(j);assert len(side['anchors'])==13
     for anchor in side['anchors']:assert anchor['node']==j['nodes'][anchor['node_index']]['name'] and anchor['translation_root_m']==world[anchor['node_index']] and anchor['rotation_xyzw']==[0,0,0,1] and anchor['scale']==[1,1,1] and anchor['dynamic_binding_supported'] is False
     assert side['static_master']['frame']=={'units':'m','up':'+Y','forward':'+Z','root':'vehicle_root'} and all(x is False for x in side['static_master']['capabilities'].values())
     assert len(side['static_master']['named_targets'])==8 and len(side['static_master']['collision_proxy']['components'])==9 and side['static_master']['collision_proxy']['runtime_enabled'] is False
-    assert side['static_master']==c['static_master'], 'Exact inert V17 interfaces'
+    assert side['static_master']==c['static_master'], 'Exact inert V18 interfaces'
     for entry in side['static_master']['entries']:
         for role,index_key,bounds_key in [('deep_U_closed_door','door_part_index','closed_door_bounds_root_m'),('door_step','step_part_index','step_bounds_root_m')]:
             part=j['extras']['parts'][entry[index_key]]
@@ -152,9 +143,9 @@ def check_near(directory,source_directory):
         report=here/'archived-khronos'/row['report'];assert sha(report)==row['report_sha256'] and sha(directory/row['bound_file'])==row['actual_input_sha256']
         report=json.loads(report.read_text());issues=report['issues'];assert report['validatorVersion']=='2.0.0-dev.3.10' and issues['numErrors']==issues['numWarnings']==0 and issues['numInfos']==4 and not issues['truncated']
         assert sorted((x['code'],x['pointer']) for x in issues['messages'])==[('NODE_EMPTY','/nodes/'+str(i)) for i in [13,14,15,16]]
-        assert report['info']['totalTriangleCount']==33502 and report['info']['drawCallCount']==25 and report['info']['hasSkins'] is False and report['info']['hasTextures'] is False
+        assert report['info']['totalTriangleCount']==33374 and report['info']['drawCallCount']==25 and report['info']['hasSkins'] is False and report['info']['hasTextures'] is False
         conformance.append({'file':row['bound_file'],'archived_conformance':'PASS','fresh_execution':False})
-    return {'pass':True,'scope':c['scope'],'raw_sha256':c['raw_sha256'],'near_sha256':c['near_sha256'],'triangles':tri,'protected_baseline_streams':c['protected_V15_streams'],'native_contacts':measured,'archived_khronos':conformance,'terrain_world_clearance_verified':False,'visual_or_photographic_acceptance':False}
+    return {'pass':True,'scope':c['scope'],'raw_sha256':c['raw_sha256'],'near_sha256':c['near_sha256'],'triangles':tri,'protected_baseline_streams':c['protected_V17_streams'],'native_contacts':measured,'archived_khronos':conformance,'terrain_world_clearance_verified':False,'visual_or_photographic_acceptance':False}
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--directory',type=Path,required=True);ap.add_argument('--source-directory',type=Path,default=Path(__file__).resolve().parent);a=ap.parse_args();print(json.dumps(check_near(a.directory,a.source_directory)))

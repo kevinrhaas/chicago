@@ -341,19 +341,81 @@ def main():
         tube('driver_side_rail',body,[[side*.53,sy+.03,sz+.17],[side*.53,sy+.16,sz+.12],[side*.53,sy+.19,sz-.18]],.015,1,8)
         beam('footboard_support',body,(side*.43,.78,.60),(side*.43,fy-.02,fz+.10),.024,4)
 
-    # Faceted lamp glass in fine black metal frames, not solid square toy lamps.
+    # V18 SOURCE-ONLY proposal: plate0095 has a rounded coach-lamp head,
+    # oval bright-rimmed faces and a narrower lower body. Exact metric shape,
+    # glazing construction, hidden faces and opposite-side mirror are reconstructed.
+    # No source pixels, new material, illumination, shared finish or motion change.
+    # The original arm and centres remain exact. All dimensions below are producer
+    # metres before the existing body_vertical_affine, not historic measurements.
+    lamp_head_profile=[(-.040,.015),(.040,.015),(.05768,.02232),
+                       (.065,.040),(.065,.135),(.05768,.15268),
+                       (.040,.160),(-.040,.160),(-.05768,.15268),
+                       (-.065,.135),(-.065,.040),(-.05768,.02232)]
+    lamp_n=len(lamp_head_profile) # 12; convex rounded rectangle in (Z,Y).
+    def lamp_aperture(name,outer,center,radii,point,normal_sign):
+        # Radial correspondence from the convex outer polygon to a strict inner
+        # ellipse. The hole is physical; no opaque full panel backs its glazing.
+        # point(u,v,depth) maps the local face into the existing lamp carrier.
+        inner=[]
+        for u,v in outer:
+            du,dv=u-center[0],v-center[1]
+            scale=1/math.sqrt((du/radii[0])**2+(dv/radii[1])**2)
+            inner.append((center[0]+du*scale,center[1]+dv*scale))
+        n=len(outer)
+        vertices=[point(u,v,0.) for u,v in outer+inner]
+        faces=[[i,(i+1)%n,n+(i+1)%n,n+i]for i in range(n)]
+        if normal_sign<0:faces=[list(reversed(f))for f in faces]
+        geometry(name+'_bright_surround',body,vertices,faces,3)
+        # One-millimetre reveal meets the recessed glass perimeter. This closes
+        # the actual aperture rather than leaving an overlaid decorative disk.
+        vertices=[point(u,v,d)for d in [0.,-.001]for u,v in inner]
+        faces=[[i,(i+1)%n,n+(i+1)%n,n+i]for i in range(n)]
+        if normal_sign<0:faces=[list(reversed(f))for f in faces]
+        geometry(name+'_reveal',body,vertices,faces,4)
+        face=list(range(n))
+        if normal_sign<0:face.reverse()
+        geometry(name+'_glass',body,[point(u,v,-.001)for u,v in inner],[face],5)
     for side in [-1,1]:
-        cx=side*.60;cy=1.53;cz=.44;rad=.065;h=.105;N=8
+        cx=side*.60;cy=1.53;cz=.44
         beam('lamp_arm',body,(side*.49,1.30,.40),(cx,cy-.12,cz),.018,4)
-        v=[[cx+rad*math.cos(i*math.tau/N),cy+y,cz+rad*math.sin(i*math.tau/N)]for y in [-h,h]for i in range(N)]
-        geometry('lamp_glass',body,v,[[i,(i+1)%N,(i+1)%N+N,i+N]for i in range(N)],5)
-        for y in [cy-h,cy+h]:
-            ring=[[cx+rad*math.cos(i*math.tau/N),y,cz+rad*math.sin(i*math.tau/N)]for i in range(N)];ring.append(ring[0]);tube('lamp_frame_ring',body,ring,.005,4,6)
-        for i in range(0,N,2):
-            x=cx+rad*math.cos(i*math.tau/N);z=cz+rad*math.sin(i*math.tau/N);beam('lamp_corner_stile',body,(x,cy-h,z),(x,cy+h,z),.006,4)
-        top=[[cx+rad*1.12*math.cos(i*math.tau/N),cy+h+.01,cz+rad*1.12*math.sin(i*math.tau/N)]for i in range(N)]+[[cx,cy+h+.065,cz]]
-        geometry('lamp_pitched_cap',body,top,[[i,(i+1)%N,N]for i in range(N)],4)
-        tube('lamp_finial',body,[[cx,cy+h+.06,cz],[cx,cy+h+.092,cz]],.009,3,8)
+        # Closed upper shell. Its front rectangle and outward side contain the
+        # two apertures below; the hidden inward side is a declared plain back.
+        v=[[cx+x,cy+y,cz+z]for x in [-.065,.065]for z,y in lamp_head_profile]
+        faces=[[i,lamp_n+i,lamp_n+(i+1)%lamp_n,(i+1)%lamp_n]
+               for i in range(lamp_n)if i!=3] # front straight wall is an aperture.
+        geometry('lamp_rounded_upper_shell',body,v,faces,4)
+        back=[lamp_n+i for i in range(lamp_n)]if side<0 else list(range(lamp_n))
+        if side<0:back.reverse()
+        geometry('lamp_hidden_inner_back',body,v,[back],4)
+        # (Z,Y) counterclockwise has -X normal; outward face is mirrored only
+        # as explicit reconstruction, with the same current lamp centres.
+        lamp_aperture('lamp_outward_oval',lamp_head_profile,(0.,.0875),(.044,.054),
+                      lambda z,y,d:(cx+side*(.065+d),cy+y,cz+z),-side)
+        # (X,Y) counterclockwise has +Z normal. All 12 outer points are on the
+        # existing front-wall rectangle, including its four exact corners.
+        hx=.065;hy=.0475;my=.0875
+        front=[(-hx,my-hy),(-hx/3,my-hy),(hx/3,my-hy),(hx,my-hy),
+               (hx,my-hy/3),(hx,my+hy/3),(hx,my+hy),(hx/3,my+hy),
+               (-hx/3,my+hy),(-hx,my+hy),(-hx,my+hy/3),(-hx,my-hy/3)]
+        lamp_aperture('lamp_forward_oval',front,(0.,my),(.043,.036),
+                      lambda x,y,d:(cx+x,cy+y,cz+.065+d),1)
+        # Narrow lower framed body; existing glass/iron choices are retained as
+        # reconstructions. The bottom cap meets the original arm endpoint.
+        v=[[cx+x,cy+y,cz+z]for y in [-.12,.015]
+           for x,z in [(-.028,-.028),(.028,-.028),(.028,.028),(-.028,.028)]]
+        geometry('lamp_narrow_lower_glass',body,v,
+                 [[i,4+i,4+(i+1)%4,(i+1)%4]for i in range(4)],5)
+        for x,z in [(-.028,-.028),(.028,-.028),(.028,.028),(-.028,.028)]:
+            # Closed triangular-section 6mm stiles preserve the coarse-mid lamp
+            # triangle budget; their hidden cross section is reconstructed.
+            v=[[cx+x+.003*math.cos(i*math.tau/3),cy+y,
+                cz+z+.003*math.sin(i*math.tau/3)]
+               for y in [-.12,.015]for i in range(3)]
+            faces=[[0,1,2],[5,4,3]]+[[i,3+i,3+(i+1)%3,(i+1)%3]for i in range(3)]
+            geometry('lamp_lower_corner_stile',body,v,faces,4)
+        box('lamp_lower_base',body,(cx,cy-.116,cz),(.062,.008,.062),4)
+        # Same finial radius/end height, now seated directly on the rounded head.
+        tube('lamp_finial',body,[[cx,cy+.160,cz],[cx,cy+.197,cz]],.009,3,8)
 
     rear=node('vehicle_running_gear_rear',root,(0,RR,-WB/2));front=node('vehicle_steer_front',root,(0,RF,WB/2))
     for frame in [rear,front]:box('black_axle',frame,(0,0,0),(TRACK+.12,.045,.045),4)

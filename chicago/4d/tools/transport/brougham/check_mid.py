@@ -33,9 +33,22 @@ def bind_parts(j,b):
 def contained(outer,inner):
     return all(inner['min'][k]>=outer['min'][k] and inner['max'][k]<=outer['max'][k] for k in range(3))
 
+def check_mid_provenance(side,near,mid):
+    """Reject stale V17 lineage and unearned appearance acceptance in active V18 metadata."""
+    p=side['mid_provenance']
+    assert side['revision']=='v18_rounded_coach_lamps_near_mid_study', 'Active V18 revision required'
+    assert p['source_master_near_sha256']==near['raw_sha256'], 'Mid provenance binds current near master'
+    assert p['build_receipt_sha256']==mid['build_receipt_sha256'], 'Mid provenance binds current MID receipt'
+    assert p['recipe']=='tools/transport/brougham/'+mid['recipe'] and p['recipe_sha256']==mid['recipe_sha256'], 'Mid provenance binds exact current recipe'
+    assert p['distance_lod_native_appearance_accepted'] is side['lod_appearance_accepted']['mid'] is False, 'V18 mid appearance remains unaccepted'
+    assert p['photographic_accepted'] is False and p['world_budget_accepted'] is False, 'V18 mid world/photo acceptance remains unpassed'
+    assert p['subdivision_records']=={'near':mid['subdivision_records_near'],'mid':mid['subdivision_records_mid']}, 'Mid provenance actual near/mid record counts'
+    assert p['triangles']=={'near':near['triangles'],'mid':mid['triangles']}, 'Mid provenance actual near/mid triangle counts'
+
+
 def verify():
     start=time.monotonic();mcpath=D/'mid-contract.json'
-    assert sha(mcpath.read_bytes())=='9f094861d08398d4a2a5e6bba3611c23af98d8db7c73554df1df1ec4950fcab4','Exact reviewed distance-mid contract'
+    assert sha(mcpath.read_bytes())=='b82f594d085b596069e1e3cd3dccb9662123348e1c5d0c4311094792cca12d16','Exact reviewed distance-mid contract'
     mc=json.loads(mcpath.read_bytes());c=json.loads((D/'near-contract.json').read_bytes())
     assert sha((ASSET/'MID-BUILD-RECEIPT.json').read_bytes())==mc['build_receipt_sha256']
     assert sha((D/mc['recipe']).read_bytes())==mc['recipe_sha256']=='89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159'
@@ -49,6 +62,7 @@ def verify():
     assert sha((ASSET/'brougham-source.glb').read_bytes())==c['raw_sha256']
     assert sha((ASSET/'brougham-near.glb').read_bytes())==c['near_sha256']==mc['unchanged_near_sha256']
     old,ob=read(ASSET/'brougham-source.glb');new,nb=read(ASSET/'brougham-mid-source.glb');indexed,ib=read(ASSET/'brougham-mid.glb');side=json.loads((ASSET/'brougham.json').read_bytes())
+    check_mid_provenance(side,c,mc)
     signature,triangles=expanded(new,nb);isig,it=expanded(indexed,ib)
     assert triangles==it==mc['triangles']==11706 and signature==isig==mc['expanded_triangle_PN_sha256']
     row=side['lods'][1];assert row['source_bytes']==mc['raw_bytes'] and row['indexed_bytes']==mc['indexed_bytes'] and row['expanded_triangle_PN_sha256']==signature
@@ -61,7 +75,9 @@ def verify():
     for doc in [old,new,indexed]:
         assert not any(doc.get(k) for k in ['images','textures','skins','animations'])
         assert all(set(p['attributes'])=={'POSITION','NORMAL'} for m in doc['meshes'] for p in m['primitives'])
-    before=bind_parts(old,ob);after=bind_parts(new,nb);assert len(before)==468 and len(after)==302
+    before=bind_parts(old,ob);after=bind_parts(new,nb);assert len(before)==480 and len(after)==314
+    from lamp_geometry import keyed,lamp_surfaces
+    assert lamp_surfaces(keyed(new,nb),new['extras']['parameters'])==424, 'Actual mid rounded-lamp winding/recessed aperture seams'
     categories=lambda rows:collections.Counter(r['identity'][0] for r in rows)
     bc,nc=categories(before),categories(after);assert set(bc)==set(nc)
     assert {k:(bc[k],nc[k]) for k in bc if bc[k]!=nc[k]}=={'leaf_spring':(160,64),'roof_edge_fascia':(110,40)}
@@ -102,6 +118,6 @@ def verify():
     shifted=copy.deepcopy(new);i=side['anchors'][-1]['node_index'];shifted['nodes'][i]['translation'][0]+=.001;assert world_nodes(shifted)!=nw
     growth=copy.deepcopy(inner[1]['bounds_root_m']);growth['max'][1]=outer[1]['bounds_root_m']['max'][1]+.001;assert not contained(outer[1]['bounds_root_m'],growth)
     assert expanded(old,ob)[1]!=11706,'Near copy cannot pass as distance mid'
-    return {'pass':True,'seconds':round(time.monotonic()-start,3),'triangles_before':33502,'triangles_after':triangles,'triangles_saved':33502-triangles,'subdivision_records_before':468,'subdivision_records_after':302,'physical_category_count':len(actual),'materials_exact':7,'nodes_exact':42,'runtime_anchors_exact':13,'static_targets_exact':8,'original_near_proxy_preserved':True,'strict_mid_containment':True,'only_tight_bound_contraction_m':changes[0][3],'candidate_raw_sha256':mc['raw_sha256'],'candidate_indexed_sha256':mc['indexed_sha256'],'negative_controls':{'repeated_hubcap_PN_mutation':True,'unchanged_feature_PN_mutation':True,'anchor_shift':True,'proxy_growth':True,'near_copy_as_mid':True},'world_budget_accepted':False,'photographic_accepted':False}
+    return {'pass':True,'seconds':round(time.monotonic()-start,3),'triangles_before':33374,'triangles_after':triangles,'triangles_saved':33374-triangles,'subdivision_records_before':480,'subdivision_records_after':314,'physical_category_count':len(actual),'materials_exact':7,'nodes_exact':42,'runtime_anchors_exact':13,'static_targets_exact':8,'original_near_proxy_preserved':True,'strict_mid_containment':True,'only_tight_bound_contraction_m':changes[0][3],'candidate_raw_sha256':mc['raw_sha256'],'candidate_indexed_sha256':mc['indexed_sha256'],'negative_controls':{'repeated_hubcap_PN_mutation':True,'unchanged_feature_PN_mutation':True,'anchor_shift':True,'proxy_growth':True,'near_copy_as_mid':True},'world_budget_accepted':False,'photographic_accepted':False}
 
 if __name__=='__main__':print(json.dumps(verify(),indent=2))

@@ -161,7 +161,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
           instance.lod.levels[1].distance = broughamMidDistance(camera, getDrawingBufferHeight());
           instance.lod.update(camera);
           instance.active_lod = instance.lod.getCurrentLevel() === 0 ? 'near' : 'mid';
-          instance.active_triangles = instance.active_lod === 'near' ? 33502 : 11706;
+          instance.active_triangles = instance.active_lod === 'near' ? 33374 : 11706;
         }
         if (instance.row.replaces) fallback(instance.row.replaces, !visible);
       }
@@ -301,7 +301,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
           group.add(model);
           instances.push({ row, group: model, card: card(row, spec), parking,
             wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: near.children.length,
-            ...(lod ? { lod, active_lod: 'near', active_triangles: 33502 } : {}) });
+            ...(lod ? { lod, active_lod: 'near', active_triangles: 33374 } : {}) });
         } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
       }
       if (lastCamera) out.update(lastCamera);
