@@ -5867,3 +5867,27 @@ T-3081: incorporate dev 6f992fa75 and its native Glessner package; complete full
 ### T-3082 — roof contrast and retained review notes
 
 Validate the combined stack on PR #1260: genuine deep_brown quarter-linear Tremont exports plus accurate historical-review card/loader wording. The official 23-family build and derivatives are complete, with only three roof RGB scalars changed in the target and every non-target file exact; current recipe equality and the inherited 82-log-family preservation are proved. Native name-pool/seating and five companion checks pass, the 61-step ordered tail settles in two laps, four actual published mobile/desktop app/source/review cases pass without page or network errors, and full preflight passes with required scientific readers. The native same-camera picture comparison remains DIFFERS. Finish complete hosted published mobile/desktop smoke coverage; the bounded draft PR targets dev with an explicit dependency on #1260, followed by final dev reconciliation and merge after its parent lands. Keep review flags, each explanation, confidence and unexpected-error filters intact. Full Tremont picture matching continues on T-2385, including remaining flag, shutters/entries, camera and context differences. No original image-match acceptance closes here.
+
+
+### T-3118 — Hogan's next pictured details
+
+The existing recess/hatch/short-stack controls are selected; the PR1260 dependency has landed. One official Hogan master and its real derivative are rebuilt, all82recipes fresh and81other log assets preserved. The61-step native tail settled in two laps after a retained temporary-space failure. Native publishing, independent mobile/desktop card/grade/source-credit checks, and additional visible front normal/confidence captures completed and were inspected. Require strict preflight and final-head full published smoke coverage before merging the bounded utility. Continue all remaining T-2377 picture differences afterward; no original match acceptance is implied. See docs/RESEARCH/hogan-picture-match-T-3118/README.md.
+
+
+## T-3105 — First Fort Dearborn galleries and fronts
+
+The bounded increment implements five source-counted gallery fronts, opening rhythms and support clearance, two blockhouse chimney removals, and five separate appearance rulings. Genuine 25-family masters and native derivatives have default, API and independent-data controls. Fourteen standard mobile/desktop app cases are directly reviewed. Final integration and required-reader preflight follow the normal PR pipeline.
+
+Continue the original T-3041/T-2387 task across all 21 named and nine context components and every picture: all 16 reviewed source comparisons still differ. Preserve uncertainties in roofs, rails, openings, chimney profiles and hidden totals, camera calibration, magazine identity and cupolas. The existing parade collision classification also leaves on-foot courtyard access unproved; the optional grounded diagnostic remains failed and no collision exemption is introduced here.
+
+## T-3106 — Render declared 1812 plants and retain woodland extent
+
+The scoped prerequisite renders four Kinzie poplars through the existing green container and six reconstructed Ouilmette currants outside the unchanged clearance. Uniform Light/Full thinning completes the sweeps below the unchanged 2,100/4,700 caps. Source facts, Balanced detail, other scenes, stated plants and all collision guards remain. Native and targeted app validation retain the original failures and strict error classification; see STATUS and both recorded liberties. This utility does not complete a first-fort image ticket.
+
+
+T-3106 retains its medium parent and provenance history. Its two independent no-bake demonstrations are T-3119 (the declared garden plants and physical clearance) and T-3120 (the Light/Full woodland sweep within unchanged caps), grouped with T-3105. This ticket mapping changes no model, planting, renderer, camera, source grade or original picture acceptance.
+
+
+### T-3125 — keep complete release notes inside the Navigator
+
+The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.

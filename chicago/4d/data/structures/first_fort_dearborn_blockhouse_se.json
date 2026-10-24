@@ -119,9 +119,12 @@
           "note": "Unattested, as the second fort's."
         },
         "chimneys": {
-          "value": 1,
+          "value": 0,
           "confidence": "reconstructed",
-          "note": "Unattested. A manned blockhouse in a Chicago winter is heated; the stack is ours."
+          "note": "T-3041 picture refinement. Kurz & Allison (1893), panel 1, draws each first-fort blockhouse with a roof lantern and no separate chimney. The former one-stack value was an unattested heating reconstruction; removing that invented stack follows the pictured silhouette without asserting that a retrospective print proves historical absence. The lantern itself and the panel's conflicting tower locations remain unresolved; no plan, bearing or documented 75 ft flagstaff is changed. The complete 1812 total (including possible hidden fittings or schematic omissions) remains reconstructed; this is a conservative model choice to follow visible evidence, not positive proof of the historical total or absence. Source-visible counts remain explicit.",
+          "sources": [
+            "kurz_allison_1893"
+          ]
         }
       }
     }

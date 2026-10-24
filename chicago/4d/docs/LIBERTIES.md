@@ -32615,3 +32615,135 @@ Actual roof-only native GPU captures were directly inspected: source roof patch 
 
 **Ticket:** T-2385.
 **Recorded:** 2026-10-23.
+
+
+### L-hogan-dark-door-hatch-3118 — Hogan's pictured doorway and short stack
+
+**Source:** `cameron_c1900_first_post_office`, Edgar S. Cameron's retrospective *Chicago's First Postoffice in 1833*, halftone credited to the Chicago Historical Society. The local surrogate and printed caption were inspected. The committed inventory attributes public-domain status to pre-1930 publication; original publication and holding remain independently unverified, and the failed Commons access is not fresh clearance. This continuation preserves those limits and the existing source credit.
+
+**Doorway:** The picture's long elevation has a dark doorway occupied by a figure. The opt-in `front_door_state: recess` cuts the actual front skin/chinking and uses framed returns to a dark blind back 0.30 m inside. That depth, casing dimensions and dark material are reconstructed visual proxies, not measured joinery, an interior, a surviving July 1835 door state, or an attested leaf/hinge position. No figure is inserted or identified. Generic doors remain closed without this option.
+
+**Gable and stack:** The visible gable rectangle is trialled as `end_openings.kind: hatch` at the existing reconstructed station and 0.7 × 0.8 m size. The existing board-shutter kit provides a closure proxy. Boards, ledges, material, closure and absence of glass are not attested by the unresolved infill; the depiction is explicitly reconstructed. It adds no loft occupancy or unseen opening. The existing ridge-stack head control is trialled at 0.75 m rather than the generic 0.95 m to bound the short depicted silhouette, without claiming scale, cap detail or material identification.
+
+**Limits:** The documented 45 × 20 ft footprint, geographic position, bearing, dates, use, eave, roof pitch, opening stations/sizes and chimney station/width remain unchanged. No image pixels become a texture. Roof texture/tone, gable cladding, sash pattern, chimney details, source perspective and omitted scene remain unresolved. The original image gate stays open and the provisional view remains `differs`; this proposal is not a match ruling.
+
+**Covers:** `hogan_store.log_1831.form.front_door_state`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.ridge_stack_head_m`.
+**Ticket:** T-3118, bounded continuation of T-2377.
+**Recorded:** 2026-10-24.
+
+
+## Per-subject liberties
+
+### L-first-fort-double-galleries — the upper courtyard walks
+
+**Decision:** the five first-fort ranges that already carry attested galleries
+receive an inferred two-level treatment: an upper walk over the open ground
+level, with vertical rail pales and a roof meeting the existing main eave.
+Whistler's 1808 note supplies two-storey barracks and galleries fronting the
+parade but does not count the gallery levels. The upper walk and balustrade are
+read from the later reconstruction published at p. 27 of Currey's *The Story of
+Old Fort Dearborn* (1912), now registered separately as
+`currey_1912_first_fort_birdseye`. The count is inferred, not contemporary
+attestation; the picture does not independently identify every existing record's
+interior face. Carrying the treatment to all five corresponding garrison ranges
+is an explicitly stated interpretation, not a measured elevation of each one.
+
+**Reconstructed dimensions:** retain the old gallery's 2.1 m reach and nominal
+3 m post-bay rhythm, with the reviewed explicit-front support adjustment below. Set posts to 0.14 m square, upper floor thickness to 0.14 m,
+handrail height to 0.95 m, handrail section to 0.10 x 0.14 m, square pales to
+0.055 m at an at-most-0.18 m pitch, and canopy fall to 0.45 m across the reach
+plus a 0.15 m outer projection. Upper floor height is half the existing 5.0 m
+wall (2.5 m); the roof attaches at that wall's eave and falls to 4.55 m. End
+returns of the upper rail are a safety reconstruction. No exterior stair is
+invented. New gallery geometry carries reconstructed confidence even though
+gallery occurrence remains attested and the chosen two-level count is inferred.
+
+The reconstructed outer support beam keeps its bottom at 4.41 m and follows the
+unchanged canopy plane at its top: 4.608 m at the inner edge and 4.580 m at the
+outer edge. This closes the former 30–58 mm unsupported roof gap without moving
+the posts, roof or lower gallery. Its hidden top face is omitted where the canopy
+caps it, avoiding a duplicate coplanar timber surface. The wedge is a model joint,
+not joinery or timber dimensions measured from the historical drawing (T-3105).
+
+**Bounds:** first Fort Dearborn, ending before 16 August 1812; only
+`gallery_storeys: 2` opts into this form. The old one-canopy form is byte-for-byte
+unchanged at the helper's geometry-call level when the option is absent. Nothing
+is added to the second fort, the lighthouse or other ranges without a record
+opting in. The 1912 plate is tier 5, not eyewitness evidence, a height scale,
+coordinate, plan or bearing. Its central gateway building and magazine layout
+do not overrule Whistler's contemporary measured register. Keep L370's remaining
+height/roof/plan-depth choices and the earlier gallery existence source.
+
+**How to resolve:** a contemporary elevation, dimensioned gallery drawing,
+quartermaster estimate or construction account could replace the metric choices
+or decide whether a particular range had the upper walk. Meanwhile the scene
+shows the declared inference rather than a ground-only canopy that fails the
+pictured courtyard treatment.
+
+**Subjects:** `first_fort_dearborn_commanding_officers_barracks`, `first_fort_dearborn_north_range`, `first_fort_dearborn_officers_barracks`, `first_fort_dearborn_soldiers_barracks_se`, `first_fort_dearborn_soldiers_barracks_sw`.
+
+**Recorded:** 2026-10-22 (T-3041; proposal, not a match).
+
+**Support adjustment:** On these five explicit fronts keep support count, but project an obstructing centre to the nearest solid pier clearing both storeys' rectangles and the existing casing/sill-horn envelope, left on ties. A post width separates centres; an impossible end pier is refused. Post placement remains reconstructed. Rails and projected occlusion remain unresolved until actual review.
+
+### L-first-fort-face-layout-t2387-next — Source-shaped front apertures and reconstructed joinery
+
+**Covers:** `first_fort_dearborn_north_range.first_fort_1803.form.face_openings`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.face_openings`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.face_openings`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.face_openings`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.face_openings`.
+**Decision:** Refine only the five first-fort parade fronts from their separately identified Whistler folded elevations. Preserve five openings per storey for officers and four for the other ranges. Retain their visible longer/shorter sequences and the paired spacing on north and southern ranges; do not infer doors, glazing or exact metric set-out from white marks in the drawing. A single reconstructed ground door occupies the leftmost long aperture in each upright source crop; other long apertures, including every upper one, remain reconstructed windows. The earlier research prototype used a central door and even grid; this landed choice uses the actually reviewed source rhythm. Historical and other liberties remain.
+**Dimensions:** All five facades keep their existing footprint and five-metre, two-storey wall. Choose 0.72 m rectangular widths, 2.05 m heads relative to each existing storey, 0.65 m short-window sills, 0.10 m long-window sills and a 0.02 m ground-door sill. These numbers and common head levels are reconstructed choices; the folded drawing is not a measured section. Upper windows still use the existing reconstructed sash kit. Hidden/rear faces retain their earlier reconstruction.
+**Supports:** On the already opted-in double galleries, keep the prior support count and nominal rhythm, moving an obstructing post to the nearest permitted solid pier, left on ties. Clear the union of both storeys' explicit aperture rectangles plus the actual existing casing/sill-horn envelope and half the post section; reserve a post width between supports. Reject a declared front without a clear end support. Sections, support rule, support positions, upper-gallery interpretation, rails and canopy dimensions remain reconstructed or inferred as previously stated. The older undecorated/absent-layout support path is unchanged. Rail density and rail occlusion remain unresolved.
+**Stacks:** The actual identified fronts show three clear stacks on officers, two on commanding officers and one on each other range. Follow only those visible counts; complete 1812 totals/hidden fittings remain reconstructed except the unchanged northern inference. No hidden stack is invented. Stack position/section/height and the existing procedural rhythm remain reconstructed. Source-backed counts replace the former unexamined two/three choices, not a dated construction history.
+**Source and limit:** `whistler_1808_fort_dearborn_draught`, the contemporary January 1808 sheet reproduced by Quaife in 1913, together with the earlier retrospective upper-walk evidence `currey_1912_first_fort_birdseye`. This is appearance evidence, not a metric section, a painted-colour witness or an independent picture of every hidden face. Source screen order is reversed when assigned to local-u coordinates in the unchanged diagnostic views. Whole-building pictured-grade rulings are separate from these reconstructed attribute choices.
+**How to resolve:** Compare a newly generated candidate with each actual folded front and all remaining compound/original images. Keep camera, roof and remaining gallery/stack profile differences explicit; no match or acceptance is claimed by a source-count/data refinement.
+**Recorded:** 2026-10-24 (T-3041; proposal only, not adopted or rendered).
+
+### L-first-fort-pictured-blockhouse-stacks-3041 — Retire two reconstructed stacks
+
+**Decision:** Remove the separate reconstructed chimney from each first-fort
+blockhouse, following the silhouette in public-domain Kurz & Allison panel 1
+(`kurz_allison_1893`, crop `p4_0.png`). Both pictured blockhouses carry small
+roof lanterns and no separate stack, while barracks stacks are plainly drawn.
+The resulting zero is a reconstructed picture-shaped model omission, not proof of
+historical absence, lack of heating, or contemporary eyewitness evidence.
+**Supersedes:** L370's one-stack reconstruction for these two blockhouses only.
+Keep L370's historical entry and its other roof, height and jetty choices.
+**What is retained:** surveyed placements, footprints, bearing, roof dimensions
+and the documented 75 ft staff. The first-fort lanterns remain unbuilt; enabling
+a second-fort cupola does not enable or date either first-fort lantern.
+**How to resolve:** render before/after, retain the unresolved lantern and tower
+arrangement differences, and keep the full T-2387 match open.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`.
+**Ticket:** T-3041 (increment under T-2387).
+**Recorded:** 2026-10-22.
+
+### L-first-fort-visible-range-stacks — Visible 1808 stack counts carried to 1812
+
+**Decision:** The actual Whistler folded elevations show three clear stacks on officers, two on commanding officers and one each on north and the two southern soldiers ranges. Use those visible counts as conservative model choices; complete 1812 totals/hidden fittings remain reconstructed except the unchanged northern inference. Infer no hidden/ambiguous stack. Existing source-relative positions, sections, heights, materials and procedural rhythm are not measured by the drawing and remain reconstructed.
+**Supersedes:** L370's unexamined count choices for these five ranges only. Preserve that historical entry and its other wall, roof and placement uncertainties. A reasonable picture attests building appearance, not exact metric stack construction or a completed model match.
+**Covers:** `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`.
+**Source:** `whistler_1808_fort_dearborn_draught`; source inspected as a complete sheet and identified fronts, not a generic northern-stack proxy for every range.
+**How to resolve:** Compare the genuine current exports to all identified pictures; exact stack profile/set-out and scene-date survival remain open.
+**Recorded:** 2026-10-24 (T-3105; T-3041/T-2387 full matching stays open).
+
+**Subjects:** `first_fort_dearborn_north_range`, `first_fort_dearborn_officers_barracks`, `first_fort_dearborn_commanding_officers_barracks`, `first_fort_dearborn_soldiers_barracks_sw`, `first_fort_dearborn_soldiers_barracks_se`.
+
+
+### L-1812-flora-3106 — Render declared garden stems and thin the Light wood
+
+**Decision:** Keep all four Kinzie poplars at their existing reconstructed positions inside the green's fence footprint. The existing planting-record `in_structure` mechanism names only `kinzie_house_1812_green`, so the house, other walls and travelled tracks retain their normal protection. The two rear cottonwoods remain outside the green. This makes the record's existing declared row visible; no source, date, number, species, height or stem position is promoted or changed.
+
+Move Ouilmette's six reconstructed currant positions north by 3.1 m, keeping their eastings, heights, number and two rows 1.8 m apart. The rows at N +353.3/+355.1 are 5.016/6.816 m behind the unchanged house's back wall at N +348.284; the former rows were refused by the renderer's unchanged 4.5 m footprint clearance. Wau-Bun attests currant bushes behind the house and the escape through its back window, not measured rows or a garden plan. These remain chosen garden positions, not source measurements. No new fence, house exemption or reduced collision guard is introduced. The actual native generated wood/leaf envelope has at least 3.923 m static clearance from the house across Light/full templates; arbitrary wind, every hypothetical future template and every viewpoint are not proven by that check.
+
+For the 1812 scene's Light tier alone, multiply the existing uniform woody acceptance probability by 0.75, changing effective `keep` from 0.300 to 0.225. This is a rendering reconstruction, not a change to the source density, species mix, plot clearing, water or geographical reach. The 2100-tree cap remains a backstop and its failure report remains. Stated garden stems are not thinned. Other scenes and detail tiers retain their former fractions. A narrower renderer wood would falsely hide the scene's north end; uniform thinning keeps the entire swept ground eligible. Actual published app QA and final full integration gates must demonstrate the finished sweep and source-bound plantings rather than accepting a stem count alone.
+
+**Ticket:** T-3106, prerequisite for T-3105.
+**Recorded:** 2026-10-24.
+
+
+### L-1812-full-flora-3106 — Finish the Full woodland sweep
+
+**Decision:** The combined first-fort desktop application case exposed 1812 Full reaching its unchanged 4700-tree backstop at effective keep 0.700. That native failure is retained. Apply the same existing uniform acceptance thinning used for 1812 Light to Full alone: multiply Full keep by 0.75, giving 0.525. The choice is a renderer density reconstruction, not a change to source species densities or the historical wood's extent. No position predicate clips the north end, and no stated planting is thinned. Keep the 4700 cap, its hard failure report, all collision/water/plot rules, the repaired garden stems, 1812 Light at 0.225, Balanced at 0.500 and every other scene unchanged. Actual Full app count, northern reach and declared plantings must pass before canonical adoption; neither a cap increase nor an exception to a failing loader message substitutes for that proof. L-1812-flora-3106's other choices remain.
+
+**Ticket:** T-3106, prerequisite for T-3105.
+**Recorded:** 2026-10-24.

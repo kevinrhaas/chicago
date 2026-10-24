@@ -2536,6 +2536,10 @@ selftest "…and that agreement still fires when the frames drift off the holes"
 step "pictured frame taverns preserve defaults and build their opt-in details" \
   python3 tools/test_frame_tavern_picture_features.py
 
+# T-3105: gallery supports must clear the declared pictured front.
+step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \
+  python3 tools/test_fort_picture_fronts.py
+
 # Roof cloth uses a phase-local staff, never an entire building box.
 step "explicit flag anchors preserve fort defaults and reject stale roof mounts" \
   node tools/test_flag_anchors.mjs

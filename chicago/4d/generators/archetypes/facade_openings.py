@@ -46,6 +46,7 @@ from archetypes import frame_dwelling_params as _dwelling
 from archetypes import frame_storefront_params as _storefront
 from archetypes import log_dwelling_params as _log
 from archetypes import outbuilding_params as _outbuilding
+from archetypes import fort_structure_params as _fort
 
 # Kinds that are holes in the wall, as against applied joinery standing on it.
 # Both refuse a signboard; only the first is an "opening" in the ticket's sense.
@@ -70,6 +71,8 @@ _FRONT = {
     "frame_dwelling": _dwelling.front_wall,
     "log_dwelling": _log.front_wall,
     "outbuilding": _outbuilding_front,
+    # Explicit range layouts only; legacy fort fronts still return None.
+    "fort_structure": _fort.front_wall,
 }
 
 # Archetypes with no reader yet. Named rather than merely absent, so that a caller
@@ -78,7 +81,7 @@ _FRONT = {
 # today, every one of them on a bracket, an awning or a post, so nothing is hung
 # flat on a tavern wall and nothing is silently wrong. The day one is, the caller
 # refuses the flat mounting and says so rather than guessing.
-UNREAD = ("bridge_timber", "fort_structure", "frame_tavern",
+UNREAD = ("bridge_timber", "frame_tavern",
           "palisade", "pier_crib")
 
 
