@@ -167,6 +167,8 @@ class FrameTavernParams:
     # "moss_green" is the Petford view's dark green/moss shingle tone.
     # "dark_brown" is a reconstructed stock-appearance proxy for monochrome
     # contrast, not source-attested pigment or actual weather-blackening.
+    # "deep_brown" selects one quarter of that stock's linear RGB for the
+    # reviewed Tremont contrast; it carries the same reconstruction requirement.
     roof_colour: str | None = None
 
     # Where the stacks stand. "frontage" is the original arrangement — spaced
@@ -523,11 +525,11 @@ class FrameTavernParams:
         if self.chimney_material not in (None, "brick"):
             raise ParamError(f"chimney_material '{self.chimney_material}' not in "
                              f"(None, 'brick')")
-        if self.roof_colour not in (None, "moss_green", "dark_brown"):
+        if self.roof_colour not in (None, "moss_green", "dark_brown", "deep_brown"):
             raise ParamError(f"roof_colour '{self.roof_colour}' not in "
-                             f"(None, 'moss_green', 'dark_brown')")
-        if self.roof_colour == "dark_brown" and self.conf("roof_colour") != 1.0:
-            raise ParamError("dark_brown roof_colour is an explicitly reconstructed "
+                             f"(None, 'moss_green', 'dark_brown', 'deep_brown')")
+        if self.roof_colour in ("dark_brown", "deep_brown") and self.conf("roof_colour") != 1.0:
+            raise ParamError("dark_brown/deep_brown roof_colour is an explicitly reconstructed "
                              "stock tonal proxy, not an attested pigment/weather history")
         if self.log_wing_door and not self.log_wing:
             raise ParamError("log_wing_door without log_wing — a door needs a wing "

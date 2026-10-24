@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2254, ts: '2026-10-24T12:51:18.692Z', date: 'Oct 24, 2026, 7:51 AM CT', title: 'More pictured details on six early Chicago buildings', kind: 'change',
+    items: [
+      'The infant school has larger openings and a log gable; Cobweb Castle has a reconstructed compound; Miller House has boarded upper walls; Carpenter’s shop has taller sash and a chimney; Wolf Point has rounded logs, recessed entries and a sign pole. Sources distinguish pictured details from reconstructed dimensions, and the image comparisons remain open.',
+      'The first Tremont House has a darker reconstructed roof following the Gifford drawing. Cards explain historical review context while retaining the recorded flags, reasons and sources.',
+    ] },
   { v: 2253, ts: '2026-10-24T11:20:44.016Z', date: 'Oct 24, 2026, 6:20 AM CT', title: 'Glessner\'s two carved crosses now cut into the chimney stone', kind: 'fix',
     items: [
       'The two small crosses beside the 1886 date stone on the Glessner house\'s 18th Street chimney are now cut into the rough stone, as the 1965 survey photograph shows them. Before, they were drawn flat at the stone\'s highest point, so they hovered an inch or two in front of it, and from the north-east one hung in the sky past the chimney\'s edge.',

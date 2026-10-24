@@ -11,7 +11,8 @@
  "generated_by": "tools/generate_entrances.py",
  "generated_from": [
   "data/sidecars/1835/",
-  "generators/archetypes/facade_openings.py"
+  "generators/archetypes/facade_openings.py",
+  "generators/archetypes/log_dwelling_params.py"
  ],
  "belongs_to": [
   "agency_striker_log_house",
@@ -814,14 +815,14 @@
     [816.41, -46.66],
     [816.41, -54.78],
     [817.81, -54.78],
-    [817.81, -52.44],
-    [823.76, -51.94],
-    [824.0, -51.83],
-    [824.11, -51.59],
-    [824.11, -49.85],
-    [824.0, -49.6],
-    [823.76, -49.5],
-    [817.81, -49.0],
+    [817.81, -52.52],
+    [823.76, -52.02],
+    [824.0, -51.91],
+    [824.11, -51.67],
+    [824.11, -49.77],
+    [824.0, -49.52],
+    [823.76, -49.42],
+    [817.81, -48.92],
     [817.81, -46.66]
    ],
    [
@@ -9634,18 +9635,32 @@
     [-141.3, -296.6]
    ],
    [
-    [-70.3, -44.7],
-    [-70.3, -57.5],
-    [-68.9, -57.5],
-    [-68.9, -50.82],
-    [-67.25, -50.32],
-    [-67.0, -50.22],
-    [-66.9, -49.97],
-    [-66.9, -48.23],
-    [-67.0, -47.98],
-    [-67.25, -47.88],
-    [-68.9, -47.38],
-    [-68.9, -44.7]
+    [-68.75, -47.1],
+    [-68.75, -52.9],
+    [-67.35, -52.9],
+    [-67.35, -52.7],
+    [-65.7, -52.2],
+    [-65.45, -52.09],
+    [-65.35, -51.85],
+    [-65.35, -50.25],
+    [-65.45, -50.0],
+    [-65.7, -49.9],
+    [-67.35, -49.4],
+    [-67.35, -47.1]
+   ],
+   [
+    [-79.25, -56.1],
+    [-77.15, -56.1],
+    [-76.65, -57.75],
+    [-76.54, -58.0],
+    [-76.3, -58.1],
+    [-74.7, -58.1],
+    [-74.45, -58.0],
+    [-74.35, -57.75],
+    [-73.85, -56.1],
+    [-73.45, -56.1],
+    [-73.45, -54.7],
+    [-79.25, -54.7]
    ],
    [
     [-97.4, -54.0],
@@ -9791,7 +9806,7 @@
    "read_by": "facade_openings.log_dwelling",
    "at_local_enu_m": [816.41, -50.72],
    "bearing_deg": 90.0,
-   "width_m": 1.04
+   "width_m": 1.2
   },
   {
    "id": "chicago_american_office__shop_door_1",
@@ -16179,9 +16194,19 @@
    "archetype": "log_dwelling",
    "kind": "door",
    "read_by": "facade_openings.log_dwelling",
-   "at_local_enu_m": [-70.3, -49.1],
+   "at_local_enu_m": [-68.75, -51.05],
    "bearing_deg": 90.0,
-   "width_m": 1.04
+   "width_m": 0.9
+  },
+  {
+   "id": "wolf_point_tavern__side_xp_door_1",
+   "structure_id": "wolf_point_tavern",
+   "archetype": "log_dwelling",
+   "kind": "door",
+   "read_by": "log_dwelling.side_access_faces(+x)",
+   "at_local_enu_m": [-75.5, -54.7],
+   "bearing_deg": 180.0,
+   "width_m": 0.9
   },
   {
    "id": "wolf_point_tavern_stable__door_1",
@@ -16241,5 +16266,5 @@
    "why": "no reader states this archetype's front door"
   }
  ],
- "research_note": "Generated. A door is read off the same front elevation its builder draws (facade_openings, T-0520), so the apron, the frontage stoop and the doorway sweep cannot disagree with the mesh about where the door is."
+ "research_note": "Generated. A door is read off the same front elevation its builder draws (facade_openings, T-0520), so the apron, the frontage stoop and the doorway sweep cannot disagree with the mesh about where the door is. Explicit additional side faces use their declared wall line and outward bearing; primary-front APIs retain their original meaning."
 }

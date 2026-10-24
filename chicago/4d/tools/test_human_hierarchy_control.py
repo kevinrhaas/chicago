@@ -56,7 +56,7 @@ class ScriptImportTest(unittest.TestCase):
   bpy_stub=types.ModuleType('bpy');bpy_stub.ops=N(wm=N(open_mainfile=open_mainfile))
   isolated=[entry for entry in sys.path if entry and Path(entry).resolve() not in {tools,tools.parent}]
   self.assertNotIn(str(tools),isolated)
-  with tempfile.TemporaryDirectory()as tmp:
+  with tempfile.TemporaryDirectory(dir='/tmp')as tmp:
    directory=Path(tmp);source=directory/'source.blend';source.write_bytes(b'EXPLICIT STUB SAVED MASTER')
    args=['blender','--','--source',str(source),'--output',str(directory/'control.blend'),'--receipt',str(directory/'receipt.json'),'--test-only-parented-control']
    with mock.patch.object(sys,'path',isolated),mock.patch.object(sys,'argv',args),mock.patch.dict(sys.modules,{'bpy':bpy_stub}):

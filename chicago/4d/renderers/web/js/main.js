@@ -2097,7 +2097,8 @@ async function boot() {
   // T-2529: one switch for every structure batch, old and rebuilt alike; the
   // detail tier sets it (applyShadowTier) and the sun is read when the shadow
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
-  const shadowCasters = { on: false, culled: 0, sun: () => world.direction };
+  const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
+    light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
