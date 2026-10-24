@@ -2509,6 +2509,18 @@ step "the freight shed's cargo openings set out once and are read three times" \
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
 
+# T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
+step "pictured frame taverns preserve defaults and build their opt-in details" \
+  python3 tools/test_frame_tavern_picture_features.py
+
+# Roof cloth uses a phase-local staff, never an entire building box.
+step "explicit flag anchors preserve fort defaults and reject stale roof mounts" \
+  node tools/test_flag_anchors.mjs
+
+# Compiler/validator recognize real runtime consumption and honest card labels.
+step "flag form values have an actual renderer and honest geometry labels" \
+  python3 tools/test_flag_form_contract.py
+
 # W1's forge stack, and the reason it is gated here rather than only on the baked
 # master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so
 # a stack authored under the floor is caught a bake later by a gate that cannot say

@@ -1321,7 +1321,8 @@
    "minted_children": 0,
    "occupancy_after": 4,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 4
   },
   {
    "id": "exchange_coffee_house",
@@ -1332,7 +1333,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 11,
+   "beds_ordinary": 10,
    "beds_crowded": 35,
    "occupied_before": 4,
    "keeper_household": "hh_murphy_john",
@@ -1345,7 +1346,8 @@
    "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 11
   },
   {
    "id": "green_tree_tavern",
@@ -1369,7 +1371,8 @@
    "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 8
   },
   {
    "id": "kelsey_boarding_house",
@@ -1393,7 +1396,8 @@
    "minted_children": 0,
    "occupancy_after": 0,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 3
   },
   {
    "id": "mansion_house",
@@ -1404,7 +1408,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 5,
+   "beds_ordinary": 4,
    "beds_crowded": 35,
    "occupied_before": 6,
    "keeper_household": "hh_haddock_edward",
@@ -1417,7 +1421,8 @@
    "minted_children": 0,
    "occupancy_after": 6,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 5
   },
   {
    "id": "new_york_house",
@@ -1443,7 +1448,8 @@
    "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 8
   },
   {
    "id": "recon_1835_blk_indiana_north_cass_h3_09",
@@ -1473,7 +1479,8 @@
    "minted_children": 3,
    "occupancy_after": 6,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 12
   },
   {
    "id": "recon_1835_blk_south_water_market_h3_02",
@@ -1509,7 +1516,8 @@
    "minted_children": 0,
    "occupancy_after": 6,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 12
   },
   {
    "id": "recon_1835_blk_washington_clark_h3_05",
@@ -1542,7 +1550,8 @@
    "minted_children": 0,
    "occupancy_after": 9,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 9
   },
   {
    "id": "recon_1835_blk_washington_clark_h3_06",
@@ -1572,7 +1581,8 @@
    "minted_children": 3,
    "occupancy_after": 13,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 13
   },
   {
    "id": "recon_1835_blk_washington_clark_h3_11",
@@ -1602,7 +1612,8 @@
    "minted_children": 4,
    "occupancy_after": 13,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 13
   },
   {
    "id": "recon_1835_blk_washington_clinton_h3_02",
@@ -1630,7 +1641,8 @@
    "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 11
   },
   {
    "id": "recon_1835_blk_washington_dearborn_h3_01",
@@ -1660,7 +1672,8 @@
    "youths_topped_up": 4,
    "occupancy_after": 12,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 12
   },
   {
    "id": "recon_1835_blk_washington_market_h3_01",
@@ -1689,7 +1702,8 @@
    "working_lodgers": 3,
    "occupancy_after": 10,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 10
   },
   {
    "id": "recon_1835_blk_washington_market_h3_04",
@@ -1718,7 +1732,8 @@
    "minted_children": 2,
    "occupancy_after": 5,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 12
   },
   {
    "id": "recon_1835_north_h1_007",
@@ -1742,7 +1757,8 @@
    "minted_children": 3,
    "occupancy_after": 5,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 5
   },
   {
    "id": "recon_1835_north_h2_022",
@@ -1766,7 +1782,8 @@
    "minted_children": 3,
    "occupancy_after": 7,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 7
   },
   {
    "id": "recon_1835_north_h2_028",
@@ -1792,7 +1809,8 @@
    "minted_children": 1,
    "occupancy_after": 9,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 9
   },
   {
    "id": "recon_1835_north_h2_030",
@@ -1816,7 +1834,8 @@
    "minted_children": 2,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 8
   },
   {
    "id": "recon_1835_north_h2_045",
@@ -1842,7 +1861,8 @@
    "youths_topped_up": 3,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 8
   },
   {
    "id": "recon_1835_north_t1_061",
@@ -1868,7 +1888,8 @@
    "minted_children": 0,
    "occupancy_after": 1,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 9
   },
   {
    "id": "recon_1835_west_006",
@@ -1892,7 +1913,8 @@
    "minted_children": 1,
    "occupancy_after": 5,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 5
   },
   {
    "id": "recon_1835_west_035",
@@ -1918,7 +1940,8 @@
    "minted_children": 2,
    "occupancy_after": 9,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 9
   },
   {
    "id": "sauganash_hotel",
@@ -1946,7 +1969,8 @@
    "minted_children": 0,
    "occupancy_after": 7,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 7
   },
   {
    "id": "steamboat_hotel",
@@ -1957,7 +1981,7 @@
    "division": "north",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "north",
-   "beds_ordinary": 11,
+   "beds_ordinary": 10,
    "beds_crowded": 35,
    "occupied_before": 8,
    "keeper_household": "hh_davis_john",
@@ -1970,7 +1994,8 @@
    "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 11
   },
   {
    "id": "tremont_house_1",
@@ -1981,7 +2006,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 12,
+   "beds_ordinary": 17,
    "beds_crowded": 35,
    "occupied_before": 2,
    "keeper_household": "hh_couch_ira",
@@ -2000,7 +2025,8 @@
    "minted_children": 0,
    "occupancy_after": 12,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": false,
+   "allocation_beds_ordinary": 12
   },
   {
    "id": "western_hotel",
@@ -2011,7 +2037,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "west",
-   "beds_ordinary": 15,
+   "beds_ordinary": 14,
    "beds_crowded": 35,
    "occupied_before": 4,
    "keeper_household": "hh_stow_william_h",
@@ -2028,7 +2054,8 @@
    "minted_children": 0,
    "occupancy_after": 15,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 15
   },
   {
    "id": "wolf_point_tavern",
@@ -2039,7 +2066,7 @@
    "division": "west",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "west",
-   "beds_ordinary": 4,
+   "beds_ordinary": 3,
    "beds_crowded": 35,
    "occupied_before": 3,
    "keeper_household": "hh_walters_william",
@@ -2052,7 +2079,8 @@
    "minted_children": 0,
    "occupancy_after": 4,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true
+   "at_its_ordinary_night_figure": true,
+   "allocation_beds_ordinary": 4
   }
  ],
  "seats": [
@@ -3946,6 +3974,1002 @@
   "the_trade_of_a_lodger": "NOW DEALT, AFTER EVERYTHING ELSE (T-1532): `quota_basis.working_lodgers` carries the order and the beds it went into. The boarders above still carry no trade — they were ordered out of the `none` cells.",
   "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
  },
+ "capacity_allocation_basis": {
+  "version": 1,
+  "recorded_from": "committed ledger houses before ordinary-capacity reweighting",
+  "source_ledger_sha256": "9435685bad9df8531a46b73b30a48c908142fd809727a0176328c8c711589215",
+  "availability": {
+   "target_date": "1835-07-01",
+   "dates": {
+    "brown_boarding_house": {
+     "built": null,
+     "phases": [
+      {
+       "id": "documented_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "attested",
+        "sources": [
+         "andreas_1884_v1"
+        ],
+        "note": "DOCUMENTED IN FABRIC, USE, KEEPER AND POSITION, and absent from this dataset until now. Andreas describes a log house kept as a first-class boarding house by Mrs Rufus Brown, 'the first building in the rear of this store' - Peck's store at South Water and LaSalle. The range opens at the start of 1833, which is not a build date: what is documented is that the house was standing and keeping boarders in the town of 1833-34, and nothing follows it past 1835."
+       }
+      }
+     ]
+    },
+    "kelsey_boarding_house": {
+     "built": null,
+     "phases": [
+      {
+       "id": "frame_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1884_v1"
+        ],
+        "note": "NEITHER END IS DATED BY A SOURCE. THE START IS THE FIRST DAY THE ATTESTED YEAR PERMITS, not a date anybody gives - the convention lake_house_construction's own range opens on, and for the same reason: the one sighting is the morning of 26 August 1835, eight weeks AFTER the scene date, and a range opening there would put this house outside the scene it is attested in. What carries it back is that the house is described FULL - \"Mrs. Kelsey had all the boarders that she could accommodate\" - which is a going concern and not a week-old one, and that a painted frame house is not thrown up in eight weeks beside a boarding trade already at capacity. That is an inference and it is graded as one. THE END IS THE HONEST YEAR BOUND: nothing reached says when this house came down. IT IS NOT THE HOUSE THE DIRECTORIES PRINT, and that is the reason the range is not carried forward: Fergus' 1843 directory has \"Kelsey, Patrick, boarding-house, Wolcott, bet Kinzie and Michigan\" and Norris' 1844 has \"Kelsey, Parnick, boarding house, Wolcott st. b Kinzie and Mich.\" - the same trade on a platted north-side street about 230 m WEST of the sand hills. A boarding-house keeper moving off the beach and onto a street in eight years is the ordinary reading; a range running to 1844 would assert that the sand-hill house and the Wolcott Street house are one building, which no source says. BONNELL'S WALK IS THE ONLY SOURCE THIS PROJECT HAS REACHED THAT PUTS A BUILDING ON THE SAND HILLS NORTH-EAST OF THE LAKE HOUSE, AND IT IS ONE SENTENCE LONG. J. D. Bonnell, writing to the Chicago Times on 15 March 1876 and quoted by Andreas (History of Chicago vol. 1, printed pages 136-137), describes the morning after he arrived: \"In turning the corner of Dr. Kimball's residence, away to the north-east, among the sand-hills, close by the lake shore, stood a small yellow house, occupied by Parnick Kelsey as a boarding-house, ostensibly run by Eve, Parnick's wife, for Mr. Kelsey was a sub-contractor in removing stumps and grubs, preparatory to the grading of the street on the North Side ... But as Mrs. Kelsey had all the boarders that she could accommodate, I was obliged to seek other quarters.\" THE DATE IS EIGHT WEEKS LATE AND THE CARRY BACK IS THE INFERENCE. The letter dates the arrival to 25 August 1835, so the walk is the morning of the 26th - eight weeks after the scene date. The same letter's \"forty years ago\" implies 1836 and Andreas's lead-in says Bonnell \"came to Chicago in 1837\"; the 1837 reading is ruled out by the letter's own content, since the Lake House was open by the autumn of 1836, and between 1835 and 1836 this project prefers the letter's explicit date, which is the ruling already committed on data/structures/lake_house_construction.json. See docs/RESEARCH/north_bank_east_end_neighbours.md."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_indiana_north_cass_h3_09": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_south_water_market_h3_02": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_clark_h3_05": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_clark_h3_06": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_clark_h3_11": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_clinton_h3_02": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_dearborn_h3_01": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_market_h3_01": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_blk_washington_market_h3_04": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+       }
+      }
+     ]
+    },
+    "recon_1835_north_h1_007": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_north_h2_022": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_north_h2_028": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_north_h2_030": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_north_h2_045": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_west_006": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "recon_1835_west_035": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "exchange_coffee_house": {
+     "built": 1834,
+     "phases": [
+      {
+       "id": "frame_1834",
+       "documented_range": {
+        "from": "1834-01-01",
+        "to": "1836-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1884_v1",
+         "drloih_hotels"
+        ],
+        "note": "THE YEAR IS DOCUMENTED TWICE IN ANDREAS AND THE MONTH IS NOT. In his hotel chapter: 'Mr. Beaubien had meanwhile built a new house on the northwest corner of Wells and Lake streets. In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' In his life of Mark Beaubien: 'In the latter year [1834] he completed another house on the northwest corner of Wells and Lake streets, which was called the Exchange Coffee House, and first kept by Mr. and Mrs. John Murphy.' So the house was finished and trading by August 1834, eleven months before the scene date, and 1834-01-01 is the first day the attested year permits rather than a date anybody gives - which is why this range is inferred and not documented. THE SCENE DATE IS NOT AT RISK: whatever month in 1834 the building went up, it was open under the Murphys from August 1834 and they 'remained there until 1836'. THE END IS A BOUND WHERE THE EVIDENCE STOPS, NOT A DEMOLITION: the Murphys left for the old Sauganash in 1836 and this project has nothing dating the building's fate. Andreas's list of minor houses in 1845 includes 'the Illinois Exchange, corner Wells and Lake streets', which may be the same fabric under a later sign or may not; the phase is closed at the end of the attested tenancy rather than run on speculatively.",
+        "from_is": "began"
+       }
+      }
+     ]
+    },
+    "green_tree_tavern": {
+     "built": 1833,
+     "phases": [
+      {
+       "id": "frame_1833",
+       "documented_range": {
+        "from": "1833-01-01",
+        "to": "1880-12-31",
+        "confidence": "attested",
+        "sources": [
+         "chicagology_prefire127",
+         "drloih_hotels",
+         "drloih_wolf_point"
+        ],
+        "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct.",
+        "from_is": "began",
+        "to_is": "ended"
+       }
+      }
+     ]
+    },
+    "mansion_house": {
+     "built": 1831,
+     "phases": [
+      {
+       "id": "log_frame_1833",
+       "documented_range": {
+        "from": "1833-01-01",
+        "to": "1850-12-31",
+        "confidence": "attested",
+        "sources": [
+         "andreas_1884_v1"
+        ],
+        "note": "THIS PHASE BEGINS AT A CHANGE OF FABRIC, NOT AT A BUILD DATE. Andreas, printed p. 635: 'The Mansion House was built in 1831 by Dexter Graves; it stood on Lake near Dearborn and almost opposite the old Tremont House. As originally built, the Mansion House was situated some little distance back from the street, but TWO YEARS LATER Mr. Graves erected a FRAME ADDITION IN THE FRONT, which came out to a line with the street.' 1831 plus two years is 1833, and 1833-01-01 is the first day that year permits rather than a date anybody gives - the YEAR of the change is attested, the month is not, so the from date is a bound inside a documented year. The 1831 log tavern standing set back from Lake Street is the previous state and is NOT modelled as a separate phase: see the change_note for why. THE END IS THE LAST ATTESTED EVENT IN THE BUILDING'S LIFE, not a demolition and not a guess - Andreas, on the succession of proprietors: 'In 1848 Jacob R. Bates took it. Two years later the greater part of the house was removed to the northwest corner of Lake Street and Michigan Avenue, and was fitted up as a hotel under the name of the Dearborn House.' BOTH ENDS ARE THEREFORE ATTESTED EVENTS IN THE BUILDING'S OWN LIFE - a dated change of fabric and a dated removal - which is why the range is tagged documented despite its width, the same reading data/structures/green_tree_tavern.json takes for a forty-seven-year span. A SEVENTEEN-YEAR PHASE IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation rather than a claim that nothing changed: the house demonstrably grew once already, and nothing dates any alteration between the 1833 frame addition and the 1850 removal. Split it the moment anything does.",
+        "from_is": "began",
+        "to_is": "ended"
+       }
+      }
+     ]
+    },
+    "new_york_house": {
+     "built": 1834,
+     "phases": [
+      {
+       "id": "frame_1834",
+       "documented_range": {
+        "from": "1834-01-01",
+        "to": "1839-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1884_v1",
+         "chicago_american_1835",
+         "drloih_hotels"
+        ],
+        "note": "THE RANGE IS THE REASON THIS BUILDING EXISTS AS A RECORD RATHER THAN AS AN EXCLUSION, so it is stated in full. Andreas p. 635: 'The New York House was built in 1834 and opened to the public the following year by Lathrop Johnson and George Stevens, who conducted it until the fall of 1839.' The BUILD YEAR and the CLOSING SEASON are both his; neither end carries a month, which is why the range is graded inferred rather than attested and why it is bounded to the calendar years rather than to invented dates inside them. THE OPENING MONTH WAS THE OPEN QUESTION AND THE AMERICAN CLOSES IT. Andreas says only 'the following year', which leaves 1835 open at both ends and would leave the scene date of 1835-07-01 an argument rather than a reading. Two advertisements in the Chicago American of 13 June 1835 give a professional address AT this house: Dr. J. B. Barnard, 'at the New York House, Lake street' (page 3 column 3, claim chicago_american_1835_06_13#c009), and J. C. Bradley, the travelling dentist, 'His office at the New York House, where he will remain until after the Land [S]ale' (page 3 column 2, claim chicago_american_1835_06_13#c008, repeated 1835-06-20#c001, dateline 'Chicago, June 14, 1835'). A house letting office rooms to two professional men and advertised as a landmark address was OPEN AND TRADING seventeen days before the scene date. That is contemporary evidence where Andreas is a recollection published in 1884, and it is the specific thing data/exclusions.json's falsified entry asked for. THE DISSENT IS RECORDED AND NOT RESOLVED BY PREFERENCE. drloihjournal's chronology of early Chicago hotels dates the New York House 1836, and that date is what put this building on this project's EXCLUDE list in the first place. It is departed from because Andreas states a build year plainly and a contemporary newspaper puts offices in the house eleven months before drloihjournal's date; a secondary chronology that disagrees with a named primary printing and with the earlier standard history is the reading this project drops. See docs/RESEARCH/new_york_house.md § 2. THE END OF THE RANGE IS NOT A DEMOLITION DATE. Andreas's 'fall of 1839' is when Johnson and Stevens stopped conducting the house, not when the building came down, and nothing reached follows it further. 1839-12-31 is a housekeeping bound on the tenancy, and the scene date sits four years inside it either way.",
+        "from_is": "began"
+       }
+      }
+     ]
+    },
+    "recon_1835_north_t1_061": {
+     "built": null,
+     "phases": [
+      {
+       "id": "inferred_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+       }
+      }
+     ]
+    },
+    "sauganash_hotel": {
+     "built": 1831,
+     "phases": [
+      {
+       "id": "log_1829",
+       "documented_range": {
+        "from": "1829-01-01",
+        "to": "1831-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "drloih_hotels",
+         "kinzie_waubun_1856"
+        ],
+        "note": "Mark Beaubien bought a small log cabin near the forks from James Kinzie in 1826-27 and opened it as a tavern in 1829; a Peoria County tavern licence was issued 9 June 1830. The end of the phase is set at the completion of the frame block, which Wau-Bun describes as 'just completed' in 1831. Neither boundary is fixed to a month."
+       }
+      },
+      {
+       "id": "frame_1831",
+       "documented_range": {
+        "from": "1831-01-01",
+        "to": "1851-03-04",
+        "confidence": "attested",
+        "sources": [
+         "kinzie_waubun_1856",
+         "drloih_hotels"
+        ],
+        "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase.",
+        "from_is": "began",
+        "to_is": "ended"
+       }
+      }
+     ]
+    },
+    "steamboat_hotel": {
+     "built": null,
+     "phases": [
+      {
+       "id": "frame_1835",
+       "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1884_v1",
+         "drloih_hotels"
+        ],
+        "note": "THE DATE IS THE RISK IN THIS RECORD AND IT IS NOT RESOLVED. Two sources put the house in 1835 and neither gives a month: Andreas, 'The Steamboat Hotel, on North Water Street, near Kinzie, was kept in 1835 by John Davis, and from 1836 to 1839 by William McCorrister, as the American Hotel'; DRLOIH, 'The Steamboat Hotel ... opened in 1835 on North Water Street, near Kinzie Street, and was operated by John Davis.' The range therefore opens on 1 January 1835 because that is the earliest day the attested year permits, NOT because anything says the house was open then. THE SCENE DATE IS SIX MONTHS INTO THAT WINDOW AND THE BUILDING COULD BE ON EITHER SIDE OF IT. What narrows it, a little: John Davis advertised the Steamboat Hotel in the Chicago American, whose first issue Andreas dates 8 June 1835 — so the house was trading under Davis inside the paper's 1835 run, which begins three weeks before the scene date; and DRLOIH has J. Dorsey and J. Force announcing on 9 November 1835 that they had taken over the management, which closes Davis's tenure at that end. Both anchors sit after 1 July and neither reaches back before it. THIS PROJECT EXCLUDES THE TOWN'S FIRST FIRE ENGINE ON EXACTLY THIS GROUND — right year, wrong month — and the difference here is that no source dates the opening at all, so the balance of evidence is that a house 'kept in 1835 by John Davis' and advertising in a paper that began in June was more likely than not in business by 1 July. Tagged inferred, argued rather than assumed, and if a dated advertisement or a licence puts the opening after 1 July this record leaves the scene for data/exclusions.json. NOTE ALSO that neither source says the BUILDING was new in 1835: 'opened in 1835' is a statement about a business. The fabric may be older, in which case the risk above disappears and only the record's silence about it remains."
+       }
+      }
+     ]
+    },
+    "tremont_house_1": {
+     "built": 1833,
+     "phases": [
+      {
+       "id": "frame_1833",
+       "documented_range": {
+        "from": "1833-01-01",
+        "to": "1839-10-27",
+        "confidence": "attested",
+        "sources": [
+         "andreas_1884_v1",
+         "chicagology_prefire021"
+        ],
+        "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk.",
+        "from_is": "began",
+        "to_is": "ended"
+       }
+      }
+     ]
+    },
+    "western_hotel": {
+     "built": 1834,
+     "phases": [
+      {
+       "id": "frame_1834",
+       "documented_range": {
+        "from": "1834-01-01",
+        "to": "1840-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "chicagology_prefire278",
+         "drloih_hotels"
+        ],
+        "note": "THE BUILD DATE IS DISPUTED, 1834 AGAINST 1835, AND THE DISPUTE IS RESOLVED HERE RATHER THAN LEFT OPEN — but the reasoning matters, because the two dates mean different things for this scene. chicagology reports W. H. Stow, who 'came to Chicago about 1833', saying of his own hotel that 'it was built in 1834'. The hotel chronology says it 'opened in 1835'. 1834 is adopted because it is the BUILDER'S OWN STATEMENT about his own building, recorded with the same detail that gives the 40 ft front, the 60 ft wing and the yard, against an undated one-line entry in a chronology that also mis-sizes the building. THE PHASE MECHANISM WAS CONSIDERED AND DELIBERATELY NOT USED. If the 1835 date were right, the hotel might have been unfinished or brand new on 1835-07-01, and a construction phase would be the honest way to show that. But a construction phase would have to invent a start month, a duration and a state of completeness, none of which any source gives, and it would silently adopt the weaker date to do it. One completed phase on the better-attested date, with the alternative recorded here and in the dossier, claims less. If the 1835 date is ever confirmed, split this phase then. The end of the range is set at the end of 1840, past the last account reached that describes the house in operation; it is not a demolition date and no source reached gives one.",
+        "from_is": "began"
+       }
+      }
+     ]
+    },
+    "wolf_point_tavern": {
+     "built": "1823 or 1828",
+     "phases": [
+      {
+       "id": "log_frame_1828",
+       "documented_range": {
+        "from": "1828-01-01",
+        "to": "1836-12-31",
+        "confidence": "inferred",
+        "sources": [
+         "drloih_wolf_point",
+         "drloih_hotels",
+         "chicagology_prefire273"
+        ],
+        "note": "THE BUILD DATE IS DISPUTED AND IS NOT RESOLVED HERE. Two readings: 1828, James Kinzie, west bank at Wolf Point (drloih_wolf_point, and the same date in general circulation); and 1823, James Kinzie with David Hall (drloih_hotels' chronology, which gives the tavern as 'opened in 1823'). 1828 is adopted because it is the reading of the narrative account that also carries the operator succession and the wolf sign, and because the 1823 date sits oddly with the licensing record — Archibald Caldwell's liquor licence is 8 December 1829 and the first Peoria County tavern licence in the settlement went to Clybourn and Miller. The two sources are the SAME PUBLICATION disagreeing with itself, which is a reason to distrust both dates rather than to prefer one confidently, so this range is inferred, not documented. A five-year error in the start does not affect the 1835 scene: the building stood under either reading. The end of the range is set at the end of 1836, the last year of William Walters's attested tenancy — NOT a demolition date. No source reached gives the building's fate, so the phase is closed where the evidence stops rather than run on speculatively."
+       }
+      }
+     ]
+    }
+   }
+  },
+  "houses": [
+   {
+    "id": "brown_boarding_house",
+    "beds_ordinary": 4,
+    "beds_crowded": 9,
+    "contract": {
+     "name": "Rufus Brown's Boarding House",
+     "function": "boarding_house",
+     "class": "boarding_house",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 2,
+     "keeper_household": "hh_brown_rufus",
+     "keeper_persons": 2,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "exchange_coffee_house",
+    "beds_ordinary": 11,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Exchange Coffee House",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 4,
+     "keeper_household": "hh_murphy_john",
+     "keeper_persons": 4,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "green_tree_tavern",
+    "beds_ordinary": 8,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Green Tree Tavern",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "west",
+     "occupied_before": 8,
+     "keeper_household": "hh_ingersoll_chester",
+     "keeper_persons": 8,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "kelsey_boarding_house",
+    "beds_ordinary": 3,
+    "beds_crowded": 8,
+    "contract": {
+     "name": "Kelsey's boarding-house",
+     "function": "boarding_house",
+     "class": "boarding_house",
+     "standing": "named",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "mansion_house",
+    "beds_ordinary": 5,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Mansion House",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 6,
+     "keeper_household": "hh_haddock_edward",
+     "keeper_persons": 6,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "new_york_house",
+    "beds_ordinary": 8,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "New York House",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_indiana_north_cass_h3_09",
+    "beds_ordinary": 12,
+    "beds_crowded": 27,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #09",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_south_water_market_h3_02",
+    "beds_ordinary": 12,
+    "beds_crowded": 28,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #02",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": "hh_beaubien_mark",
+     "keeper_persons": 2,
+     "keeper_by": "platted_seat",
+     "keeper_head": {
+      "household": "hh_beaubien_mark",
+      "person": "beaubien_mark",
+      "name": "Mark Beaubien",
+      "by": "platted_seat"
+     }
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_clark_h3_05",
+    "beds_ordinary": 9,
+    "beds_crowded": 22,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #05",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": "hh_sweet_alanson",
+     "keeper_persons": 1,
+     "keeper_by": "platted_seat",
+     "keeper_head": {
+      "household": "hh_sweet_alanson",
+      "person": "sweet_alanson",
+      "name": "Alanson Sweet",
+      "by": "platted_seat"
+     }
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_clark_h3_06",
+    "beds_ordinary": 13,
+    "beds_crowded": 30,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #06",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_clark_h3_11",
+    "beds_ordinary": 13,
+    "beds_crowded": 30,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #11",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_clinton_h3_02",
+    "beds_ordinary": 11,
+    "beds_crowded": 26,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #02",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "west",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_dearborn_h3_01",
+    "beds_ordinary": 12,
+    "beds_crowded": 27,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #01",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_market_h3_01",
+    "beds_ordinary": 10,
+    "beds_crowded": 23,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #01",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_blk_washington_market_h3_04",
+    "beds_ordinary": 12,
+    "beds_crowded": 28,
+    "contract": {
+     "name": "Reconstructed H3 boarding house #04",
+     "function": "large_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_h1_007",
+    "beds_ordinary": 5,
+    "beds_crowded": 12,
+    "contract": {
+     "name": "Reconstructed H1 small boarding house #007",
+     "function": "small_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_h2_022",
+    "beds_ordinary": 7,
+    "beds_crowded": 17,
+    "contract": {
+     "name": "Reconstructed H2 medium boarding house #022",
+     "function": "medium_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_h2_028",
+    "beds_ordinary": 9,
+    "beds_crowded": 20,
+    "contract": {
+     "name": "Reconstructed H2 medium boarding house #028",
+     "function": "medium_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_h2_030",
+    "beds_ordinary": 8,
+    "beds_crowded": 18,
+    "contract": {
+     "name": "Reconstructed H2 medium boarding house #030",
+     "function": "medium_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_h2_045",
+    "beds_ordinary": 8,
+    "beds_crowded": 20,
+    "contract": {
+     "name": "Reconstructed H2 medium boarding house #045",
+     "function": "medium_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_north_t1_061",
+    "beds_ordinary": 9,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Reconstructed T1 small inn or tavern #061",
+     "function": "small_inn_or_tavern",
+     "class": "inn_tavern",
+     "standing": "reconstructed",
+     "division": "north",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_west_006",
+    "beds_ordinary": 5,
+    "beds_crowded": 13,
+    "contract": {
+     "name": "Reconstructed H1 small boarding house #005",
+     "function": "small_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "west",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "recon_1835_west_035",
+    "beds_ordinary": 9,
+    "beds_crowded": 20,
+    "contract": {
+     "name": "Reconstructed H2 medium boarding house #035",
+     "function": "medium_boarding_house",
+     "class": "boarding_house",
+     "standing": "reconstructed",
+     "division": "west",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "sauganash_hotel",
+    "beds_ordinary": 7,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Sauganash Hotel",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 0,
+     "keeper_household": null,
+     "keeper_persons": 0,
+     "keeper_by": null,
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "steamboat_hotel",
+    "beds_ordinary": 11,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Steamboat Hotel",
+     "function": "hotel",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "north",
+     "occupied_before": 8,
+     "keeper_household": "hh_davis_john",
+     "keeper_persons": 8,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "tremont_house_1",
+    "beds_ordinary": 12,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Tremont House (the first)",
+     "function": "hotel",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 2,
+     "keeper_household": "hh_couch_ira",
+     "keeper_persons": 2,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "western_hotel",
+    "beds_ordinary": 15,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Western Hotel",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "south",
+     "occupied_before": 4,
+     "keeper_household": "hh_stow_william_h",
+     "keeper_persons": 4,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   },
+   {
+    "id": "wolf_point_tavern",
+    "beds_ordinary": 4,
+    "beds_crowded": 35,
+    "contract": {
+     "name": "Wolf Point Tavern",
+     "function": "tavern_inn",
+     "class": "inn_tavern",
+     "standing": "named",
+     "division": "west",
+     "occupied_before": 3,
+     "keeper_household": "hh_walters_william",
+     "keeper_persons": 3,
+     "keeper_by": "works_at",
+     "keeper_head": null
+    }
+   }
+  ],
+  "note": "These ordinary-night figures are the allocation basis of existing identities and seats, not the live model's bed report. They are carried unchanged. quota_basis retains its existing independent bucket, ceiling, house-order and refusal contracts.",
+  "initial_allocation_authorized_empty_beds": 32,
+  "authorization_note": "Carried historical planning authorization, formerly the net bed balance; not a claim that this many positive physical vacancies existed. Reweighting does not increase this initial ceiling; remaining authorization also deducts later ordinary occupancy against the carried bed total."
+ },
+ "capacity_re_cut_since": {
+  "note": "Current capacities are reported in houses and cards. Allocation used the carried ordinary basis only: no person, name, household or seat is silently re-dealt by a floor-area weight change. Nested quota_basis top-up bed counts describe that allocation, not new live-capacity debt.",
+  "houses": [
+   {
+    "place": "exchange_coffee_house",
+    "allocation_beds_ordinary": 11,
+    "current_beds_ordinary": 10
+   },
+   {
+    "place": "mansion_house",
+    "allocation_beds_ordinary": 5,
+    "current_beds_ordinary": 4
+   },
+   {
+    "place": "steamboat_hotel",
+    "allocation_beds_ordinary": 11,
+    "current_beds_ordinary": 10
+   },
+   {
+    "place": "tremont_house_1",
+    "allocation_beds_ordinary": 12,
+    "current_beds_ordinary": 17
+   },
+   {
+    "place": "western_hotel",
+    "allocation_beds_ordinary": 15,
+    "current_beds_ordinary": 14
+   },
+   {
+    "place": "wolf_point_tavern",
+    "allocation_beds_ordinary": 4,
+    "current_beds_ordinary": 3
+   }
+  ]
+ },
  "measurement": {
   "built_lodging_places": 28,
   "ordinary_night_beds": 252,
@@ -3959,8 +4983,12 @@
   "keeper_children_refused": 10,
   "people_on_the_cards": 157,
   "occupied_after_this_stage": 220,
-  "ordinary_night_beds_still_empty": 32,
-  "houses_at_their_ordinary_night_figure": 22,
+  "ordinary_night_beds_slept_in": 215,
+  "ordinary_night_beds_still_empty": 37,
+  "occupants_above_ordinary_night_figure": 5,
+  "ordinary_night_net_balance": 32,
+  "allocation_authorized_empty_beds": 32,
+  "houses_at_their_ordinary_night_figure": 21,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 30,
@@ -3973,7 +5001,10 @@
    "built_places_holding_a_household": 22,
    "built_places_holding_no_household": 6,
    "ordinary_night_beds": 252,
-   "ordinary_night_beds_slept_in": 220,
+   "ordinary_night_beds_slept_in": 215,
+   "ordinary_night_beds_still_empty": 37,
+   "occupants_above_ordinary_night_figure": 5,
+   "ordinary_night_net_balance": 32,
    "households_the_book_orders_in_these_two_classes": 56,
    "houses_this_stage_has_filled": 22,
    "houses_still_ordered_after_this_stage_s_counter": 34,
@@ -3997,7 +5028,7 @@
     {
      "place": "mansion_house",
      "name": "Mansion House",
-     "beds_ordinary": 5,
+     "beds_ordinary": 4,
      "occupancy": 6,
      "owed_a_lodging_household": false,
      "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
@@ -4005,7 +5036,7 @@
     {
      "place": "steamboat_hotel",
      "name": "Steamboat Hotel",
-     "beds_ordinary": 11,
+     "beds_ordinary": 10,
      "occupancy": 8,
      "owed_a_lodging_household": true,
      "why": "It has room and holds no lodging household: this stage owes it one."

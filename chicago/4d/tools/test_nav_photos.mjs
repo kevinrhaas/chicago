@@ -161,6 +161,40 @@ ok('the pane draws 12 tiles with year, caption and credit; All N shows every one
   assert.equal(renderPhotos(doc.createElement('section'), { doc: null, id: 'house', sceneYear: 1904 }), false);
 });
 
+// ---- link-only source identity and publication context -----------------------------------------
+ok('link-only cards keep sourced identity warnings and creator plus holder without changing captions', () => {
+  // Derived from the tree, as the Glessner case below is: data/pictures/ is written only at
+  // publish, after this pooled step may already have run, so a clean checkout has no file.
+  const py = 'import sys, json; sys.path.insert(0, "tools"); import compile_pictures as cp; '
+    + 'print(json.dumps(cp.derive(*cp.read_tree())["1835"]))';
+  const pictures = JSON.parse(execFileSync('python3', ['-c', py], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }));
+  for (const [sid, sourceId, leaf] of [
+    ['jb_beaubien_homestead', 'kinzie_1857_chicago_1831_panorama', null],
+    ['green_tree_tavern', 'andreas_1884_green_tree_hotel_plate', '1301'],
+    ['sauganash_hotel', 'andreas_1884_sauganash_hotel_plate', '1297'],
+  ]) {
+    const picture = pictures.by_structure[sid].find(p => p.id === sourceId);
+    assert.ok(picture && !picture.held, `${sourceId}: real compiled link-only entry`);
+    const doc = fakeDoc(), pane = doc.createElement('section');
+    renderPhotos(pane, { doc: { ...pictures, by_structure: { [sid]: [picture] } }, id: sid, sceneYear: 1835 });
+    const link = all(pane).find(e => e.tagName === 'A');
+    assert.equal(link.href, picture.url, 'original holder URL is unchanged');
+    assert.equal(link.textContent, `${yearLabel(picture)} · ${captionOf(picture)}`, 'templated caption is unchanged');
+    assert.ok(pane.textContent.includes(picture.title), 'the actual catalogue title is visible');
+    assert.ok(pane.textContent.includes(creditOf(picture)), 'actual creator credit is retained');
+    if (leaf) {
+      assert.match(pane.textContent, /Andreas/i, 'the actual publication holder is visible');
+      assert.match(pane.textContent, /1884/);
+      assert.match(link.href, new RegExp(`/historyofchicago01andr/page/n${leaf}/mode/1up$`));
+    } else {
+      assert.match(pane.textContent, /unresolved.*Beaubien|Beaubien.*unresolved/i);
+      assert.match(pane.textContent, /Kinzie/i);
+      assert.match(pane.textContent, /Wikimedia Commons/);
+      assert.doesNotMatch(pane.textContent, /chicago\/reference\//, 'local-copy locator is not newly exposed');
+    }
+  }
+});
+
 // ---- Glessner House, from the tree ------------------------------------------------------------
 ok('Glessner House: more than 12 pictures, 12 best by date, every one credited, a spot only where a solved camera names it', () => {
   const py = 'import sys, json; sys.path.insert(0, "tools"); import compile_pictures as cp; '

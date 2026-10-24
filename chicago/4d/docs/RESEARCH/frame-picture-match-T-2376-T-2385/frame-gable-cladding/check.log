@@ -1,0 +1,4 @@
+PASS all 24 record-phase accumulated legacy geometry/material/confidence exact, including current Tremont
+PASS green_tree_tavern isolated record delta/schema; unchanged roof planes; two outward wall gables with reconstructed confidence/courses; strict opt-in validation
+PASS sauganash_hotel isolated record delta/schema; unchanged roof planes; two outward wall gables with reconstructed confidence/courses; strict opt-in validation
+All focused main-gable checks pass. No official writes.

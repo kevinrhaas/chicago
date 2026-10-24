@@ -4,7 +4,7 @@
 **Record:** `data/structures/jb_beaubien_homestead.json` · **Scene status:** standing on
 1835-07-01 · **South Water Street parcel** · **`review_required: true`**
 
-The **oldest building in this dataset** and the **least precisely placed**.
+An early residence whose exact building identity, construction date and appearance remain unresolved.
 
 ## 1. What is documented
 
@@ -405,3 +405,53 @@ rather than sixteen times:
 3. **The ground is not there.** Everything in this parcel east of about local E +320 stands
    outside the committed `e1834_harbor_cut` terrain box and is declared
    `ground_contact: outside_modelled_ground`. That is a terrain gap, not a structure gap.
+
+
+## 8. The keyed 1831 panorama is contextual, not an identified appearance reference — T-2378
+
+**The bounded correction.** The current house record no longer describes itself as
+known to have been built before 1817 or as the dataset’s oldest building. Its log
+material, one-storey form, dimensions, placement and per-attribute grades are
+unchanged. The 1817 purchase belongs to the separate Dean house; 1822 is an earliest
+allowed bound on this record, not a demonstrated construction year. The card’s
+phase account now states those limits directly. Earlier readings remain above as
+research history, not a reason to restore the withdrawn identity.
+
+**The actual picture inspected.** `kinzie_1857_chicago_1831_panorama` records the
+existing 1920 by 1042 pixel local reproduction
+`chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg`. The upper credit
+names Wau-Bun, Mrs. Juliette A. Kinzie, Chicago, 1857; the lower key names Dean House,
+Gen. J. B. Beaubien’s, Fort, Wash-house, Agency-House and John-Kinzie House. Its
+source citation explicitly says the modern Beaubien-group identification is
+unresolved, so the Images context link cannot reasonably be read as an accepted
+picture match. The date of this labeled reproduction is not established, and the
+inventory’s public-domain attribution is not a fresh remote catalogue check.
+
+**The text was also read, with its limit.** The committed Wau-Bun EPUB’s chapter
+“Chicago in 1831”, under source `kinzie_waubun_1856`, reads:
+
+> The residence of Jean Baptiste Beaubien stood at this period between the gardens
+> and the river-bank, and still farther south was a rickety tenement, built many
+> years before by Mr. John Dean, the sutler of the post.
+
+This is a text excerpt read from
+`chicago/reference/Wau-bun/wau-bun-pg12183-images-3.epub`, not a reread of a dated
+manuscript or a new exact page citation. It supports the relative order of the
+named groups, not a material, dimension, storey count, opening or stack pattern.
+It does not close the distinction § 6a measures between the sale-located house and
+the Factory House approximately 140 m south. The owner’s T-1743 reading of one
+dwelling and two outbuildings stays in force.
+
+**What is not done.** No roof, upper storey, white paint, sash, attic light or stack
+is invented as a pictorial attestation. No building is moved to fit the panorama;
+it is tier-5 form/context material, not a survey control. No camera is installed
+and no `pictured` ruling promotes the house’s grade. A cited contextual source
+illustration by itself does not establish that the record’s building is depicted.
+The 1831 Wau-Bun-derived views are not treated as independent eyewitnesses.
+
+**Next comparison.** Keep candidate identities separate, locate a better original
+or reproduction if available, and solve the same panorama against the fort’s
+independent surveyed/plan controls and the two separately modeled Beaubien
+candidates. A camera fit alone cannot override a failed building identification.
+Only after that ruling should a form difference be assigned to this house. T-2378
+remains open, and no `matches` verdict is established by this metadata correction.

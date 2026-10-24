@@ -1,0 +1,44 @@
+{
+  "tremont_house_1": {
+    "glb_sha256": "f6cc59b2545eab5565329df64d766b85dc1ae4537eebe318fb6c4f5d50144999",
+    "glb_bytes": 429244,
+    "version": 2,
+    "all_primitives_normal_uv_confidence": true,
+    "extras": [
+      {
+        "structure_id": "tremont_house_1",
+        "phase_id": "frame_1833"
+      }
+    ],
+    "zero_area_polygons": 0,
+    "actual_default_unchanged": true
+  },
+  "green_tree_tavern": {
+    "glb_sha256": "06502d3176ac43778dcbd8da7de059416db044661a91e2a4df9045c5f9ca9364",
+    "glb_bytes": 211760,
+    "version": 2,
+    "all_primitives_normal_uv_confidence": true,
+    "extras": [
+      {
+        "structure_id": "green_tree_tavern",
+        "phase_id": "frame_1833"
+      }
+    ],
+    "zero_area_polygons": 0,
+    "actual_default_unchanged": true
+  },
+  "sauganash_hotel": {
+    "glb_sha256": "287c31dda7f00f78c26dc056d1029e6294dfb12313df897bec5502aef7fcb42b",
+    "glb_bytes": 220444,
+    "version": 2,
+    "all_primitives_normal_uv_confidence": true,
+    "extras": [
+      {
+        "structure_id": "sauganash_hotel",
+        "phase_id": "frame_1831"
+      }
+    ],
+    "zero_area_polygons": 0,
+    "actual_default_unchanged": true
+  }
+}

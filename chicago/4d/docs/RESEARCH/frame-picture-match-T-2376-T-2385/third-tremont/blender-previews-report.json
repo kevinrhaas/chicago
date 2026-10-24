@@ -1,0 +1,434 @@
+{
+  "state": "isolated family proposal previews only, not official bake/freshness or image-match acceptance",
+  "blender_version": "4.5.3 LTS",
+  "generator_sha256": "25b497fa5ddd957809f23e601c7eaa68327af1062d17aa2bbd0de123878cebac",
+  "parameters_sha256": "af883d9598a97e9f1d34b1d85fffb696aa934507323b6b6b798233e1a8e371e5",
+  "manifest_written": false,
+  "ao_baked": false,
+  "producer": "canonical project emit.emit_structure; official structure_id__phase_id seed",
+  "models": {
+    "tremont_house_1": {
+      "record_sha256": "06f28f59a50e12e95eb5b8c29737fdadb3a226633e3b02d37ac9563e782cf128",
+      "canonical_seed_name": "tremont_house_1__frame_1833",
+      "triangles": 5504,
+      "legacy_default_unchanged": true,
+      "legacy_geometry_material_confidence_sha256": "029236a915e11f1e287b644cd1a2b248b952d293cc64e1ac370ad82def6c820a",
+      "vertices": 11042,
+      "polygons": 2769,
+      "zero_area_polygons": 0,
+      "bounds_xyz": [
+        [
+          -2.319999933242798,
+          -2.319999933242798,
+          0.0
+        ],
+        [
+          17.559999465942383,
+          11.460000038146973,
+          15.061870574951172
+        ]
+      ],
+      "confidence_min_max": [
+        1.0,
+        1.0
+      ],
+      "materials": [
+        {
+          "name": "wall",
+          "base_color": [
+            0.5199999809265137,
+            0.4399999976158142,
+            0.3400000035762787,
+            1.0
+          ],
+          "roughness": 0.8600000143051147
+        },
+        {
+          "name": "roof_shingle",
+          "base_color": [
+            0.3400000035762787,
+            0.30000001192092896,
+            0.27000001072883606,
+            1.0
+          ],
+          "roughness": 0.8999999761581421
+        },
+        {
+          "name": "log",
+          "base_color": [
+            0.3400000035762787,
+            0.26600000262260437,
+            0.18799999356269836,
+            1.0
+          ],
+          "roughness": 0.9200000166893005
+        },
+        {
+          "name": "shutter",
+          "base_color": [
+            0.1599999964237213,
+            0.30000001192092896,
+            0.20000000298023224,
+            1.0
+          ],
+          "roughness": 0.75
+        },
+        {
+          "name": "glass",
+          "base_color": [
+            0.11339999735355377,
+            0.11640000343322754,
+            0.1143999993801117,
+            1.0
+          ],
+          "roughness": 0.06499999761581421
+        },
+        {
+          "name": "brick",
+          "base_color": [
+            0.44999998807907104,
+            0.23000000417232513,
+            0.17000000178813934,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "trim",
+          "base_color": [
+            0.6000000238418579,
+            0.5299999713897705,
+            0.4300000071525574,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "door",
+          "base_color": [
+            0.20999999344348907,
+            0.05999999865889549,
+            0.03999999910593033,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "door_panel",
+          "base_color": [
+            0.1469999998807907,
+            0.041999999433755875,
+            0.02800000086426735,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "iron",
+          "base_color": [
+            0.054999999701976776,
+            0.052000001072883606,
+            0.05000000074505806,
+            1.0
+          ],
+          "roughness": 0.550000011920929
+        },
+        {
+          "name": "gable_panel",
+          "base_color": [
+            0.10999999940395355,
+            0.10000000149011612,
+            0.09000000357627869,
+            1.0
+          ],
+          "roughness": 0.949999988079071
+        }
+      ],
+      "glb": "/tmp/chicago-next-model/T-2385-third/preview-root/assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+      "glb_bytes": 440624,
+      "glb_sha256": "0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611"
+    },
+    "green_tree_tavern": {
+      "record_sha256": "b3250faa3431d3ad30872802c74f4c02e34c15a43dfac48b0db665918892f109",
+      "canonical_seed_name": "green_tree_tavern__frame_1833",
+      "triangles": 2578,
+      "legacy_default_unchanged": true,
+      "legacy_geometry_material_confidence_sha256": "10918304c2eaa02ec5c5c55f767552293f99d015546d077a371a9d676255ae3e",
+      "vertices": 5160,
+      "polygons": 1291,
+      "zero_area_polygons": 0,
+      "bounds_xyz": [
+        [
+          -0.25,
+          -4.75,
+          0.0
+        ],
+        [
+          7.869999885559082,
+          12.545000076293945,
+          8.72201919555664
+        ]
+      ],
+      "confidence_min_max": [
+        0.5,
+        1.0
+      ],
+      "materials": [
+        {
+          "name": "wall",
+          "base_color": [
+            0.5199999809265137,
+            0.4399999976158142,
+            0.3400000035762787,
+            1.0
+          ],
+          "roughness": 0.8600000143051147
+        },
+        {
+          "name": "roof_shingle",
+          "base_color": [
+            0.3400000035762787,
+            0.30000001192092896,
+            0.27000001072883606,
+            1.0
+          ],
+          "roughness": 0.8999999761581421
+        },
+        {
+          "name": "log",
+          "base_color": [
+            0.3400000035762787,
+            0.26600000262260437,
+            0.18799999356269836,
+            1.0
+          ],
+          "roughness": 0.9200000166893005
+        },
+        {
+          "name": "shutter",
+          "base_color": [
+            0.1599999964237213,
+            0.30000001192092896,
+            0.20000000298023224,
+            1.0
+          ],
+          "roughness": 0.75
+        },
+        {
+          "name": "glass",
+          "base_color": [
+            0.11339999735355377,
+            0.11640000343322754,
+            0.1143999993801117,
+            1.0
+          ],
+          "roughness": 0.06499999761581421
+        },
+        {
+          "name": "brick",
+          "base_color": [
+            0.44999998807907104,
+            0.23000000417232513,
+            0.17000000178813934,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "trim",
+          "base_color": [
+            0.6000000238418579,
+            0.5299999713897705,
+            0.4300000071525574,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "door",
+          "base_color": [
+            0.17000000178813934,
+            0.07500000298023224,
+            0.04500000178813934,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "door_panel",
+          "base_color": [
+            0.11900000274181366,
+            0.05249999836087227,
+            0.03150000050663948,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "iron",
+          "base_color": [
+            0.054999999701976776,
+            0.052000001072883606,
+            0.05000000074505806,
+            1.0
+          ],
+          "roughness": 0.550000011920929
+        },
+        {
+          "name": "board_door",
+          "base_color": [
+            0.30000001192092896,
+            0.2720000147819519,
+            0.23199999332427979,
+            1.0
+          ],
+          "roughness": 0.8600000143051147
+        },
+        {
+          "name": "board_door_panel",
+          "base_color": [
+            0.16500000655651093,
+            0.14959999918937683,
+            0.12759999930858612,
+            1.0
+          ],
+          "roughness": 0.8600000143051147
+        }
+      ],
+      "glb": "/tmp/chicago-next-model/T-2385-third/preview-root/assets/gltf/green_tree_tavern__frame_1833.proposal.glb",
+      "glb_bytes": 211760,
+      "glb_sha256": "06502d3176ac43778dcbd8da7de059416db044661a91e2a4df9045c5f9ca9364"
+    },
+    "sauganash_hotel": {
+      "record_sha256": "1b11fe2f2f083cc6ef0b122898bcef3199d66e06fcace2207f92f0ce6159765b",
+      "canonical_seed_name": "sauganash_hotel__frame_1831",
+      "triangles": 2710,
+      "legacy_default_unchanged": true,
+      "legacy_geometry_material_confidence_sha256": "7f46eb6ef1068d12e77856f2d1e4f6af8f485c0bcd807d4a90f9e09d05cd7c0c",
+      "vertices": 5424,
+      "polygons": 1357,
+      "zero_area_polygons": 0,
+      "bounds_xyz": [
+        [
+          -0.2680000066757202,
+          -8.354999542236328,
+          0.0
+        ],
+        [
+          10.274999618530273,
+          8.470000267028809,
+          9.370464324951172
+        ]
+      ],
+      "confidence_min_max": [
+        0.0,
+        1.0
+      ],
+      "materials": [
+        {
+          "name": "wall",
+          "base_color": [
+            0.8999999761581421,
+            0.8899999856948853,
+            0.8500000238418579,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "roof_shingle",
+          "base_color": [
+            0.20000000298023224,
+            0.25999999046325684,
+            0.17000000178813934,
+            1.0
+          ],
+          "roughness": 0.8999999761581421
+        },
+        {
+          "name": "log",
+          "base_color": [
+            0.3400000035762787,
+            0.26600000262260437,
+            0.18799999356269836,
+            1.0
+          ],
+          "roughness": 0.9200000166893005
+        },
+        {
+          "name": "shutter",
+          "base_color": [
+            0.14000000059604645,
+            0.3199999928474426,
+            0.6200000047683716,
+            1.0
+          ],
+          "roughness": 0.75
+        },
+        {
+          "name": "glass",
+          "base_color": [
+            0.11339999735355377,
+            0.11640000343322754,
+            0.1143999993801117,
+            1.0
+          ],
+          "roughness": 0.06499999761581421
+        },
+        {
+          "name": "brick",
+          "base_color": [
+            0.44999998807907104,
+            0.23000000417232513,
+            0.17000000178813934,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "trim",
+          "base_color": [
+            0.9539999961853027,
+            0.9434000253677368,
+            0.9010000228881836,
+            1.0
+          ],
+          "roughness": 0.8500000238418579
+        },
+        {
+          "name": "door",
+          "base_color": [
+            0.17000000178813934,
+            0.07500000298023224,
+            0.04500000178813934,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "door_panel",
+          "base_color": [
+            0.11900000274181366,
+            0.05249999836087227,
+            0.03150000050663948,
+            1.0
+          ],
+          "roughness": 0.6000000238418579
+        },
+        {
+          "name": "iron",
+          "base_color": [
+            0.054999999701976776,
+            0.052000001072883606,
+            0.05000000074505806,
+            1.0
+          ],
+          "roughness": 0.550000011920929
+        }
+      ],
+      "glb": "/tmp/chicago-next-model/T-2385-third/preview-root/assets/gltf/sauganash_hotel__frame_1831.proposal.glb",
+      "glb_bytes": 220444,
+      "glb_sha256": "287c31dda7f00f78c26dc056d1029e6294dfb12313df897bec5502aef7fcb42b"
+    }
+  }
+}

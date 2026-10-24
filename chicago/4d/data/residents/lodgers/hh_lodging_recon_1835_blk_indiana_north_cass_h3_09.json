@@ -22,8 +22,8 @@
    "rc_mccarthy_ellen"
   ],
   "minted_here": 4,
-  "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
-  "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
+  "stands_on": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
+  "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
   "note": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
  },
  "household_owed": {
@@ -56,11 +56,11 @@
    "undated": true,
    "tier": "reconstructed",
    "source_id": null,
-   "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+   "note": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
    "basis": {
     "kind": "model",
     "id": "1835_lodging_model",
-    "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+    "note": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation."
    },
    "replaceable_by": {
     "kind": "person",
@@ -127,7 +127,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/10_19/north/lodging/trade",
-    "note": "The book's bucket persons/female/10_19/north/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_indiana_north_cass_h3_09's, from the lodging model's ordinary-night figure of 12."
+    "note": "The book's bucket persons/female/10_19/north/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_indiana_north_cass_h3_09's, from the committed allocation basis's ordinary-night figure of 12; the current model reports 12."
    },
    "seed": "lodgers:recon_1835_blk_indiana_north_cass_h3_09:keeper:001:forename",
    "replaceable_by": {
