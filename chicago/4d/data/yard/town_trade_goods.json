@@ -8,7 +8,7 @@
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
     "frontages": 29,
-    "objects": 165,
+    "objects": 160,
     "wagons": 81,
     "wagons_by_kind": {
       "farm_box": 26,
@@ -20,8 +20,8 @@
     "wagon_stands_refused": 67,
     "benches": 1,
     "sheds": 1,
-    "marked_objects": 165,
-    "distinct_marks": 77
+    "marked_objects": 160,
+    "distinct_marks": 76
   },
   "existence": {
     "value": true,
@@ -3697,25 +3697,25 @@
       "why_goods": "a public house takes its provisions in by the barrel and puts the empties back out",
       "confidence": "reconstructed",
       "facade_bearing_deg": 90.0,
-      "frontage_m": 12.0,
-      "usable_frontage_m": 11.0,
+      "frontage_m": 5.0,
+      "usable_frontage_m": 4.0,
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
-          -77.3,
-          -45.1
+          -78.85,
+          -47.5
         ],
         [
-          -77.3,
-          -57.1
+          -78.85,
+          -54.7
         ],
         [
-          -70.3,
-          -57.1
+          -68.75,
+          -54.7
         ],
         [
-          -70.3,
-          -45.1
+          -68.75,
+          -47.5
         ]
       ],
       "items": [
@@ -3723,8 +3723,8 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -69.75,
-            -45.91
+            -68.2,
+            -48.31
           ],
           "bearing_deg": 90.0,
           "mark": {
@@ -3736,75 +3736,11 @@
           }
         },
         {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -46.53
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "CIDER"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -47.15
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "WOLF POINT TAVERN"
-            ],
-            "letterform": "brand",
-            "says": "house"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -47.77
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "FLOUR"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "laid",
-          "at_local_enu_m": [
-            -69.75,
-            -50.57
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "PORK"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            -69.75,
-            -51.9
+            -68.2,
+            -49.6
           ],
           "bearing_deg": 90.0,
           "mark": {
@@ -3814,22 +3750,6 @@
             ],
             "letterform": "shipping",
             "says": "shipping"
-          }
-        },
-        {
-          "kind": "crate",
-          "tier": 1,
-          "at_local_enu_m": [
-            -69.75,
-            -51.9
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "TEA"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
           }
         }
       ]

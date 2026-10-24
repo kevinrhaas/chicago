@@ -5820,3 +5820,27 @@ Fresh derived output/published mirror, the complete corrected strict run and fin
 
 - Native capacity updates preserve all existing lodging identities and seats while reporting physical vacancy and ordinary overflow separately. The carried staffing allowance decreases as later occupants consume beds; reweighting alone cannot replenish it. Focused native builds/checks/self-tests pass, with quota and crowded refusals intact.
 - Finish the refreshed derived outputs, corrected full preflight, current-head published smoke acceptance and policy PR into dev. This prerequisite group does not close the original building picture-match cases.
+
+
+## T-3081 — ship five log-building picture increments
+
+Integrate the bounded school, Cobweb, Miller, Carpenter and Wolf Point changes through the shared log producer. Refresh all 82 official assets and real web derivatives, retain unchanged defaults and Hogan, and use PR #1239 V2 before native population consumers. Complete ordered derivation, site/contact checks, actual app comparisons, strict preflight and published mobile/desktop gates before merging into dev. Keep each original image gate open until every required view matches; continue source-camera and material refinements after this visible unit lands.
+
+T-3081 gate repair: keep Cobweb's chosen 5.05 m chimney heads reconstructed, refresh the complete log family through the official producer, then repeat native convergence and the full published checks before merge. The original five image-match tickets remain open.
+
+T-3081 current native checkpoint: the all-family export redo and 202-step manifest integration are complete; the affected 61-step native tail settles without changing lodging identities. Finish the full preflight, published five-building/source review and applicable mobile/desktop smoke gates before merging the visible increment. Original image-match cases remain open.
+
+T-3081 full preflight 02 passes (1,060 checks); finish published app/source comparisons and the complete applicable mobile/desktop smoke coverage before dev merge.
+
+T-3081: actual mobile/desktop stored-position body verification passes. Repeat full preflight and current-head published smoke coverage. Keep the original five picture cases open: all latest photo comparisons still differ.
+
+T-3081 latest integration: dev 67bd69e9 is composed normally; the native tail and full dataset/staleness check pass. Complete full preflight 04 and current-head hosted mobile/desktop smoke coverage before merge. Original picture tickets remain open.
+
+T-3081 full preflight 04 passes (1,061 checks, 383 self-tests). Finish latest-dev reconciliation and complete published mobile/desktop smokes before merge.
+
+T-3081: incorporate dev 6f992fa75 and its native Glessner package; complete full preflight 05 and all current-head published mobile/desktop smokes, then merge PR #1260 into dev. Keep all five original picture cases open.
+
+
+### T-3082 — roof contrast and retained review notes
+
+Validate the combined stack on PR #1260: genuine deep_brown quarter-linear Tremont exports plus accurate historical-review card/loader wording. The official 23-family build and derivatives are complete, with only three roof RGB scalars changed in the target and every non-target file exact; current recipe equality and the inherited 82-log-family preservation are proved. Native name-pool/seating and five companion checks pass, the 61-step ordered tail settles in two laps, four actual published mobile/desktop app/source/review cases pass without page or network errors, and full preflight passes with required scientific readers. The native same-camera picture comparison remains DIFFERS. Finish complete hosted published mobile/desktop smoke coverage; the bounded draft PR targets dev with an explicit dependency on #1260, followed by final dev reconciliation and merge after its parent lands. Keep review flags, each explanation, confidence and unexpected-error filters intact. Full Tremont picture matching continues on T-2385, including remaining flag, shutters/entries, camera and context differences. No original image-match acceptance closes here.
