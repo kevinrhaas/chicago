@@ -32246,3 +32246,29 @@ drawing of the house's carved work.
 **Ticket:** T-3002.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3002).
+
+### L-kimball-1801-upper-lights-3097 — 1801 Prairie's second-storey lights re-read under the raised cornice; the 18th Street flank's round-headed pair
+
+**Decision:** the second storey's lights are re-read off J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`) through T-3074's camera, each on its own wall's plane.
+**What is read, not invented.** The light over the loggia on the avenue front opens at y 634-766 px
+(7.76 to 5.48 m) and its fellow on the 18th Street flank at y 637-772 (7.69 to 5.37 m), so the
+storey's lights stand 0.4 m over the 5.0 m floor and are 2.3 m tall (they stood 5.6-7.4 m, about
+20 px under the print's once T-3002 raised the cornice). The flank's light stands at u 18.67, off
+the side arch's axis, where the print puts it. Between the tower and that light the print's
+second storey has two round-headed lights on a narrow pier (x 760-822 px; about 0.76 m each,
+sills about 6.1 m, crowns about 7.77 m) and plain ashlar under them, where the build laid one sash
+a storey: they are built so, round-headed in the coursing under no flat arch.
+**What is invented.** Both lights over the loggia show a transom bar, so the house's sash is K06's
+one-over-one under a fixed transom, and that sash is carried to every K01 sash of the house,
+including the north and rear walls the print does not show. Its transom light is the kit's 0.45 m,
+where the print's bar stands about 0.75-1.0 m under the head. The round-headed pair is K06's
+fixed round-headed plate light. The print draws a bar near each one's spring, and that bar is not
+built. The lights stay 1.15 m wide (K01's widest ordinary sash) where the print's outlines read
+about 1.2 m once the reveal is taken off. Their moulded frames and carved pilasters are not built.
+**How to resolve:** a sharper print of the flank, T-3003's 1929 and HABS photographs, or a plan
+or elevation of the house.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3097.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3097).

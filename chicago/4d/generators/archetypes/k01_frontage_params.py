@@ -3535,6 +3535,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
         for s in val("side_bays"):
+            if isinstance(s, dict):   # T-3097: a window read off a picture is laid once, below
+                continue
             if k == 0 and _in_side_arch(float(s), w):   # T-2910: the loggia's arch stands there
                 continue
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
@@ -3549,11 +3551,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # a column on every storey; the contract's single sash width, its height read (as
     # street_front_windows' and rear_section's are), its lintel clear of the soffit
     soffit = eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
-    read = []
-    for j, e in enumerate(val("north_bays") or ()):
+    # T-3097: and the south wall's the same way (1801's 18th Street flank on the Taylor camera:
+    # the corner light over the loggia off the arch's axis, the round-headed pair past the tower)
+    read = {}
+    for attr, wall_id, j, e in [("north_bays", "k01.wall.side.north", j, e)
+                                for j, e in enumerate(val("north_bays") or ())] + \
+            [("side_bays", "k01.wall.side.south", j, e) for j, e in enumerate(val("side_bays") or ())]:
         if not isinstance(e, dict):
             continue
-        what = f"north_bays[{j}]"
+        what = f"{attr}[{j}]"
         if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
                                                                      "head", "why_not_ordinary"}:
             raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m, "
@@ -3583,11 +3589,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
         if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
             raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
-        for a0, a1, b0, b1 in read:
+        for a0, a1, b0, b1 in read.setdefault(wall_id, []):
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")
-        read.append((s - wd / 2, s + wd / 2, sill, sill + h))
-        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", "k01.wall.side.north",
+        read[wall_id].append((s - wd / 2, s + wd / 2, sill, sill + h))
+        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", wall_id,
                                 s, round(sill, 4), wd, h, head != "round", plain=head is not None, narrow=narrow))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
@@ -4672,7 +4678,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         landing_depth_m=float(val("stair_landing_depth_m")),
         stoop_width_m=float(val("stoop_width_m")), entrance_bay=entrance,
         front_bays=front_bays,
-        side_bays=tuple(float(s) for s in val("side_bays")),
+        side_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         north_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("north_bays") or ()),
         side_belts=tuple(side_belts),
