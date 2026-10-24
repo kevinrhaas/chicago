@@ -1,0 +1,37 @@
+{
+  "structure_id": "hogan_store",
+  "view": "cameron-1833-after",
+  "glb": "assets/gltf/hogan_store__log_1831.glb",
+  "glb_sha256": "687628d4780f2409e045c1cba6b53a871d02524657a475a6a2716591c0ab2182",
+  "camera_sha256": "e4a0a576d3ad33314623d75244d75d07cc3dcbc089935bcc5572e81b13bfa7e4",
+  "photo_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "side_by_side": "docs/RESEARCH/hogan-picture-match-T-3118/after/cameron-1833-after-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The new blind recess improves the dark doorway silhouette; reconstructed depth/returns remain a proxy and the depicted person and interior are absent.",
+      "status": "open"
+    },
+    {
+      "what": "The boarded gable rectangle removes the obvious glazed sash, but its infill, boarding/ledge rhythm and tone remain unresolved and unlike the source.",
+      "status": "open"
+    },
+    {
+      "what": "The reconstructed 0.75 m ridge head is shorter; shaft section, cap, fabric and exact proportions remain unmatched.",
+      "status": "open"
+    },
+    {
+      "what": "Regular hewn-log/chink spacing, gable cladding and smooth unweathered roof differ in surface rhythm, material and monochrome tone.",
+      "status": "open"
+    },
+    {
+      "what": "Visible sash pattern/trim and building proportions remain unresolved under the provisional drawing camera, whose convergence is inconsistent.",
+      "status": "open"
+    },
+    {
+      "what": "Source figure, wagon/trees/river/ground and surrounding buildings are omitted; hidden elevations and July1835 survival/state cannot be read from this retrospective1833 scene.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -907,8 +907,22 @@ def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) ->
         b.add_box(x - post / 2, d + reach - post, 0.0,
                   x + post / 2, d + reach, head - post, c, M_TRIM,
                   skip=("bottom",))
-    b.add_box(0.0, d + reach - post, head - post,
-              w, d + reach, head, c, M_TRIM)
+    # The canopy falls across reach + its 0.15 m outer projection. Its height
+    # above the beam is therefore higher than `head`, the outer roof edge.
+    # Keep the beam bottom/posts fixed and meet that same plane with a wedge.
+    y0, y1, z0 = d + reach - post, d + reach, head - post
+    z1 = wz + (head - wz) * ((y0 - d) / (reach + 0.15))
+    z2 = wz + (head - wz) * ((y1 - d) / (reach + 0.15))
+    for face in (
+        [(0.0, y0, z0), (w, y0, z0), (w, y1, z0), (0.0, y1, z0)],
+        [(0.0, y0, z0), (0.0, y0, z1), (w, y0, z1), (w, y0, z0)],
+        [(w, y1, z0), (w, y1, z2), (0.0, y1, z2), (0.0, y1, z0)],
+        [(0.0, y1, z0), (0.0, y1, z2), (0.0, y0, z1), (0.0, y0, z0)],
+        [(w, y0, z0), (w, y0, z1), (w, y1, z2), (w, y1, z0)],
+    ):
+        b.add_poly(face, c, M_TRIM)
+    # The canopy caps the joint. Omit a coplanar timber top: both materials
+    # are double-sided, so duplicating that surface would cause z-fighting.
     b.add_box(0.0, d, upper - deck, w, d + reach, upper, c, M_TRIM)
     # Long outer handrail and evenly spaced vertical pales; the two short ends
     # are closed as a safety reconstruction. No external stair is invented.

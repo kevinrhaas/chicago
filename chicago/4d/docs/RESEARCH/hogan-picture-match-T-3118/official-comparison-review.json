@@ -1,0 +1,16 @@
+{
+  "status": "actual official before/after reviewed; differs",
+  "same_numeric_camera_and_camera_bytes": true,
+  "source_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "before_committed_base": "5112aadaa97cdf3d42d057b3d4a29219f173666c",
+  "before_master_sha256": "c196950ac57ec0e76d78698de43b956188eeb0ea2403264700991c9587bd5fe2",
+  "after_official_master_sha256": "687628d4780f2409e045c1cba6b53a871d02524657a475a6a2716591c0ab2182",
+  "before_public_asset": "https://github.com/kevinrhaas/chicago/blob/5112aadaa97cdf3d42d057b3d4a29219f173666c/chicago/4d/assets/gltf/hogan_store__log_1831.glb",
+  "baseline_temporary_served_copy_removed_after_capture": true,
+  "baseline_original_preserved": "/tmp/chicago-next-model/T-3118-hogan-H8/H9-integration/H9-committed-before.glb",
+  "actual_browser_captures_completed": 2,
+  "browser_processes_closed": true,
+  "camera_fit": "Provisional six-wallpoint retrospective drawing fit, RMS16.099px/max26.809px; no measured scale or historical camera",
+  "original_T2377_remains_open": true,
+  "native_derivation_publish_app_fullgates": "Native61steps/two-lap fixedpointPASS after retainedENOSPC; published independentmobile/desktop card/grade/Images/source-credit checksPASS. Genericframefacesoppositewall; additionaleligiblefrontnormal/confidencecapturespassedandviewed at390x780and1280x800, secondfrontsizearesize. No render/API/geometry/intrinsic edit. Fullpreflight/final-head18publishedsmokelegsPENDING."
+}

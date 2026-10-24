@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 750,
+  "count": 751,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -53504,6 +53504,66 @@
       ]
     },
     {
+      "id": "L-hogan-dark-door-hatch-3118",
+      "title": "Hogan's pictured doorway and short stack",
+      "section": "per_subject",
+      "subjects": [
+        "hogan_store"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "hogan_store",
+          "phase": "log_1831",
+          "aspect": "form.end_openings"
+        },
+        {
+          "domain": "structure",
+          "structure": "hogan_store",
+          "phase": "log_1831",
+          "aspect": "form.front_door_state"
+        },
+        {
+          "domain": "structure",
+          "structure": "hogan_store",
+          "phase": "log_1831",
+          "aspect": "form.ridge_stack_head_m"
+        }
+      ],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Source",
+          "text": "Edgar S. Cameron. Chicago's First Postoffice in 1833, Edgar S. Cameron's retrospective *Chicago's First Postoffice in 1833*, halftone credited to the Chicago Historical Society. The local surrogate and printed caption were inspected. The committed inventory attributes public-domain status to pre-1930 publication; original publication and holding remain independently unverified, and the failed Commons access is not fresh clearance. This continuation preserves those limits and the existing source credit."
+        },
+        {
+          "label": "Doorway",
+          "text": "The picture's long elevation has a dark doorway occupied by a figure. The opt-in front door state: recess cuts the actual front skin/chinking and uses framed returns to a dark blind back 0.30 m inside. That depth, casing dimensions and dark material are reconstructed visual proxies, not measured joinery, an interior, a surviving July 1835 door state, or an attested leaf/hinge position. No figure is inserted or identified. Generic doors remain closed without this option."
+        },
+        {
+          "label": "Gable and stack",
+          "text": "The visible gable rectangle is trialled as end openings kind: hatch at the existing reconstructed station and 0.7 × 0.8 m size. The existing board-shutter kit provides a closure proxy. Boards, ledges, material, closure and absence of glass are not attested by the unresolved infill; the depiction is explicitly reconstructed. It adds no loft occupancy or unseen opening. The existing ridge-stack head control is trialled at 0.75 m rather than the generic 0.95 m to bound the short depicted silhouette, without claiming scale, cap detail or material identification."
+        },
+        {
+          "label": "Limits",
+          "text": "The documented 45 × 20 ft footprint, geographic position, bearing, dates, use, eave, roof pitch, opening stations/sizes and chimney station/width remain unchanged. No image pixels become a texture. Roof texture/tone, gable cladding, sash pattern, chimney details, source perspective and omitted scene remain unresolved. The original image gate stays open and the provisional view remains `differs`; this proposal is not a match ruling."
+        },
+        {
+          "label": "Covers",
+          "text": "`hogan_store.log_1831.form.front_door_state`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.ridge_stack_head_m`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24."
+        }
+      ],
+      "work_refs": [
+        "T-3118",
+        "T-2377"
+      ]
+    },
+    {
       "id": "L-first-fort-double-galleries",
       "title": "the upper courtyard walks",
       "section": "per_subject",
@@ -53524,7 +53584,7 @@
         },
         {
           "label": "Reconstructed dimensions",
-          "text": "retain the old gallery's 2.1 m reach and nominal 3 m post-bay rhythm, with the reviewed explicit-front support adjustment below. Set posts to 0.14 m square, upper floor thickness to 0.14 m, handrail height to 0.95 m, handrail section to 0.10 x 0.14 m, square pales to 0.055 m at an at-most-0.18 m pitch, and canopy fall to 0.45 m across the reach plus a 0.15 m outer projection. Upper floor height is half the existing 5.0 m wall (2.5 m); the roof attaches at that wall's eave and falls to 4.55 m. End returns of the upper rail are a safety reconstruction. No exterior stair is invented. New gallery geometry carries reconstructed confidence even though gallery occurrence remains attested and the chosen two-level count is inferred."
+          "text": "retain the old gallery's 2.1 m reach and nominal 3 m post-bay rhythm, with the reviewed explicit-front support adjustment below. Set posts to 0.14 m square, upper floor thickness to 0.14 m, handrail height to 0.95 m, handrail section to 0.10 x 0.14 m, square pales to 0.055 m at an at-most-0.18 m pitch, and canopy fall to 0.45 m across the reach plus a 0.15 m outer projection. Upper floor height is half the existing 5.0 m wall (2.5 m); the roof attaches at that wall's eave and falls to 4.55 m. End returns of the upper rail are a safety reconstruction. No exterior stair is invented. New gallery geometry carries reconstructed confidence even though gallery occurrence remains attested and the chosen two-level count is inferred. The reconstructed outer support beam keeps its bottom at 4.41 m and follows the unchanged canopy plane at its top: 4.608 m at the inner edge and 4.580 m at the outer edge. This closes the former 30–58 mm unsupported roof gap without moving the posts, roof or lower gallery. Its hidden top face is omitted where the canopy caps it, avoiding a duplicate coplanar timber surface. The wedge is a model joint, not joinery or timber dimensions measured from the historical drawing."
         },
         {
           "label": "Bounds",
@@ -53547,7 +53607,9 @@
           "text": "On these five explicit fronts keep support count, but project an obstructing centre to the nearest solid pier clearing both storeys' rectangles and the existing casing/sill-horn envelope, left on ties. A post width separates centres; an impossible end pier is refused. Post placement remains reconstructed. Rails and projected occlusion remain unresolved until actual review."
         }
       ],
-      "work_refs": []
+      "work_refs": [
+        "T-3105"
+      ]
     },
     {
       "id": "L-first-fort-face-layout-t2387-next",

@@ -2,8 +2,10 @@
 """First-fort opt-in fronts: constructor compatibility and real support clearance."""
 from dataclasses import asdict, replace
 import inspect
+import json
 from pathlib import Path
 import sys
+import struct
 from types import ModuleType
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,9 +16,61 @@ class NoBlender(ModuleType):
         raise AssertionError('CPU fort test reached Blender runtime: ' + name)
 
 sys.modules['bpy'] = NoBlender('bpy')
-from archetypes.fort_structure_params import FortStructureParams  # noqa: E402
+from archetypes.fort_structure_params import FortStructureParams, from_phase  # noqa: E402
 from archetypes import fort_structure as fort  # noqa: E402
 from common.mesh import MeshBuilder  # noqa: E402
+
+
+def check_canopy_contact():
+    """Measure the emitted support against the independent canopy polygon."""
+    ids = ('north_range', 'officers_barracks', 'commanding_officers_barracks',
+           'soldiers_barracks_sw', 'soldiers_barracks_se')
+    f32 = lambda x: struct.unpack('<f', struct.pack('<f', x))[0]
+
+    def vertical_residual(point, roof):
+        a, b, c = roof[:3]
+        u = tuple(y-x for x, y in zip(a, b))
+        v = tuple(y-x for x, y in zip(a, c))
+        n = (u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2],
+             u[0]*v[1]-u[1]*v[0])
+        assert abs(n[2]) > 0
+        return sum(k*(q-p) for k, p, q in zip(n, a, point))/n[2]
+
+    for suffix in ids:
+        record = json.loads((ROOT/'data/structures'/
+                             ('first_fort_dearborn_'+suffix+'.json')).read_text())
+        phase = next(p for p in record['phases'] if p['id'] == 'first_fort_1803')
+        p = from_phase(phase, record)
+        b = MeshBuilder('canopy-contact-'+suffix)
+        fort._gallery_two_storeys(b, p, 1.0)
+        roof = [b.verts[i] for i in b.faces[-1]]
+        assert roof == [(0.0, p.depth_m, p.wall_height_m),
+                        (p.width_m, p.depth_m, p.wall_height_m),
+                        (p.width_m, p.depth_m+2.1+.15, p.wall_height_m-.45),
+                        (0.0, p.depth_m+2.1+.15, p.wall_height_m-.45)]
+        # Each unchanged post has five faces, with its foot open at the ground.
+        first = len(fort._gallery_post_centres(p, .14))*5
+        bottom = p.wall_height_m-.45-.14
+        posts = [b.verts[i] for face in b.faces[:first] for i in face]
+        assert min(v[2] for v in posts) == 0 and max(v[2] for v in posts) == bottom
+        beam = [[b.verts[i] for i in face] for face in b.faces[first:first+5]]
+        top = {v for face in beam for v in face if v[2] > bottom+1e-9}
+        assert len(top) == 4
+        assert max(abs(vertical_residual(v, roof)) for v in top) <= 1e-12, suffix
+        # No duplicate coplanar timber face under the double-sided roof sheet.
+        assert not any(all(abs(vertical_residual(v, roof)) <= 1e-12 for v in face)
+                       for face in beam)
+        # The next primitive is still the unchanged upper deck's bottom face.
+        assert [b.verts[i] for i in b.faces[first+5]] == [
+            (0.0, p.depth_m, p.storey_height_m-.14),
+            (p.width_m, p.depth_m, p.storey_height_m-.14),
+            (p.width_m, p.depth_m+2.1, p.storey_height_m-.14),
+            (0.0, p.depth_m+2.1, p.storey_height_m-.14)]
+        roof32 = [tuple(map(f32, v)) for v in roof]
+        assert max(abs(vertical_residual(tuple(map(f32, v)), roof32)) for v in top) <= 2e-6
+        # This geometric oracle rejects the original 30–58 mm separated beam.
+        assert min(abs(vertical_residual((v[0], v[1], p.wall_height_m-.45), roof))
+                   for v in top) >= .02999
 
 
 def main():
@@ -81,8 +135,10 @@ def main():
     else:
         raise AssertionError('an impossible end support was silently placed across a hole')
     assert asdict(p)['face_openings'] is None
+    check_canopy_contact()
     print('PASS fort fronts: legacy16 positionals/two keyword-only opt-ins; '
-          'support clearance, deterministic count, empty-front/default fallback and refusal')
+          'support clearance, deterministic count, empty-front/default fallback and refusal; '
+          'all five canopy joints, unchanged roofs/posts/decks and Float32 contact')
 
 if __name__ == '__main__':
     main()
