@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2241, ts: '2026-10-24T03:54:42.842Z', date: 'Oct 23, 2026, 10:54 PM CT', title: '1812 Prairie\'s gable finished to its photographs', kind: 'improvement',
+    items: [
+      'The Wheeler house\'s gable window now reads as nine dark openings between stone quoins, under a moulded hood with a waved top and over a deep stone shelf.',
+      'A carved urn now crowns the gable, and each shoulder stone carries a sunk panel.',
+      'Each scroll under the gable\'s corners has a carved rosette, and the gable\'s base now narrows above the scrolls as the photograph shows.',
+    ] },
   { v: 2240, ts: '2026-10-24T03:19:13.646Z', date: 'Oct 23, 2026, 10:19 PM CT', title: 'First Presbyterian Church\'s spire rises to its 1887 photograph\'s height', kind: 'improvement',
     items: [
       'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now has a steep gable facing the avenue, replacing the low hipped roof. Its corner tower is brick to about 40 m, and a slender slated spire rises to about 75 m. Before, the whole tower stopped at 27 m.',
