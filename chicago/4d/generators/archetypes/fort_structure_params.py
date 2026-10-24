@@ -46,6 +46,7 @@ same thing.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 # Confidence values as they are written into the _CONFIDENCE glTF attribute.
@@ -66,7 +67,7 @@ PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
 CONSUMED = frozenset({
     "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg",
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
-    "upper_overhang_m", "lantern",
+    "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the
@@ -126,6 +127,10 @@ class FortStructureParams:
     lantern: bool = False
 
     # per-attribute confidence, keyed by the attribute name in the record
+    # Opt-in first-fort details; preserve every legacy positional argument.
+    gallery_storeys: int = field(default=1, kw_only=True)
+    face_openings: list | None = field(default=None, kw_only=True)
+
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -183,6 +188,39 @@ class FortStructureParams:
         return self.mast_butt_m * 0.45
 
     def validate(self) -> None:
+        if self.face_openings is not None:
+            if self.kind not in ("quarters", "barracks") or self.overhang_m:
+                raise ParamError("face_openings currently supports unjettied quarters/barracks")
+            if not isinstance(self.face_openings, list) or len(self.face_openings) > 128:
+                raise ParamError("face_openings must be a list of at most 128 rectangles")
+            for o in self.face_openings:
+                if not isinstance(o, dict) or set(o) != {"face", "kind", "u0", "u1", "z0", "z1"}:
+                    raise ParamError("each face_openings rectangle needs face/kind/u0/u1/z0/z1")
+                if o["face"] not in ("front", "back", "left", "right"):
+                    raise ParamError("face_openings face must be front/back/left/right")
+                if o["kind"] not in ("window", "door"):
+                    raise ParamError("face_openings kind must be window/door")
+                if any(isinstance(o[k], bool) or not isinstance(o[k], (int, float))
+                       or not math.isfinite(o[k]) for k in ("u0", "u1", "z0", "z1")):
+                    raise ParamError("face_openings dimensions must be finite numbers")
+                span = self.width_m if o["face"] in ("front", "back") else self.depth_m
+                if not (0 <= o["u0"] < o["u1"] <= span
+                        and 0 <= o["z0"] < o["z1"] <= self.wall_height_m):
+                    raise ParamError("face_openings rectangle must lie within its wall")
+            for i, a in enumerate(self.face_openings):
+                for b in self.face_openings[i+1:]:
+                    if a["face"] != b["face"] or a["z0"] >= b["z1"] or b["z0"] >= a["z1"]:
+                        continue
+                    if max(b["u0"]-a["u1"], a["u0"]-b["u1"]) < 0.15-1e-9:
+                        raise ParamError("face_openings must leave at least 0.15 m between openings")
+        if (not isinstance(self.gallery_storeys, int) or isinstance(self.gallery_storeys, bool)
+                or self.gallery_storeys not in (1, 2)):
+            raise ParamError("gallery_storeys must be the whole number 1 or 2")
+        if self.gallery_storeys == 2:
+            if not self.gallery or self.kind not in ("quarters", "barracks"):
+                raise ParamError("a double gallery requires gallery=true on quarters or barracks")
+            if self.stories != 2:
+                raise ParamError("a double gallery requires a two-storey range")
         if self.kind not in KINDS:
             raise ParamError(f"kind '{self.kind}' not in {KINDS}")
         if not 0.5 <= self.width_m <= 120.0:
@@ -312,6 +350,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         paint=str(val("paint", "unpainted")),
         chimneys=int(val("chimneys", 0)),
         gallery=bool(val("gallery", False)),
+        gallery_storeys=val("gallery_storeys", 1),
+        face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
         upper_overhang_m=float(val("upper_overhang_m", 0.45)),
         sun_dial=bool(val("sun_dial", False)),
@@ -320,3 +360,23 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
     )
     p.validate()
     return p
+
+
+def wall_openings(p: FortStructureParams, face: str) -> list[dict] | None:
+    """The explicit rectangles on one wall; None means this wall is unread.
+
+    Both mesh and front-wall reader consume this exact layout. Legacy procedural
+    layouts remain unread here rather than being falsely declared empty.
+    """
+    if p.face_openings is None:
+        return None
+    return [{k: o[k] for k in ("kind", "u0", "u1", "z0", "z1")}
+            for o in p.face_openings if o["face"] == face]
+
+
+def front_wall(p: FortStructureParams) -> dict | None:
+    openings = wall_openings(p, "front")
+    if openings is None:
+        return None
+    return {"u0": 0.0, "u1": p.width_m, "wall_height_m": p.wall_height_m,
+            "openings": openings}
