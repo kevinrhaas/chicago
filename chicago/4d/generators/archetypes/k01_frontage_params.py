@@ -1956,6 +1956,34 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"and a guilloche of {sorted(gk)}, not {cb}")
             v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
                              "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
+        # T-3002: a dressed band across one run over a storey's windows, under its top, with a
+        # roundel on it (1801's south pavilion under its gable's shelf, the Taylor photograph)
+        for st in v["storeys"]:
+            hf = st.get("head_frieze")
+            if hf is None:
+                continue
+            keys, rk = {"run", "at", "from_m", "to_m", "border_m", "proud_m", "roundel"}, \
+                {"radius_m", "ring_m", "proud_m", "segments"}
+            rd = hf.get("roundel") if isinstance(hf, dict) else None
+            if not isinstance(rd, dict) or set(hf) != keys or set(rd) != rk \
+                    or not (0 <= int(hf["run"]) and 0.0 < float(hf["at"]) < 1.0
+                            and 0.0 < float(hf["from_m"]) < float(hf["to_m"]) <= float(st["height_m"])
+                            and 0.3 <= float(hf["to_m"]) - float(hf["from_m"]) <= 1.5
+                            and 0.05 <= float(hf["border_m"]) <= 0.6 and 0.01 <= float(hf["proud_m"]) <= 0.06
+                            and 0.05 <= float(rd["radius_m"]) <= 0.5 and 0.02 <= float(rd["ring_m"]) < float(rd["radius_m"])
+                            and 0.01 <= float(rd["proud_m"]) <= 0.05 and 12 <= int(rd["segments"]) <= 48):
+                raise ParamError(f"bays: {e['id']}'s head_frieze takes {sorted(keys)} (a band 0.3-1.5 m deep inside "
+                                 f"its storey, 0.01-0.06 m proud) and a roundel of {sorted(rk)}, not {hf}")
+            k06 = json.loads(WINDOW_KIT.read_text())
+            for w in st["windows"]:
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0))) \
+                    + float((w.get("surround") or {}).get("head_m", 0.0))
+                if head > float(hf["from_m"]) - 0.02:
+                    raise ParamError(f"bays: {e['id']}'s head_frieze from {hf['from_m']} m stands on a head at {head:.3f} m")
+            st["head_frieze"] = {"run": int(hf["run"]), "at": float(hf["at"]), "roundel": {
+                "radius_m": float(rd["radius_m"]), "ring_m": float(rd["ring_m"]), "proud_m": float(rd["proud_m"]),
+                "segments": int(rd["segments"])}, **{k: float(hf[k]) for k in ("from_m", "to_m", "border_m", "proud_m")}}
         if "pilasters" in e:
             # T-2931: carved pilasters at the ends of a stone bay's runs (1801's bow and its south
             # pavilion, from the Taylor photograph), one a storey on a base, under a capital

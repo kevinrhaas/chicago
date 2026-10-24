@@ -32206,3 +32206,40 @@ about 2 ft low, and a camera that stands about 8 px off the stack).
 **Ticket:** T-3065 (found by T-3058).
 **Review:** `docs/RESEARCH/glessner-stack-depth-T-3065/taylor-before-after.jpg`.
 **Recorded:** 2026-10-24 (T-3065).
+### L-kimball-1801-carved-stone-3002 — 1801 Prairie's main cornice raised to the bow's and moulded under the mansard; the south pavilion's frieze roundel and carved gable panel
+
+**Decision:** three pieces of 1801 Prairie's carved stone are built from J. W. Taylor's c. 1895
+photograph (`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074
+re-solved it. **What is read, not invented.** The main cornice under the mansard's slate faces is
+one heavy moulded course, a row of blocks under its corona, that runs along the avenue front and
+the 18th Street flank and wraps the front's bow at the bow's own cornice: at the bow's north
+junction (x 1070-1110) the print's main cornice stands at y 555-590 and the bow's at y 560-590.
+The build's main eave stood at 8.1 m, about 0.8 m under the bow's 8.34-8.7 m cornice, and at the
+front's north-west corner its crown rendered at y 583 against the print's 520. So the main block's
+second storey is 3.9 m (from 3.1) to an eave at 8.9 m, and the K10 moulded stone cornice (0.36 m,
+0.32 m out) stands under the K05 soffit from 8.34 m to 8.7 m, level with the bow's, on the 18th
+Street and avenue walls, dying into the bow, the tower and both pavilions. Its crown now renders
+at y 535 at the corner and with the bow's cornice at its junction (both about 15 px under the
+print's, the bow's own offset through this camera). The mansard keeps its curb: its lower face
+rises 6.4 m (from 7.2) at 69.1 degrees (from 72), so the curb, the deck and its cresting stand
+where they stood, and the dormers' faces are set back 0.34 m and 0.52 m (from 0.55 and 0.7) so
+their lights keep their heights. On the south pavilion, under the gable's shelf and over the third
+storey's pair, the print shows a dressed band with a roundel on the pair's axis (y 415-452, the
+roundel about 15 px across at y 442): built as a band from 4.35 m to 5.3 m over the storey's
+floor, between the pilasters, with a ring 0.22 m in radius round a boss. The gable's tympanum is
+filled with a carved panel, a tall leafy relief rising to the apex: built as a dressed panel
+0.03 m proud, 0.12 m in from the copings' beds, carrying a stem with paired leaves, a boss at its
+foot and a fleuron under the apex.
+**What is invented.** The cornice's section is K10's generic moulded stone eave (T-2460, read off
+1619's drawing); the print's block row and its corona's mouldings are not built, and the eave's
+K05 fascia and copper gutter stand over it where the print shows none. The overhang (0.4 m, from
+0.3) is the least the section fits under. The second storey's windows keep their heads at 7.4 m,
+so 0.8 m more wall stands over them; the print's are not re-read here. The frieze's depth, the
+roundel's ring and boss, and the whole of the gable's carving are reconstructed: the print shows
+leafage too fine to read at its scale, and the stem, leaves and fleuron stand for it.
+**How to resolve:** a sharper print of the front, T-3003's 1929 and HABS photographs, or a
+drawing of the house's carved work.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.wall_head`
+**Ticket:** T-3002.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3002).

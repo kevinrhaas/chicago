@@ -1052,6 +1052,12 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
   python3 tools/test_k01_pavilion_past_eave.py
 
+# T-3002. ...and 1801 Prairie's carved stone: K10's moulded stone cornice under a mansard, run
+# round the walls the record names and dying into the bays on them; a K08 storey's head
+# frieze with its roundel; and a K08 gable's carved panel, its relief dropped on the light tier.
+step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T-3002)" \
+  python3 tools/test_k10_mansard_cornice.py
+
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
 # with a front wall of its own drawn only past the host and its roof cut only along it; and a
