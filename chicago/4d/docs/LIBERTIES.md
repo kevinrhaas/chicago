@@ -32198,3 +32198,30 @@ about 2 ft low, and a camera that stands about 8 px off the stack).
 **Ticket:** T-3065 (found by T-3058).
 **Review:** `docs/RESEARCH/glessner-stack-depth-T-3065/taylor-before-after.jpg`.
 **Recorded:** 2026-10-24 (T-3065).
+
+### L-glessner-alley-ridge-3096 — Glessner's stable cross ridge brought down its own plane; the alley gable kept as a parapet
+
+**Decision:** the `glessner_house` stable's E-W cross ridge over the alley end stands at 36.5 ft ng at S 12.31,
+where it stood at 38.6 ft at S 14.6, on the same 42.5-degree north plane; the alley gable's wall keeps its apex
+at S 14.6, 38.6 ft, and stands 1.0 ft over that line as a parapet with a stone coping, proud of the lowered roof.
+**What is read, not invented.** T-3095's ruling A: the c. 1887 Cornell print counts 41.7-43.9 courses and HABS
+photograph 1 counts 40.6-42.7 between the eave and the cresting's foot on that plane, and T-2758's six
+measured-control cameras put the ridge where the count does (median 0.12 m apart) only if the ridge comes down
+the plane. On the rebaked GLB the model lays 41.8-43.9 courses at 5 in through every measured fit (it laid about
+51). Both prints draw the alley gable's coping standing proud along its rakes with its apex at the cresting.
+**What is invented.** The parapet's 1.0 ft over the wall line is the 18th Street gable's on the same stable, not
+read on the alley face; the coping's top at the apex (about 40.2 ft) falls inside T-2758's 38.75-40.63 ft read
+through the Cornell fits. The apex keeps its S 14.6, which T-3095 left to be re-read (one camera put it at
+S 14.9-16.7). The cupola stays on the north range's S 14.6 line (T-2228); the lowered ridge runs into its west
+face 0.14 m inside its north side. East of the ridge's end, under the cupola, the 18th Street gable's west plane
+meets the slope behind it in a seam of at most 4 cm that nothing shows. The south slope flattens from about
+47 to 41 degrees; no camera here sees it.
+**What is left open.** The roll foot lies within 0.26 m of the prints' through the three HABS 1 doorway fits
+and the Cornell level fit, but 0.21-0.44 m under the Cornell pitched fit's, which the level fit contradicts by
+0.46-0.49 m on the same columns (T-3102). HABS 1's eye-height and lean fits put the print's eave 0.39-0.45 m
+under the model's, as they did before this rebuild (0.38-0.42 m): the eave did not move.
+**How to resolve:** T-3102; a measured section through the stable's alley end.
+**Ticket:** T-3096 (T-3094's second piece; ruled by T-3095).
+**Review:** `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3096).
