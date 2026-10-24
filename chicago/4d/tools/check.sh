@@ -355,7 +355,7 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
-step "Catalogue Brougham preserves exact V17 near and genuine11706mid, contacts and inert interfaces (T-2794)" \
+step "Catalogue Brougham preserves registered near and genuine11706mid, contacts and inert interfaces (T-2794)" \
   python3 tools/check_brougham_near.py
 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
@@ -363,6 +363,9 @@ step "Brougham card and actual near/mid selection preserve catalogue scope, curr
 
 step "Canonical planted-standing horse preserves metre scale, allowed clip, clocks, modern credit and bounded drawn-yard support (T-2800/T-2803)" \
   node tools/test_planted_standing_horse_contract.mjs
+
+step "Horse eye-UV derivative preserves original geometry, rig, clip, materials and image bytes (T-3086)" \
+  python3 tools/test_standing_horse_eye_uv_boundary.py
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py

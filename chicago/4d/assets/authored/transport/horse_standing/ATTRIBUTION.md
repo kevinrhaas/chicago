@@ -21,3 +21,7 @@ Archived individual metadata source: https://huggingface.co/datasets/allenai/obj
 Current public author metadata: https://api.sketchfab.com/v3/models/53a6eb7ccf054aa2a378dd7ec08f88fe
 
 Suggested in-app/assets credit if this source is accepted: **“Horse” by sevketkabatas, CC BY4.0, via Objaverse. Adapted for source frame/scale and placement [list actual changes].** Do not label this third-party mesh or its textures CC0 merely because the earlier procedural study was CC0.
+
+## Eye-UV-v1 change notice (2026-10-23)
+
+The separately versioned selected derivative d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914 changes only the existing eye UV10 field/bounds and adds an explicit derivative notice to the protected b479 planted-standing model. Its original texture pixels, geometry, rig and planted clip are unchanged from that stage. Pupil/gaze are reconstructed; this is a limited development appearance improvement with no photographic or native-browser acceptance. The source author/license/Objaverse credit above remains applicable to both derivative stages. Portable generation and exact protection receipts are listed in SOURCE.json and ADAPTATION.md.
