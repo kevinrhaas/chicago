@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2248, ts: '2026-10-24T07:59:40.223Z', date: 'Oct 24, 2026, 2:59 AM CT', title: '1811 Prairie\'s bay balcony pierced, as a second photograph shows it', kind: 'improvement',
+    items: [
+      'The stone balustrade on 1811 Prairie\'s bay is now cut through in a lattice of openings, where it stood solid bars. A sharper photograph of the house shows a pierced fretwork panel there.',
+      'That photograph is now a reference picture for the house, with its camera solved, beside a second print that turned out to be the 1888 plate itself.',
+      'The house\'s long brick south side does not match the photographs, which show a shorter wing and a separate building behind it. It is left as the 1911 map draws it until a source dated nearer 1904 settles it.',
+    ] },
+  { v: 2247, ts: '2026-10-24T07:56:01.769Z', date: 'Oct 24, 2026, 2:56 AM CT', title: 'First Presbyterian Church gets its Gothic front, tower and spire', kind: 'improvement',
+    items: [
+      'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now looks like its 1887 photograph. The front has its rose windows, pointed lancets and a gabled stone porch. A stone coping with a cross runs up the gable, and the tower has its pointed door, a louvred belfry, stepped buttresses with pinnacles, and four gablets. The broad slate spire has its band of small dormers and a finial with a vane.',
+      'Each window, course and height is measured off the photograph. The 21st Street side is still plain; a second photograph in the same 1913 book shows it, and that side is next.',
+    ] },
+  { v: 2246, ts: '2026-10-24T06:59:39.767Z', date: 'Oct 24, 2026, 1:59 AM CT', title: '1801 Prairie\'s upper windows raised and its 18th Street arched pair', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: the upper-floor windows now stand taller, their heads raised about 0.3 m under the stone cornice, each with a transom light across its top, as J. W. Taylor\'s c. 1895 photograph shows them.',
+      'On the 18th Street side, between the round tower and the corner, the single window on each floor is now a pair of round-headed lights upstairs over plain stone below, as in the photograph; the corner window over the arch moves a little east to where the photograph has it.',
+    ] },
   { v: 2245, ts: '2026-10-24T05:49:33.660Z', date: 'Oct 24, 2026, 12:49 AM CT', title: '1801 Prairie gains its carved stone cornice, frieze and gable', kind: 'improvement',
     items: [
       'W. W. Kimball\'s house at 1801 Prairie: a heavy moulded stone cornice now runs under the steep slate roof along Prairie Avenue and 18th Street, as J. W. Taylor\'s c. 1895 photograph shows. It stands level with the curved bay\'s cornice, as one course round both, so the main walls rise about 0.8 m higher to meet it.',
