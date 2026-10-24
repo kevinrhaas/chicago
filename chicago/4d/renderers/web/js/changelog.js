@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2251, ts: '2026-10-24T09:46:09.529Z', date: 'Oct 24, 2026, 4:46 AM CT', title: 'Glessner\'s stable roof brought down to the old pictures', kind: 'fix',
+    items: [
+      'The roof over the Glessner stable\'s alley end is lower: its ridge sits about two feet lower and two feet further north, on the same pitch, so the slope carries the 42 or 43 rows of tiles that the 1887 print and the 1963 survey photograph both show, where it had about 51. The alley gable now stands up past the roof as a stone parapet with a coping, as both pictures draw it.',
+    ] },
   { v: 2250, ts: '2026-10-24T09:39:17.174Z', date: 'Oct 24, 2026, 4:39 AM CT', title: 'Glessner\'s stable roof: which 1887 camera solution to trust', kind: 'change',
     items: [
       'Nothing you can see changes. The 1887 photograph of the Glessner stable had two camera solutions that disagreed by half a metre on its roof. The downpipes in the picture, which should stand upright, show the camera was tipped up only slightly, and the 1963 photograph sees the gable at the height that slight tip gives. Through that camera the rebuilt ridge matches the photograph, so it stays as built.',
