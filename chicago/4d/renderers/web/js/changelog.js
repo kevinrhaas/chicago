@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2255, ts: '2026-10-24T16:11:44.890Z', date: 'Oct 24, 2026, 11:11 AM CT', title: 'Hogan’s doorway and gable follow the Cameron drawing', kind: 'change',
+    items: [
+      'Hogan’s store gains a dark recessed doorway, a reconstructed boarded gable opening and a shorter chimney. The drawing leaves their construction and dimensions uncertain; its picture comparison remains open.',
+    ] },
   { v: 2254, ts: '2026-10-24T12:51:18.692Z', date: 'Oct 24, 2026, 7:51 AM CT', title: 'More pictured details on six early Chicago buildings', kind: 'change',
     items: [
       'The infant school has larger openings and a log gable; Cobweb Castle has a reconstructed compound; Miller House has boarded upper walls; Carpenter’s shop has taller sash and a chimney; Wolf Point has rounded logs, recessed entries and a sign pole. Sources distinguish pictured details from reconstructed dimensions, and the image comparisons remain open.',
