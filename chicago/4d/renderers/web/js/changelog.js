@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2249, ts: '2026-10-24T08:52:33.572Z', date: 'Oct 24, 2026, 3:52 AM CT', title: '1812 Prairie\'s front windows match their photographs', kind: 'improvement',
+    items: [
+      'The large third-storey window has a wide middle light under its own low arch, and its fanlight is crossed by a curved bar, as in Levy\'s photograph.',
+      'The small arched window beside it is now a patterned leaded light. The pattern itself is a liberty.',
+      'The stones round both arches alternate long and short into the brick.',
+      'The transom lights over the second-storey windows are glazed in small squares.',
+      'The bay\'s paired window has a heavy stone mullion and a moulded hood, and its jambs rise to carved caps under the cornice.',
+    ] },
   { v: 2248, ts: '2026-10-24T07:59:40.223Z', date: 'Oct 24, 2026, 2:59 AM CT', title: '1811 Prairie\'s bay balcony pierced, as a second photograph shows it', kind: 'improvement',
     items: [
       'The stone balustrade on 1811 Prairie\'s bay is now cut through in a lattice of openings, where it stood solid bars. A sharper photograph of the house shows a pierced fretwork panel there.',
