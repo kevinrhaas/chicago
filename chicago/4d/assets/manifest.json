@@ -225,9 +225,9 @@
     "coleman_ames_house_1811_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5505092,
+      "bytes": 5506484,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ecb6e3919e53c80dd0572d0e7cfab86bc1aad088298fb19f5509b5164ee38722",
+      "inputs_sha256": "99c8676faf8b9fd33cd4e06a84037519d2c69050d4a16ea2f65bf7a7a058151c",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "coleman_ames_house_1811_prairie"
