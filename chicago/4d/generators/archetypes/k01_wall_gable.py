@@ -34,6 +34,8 @@ COLONNETTE_BLOCK_M = 0.08  # T-2917: a colonnette's square base and capital, eac
 DOME_RINGS = 6             # T-3051: a pinnacle dome's rings, foot to knob
 BLOCK_PLINTH_M = 0.12      # T-3051: a pinnacle block's plinth and cornice, each this high
 BLOCK_CORNICE_M = 0.12
+SCALE_COURSES = 5          # T-3064: a scaled pyramid's courses of scales, foot to tip
+SCALE_LIP_M = 0.015        # T-3064: each course's foot standing proud of the one under it
 
 
 def _k01():
@@ -261,6 +263,28 @@ def _pyramid(a, mat, frame, s, d, y0, hw, y1, seed, conf):
         af._face(a, mat, frame, [p, q, (s, y1, d)], mid, seed, conf)
 
 
+def _scaled(a, mat, frame, lo, hi, y0, y1, seed, conf, scaled=True):
+    """T-3064: a cap's stone from the rectangle `lo` (s0, s1, d0, d1) at `y0` to `hi` at `y1`
+    (a point for a pyramid), laid in courses of scales, each course's foot standing
+    `SCALE_LIP_M` proud of the one under it (1811's north pinnacle, the plate's scaled
+    stone), or plain, in one course."""
+    af = _af()
+    n = SCALE_COURSES if scaled else 1
+    at = lambda f, e: tuple(p + (q - p) * f + e * sg for p, q, sg in zip(lo, hi, (-1, 1, -1, 1)))
+    for i in range(n):
+        ya, yb = y0 + (y1 - y0) * i / n, y0 + (y1 - y0) * (i + 1) / n
+        ra, rb = at(i / n, SCALE_LIP_M if i else 0.0), at((i + 1) / n, 0.0)
+        A = [(ra[0], ya, ra[2]), (ra[1], ya, ra[2]), (ra[1], ya, ra[3]), (ra[0], ya, ra[3])]
+        B = [(rb[0], yb, rb[2]), (rb[1], yb, rb[2]), (rb[1], yb, rb[3]), (rb[0], yb, rb[3])]
+        for j in range(PIN_SIDES):
+            k_ = (j + 1) % PIN_SIDES
+            out = ((A[j][0] + A[k_][0]) / 2 - (ra[0] + ra[1]) / 2, 0.4, (A[j][2] + A[k_][2]) / 2 - (ra[2] + ra[3]) / 2)
+            pts = [A[j], A[k_], B[k_]] if B[j] == B[k_] else [A[j], A[k_], B[k_], B[j]]
+            af._face(a, mat, frame, pts, out, seed, conf)
+        if i:
+            af._face(a, mat, frame, A, (0.0, -1.0, 0.0), seed, conf)
+
+
 def dress(a, roof_seed):
     """The lights' sashes, their voussoirs, the pinnacles and the finial."""
     from . import k06_windows as k6
@@ -321,7 +345,8 @@ def dress(a, roof_seed):
     if "arch" in wg:
         _arch_dress(a, frame, O, conf)
     # the pinnacles: square shafts either side of the face's foot, from under the wall
-    # head (through the eave) past the face's eave, a cap and a pyramid over each
+    # head (through the eave) past the face's eave, a cap and a pyramid over each (T-3064:
+    # or, under a block, only to a band below the eave, the block taking the eave's end)
     pn = wg["pinnacles"]
     hw = pn["shaft_m"] / 2
     heads = pn.get("heads")
@@ -362,6 +387,23 @@ def dress(a, roof_seed):
                 af._frustum(a, "limestone_trim", Fr, s, 0.0, ya, yb_, ra, rb, pseed, conf)
             yk = ring[-1][0]
             af._frustum(a, "limestone_trim", Fr, s, 0.0, yk, yb + spire_m, 0.03, 0.004, pseed, conf)
+        elif h and "block" in h and top_m <= d["face_height_m"]:
+            # T-3064: a shaft stopped under its block (the plate's north pinnacle, its band level
+            # with the horizontal cornice): the cap's stone rises from the band, leaning in, to
+            # the block's plinth, so the eave's end dies into it under the block
+            b, c = h["block"], hw + PIN_CAP_PROUD_M
+            sc, bw = s - sg * b["in_m"], b["width_m"] / 2
+            yt = g["ys"] + b["foot_m"]
+            _scaled(a, "limestone_trim", Fr, (s - c, s + c, -c, c), (sc - bw, sc + bw, -bw, bw),
+                    y1 + pn["cap_m"], yt, pseed, conf, h["spire"] == "scaled_pyramid")
+            # the eave's end, where it leaves the face's edge, must die into that stone
+            o, t = (d["width_m"] / 2 + g["overhang"]) - pn["at_m"], (g["dhe"] - y1 - pn["cap_m"]) / (yt - y1 - pn["cap_m"])
+            if not 0.0 < t < 1.0 or (1 - t) * c + t * (b["in_m"] - bw) * -1 < o - 1e-6:
+                raise ValueError(f"the wall gable's eave leaves its pinnacle's stone under the block: its end "
+                                 f"{o:.3f} m past the shaft's centre at {g['dhe']:.3f} m")
+        elif h and h["spire"] == "scaled_pyramid":
+            _scaled(a, "limestone_trim", Fr, (s - hw, s + hw, -hw, hw), (s, s, 0.0, 0.0),
+                    y1 + pn["cap_m"], y1 + pn["cap_m"] + spire_m, pseed, conf)
         else:
             _pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + pn["cap_m"], hw, y1 + pn["cap_m"] + spire_m, pseed, conf)
         if h and "block" in h:
