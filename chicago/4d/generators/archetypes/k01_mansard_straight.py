@@ -30,8 +30,10 @@ docs/LIBERTIES.md L-k01-1736-roof-rear-2995 says which.
 from __future__ import annotations
 
 
-SKIN_M = 0.0005   # how far proud of a wall's face the lower cutter leaves the eave box: its cut is never
-                  # emitted, and it must not lie in the wall face's plane
+SKIN_M = 0.002    # how far proud of a wall's face the lower cutter leaves the eave box: its cut is never
+                  # emitted, and it must not lie in the wall face's plane. Two of K01's 1 mm weld quanta:
+                  # at 0.5 mm the strip it leaves welded to nothing, and the roof check read its soffit
+                  # as degenerate, doubled and misoriented triangles (check_roof_kit, T-2995)
 
 
 def _err(msg):
