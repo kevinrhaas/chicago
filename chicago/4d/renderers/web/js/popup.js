@@ -848,13 +848,9 @@ function roofWords(attrs) {
  * flags that qualify the whole card. The flags are the same five sentences the
  * old `.pop-meta` block carried (provisional position, anonymous reconstruction,
  * no recorded household, placeholder mesh) plus one that had no surface at all:
- * `review_required` (T-0268). Nine records are held under AGENTS.md's standing
- * constraint and until now the flag reached a browser once, as a console line
- * about the scene. The sentence is standing text keyed on the boolean — the
- * record's own reasoning is in its notes below, verbatim, as the ticket says —
- * and it names what the record is held for, because "held" alone tells a reader
- * that a decision was made and nothing about what it rests on. The record's own
- * sentence follows it, from `review_reason` on the sidecar.
+ * `review_required` (T-0268). The review flag remains visible with the record's
+ * own `review_reason`, verbatim. AGENTS.md's 2026-10-16 owner ruling retains
+ * these annotations while lifting the consultation prerequisite for release.
  */
 /**
  * T-2636. What the head and the lead print, as plain strings, so the test
@@ -893,14 +889,12 @@ export function cardOpening(s, called) {
   return { title, address, aka, kind: kindParts, lead, composed: !account };
 }
 
-/** The held-pending-consultation flag (T-0268), one renderer for the card's head and for
+/** The retained review annotation (T-0268), one renderer for the card's head and for
  *  Inspect's People tab (T-2639), so a review note reads the same in both. */
 function heldFlagHtml(s) {
   const reason = typeof s.review_reason === 'string' ? s.review_reason.trim() : '';
-  return `<span class="pop-flag pop-flag-held"><strong>Held pending consultation.</strong>
-      This record touches the standing constraint on depicting Indigenous history in
-      1835: the project depicts the built fabric and stops there until the people
-      whose history it is have been consulted.${
+  return `<span class="pop-flag pop-flag-held"><strong>Historical review context.</strong>
+      The reason for review is recorded below. Sources remain available with this record.${
         reason ? `<em class="pop-held-why">${escapeHtml(reason)}</em>` : ''
       }</span>`;
 }
@@ -959,12 +953,12 @@ function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
     flags.push('<span class="pop-flag">This shape is a placeholder massing, not a bake from the record.</span>');
   }
   // The one flag on this card that is not about how well the building is known.
-  // The four above qualify a reconstruction; this one says the project has stopped
-  // short of a claim on purpose, and it outranks them — so it is rendered last, in
+  // The four above qualify a reconstruction; this one carries the record's review
+  // annotation and its own explanation — so it is rendered last, in
   // its own treatment, and it is the only flag that quotes the record.
   //
-  // The quote is the point. Standing text can say a building is HELD; only the
-  // record can say what it is held FOR, and the sentence is the one
+  // The quote is the point. Standing text names the review annotation; only the
+  // record can say why it is flagged, and the sentence is the one
   // `measure_review_constraint.py` assertion 6 judges, carried here by the
   // compiler through the module the two of them share (T-0268). Before this the
   // reason lived in a 400-word `research_note` the card shows verbatim and folded

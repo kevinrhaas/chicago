@@ -1846,8 +1846,8 @@ for (const [label, viewport, touch] of [
     }
     const problems = await page.evaluate(() => window.__chicago4d.problems);
     // Provisional placement and placeholder-asset notes are expected findings,
-    // not defects. `review_required` is also a deliberate release blocker, but
-    // pin its exact records before excluding it so a new blocker cannot hide in
+    // not defects. `review_required` is a retained review annotation, so
+    // pin its exact records before excluding it so a new annotation cannot hide in
     // the general integration-problem list.
     const reviews = problems.filter((p) => /review_required is set/.test(p));
     const expectedReviews = await page.evaluate(() => [...window.__chicago4d.registry.values()]
@@ -1855,7 +1855,7 @@ for (const [label, viewport, touch] of [
       .map((r) => r.sidecar.id)
       .sort());
     const reportedReviews = reviews.map((p) => p.split(':', 1)[0]).sort();
-    check(`${label}: the scene declares its exact consultation blockers`,
+    check(`${label}: the scene declares its exact review annotations`,
       expectedReviews.length > 0
       && JSON.stringify(reportedReviews) === JSON.stringify(expectedReviews),
       `reported ${JSON.stringify(reportedReviews)}, expected ${JSON.stringify(expectedReviews)}`);
@@ -9230,8 +9230,8 @@ for (const [label, viewport, touch] of [
       JSON.stringify(placeholder));
 
     // --- the standing constraint, on the card ------------------------------
-    // T-0268. Nine records are held under AGENTS.md's standing constraint, and the
-    // flag used to reach a browser exactly once, as a console line about the scene.
+    // T-0268. Retained review annotations remain visible under AGENTS.md's
+    // 2026-10-16 ruling; they do not impose a consultation prerequisite.
     //
     // This is asserted over EVERY flagged record rather than one sampled id, because
     // the set is the thing: `measure_review_constraint.py` decides which buildings
@@ -9241,7 +9241,7 @@ for (const [label, viewport, touch] of [
     // asks the rendered DOM whether a visitor is actually handed it.
     //
     // The control is the other half. A held notice on a building that is not held
-    // would be a worse fault than a missing one: it would put a consultation claim
+    // would be a worse fault than a missing one: it would put a review annotation
     // on a record nobody made it for.
     const held = await page.evaluate(async () => {
       // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
@@ -9256,7 +9256,7 @@ for (const [label, viewport, touch] of [
         const flag = document.querySelector('#popup .pop-flag-held');
         return {
           id,
-          notice: !!flag && /held pending consultation/i.test(flag.textContent),
+          notice: !!flag && /Historical review context\./i.test(flag.textContent),
           why: flag?.querySelector('.pop-held-why')?.textContent?.trim() ?? '',
           recorded: said(window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '', 'review_reason').trim(),
           overlay: !!overlay?.edits,
@@ -9925,7 +9925,7 @@ for (const [label, viewport, touch] of [
       out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text);
       await open('mckee_log_house');
       const held = await tab('people');
-      out.held = /Held pending consultation/.test(held.text);
+      out.held = /Historical review context\./.test(held.text);
       await open('hogan_store');
       out.reopened = current();
       // T-3022: Expert research (Settings) shows a Research tab carrying the card's Sources,

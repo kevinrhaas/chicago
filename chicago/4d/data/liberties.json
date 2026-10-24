@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 738,
+  "count": 739,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -53238,6 +53238,41 @@
       ],
       "work_refs": [
         "T-2386"
+      ]
+    },
+    {
+      "id": "L-tremont-deep-roof-2385",
+      "title": "A source-specific deeper roof contrast",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.roof_colour"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.roof_colour`."
+        },
+        {
+          "label": "Decision",
+          "text": "Extend the existing optional roof colour stock selector with deep brown, then choose it only for the first Tremont. It is precisely one quarter of the existing darkened-stock linear RGB, with the same alpha/roughness, selected from three actual fixed-camera native roof-only comparisons (.5/.25/.125). The.25 alternative is nearest the selected dark source roof patch and visibly improves contrast; monochrome Gifford does not attest brown pigment, a calibrated reflectance, actual weather-blackening, age, damage or a precise dated surface condition. The named dark stock and its channel ratios are conscious reconstructions. Source remains owner-approved attributed project reference/comparison/display use with its current copyright limits; no rights upgrade follows. All 24 parsable frame record-phase geometry/confidence and nonroof material streams remain exact, as do all 23 non-target phase complete material streams and every constructor name/kind/default. Existing None/moss green/dark brown branches remain exact. Both dark and deep stocks require reconstructed confidence. This change neither alters the common material sheet nor roof geometry/covering, facade openings, footprint/location/date, source camera, native flag pose/wind/time or global lighting. Shared producer recipe changes require an official fresh23-current-master family rebuild and real web derivatives/consumers/gates if adopted. CPU parity and runtime overrides are not a freshness claim. Actual roof-only native GPU captures were directly inspected: source roof patch luma57.30, unchanged native baseline148.72.5=101.42.25=64.20.125=39.93. Chosen patches are approximate drawing/render pixels, not a colour measurement or acceptance metric. The image still differs in flag silhouette, shutters/entries, facade tones, provisional framing and absent town/ground/context. No accepted picture match or original-piece of work completion follows."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
       ]
     },
     {

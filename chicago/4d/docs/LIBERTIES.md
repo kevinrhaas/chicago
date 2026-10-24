@@ -32416,3 +32416,17 @@ The pole/board/device, light and roof controls, camera bytes, footprint/position
 **Covers:** `wolf_point_tavern.log_frame_1828.form.compound_door_state`, `wolf_point_tavern.log_frame_1828.form.compound_parts`.
 **Ticket:** T-2386.
 **Recorded:** 2026-10-23.
+
+
+### L-tremont-deep-roof-2385 — A source-specific deeper roof contrast
+
+**Covers:** `tremont_house_1.frame_1833.form.roof_colour`.
+
+**Decision:** Extend the existing optional roof_colour stock selector with `deep_brown`, then choose it only for the first Tremont. It is precisely one quarter of the existing darkened-stock linear RGB, with the same alpha/roughness, selected from three actual fixed-camera native roof-only comparisons (.5/.25/.125). The .25 alternative is nearest the selected dark source roof patch and visibly improves contrast; monochrome Gifford does not attest brown pigment, a calibrated reflectance, actual weather-blackening, age, damage or a precise dated surface condition. The named dark stock and its channel ratios are conscious reconstructions. Source remains owner-approved attributed project reference/comparison/display use with its current copyright limits; no rights upgrade follows.
+
+All 24 parsable frame record-phase geometry/confidence and nonroof material streams remain exact, as do all 23 non-target phase complete material streams and every constructor name/kind/default. Existing None/moss_green/dark_brown branches remain exact. Both dark and deep stocks require reconstructed confidence. This change neither alters the common material sheet nor roof geometry/covering, facade openings, footprint/location/date, source camera, native flag pose/wind/time or global lighting. Shared producer recipe changes require an official fresh23-current-master family rebuild and real web derivatives/consumers/gates if adopted. CPU parity and runtime overrides are not a freshness claim.
+
+Actual roof-only native GPU captures were directly inspected: source roof patch luma57.30, unchanged native baseline148.72, .5=101.42, .25=64.20, .125=39.93. Chosen patches are approximate drawing/render pixels, not a colour measurement or acceptance metric. The image still differs in flag silhouette, shutters/entries, facade tones, provisional framing and absent town/ground/context. No accepted picture match or original-ticket completion follows.
+
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23.

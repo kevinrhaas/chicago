@@ -5839,3 +5839,8 @@ T-3081 latest integration: dev 67bd69e9 is composed normally; the native tail an
 T-3081 full preflight 04 passes (1,061 checks, 383 self-tests). Finish latest-dev reconciliation and complete published mobile/desktop smokes before merge.
 
 T-3081: incorporate dev 6f992fa75 and its native Glessner package; complete full preflight 05 and all current-head published mobile/desktop smokes, then merge PR #1260 into dev. Keep all five original picture cases open.
+
+
+### T-3082 — roof contrast and retained review notes
+
+Validate the combined stack on PR #1260: genuine deep_brown quarter-linear Tremont exports plus accurate historical-review card/loader wording. The official 23-family build and derivatives are complete, with only three roof RGB scalars changed in the target and every non-target file exact; current recipe equality and the inherited 82-log-family preservation are proved. Native name-pool/seating and five companion checks pass, the 61-step ordered tail settles in two laps, four actual published mobile/desktop app/source/review cases pass without page or network errors, and full preflight passes with required scientific readers. The native same-camera picture comparison remains DIFFERS. Finish complete hosted published mobile/desktop smoke coverage; the bounded draft PR targets dev with an explicit dependency on #1260, followed by final dev reconciliation and merge after its parent lands. Keep review flags, each explanation, confidence and unexpected-error filters intact. Full Tremont picture matching continues on T-2385, including remaining flag, shutters/entries, camera and context differences. No original image-match acceptance closes here.
