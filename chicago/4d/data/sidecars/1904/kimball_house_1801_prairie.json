@@ -300,11 +300,29 @@
     "side_bays": {
       "value": [
         1.6,
-        15.6,
-        18.9
+        {
+          "s_m": 14.93,
+          "sill_m": 6.08,
+          "width_m": 0.76,
+          "height_m": 1.69,
+          "head": "round"
+        },
+        {
+          "s_m": 16.03,
+          "sill_m": 6.08,
+          "width_m": 0.76,
+          "height_m": 1.69,
+          "head": "round"
+        },
+        {
+          "s_m": 18.67,
+          "sill_m": 5.4,
+          "width_m": 1.15,
+          "height_m": 2.3
+        }
       ],
       "confidence": "reconstructed",
-      "note": "The 18th Street wall's openings clear of the flank section and the tower; their sizes and heads are T-2911's. T-2910: the principal storey's opening at 18.9 m is the loggia's side arch (the photograph's), so that storey has no window there; the window over it is the photograph's."
+      "note": "The 18th Street wall's openings clear of the flank section and the tower; the column at 1.6 m, and its sizes and heads, are T-2911's. T-2910: the principal storey's opening at 18.9 m is the loggia's side arch (the photograph's), so that storey has no window there. T-3097: the three places past the tower read through T-3074's camera on the wall's plane (v 0), each laid once at its own sill: the light over the arch is the photograph's at x 877-931 px (u 17.97-19.37, its west edge 1.1 m from the corner, so its centre 18.67; the outline takes in the lit reveal of the jamb the camera sees, so the hole is built at the storey's 1.15 m), off the arch's axis (18.9) as the print draws it, its sill and head the storey's (sash_by_storey); and between the tower and it the print's second storey has two round-headed lights on a narrow pier where T-2911 laid one sash a storey at 15.6, their faces x 760-786 and 796-822 px (u 14.52-15.34 and 15.65-16.42, about 0.76 m each, a 0.31 m pier), their crowns at y 679 and 669 (7.77 and 7.76 m) and their sills at y 766 and 760 (6.10 and 6.06 m). The principal storey under them is plain ashlar on the print, so no window is cut there. The grade stays reconstructed for the column at 1.6 m, which the print does not resolve."
     },
     "north_bays": {
       "value": [
@@ -330,16 +348,16 @@
           "height_m": 2.4
         },
         {
-          "sill_above_floor_m": 0.6,
+          "sill_above_floor_m": 0.4,
           "width_m": 1.15,
-          "height_m": 1.8
+          "height_m": 2.3
         }
       ],
       "confidence": "inferred",
       "sources": [
         "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "The flank's windows read about 1.2 m wide through the solved camera (good to a few centimetres at that range), built at the K01 contract's widest ordinary sash, 1.15 m; their heights and sills reconstructed."
+      "note": "The flank's windows read about 1.2 m wide through the solved camera (good to a few centimetres at that range), built at the K01 contract's widest ordinary sash, 1.15 m. T-3097: the second storey's sills and heads read through T-3074's camera at each wall's own plane: the avenue front's light over the loggia (v 1.6) opens at y 634-766 px on the print, 7.76 to 5.48 m, and the 18th Street flank's light over the loggia's side arch at y 637-772 (x 920) and 643-773 (x 900), 7.69-7.70 to 5.37-5.43 m; so the storey's lights stand 0.4 m over its 5.0 m floor and 2.3 m tall, their heads at 7.7 m (they stood 5.6-7.4 m, about 20 px under the print's at the front). The principal storey's are T-2911's, reconstructed."
     },
     "basement_lights": {
       "value": {
@@ -418,14 +436,18 @@
     },
     "window_kit": {
       "value": {
-        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.sash_flat": "k06.opening.sash_transom_flat",
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
+          "well": false
+        },
+        "k01.opening.sash_round_plain": {
+          "variant": "k06.opening.basement_round",
           "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "The district's two-over-two sash; the plate's sash is too small to count lights."
+      "note": "The district's sash; the plate's sash is too small to count lights. T-3097: the Taylor print's two lights over the loggia (the front's and the 18th Street flank's) each carry a transom bar about 0.7-1.0 m under the head (y 680-700 px at the front, 676-694 on the flank), so the house's sash is K06's one-over-one under a fixed transom (its transom light is the kit's 0.45 m, under the print's); the round-headed pair on the flank (side_bays) is one plate light each, K06's fixed round-headed light, its well left out, where the print draws a bar near each spring that is not built."
     },
     "entrance_kit": {
       "value": {
