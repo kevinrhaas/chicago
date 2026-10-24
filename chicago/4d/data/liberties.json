@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 711,
+  "count": 712,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51939,6 +51939,40 @@
         "T-3074",
         "T-3003",
         "T-3076"
+      ]
+    },
+    {
+      "id": "L-glessner-stack-depth-3065",
+      "title": "Glessner's 18th Street stack taken back to 2.6 ft deep, its 7.1-ft face kept",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House north-gable stack is 2.6 ft deep (S 0-2.6), where it was 3.1, and its face stays 7.1 ft wide (W 15.25-22.35). **What is read, not invented.** HABS sheet 6 (1965, no known restrictions), the east elevation, draws the stack edge-on: 2.44 ft between its outline strokes at 73.59 px/ft. The record carried S 0.5-3.1 (2.6 ft) until earlier work moved the face to S 0, flush with the gable, and left the back where it was, so the stack grew half a foot deeper with no source for it. Taylor 2135 (1887-1889), refitted on the new box, puts the stack's back corner within 0.5 px of the photograph's edge, the two stones' ends and the north-west corner within about 1 px, and the stack's width 1.5 px over the picks where it was 8.6. HABS photograph 14, square to the face and on a camera that holds the east rake along its whole length, reads the 7.1 ft. **What is invented.** The 2.6 ft against the strokes' 2.44: the same reading gives the middle and south stacks 2.64 and 3.85 ft against their recorded 2.8 and 4.0, so 2.6 is the sheet read the way this record reads it, good to about +/-0.15 ft. HABS photograph 1 and HABS 17 read the north face 0.8-0.9 ft narrower than 7.1; neither is carried (a lit face's edge against a white sky on a level camera that reads this roof about 2 ft low, and a camera that stands about 8 px off the stack)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured plan of the stack at the roof, or a tape on today's stack."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner stack depth this work/the taylor before after image."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24 (T-3065)."
+        }
+      ],
+      "work_refs": [
+        "T-2214",
+        "T-3065",
+        "T-3058"
       ]
     },
     {
