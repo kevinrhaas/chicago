@@ -92,7 +92,7 @@ def main() -> int:
     r3 = next(w for w in p.rear_wings if w["id"] == "r3")
     u0, u1, v0, v1 = r2["rect"]
     check(r2.get("past_host") == ((6.0, 18.3),) and r2["host_span_m"] == (0.0, 6.0),
-          f"1801's east range stands on the gabled section's 6 m and runs past it to v 18.3 "
+          f"1801's east range stands on r3b's 6 m (the sheet's rectangle behind the gabled section) and runs past it to v 18.3 "
           f"(past {r2.get('past_host')}, on {r2['host_span_m']})")
     check("past_host" not in r3, "the gabled section, inside the main rear wall, runs past nothing")
     check(r2["roof"]["axis"] == "v", "the range's hip runs along it")
@@ -106,7 +106,7 @@ def main() -> int:
             "a wing standing on 0.5 m of its host wall", "under the 1.0 m a wing stands on")
     refused(lambda f: wing(f, "r2")["windows"].__setitem__("front", [4.0]), "a front light behind the host",
             "not 0.30 m clear inside")
-    refused(lambda f: wing(f, "r3")["windows"].__setitem__("front", [3.0]), "a front on a wing with none",
+    refused(lambda f: wing(f, "r3").setdefault("windows", {}).__setitem__("front", [3.0]), "a front on a wing with none",
             "has no front wall")
 
     # refusals: the corner turret
@@ -126,6 +126,12 @@ def main() -> int:
                                                  "s_m": 1.4}),
             "a corner turret on a main wall", "stands on a rear wing's wall")
 
+    # T-3001: r3b, the rest of the sheet's rectangle, is slated too and its hip stands where r2's
+    # would show past the cut, so it is decked flat here and the slate near r2's front is r2's own
+    st2, phase2 = load()
+    wing(phase2["form"], "r3b")["roof"] = {"kind": "flat", "overhang_m": 0.3, "fascia_m": 0.3,
+                                           "covering": "painted_tin_sheet"}
+    p = KP.from_phase(phase2, st2)
     a = K1.build(p, SID)
     stone = [a.prims[m] for m in ("rough_stone_trim", "brick", "limestone_trim") if m in a.prims]
     on_front = lambda lo, hi: lambda q: abs(q[0] - u1) < 2e-3 and lo - 1e-3 <= -q[2] <= hi + 1e-3
@@ -137,7 +143,7 @@ def main() -> int:
     slate = a.prims["wing_slate"]
     eave = [q for q in slate.pos if q[0] > u1 + 0.1 and -q[2] > 6.5]
     check(bool(eave), f"its slate runs past its front where it runs past the host ({len(eave)} vertices)")
-    cut = [q for q in slate.pos if q[0] > u1 + 0.1 and -q[2] < 5.9 and q[1] < 13.0]
+    cut = [q for q in slate.pos if u1 + 0.1 < q[0] < r3["rect"][0] - 0.1 and -q[2] < 5.9 and q[1] < 13.0]
     check(not cut, f"and is cut off at its front along the host ({len(cut)} vertices past it)")
 
     t = next(b for b in p.bays if b["id"] == "turret")

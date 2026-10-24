@@ -2970,7 +2970,9 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     its floors and its wall top in the main eave's place, so it rises TOWER_PAST_EAVE_M past
     the wing's own eave with its cap whole over the wing's roof, and the wing's lights behind
     it are dropped; the wing's eave is not cut for it and runs into its ring, as the main
-    eave does. Only a tower: a bay or an oriel on a wing is still the main walls' kit.
+    eave does. T-3001: a full-height projection too, standing to the wing's wall top with its
+    gable over it (1801's gabled section); a bay or an oriel on a wing is still the main walls'
+    kit.
     Refused where the wing's walling stands in the tower's back above its wall top (a gable
     end), and where a later wing stands on the same stretch of the wall."""
     wings = list(wings)
@@ -2980,9 +2982,14 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     for e in entries:
         if e["wall"] not in at:
             raise ParamError(f"bays: {e['wall']} is not a wall of one of this house's rear wings")
-        if kinds.get(e["variant"]) != "tower":
-            raise ParamError(f"bays: {e['id']} is a {kinds.get(e['variant'], e['variant'])} on {e['wall']}; a "
-                             f"rear wing's wall carries a K08 tower, past the wing's eave")
+        # T-3001: or a full-height projection, to the wing's own wall top (1801's gabled
+        # section on 18th Street, its coped gable and balcony over a shallow pavilion as the
+        # front's south one is, in the Taylor photograph); a bay or an oriel still is not
+        kind = kinds.get(e["variant"])
+        if kind != "tower" and e["variant"] != "k08.projection.full_height":
+            raise ParamError(f"bays: {e['id']} is a {kind or e['variant']} on {e['wall']}; a "
+                             f"rear wing's wall carries a K08 tower, past the wing's eave, or a full-height "
+                             f"projection")
         j, side = at[e["wall"]]
         w = wings[j]
         if side in _gable_walls(w["roof"]):
