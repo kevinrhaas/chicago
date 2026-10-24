@@ -2425,8 +2425,19 @@ class Assembly:
                               if abs(q[2]) < 1e-6})
                 pr.face([snap(x, y) for x, y in cap], back, bb, conf)
         # T-2289: everything the bay stands against its wall with, junctions to roof
-        self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
-                          for pr in built.prims.values() for q in pr.pos], "k08")
+        # T-3101: a CANTED cheek leaves the wall further along than the bay's cornice and deck
+        # reach over it, so one box round the whole bay took the front's coursing off the wall
+        # the cheek leaves bare under them (1811's north pier, rock-faced on its plate and its
+        # photographs, built as plain trim); such a bay seats its walls, up to their top, apart
+        # from the cornice and deck over them
+        pts = [q for pr in built.prims.values() for q in pr.pos]
+        parts = [pts]
+        if b.get("canted"):
+            wt = built.meta["wall_top_m"]
+            low = [q for q in pts if q[1] < wt - 0.01 and q[2] < 0.02]
+            parts = [low + [(min(q[0] for q in low), wt, 0.0)], [q for q in pts if q[1] >= wt - 0.01]]
+        for part in parts:
+            self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0) for q in part], "k08")
         roof = built.prims.get("roof")
         on_wall = [q[1] for q in roof.pos if abs(q[2]) < 1e-6] if roof else []
         top = max(on_wall) if on_wall else built.meta["eave_m"]

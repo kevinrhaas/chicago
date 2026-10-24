@@ -1,0 +1,82 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "view": "habs_1965",
+  "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
+  "glb_sha256": "f2246360f9b20443459c80fc1dc8025761d36ae509618562b73b90f06ad4e617",
+  "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
+  "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
+  "rendered_members": [
+    {
+      "structure_id": "coleman_ames_house_1811_prairie",
+      "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1427.317,
+        "local_n": -3242.783,
+        "rotation_deg": 179.444,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f2246360f9b20443459c80fc1dc8025761d36ae509618562b73b90f06ad4e617"
+    },
+    {
+      "structure_id": "kimball_house_1801_prairie",
+      "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1440.086,
+        "local_n": -3217.467,
+        "rotation_deg": 179.454,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -13.014062171830732,
+        0,
+        25.190899205620163
+      ],
+      "rotation_y": -0.0001745329251997703,
+      "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e"
+    }
+  ],
+  "group_sha256": "49783ad7e1e382f5378f30619256f9be4495cff19b88469c3c6fe19d7f82534b",
+  "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "what this picture is: Harold Allen's HABS photograph of June 1965, made of 1801 Prairie's front and south court face; 1811 is at its right edge only, from x 927 px to the frame at x 983, behind the court's iron fence and a young tree. The camera is fitted to 1801 (habs_1965.json's solve) and 1801 renders with it as context; 1801's own differences are its tickets' (T-3003, T-1890), not this record's",
+      "status": "not shown"
+    },
+    {
+      "what": "the date: a 1965 photograph is evidence of 1965 (AGENTS.md rule 11); what it shows of 1811, the north pier, is what the c. 1888 plate and the Chicagology photograph show, so nothing here is a later alteration copied into 1904",
+      "status": "not shown"
+    },
+    {
+      "what": "the NORTH PIER (T-3101): the front's north end stands as a pier of rock-faced brownstone about 0.93 m wide on the front's plane, from the north wall's arris to the bay's canted cheek, which leaves the wall there; the plate draws it at x 52-92 px (its arris and its junction with the cheek, v 0 and 0.93 through T-2541's camera), the Chicagology photograph at x 110-185 px and the 1965 HABS photograph at x 927-972 px. The build ran the canted cheek from 0.3 m off the corner (the kit's least corner pier, the 1911 sheet's trace drawing about 0.16 m, which at its 50 ft scale cannot part 0.16 m from 0.93), so the cheek covered most of the pier, and K01's coursing stopped one box round the whole bay (its cornice reaches the wall at v 0.37), leaving the strip plain dressed trim. Now the cheek leaves the wall at v 0.93 (`cant_left_m` 1.36, the front's north corner unmoved at v 2.29) and a canted bay seats its walls apart from its cornice, so the pier is coursed rock-faced from grade to the wall head: it renders at x 51-92 px on the plate, 113-190 on the Chicagology print and 928-970 on the HABS print. The cheek's light stays one a storey, 0.75 m, now on a 1.69 m face (`at` 0.1565, 1.0 m along it; the front's two lights keep their places, `at` 0.427 and 0.7229)",
+      "status": "fixed"
+    },
+    {
+      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own; on this print the cap stands at y 257-290 px with the slate rising behind it to the frame, which through this camera reads about 7.9-8.6 m, but its scale is 1801's carried across the court and 1811's grade is hidden, so the height is the plate's and the Chicagology print's",
+      "status": "open"
+    },
+    {
+      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band (here the band at about y 425 px; the print's pier has none)",
+      "status": "open"
+    },
+    {
+      "what": "the downpipe down the pier's junction with the canted cheek, from the cap to grade (the Chicagology print's x 110-115 px dark rod, the HABS print's x 972-975 px): the build hangs none there",
+      "status": "open"
+    },
+    {
+      "what": "the rest of 1811: its canted cheek past its first few centimetres, the bay, the entrance, the gable and the roof are out of frame; colour (a monochrome print, though the pier's dark tone is the brownstone's)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
