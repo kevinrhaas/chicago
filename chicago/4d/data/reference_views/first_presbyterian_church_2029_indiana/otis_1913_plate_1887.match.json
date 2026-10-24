@@ -2,7 +2,7 @@
   "structure_id": "first_presbyterian_church_2029_indiana",
   "view": "otis_1913_plate_1887",
   "glb": "assets/gltf/first_presbyterian_church_2029_indiana__draft_1904.glb",
-  "glb_sha256": "ff489f0fe85f8c2d37bf86a4391efaa2ea20a10cb2883084b5aa3c388fb4a23c",
+  "glb_sha256": "5007a5be41acb7a36265919dbc8777535806d03fc841db1bd79be8364ad41287",
   "camera_sha256": "0a0d607f2335c50326c51b62cb768e445520aca1090923831e2c985f7f91c938",
   "photo_sha256": "6b3dc7eafeb0de4608f0ec51fd0087a668f0f31502bd1f2280e6340209ccf6f3",
   "side_by_side": "docs/RESEARCH/photo-match/first_presbyterian_church_2029_indiana/otis_1913_plate_1887-side-by-side.jpg",
@@ -29,7 +29,7 @@
       "how": "T-3103: the gable springs at v 2.0 (x 140 px, the plate's kneeler) over a 2.0 m north strip with its own flat roof behind a cornice at the eave, the front's north corner buttress stepping at 8.3 m and 12.7 m to a pinnacle at 16.6 m beside the kneeler; the render's apex now stands over v 12.6, on the plate's"
     },
     {
-      "what": "the gable's verge: a deep coping on a corbel table down both slopes, a kneeler at each foot and a cross on the apex (to 33.0 m); the render's gable has a plain edge",
+      "what": "the gable's verge: a deep coping on a corbel table down both slopes, a kneeler at each foot and a cross on the apex; the render's gable had a plain edge. The cross's top stands at y 831 px, 34.6 m, its crossbar (y 857, 33.2 m, the 33.0 m first read as its top) about 2.8 m across with a ring about 0.75 m in radius round the crossing; T-3104 raised it to 34.65 m (cross_m 3.8) with those arms and ring, which the 1912 plate's cross confirms. Its fleuried arm ends and knotted foot are drawn square",
       "status": "fixed",
       "how": "T-3103: a 0.45 m coping down both slopes from the kneelers (14.2-15.9 m, the plate's y 1180-1213) to the apex at 30.9 m, a corbel block every 0.7 m under it, and the cross with its ring to 33.0 m (the plate's y 860)"
     },
@@ -69,7 +69,7 @@
       "how": "T-3103: the north strip (v 0-2.0) stands to the eave under its own flat roof with the corner buttress's pinnacle, and the brick stack behind it rises to 18.1 m (the plate's x 113-130, y 1140)"
     },
     {
-      "what": "the south side seen past the tower (a lower roof and wall at x 640-680 px): the south aisle's or the flank's eave behind the tower; the 1912 plate shows that flank and is T-3067's",
+      "what": "the south side seen past the tower (a lower roof and wall at x 640-680 px): the flank's eave behind the tower; the 1912 plate (T-3104) does not show that flank either, screened by the buildings across 21st Street",
       "status": "not shown",
       "how": "Ruled not shown on this plate: the sliver at x 640-680 px is 21st Street's flank, standing behind the tower's south buttresses about 130 m from the camera; the Otis book's 1912 plate (scan leaf n116) shows that flank from the south-east, and T-3104 ingests it, solves its camera and builds the flank's buttresses, corbel table and openings to it"
     },
