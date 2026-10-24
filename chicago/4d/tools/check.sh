@@ -1065,6 +1065,12 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
 
+# T-3064. A wall gable's pinnacle shaft may stop under its block (1811's north pinnacle off the
+# 1888 plate): a band below the face's eave, a scaled stone leaning in from it to the block's
+# plinth, and the eave's end dying into that stone. Each refusal says why.
+step "a K01 wall gable's pinnacle stops under its block in scaled stone (T-3064)" \
+  python3 tools/test_k01_pinnacle_under_block.py
+
 # T-2998. ...and 1801 Prairie's south pavilion's coped stone gable, from the Taylor photograph:
 # a K08 projection's roof may be a `gable`, its front carried up between kneelers under raking
 # stone copings, a slope from each kneeler to a ridge on its middle run back to the wall, a
