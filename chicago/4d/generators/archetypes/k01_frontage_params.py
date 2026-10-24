@@ -198,6 +198,10 @@ class K01FrontageParams:
     # corbelled out to the square under the wall head ({"corner", "radius_m"}; 1811's, off
     # the 1888 plate) — empty for every other house, whose corners stand square
     round_corner: dict = field(default_factory=dict)
+    # T-3112: the street front's low-s end stood as a pier capped under the wall head, a slate
+    # weathering over its cap and the eave brought in over it ({"to_m", "band_m", "cap_m",
+    # "band_proud_m", "cap_proud_m", "weathering_pitch_deg"}; 1811's, off its three pictures)
+    front_pier: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -258,7 +262,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers", "round_corner",
+    "slope_dormers", "round_corner", "front_pier",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -3279,6 +3283,53 @@ def round_corner_gap(rc: dict, depth: float, width: float, b: dict):
     return (s0, end, round(gap, 4)) if rc["corner"] == "north" else (end, s1, round(gap, 4))
 
 
+FRONT_PIER_KEYS = {"to_m", "band_m", "cap_m", "band_proud_m", "cap_proud_m", "weathering_pitch_deg"}
+
+
+def _front_pier(fp, stone, openings, bays, rainwater, round_corner, roof_form, mansard, eave) -> dict:
+    """T-3112: the street front's low-s end (s 0 to `to_m`) stood as a PIER of the front's
+    stone, coursed from grade in its own unbroken courses (no belt across it), stopped under
+    the wall head by a dressed band (`band_m`, its bed and top) and a moulded cap (`cap_m`),
+    each proud of the pier's faces and returned along the side wall; over the cap a slate
+    weathering rising back from the cap's front at `weathering_pitch_deg`, the street front,
+    its cornice and the roof's eaves cut back over the pier to that slope. 1811 Prairie's,
+    where its 1888 plate, the Chicagology photograph and the 1965 HABS photograph all cap the
+    pier below the bay's cornice with sky over it. Empty for every other house."""
+    if not fp:
+        return {}
+    if set(fp) != FRONT_PIER_KEYS:
+        raise ParamError(f"front_pier takes {sorted(FRONT_PIER_KEYS)}, not {sorted(fp)}")
+    if not stone:
+        raise ParamError("front_pier is laid in the front's stone: it needs a stone_front")
+    if mansard or roof_form not in ("hip", "gable"):
+        raise ParamError("front_pier cuts a hip's or a gable's eave back over it, not a mansard's or a flat roof's")
+    if round_corner and round_corner.get("corner") == "south":
+        raise ParamError("front_pier stands at the front's low-s end, where round_corner south would round it")
+    to = float(fp["to_m"])
+    (b0, b1), (c0, c1) = (tuple(float(x) for x in fp[k]) for k in ("band_m", "cap_m"))
+    bp, cp, pitch = float(fp["band_proud_m"]), float(fp["cap_proud_m"]), float(fp["weathering_pitch_deg"])
+    if not 0.5 <= to <= 1.5:
+        raise ParamError(f"front_pier.to_m {to}: a pier 0.5-1.5 m wide at the front's low-s end")
+    if not (3.0 <= b0 and 0.08 <= b1 - b0 <= 0.3 and b1 + 0.1 <= c0 and 0.1 <= c1 - c0 <= 0.4 and c1 <= eave - 0.8):
+        raise ParamError(f"front_pier: the band {b0}-{b1} m (0.08-0.3 m deep, from 3 m up) stands 0.1 m or more "
+                         f"under the cap {c0}-{c1} m (0.1-0.4 m deep), its top 0.8 m or more under the eave {eave}")
+    if not (0.02 <= bp <= 0.1 and bp + 0.03 <= cp <= 0.25):
+        raise ParamError(f"front_pier: the band 0.02-0.1 m proud ({bp}), the cap 0.03 m prouder, at most 0.25 ({cp})")
+    if not 15.0 <= pitch <= 45.0:
+        raise ParamError(f"front_pier.weathering_pitch_deg {pitch}: 15-45 deg")
+    for b in bays:
+        if b["wall"] == "k01.wall.street_front" and b["span_m"][0] < to - 1e-6:
+            raise ParamError(f"front_pier to {to} m: the bay {b['id']} stands on it from s {b['span_m'][0]}")
+    for o in openings:
+        if o.wall == "k01.wall.street_front" and o.s_m - o.width_m / 2 < to + 0.1:
+            raise ParamError(f"front_pier to {to} m: {o.component} at s {o.s_m} is cut into it")
+    for x in (rainwater or {}).get("front_pipes", []):
+        if x.get("on") != "return" and x["s_m"] < to and x["head_m"] > b0 - 0.01:
+            raise ParamError(f"rainwater.front_pipes {x}: a pipe down the pier has its head under the band at {b0}")
+    return {"to_m": to, "band_m": (b0, b1), "cap_m": (c0, c1), "band_proud_m": bp, "cap_proud_m": cp,
+            "weathering_pitch_deg": pitch}
+
+
 def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_belts, frontispiece) -> dict:
     """T-3006: a corner of the front block rounded on a radius from grade (1811's south corner
     on the 1888 plate, K01's 'north'), laid in the front's own stone and corbelled out to the
@@ -4676,6 +4727,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("stone_finish requires a flat roof and a stone front")
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
+    front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
+                             mansard_roof, pf + sum(heights))
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -4733,7 +4786,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
-        round_corner=round_corner,
+        round_corner=round_corner, front_pier=front_pier,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

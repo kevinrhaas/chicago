@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2260, ts: '2026-10-24T21:45:38.622Z', date: 'Oct 24, 2026, 4:45 PM CT', title: '1811 Prairie\'s north pier capped below the bay, sky above it', kind: 'improvement',
+    items: [
+      'The narrow stone pier at the front\'s north end now stops below the bay\'s cornice. It has a moulded cap, a band under the cap, and a small slate top, as in the 1888 plate and the photographs.',
+      'The main roof\'s eave no longer runs out over the pier, so there is sky above the cap.',
+      'The pier is rock-faced all the way up. The pale string course no longer crosses it.',
+      'A downpipe now runs down the corner where the pier meets the bay.',
+    ] },
   { v: 2259, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'First Presbyterian Church\'s roof and cross, checked against a 1912 photograph', kind: 'improvement',
     items: [
       'The church at Indiana Avenue and 21st Street now has two small gabled vents on the south side of its roof, and a short chimney on top of its east gable. A 1912 photograph of the church shows both.',
