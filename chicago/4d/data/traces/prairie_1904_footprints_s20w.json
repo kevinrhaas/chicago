@@ -60,7 +60,7 @@
    ],
    "census_aliases": [],
    "census_decision_1904": [
-    "phase_unresolved"
+    "backcast_1886"
    ],
    "lot_depth_m": 26.76,
    "census_ids_not_traced": [],
@@ -71,7 +71,7 @@
      "census_ids": [
       "s20w-1601-front"
      ],
-     "for_1904": "phase_unresolved",
+     "for_1904": "not_1904",
      "note": null,
      "area_m2": 320.42,
      "from_street_m": [0.18, 26.66],
@@ -2021,7 +2021,7 @@
    ],
    "census_aliases": [],
    "census_decision_1904": [
-    "phase_unresolved"
+    "present_as_mapped"
    ],
    "lot_depth_m": 54.21,
    "census_ids_not_traced": [],
@@ -2032,7 +2032,7 @@
      "census_ids": [
       "s20w-1619-front"
      ],
-     "for_1904": "phase_unresolved",
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 196.05,
      "from_street_m": [7.86, 34.86],
@@ -2228,7 +2228,7 @@
      "census_ids": [
       "s20w-1619-rear"
      ],
-     "for_1904": "phase_unresolved",
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 118.72,
      "from_street_m": [43.43, 54.05],
@@ -3921,7 +3921,7 @@
    ],
    "census_aliases": [],
    "census_decision_1904": [
-    "phase_unresolved"
+    "backcast_1886"
    ],
    "lot_depth_m": 54.55,
    "census_ids_not_traced": [],
@@ -3932,7 +3932,7 @@
      "census_ids": [
       "s20w-1727-front"
      ],
-     "for_1904": "phase_unresolved",
+     "for_1904": "not_1904",
      "note": null,
      "area_m2": 2001.28,
      "from_street_m": [-0.03, 54.54],
