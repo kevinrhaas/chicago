@@ -1,0 +1,27 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "source_id": "chicagology_1811_ames_photo",
+  "library_image": "cgn-1811-coleman-ames-photo",
+  "photo": "../../sources/assets/ames_1811_photos_t3052/ames_1811_chicagology_photo.jpg",
+  "image_px": [
+    1303,
+    1598
+  ],
+  "principal_px": [
+    1530.9,
+    1165.4
+  ],
+  "focal_px": 1569.2,
+  "eye": [
+    26.04,
+    17.22,
+    1.35
+  ],
+  "yaw_deg": -90.9,
+  "sun_uvy": [
+    0.45,
+    0.55,
+    0.7
+  ],
+  "solve": "Solved by T-3052 from the photograph itself; it is NOT the 1888 plate's negative (the Prairie library says so, and it measures so: warped onto this print by the similarity that lands the front, 1.88x and -0.57 degrees, the plate's tree trunk stands about 70 px right of this one's and its south stacks about 65 px left, the parallax of a camera set up a little way off; the front's planes agree to 1-3 px across 180 tiles). A view camera's photograph: the verticals stand vertical and the street front's horizontals run level, so the camera is level and square to the front (the solve's free yaw comes out at -90.9). The south flank's horizontals converge on (1531, 1165) px, which is the principal point (a shifted front, right of the print) and the horizon: the four longest flank segments, (1006, 937)-(1096, 975), (1129, 562)-(1165, 612), (1053, 451)-(1123, 553) and (1169, 748)-(1202, 783), meet there within 1.8-3.6 degrees x 0.2 of their own direction. Eye, yaw, focal length and principal point were then fitted by least squares (scipy) to 47 readings: the bay front's north corner (the 1911 sheet's u 8.60, v 2.29) at x 227 px and south corner (u 8.60, v 5.99) at x 557; the canted face's north end (u 7.51, v 0.16) at x 134; the bay's foot at grade, y 1285; 36 points on the bay front and the entrance face at the heights the plate's T-2541 camera reads (sills, heads, cornice, gable apex 13.2 m, arch springing and crown), carried onto this print through the plate-to-photograph similarity, which the tile check shows good to 1-3 px on those planes; and three places on the ground the 1904 street section fixes, the curb (13.5 ft out from the lot line, u 19.24) at y 1470 px, the young tree's foot in the parkway (u about 18.2) at y 1430 and the lamp's foot beside it. Result: eye u 26.04, v 17.22 (17.4 m in front of the bay, 6.8 m south of the south wall: on the far side of the roadway's crown from the house, a little further out and south than the plate's eye), 1.35 m over the house's grade; f = 1569 px; residuals 2.2 px rms, the front's 36 points 2.4 rms (6.9 px at worst), the two corners 2.2 and 2.5, the canted end 3.4, the bay's foot 0.8, the curb 0.1, the tree 0.5. Scale at the bay's front 89.2 px/m. WHAT IT DOES NOT FIT, AND WHY THAT IS THE BUILDING (T-3079): the flank. Through this camera the brick south wall on the sheet's straight line (v 10.4) reaches x 1312 px at the sheet's rear (u -18.4), where the print shows the flank ending at x 1197 and the '3B'/'2B' step at x 1160 would stand at 1285 (residuals 118 and 130 px). No camera fits both: freed to fit those two, the solve walks out to u 46.8 (37 m in front of the bay) and then misses the canted end by 63 px, the curb by 62 and the tree by 46 (it would stand the tree in the middle of the roadway). The ground and the front agree on this near camera, as the plate's near camera agrees with the plate's front; so the disagreement is in what the flank was when both pictures were taken, not in either camera. Light: the front and the south flank are both lit and the canted north face is in shade, the stair's cheeks throwing their shadows north-east: a sun from the south-west and fairly high. Uncertainty: the corners and the curb are read to about 2 px, so the eye's distance is good to about +-1 m and its place along the street to about +-0.5 m."
+}

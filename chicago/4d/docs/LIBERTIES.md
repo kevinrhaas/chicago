@@ -29263,6 +29263,17 @@ imbricated scales whose stones it does not resolve; the stone's top is the block
 foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
 the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
 its plinth twice (x 105 and 108).
+**Revised:** 2026-10-24 (T-3100, piece 1 of T-3052, of T-2920; T-3079). The bay's balustrade is pierced. The
+Chicagology photograph (`chicagology_1811_ames_photo`), a second negative at about twice the plate's
+scale, shows its front run as one continuous pierced panel of interlaced fretwork between plain end
+blocks, its openings about 0.25 m apart in two rows; the close-set bars at 0.12 m are replaced by K08's
+pierced stone panel (T-2930), one panel a run, a diagonal lattice of 0.05 m straps at 0.24 m with two
+diamonds to its height. What that build invents: the lattice for the interlace (its loops are not
+carved; the diamonds carry its pierced light and shade at its spacing), the straps' 0.05 m, and the
+same pattern on the canted runs, which the photograph sees only edge-on. The photograph's camera was
+solved on its own (`data/reference_views/coleman_ames_house_1811_prairie/chicagology_photo.json`) and
+agrees with T-2541's near camera on the plate; the south flank it shows, shorter than the 1911 sheet's,
+is not built from it (both pictures are of about 1888): T-3099 holds that question.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -32235,6 +32246,81 @@ drawing of the house's carved work.
 **Ticket:** T-3002.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3002).
+
+### L-glessner-alley-ridge-3096 — Glessner's stable cross ridge brought down its own plane; the alley gable kept as a parapet
+
+**Decision:** the `glessner_house` stable's E-W cross ridge over the alley end stands at 36.5 ft ng at S 12.31,
+where it stood at 38.6 ft at S 14.6, on the same 42.5-degree north plane; the alley gable's wall keeps its apex
+at S 14.6, 38.6 ft, and stands 1.0 ft over that line as a parapet with a stone coping, proud of the lowered roof.
+**What is read, not invented.** T-3095's ruling A: the c. 1887 Cornell print counts 41.7-43.9 courses and HABS
+photograph 1 counts 40.6-42.7 between the eave and the cresting's foot on that plane, and T-2758's six
+measured-control cameras put the ridge where the count does (median 0.12 m apart) only if the ridge comes down
+the plane. On the rebaked GLB the model lays 41.8-43.9 courses at 5 in through every measured fit (it laid about
+51). Both prints draw the alley gable's coping standing proud along its rakes with its apex at the cresting.
+**What is invented.** The parapet's 1.0 ft over the wall line is the 18th Street gable's on the same stable, not
+read on the alley face; the coping's top at the apex (about 40.2 ft) falls inside T-2758's 38.75-40.63 ft read
+through the Cornell fits. The apex keeps its S 14.6, which T-3095 left to be re-read (one camera put it at
+S 14.9-16.7). The cupola stays on the north range's S 14.6 line (T-2228); the lowered ridge runs into its west
+face 0.14 m inside its north side. East of the ridge's end, under the cupola, the 18th Street gable's west plane
+meets the slope behind it in a seam of at most 4 cm that nothing shows. The south slope flattens from about
+47 to 41 degrees; no camera here sees it.
+**What is left open.** The roll foot lies within 0.26 m of the prints' through the three HABS 1 doorway fits
+and the Cornell level fit, but 0.21-0.44 m under the Cornell pitched fit's, which the level fit contradicts by
+0.46-0.49 m on the same columns (T-3102). HABS 1's eye-height and lean fits put the print's eave 0.39-0.45 m
+under the model's, as they did before this rebuild (0.38-0.42 m): the eave did not move.
+**How to resolve:** T-3102; a measured section through the stable's alley end.
+**Ticket:** T-3096 (T-3094's second piece; ruled by T-3095).
+**Review:** `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3096).
+
+### L-k01-1812-wheeler-windows-3091 — 1812 Prairie's front windows to the Levy and c. 1955 photographs: the large window's unequal lights, middle arch and fanlight bars, the small window's patterned light, the long and short voussoirs, the squared transom lights and the projection's caps, pier and hood
+
+**Decision:** The front windows of George H. Wheeler's house at 1812 Prairie (T-3091, piece 2 of
+T-3035) are built as Albert Levy's photograph shows them. The third storey's large window stands
+in three unequal lights, the middle one wider and under a low moulded arch of its own, a heavy bar
+running on from each post's head to the head, and a concentric bar crossing the fanlight's radial
+ones; the small arched window is filled with a patterned light; both arches' voussoirs run long
+and short in turn into the brick; the second storey's north window has its transom lights glazed
+in small squares; and the south projection's paired window stands on a heavy pier of a mullion,
+under a moulded hood with a squared transom light over each sash, its quoined jambs rising past
+the head to carved caps under the cornice. The K06 kit learns `light_ratios`, `post_m` and
+`middle_arch` (a fanlight's middle arch, post bars and concentric bar), `transom_grid` (a transom
+light's lattice over one glass), and `border_m`, `border_pane_m` and `roundel_m` (a leaded light's
+border and medallion), in three new variants and the large window's own; a leaded light outside
+the restriction's positions is allowed only where a source record pictures it (`pictured_by`).
+K01 learns `short_m` on a street window's voussoirs and `blocks` in a bay's dress. Every other
+house re-emits as before (none names any of them).
+**What is read, not invented.** Through Levy's camera
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the main
+front, 92.4 at the projection's face): the large window's glass about 40, 120 and 43 px across
+between posts about 17-18 px (0.2 m), the middle arch's crown about 14 px (0.16 m) over the side
+lights' transoms, the post bars leaning about 23 degrees from upright, the concentric bar about
+22 px (0.25 m) inside the glass's crown; the small window's border about 10-12 px (0.12 m) wide
+round a figured field, deep in a dark reveal; the long and short stones' stepped ends; the north
+window's transom lights a lattice of small squares about 5 px (0.055 m); and the projection's
+sash heads at y 810 (8.04 m), the stone bar over them to y 793 (8.23 m), the transom lights to
+y 755 (8.64 m), the mullion about 22 px (0.24 m), the hood x 425-655 px, and the caps at
+y 740-765 px (8.53-8.80 m), x 385-425 and 655-695 px.
+**What is invented.** The small window's pattern past its border: diamond quarries 0.12 by 0.16 m
+and a 0.2 m roundel stand for a figure the print does not resolve, and the cames are iron-dark;
+its 0.2 m reveal; the short voussoirs' 0.28 and 0.26 m (about two thirds of the long, where the
+print's ends fall) and their ends cut on the ring's radii, where the print's step square into the
+brick courses; the lattices' counts (eight by eight in the north window's transom lights, twelve by
+four in the projection's), the print showing small squares in a panel smaller than the light; the
+eleven radial bars; the caps' carving, a swag in the print, built as a raised oval boss on a block
+0.05 m proud; the pier's 0.04 m and the hood's 0.07 m proud and 0.1 m height; and every bar's
+section, which is the kit's.
+**What is built otherwise than read.** The print's middle arch springs from the posts a little
+below the side lights' transoms; the build's springs on the transom bar. The c. 1955 photograph
+shows the small window glazed as a plain sash, taken for a later change: the patterned light is
+built for 1904 from Levy's print.
+**How to resolve:** Burnham & Root's drawings, or a closer photograph of the third storey, would
+fix the small window's design, the lattices and the carving.
+**Ticket:** T-3091.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3091).
 
 ### L-kimball-1801-upper-lights-3097 — 1801 Prairie's second-storey lights re-read under the raised cornice; the 18th Street flank's round-headed pair
 

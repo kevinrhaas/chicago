@@ -1,0 +1,780 @@
+{
+ "ticket": "T-3102",
+ "not_a_reading": "A re-reading of the Cornell print through T-2758's controls at pinned tilts; no roof point is fitted and no geometry changes.",
+ "sources": {
+  "cornell": "cornell_adw_glessner_stable_1887",
+  "habs01": "habs_glessner_photo_01_nw_1963",
+  "fits": "data/comparisons/glessner/stable-roof-heights.json (T-2758)"
+ },
+ "model": {
+  "ridge_W": 141.0,
+  "ridge_ft": 38.6,
+  "gable_coping_apex_ft": 39.6,
+  "cupola_centre_WS": [
+   141.0,
+   14.6
+  ],
+  "cupola_apex_ft": 48.2
+ },
+ "cupola_as_built": {
+  "half_ft": 2.75,
+  "overhang_ft": 0.75,
+  "eave_ft": 41.9,
+  "apex_ft": 48.2,
+  "centre_S": 14.6
+ },
+ "plumb_lines": {
+  "pipe_east": {
+   "what": "downpipe at the foot of the north gable, east of the carriage door",
+   "at_px": [
+    499.5,
+    770.0
+   ],
+   "du_dv": -0.0272,
+   "std_err": 0.002,
+   "track_rms_px": 1.61,
+   "samples": 80
+  },
+  "pipe_nw": {
+   "what": "downpipe on the stable's NW corner",
+   "at_px": [
+    1089.6,
+    810.0
+   ],
+   "du_dv": -0.0155,
+   "std_err": 0.001,
+   "track_rms_px": 2.23,
+   "samples": 155
+  },
+  "pipe_west": {
+   "what": "downpipe on the west wall at the south gable's foot",
+   "at_px": [
+    1493.8,
+    937.5
+   ],
+   "du_dv": -0.0037,
+   "std_err": 0.0025,
+   "track_rms_px": 1.96,
+   "samples": 79
+  }
+ },
+ "t2758_fits": {
+  "roof_pitched": {
+   "tilt_deg": 8.0,
+   "controls_rms_px": 3.65,
+   "roof": {
+    "gable_coping_apex_ft": 39.54,
+    "cupola_apex_ft_at_model_centre": 47.84,
+    "cupola_centre_S_on_ridge_plane": 13.18,
+    "west_gable_apex_ft": 40.63
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0401,
+    "pipe_nw": -0.0042,
+    "pipe_west": 0.0201
+   },
+   "plumb_rms": 0.0169
+  },
+  "roof_level": {
+   "tilt_deg": 0.0,
+   "controls_rms_px": 4.76,
+   "roof": {
+    "gable_coping_apex_ft": 38.25,
+    "cupola_apex_ft_at_model_centre": 46.45,
+    "cupola_centre_S_on_ridge_plane": 13.02,
+    "west_gable_apex_ft": 38.75
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0145,
+    "pipe_nw": -0.0145,
+    "pipe_west": -0.0145
+   },
+   "plumb_rms": 0.0096
+  }
+ },
+ "valley": {
+  "0deg": {
+   "controls_rms_px": 4.76,
+   "principal_v_px": 982.2,
+   "focal_px": 2189.0,
+   "roof": {
+    "gable_coping_apex_ft": 38.25,
+    "cupola_apex_ft_at_model_centre": 46.45,
+    "cupola_centre_S_on_ridge_plane": 13.02,
+    "west_gable_apex_ft": 38.75
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0145,
+    "pipe_nw": -0.0145,
+    "pipe_west": -0.0145
+   },
+   "plumb_rms": 0.0096,
+   "camera": {
+    "eye": [
+     -14.4999,
+     42.6375,
+     1.6354
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.757455,
+      -0.652727,
+      0.014483
+     ],
+     [
+      0.010971,
+      0.009454,
+      0.999895
+     ],
+     [
+      0.652796,
+      -0.757534,
+      0.0
+     ]
+    ],
+    "focal_px": 2188.96,
+    "principal_px": [
+     900.0,
+     982.23
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 2.91,
+     "overhang_ft": 0.62,
+     "eave_ft": 41.78,
+     "apex_ft": 47.95,
+     "centre_S": 13.68
+    },
+    "cornell_alone_rms_px": 2.43,
+    "joint": {
+     "half_ft": 2.64,
+     "overhang_ft": 0.69,
+     "eave_ft": 41.83,
+     "apex_ft": 47.85,
+     "centre_S": 13.98
+    },
+    "joint_rms_px": 4.75
+   }
+  },
+  "1deg": {
+   "controls_rms_px": 4.46,
+   "principal_v_px": 945.4,
+   "focal_px": 2167.2,
+   "roof": {
+    "gable_coping_apex_ft": 38.4,
+    "cupola_apex_ft_at_model_centre": 46.72,
+    "cupola_centre_S_on_ridge_plane": 12.99,
+    "west_gable_apex_ft": 38.92
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0179,
+    "pipe_nw": -0.0131,
+    "pipe_west": -0.0098
+   },
+   "plumb_rms": 0.0066,
+   "camera": {
+    "eye": [
+     -14.3175,
+     42.3626,
+     1.6194
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.756514,
+      -0.653814,
+      0.014624
+     ],
+     [
+      -0.00035,
+      0.022767,
+      0.999741
+     ],
+     [
+      0.653977,
+      -0.756313,
+      0.017452
+     ]
+    ],
+    "focal_px": 2167.22,
+    "principal_px": [
+     900.0,
+     945.41
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 2.93,
+     "overhang_ft": 0.62,
+     "eave_ft": 41.82,
+     "apex_ft": 48.07,
+     "centre_S": 13.74
+    },
+    "cornell_alone_rms_px": 2.41,
+    "joint": {
+     "half_ft": 2.65,
+     "overhang_ft": 0.7,
+     "eave_ft": 41.86,
+     "apex_ft": 47.94,
+     "centre_S": 14.03
+    },
+    "joint_rms_px": 4.85
+   }
+  },
+  "2deg": {
+   "controls_rms_px": 4.18,
+   "principal_v_px": 908.7,
+   "focal_px": 2153.4,
+   "roof": {
+    "gable_coping_apex_ft": 38.57,
+    "cupola_apex_ft_at_model_centre": 46.97,
+    "cupola_centre_S_on_ridge_plane": 12.97,
+    "west_gable_apex_ft": 39.11
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0213,
+    "pipe_nw": -0.0117,
+    "pipe_west": -0.0051
+   },
+   "plumb_rms": 0.0041,
+   "camera": {
+    "eye": [
+     -14.202,
+     42.1933,
+     1.6082
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.755986,
+      -0.654421,
+      0.014761
+     ],
+     [
+      -0.011691,
+      0.036044,
+      0.999282
+     ],
+     [
+      0.654483,
+      -0.755271,
+      0.034899
+     ]
+    ],
+    "focal_px": 2153.42,
+    "principal_px": [
+     900.0,
+     908.69
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 2.95,
+     "overhang_ft": 0.62,
+     "eave_ft": 41.85,
+     "apex_ft": 48.18,
+     "centre_S": 13.81
+    },
+    "cornell_alone_rms_px": 2.4,
+    "joint": {
+     "half_ft": 2.66,
+     "overhang_ft": 0.7,
+     "eave_ft": 41.88,
+     "apex_ft": 48.02,
+     "centre_S": 14.1
+    },
+    "joint_rms_px": 4.94
+   }
+  },
+  "3deg": {
+   "controls_rms_px": 3.94,
+   "principal_v_px": 871.7,
+   "focal_px": 2147.1,
+   "roof": {
+    "gable_coping_apex_ft": 38.73,
+    "cupola_apex_ft_at_model_centre": 47.2,
+    "cupola_centre_S_on_ridge_plane": 12.97,
+    "west_gable_apex_ft": 39.32
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0247,
+    "pipe_nw": -0.0103,
+    "pipe_west": -0.0004
+   },
+   "plumb_rms": 0.0038,
+   "camera": {
+    "eye": [
+     -14.1502,
+     42.124,
+     1.6016
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.755862,
+      -0.654561,
+      0.01489
+     ],
+     [
+      -0.023024,
+      0.049301,
+      0.998519
+     ],
+     [
+      0.654326,
+      -0.7544,
+      0.052336
+     ]
+    ],
+    "focal_px": 2147.1,
+    "principal_px": [
+     900.0,
+     871.67
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 2.96,
+     "overhang_ft": 0.63,
+     "eave_ft": 41.86,
+     "apex_ft": 48.28,
+     "centre_S": 13.89
+    },
+    "cornell_alone_rms_px": 2.41,
+    "joint": {
+     "half_ft": 2.67,
+     "overhang_ft": 0.7,
+     "eave_ft": 41.9,
+     "apex_ft": 48.09,
+     "centre_S": 14.18
+    },
+    "joint_rms_px": 5.03
+   }
+  },
+  "4deg": {
+   "controls_rms_px": 3.74,
+   "principal_v_px": 833.9,
+   "focal_px": 2148.4,
+   "roof": {
+    "gable_coping_apex_ft": 38.9,
+    "cupola_apex_ft_at_model_centre": 47.42,
+    "cupola_centre_S_on_ridge_plane": 12.97,
+    "west_gable_apex_ft": 39.54
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0281,
+    "pipe_nw": -0.0089,
+    "pipe_west": 0.0043
+   },
+   "plumb_rms": 0.006,
+   "camera": {
+    "eye": [
+     -14.163,
+     42.1563,
+     1.5998
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.756151,
+      -0.654225,
+      0.015008
+     ],
+     [
+      -0.034325,
+      0.062554,
+      0.997451
+     ],
+     [
+      0.653496,
+      -0.753709,
+      0.069756
+     ]
+    ],
+    "focal_px": 2148.35,
+    "principal_px": [
+     900.0,
+     833.93
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 2.99,
+     "overhang_ft": 0.63,
+     "eave_ft": 41.88,
+     "apex_ft": 48.37,
+     "centre_S": 13.98
+    },
+    "cornell_alone_rms_px": 2.43,
+    "joint": {
+     "half_ft": 2.68,
+     "overhang_ft": 0.71,
+     "eave_ft": 41.91,
+     "apex_ft": 48.15,
+     "centre_S": 14.26
+    },
+    "joint_rms_px": 5.1
+   }
+  },
+  "5deg": {
+   "controls_rms_px": 3.61,
+   "principal_v_px": 794.9,
+   "focal_px": 2157.8,
+   "roof": {
+    "gable_coping_apex_ft": 39.06,
+    "cupola_apex_ft_at_model_centre": 47.61,
+    "cupola_centre_S_on_ridge_plane": 12.99,
+    "west_gable_apex_ft": 39.78
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0314,
+    "pipe_nw": -0.0075,
+    "pipe_west": 0.0089
+   },
+   "plumb_rms": 0.009,
+   "camera": {
+    "eye": [
+     -14.246,
+     42.299,
+     1.6034
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.756882,
+      -0.653377,
+      0.015116
+     ],
+     [
+      -0.04556,
+      0.075822,
+      0.99608
+     ],
+     [
+      0.651961,
+      -0.753226,
+      0.087156
+     ]
+    ],
+    "focal_px": 2157.84,
+    "principal_px": [
+     900.0,
+     794.92
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 3.01,
+     "overhang_ft": 0.64,
+     "eave_ft": 41.88,
+     "apex_ft": 48.43,
+     "centre_S": 14.08
+    },
+    "cornell_alone_rms_px": 2.47,
+    "joint": {
+     "half_ft": 2.69,
+     "overhang_ft": 0.71,
+     "eave_ft": 41.92,
+     "apex_ft": 48.2,
+     "centre_S": 14.36
+    },
+    "joint_rms_px": 5.17
+   }
+  },
+  "6deg": {
+   "controls_rms_px": 3.55,
+   "principal_v_px": 754.1,
+   "focal_px": 2175.9,
+   "roof": {
+    "gable_coping_apex_ft": 39.22,
+    "cupola_apex_ft_at_model_centre": 47.76,
+    "cupola_centre_S_on_ridge_plane": 13.02,
+    "west_gable_apex_ft": 40.03
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0346,
+    "pipe_nw": -0.0061,
+    "pipe_west": 0.0133
+   },
+   "plumb_rms": 0.012,
+   "camera": {
+    "eye": [
+     -14.4025,
+     42.5574,
+     1.6128
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.75806,
+      -0.652007,
+      0.015212
+     ],
+     [
+      -0.056699,
+      0.089122,
+      0.994406
+     ],
+     [
+      0.649715,
+      -0.752957,
+      0.104528
+     ]
+    ],
+    "focal_px": 2175.91,
+    "principal_px": [
+     900.0,
+     754.14
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 3.03,
+     "overhang_ft": 0.65,
+     "eave_ft": 41.87,
+     "apex_ft": 48.48,
+     "centre_S": 14.19
+    },
+    "cornell_alone_rms_px": 2.54,
+    "joint": {
+     "half_ft": 2.7,
+     "overhang_ft": 0.71,
+     "eave_ft": 41.92,
+     "apex_ft": 48.24,
+     "centre_S": 14.47
+    },
+    "joint_rms_px": 5.23
+   }
+  },
+  "7deg": {
+   "controls_rms_px": 3.56,
+   "principal_v_px": 711.1,
+   "focal_px": 2202.5,
+   "roof": {
+    "gable_coping_apex_ft": 39.38,
+    "cupola_apex_ft_at_model_centre": 47.89,
+    "cupola_centre_S_on_ridge_plane": 13.07,
+    "west_gable_apex_ft": 40.28
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0376,
+    "pipe_nw": -0.0048,
+    "pipe_west": 0.0175
+   },
+   "plumb_rms": 0.015,
+   "camera": {
+    "eye": [
+     -14.6328,
+     42.9327,
+     1.6278
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.759664,
+      -0.650136,
+      0.015291
+     ],
+     [
+      -0.067719,
+      0.10247,
+      0.992428
+     ],
+     [
+      0.64678,
+      -0.752876,
+      0.121869
+     ]
+    ],
+    "focal_px": 2202.53,
+    "principal_px": [
+     900.0,
+     711.12
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 3.06,
+     "overhang_ft": 0.65,
+     "eave_ft": 41.85,
+     "apex_ft": 48.51,
+     "centre_S": 14.32
+    },
+    "cornell_alone_rms_px": 2.63,
+    "joint": {
+     "half_ft": 2.71,
+     "overhang_ft": 0.72,
+     "eave_ft": 41.92,
+     "apex_ft": 48.26,
+     "centre_S": 14.58
+    },
+    "joint_rms_px": 5.29
+   }
+  },
+  "8deg": {
+   "controls_rms_px": 3.64,
+   "principal_v_px": 665.2,
+   "focal_px": 2238.3,
+   "roof": {
+    "gable_coping_apex_ft": 39.52,
+    "cupola_apex_ft_at_model_centre": 47.97,
+    "cupola_centre_S_on_ridge_plane": 13.12,
+    "west_gable_apex_ft": 40.53
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0404,
+    "pipe_nw": -0.0036,
+    "pipe_west": 0.0214
+   },
+   "plumb_rms": 0.0178,
+   "camera": {
+    "eye": [
+     -14.942,
+     43.4338,
+     1.6488
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.76169,
+      -0.64776,
+      0.015351
+     ],
+     [
+      -0.078592,
+      0.11588,
+      0.990149
+     ],
+     [
+      0.643158,
+      -0.75298,
+      0.139173
+     ]
+    ],
+    "focal_px": 2238.31,
+    "principal_px": [
+     900.0,
+     665.25
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 3.08,
+     "overhang_ft": 0.66,
+     "eave_ft": 41.82,
+     "apex_ft": 48.51,
+     "centre_S": 14.44
+    },
+    "cornell_alone_rms_px": 2.75,
+    "joint": {
+     "half_ft": 2.73,
+     "overhang_ft": 0.72,
+     "eave_ft": 41.91,
+     "apex_ft": 48.27,
+     "centre_S": 14.7
+    },
+    "joint_rms_px": 5.37
+   }
+  },
+  "9deg": {
+   "controls_rms_px": 3.77,
+   "principal_v_px": 615.8,
+   "focal_px": 2284.5,
+   "roof": {
+    "gable_coping_apex_ft": 39.65,
+    "cupola_apex_ft_at_model_centre": 48.02,
+    "cupola_centre_S_on_ridge_plane": 13.19,
+    "west_gable_apex_ft": 40.78
+   },
+   "plumb_lean": {
+    "pipe_east": -0.0429,
+    "pipe_nw": -0.0024,
+    "pipe_west": 0.025
+   },
+   "plumb_rms": 0.0203,
+   "camera": {
+    "eye": [
+     -15.3403,
+     44.078,
+     1.6767
+    ],
+    "basis_right_up_forward": [
+     [
+      -0.764151,
+      -0.644854,
+      0.015392
+     ],
+     [
+      -0.089283,
+      0.129372,
+      0.987568
+     ],
+     [
+      0.638828,
+      -0.753277,
+      0.156434
+     ]
+    ],
+    "focal_px": 2284.45,
+    "principal_px": [
+     900.0,
+     615.76
+    ],
+    "pixel_aspect": 1.0
+   },
+   "cupola_t3031": {
+    "cornell_alone": {
+     "half_ft": 3.11,
+     "overhang_ft": 0.67,
+     "eave_ft": 41.77,
+     "apex_ft": 48.5,
+     "centre_S": 14.58
+    },
+    "cornell_alone_rms_px": 2.9,
+    "joint": {
+     "half_ft": 2.74,
+     "overhang_ft": 0.72,
+     "eave_ft": 41.89,
+     "apex_ft": 48.26,
+     "centre_S": 14.83
+    },
+    "joint_rms_px": 5.49
+   }
+  }
+ },
+ "habs01_doorway_fits": {
+  "gable_coping_apex_ft": [
+   38.07,
+   38.62
+  ],
+  "cupola_apex_ft_at_model_centre": [
+   45.51,
+   46.29
+  ],
+  "cupola_centre_S_on_ridge_plane": [
+   10.41,
+   14.39
+  ],
+  "doorway_ruler_coping_ft": 38.77
+ },
+ "verdict": {
+  "coping_window_ft": [
+   37.77,
+   38.92
+  ],
+  "tilts_where_the_coping_agrees_with_habs01_deg": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "tilt_the_plumb_lines_prefer_deg": 2.6,
+  "controls_rms_span_px": [
+   3.55,
+   4.76
+  ]
+ }
+}

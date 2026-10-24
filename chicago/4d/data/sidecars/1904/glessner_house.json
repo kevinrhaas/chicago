@@ -850,6 +850,18 @@
       ],
       "note": "A stone parapet gable on 18th Street with a relieving arch of radiating voussoirs over the loft opening (1888 photograph; HABS photograph 1). The coping stands about 1 ft above the roof line on the 1963 print."
     },
+    "gable_west_wing_west": {
+      "value": {
+        "end": "parapet",
+        "parapet_ft": 1.0
+      },
+      "confidence": "inferred",
+      "sources": [
+        "cornell_adw_glessner_stable_1887",
+        "habs_glessner_photo_01_nw_1963"
+      ],
+      "note": "T-3096: the alley gable is a parapet gable. Both the c. 1887 Cornell print and HABS photograph 1 draw a stone coping standing proud along its rakes with its apex up at the cresting, where the roof behind it comes down (T-3095, docs/RESEARCH/glessner-stable-ridge-T-3095/ section 3). The wall keeps its apex where it stood (stable_roof_rework.alley_gable_apex, S 14.6 at 38.6 ft ng, so the coping's top at about 40.2 ft, inside T-2758's 38.75-40.63 ft read through the two Cornell fits); the 1-ft rise of its coping over the wall line is the 18th Street gable's on the same stable, carried here: INFERRED, not read on the alley face."
+    },
     "gable_west_wing_south": {
       "value": {
         "end": "plain"
@@ -3787,8 +3799,13 @@
           ]
         },
         "stable_roof_rework": {
-          "cross_ridge_S": 14.6,
+          "cross_ridge_S": 12.31,
           "cross_ridge": [
+            36.5,
+            "ng"
+          ],
+          "alley_gable_apex_S": 14.6,
+          "alley_gable_apex": [
             38.6,
             "ng"
           ],
