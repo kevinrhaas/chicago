@@ -3759,6 +3759,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
                                  float(val("eave_overhang_m")), shaped=bool(val("shaped_gable")),
                                  side_wall=float(val("wall_thickness_side_m"))) if mansard else {}
+    # T-2995: a mansard on the street front and part of a side, the rest a straight brick storey
+    if mansard and (val("mansard") or {}).get("straight"):
+        from .k01_mansard_straight import resolve as resolve_straight
+        mansard_roof["straight"] = resolve_straight(val("mansard")["straight"], depth=depth, width=width,
+                                                    side_wall=float(val("wall_thickness_side_m")),
+                                                    dormers=list(val("mansard").get("dormers") or []))
     gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st,
                              float(val("eave_overhang_m"))) if gable else {}
     # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic

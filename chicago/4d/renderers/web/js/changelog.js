@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2253, ts: '2026-10-24T11:20:44.016Z', date: 'Oct 24, 2026, 6:20 AM CT', title: 'Glessner\'s two carved crosses now cut into the chimney stone', kind: 'fix',
+    items: [
+      'The two small crosses beside the 1886 date stone on the Glessner house\'s 18th Street chimney are now cut into the rough stone, as the 1965 survey photograph shows them. Before, they were drawn flat at the stone\'s highest point, so they hovered an inch or two in front of it, and from the north-east one hung in the sky past the chimney\'s edge.',
+    ] },
+  { v: 2252, ts: '2026-10-24T10:33:25.924Z', date: 'Oct 24, 2026, 5:33 AM CT', title: '1736 Prairie: mansard where the 1911 map draws it; coach house built', kind: 'improvement',
+    items: [
+      '1736 Prairie\'s mansard now stands only where the 1911 fire-insurance map draws its curb: along the street front, and along 18th Street as far as the brick bay. The north side and the rear rise as a straight brick third storey under a coped parapet, which the map\'s wall figures call for.',
+      'The house\'s coach house on the alley at 18th Street is now built on the coach-house kit at the size the map gives it: two storeys of brick, 15.3 m deep, its gable to 18th Street and a carriage door on the alley.',
+    ] },
   { v: 2251, ts: '2026-10-24T09:46:09.529Z', date: 'Oct 24, 2026, 4:46 AM CT', title: 'Glessner\'s stable roof brought down to the old pictures', kind: 'fix',
     items: [
       'The roof over the Glessner stable\'s alley end is lower: its ridge sits about two feet lower and two feet further north, on the same pitch, so the slope carries the 42 or 43 rows of tiles that the 1887 print and the 1963 survey photograph both show, where it had about 51. The alley gable now stands up past the roof as a stone parapet with a coping, as both pictures draw it.',

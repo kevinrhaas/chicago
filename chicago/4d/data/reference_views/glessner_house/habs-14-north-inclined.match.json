@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6651e4d5b3c4a60f90b437416c72a9072a3d277786e3fe4f74146c00b6b54cac",
+  "glb_sha256": "22360520275c7f4ac40e1369fc67b6107ccf74db95ed37318033d9f6d37d9f7a",
   "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
   "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
@@ -58,6 +58,10 @@
     },
     {
       "what": "T-3065: the stack's depth is corrected from 3.1 to 2.6 ft (sheet 6, edge-on) and its 7.1-ft face kept, because this view, square to the face, reads it: the photograph's silhouette runs x 912-1040 against the box's 913-1043, and the east rake, drawn through this camera from the Prairie corner to the stack's side, lies on the photograph's along its whole length, so the camera's scale at the stack is not in question. Re-rendered from the rebaked master; from this eye, 4.6 ft east of the stack's east face, the shallower east side moves the silhouette's left edge under 1 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3115 (found by T-3065): the two crosses beside the 1886 stone are cut lines draped on the stack's own rock, 2 mm over it, where they were flat quads at the rock's furthest reach (0.106 m) and stood 2-4 cm proud of the stone round them. In the GLB the strokes now stand a median 1.4 mm (at most 6 mm) in front of the rock beside them. This print shows them incised and resolves each in about 10 px: the arms read about 9 px across and 10 px tall against the build's 11-12 and 9, within the print's 1-2 px, so the 0.6 ft size stands. docs/RESEARCH/glessner-crosses-T-3115/.",
       "status": "fixed"
     }
   ],
