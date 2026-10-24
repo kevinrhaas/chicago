@@ -429,6 +429,12 @@ def _cornice(a, K, data, bays, conf):
             continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
+    # T-2995: a mansard on some walls only: the straight walls' head carries no eave box, so no
+    # bracket and no bed moulding (k01_mansard_straight.perimeter_span)
+    straight = (getattr(p, "mansard", None) or {}).get("straight")
+    if straight:
+        from .k01_mansard_straight import perimeter_span
+        cut.append(perimeter_span(p))
     w, h = B["width_m"], B["height_m"]
     y_low = y_s - h
     # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
@@ -444,6 +450,9 @@ def _cornice(a, K, data, bays, conf):
             stations.append((start + s, i, s))
         start += r.L
     perim = start
+    if straight:
+        c0, c1 = perimeter_span(p)
+        stations = [st for st in stations if not c0 - w / 2 - 0.05 <= st[0] <= c1 + w / 2 + 0.05]
     crown = _crown_stations(p, B, cr, spec(p).get("crown"))
     seed = a.instance(CORNICE, "cornice",
                       {"brackets": len(stations) * (2 if spec(p).get("pairs") else 1),
