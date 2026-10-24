@@ -41,7 +41,7 @@ from common.logwork import (  # noqa: E402
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
-from archetypes.fort_structure_params import FortStructureParams  # noqa: E402
+from archetypes.fort_structure_params import FortStructureParams, wall_openings  # noqa: E402
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
 #: `materials.roof_substrate` holds the argument for why it is this one and
@@ -640,14 +640,14 @@ def _string_course(b: MeshBuilder, x0, y0, x1, y1, wall_z, conf) -> None:
 
 def _openings(b: MeshBuilder, p: FortStructureParams, lower_z: float,
               over: float) -> None:
-    """Door and windows on the facade and the back.
+    """Use explicit range rectangles when present, otherwise retain legacy layout.
 
-    Bay counts come from the building's own length rather than from a record —
-    nothing describes the fenestration of any building in this fort — so the
-    confidence is the record's `fenestration` value when it has one, and
-    `inferred` otherwise. A range gets a door at its centre and windows spaced
-    along the front; the back gets windows only.
+    The 1808 folded elevations show range bay counts. Their exact metric set-out,
+    doorway identities and unpictured rear layouts remain reconstructed choices.
     """
+    if p.face_openings is not None:
+        _explicit_openings(b, p)
+        return
     conf = p.conf("fenestration", "reconstructed")
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     bays = max(2, min(8, int(round(w / 3.4))))
@@ -702,7 +702,10 @@ def _loopholes(b: MeshBuilder, p: FortStructureParams, lower_z: float,
 
 
 def _gallery(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
-    """A covered gallery along the facade: posts, a plate and a lean-to roof."""
+    """A covered gallery; the opt-in upper walk leaves the original default intact."""
+    if p.gallery_storeys == 2:
+        _gallery_two_storeys(b, p, conf)
+        return
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     reach = 2.1
     head = min(wz - 0.25, p.storey_height_m + 0.15)
@@ -883,3 +886,109 @@ def _tower(b: MeshBuilder, p: FortStructureParams) -> None:
     for i in range(n):
         j = (i + 1) % n
         b.add_poly([top[i], top[j], apex], c_l, M_ROOF)
+
+
+def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
+    """A covered upper walk over an open ground gallery, after Currey's 1912 plate.
+
+    Occurrence is inferred; the 2.1 m reach (the old gallery's), floor thickness,
+    post sections, 0.95 m rail, 0.18 m baluster pitch and roof fall are reconstructed.
+    All new pieces therefore carry reconstructed geometry confidence. The draught
+    supplies no gallery dimension, and its folded elevations are not height scales.
+    """
+    w, d, wz = p.width_m, p.depth_m, p.wall_height_m
+    reach, post, deck, rail, pitch, baluster = 2.1, 0.14, 0.14, 0.95, 0.18, 0.055
+    upper = p.storey_height_m
+    # The gallery roof meets the wall at its existing eave and falls 0.45 m.
+    # No old ground-level lean-to roof remains underneath the upper walk.
+    head = wz - 0.45
+    c = max(conf, p.conf("gallery_storeys"), 1.0)
+    for x in _gallery_post_centres(p, post):
+        b.add_box(x - post / 2, d + reach - post, 0.0,
+                  x + post / 2, d + reach, head - post, c, M_TRIM,
+                  skip=("bottom",))
+    b.add_box(0.0, d + reach - post, head - post,
+              w, d + reach, head, c, M_TRIM)
+    b.add_box(0.0, d, upper - deck, w, d + reach, upper, c, M_TRIM)
+    # Long outer handrail and evenly spaced vertical pales; the two short ends
+    # are closed as a safety reconstruction. No external stair is invented.
+    b.add_box(0.0, d + reach - post, upper + rail - 0.10,
+              w, d + reach, upper + rail, c, M_TRIM)
+    count = max(1, math.ceil(w / pitch))
+    for i in range(count):
+        x = w * (i + 0.5) / count
+        b.add_box(x - baluster / 2, d + reach - post / 2 - baluster / 2, upper,
+                  x + baluster / 2, d + reach - post / 2 + baluster / 2,
+                  upper + rail - 0.10, c, M_TRIM)
+    for x in (0.0, w - post):
+        b.add_box(x, d, upper + rail - 0.10,
+                  x + post, d + reach - post, upper + rail, c, M_TRIM)
+        count = max(1, math.ceil((reach - post) / pitch))
+        for i in range(count):
+            y = d + (reach - post) * (i + 0.5) / count
+            b.add_box(x + (post - baluster) / 2, y - baluster / 2, upper,
+                      x + (post + baluster) / 2, y + baluster / 2,
+                      upper + rail - 0.10, c, M_TRIM)
+    b.add_poly([(0.0, d, wz), (w, d, wz),
+                (w, d + reach + 0.15, head), (0.0, d + reach + 0.15, head)],
+               c, M_ROOF)
+
+
+def _explicit_openings(b: MeshBuilder, p: FortStructureParams) -> None:
+    """The same rectangles returned by the Blender-free facade reader."""
+    planes = {"front": ("y", p.depth_m, 1), "back": ("y", 0.0, -1),
+              "left": ("x", 0.0, -1), "right": ("x", p.width_m, 1)}
+    conf = max(p.conf("face_openings"), 1.0)
+    for face, (axis, plane, outward) in planes.items():
+        for o in wall_openings(p, face):
+            _opening(b, axis, plane, o["u0"], o["u1"], o["z0"], o["z1"],
+                     outward, conf, kind=o["kind"])
+
+
+def _gallery_post_centres(p: FortStructureParams, post: float) -> list[float]:
+    """Keep the old support rhythm, projecting explicit-front posts onto solid piers.
+
+    Only the opt-in two-storey gallery calls this. Missing/empty explicit fronts
+    retain the exact old grid. Where a front is declared, posts clear the union
+    of BOTH storeys' rectangles plus their existing casing/sill horns. Project
+    each old interior centre to the nearest permitted interval, left on ties;
+    reserve one post width between centres. Count/sections and this placement
+    rule remain reconstructed, not joinery measured from Whistler's drawing.
+    """
+    w = p.width_m
+    n = max(2, int(round(w / 3.0)))
+    legacy = [w * i / n for i in range(n + 1)]
+    front = wall_openings(p, "front")
+    if not front:
+        return legacy
+    # The existing window kit's horn extends farther than its cap or door trim.
+    # Include half the actual post section so its whole face clears that kit.
+    margin = post / 2 + openings.CASING_W_M + openings.SILL_HORN_M
+    for o in front:
+        if o["u0"] - margin <= 0 or o["u1"] + margin >= w:
+            raise ValueError("explicit gallery front leaves no clear end support")
+    spans = [(post, w - post)]
+
+    def subtract(spans, lo, hi):
+        out = []
+        for a, b in spans:
+            if hi <= a or lo >= b:
+                out.append((a, b))
+            else:
+                if a < lo:
+                    out.append((a, lo))
+                if hi < b:
+                    out.append((hi, b))
+        return [(a, b) for a, b in out if b >= a]
+
+    for o in front:
+        spans = subtract(spans, o["u0"] - margin, o["u1"] + margin)
+    result = [0.0, w]
+    for wanted in legacy[1:-1]:
+        if not spans:
+            raise ValueError("explicit gallery front has no clear support pier")
+        x = min((min(max(wanted, a), b) for a, b in spans),
+                key=lambda v: (abs(v - wanted), v))
+        result.append(x)
+        spans = subtract(spans, x - post, x + post)
+    return sorted(result)
