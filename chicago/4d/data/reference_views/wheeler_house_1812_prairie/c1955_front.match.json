@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd",
+  "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd"
+      "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -41,11 +41,11 @@
         0,
         16.293259561004927
       ],
-      "rotation_y": 0.00008726646259971656,
+      "rotation_y": 8.726646259971656e-05,
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "035441ba8a40a4ac051697540ed7b2943586815dd58f9b90dba8de23829dbbf4",
+  "group_sha256": "0a61fedf1f048260fd91c7bb105e4f70a3116419f3fd00a6cbe4d7971d9caff4",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -78,16 +78,16 @@
       "status": "not shown"
     },
     {
-      "what": "Gable: the head is narrower and stands about 9 px (0.2 m) north of the build's: the south shoulder stone at x 205-225 px against the render's 182-232, the north at 335-352 against 315-350, the grid window centred at x 283 against 274; Levy's print reads the south side wider than the north and the build takes the mean (T-2951), so the two pictures disagree on the head's south half",
-      "status": "open"
+      "what": "Gable: the head is narrower and stands about 9 px (0.2 m) north of the build's: the south shoulder stone at x 205-225 px against the render's 182-232, the north at 335-352 against 315-350, the grid window centred at x 283 against 274. Ruled for Levy's print (T-3090): this camera's offset grows with height, about 2 px on the front's features up to the projection's top (10 m), 9 px at the grid window (14 m) and about 17 px at the finial (17 m), where the solve fixed nothing over the front's top, so it is the camera's roll, the same unconstrained height that reads the south wall's top about 1 m high (c1955_front.json's solve), and not the gable standing off the front's centre; Levy's near-frontal print, at about twice this one's scale, reads the head centred within the two sides' 0.25 m, which the build takes",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the finial a tall urn on a moulded base, from about y 50 px to the head at y 100 (about 1.2 m), where the build's stops on a small square plinth at about y 85",
-      "status": "open"
+      "what": "Gable: the finial a tall urn on a carved ball over the moulded plinth, its lid and knob from about y 50 px to the head at y 100 (about 1.2 m); built so, a turned urn 1.1 m over the apex, its top within about 8 px of the photograph's (T-3090; Levy's print shows the carved block 0.55 m across and cuts the urn at its foot)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the grid window in quoined side stones under a moulded hood, the shoulder stones' sunk panels and the kneelers' carved scrolls, as Levy's record already holds open",
-      "status": "open"
+      "what": "Gable: the grid window in quoined side stones under a moulded hood, the shoulder stones' sunk panels and the kneelers' carved scrolls, as Levy's record held open; built from that print (T-3090), and this camera's render shows the quoins, the waved hood and the dark lights where the photograph does",
+      "status": "fixed"
     },
     {
       "what": "Third storey: the large window's middle light wider than the two beside it and the voussoirs alternating long and short into the brick, as Levy's record already holds open",
