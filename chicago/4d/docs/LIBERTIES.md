@@ -31335,6 +31335,14 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3006.
 **Recorded:** 2026-10-22.
 
+### L-k01-1811-round-arcade-2991 — 1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line
+
+**Decision:** The porch arcade on the entrance block's rounded south corner at 1811 Prairie (T-2991, `entrance_kit.loggia.round_arcade`) is built from the 1888 Inland Architect plate, read through the T-2541 camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (L-k01-1811-ames-front-2541). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for T-3079's re-solve of the camera.
+
+**Re-opens on:** T-3079's re-solved camera, or a photograph showing the porch's south side close up (T-3052 solves the cameras of 1811's other pictures).
+**Ticket:** T-2991.
+**Recorded:** 2026-10-24.
+
 ### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
 
 **Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on

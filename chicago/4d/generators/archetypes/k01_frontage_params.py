@@ -2754,6 +2754,68 @@ def _loggia_columns(cl, w, h) -> dict:
     return {"shafts_m": sides, "radius_m": rs, "proud_m": pr, "plinth_m": ph, "base_m": bh, "capital_m": ch}
 
 
+def _round_arcade(ra, floor, spring, v0, v1, plinth) -> dict:
+    """T-2991: the porch's arcade round a rounded corner (1811's, the Inland Architect plate of
+    1888), laid by k01_frontage.round_arcade: a colonnette at each of `angles_deg` round the
+    curve from the street front's tangent, standing as the mouth's columns stand (their radius,
+    plinth, base and capital), on a dressed plinth band carried round the curve; and over each
+    capital a round-headed light `clear_width_m` across, its sill the capital's abacus (the
+    mouth's springing) and its crown `crown_m` over it, `reveal_m` deep into the porch's shadow.
+    The plinth band under the colonnettes is `band_m` deep down from the mouth's plinth top. The
+    corner and the loggia's end it stands beside are checked in from_phase."""
+    need = {"angles_deg", "clear_width_m", "crown_m", "reveal_m", "band_m"}
+    if not isinstance(ra, dict) or set(ra) != need:
+        raise ParamError(f"entrance_kit.loggia.round_arcade takes {sorted(need)}")
+    ang = ra["angles_deg"]
+    if not isinstance(ang, list) or not 1 <= len(ang) <= 6 or any(not isinstance(x, (int, float)) for x in ang):
+        raise ParamError("entrance_kit.loggia.round_arcade.angles_deg: one to six angles round the curve")
+    ang = [float(x) for x in ang]
+    if any(b <= a for a, b in zip(ang, ang[1:])) or not 0.0 <= ang[0] or not ang[-1] <= 75.0:
+        raise ParamError(f"entrance_kit.loggia.round_arcade.angles_deg {ang}: rising from the front's tangent "
+                         f"(0) to at most 75 degrees, short of the side wall")
+    w, c, r = (float(ra[k]) for k in ("clear_width_m", "crown_m", "reveal_m"))
+    if not 0.1 <= w <= 0.6 or not w / 2 + 0.2 <= c <= 1.5 or not 0.1 <= r <= 0.5:
+        raise ParamError(f"entrance_kit.loggia.round_arcade: a light 0.1-0.6 m across ({w}), its crown "
+                         f"{w / 2 + 0.2:.2f}-1.5 m over its sill ({c}), 0.1-0.5 m deep ({r})")
+    b = float(ra["band_m"])
+    if not 0.1 <= b <= plinth:
+        raise ParamError(f"entrance_kit.loggia.round_arcade.band_m {b}: the plinth band 0.1 m deep at least, and "
+                         f"no deeper than the mouth's {plinth} m plinth over the floor")
+    return {"angles_deg": ang, "clear_width_m": w, "crown_m": c, "reveal_m": r, "band_m": b,
+            "floor_m": round(floor, 5), "sill_m": round(spring, 5), "v_m": [v0, v1]}
+
+
+def round_arcade_check(ra, rc, cl, width) -> None:
+    """T-2991: a round arcade stands on a rounded corner, beside the loggia's end on that side
+    (within ROUND_ARCADE_REACH_M of the round's tangent), its colonnettes and lights clear of
+    each other along the curve and its last light's frame short of the side wall."""
+    if not ra:
+        return
+    if not rc:
+        raise ParamError("entrance_kit.loggia.round_arcade stands on a rounded corner (round_corner)")
+    r = rc["radius_m"]
+    v0, v1 = ra["v_m"]
+    gap = (width - r) - v1 if rc["corner"] == "north" else v0 - r
+    if not -1e-6 <= gap <= ROUND_ARCADE_REACH_M:
+        raise ParamError(f"entrance_kit.loggia.round_arcade: the loggia (v {v0}-{v1}) ends {gap:.3f} m short of "
+                         f"the {rc['corner']} round's tangent, where the arcade lights it from (at most "
+                         f"{ROUND_ARCADE_REACH_M} m)")
+    s = [r * math.radians(a) for a in ra["angles_deg"]]
+    w = ra["clear_width_m"]
+    if s[0] < w / 2 + 0.02 or any(b - a < max(2 * cl["radius_m"] + 0.01, w + 0.06) for a, b in zip(s, s[1:])):
+        raise ParamError(f"entrance_kit.loggia.round_arcade: on the {r} m round its lights ({w} m) and colonnettes "
+                         f"({cl['radius_m']} m) crowd each other or the front's tangent "
+                         f"(at {[round(x, 3) for x in s]} m round the curve)")
+    if s[-1] + w / 2 + ROUND_ARCADE_MARGIN_M > r * math.pi / 2 - 0.1:
+        raise ParamError("entrance_kit.loggia.round_arcade: the last light's frame runs onto the side wall")
+
+
+#: T-2991: how far the loggia's end may stand from the round's tangent and still be lit by the
+#: arcade round it; and the dressed band's margin past its last light
+ROUND_ARCADE_REACH_M = 0.6
+ROUND_ARCADE_MARGIN_M = 0.12
+
+
 def door_arch_of(entrance_kit) -> dict:
     """T-2526: the record's voussoir block round a round-headed door, or {}."""
     return dict(((entrance_kit or {}).get("k01.opening.door_leaf") or {}).get("arch") or {})
@@ -3922,9 +3984,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         lg = door_kit_in["loggia"]
         need = {"v_m", "depth_m", "ceiling_m"}
         if not door_arch or "porch_door" not in door_kit_in \
-                or not need <= set(lg) <= need | {"side_arch", "carving", "columns"}:
-            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch, carving and "
-                             f"columns, behind a "
+                or not need <= set(lg) <= need | {"side_arch", "carving", "columns", "round_arcade"}:
+            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch, carving, "
+                             f"columns and round_arcade, behind a "
                              f"round-arched door's (`arch`) mouth with its porch_door at the back")
         v0, v1 = sorted(float(x) for x in lg["v_m"])
         D, Hc = float(lg["depth_m"]), float(lg["ceiling_m"])
@@ -3984,6 +4046,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if "carving" in lg:
                 raise ParamError("entrance_kit.loggia: its carving's piers or its columns carry the arch, not both")
             loggia["columns"] = _loggia_columns(lg["columns"], door_w, door_h)
+        if "round_arcade" in lg:
+            if "columns" not in lg:
+                raise ParamError("entrance_kit.loggia.round_arcade: its colonnettes are the mouth's columns "
+                                 "carried round the corner, so it needs columns")
+            loggia["round_arcade"] = _round_arcade(lg["round_arcade"], door_floor, door_floor + door_h - door_w / 2,
+                                                   v0, v1, loggia["columns"]["plinth_m"])
         door_kit["loggia"] = loggia
     # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
     if "cheek_form" in door_kit_in and isinstance(door_kit_in["cheek_form"], dict) \
@@ -4475,6 +4543,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("stone_finish requires a flat roof and a stone front")
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
+    lg_ = (door_kit or {}).get("loggia") or {}
+    round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
     # least its head's half-width (0.14 m) and 0.01 m clear of the projection's face and the
     # main front
