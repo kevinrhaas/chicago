@@ -12,12 +12,13 @@
     "confidence": "attested",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35",
-      "otis_1913_first_presbyterian_21st_indiana_1887"
+      "otis_1913_first_presbyterian_21st_indiana_1887",
+      "otis_1913_first_presbyterian_21st_indiana_1912"
     ],
     "note": "The Otis history of 1913 dates the building and its use: Calvary Presbyterian Church laid its corner stone in November 1870, the united First Presbyterian Church finished it after October 1871, and the final service in it was held on 29 December 1912 (otis_1913_first_presbyterian_21st_indiana_1887, pp. 52-56 and 291-292); the 1911 sheet letters it '1st PRESBYN. CHURCH'. So it was the First Presbyterian Church on 1 July 1904."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-3009, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3014, T-3103 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3009). The church fills the 2029-2035 lot on Indiana Avenue at 21st Street: J. C. Cochrane's building for Calvary Church, begun in 1870 and finished by the united First Church about 1872-1873, used until December 1912 (Otis 1913). Sanborn 1911 vol. 3 sheet 35 prints it 48 ft to its eaves with a slated spire marked 90 ft on its south-west tower. The Otis plate of 1887 (otis_1913_first_presbyterian_21st_indiana_1887) shows the west front and the tower whole, and its camera is solved in data/reference_views/first_presbyterian_church_2029_indiana/ (T-3066): the gable, the tower's stages and the spire stand to its heights. It is drafted as a site so that its walls, roof and tower are the church's heights and not a house's; T-3103 dresses the front, the tower and the spire to the plate until it matches; T-3104 reads the book's 1912 plate of the 21st Street flank.",
+  "research_note": "A DISTRICT DRAFT (T-3009, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3014, T-3103, T-3104 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3009). The church fills the 2029-2035 lot on Indiana Avenue at 21st Street: J. C. Cochrane's building for Calvary Church, begun in 1870 and finished by the united First Church about 1872-1873, used until December 1912 (Otis 1913). Sanborn 1911 vol. 3 sheet 35 prints it 48 ft to its eaves with a slated spire marked 90 ft on its south-west tower. The Otis plate of 1887 (otis_1913_first_presbyterian_21st_indiana_1887) shows the west front and the tower whole, and its camera is solved in data/reference_views/first_presbyterian_church_2029_indiana/ (T-3066): the gable, the tower's stages and the spire stand to its heights. It is drafted as a site so that its walls, roof and tower are the church's heights and not a house's; T-3103 dresses the front, the tower and the spire to the plate until it matches; T-3104 reads the book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912), whose second camera adds the roof's ventilators, the east gable's stack and the cross's height, and which shows the tower and roof but not the 21st Street flank.",
   "phases": [
     {
       "id": "draft_1904",
@@ -27,7 +28,8 @@
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35",
-          "otis_1913_first_presbyterian_21st_indiana_1887"
+          "otis_1913_first_presbyterian_21st_indiana_1887",
+          "otis_1913_first_presbyterian_21st_indiana_1912"
         ],
         "note": "Otis 1913 dates the building 1870-1873 and its last service 29 December 1912, so it stands across the 1904 target; the draft's phase keeps the study's 1904-1911 window (study ruling 11).",
         "to_is": "seen"
@@ -82,7 +84,8 @@
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35",
-          "otis_1913_first_presbyterian_21st_indiana_1887"
+          "otis_1913_first_presbyterian_21st_indiana_1887",
+          "otis_1913_first_presbyterian_21st_indiana_1912"
         ],
         "note": "The building's whole plan as the trace outlines it: the body with its buttresses, and the tower and porch block that steps south of it at the 21st Street corner; the main body (43.7 x 23.1 m) is draft_plan's first rectangle."
       },
@@ -97,7 +100,8 @@
           "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35",
-            "otis_1913_first_presbyterian_21st_indiana_1887"
+            "otis_1913_first_presbyterian_21st_indiana_1887",
+            "otis_1913_first_presbyterian_21st_indiana_1912"
           ],
           "note": "Brick: the sheet colours it pink."
         },
@@ -128,7 +132,8 @@
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35",
-            "otis_1913_first_presbyterian_21st_indiana_1887"
+            "otis_1913_first_presbyterian_21st_indiana_1887",
+            "otis_1913_first_presbyterian_21st_indiana_1912"
           ],
           "note": "One rectangle, the body read off the trace in metres from Indiana's line and 21st Street's; the buttresses fold into it and the tower stands as a feature."
         },
@@ -500,7 +505,9 @@
                   ],
                   "eave_m": 14.9,
                   "apex_m": 30.85,
-                  "cross_m": 2.1,
+                  "cross_m": 3.8,
+                  "cross_span_m": 2.8,
+                  "cross_ring_m": 0.75,
                   "corbel_step_m": 0.7
                 },
                 "buttresses": [
@@ -850,6 +857,28 @@
                     "along": "v",
                     "spring_m": 39.5,
                     "apex_m": 43.3
+                  },
+                  {
+                    "rect": [
+                      -23.26,
+                      -19.66,
+                      14.5,
+                      17.65
+                    ],
+                    "along": "v",
+                    "spring_m": 23.15,
+                    "apex_m": 26.3
+                  },
+                  {
+                    "rect": [
+                      -34.03,
+                      -30.43,
+                      14.5,
+                      17.65
+                    ],
+                    "along": "v",
+                    "spring_m": 23.15,
+                    "apex_m": 26.3
                   }
                 ],
                 "stacks": [
@@ -860,6 +889,14 @@
                     1.35,
                     12.0,
                     18.1
+                  ],
+                  [
+                    -44.15,
+                    -43.25,
+                    12.05,
+                    13.05,
+                    29.0,
+                    32.2
                   ]
                 ],
                 "spire": {
@@ -896,13 +933,14 @@
               "pass": "T-3009",
               "refined_by": [
                 "T-3014",
-                "T-3103"
+                "T-3103",
+                "T-3104"
               ]
             },
             "v_toward": "south"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the site row: One gable over the body, ridge east-west with its gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips, which the photograph does not bear out). Through T-3066's camera the gable springs at the north kneeler, 2.0 m in from the body's north wall over a narrow bay with its own flat roof and stack (T-3103), and rises 16.0 m over its 10.6 m half-width to its coping's apex at about 30.9 m, so it stands at 56.5 degrees. The tower is the trace's square at the south-west corner, 6.0 m across its faces, its brick to 39.5 m where the photograph's gablets spring, with the slated octagonal spire out of them. The sheet's printed 90 ft (27.4 m) cannot be the spire's height over grade: the photograph puts the tip at five times the eave's height, the sheet's own 48 ft. T-3103 dresses the front and the tower to the plate (the gothic_church feature; every place, width and height is read off the photograph at 18.7 px/m on the front and 18.2 on the tower, and the match record names each): the coping on its corbel table with kneelers and the cross; the gable's rose, the centre window under a rose head, the two side lancets, the north window and the two small lancets at the north foot, the sill and base courses; the gabled stone porch and its pointed doorway; the tower's pointed door and panel, its two-light window with a rose head, its louvred belfry, its courses, its angle buttresses with their gabled offsets and corner pinnacles, and four gablets; and the spire's taper (5.5 m across at its foot, 3.0 m at the band, 1.1 m at its flat top at 71.8 m), its band of lucarnes at 57.4-59.5 m and the finial's knob, fleur and rod to 78.1 m. What the frontal plate cannot give is reconstructed: the porch's 2.0 m depth, the buttresses' projections, the openings and gablets on the tower's east and north faces (the belfry on all four, the second stage's window on the west and south only, as seen), and the north-west buttress's depth, set 1.5 m proud of the front because its shadow falls on the front wall. The 21st Street flank and the rear keep the draft's sash until T-3104 reads the book's 1912 plate. The seed 72272670 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3009."
+          "note": "RECONSTRUCTED by the site row: One gable over the body, ridge east-west with its gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips, which the photograph does not bear out). Through T-3066's camera the gable springs at the north kneeler, 2.0 m in from the body's north wall over a narrow bay with its own flat roof and stack (T-3103), and rises 16.0 m over its 10.6 m half-width to its coping's apex at about 30.9 m, so it stands at 56.5 degrees. The tower is the trace's square at the south-west corner, 6.0 m across its faces, its brick to 39.5 m where the photograph's gablets spring, with the slated octagonal spire out of them. The sheet's printed 90 ft (27.4 m) cannot be the spire's height over grade: the photograph puts the tip at five times the eave's height, the sheet's own 48 ft. T-3103 dresses the front and the tower to the plate (the gothic_church feature; every place, width and height is read off the photograph at 18.7 px/m on the front and 18.2 on the tower, and the match record names each): the coping on its corbel table with kneelers and the cross; the gable's rose, the centre window under a rose head, the two side lancets, the north window and the two small lancets at the north foot, the sill and base courses; the gabled stone porch and its pointed doorway; the tower's pointed door and panel, its two-light window with a rose head, its louvred belfry, its courses, its angle buttresses with their gabled offsets and corner pinnacles, and four gablets; and the spire's taper (5.5 m across at its foot, 3.0 m at the band, 1.1 m at its flat top at 71.8 m), its band of lucarnes at 57.4-59.5 m and the finial's knob, fleur and rod to 78.1 m. What the frontal plate cannot give is reconstructed: the porch's 2.0 m depth, the buttresses' projections, the openings and gablets on the tower's east and north faces (the belfry on all four, the second stage's window on the west and south only, as seen), and the north-west buttress's depth, set 1.5 m proud of the front because its shadow falls on the front wall. The book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912; T-3104), taken from Indiana Avenue's roadway about 66 m south of 21st Street looking north-north-east with the camera tilted up, shows the tower's south and west faces, the west gable edge-on with its cross, and the nave's south roof slope to the east gable; it does not show the 21st Street flank, which the low buildings across 21st Street and a streetcar screen below the eaves. Read through its camera it adds: two gabled ventilators on the south slope, about 3.6 m wide, their faces standing on the slope at 23.15 m and rising to about 26.3 m, centred 21.5 m and 32.2 m behind the front; a short stack on the east gable's apex to about 32.4 m; and the cross over the west gable to 34.65 m, where both plates put its top (the 1887 plate's crossbar is the 33.0 m first read as its top). The ventilators' depth into the roof and their faces' material are reconstructed, and the north slope, which neither plate sees, is given none. The 21st Street flank and the rear keep the draft's sash: no picture read so far shows them. The seed 72272670 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3009."
         },
         "draft": {
           "value": {
@@ -914,9 +952,10 @@
             "seed": 72272670,
             "replaceable_by": [
               "T-3014",
-              "T-3103"
+              "T-3103",
+              "T-3104"
             ],
-            "card": "District draft — refined by T-3014, T-3103."
+            "card": "District draft — refined by T-3014, T-3103, T-3104."
           },
           "confidence": "reconstructed",
           "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",

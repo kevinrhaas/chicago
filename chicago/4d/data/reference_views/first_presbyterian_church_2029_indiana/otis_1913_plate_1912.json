@@ -1,0 +1,43 @@
+{
+ "structure_id": "first_presbyterian_church_2029_indiana",
+ "source_id": "otis_1913_first_presbyterian_21st_indiana_1912",
+ "photo": "../../sources/assets/first_presbyterian_2029_otis_t3104/otis_1913_plate_1912.jpg",
+ "image_px": [
+  1050,
+  1509
+ ],
+ "principal_px": [
+  300,
+  754.5
+ ],
+ "focal_px": 1497,
+ "eye": [
+  59.33,
+  113.92,
+  1.6
+ ],
+ "yaw_deg": 190.44,
+ "basis_right_up_forward": [
+  [
+   -0.98345,
+   0.18117,
+   0.0
+  ],
+  [
+   0.05452,
+   0.29593,
+   0.95365
+  ],
+  [
+   -0.17278,
+   -0.93787,
+   0.30091
+  ]
+ ],
+ "sun_uvy": [
+  -0.5,
+  0.6,
+  0.6
+ ],
+ "solve": "Fitted by T-3104 to the Otis 1913 plate captioned '(1912)' (the committed 1050 x 1509 px copy), in the record's frame as T-3066's 1887 camera has it: u from the body's rear toward Indiana Avenue (west), the west front at u 43.70; v from the body's north face southward, its south face at v 23.11 and the tower's south face at v 27.14. Where the camera stood: the plate shows the tower's west face in shade on the left and its south face on the right, the west gable edge-on beyond the tower with its cross, and the nave's south slope running east to the east gable; Indiana Avenue's row houses north of 21st Street and the streetcar recede to the left, and the two-storey building with a billboard and the small gabled house in front of the nave stand across 21st Street, on its south side. So the camera stood in Indiana Avenue's roadway south of 21st Street and looked north-north-east. A level camera does not fit: with the principal point anywhere the plate's heights disagree with the 1887 camera's by 15-20 px (the spire reads 5-10 m short against the roof). The spire's foreshortening and the tower's lean are a camera tilted up, so the camera is solved with a pitch (basis_right_up_forward) by least squares on six readings: the finial's top (334, 140) px at 78.1 m on the spire's axis (u 40.16, v 24.14); the spire's foot among the gablets (341, 592) at 42.7 m; the cross's foot on the west gable's apex (258, 787) at 30.85 m (u 43.9, v 12.55); the ridge's east end under its stack (820, 812) at 30.85 m (u 0, v 12.55); the ridge passing (430, 803); and the walk at the tower's south face, y 1268. The fit: eye (59.33, 113.92, 1.6), heading 190.4 degrees (10 degrees east of north in this frame), tilted up 17.5 degrees, focal length 1497 px, principal point (300, 754.5); residuals (1, 0), (-2, -11), (-3, 9), (5, 12) and -11 px on the walk, 7.2 px rms. The eye stands 15.6 m west of the front, in the avenue's roadway, and about 86 m south of the tower's south face, 66 m south of 21st Street's south line. The principal point is the weakest number: its height is held at the plate's centre and its x at 300 px, where the fit is 7.2 px rms; anywhere from x 150 to 300 fits as well (7.1-7.2 px) and the plate's centre, x 525, fits at 10.1 px, so the copy is a crop left of a larger negative's centre. Positions read through it are good to about 10 px (about 0.7 m at the church). Heights through it: the cross's top at 35.0 m over the gable's apex at 31.1 m, against the 1887 plate's 34.6 m for the same cross (whose crossbar, at 33.2 m, is the 33.0 m first read as the top); the south slope's two gabled ventilators, their faces on the slope at v 17.65, their feet at 23.1-23.6 m, 3.45 and 3.83 m wide, rising to 26.05 and 26.5 m, centred at u 22.2 and 11.5 (21.5 and 32.2 m behind the front); and the stack on the east gable's apex, 31.4-32.4 m. Light: the tower's south face and the nave's slope are lit and the tower's west face is in shade, so the sun stood in the south-east (sun_uvy). The model's spire band of lucarnes projects about 0.2 m past the spire, three pixels here, under the halftone's screen."
+}
