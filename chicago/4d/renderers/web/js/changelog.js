@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2244, ts: '2026-10-24T04:58:39.090Z', date: 'Oct 23, 2026, 11:58 PM CT', title: 'Glessner\'s 18th Street chimney slimmed to its drawn depth', kind: 'fix',
+    items: [
+      'The chimney stack on the Glessner House\'s 18th Street gable is half a foot shallower, 2.6 ft deep where it was 3.1, as the 1965 survey\'s east elevation draws it. Seen from Prairie and 18th, it now stands as slim as it does in the 1887 photograph.',
+    ] },
   { v: 2243, ts: '2026-10-24T04:48:06.241Z', date: 'Oct 23, 2026, 11:48 PM CT', title: '1811 Prairie\'s porch arcade turns its rounded corner', kind: 'improvement',
     items: [
       'Beside the arched porch at 1811 Prairie, three slim round-headed lights now open in the curved corner, each standing on a carved stone colonnette, as the 1888 Inland Architect plate shows them.',
