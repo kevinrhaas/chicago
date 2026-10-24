@@ -31870,3 +31870,31 @@ Both photographs also read the stack's crest about 1.2-1.6 ft nearer the gable's
 that is the crest and fan's to rule, not this one's.
 **Ticket:** T-3024 (piece 2 of T-2854).
 **Recorded:** 2026-10-23 (T-3024).
+
+### L-kimball-1801-range-heights-3076 — 1801 Prairie's east range and its turret lowered to the Taylor photograph: the range's floor laid under the main block's, and the lot still level where 18th Street falls east
+
+**Decision:** 1801 Prairie's east range and its north-east turret are re-stood from J. W. Taylor's
+c. 1895 photograph (`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074
+re-solved it, at the 18th Street wall's depth (about 49-51 m).
+**What is read, not invented.** A course runs the flank's whole length at about 1.05-1.2 m, so the
+camera reads the flank level and the far heights are the building's. The range's sill course is
+about 1.2-1.4 m, its first storey's lights about 1.35-2.8 m, the band under its upper storey 4.15 m,
+its upper lights about 4.45-5.9 m and its eaves about 6.2-6.4 m. The turret's eaves read 6.3-6.5 m,
+its band 4.15 m and its cone's neck under the finial about 10.2 m. So the range stands to 6.35 m,
+in storeys of 3.4 and 2.2 m, where it stood to 8.1 m; the turret's wall takes the same storeys and
+its cone is pitched 2.2 (it was 2.6, to about 12.7 m). The wall's foot on the print falls about
+0.3-0.55 m from the front's corner to the range; the USGS 1 m bare-earth model, queried on
+2026-10-23 along the walk beside the wall (the house still stands), falls 0.27-0.31 m over the
+same run.
+**What is invented.** The range's floor at 0.75 m, 0.7 m under the main block's 1.45 m: the print
+shows its lights and courses, not its floor, and the floor is laid 0.6 m under the lights' sills as
+the kit's sash stands. The lights' sizes are the kit's 1.5 m, within about 0.05 m of the print's.
+The lot is still laid level at the front's grade, so along the flank the build's wall foot stands
+up to about 0.3-0.5 m above the print's; nothing in the build yet lets a K01 house's grade fall
+along a side wall.
+**How to resolve:** a drawing or survey of the house, or a picture of the range from the south or
+east (T-3003's 1929 and HABS photographs), would fix its floor; a grade record for 18th Street east of Prairie, or a
+falling grade carried under the house, would fix its foot.
+**Ticket:** T-3076 (found by T-3074).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3076).

@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2233, ts: '2026-10-23T23:57:31.459Z', date: 'Oct 23, 2026, 6:57 PM CT', title: '1801 Prairie\'s east range and turret stand at the photograph\'s height', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: the low service range at the far end of its 18th Street side, and the small round turret on its corner, now stand about 1.8 m lower, as J. W. Taylor\'s c. 1895 photograph shows them. The eaves are at about 6.35 m instead of 8.1, and the turret\'s cone tops out at about 10.2 m. The ground along 18th Street falls about 0.3 m toward the lake, which the photograph and today\'s elevation survey both show.',
+    ] },
   { v: 2232, ts: '2026-10-23T23:07:01.094Z', date: 'Oct 23, 2026, 6:07 PM CT', title: 'Glessner\'s 18th Street chimney: date stone, crosses and coping re-set', kind: 'improvement',
     items: [
       'On the Glessner house\'s 18th Street gable, the 1886 date stone is now the height HABS sheet 6 draws it, a little shorter, with a course of stone between it and the monogram above, as every photograph shows.',
