@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1811_ames_photo",
+ "type": "photograph",
+ "citation": "[1811 S. Prairie Ave. (Coleman / Ames house).] Photograph of the house from the west side of Prairie Avenue, south-west of it: its street front, its south flank and the ground to the curb; unknown photographer, undated (after 1886). Reproduced on chicagology.com, Prairie Avenue, 1811 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library's dating: after 1886; probably c. 1887-1895)",
+ "describes_date": "undated, after 1886",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image cgn-1811-coleman-ames-photo, '1811 S. Prairie Ave. [Coleman / Ames house]', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/cgn-1811-coleman-ames-photo.jpg), committed since T-3052 at data/sources/assets/ames_1811_photos_t3052/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
+ "locator": "The whole print: the street front from the canted north face to the rounded south corner, the south flank back to a separate pavilion, the roofs and stacks, and the lawn, walk, parkway, curb and gas lamp in front.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3052) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-24 (T-3052) from the image store's reference copy, 1303 x 1598 px greyscale, sha256 6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c.",
+ "note": "A different negative from the Inland Architect plate of October 1888 (inland_architect_1888_10_ames_residence): taken from a spot a few metres further out into the street and further south, so near things (the young tree, the stair) and deep things (the south stacks) stand differently against the front than on the plate, while the front's planes agree with it to 1-3 px. It is sharper and wider than the plate: it shows the whole south flank to its end, a separate pavilion beyond it, and the street section in front (lawn, walk, parkway with the tree and a gas lamp, granite curb, cobbled gutter), which is what lets its camera be solved against the ground as well as the house (data/reference_views/coleman_ames_house_1811_prairie/chicagology_photo.json). Undated, and so evidence of its own date: the front it shows is the plate's, and the flank it shows is shorter than the 1911 sheet's (T-3079, T-3099).",
+ "what_it_supplies": [
+  "the street front, bay, gable, oriel and entrance at about twice the plate's resolution, agreeing with it",
+  "the south flank: the coped front block's wall, a lower range ending well short of the 1911 sheet's rear, and a separate pavilion with an arched door",
+  "the bay's balcony as a pierced fretwork panel and the basement lights' scrolled grilles",
+  "the street section in front of the house: walk, parkway, tree, lamp and curb, with the camera fitted to them"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated, after 1886",
+  "the north flank and the rear"
+ ]
+}
