@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8b14b5543405bbf0eef2e9c4267f2047b2009f020c1d366f1412e4a989b54d03",
+  "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -183,8 +183,18 @@
     },
     {
       "what": "the second storey's windows on the avenue front and the 18th Street flank: with the main cornice raised to the bow's, about 1.2 m of wall stands between their heads (7.4 m) and the cornice's foot (8.34 m); the print's heads stand about 25 px higher than the build's at the front (y 625 against 650 between the corner and the bow), so the build's lights read short, or low, under the cornice",
+      "status": "fixed",
+      "how": "T-3097, through T-3074's camera at each wall's plane: the print's light over the loggia on the front opens at y 634-766 px (7.76 to 5.48 m) and its fellow on the 18th Street flank at y 637-772 (7.69 to 5.37 m), so the second storey's lights stand 0.4 m over the 5.0 m floor and 2.3 m tall (they stood 5.6-7.4 m). They now render at y 634-767 on the front and 638-771 on the flank. The flank's light stands at u 18.67, off the side arch's axis (18.9), as the print draws it. Each carries K06's transom (the print's bar at y 680-700)"
+    },
+    {
+      "what": "the 18th Street flank between the tower and the corner: the print's second storey has two round-headed lights on a narrow pier (x 760-822 px), their sills about 6.1 m and crowns about 7.77 m, and the principal storey under them is plain ashlar; the build laid one sash a storey at u 15.6",
+      "status": "fixed",
+      "how": "T-3097: K01's side_bays take windows read off a picture, as north_bays do; the pair at u 14.93 and 16.03, 0.76 m each, sills 6.08 m and crowns 7.77 m, round-headed in the coursing under no flat arch, the spandrels laid in the wall's stone; no window on the principal storey there. Their crowns render within about 3 px of the print's and their sills within about 2 px. The bar the print draws near each spring is not built (K06's fixed round-headed light is one plate)"
+    },
+    {
+      "what": "the lights over the loggia, on the front and the flank: the print's outlines read about 1.4 m across (x 1016-1071 and 877-931 px), about 1.2 m once the lit reveal of the near jamb is taken off, against the build's 1.15 m (K01's widest ordinary sash); their transom bar stands about 0.75-1.0 m under the head where K06's transom light is 0.45 m; and each stands in a moulded frame under a projecting head between carved pilasters, where the build lays K01's flat arch",
       "status": "open",
-      "how": "T-3097 (found by T-3002)"
+      "how": ""
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
