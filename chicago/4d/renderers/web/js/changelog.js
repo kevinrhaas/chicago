@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2257, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: '1811 Prairie\'s north corner stands as a rock-faced stone pier', kind: 'improvement',
+    items: [
+      'The north end of 1811 Prairie\'s front is now a narrow pier of rough-faced brownstone, almost a metre wide. Before, the bay\'s slanted side ran nearly to the corner and left a strip of plain pale stone there. The 1888 plate, a later photograph and a 1965 survey photograph all show the pier.',
+      'The 1965 Historic American Buildings Survey photograph of the Kimball house next door is now a reference picture for 1811. It catches the corner of 1811 across the side yard.',
+      'An 1887 sketch said to show 1811\'s entrance is still not used. Its stair and arches do not match the house\'s own pictures.',
+    ] },
+  { v: 2256, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: 'First Fort Dearborn gains galleries and detailed barrack fronts', kind: 'change',
+    items: [
+      'Five first-fort barrack ranges gain two-storey galleries, Whistler’s opening patterns and source-counted stacks; two blockhouses lose invented chimneys. Picture matches remain unresolved.',
+      'Four declared Kinzie poplars and six Ouilmette currants render with the existing collision clearance; their source counts remain unchanged.',
+      'Light and Full detail reach the northern 1812 woodland below the existing tree caps without thinning declared plants.',
+    ] },
   { v: 2255, ts: '2026-10-24T16:11:44.890Z', date: 'Oct 24, 2026, 11:11 AM CT', title: 'Hogan’s doorway and gable follow the Cameron drawing', kind: 'change',
     items: [
       'Hogan’s store gains a dark recessed doorway, a reconstructed boarded gable opening and a shorter chimney. The drawing leaves their construction and dimensions uncertain; its picture comparison remains open.',
