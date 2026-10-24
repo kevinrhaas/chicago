@@ -144,6 +144,7 @@ source names.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import tempfile
 import json
@@ -1957,8 +1958,170 @@ def working_lodgers(houses: list, house_order: list, cards: dict, seated_by_hous
 
 # -------------------------------------------------------------------- the fill --
 
+def capacity_availability(model: dict) -> dict:
+    """Dated eligibility guard, separate from mutable floor-area weights."""
+    dates = {}
+    for place in model["places"]:
+        path = ROOT / "data" / "structures" / (place["id"] + ".json")
+        if not path.exists():
+            raise SystemExit("  FAIL capacity basis has no dated structure: " + place["id"])
+        record = load(path)
+        dates[place["id"]] = {
+            "built": (record.get("built") or {}).get("value"),
+            "phases": [{"id": p["id"], "documented_range": p.get("documented_range")}
+                       for p in record.get("phases", [])],
+        }
+    return {"target_date": model["target_date"], "dates": dates}
+
+
+def capacity_allocation_model(live: dict) -> tuple:
+    """Carry the already-dealt bed weights; ordinary re-apportionment is not a mint.
+
+    Bootstrap only from this writer's committed house rows. The current eligible-house
+    and date contract is recorded explicitly on that first migration; later changes
+    require deliberate review. Crowded limits and quota refusals are never relaxed.
+    """
+    prior = load(LEDGER) if LEDGER.exists() else {}
+    old = {h["id"]: h for h in prior.get("houses", [])}
+    live_rows = house_rows(live, *occupancy(), platted_keepers())
+    current = {h["id"]: h for h in live_rows}
+    contract_keys = ("name", "function", "class", "standing", "division",
+                     "occupied_before", "keeper_household", "keeper_persons",
+                     "keeper_by", "keeper_head")
+    availability = capacity_availability(live)
+    basis = prior.get("capacity_allocation_basis")
+    if basis is None:
+        if old and set(old) != set(current):
+            raise SystemExit("  FAIL eligible lodging houses changed; review capacity basis")
+        rows = []
+        for key, row in sorted(current.items()):
+            before = old.get(key, row)
+            if any(before.get(k) != row.get(k) for k in contract_keys):
+                raise SystemExit("  FAIL lodging-house identity/occupancy changed: " + key)
+            rows.append({"id": key, "beds_ordinary": int(before["beds_ordinary"]),
+                         "beds_crowded": int(before["beds_crowded"]),
+                         "contract": {k: row.get(k) for k in contract_keys}})
+        basis = {
+            "version": 1,
+            "recorded_from": "committed ledger houses before ordinary-capacity reweighting"
+                             if old else "first lodging deal",
+            "source_ledger_sha256": hashlib.sha256(LEDGER.read_bytes()).hexdigest()
+                                    if old else None,
+            "availability": availability,
+            "houses": rows,
+            "note": "These ordinary-night figures are the allocation basis of existing "
+                    "identities and seats, not the live model's bed report. They are "
+                    "carried unchanged. quota_basis retains its existing independent "
+                    "bucket, ceiling, house-order and refusal contracts.",
+        }
+    if basis.get("version") != 1 or basis.get("availability") != availability:
+        raise SystemExit("  FAIL lodging availability/dates changed; review capacity basis")
+    rows = {h["id"]: h for h in basis["houses"]}
+    if set(rows) != set(current):
+        raise SystemExit("  FAIL eligible lodging houses changed; review capacity basis")
+    for key, row in current.items():
+        before = rows[key]
+        if before["contract"] != {k: row.get(k) for k in contract_keys}:
+            raise SystemExit("  FAIL lodging-house identity/occupancy changed: " + key)
+        held = old.get(key, {})
+        held_count = int(held.get("occupancy_after", 0)) + int(held.get("minted_children") or 0)
+        if row["beds_crowded"] < held_count:
+            raise SystemExit("  FAIL live crowded ceiling under existing occupancy: " + key)
+        if row["beds_crowded"] != before["beds_crowded"]:
+            raise SystemExit("  FAIL crowded capacity changed; review capacity basis: " + key)
+    # Only weights within an unchanged class total are carried by this extension.
+    for cls in LODGING_CLASSES:
+        old_total = sum(h["beds_ordinary"] for h in rows.values()
+                        if h["contract"]["class"] == cls)
+        new_total = sum(h["beds_ordinary"] for h in current.values() if h["class"] == cls)
+        if old_total != new_total:
+            raise SystemExit("  FAIL ordinary class total changed; review capacity basis: " + cls)
+    allocation = copy.deepcopy(live)
+    for place in allocation["places"]:
+        place["beds_ordinary"] = rows[place["id"]]["beds_ordinary"]
+    return allocation, copy.deepcopy(basis)
+
+
+def publish_capacity_truth(cards: dict, ledger: dict, live: dict, basis: dict) -> None:
+    """Report current capacities while retaining the labelled historical allocation."""
+    current = {p["id"]: p for p in live["places"]}
+    allocated = {p["id"]: p for p in basis["houses"]}
+    recut = []
+    for house in ledger["houses"]:
+        key = house["id"]
+        before, now = allocated[key]["beds_ordinary"], current[key]["beds_ordinary"]
+        house["allocation_beds_ordinary"] = before
+        house["beds_ordinary"] = now
+        house["beds_crowded"] = current[key]["beds_crowded"]
+        house["at_its_ordinary_night_figure"] = house["occupancy_after"] >= now
+        if before != now:
+            recut.append({"place": key, "allocation_beds_ordinary": before,
+                          "current_beds_ordinary": now})
+    if "initial_allocation_authorized_empty_beds" not in basis:
+        # Preserve the historical staffing ceiling, which was NET room, not the
+        # old positive per-house physical vacancy count (33 on this migration).
+        basis["initial_allocation_authorized_empty_beds"] = max(0,
+            sum(h["beds_ordinary"] for h in allocated.values())
+            - sum(h["occupancy_after"] for h in ledger["houses"]))
+        basis["authorization_note"] = (
+            "Carried historical planning authorization, formerly the net bed balance; "
+            "not a claim that this many positive physical vacancies existed. "
+            "Reweighting does not increase this initial ceiling; remaining authorization "
+            "also deducts later ordinary occupancy against the carried bed total.")
+    ledger["capacity_allocation_basis"] = basis
+    ledger["capacity_re_cut_since"] = {
+        "note": "Current capacities are reported in houses and cards. Allocation used "
+                "the carried ordinary basis only: no person, name, household or seat "
+                "is silently re-dealt by a floor-area weight change. Nested quota_basis "
+                "top-up bed counts describe that allocation, not new live-capacity debt.",
+        "houses": sorted(recut, key=lambda r: r["place"]),
+    }
+    for card in cards.values():
+        block = card["lodging_household"]
+        key = block["place"]
+        before, now = allocated[key]["beds_ordinary"], current[key]["beds_ordinary"]
+        explanation = (
+            f"This group was reconstructed using an earlier estimate of {before} "
+            f"ordinary-night beds. The current estimate is {now}, or "
+            f"{current[key]['beds_crowded']} when crowded. Revising that estimate "
+            f"does not identify different residents. Their lodging here remains "
+            f"reconstructed; dated evidence can replace this allocation.")
+        block["beds_ordinary"] = now
+        block["beds_crowded"] = current[key]["beds_crowded"]
+        block["stands_on"] = explanation
+        block["withdrawn_if"] = (
+            "Dated evidence identifying who lodged here, or reviewed changes to the "
+            "building's availability, crowding limit or town population model. "
+            "A revised ordinary-night estimate alone does not name new residents.")
+        for link in card.get("associated_with", []):
+            if link.get("kind") == "lodging" and link.get("place_or_structure_id") == key:
+                link["note"] = explanation
+                if isinstance(link.get("basis"), dict):link["basis"]["note"] = explanation
+        for person in card["persons"]:
+            person_basis = person.get("basis") or {}
+            needle = f"from the lodging model's ordinary-night figure of {before}."
+            if needle in person_basis.get("note", ""):
+                person_basis["note"] = person_basis["note"].replace(
+                    needle, f"from the committed allocation basis's ordinary-night "
+                    f"figure of {before}; the current model reports {now}.")
+            for field in ("note",):
+                text = person.get(field, "")
+                phrase = f"the town model says {before} people slept in this house on an ordinary night"
+                if phrase in text:
+                    person[field] = text.replace(phrase,
+                        f"the committed allocation basis assigned {before} ordinary-night "
+                        f"beds here (the current model reports {now})")
+
+
 def fill() -> tuple:
-    model = lodging_model()
+    live = lodging_model()
+    allocation, basis = capacity_allocation_model(live)
+    cards, ledger = _fill_from_allocation(allocation)
+    publish_capacity_truth(cards, ledger, live, basis)
+    return cards, ledger
+
+
+def _fill_from_allocation(model: dict) -> tuple:
     lives, keeps = occupancy()
     platted = platted_keepers()
     houses = house_rows(model, lives, keeps, platted)
@@ -2481,6 +2644,25 @@ def keeper_table(houses: list) -> list:
     return rows
 
 
+def allocation_authorization_left(ledger: dict) -> int:
+    """An initial planning ceiling is not replenished by a capacity reweighting."""
+    basis = ledger["capacity_allocation_basis"]
+    initial = basis["initial_allocation_authorized_empty_beds"]
+    remaining = (sum(h["beds_ordinary"] for h in basis["houses"])
+                 - sum(h["occupancy_after"] for h in ledger["houses"]))
+    return max(0, min(initial, remaining))
+
+
+def ordinary_bed_accounting(houses: list) -> dict:
+    """Physical ordinary beds and overflow are distinct; keeper children take no bed."""
+    return {
+        "ordinary_night_beds_slept_in": sum(min(h["beds_ordinary"], h["occupancy_after"]) for h in houses),
+        "ordinary_night_beds_still_empty": sum(max(0, h["beds_ordinary"] - h["occupancy_after"]) for h in houses),
+        "occupants_above_ordinary_night_figure": sum(max(0, h["occupancy_after"] - h["beds_ordinary"]) for h in houses),
+        "ordinary_night_net_balance": sum(h["beds_ordinary"] - h["occupancy_after"] for h in houses),
+    }
+
+
 def the_two_counts_reconciled(ledger: dict) -> dict:
     """HOUSES AGAINST BEDS, which is the reconciliation T-1534's acceptance asked for
     before either half of its order could be minted, and T-1537 is the ticket that made it.
@@ -2512,7 +2694,7 @@ def the_two_counts_reconciled(ledger: dict) -> dict:
         "built_places_holding_a_household": with_a_household,
         "built_places_holding_no_household": built - with_a_household,
         "ordinary_night_beds": beds,
-        "ordinary_night_beds_slept_in": slept_in,
+        **ordinary_bed_accounting(houses),
         "households_the_book_orders_in_these_two_classes": sum(ordered.values()),
         "houses_this_stage_has_filled": with_a_household,
         "houses_still_ordered_after_this_stage_s_counter":
@@ -2542,7 +2724,7 @@ def the_two_counts_reconciled(ledger: dict) -> dict:
             "of its own keeper's family. So the "
             f"{scheduled - built} unbuilt roofs are the whole of the remainder: T-1209 "
             "raises them and T-1538 seats them."
-            if slept_in >= beds and not _short else
+            if ordinary_bed_accounting(houses)["ordinary_night_beds_still_empty"] == 0 and not _short else
             "Yes — see the two counts above for which unit has the room."),
     }
 
@@ -2573,7 +2755,8 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "keeper_children_refused": sum(len(r["refused"]) for r in families),
         "people_on_the_cards": minted,
         "occupied_after_this_stage": after,
-        "ordinary_night_beds_still_empty": beds - after,
+        **ordinary_bed_accounting(houses),
+        "allocation_authorized_empty_beds": allocation_authorization_left(ledger),
         "houses_at_their_ordinary_night_figure":
             sum(1 for h in houses if h["at_its_ordinary_night_figure"]),
         "houses_over_their_crowded_ceiling":
@@ -3042,12 +3225,18 @@ def self_test() -> int:
          and sum(ledger["child_fills"].values())
          == ledger["measurement"]["keeper_children_minted"])
 
-    # 9d. A child takes no ordinary-night bed: the beds the boarders left stand where they
-    #     stood, which is the figure T-1534's own ticket counts.
-    case("drawing the children moves no bed",
-         ledger["measurement"]["ordinary_night_beds_still_empty"]
-         == ledger["measurement"]["ordinary_night_beds"]
-         - ledger["measurement"]["occupied_after_this_stage"])
+    # 9d. Children take no ordinary bed. Opposing ordinary overflow and a
+    # vacancy cannot be cancelled into the physical vacancy count.
+    mixed = [{"beds_ordinary": 3, "occupancy_after": 5, "minted_children": 2},
+             {"beds_ordinary": 7, "occupancy_after": 2, "minted_children": 0}]
+    totals = ordinary_bed_accounting(mixed)
+    no_children = [dict(h, minted_children=0) for h in mixed]
+    case("children take no ordinary bed; physical vacancies do not cancel overflow",
+         totals == {"ordinary_night_beds_slept_in": 5,
+                    "ordinary_night_beds_still_empty": 5,
+                    "occupants_above_ordinary_night_figure": 2,
+                    "ordinary_night_net_balance": 3}
+         and ordinary_bed_accounting(no_children) == totals)
 
     # 9e. Every house the model wanted children for says what became of each one.
     rows = ledger["keeper_families"]["houses"]
@@ -3138,6 +3327,93 @@ def self_test() -> int:
     return 1 if failures else 0
 
 
+def capacity_preservation_self_test() -> int:
+    """Exercise the actual native allocation on a recut, without writing any record."""
+    global lodging_model, load, capacity_availability
+    before_model, before_load, before_dates = lodging_model, load, capacity_availability
+    cards, ledger = fill()
+    def identities(group):
+        return {key: (card["head"], card["division"], card["lodging_household"]["place"],
+                      [(p["id"], p["name"], p["relationship"], p.get("sex"),
+                        p.get("age_band"), p.get("seed"), p.get("employment"))
+                       for p in card["persons"]]) for key, card in group.items()}
+    model = copy.deepcopy(before_model())
+    places = {p["id"]: p for p in model["places"]}
+    # The concrete Tremont/Exchange class recut preserves the exact class total.
+    assert places["exchange_coffee_house"]["beds_ordinary"] > 1
+    places["exchange_coffee_house"]["beds_ordinary"] -= 1
+    places["tremont_house_1"]["beds_ordinary"] += 1
+    try:
+        lodging_model = lambda: copy.deepcopy(model)
+        load = lambda path: copy.deepcopy(ledger) if Path(path) == LEDGER else before_load(path)
+        again, result = fill()
+        refuse(again, result)
+        assert identities(again) == identities(cards) and result["seats"] == ledger["seats"]
+        assert result["fills"] == ledger["fills"]
+        assert all(h["beds_ordinary"] == places[h["id"]]["beds_ordinary"] for h in result["houses"])
+        load = lambda path: copy.deepcopy(result) if Path(path) == LEDGER else before_load(path)
+        third, repeated = fill()
+        assert third == again and repeated == result
+        failures = 0
+        for kind in ("dates", "crowded", "class"):
+            changed = copy.deepcopy(model)
+            capacity_availability = before_dates
+            if kind == "dates":
+                def moved_dates(value):
+                    dates = before_dates(value)
+                    dates["target_date"] = "1835-07-02"
+                    return dates
+                capacity_availability = moved_dates
+            elif kind == "crowded":
+                held = next(h for h in ledger["houses"] if h["occupancy_after"] > 0)
+                next(p for p in changed["places"] if p["id"] == held["id"])["beds_crowded"] = held["occupancy_after"] - 1
+            else:
+                changed["places"][0]["beds_ordinary"] += 1
+            lodging_model = lambda: copy.deepcopy(changed)
+            try:
+                fill()
+            except SystemExit:
+                failures += 1
+        assert failures == 3
+    finally:
+        lodging_model, load, capacity_availability = before_model, before_load, before_dates
+    # Exercise actual measurement against the PERSISTED basis as later reviewed
+    # ordinary occupancy consumes room; children do not consume an ordinary bed.
+    sequential = copy.deepcopy(ledger)
+    initial = measurement(cards, sequential)["allocation_authorized_empty_beds"]
+    physical = measurement(cards, sequential)["ordinary_night_beds_still_empty"]
+    for consumed in (5, 10):
+        left = 5
+        for house in sorted(sequential["houses"], key=lambda h: h["beds_ordinary"] - h["occupancy_after"], reverse=True):
+            take = min(left, max(0, house["beds_ordinary"] - house["occupancy_after"]))
+            house["occupancy_after"] += take
+            left -= take
+            if not left:
+                break
+        assert left == 0
+        measured = measurement(cards, sequential)
+        assert measured["allocation_authorized_empty_beds"] == max(0, initial - consumed)
+        assert measured["ordinary_night_beds_still_empty"] == physical - consumed
+        recut = copy.deepcopy(sequential)
+        donor = next(h for h in recut["houses"]
+                     if h["occupancy_after"] > h["beds_ordinary"] and h["beds_ordinary"] > 1)
+        receiver = next(h for h in recut["houses"]
+                        if h["class"] == donor["class"] and h["id"] != donor["id"]
+                        and h["occupancy_after"] <= h["beds_ordinary"])
+        donor["beds_ordinary"] -= 1
+        receiver["beds_ordinary"] += 1
+        recut_counts = measurement(cards, recut)
+        assert recut_counts["ordinary_night_beds_still_empty"] == measured["ordinary_night_beds_still_empty"] + 1
+        assert recut_counts["allocation_authorized_empty_beds"] == measured["allocation_authorized_empty_beds"]
+        child_only = copy.deepcopy(sequential)
+        child_only["houses"][0]["minted_children"] += 3
+        assert measurement(cards, child_only)["allocation_authorized_empty_beds"] == measured["allocation_authorized_empty_beds"]
+    print("  ok    persisted authorization is consumed by later occupancy, not by children")
+    print("  ok    ordinary recut preserves identities/seats/current capacities and fixed point")
+    print("  ok    persisted dates, crowded occupancy and class changes refuse")
+    return 0
+
+
 def main(argv) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--build", action="store_true")
@@ -3152,7 +3428,7 @@ def main(argv) -> int:
     if args.report:
         return report()
     if args.self_test:
-        return self_test()
+        return self_test() or capacity_preservation_self_test()
     parser.print_help()
     return 2
 

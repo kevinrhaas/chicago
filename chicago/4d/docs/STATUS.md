@@ -24637,3 +24637,146 @@ The standalone source patch was integrated onto DEV e4745b3c5714185079215d06d807
 The first actual preflight stopped after publication refused an inherited stale ignored Glessner output. The old outputs and dirty ticket clone were preserved; the existing verified-archive materializer restored the current output, and the current canonical ticket clone supplies the worktree. The next preflight published successfully but exhausted temporary storage when the existing ticket-mirror regression copied unrelated recovery archives into its fixture. Both attempts remain non-passes. That regression now excludes only evidence archives and Git internals, retains every ticket/metadata input and the original mirror assertions, and cleans up a failed initial copy. Its actual measured run and the isolation audit passed; a fresh full preflight is required.
 
 The final merge-ready dry-run fixture emits its fixed GitHub states as shell-quoted Bash cases rather than starting an unnecessary nested Node interpreter. Every original merger assertion remains; dry-run exit status and output are recorded. Production merge/lock/workflow code is unchanged. A complete1054-step attempt finished with one dry-run fixture failure; the old assertion did not record output, so the exact transient cause is not established. Focused real-merger and deliberately blocked dry-run negative controls are recorded externally; a fresh complete gate is required before commit.
+
+### T-2377 integration continuation — 2026-10-23
+
+Hogan's reviewed first refinement is being brought onto the latest dev changes.
+The initial mobile smoke isolated an older expected-list omission: 27 valid
+1904 Indiana Avenue records from T-3009 were absent from the smoke oracle, while
+all prohibited 1835 layers were zero. Restore those expected IDs with the
+isolation assertion unchanged, then revalidate the new head. This is model
+progress; the original full picture-match case stays open and is never marked
+done by this increment. New-head checks are pending until their receipts exist.
+
+## T-3056 — early-building image credits and evidence limits (2026-10-23)
+
+St Mary's exact1884 engraving and mediated May1844 diary are credited without
+inventing an1843 picture date or a tower addition day. Current July1835 form stays;
+tower absence becomes an inference, and the whole-building picture is graded
+separately. Beaubien's card corrects the unsupported pre1817/oldest-house rationale
+and labels the panorama's building identity unresolved. The jail inventories
+withdraw an unsupported public-domain assertion, give the actual UCR catalogue
+credit/date limits, and retain a text-only rights hold; no held image supplies
+new geometry. Original T-2378/T-2380/T-2384 remain open. See the source correction
+research packet. Official recipe/compiled/card and fullgate receipts are pending
+until actually run; isolated studies are not canonical scene phases.
+
+Loading-card follow-through: the first complete local preflight found one stale
+claim among 1,049 checks: loading_009 called no steeple in1835 attested and cited
+the old indirect source. The card now says St Mary's gained a steeple after it
+was built but its addition year is uncertain, uses Andreas1884 and preserves
+the inferred grade. The existing160-card check and five negative fixtures pass.
+Source-use backlinks are being regenerated; the final full gate and combined
+published mobile/desktop card checks remain pending. The first failed run is
+retained as a failure, not represented as a pass.
+
+## T-3056 — verified jail publication supersedes the artwork hold (2026-10-23)
+
+The exact detailed jail illustration is in Gale’s 1902 book, credited on its
+actual title page to W. E. S. Trowbridge; the actual copyright page confirms
+1902. The independently public-domain plate supersedes the earlier artwork
+hold. Three unmodified source pages and their hashes are retained with source
+and licence credits. UCR’s separate copy/date/licence facts remain distinct and
+are stated on the card. The caption remains 1836; core/compound continuity,
+metric dimensions and the Andreas cap conflict remain unresolved. No jail
+geometry or grade is changed. Current dev is integrated, preserving both
+Hogan’s and Kimball’s complete liberty additions and dev’s T-3057 smoke fix.
+New source compilation/full preflight and combined mobile/desktop card QA are
+pending; earlier superseded attempts are not reported as passes.
+
+
+T-3056 citation consistency follow-up (2026-10-23): the existing Chicagology source entry also asserted no tower in July 1835. Its visitor-visible note and limits now distinguish the attested no-tower construction state in 1833 from the undated addition, and record the actual Andreas p. 290 collation. No form, placement or date changes. This text correction requires a fresh ordered producer tail before the post-Gale full gate; both remain pending at this checkpoint.
+
+
+T-3056 post-Gale full gate (2026-10-23): 1 of 1049 steps failed, the name-pool self-test. Its sole difference was the paragraph label Earlier, recognized after JSON parsing but missed after the escaped newline in raw JSON; no historical person was implicated. Replaced the label with an explicit all-caps historical heading. The actual name-pool self-test now passes all cases; a fresh ordered tail and full gate are still required. No source assertion or model parameter was changed for this repair.
+
+
+## T-3055 — bounded first frame-building picture increments (2026-10-23)
+
+GreenTree's pictured seven-bay south wall and main-gable siding, Sauganash's main-end
+upper/attic sash in white clapboard, and Gifford's three-storey shuttered first Tremont
+are implemented as source-bounded first increments. Tremont's raised entries now
+have plain outlines and its arch an opaque working field without invented lettering.
+An explicit phase/date-local roof flag anchor and its compiler/validator contract
+avoid hanging cloth from a whole hotel bounding box. Existing fort defaults remain.
+Existing footprints, geographic controls and building phase dates are retained.
+
+Actual isolated pinned emitter and unchanged-camera comparisons were inspected;
+all verdicts remain **differs**. The actual held app-layer diagnostic draws one
+reconstructed24-star flag on the roof spar with no reported problems, but shared
+breeze makes it nearly edge-on instead of the source-left pose. Letters, joinery,
+openings/roof/landing/stack/wing/context details and all full multi-view matches stay
+open. No original image-match ticket closes. See RESEARCH/frame-picture-match-T-2376-T-2385.
+Official23-family refresh, source/grade/sidecar provenance, published mobile/card
+checks and required full gates must be recorded by integration before landing.
+
+
+
+## T-3055/T-3056 — canonical integration checkpoint (2026-10-23)
+
+The completed source-only strict preflight passed all1049 checks, plus changelog
+and ticket-id checks, after the citation and name-pool heading repairs. Its exact
+source/compiled tree is pushed at e41ae248f; earlier failed runs remain failures.
+The shared frame controls and bounded opt-ins are now applied in the canonical
+working tree. Sauganash uses a reconstructed25.2-degree roof and adjusted attic
+sash. Tremont's opaque panel carries reconstructed known-name TREMONT strokes,
+not an attested transcription, and its dark-brown stock roof tone is a
+reconstructed tonal proxy for a monochrome drawing. All comparisons still differ.
+
+Pinned4.5.3 actually emitted all23 affected canonical masters and the publisher's
+real derivative producer ran for all23. Three hotel meshes change. Of the20 other
+masters,19 are byte-identical; one has only34 changed float UV components on
+untextured trim, with every position/normal/index/confidence/material stream and
+GLB JSON identical. The exact Blender packing cause is unproved. No master or
+recipe hash was copied/restamped from a preview. Actual Tremont bytes reproduce
+the reviewed final export. The liberty/entrance compilers and ordered55-producer
+tail passed two laps, last lap moving nothing; all workbook sheet values matched
+before restoring byte-only ZIP churn. Current feature tests15, anchor groups5,
+consumer tests6 and the real raw/parsed name-pool self-test also pass.
+
+The first actual grouped mobile/card check found a fixture navigation error: it
+compared CSS-uppercased summary innerText to mixed-case Record, leaving the real
+record disclosure closed. The failed/interrupted attempt is retained. Native
+textContent now locates that fold before its actual summary is clicked; the
+research assertion and all source/model/network oracles remain. Authoritative
+regeneration reproduces the corrected check. Complete corrected12-case QA,
+current-dev reconciliation, final grouped full preflight and both-viewports'
+all15-part published smoke remain pending. None is claimed by this checkpoint.
+No original image-match case is complete. This finishes only the shared tool and
+source prerequisite when the remaining integration gates pass.
+
+## T-3055/T-3056 — published card acceptance (2026-10-23)
+
+The complete published grouped check now passes12/12: six buildings at390×780
+mobile and1280×800 desktop, with no page, network, server or unexpected loader
+errors. Actual source credits, unresolved identity/date disclosures and visible
+attribute grades pass. Tremont's real flag anchor, mesh, projected visibility and
+linked GPU uniforms pass in normal and confidence views on both viewports. Earlier
+failed/stopped attempts remain failures; no assertion was weakened.
+
+The refreshed ordered55-producer tail reaches a fixed point; native Photos tests
+pass11 checks. Direct original-e41 builder/params and untouched-record comparison
+against final code preserves all23 producer-selected frame phases with canonical
+names/seeds. Sauganash's unselected1829 phase passes separately; it is not a24th
+canonical output. No frame version exists in that original cohort.
+
+The [pinned recovery](https://github.com/kevinrhaas/chicago-tickets/blob/4083c66910fdd088d2118f2a20127b190b017693/evidence/image-match-2026-10-22/closed-complete12QA-bridge-fort-20261023T120430Z/RECOVERY.md)
+records the closed12-case acceptance and its limits. Current grouped M preflight
+and all15 published smoke parts at both viewports remain pending. Original image
+comparisons remain differs and their cases stay open; no building-match completion
+or final shared/source-ticket closure is claimed by this checkpoint.
+
+## T-3055/T-3056 local preflight repair (2026-10-23)
+
+The first current-M strict run failed six of1056 checks; its complete failed transcript is retained. The version fixture now copies the real flag reader rather than omitting the runtime contract. Its unchanged assertions pass. The three new steps and changed version/stack tools have measured isolation rows; the native audit passes all1029 keyed steps. Native rights remeasurement removes only the repaired Sauganash shutter citation and refreshes existing1736 Prairie corroboration metadata; no unresolved-source population grows. The native lodging model now follows Tremont's three storeys, redistributing ordinary-night capacities within the same total and35-person ceiling; it creates or moves nobody.
+
+The offset Tremont stacks already clear their local roof. The old highest-stack/global-ridge bound could not measure that scheme faithfully. The bounded new path decodes actual GLB shaft/cap and roof triangles, checks complete roof coverage under every cap and tests every stack against the unchanged18-inch minimum. All441 old-scheme readings are exact. The four actual local clearances are1.63754,0.48754,0.88754 and1.08754m; a single shortened stack fails independently, and malformed/missing mesh data fail closed. Geometry, camera, phase and surveyed placement are unchanged. The ordinance remains the existing dimensional ratchet, not evidence of a dated July1835 fitting.
+
+Fresh derived output/published mirror, the complete corrected strict run and final-head published smoke remain pending. The earlier12-card acceptance and later failure are separate recorded checkpoints; no final merge readiness or original image-match completion is claimed.
+
+
+### 2026-10-23 — T-3055/T-3056 lodging-capacity follow-up, final acceptance pending
+
+The three-storey Tremont changes six ordinary-capacity weights in the existing lodging model. Native rebuilding now carries the earlier allocation basis rather than re-dealing existing reconstructed people: all 22 households, 157 person records and 52 seat assignments are preserved, as are quota/fill counters and the byte-exact reconstruction order book. Reports distinguish 37 physically empty ordinary beds, 215 ordinary beds occupied, 5 occupants above the ordinary estimate and a net balance of 32. Staffing uses both actual room and the separately carried remaining authorization; later occupancy consumes that authorization. The ordinary-capacity change alone neither creates nor retires identities. Crowded ceilings, dated availability, house identity and quota refusals remain enforced.
+
+Actual native lodging/staffing builds, checks and self-tests pass, including a same-total reweighting, fixed point, availability/crowded/class refusals, opposing vacancy/overflow and sequential occupancy. The earlier net-as-vacancy assertion was corrected with a counterexample; quota/crowded assertions remain intact. The first native 55-step refresh reached a fixed point before this reporting follow-up. Its next refresh, complete corrected strict preflight and full published mobile/desktop smoke acceptance remain pending. Original picture-match cases remain open/differs.

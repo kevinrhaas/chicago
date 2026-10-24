@@ -1,0 +1,22 @@
+{
+  "structure_id": "sauganash_hotel",
+  "source_id": "andreas_1884_sauganash_hotel_plate",
+  "photo": "/workspace/chicago/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+  "image_px": [
+    2017,
+    1296
+  ],
+  "principal_px": [
+    4129.395927696468,
+    856.404866199997
+  ],
+  "focal_px": 4730.352526721041,
+  "eye": [
+    42.75817160861064,
+    60.68856053185239,
+    1.869951965172664
+  ],
+  "yaw_deg": 246.33520855106465,
+  "sky": "overcast",
+  "solve": "PROVISIONAL COMPARISON FRAMING ONLY, NOT A SOLVED OR ACCEPTED CAMERA. Five manually picked main-wall corners in the inspected 2017x1296 Andreas/Braunhold image, fixed current 9.92 x 8 m rectangle and 5.5 m wall height. Far lower end corner is obscured by the annex and excluded; other grade picks are approximate beside figures/boardwalk. Point RMS 16.28 px, max 30.15 px. Picks/residuals and withheld roof apex are in source-picks-and-fit.json. Dimensions and viewpoint are reconstruction, not surveyed controls. The source is retrospective and cannot date every feature to 1835; preserve differs until actual review. Source hatching and no consistent cast shadow warrant provisional overcast review lighting; original colours are supplied by separate evidence, not this monochrome plate. Principal x about4129px lies outside the source width: this is a poorly constrained perspective fit, not a physical lens. Withheld near roof apex projects near(636,231) against approximate source(648,350), so roof/camera remain substantially unresolved. Initial preview renders the main hotel mesh only; its separately modelled log annex is omitted context, not a claim of absence."
+}

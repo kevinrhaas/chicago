@@ -1,0 +1,12 @@
+{
+  "base_commit": "575b4968569283177e36e92878b2a84c5554068e",
+  "all_old_snapshots_byte_identical_to_commit": true,
+  "source": "immutable package baseline/, not live parent ROOT",
+  "sha256": {
+    "generators/archetypes/frame_tavern.py": "b2f18a5863de03c27269d4dcd7c49863751f3e32574e3b8aa0ec1e662e0330a7",
+    "generators/archetypes/frame_tavern_params.py": "1cb1161dd84772abb611aed709fd3f60a94507543ee633ad25a13e0c61062942",
+    "data/structures/tremont_house_1.json": "3408ddab4a2b0ac478b52b3dfbc86dbb2150743ac04c166ac5e27fb6f337fdb4",
+    "data/structures/green_tree_tavern.json": "abef9b16b872ac7f9087f88d5218a9937a95b89d726d0b208d249cd341860165",
+    "data/structures/sauganash_hotel.json": "6e67efc3ac094fe1aaa24c5491b3e60a84439cfb95c3fe2c068fdb25f42c863e"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "state": "actual isolated canonical exports and reviewed source/previous/third/actual-app-flag comparisons; all differ",
+  "all_frozen_code_hashes_unchanged": true,
+  "blender_version": "4.5.3 LTS",
+  "same_camera_source_numeric_proof": [
+    {
+      "label": "previous final-gable proposal",
+      "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+      "numeric_camera": {
+        "image_px": [
+          1637,
+          796
+        ],
+        "principal_px": [
+          468.2747693455644,
+          460.63883228759966
+        ],
+        "focal_px": 1320.031937501163,
+        "eye": [
+          -47.51829894710495,
+          -37.89004630139154,
+          2.4453554996967415
+        ],
+        "yaw_deg": 28.15896409466343,
+        "sun_uvy": [
+          -1,
+          -0.4,
+          1.4
+        ]
+      },
+      "glb_sha256": "f6cc59b2545eab5565329df64d766b85dc1ae4537eebe318fb6c4f5d50144999",
+      "source_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+      "render_sha256": "814b92a1ed10dcf40cc854f265ecefb12c9c0d9cf9a23bc69500cf44c6f6c6d7",
+      "match_file": "review/tremont/before/gifford-provisional.match.json",
+      "all_captures_exit_code": 0,
+      "verdict": "differs"
+    },
+    {
+      "label": "third arch/entry proposal",
+      "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+      "numeric_camera": {
+        "image_px": [
+          1637,
+          796
+        ],
+        "principal_px": [
+          468.2747693455644,
+          460.63883228759966
+        ],
+        "focal_px": 1320.031937501163,
+        "eye": [
+          -47.51829894710495,
+          -37.89004630139154,
+          2.4453554996967415
+        ],
+        "yaw_deg": 28.15896409466343,
+        "sun_uvy": [
+          -1,
+          -0.4,
+          1.4
+        ]
+      },
+      "glb_sha256": "0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611",
+      "source_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+      "render_sha256": "5c5e2bdd3beb0cd448af6f65a0008513d9c0275a54a06eab8bb6b111d3030086",
+      "match_file": "review/tremont/gifford-provisional.match.json",
+      "all_captures_exit_code": 0,
+      "verdict": "differs"
+    },
+    {
+      "label": "third + proposed app flag layer, held0",
+      "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+      "numeric_camera": {
+        "image_px": [
+          1637,
+          796
+        ],
+        "principal_px": [
+          468.2747693455644,
+          460.63883228759966
+        ],
+        "focal_px": 1320.031937501163,
+        "eye": [
+          -47.51829894710495,
+          -37.89004630139154,
+          2.4453554996967415
+        ],
+        "yaw_deg": 28.15896409466343,
+        "sun_uvy": [
+          -1,
+          -0.4,
+          1.4
+        ]
+      },
+      "glb_sha256": "0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611",
+      "source_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+      "render_sha256": "46f7ce7273de0fc99e68f9d8aa34a57808d1975a87c1d12595b904a7e7864332",
+      "match_file": "review/tremont-flag/gifford-provisional.match.json",
+      "all_captures_exit_code": 0,
+      "verdict": "differs"
+    }
+  ],
+  "standard_before_after_helper_identical": true,
+  "flag_uses_separate_actual_app_layer_diagnostic_helper": true,
+  "flag_position_visual_inspection": "At roof-spar head, not hotel bounds centre; matches encoded head/foot envelope. Existing breeze makes cloth nearly edge-on, source pose unresolved.",
+  "actual_flag_grade": 1,
+  "original_tickets_closed": false,
+  "all_cpu_browser_closed": true,
+  "official_assets_manifests_written": false
+}

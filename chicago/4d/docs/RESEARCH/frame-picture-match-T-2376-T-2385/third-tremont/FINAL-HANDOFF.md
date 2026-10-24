@@ -1,0 +1,19 @@
+# Third Tremont actual preview and bounded flag prerequisite handoff
+
+Frame patch: `incremental.patch` (apply after final combined+gable and final durable tests). Opaque arch avoids asserting glass/radial bars or invented legible text; plain broad entry outlines use existing trim. Append `liberty.md` with its two exact reconstructed-only Covers. Full copied before/proposed files are frozen under this package; first/second/combined previews untouched.
+
+Separate app prerequisite: `../T-2385-roof-flag-anchor/flag-layer.patch`, then `T-2385-flag-opt-in.patch` after the third Tremont record; append its liberty with three reconstructed-only Covers. `check-step.txt` adds both cheap Node and Python contract suites. Exactly3 runtime fields are declared/read in JS and recognized by both compiler and validator. No dishonest archetype CONSUMED additions or fake record_only label on new app geometry; legacy fort attributes/mounts/dimensions remain unchanged. App code and its actual opt-in/compiled sidecar belong together under the existing sidecar-read contract.
+
+Validation:24 frozen-final-gable legacy phases keep exact accumulated params/geometry/material/confidence,10 durable CPU picture tests pass,5 Node anchor contract groups and6 Python compiler/validator/card tests pass, schema/parse/real Covers checks pass. Three canonical pinned4.5.3 emit.emit_structure exports pass actual disabled defaults and GLB contracts. GreenTree/Sauganash GLB bytes are unchanged from final-gable preview. Current Tremont has5504 triangles,440624bytes,SHA256`0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611`. New gable_panel is matte roughness0.95; reconstructed detail confidence is1.
+
+Actual reviewed panels:
+
+- `preview-root/review/tremont/source-before-after.jpg`: source, previous proposal, third arch/entry; identical standard helper and byte-identical numeric camera/source.
+- `preview-root/review/tremont-flag/source-before-after-and-flag.jpg`: adds separately labelled actual app flag diagnostic.
+- `preview-root/review/tremont-flag/source-before-after-and-flag-detail.jpg`: identical pixel ROI[875,175,1260,535],3x nearest enlargement, visually inspected.
+
+The runtime diagnostic imports actual proposed flags.js/createFlags; it does not bake cloth or replace the app algorithm. It draws one24-star flag,1.85m fly by1.30m hoist,reconstructed confidence1,held animation time0,no problems. Position is visibly at the spar head rather than the hotel bounding-box centre. Phase/date and explicit[east,north,up]→[east,up,-north] anchor checks apply; its24-star interval ends1836-07-03 without shortening the building phase. The displayed normal-view diagnostic does not substitute for app confidence-view/mobile checks.
+
+Remaining visible differences: source flag projects left, while existing shared SW→NE breeze makes the prototype cloth nearly edge-on. No dimensions are enlarged to conceal this pose mismatch. Gable letters/sign/window interpretation, entry/landing/guard/window/shutter/stack/eave/finish details, camera/date/all other views and surrounding street/context remain unresolved. Four entries and concealed repeats remain reconstruction. All standard and runtime diagnostic verdicts remain **differs**.
+
+`execution-freeze.json` hashes all executed proposals/contracts/helpers before the run; final verification confirms no frozen code changed. `preview-root/reviewed-preview-receipt.json` proves same-camera/source numeric/hash controls. `glb-contract-inspection.json` and `blender-previews-report.json` record actual emitter/material/confidence results. No official bake/freshness/manifests, publisher, accepted camera, ticket closure or tracked edits. All Blender/browser/server processes closed; parent has CPU/browser slot. Parent owns official23-family refresh, sidecars/licences/grades, actual app QA and required gates/PR policy.
