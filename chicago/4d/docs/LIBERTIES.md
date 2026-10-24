@@ -32320,3 +32320,44 @@ or elevation of the house.
 **Ticket:** T-3097.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3097).
+
+### L-k08-1812-balcony-panel-3113 — 1812 Prairie's balcony given the Levy photograph's stone panel, pedestal, iron scrolls and roundel balusters, and the south projection's top brought down to the print's cornice
+
+**Decision:** the balcony on the south projection of George H. Wheeler's house at 1812 Prairie
+(T-3113, piece 1 of T-3092) is built as Albert Levy's photograph shows its front run, where
+L-k08-1812-projection-balcony-2888 had run the iron rail across the print's stone middle: a solid
+stone panel 3.14 m across on the front's middle, its top 0.09 m over the deck at its ends and rising
+in a straight sweep over 0.8 m to shoulders 0.42 m up, level from there to a pedestal 0.32 m across
+and 0.52 m high under a broader cap; an iron C-scroll hung from the top rail over each sweep and a
+small carved scroll on the panel each side of the pedestal; the top rail running from the posts
+into the pedestal, the foot rail stopping at the panel's ends; and a roundel on every iron baluster
+just under the top rail. The projection's top comes down to the print's cornice: its last storey
+3.65 m where it was 3.85, so its wall head stands at 9.25 m (the print's cornice foot, y about
+700 px) under a moulded eave 0.2 m out and 0.15 m deep, its top at 9.40 m, where K08's own 0.35 m
+eave and 0.28 m fascia over a 9.45 m wall head had stood its top at 9.73 m, about 25-30 px over
+the print's. K08's balcony learns `panel` and `roundel` (k01_frontage_params validates them; no
+other house names either, so every other house re-emits as before).
+**What is read, not invented.** Through Levy's camera
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`) at the projection's 92.4 px a
+metre, on 3x crops of x 280-780, y 600-720 px: the panel from x 390 to 680 px; its ends about
+8 px over the cornice, its top rising to about 36-40 px over it by x 467 and 610, level from there to
+the pedestal at x 527-557, whose cap stands at about the rail's top; the scrolls' places, over the
+sweeps about 35 px in from the panel's ends and beside the pedestal; the roundels, about 9 px
+across, one on each baluster under the rail; the cornice's top at about y 677-693 (the print is
+warped, so it reads lower to the north) and its foot at about y 700.
+**What is invented.** The panel's 0.14 m and the pedestal's 0.2 m thickness and the cap's
+projection; the scrolls' form (a bar half the balusters' section wound a turn and a quarter
+inward, its tail into the rail) and the iron scrolls' 0.07 m radius, smaller than the print's about
+0.11 m, so they hang clear of the slope in the rail's plane where the print's stand before the panel; the carved scrolls drawn as
+plain rings 0.06 m in radius; the roundels' 0.012 m section; the eave's section (a plain soffit and
+fascia, where the print's is a moulded cornice), its 0.2 m and 0.15 m read as the print's cornice
+height and set to place its top; the panel's stone, which is the projection's dressing.
+**What is built otherwise than read.** Under the print's cornice the projection's face is a stone
+frieze to the paired window's caps (y 700-740 px), with a block under the pedestal; the build's is
+brick there, and it stays open in the Levy match record.
+**How to resolve:** a sharper print of the front, or a view of the balcony at an angle, would fix
+the panel's thickness, the scrolls and the cornice's section.
+**Ticket:** T-3113.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3113).
