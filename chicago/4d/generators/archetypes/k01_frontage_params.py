@@ -1089,21 +1089,27 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
     # T-3051: or each shaft its own head (`heads`, the low-s one first; 1811's 1888 plate carves
     # them apart): its own `top_m`, its spire a `pyramid` (the default, `spire_m` high) or a
     # `dome` (`spire_m` its rise), and over the low one a moulded `block` straddling the rake's
-    # foot, `in_m` toward the face's centre, from `foot_m` (over the wall head) `height_m` high
+    # foot, `in_m` toward the face's centre, from `foot_m` (over the wall head) `height_m` high.
+    # T-3064: a shaft under a block may stop BELOW the face's eave (the plate's north pinnacle
+    # stops at a band level with the horizontal cornice), its spire a `scaled_pyramid` or a
+    # pyramid rising to the block's foot, so the block takes the eave's end over it
     if "heads" in pn:
         hs = pn["heads"]
         if not isinstance(hs, list) or len(hs) != 2:
             raise ParamError("dormer.wall_gable.pinnacles.heads: one head a shaft, the low-s one first")
         heads = []
         for j, h in enumerate(hs):
-            if set(h) - {"top_m", "spire", "spire_m", "block"} or h.get("spire", "pyramid") not in ("pyramid", "dome"):
-                raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}] takes top_m, spire (pyramid or dome), "
-                                 "spire_m and block")
+            if set(h) - {"top_m", "spire", "spire_m", "block"} \
+                    or h.get("spire", "pyramid") not in ("pyramid", "scaled_pyramid", "dome"):
+                raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}] takes top_m, spire (pyramid, "
+                                 "scaled_pyramid or dome), spire_m and block")
             hd = {"top_m": float(h.get("top_m", pin["top_m"])), "spire": h.get("spire", "pyramid"),
                   "spire_m": float(h.get("spire_m", pin["spire_m"]))}
-            if not dormer["face_height_m"] < hd["top_m"] <= 4.0 or not 0.1 <= hd["spire_m"] <= 1.2:
+            low = hd["top_m"] <= dormer["face_height_m"]
+            if not (0.5 if low else dormer["face_height_m"]) < hd["top_m"] <= 4.0 or not 0.1 <= hd["spire_m"] <= 1.2:
                 raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}]: a shaft rises past the face's eave "
-                                 "(at most 4 m), under a 0.1-1.2 m spire")
+                                 "(at most 4 m), or under a block at least 0.5 m over the wall head, under a "
+                                 "0.1-1.2 m spire")
             if "block" in h:
                 bk = h["block"]
                 if set(bk) != {"in_m", "width_m", "foot_m", "height_m"}:
@@ -1115,6 +1121,12 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
                     raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}].block: 0.3-1.0 m wide, 0.4-2.0 m "
                                      "high, its outer face over the shaft and inside its centre line")
                 hd["block"] = b
+            if low:
+                # T-3064: the block takes the eave's end, so the shaft's spire must rise to it
+                tip = hd["top_m"] + pin["cap_m"] + hd["spire_m"]
+                if "block" not in hd or hd["spire"] == "dome" or abs(tip - hd["block"]["foot_m"]) > 0.05:
+                    raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}]: a shaft stops below the face's eave "
+                                     "only under a block, its pyramid's tip at the block's foot (within 0.05 m)")
             heads.append(hd)
         pin["heads"] = heads
     finial = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
@@ -2970,7 +2982,9 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     its floors and its wall top in the main eave's place, so it rises TOWER_PAST_EAVE_M past
     the wing's own eave with its cap whole over the wing's roof, and the wing's lights behind
     it are dropped; the wing's eave is not cut for it and runs into its ring, as the main
-    eave does. Only a tower: a bay or an oriel on a wing is still the main walls' kit.
+    eave does. T-3001: a full-height projection too, standing to the wing's wall top with its
+    gable over it (1801's gabled section); a bay or an oriel on a wing is still the main walls'
+    kit.
     Refused where the wing's walling stands in the tower's back above its wall top (a gable
     end), and where a later wing stands on the same stretch of the wall."""
     wings = list(wings)
@@ -2980,9 +2994,14 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     for e in entries:
         if e["wall"] not in at:
             raise ParamError(f"bays: {e['wall']} is not a wall of one of this house's rear wings")
-        if kinds.get(e["variant"]) != "tower":
-            raise ParamError(f"bays: {e['id']} is a {kinds.get(e['variant'], e['variant'])} on {e['wall']}; a "
-                             f"rear wing's wall carries a K08 tower, past the wing's eave")
+        # T-3001: or a full-height projection, to the wing's own wall top (1801's gabled
+        # section on 18th Street, its coped gable and balcony over a shallow pavilion as the
+        # front's south one is, in the Taylor photograph); a bay or an oriel still is not
+        kind = kinds.get(e["variant"])
+        if kind != "tower" and e["variant"] != "k08.projection.full_height":
+            raise ParamError(f"bays: {e['id']} is a {kind or e['variant']} on {e['wall']}; a "
+                             f"rear wing's wall carries a K08 tower, past the wing's eave, or a full-height "
+                             f"projection")
         j, side = at[e["wall"]]
         w = wings[j]
         if side in _gable_walls(w["roof"]):
