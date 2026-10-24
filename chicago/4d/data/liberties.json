@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 723,
+  "count": 724,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -50460,6 +50460,35 @@
       "work_refs": [
         "T-3006",
         "T-2541",
+        "T-3052"
+      ]
+    },
+    {
+      "id": "L-k01-1811-round-arcade-2991",
+      "title": "1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The porch arcade on the entrance block's rounded south corner at 1811 Prairie (entrance kit loggia round arcade) is built from the 1888 Inland Architect plate, read through the camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for later work's re-solve of the camera."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "Later work's re-solved camera, or a photograph showing the porch's south side close up (solves the cameras of 1811's other pictures)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24."
+        }
+      ],
+      "work_refs": [
+        "T-2991",
+        "T-2541",
+        "T-3079",
         "T-3052"
       ]
     },

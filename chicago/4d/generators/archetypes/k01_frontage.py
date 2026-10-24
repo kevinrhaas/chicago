@@ -31,6 +31,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             `round_corner`): the front's stone, coursed on its beds and
                             curved stone by stone, corbelled out to the square in its last
                             course under the cornice, the eave and the gable end
+  k01.wall.round_arcade     the porch's arcade round that corner (T-2991, the loggia's
+                            `round_arcade`): round-headed lights cut through the round's
+                            courses into the porch's shadow, each over a colonnette
+                            standing as the mouth's columns stand, on a plinth band
   k01.opening.sash_flat     a K06 window (T-2298): reveal, frame, two sashes in two
                             planes, glass, blind, curtain edges and an enclosed dark
                             room, a stone sill with its drip; and a flat lintel
@@ -2003,6 +2007,10 @@ class Assembly:
         inst = len(self.components[cid]["instances"]) - 1
         rng = random.Random(seed_of(self.sid, cid, inst))
         af = p.arched_front
+        # T-2991: the porch's arcade round the curve takes its lights' courses over the stretch it
+        # stands on, from the springing's bed to the first bed over its crowns
+        ra = ((p.entrance_kit or {}).get("loggia") or {}).get("round_arcade")
+        band = self.round_arcade_band(ra, rad, arc, courses) if ra else None
         prev, j = (), 0
         for ya, yb, kind in courses:
             if ya >= y_sq - 1e-6:
@@ -2017,6 +2025,9 @@ class Assembly:
                 jv = af["banded"]["vertical_joint_m"] / 2
             F = {"coping": k["coping_overhang_m"], "belt": 0.05}.get(kind, 0.0)
             pieces = _lay(rng, 0.0, arc, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
+            if band and band["y"][0] - 1e-6 <= ya < band["y"][1] - 1e-6:
+                f0, f1 = (band["s"][1], arc) if p.round_corner["corner"] == "north" else (0.0, band["s"][0])
+                pieces = _lay(rng, f0, f1, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
             prev = [s1 for _, s1 in pieces[:-1]]
             for s0, s1 in pieces:
                 bseed = self._stone_seed(cid, inst, j)
@@ -2027,6 +2038,8 @@ class Assembly:
                                  (0.0 if ya <= 1e-9 else jh, jv, jh, jv),
                                  "limestone_trim" if trim else "rough_stone_trim", bseed, conf,
                                  recess=r, bevel=spec["bevel_m"], F=F, rock=rock)
+        if band:
+            self.round_arcade(ra, band, C, rad, a_lo, conf, cid, inst, j)
         # the corbel: ruled from the round at y_sq out to the square corner at ytop
         steps = 12
         phis = [a_lo + (math.pi / 2) * i / steps for i in range(steps + 1)]
@@ -2038,6 +2051,131 @@ class Assembly:
         for i in range(steps):
             fm = (phis[i] + phis[i + 1]) / 2
             pr.quad(ring[i], ring[i + 1], sq[i + 1], sq[i], (math.cos(fm), -1.0, -math.sin(fm)), b, conf)
+
+    # -- k01.wall.round_arcade (T-2991) -------------------------------------------------
+    def round_arcade_band(self, ra, rad, arc, courses) -> dict:
+        """T-2991: where the arcade's lights stand on the round: each light's centre `s` round the
+        curve (s from the round's start, a_lo), the dressed band they are cut in, from the round's
+        tangent with the front to `ROUND_ARCADE_MARGIN_M` past the last light, and from the
+        springing's bed (the lights' sill) to the first bed clear of the crowns."""
+        north = self.p.round_corner["corner"] == "north"
+        sc = [rad * math.radians(t) if north else arc - rad * math.radians(t) for t in ra["angles_deg"]]
+        beds = [ya for ya, _, _ in courses]
+        y0 = ra["sill_m"]
+        if not any(abs(b - y0) < 1e-6 for b in beds):
+            raise ValueError(f"round_arcade: the lights' sill ({y0} m, the mouth's springing) is not a bed of the "
+                             f"front's courses ({[round(b, 3) for b in beds]})")
+        top = y0 + ra["crown_m"] + 0.08
+        y1 = next((ya for ya, _, _ in courses if ya >= top - 1e-6), None)
+        if y1 is None or y1 > self.front_courses[-1][0] + 1e-6:
+            raise ValueError(f"round_arcade: no bed of the round clears the lights' crowns ({top:.3f} m) under "
+                             f"its corbel")
+        m = ra["clear_width_m"] / 2 + k01_frontage_params.ROUND_ARCADE_MARGIN_M
+        s = (0.0, max(sc) + m) if north else (min(sc) - m, arc)
+        cuts = [s[0]] + [(a + b) / 2 for a, b in zip(sorted(sc), sorted(sc)[1:])] + [s[1]]
+        return {"s": s, "y": (y0, y1), "lights": sorted(sc), "cuts": cuts}
+
+    def round_arcade(self, ra, band, C, rad, a_lo, conf, cid, inst, j):
+        """T-2991: 1811's porch arcade round its rounded corner (the Inland Architect plate of
+        1888): the band of the lights' courses in dressed stones, one a light, each cut through by
+        a round-headed light `reveal_m` deep into the porch's shadow; under each light a colonnette
+        as the mouth's columns stand (a square base, a shaft, a necking ring, a flared bell and an
+        abacus whose top is the light's sill), on a dressed plinth band carried round the curve
+        from the mouth's plinth. The plate's capitals are carved leafage finer than its 2.3 cm a
+        pixel and the porch behind the lights is dark; what stands for both is reconstructed
+        (docs/LIBERTIES.md L-k01-1811-round-arcade-2991)."""
+        AF = k01_arched_front
+        p, k = self.p, self.p.stone
+        cl = p.entrance_kit["loggia"]["columns"]
+        wk = k["wall"]
+        y0, y1 = band["y"]
+        w, crown, rev = ra["clear_width_m"], ra["crown_m"], ra["reveal_m"]
+        hw = w / 2
+        spring = y0 + crown - hw
+        rs, pr = cl["radius_m"], cl["proud_m"]
+        ph, bh, ch = cl["plinth_m"], cl["base_m"], cl["capital_m"]
+        yp = ra["floor_m"] + ph
+        ang = lambda s_: a_lo + s_ / rad
+        P = lambda a, y, d: (C[0] + (rad + d) * math.cos(a), y, C[1] - (rad + d) * math.sin(a))
+        radial = lambda a: (math.cos(a), 0.0, -math.sin(a))
+        tangent = lambda a: (-math.sin(a), 0.0, -math.cos(a))
+        seed = self.instance("k01.wall.round_arcade", "wall",
+                             {"of": "k01.wall.round_corner", "lights": len(band["lights"]), "clear_width_m": w,
+                              "sill_m": round(y0, 4), "crown_m": round(y0 + crown, 4), "reveal_m": rev,
+                              "angles_deg": ra["angles_deg"], "colonnette_radius_m": rs,
+                              "plinth_top_m": round(yp, 4), "band_m": ra["band_m"],
+                              "carving": "a necking ring, a flared bell and an abacus standing for the plate's leafage"},
+                             {"sill": P(ang(band["lights"][0]), y0, 0.0)})
+        # the lights' stones: each from cut to cut, the band's two courses high, its face on the
+        # round, dressed, with the light's round-headed hole through it
+        jh, jv = wk["joint_m"] / 2, wk["joint_m"] / 2
+        recess = wk["recess_m"]
+        steps = 8   # the head's semicircle
+        for i, sl in enumerate(band["lights"]):
+            s0, s1 = band["cuts"][i] + (0.0 if i == 0 else jv), band["cuts"][i + 1] - jv
+            bseed = self._stone_seed(cid, inst, j + i)
+            a0 = ang(s0)
+            origin, bed, mirror = P(a0, y0, 0.0), tangent(ang((s0 + s1) / 2)), bool(bseed >> 31)
+
+            def face(pts, hint, mat="rough_stone_trim"):
+                self._sface(mat, pts, hint, origin, bed, bseed, mirror, conf)
+            head = lambda x: spring + math.sqrt(max(0.0, hw * hw - x * x))
+            xs = sorted({s0, s1, sl - hw, sl + hw, *[sl - hw + w * q / steps for q in range(1, steps)],
+                         *[s0 + (s1 - s0) * q / 6 for q in range(1, 6)]})
+            g0, g1 = y0 + jh, y1 - jh
+            for xa, xb in zip(xs, xs[1:]):
+                am = ang((xa + xb) / 2)
+                inside = sl - hw - 1e-9 <= xa and xb <= sl + hw + 1e-9
+                lo_a, lo_b = (head(xa - sl), head(xb - sl)) if inside else (g0, g0)
+                face([P(ang(xa), lo_a, 0.0), P(ang(xb), lo_b, 0.0), P(ang(xb), g1, 0.0), P(ang(xa), g1, 0.0)],
+                     radial(am))
+                # the bed joints, over the stone and (beside the light) under it, back to the mortar
+                face([P(ang(xa), g1, 0.0), P(ang(xb), g1, 0.0), P(ang(xb), g1, -recess), P(ang(xa), g1, -recess)],
+                     Y)
+                if not inside:
+                    face([P(ang(xa), g0, 0.0), P(ang(xb), g0, 0.0), P(ang(xb), g0, -recess),
+                          P(ang(xa), g0, -recess)], _mul(Y, -1))
+                    self.prim("mortar").face([P(ang(xa), y0, -recess), P(ang(xb), y0, -recess),
+                                              P(ang(xb), y1, -recess), P(ang(xa), y1, -recess)], radial(am),
+                                             self.basis("mortar", origin, bed, Y, bseed), conf)
+                else:   # the light: its head's soffit, its sill and its back in the porch's shadow
+                    face([P(ang(xa), lo_a, 0.0), P(ang(xb), lo_b, 0.0), P(ang(xb), lo_b, -rev),
+                          P(ang(xa), lo_a, -rev)], (0.0, -1.0, 0.0))
+                    face([P(ang(xa), y0, 0.0), P(ang(xb), y0, 0.0), P(ang(xb), y0, -rev), P(ang(xa), y0, -rev)],
+                         (0.0, 1.0, 0.0))
+                    self.prim("backing").face([P(ang(xa), y0, -rev), P(ang(xb), y0, -rev),
+                                               P(ang(xb), lo_b, -rev), P(ang(xa), lo_a, -rev)], radial(am),
+                                              self.basis("backing", origin, bed, Y, bseed), conf)
+                    self.prim("mortar").face([P(ang(xa), lo_a, -recess), P(ang(xb), lo_b, -recess),
+                                              P(ang(xb), y1, -recess), P(ang(xa), y1, -recess)], radial(am),
+                                             self.basis("mortar", origin, bed, Y, bseed), conf)
+            for x, sg in ((s0, -1.0), (s1, 1.0)):   # the stone's two ends, back to the mortar
+                face([P(ang(x), g0, 0.0), P(ang(x), g1, 0.0), P(ang(x), g1, -recess), P(ang(x), g0, -recess)],
+                     _mul(tangent(ang(x)), sg))
+            for x, sg in ((sl - hw, 1.0), (sl + hw, -1.0)):   # the light's jambs, sill to spring
+                face([P(ang(x), y0, 0.0), P(ang(x), spring, 0.0), P(ang(x), spring, -rev), P(ang(x), y0, -rev)],
+                     _mul(tangent(ang(x)), sg))
+        # the plinth band: the mouth's plinth carried round under the colonnettes, its face as
+        # proud of the round as the plinth's is of the front, `band_m` deep under its top
+        bw, aw = rs + 0.03, rs * 1.55
+        out = pr + bw + 0.04
+        pseed = self._stone_seed(cid, inst, j + len(band["lights"]))
+        self.round_stone(C, rad, ang(band["s"][0]), ang(band["s"][1]), yp - ra["band_m"], yp, (0.0, 0.0, 0.0, 0.0),
+                         "dress_stone", pseed, conf, recess=0.02, bevel=0.0, F=out)
+        # the colonnettes, each in the frame of the round at its own angle: +R along the curve,
+        # +N out of it; each abacus kept clear of its neighbours'
+        ss = band["lights"]
+        for i, sl in enumerate(ss):
+            a = ang(sl)
+            frame = (P(a, 0.0, 0.0), tangent(a), radial(a))
+            room = min([abs(sl - x) for x in ss if x != sl] or [2 * aw]) / 2 - 0.005
+            awi = min(aw, room)
+            yb, yc = yp + bh, y0 - ch
+            AF._box(self, "dress_stone", frame, -bw, bw, yp, yb, pr - bw, pr + bw, seed, conf, skip=("bottom",))
+            AF._frustum(self, "dress_stone", frame, 0.0, pr, yb, yc, rs, rs * 0.92, seed, conf)
+            AF._frustum(self, "dress_stone", frame, 0.0, pr, yc, yc + 0.04, rs * 1.08, rs * 1.08, seed, conf)
+            AF._frustum(self, "dress_stone", frame, 0.0, pr, yc + 0.04, y0 - 0.06, rs * 0.92, awi, seed, conf)
+            AF._box(self, "dress_stone", frame, -awi, awi, y0 - 0.06, y0, pr - awi, pr + awi, seed, conf)
 
     def kit_variant(self, op) -> dict:
         from . import k06_windows
@@ -2580,7 +2718,7 @@ class Assembly:
         # T-2910: a loggia behind the arch, its door in the back wall, and a stoop's swept cheeks
         lg = p.entrance_kit.get("loggia")
         if lg:
-            v["loggia"] = {k: x for k, x in lg.items() if k != "side_arch"}
+            v["loggia"] = {k: x for k, x in lg.items() if k not in ("side_arch", "round_arcade")}
             sa = lg.get("side_arch")
             if sa:
                 v["loggia"]["side_arch"] = {k: sa[k] for k in ("side", "centre_m", "clear_width_m", "clear_height_m",

@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e23e7bf26051fa679debf69afd76f43a9827179a915179818bc10eb0d90fcbe9",
+  "glb_sha256": "078efdba3dc3421330400777fc843ec9b6b2353f42263917fc1adbb7ad89f0e3",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -85,6 +85,11 @@
     },
     {
       "what": "the porch's south return: beside the arch, from about x 467 to 507 px, the plate opens the entrance block's south return as a small arcade of round-arched lights on colonnettes with carved capitals, lighting the porch from the side; the build closes it in coursed stone (T-2991); the arcade's capitals (y 680-690 px) and crowns (y 647-660) step down across x 476-501, so it stands on a face receding from the front, about v 9.4-9.5 by the camera, short of the solved south corner at v 10.40; T-3005's re-read: the corner is ROUNDED, about 0.9 m radius, its front tangent at x 467-470 (v about 9.5) and its far side at about x 515-520 (the solve's x 510 is that edge), the downpipe's shoe at about y 816 px on the south face just behind it; the colonnettes step down because they run round the curve (on a 0.9 m radius, x 476, 490 and 501 px stand at about 8, 27 and 44 degrees from the front), not along a flat return. K01 has no rounded corner (T-3006); the arcade then stands on it (T-2991); T-3006 has built the round (0.9 m from grade, coursed on the front's beds), so the arcade now has its curve to stand on (T-2991, after the oriel's T-3007)",
+      "status": "fixed",
+      "how": "T-2991: read again at 7x, each dark round-headed light stands OVER its colonnette's capital (x 473-480, 485-492 and 497-503 px over colonnettes at 477, 490 and 500), not between them, so the arcade is three lights each on a colonnette. K01's loggia learns `round_arcade`: on 1811's round, colonnettes at 8, 27 and 44 degrees from the front's tangent, built like the mouth's columns (0.11 m shafts 0.1 m proud, base, necking ring, bell and abacus), their abaci at the mouth's springing (3.15 m, a bed of the front's courses); over each a light 0.18 m across, its sill on the abacus and its crown 3.94 m over grade, cut 0.3 m into the round's courses (the two courses 3.15-4.05 m, in dressed stones one a light) and dark at its back; and a dressed plinth band carried round from the mouth's plinth, 0.55 m deep under its 2.21 m top. Through the camera the lights land at x 472-479, 485-492 and 497-503 px, the first crown at y 646 with the plate's, the colonnettes at about 475, 487 and 499, the capitals on y 681-690 and the band at y 720-745 against the plate's 727-748. The capitals' leafage is the mouth's bell-and-abacus stand-in (L-k01-1811-round-arcade-2991). The plate's step down to the south is its own difference"
+    },
+    {
+      "what": "the porch arcade steps down to the south on the plate: its bases by 0, 4 and 9 px (y 722, 726 and 731) and its crowns by 0, 6 and 12 px (y 646, 652 and 658), where the build stands level (bases y 720, crowns y 646-647). Going round the 0.9 m round lowers a crown by under 1 px through T-2541's camera, so the curve does not explain it. A camera placed further out (T-3079) changes how depth along the south flank projects, so it is that re-solve's question first",
       "status": "open"
     },
     {
