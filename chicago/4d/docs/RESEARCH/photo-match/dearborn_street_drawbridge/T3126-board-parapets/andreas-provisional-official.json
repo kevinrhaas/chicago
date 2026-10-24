@@ -1,0 +1,22 @@
+{
+  "structure_id": "dearborn_street_drawbridge",
+  "source_id": "andreas_1884_dearborn_drawbridge_plate",
+  "photo": "../../../../../../reference/images/chicago/chicago_dearborn_drawbridge_1834.png",
+  "image_px": [
+    1920,
+    1346
+  ],
+  "principal_px": [
+    -2499.9999999999927,
+    982.8990931004574
+  ],
+  "focal_px": 3458.984107748889,
+  "eye": [
+    93.1210600547891,
+    -96.970724463654,
+    1.0084409747925287
+  ],
+  "yaw_deg": -71.24331574953473,
+  "sky": "overcast",
+  "solve": "PROVISIONAL PREVIEW FRAMING ONLY, NOT AN ACCEPTED CAMERA OR HISTORICAL MEASUREMENT. Eight approximate upright centres fitted to current model frame coordinates (documented draw length but reconstructed frame height, current flat deck). Point RMS 10.75px, max 20.58px; bounded parameter indices [5]. Exact picks and residuals in camera-fit.json. Drawing perspective and raised central profile conflict with current envelope. Pose, focal length, principal point and lighting are reconstructed preview choices only. Source is Andreas 1884 p.631, retrospective inferred form, no coordinate/footprint evidence. This planned comparison must use the current genuine official bridge master after T-3126 native build. The projection remains the old bounded provisional framing, not an accepted camera."
+}

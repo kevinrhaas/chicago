@@ -32739,3 +32739,33 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 
 **Ticket:** T-3106, prerequisite for T-3105.
 **Recorded:** 2026-10-24.
+
+### L-dearborn-board-parapet-2375 — Dearborn's boarded parapets
+
+**Building:** `dearborn_street_drawbridge`.
+**Decision:** Replace the open pole rail with horizontal-board parapets, read from
+the public-domain Andreas 1884 plate, p. 631
+(`andreas_1884_dearborn_drawbridge_plate`;
+`chicago/reference/images/chicago/chicago_dearborn_drawbridge_1834.png`).
+The plate shows the broad boarded sides and horizontal joints. It is retrospective,
+so this is inferred form for the 1835 bridge, not a contemporary specification.
+**What is invented:** retain the existing 0.95 m height and approximately 2.2 m
+post spacing; use five boards, each 162 mm high and 40 mm thick, with 10 mm gaps,
+starting 40 mm above the deck, under a 200 mm wide, 60 mm thick cap. These sections,
+course count, joints and neutral weathered-deck material are reconstructed.
+Boards and cap are jointed at post bays, draw ends and the two leaves' meeting line;
+neither becomes a continuous timber across a moving leaf. Post heads stop at
+the cap underside (0.89 m above the deck); the 0.95 m figure is the overall
+parapet height. This avoids overlapping coplanar cap/post top faces.
+**What remains unresolved:** the pictures' raised central deck profile, approach
+geometry, camera calibration and the remaining image comparison. The flat closed
+deck is retained; this change does not claim the bridge matches its pictures.
+**How to resolve:** the trustees' specification, premium drawing or repair accounts
+could replace the reconstructed sections; a completed camera solve and rendered
+comparison must resolve the visible differences before the ticket closes.
+**Ticket:** T-3126; bounded visible increment for original T-2375.
+**Recorded:** 2026-10-22.
+
+**Bounded adoption scope:** This selective board-only increment keeps the flat deck and original crib set-out. It includes no rise/profile/support controls or new runtime sampler. The original provisional 4.5.3 preview still differs; its principal point reaches a bound. Native six-family regeneration, current app/source comparisons and full policy gates remain owed. This entry admits only the board parapets. Original T-2375 remains open; image acceptance and scene dates are unchanged.
+
+**Adoption checkpoint:** 2026-10-24, T-3126 authored; official six-family refresh and app/policy gates not yet run at this checkpoint.

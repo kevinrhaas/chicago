@@ -5863,3 +5863,8 @@ The scoped prerequisite renders four Kinzie poplars through the existing green c
 
 
 T-3106 retains its medium parent and provenance history. Its two independent no-bake demonstrations are T-3119 (the declared garden plants and physical clearance) and T-3120 (the Light/Full woodland sweep within unchanged caps), grouped with T-3105. This ticket mapping changes no model, planting, renderer, camera, source grade or original picture acceptance.
+
+
+### T-3126 — Boarded Dearborn parapets, one bounded visible increment
+
+Adopt only the reviewed board-parapet selector and credited Andreas correction, preserving the flat deck and original support set-out. The old curved-deck/native-profile/rigid-refusal/horse-bound proposal stays separate. The keyword-only selector preserves the legacy positional API/default streams. Genuine pinned six-master/six-web refresh, native reader fixed point, actual both-viewport normal/ByGrade/card/contact review and official source comparison are complete; the source comparison remains DIFFERS. Retain the broad Fly over-cap diagnostic and geometry-only previous-WEB control; closer inspection is not its repair. Before merging, require strict preflight and exact-head both-viewport full published coverage/CI, with final verdicts recorded in the PR. Keep original T-2375 open/DIFFERS; this is not the full photographic-match acceptance.
