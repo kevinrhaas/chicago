@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd",
+  "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -37,20 +37,20 @@
       "status": "fixed"
     },
     {
-      "what": "Gable: each shoulder stone carries a sunk panel; built plain",
-      "status": "open"
+      "what": "Gable: each shoulder stone carries a sunk panel about 0.26 by 0.11 m near its top, the print's slot of shadow; built so, 0.04 m sunk in the block's face (T-3090)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the grid window stands in quoined side stones under a moulded hood with a wavy upper edge, over a deep moulded shelf; built with K06's own sill and no surround or hood",
-      "status": "open"
+      "what": "Gable: the grid window stands in quoined side stones (about 0.34 m, one a row each side, long and short in turn) under a moulded hood just over its head whose upper edge waves up to a crown at the middle and flicks up at each end (y 245-250 px), over a deep two-step moulded shelf about 1.8 m across from 13.05 to 13.33 m (y 370-395 px); built so, K06's own sill gone (T-3090)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the grid window's lights read as dark openings; K06's casement frame reads heavier at 0.44 by 0.37 m",
-      "status": "open"
+      "what": "Gable: the grid window's lights read as dark openings between the stone mullions and transoms; built with no K06 sash, a dark backing behind glass in a thin frame at the recess's back, where K06's casement frame read heavier (T-3090)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the kneelers' scrolls are carved; built as a plain roll with a raised eye",
-      "status": "open"
+      "what": "Gable: the kneelers' scrolls are carved, a rosette in each roll's eye; built so, eight petals round a boss. The carved block under each scroll in the print, down the front's corner, is the rainwater pipe's head (the downpipes' T-2953 item), not the console's (T-3090)",
+      "status": "fixed"
     },
     {
       "what": "South projection: carried through the basement and two storeys to a flat top at the third floor, with the round-arched window, the basement light and the paired window in it (T-2543)",
@@ -101,8 +101,8 @@
       "status": "open"
     },
     {
-      "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
-      "status": "open"
+      "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the print's outline is already drawing in, about 3.98 m out on its south side over the scroll (x 344-365 px), where the slab's base ran out square 4.47 m past the side walls; built drawn in from the slab's foot to 4.0 m out at the ledge, the kneeler pinnacles' outer faces (T-3090)",
+      "status": "fixed"
     },
     {
       "what": "Entrance: the porch's broad arch, a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk) to its crown (5.07 m; its ring's top 5.22 m), the transom at its spring and the segment over it glazed in three lights; under it the double door, a 0.29 m pier and the side light, 1.04 m across from a sill 0.56 m over the floor (T-2952)",

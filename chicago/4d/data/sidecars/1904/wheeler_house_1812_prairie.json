@@ -725,7 +725,27 @@
           "panes": [
             1,
             1
-          ]
+          ],
+          "glazing": "dark",
+          "quoins": {
+            "long_m": 0.36,
+            "short_m": 0.28,
+            "proud_m": 0.03
+          },
+          "hood": {
+            "over_m": 0.05,
+            "height_m": 0.08,
+            "crown_m": 0.07,
+            "flick_m": 0.05,
+            "proud_m": 0.06
+          },
+          "shelf": {
+            "over_m": 0.08,
+            "height_m": 0.11,
+            "proud_m": 0.12,
+            "band_m": 0.17,
+            "band_proud_m": 0.06
+          }
         },
         "coping": {
           "width_m": 0.28,
@@ -741,7 +761,8 @@
             "bed_m": 11.35,
             "width_m": 0.4,
             "radius_m": 0.2,
-            "proud_m": 0.2
+            "proud_m": 0.2,
+            "rosette": 8
           }
         },
         "shoulders": {
@@ -749,20 +770,28 @@
           "outer_m": 1.62,
           "bed_m": 14.6,
           "top_m": 15.22,
-          "proud_m": 0.06
+          "proud_m": 0.06,
+          "panel": {
+            "width_m": 0.26,
+            "height_m": 0.11,
+            "drop_m": 0.14,
+            "sunk_m": 0.04
+          }
         },
         "finial": {
-          "height_m": 0.5,
-          "radius_m": 0.12
+          "form": "urn",
+          "height_m": 1.1,
+          "radius_m": 0.26
         },
         "ledge_m": 12.57,
-        "takes_gutter": true
+        "takes_gutter": true,
+        "base_ledge_half_m": 4.0
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889). T-2951: the outline re-read against the print with the render's silhouette laid over it, both sides at a tenth of a metre (the south side reads about 0.25 m wider than the north all the way up, the print's crinkle or a slight roll, so the build takes the mean): the swell 2.98 m out at 13.0 m, 2.43 at 14.0 and 1.83 at 14.5 (built 0.04 m inside each, which the coping's projection gives back in the render), a convex curve swinging in to the shoulder, where the draft stood 0.3-0.5 m wide of it, and the head a bell drawn in from the shoulders (1.10 m at 15.3, 0.92 at 15.75, 0.75 at 16.0, 0.54 at 16.25, 0.35 at 16.5, built 0.05 m inside each) to the finial's square plinth, 0.48 m across from 16.65 m to the apex block at 17.0 m, which the draft drew as a point; the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m (the print's south 0.90-1.62 at 14.68-15.3, its north 0.92-1.60 about 0.15 lower), standing over the outline through the slab; the grid window three rows of three lights in the same 1.64 by 1.26 m opening, each light about 0.44 m across between 0.16 m stone mullions and 0.37 m high over a 0.07 m stone transom, one pane each, as the print's dark lights show no bars; and each kneeler a carved scroll console at the front's corner, its roll 0.4 m across from 11.35 m and its body up to a cap under the slab's foot, under a small pinnacle on the ledge 3.85 m out (the print's kneeler stone stands about 3.6-3.95 m out and rises to about 12.85 m). Not built: the window's quoined side stones and the wavy hood over it, the sunk panel in each shoulder stone and the scroll's carving beyond its roll and eye (L-k01-1812-wheeler-gable-2951). T-3033: the ledge stands at 12.57 m (it was 12.55): a mansard's fascia tops the wall head (12.45 m) where the hip's dropped by its 0.05 m run, and K01 stands a ledge at least 0.12 m over the fascia; 2 cm is about 2 px in the print."
+      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889). T-2951: the outline re-read against the print with the render's silhouette laid over it, both sides at a tenth of a metre (the south side reads about 0.25 m wider than the north all the way up, the print's crinkle or a slight roll, so the build takes the mean): the swell 2.98 m out at 13.0 m, 2.43 at 14.0 and 1.83 at 14.5 (built 0.04 m inside each, which the coping's projection gives back in the render), a convex curve swinging in to the shoulder, where the draft stood 0.3-0.5 m wide of it, and the head a bell drawn in from the shoulders (1.10 m at 15.3, 0.92 at 15.75, 0.75 at 16.0, 0.54 at 16.25, 0.35 at 16.5, built 0.05 m inside each) to the finial's square plinth, 0.48 m across from 16.65 m to the apex block at 17.0 m, which the draft drew as a point; the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m (the print's south 0.90-1.62 at 14.68-15.3, its north 0.92-1.60 about 0.15 lower), standing over the outline through the slab; the grid window three rows of three lights in the same 1.64 by 1.26 m opening, each light about 0.44 m across between 0.16 m stone mullions and 0.37 m high over a 0.07 m stone transom, one pane each, as the print's dark lights show no bars; and each kneeler a carved scroll console at the front's corner, its roll 0.4 m across from 11.35 m and its body up to a cap under the slab's foot, under a small pinnacle on the ledge 3.85 m out (the print's kneeler stone stands about 3.6-3.95 m out and rises to about 12.85 m). Not built: the window's quoined side stones and the wavy hood over it, the sunk panel in each shoulder stone and the scroll's carving beyond its roll and eye (L-k01-1812-wheeler-gable-2951). T-3033: the ledge stands at 12.57 m (it was 12.55): a mansard's fascia tops the wall head (12.45 m) where the hip's dropped by its 0.05 m run, and K01 stands a ledge at least 0.12 m over the fascia; 2 cm is about 2 px in the print. T-3090: the rest of the gable to the Levy and c. 1955 photographs, read through their cameras: the grid window's lights read as dark openings (`glazing: dark`, no K06 sash) between quoined side stones about 0.34 m wide, one a row each side, long and short in turn (Levy x 397-427 and 567-597 px), under a moulded hood just over the window's head whose upper edge waves to a crown at its middle and a flick at each end (Levy y 245-250 px, about 14.7 m), over a deep two-step shelf from 13.05 to 13.33 m about 1.8 m across (Levy y 370-395 px); each shoulder block's sunk panel about 0.26 by 0.11 m, about 0.14 m under its top (Levy's blocks: 20-28 px across, 10 px high, 10-20 px under the top); each scroll's eye a carved rosette (the carved block under each scroll in the print is the rainwater head, not part of the console); the finial a carved ball on the plinth under an urn on a moulded foot, a lid and a knob, 1.1 m over the apex (the c. 1955 photograph's, which draws it about 1.2 times T-3090's first 0.95 m through its camera; Levy's print shows the carved block 0.55 m across from about 16.8 to 17.2 m and a ring over it, and cuts the urn at its foot); and the slab's base drawn in from its foot to 4.0 m out at the ledge, the pinnacles' outer faces, where the print's outline stands about 3.98 m out on its south side over the scroll (Levy x 344-365 px) where the build ran square 4.47 m out. The ball's carving (built plain, turned), the rosettes' petals and every depth are invented (L-k01-1812-wheeler-gable-3090)."
     },
     "street_front_windows": {
       "value": {

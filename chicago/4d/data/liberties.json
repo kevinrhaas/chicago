@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 723,
+  "count": 724,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -52442,6 +52442,39 @@
         "T-2843",
         "T-3003",
         "T-3001"
+      ]
+    },
+    {
+      "id": "L-k01-1812-wheeler-gable-3090",
+      "title": "1812 Prairie's gable dressed to the Levy and c. 1955 photographs: the grid window's quoins, hood, shelf and dark lights, the shoulder panels, the carved scrolls, the urn finial and the base drawn in",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The rest of George H. Wheeler's shaped gable at 1812 Prairie is built as Albert Levy's photograph and the c. 1955 photograph show it. The grid window's lights read as dark openings, between quoined side stones, under a moulded hood with a waved upper edge, over a deep moulded shelf; each shoulder block carries a sunk panel; each kneeler's scroll has a carved rosette in its eye; the finial is an urn on a carved ball over the apex's plinth; and the slab's base draws in from its foot to the kneelers' ledge instead of running out square past the side walls. The kit learns this in shaped gable: `lights.glazing: \"dark\"`, `lights.quoins`, `lights.hood` and `lights.shelf`; `shoulders.panel`; `kneelers.scroll.rosette`; `finial.form: \"urn\"`; and base ledge half (m). Every other K01 house re-emits as before (1625 Prairie's wall gable names none of them). **What is read, not invented.** Through the two cameras earlier work solved (the levy front data, 88.5 px a metre at the front; the c1955 front data): the quoins about 0.34 m across, one a row each side of the window (Levy x 397-427 and 567-597 px); the hood just over the window's head, about 14.6-14.75 m, its top rising to a crown at the middle and flicking up at each end (y 245-250 px); the shelf from about 13.05 to 13.33 m and about 1.8 m across, a projecting slab over a band (y 370-395 px); a sunk panel about 0.23-0.31 m across and 0.1 m high near the top of each shoulder block; a rosette in each scroll's eye; the finial's carved block about 0.55 m across from about 16.8 to 17.2 m with a ring over it (Levy, which cuts the urn at its foot) and the urn, lid and knob over it to about 1.2 m above the head (the c. 1955 photograph); and the print's outline about 3.98 m out from the centre on its south side between the scroll and the ledge (x 344-365 px), where the build's base stood 4.47 m out. **What is invented.** The quoins' long 0.36 m and short 0.28 m and their 0.03 m proud; the hood's 0.08 m height, 0.07 m crown, 0.05 m flicks and 0.06 m proud; the shelf's 0.11 m slab 0.12 m proud over a 0.17 m band 0.06 m proud; the panels' 0.04 m depth; the rosette's eight petals; the dark lights' backing and thin frame (neither print shows what stands in the openings); the finial's turned outline (urn profile in k01 shaped gable), its ball turned plain where both prints show it carved, and its 1.1 m, between the two prints' readings; and the base's 4.0 m at the ledge, the pinnacles' outer faces, about 0.02 m wider than the south side's reading and wider than the north side's (about 3.7 m), which the print reads narrower all the way up. **What is built otherwise than read.** The c. 1955 photograph puts the gable's head about 0.2 m north of the build's and its south shoulder stone narrower. That offset grows with height, from about 2 px on the front's features to 9 px at the grid window and about 17 px at the finial, so it is put down to that camera's roll above the front it was solved on, and the build stays on Levy's near-frontal print (the match record's ruling). The carved block under each scroll in Levy's print is read as the rainwater pipe's head, not as part of the console, and is not added to it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Burnham & Root's drawings for the house, or a closer photograph of the gable, would fix the carving, the finial's outline and every depth; a camera for the c. 1955 photograph solved with its roll constrained by the gable itself would test the ruling on the head."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24 (T-3090)."
+        }
+      ],
+      "work_refs": [
+        "T-3090",
+        "T-3035"
       ]
     },
     {
