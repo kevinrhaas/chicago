@@ -1724,7 +1724,9 @@ class Assembly:
                 pts = [P(r0, a0), (hd.cx + kw / 2, crown + kh), (hd.cx - kw / 2, crown + kh), P(r0, a1)]
                 F = ring["proud_m"] + self.KEYSTONE_PROUD_M
             else:
-                pts = [P(r0, a0), P(r1, a0), P(r1, a1), P(r0, a1)]
+                # T-3091: long and short in turn, the keystone's neighbours short
+                r_ = r0 + ring["short_m"] if "short_m" in ring and (i - n // 2) % 2 else r1
+                pts = [P(r0, a0), P(r_, a0), P(r_, a1), P(r0, a1)]
                 F = ring["proud_m"]
             self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
@@ -1947,7 +1949,9 @@ class Assembly:
     # came, a well — is one this house's variants do not build, and is refused.
     K06_ROLES = {"reveal": None, "sill": "stone", "frame": "sash", "sash_outer": "sash",
                  "sash_inner": "sash", "glass_outer": "glass", "glass_inner": "glass",
-                 "blind": "blind", "curtain": "curtain", "backing": "backing"}
+                 "blind": "blind", "curtain": "curtain", "backing": "backing",
+                 # T-3091: a pictured leaded light's cames (1812's small arched window), in the iron
+                 "came": "iron"}
 
     # -- k01.wall.round_corner (T-3006) -------------------------------------------------
     def round_stone(self, C, rad, a0, a1, y0, y1, joints, mat, seed, conf, *, recess, bevel, F=0.0, rock=0.0):
@@ -2611,6 +2615,11 @@ class Assembly:
             cuts = [0.0, *[x for g in q["gaps_m"] for x in g], L]
             for s0, s1 in zip(cuts[0::2], cuts[1::2]):
                 self.proud_box(mat, fr, s0, s1, q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
+        # T-3091: dressed blocks along one run (a pier, a hood, a cap under the cornice)
+        for j, q in enumerate(d.get("blocks", ())):
+            (x0, z0), (tx, tz), (nx, nz), L = runs[q["run"]]
+            fr = (W((x0, 0.0, z0)), V(tx, tz), V(nx, nz))
+            self.proud_box(mat, fr, q["s_m"][0], q["s_m"][1], q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
         vo = d.get("volutes")
         if vo:
             rv, Rc, D, t = vo["radius_m"], vo["reach_m"], vo["drop_m"], vo["thickness_m"] / 2 + 0.02

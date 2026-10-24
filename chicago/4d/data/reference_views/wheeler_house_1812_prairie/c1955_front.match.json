@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979",
+  "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979"
+      "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -45,7 +45,7 @@
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "0a61fedf1f048260fd91c7bb105e4f70a3116419f3fd00a6cbe4d7971d9caff4",
+  "group_sha256": "8c5ef8415982816b2f251cdbaa7474490a6a504ce2a490193e668f9bde02f2c4",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -90,16 +90,20 @@
       "status": "fixed"
     },
     {
-      "what": "Third storey: the large window's middle light wider than the two beside it and the voussoirs alternating long and short into the brick, as Levy's record already holds open",
-      "status": "open"
+      "what": "Third storey: the large window's middle light wider than the two beside it and the voussoirs alternating long and short into the brick, as Levy's record held open; built from that print, and this camera's render shows the wide middle light and the long and short stones where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
       "what": "Balcony: a solid carved stone panel in the middle of its front run with iron scrolls each side (x 230-335 px), as Levy's record already holds open; built as iron rail",
       "status": "open"
     },
     {
-      "what": "South projection: the second storey's jambs rise past the window's head to carved caps under the cornice, and the paired window's mullion and hood are heavy dressed stone; built as K09's plain quoined surround stopping at the head",
-      "status": "open"
+      "what": "South projection: the second storey's jambs rise past the window's head to carved caps under the cornice, and the paired window's mullion and hood are heavy dressed stone; built from Levy's print (the caps, the pier, the hood and the transom lights), and this camera's render shows them where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Third storey: the small arched window glazed as a plain sash, where Levy's print shows it filled with a patterned light; the patterned light is built for 1904 from Levy's print, the plain sash taken for later (T-3091)",
+      "status": "not shown"
     },
     {
       "what": "Later than 1904: the first storey's arched window half filled with a panel and its lower sash replaced, the entrance's doors and glazing, the electric lamp on its bracket on the projection, the television aerial over the south stack, and the parked car that hides the stair, the basement and the walk",

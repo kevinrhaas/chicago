@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "35281fe43eb4bf10e8a5b5738b81256e82dbe4a84c86a2d046df96e261c39979",
+  "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -85,20 +85,20 @@
       "status": "fixed"
     },
     {
-      "what": "Third storey: the large window's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has a concentric bar as well as radial ones; built as three equal lights under a radial fanlight",
-      "status": "open"
+      "what": "Third storey: the large window's middle light is wider than the two beside it (about 120 px against 40-43, between posts about 0.2 m) and carries a low moulded arch of its own whose crown stands about 0.16 m over the side lights' transoms; heavy bars run on from the posts' heads to the head, and the fanlight has a concentric bar about 0.25 m inside its glass as well as radial ones; built so, lights 1 : 2.9 : 1, the middle arch from the posts' heads, the post bars leaning 23 degrees out and the concentric bar over eleven radial ones. The print's middle arch springs from the posts lower than the side transoms, where the build's springs on the transom bar (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
-      "what": "Third storey: the small arched window is filled with a patterned light or panel; built as a round fanlight sash",
-      "status": "open"
+      "what": "Third storey: the small arched window is filled with a patterned light, a border of small round panes round a figured field, set deep; built as a leaded light, a came round the field 0.12 m in, the border cut into short panes, diamond quarries and a roundel in the field standing for the figure, in a 0.2 m reveal. The figure itself is not modelled (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
-      "what": "Third storey: the voussoirs alternate long and short into the brick; built as a ring of equal stones standing 0.1 m before the wall",
-      "status": "open"
+      "what": "Third storey: the voussoirs alternate long and short into the brick; built so on both arches, the short stones 0.28 and 0.26 m where the long are the rings' 0.43 and 0.40 m, the keystone's neighbours short. The stones' stepped ends are cut on the ring's radii, not squared to the brick courses (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
-      "what": "Second storey: the north window's transom lights are glazed in small squares; built as one plate light each",
-      "status": "open"
+      "what": "Second storey: the north window's transom lights are glazed in small squares; built as eight by eight lights about 0.05 m square on muntins over one glass (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
       "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the print's outline is already drawing in, about 3.98 m out on its south side over the scroll (x 344-365 px), where the slab's base ran out square 4.47 m past the side walls; built drawn in from the slab's foot to 4.0 m out at the ledge, the kneeler pinnacles' outer faces (T-3090)",
@@ -145,8 +145,8 @@
       "status": "open"
     },
     {
-      "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice; built stopping at the head",
-      "status": "open"
+      "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice (8.53-8.80 m), its mullion is a heavy pier (0.24 m) carried up as far, a moulded hood stands over the sashes' heads (8.04 m) and over it a low transom light in each bay glazed in small squares to 8.64 m; built so, the quoins carried to 8.53 m under dressed caps whose carving (a swag) is a raised oval boss (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
     },
     {
       "what": "Tone: the print's stone reads lighter than its brick; the built brown sandstone renders darker than the buff brick beside it (the colours are not shown, the relation is)",
