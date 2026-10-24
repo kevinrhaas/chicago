@@ -32607,3 +32607,18 @@ Actual roof-only native GPU captures were directly inspected: source roof patch 
 
 **Ticket:** T-2385.
 **Recorded:** 2026-10-23.
+
+
+### L-hogan-dark-door-hatch-3118 — Hogan's pictured doorway and short stack
+
+**Source:** `cameron_c1900_first_post_office`, Edgar S. Cameron's retrospective *Chicago's First Postoffice in 1833*, halftone credited to the Chicago Historical Society. The local surrogate and printed caption were inspected. The committed inventory attributes public-domain status to pre-1930 publication; original publication and holding remain independently unverified, and the failed Commons access is not fresh clearance. This continuation preserves those limits and the existing source credit.
+
+**Doorway:** The picture's long elevation has a dark doorway occupied by a figure. The opt-in `front_door_state: recess` cuts the actual front skin/chinking and uses framed returns to a dark blind back 0.30 m inside. That depth, casing dimensions and dark material are reconstructed visual proxies, not measured joinery, an interior, a surviving July 1835 door state, or an attested leaf/hinge position. No figure is inserted or identified. Generic doors remain closed without this option.
+
+**Gable and stack:** The visible gable rectangle is trialled as `end_openings.kind: hatch` at the existing reconstructed station and 0.7 × 0.8 m size. The existing board-shutter kit provides a closure proxy. Boards, ledges, material, closure and absence of glass are not attested by the unresolved infill; the depiction is explicitly reconstructed. It adds no loft occupancy or unseen opening. The existing ridge-stack head control is trialled at 0.75 m rather than the generic 0.95 m to bound the short depicted silhouette, without claiming scale, cap detail or material identification.
+
+**Limits:** The documented 45 × 20 ft footprint, geographic position, bearing, dates, use, eave, roof pitch, opening stations/sizes and chimney station/width remain unchanged. No image pixels become a texture. Roof texture/tone, gable cladding, sash pattern, chimney details, source perspective and omitted scene remain unresolved. The original image gate stays open and the provisional view remains `differs`; this proposal is not a match ruling.
+
+**Covers:** `hogan_store.log_1831.form.front_door_state`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.ridge_stack_head_m`.
+**Ticket:** T-3118, bounded continuation of T-2377.
+**Recorded:** 2026-10-24.

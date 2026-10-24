@@ -139,7 +139,7 @@
     "door_w_m": {
       "value": 1.45,
       "confidence": "reconstructed",
-      "note": "Reconstructed 1.45 m doorway width under the provisional drawing camera, revised after the first rendered 0.85 m door read too narrow. The depicted dark opening bounds its appearance, without supplying an independent metric scale. A closed generic door remains a visible difference from the pictured open doorway."
+      "note": "Reconstructed 1.45 m doorway width under the provisional drawing camera, revised after the first rendered 0.85 m door read too narrow. The depicted dark opening bounds its appearance, without supplying an independent metric scale. The existing width is retained while front_door_state chooses a reconstructed blind recess for the depicted dark doorway; no measured historic width or interior is claimed."
     },
     "door_h_m": {
       "value": 1.95,
@@ -150,7 +150,7 @@
       "value": [
         {
           "end": "+x",
-          "kind": "light",
+          "kind": "hatch",
           "at": 0.5,
           "z": 3.35
         }
@@ -159,7 +159,7 @@
       "sources": [
         "cameron_c1900_first_post_office"
       ],
-      "note": "Cameron's visible gable has one small framed opening above its log wall, approximately centred. It is assigned to the local +x gable for the reference-view comparison; this is a model-frame choice, not a compass bearing supplied by the picture. The generator's 0.7 by 0.8 m light and its initial 3.35 m centre height are reconstructed within the existing roof. This uses a framed light rather than loft:true, which builds a closed boarded hatch. The pictured occurrence/proportion bounds this choice, but its metric dimensions depend on reconstructed openings/eave height; the numeric attribute is therefore reconstructed."
+      "note": "Cameron's visible gable has a small framed rectangle above the log wall. Its local +x assignment, 0.7 by 0.8 m size and 3.35 m centre are reconstructed within the existing roof, not a compass bearing or metric dimension from the painting. This trial uses a boarded hatch proxy at that same station rather than generic glazed sash. The painting does not resolve the infill well enough to attest glass or boards; board rhythm, ledges, closure and material remain reconstructed. No loft occupancy or hidden gable opening is inferred."
     },
     "chimney_ridge_at": {
       "value": [
@@ -177,7 +177,7 @@
       "sources": [
         "cameron_c1900_first_post_office"
       ],
-      "note": "One stack is visible above the roof in Cameron's retrospective picture of the post office in 1833. This supports an inferred visible count, not a scene-date attestation or a finding about hidden stacks. chimney_ridge_at states its provisional position; ridge_stack_w_m states a reconstructed section while the head and construction retain the archetype's treatment, recorded in docs/LIBERTIES.md L-hogan-pictured-openings-2377 and L26."
+      "note": "One stack is visible above the roof in Cameron's retrospective picture of the post office in 1833. This supports an inferred visible count, not a scene-date attestation or a finding about hidden stacks. chimney_ridge_at states its provisional position; ridge_stack_w_m states a reconstructed section while ridge_stack_head_m chooses a reconstructed 0.75 m head and the construction retains the archetype's treatment, recorded in docs/LIBERTIES.md L-hogan-pictured-openings-2377 and L26."
     },
     "ridge_stack_w_m": {
       "value": 0.65,
@@ -185,7 +185,23 @@
       "sources": [
         "cameron_c1900_first_post_office"
       ],
-      "note": "Reconstructed 0.65 m square ridge-stack section, reduced from the generic 0.96 m after comparing the actual render to Cameron's narrower visible stack. This numerical section and unseen plan depth are not measured from the retrospective drawing. The archetype's 0.95 m head and plain cap remain reconstructed; masonry/cap details remain unmatched."
+      "note": "Reconstructed 0.65 m square ridge-stack section, reduced from the generic 0.96 m after comparing the actual render to Cameron's narrower visible stack. This numerical section and unseen plan depth are not measured from the retrospective drawing. The head is separately trialled at ridge_stack_head_m; plain cap, masonry and cap details remain reconstructed and unmatched."
+    },
+    "front_door_state": {
+      "value": "recess",
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Cameron depicts a dark open doorway occupied by a figure. A 0.30 m blind recess with an actually cut facade and framed returns replaces the generic closed board leaf. No interior, leaf position, hinges, figure identity, measured depth or July 1835 door state is attested; the reconstruction follows visible appearance in the retrospective 1833 scene."
+    },
+    "ridge_stack_head_m": {
+      "value": 0.75,
+      "confidence": "reconstructed",
+      "sources": [
+        "cameron_c1900_first_post_office"
+      ],
+      "note": "Provisional 0.75 m head rather than the generic 0.95 m, bounded by the short roof-piercing stack silhouette in Cameron. Not a measurement; painting perspective and unknown cap details remain unresolved. Shaft width and ridge station are unchanged."
     },
     "function": {
       "value": "store",
