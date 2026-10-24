@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2242, ts: '2026-10-24T04:44:50.894Z', date: 'Oct 23, 2026, 11:44 PM CT', title: 'Glessner\'s stable roof: its ridge stands too high, its slope is right', kind: 'change',
+    items: [
+      'Nothing in the 3-D scene changes yet. The stable roof\'s alley end shows about eight more rows of tiles than the 1887 and 1963 photographs do. Three ways to remove them were tested against both photographs: lowering the ridge down the same slope, flattening the slope under the same ridge line, or steepening it under the same ridge height. Only the first fits both pictures. The ridge stands about two feet too high and should sit a little further from 18th Street. The Evidence panel now says so, and the rebuild is the next ticket.',
+    ] },
   { v: 2241, ts: '2026-10-24T03:54:42.842Z', date: 'Oct 23, 2026, 10:54 PM CT', title: '1812 Prairie\'s gable finished to its photographs', kind: 'improvement',
     items: [
       'The Wheeler house\'s gable window now reads as nine dark openings between stone quoins, under a moulded hood with a waved top and over a deep stone shelf.',
