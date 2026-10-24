@@ -914,7 +914,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
     // Narrow phase sees native whole-instance entries before existing coalescing.
-    const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce);
+    const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
     if (cutsCells) coalesceRuns(batch, coalesce);
     narrow?.seal();
     batch.computeBoundingBox();

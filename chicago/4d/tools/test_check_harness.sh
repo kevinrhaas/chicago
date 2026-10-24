@@ -85,10 +85,11 @@ esac
 # command out of whichever one it is looking at.
 scan_check() { # <file> -> offending "line: reason" rows on stdout
   awk '
+    BEGIN { selftest_commands["  node tools/test_batch_shadow_cull.mjs"] = 1 }
     /^step "/ || /^selftest "/ {
       n = NR; kind = ($0 ~ /^selftest "/) ? "selftest" : "step"
       if ($0 ~ /\\$/) { getline cmd } else { cmd = $0 }
-      looks = (cmd ~ /self-?test/)
+      looks = (cmd ~ /self-?test/ || cmd in selftest_commands)
       if (kind == "step" && looks)
         printf "%d: a self-test runs through step(), so its fired assertions print untagged:%s\n", n, cmd
       if (kind == "selftest" && !looks)

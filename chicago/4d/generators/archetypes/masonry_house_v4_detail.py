@@ -1976,6 +1976,47 @@ def date_device(b,stone,a,c,z0,z1,right,off,mat,conf):
             quad(ring)
 
 
+def _face_reach(b,plane,u0,u1,v0,v1):
+    """How far the faces already built stand in front of ``plane`` over a patch.
+
+    Returns reach(u, v): the front-most offset of any face drawn so far whose
+    projection on the plane covers (u, v) and that stands within the rock's
+    reach of it, so a mark cut in a rock face can lie on that face. Where
+    nothing covers a point (a joint's gap), the patch's median reach serves.
+    """
+    axis=0 if plane['axis']=='x' else 1
+    side=1-axis;at,sign=plane['at'],plane['sign']
+    lo,hi=-.02,ROCK_FACE_MAX+.01;pad=.03
+    tris=[]
+    for face in b.faces:
+        pts=[b.verts[i] for i in face]
+        offs=[(p[axis]-at)*sign for p in pts]
+        if min(offs)<lo or max(offs)>hi:continue
+        us=[p[side] for p in pts];vs=[p[2] for p in pts]
+        if max(us)<u0-pad or min(us)>u1+pad or max(vs)<v0-pad or min(vs)>v1+pad:continue
+        for k in range(1,len(pts)-1):
+            tris.append(tuple((us[i],vs[i],offs[i]) for i in (0,k,k+1)))
+    def hit(u,v):
+        best=None
+        for (ax,ay,ao),(bx,by,bo),(cx,cy,co) in tris:
+            det=(by-cy)*(ax-cx)+(cx-bx)*(ay-cy)
+            if abs(det)<1e-12:continue
+            l1=((by-cy)*(u-cx)+(cx-bx)*(v-cy))/det
+            l2=((cy-ay)*(u-cx)+(ax-cx)*(v-cy))/det
+            l3=1-l1-l2
+            if min(l1,l2,l3)<-1e-9:continue
+            o=l1*ao+l2*bo+l3*co
+            if best is None or o>best:best=o
+        return best
+    found=[o for o in (hit(u0+(u1-u0)*i/8,v0+(v1-v0)*j/8) for i in range(9) for j in range(9))
+           if o is not None]
+    fallback=sorted(found)[len(found)//2] if found else PITCH_LINE
+    def reach(u,v):
+        o=hit(u,v)
+        return fallback if o is None else o
+    return reach
+
+
 def date_stones(b,params):
     """The north-gable chimney's 1886 and AD stones, as HABS photograph 4 reads them.
 
@@ -2026,10 +2067,21 @@ def date_stones(b,params):
         ob.to_mesh_clear();bpy.data.objects.remove(ob,do_unlink=True);bpy.data.curves.remove(curve)
     for cross in params.detail.get('date_crosses',[]):
         u,z,r,t=cross['u'],cross['z'],cross['size']/2,cross['stroke']/2
-        # Just proud of the rock face's furthest reach, as a cut line reads.
-        for u0,u1,v0,v1 in ((u-r,u+r,z-t,z+t),(u-t,u+t,z-r,z+r)):
-            b.raw([legacy._plane_point(cross,p,q,ROCK_FACE_MAX+.002) for p,q in ((u0,v0),(u1,v0),(u1,v1),(u0,v1))],
-                  conf,DARK_GLASS,legacy._plane_dir(cross))
+        # T-3028: a cut line follows the rock it is cut in. At ROCK_FACE_MAX the
+        # strokes stood 2-4 cm proud of the stone round them (T-3065 read its
+        # reach there at 0.06-0.08 m), so they floated; HABS 14 shows them cut.
+        # Each stroke is draped, cell by cell, 2 mm over the stack's own face;
+        # the upright is two arms either side of the bar, so no face is drawn twice.
+        reach=_face_reach(b,cross,u-r,u+r,z-r,z+r)
+        for u0,u1,v0,v1 in ((u-r,u+r,z-t,z+t),(u-t,u+t,z+t,z+r),(u-t,u+t,z-r,z-t)):
+            nu,nv=max(1,math.ceil((u1-u0)/.012)),max(1,math.ceil((v1-v0)/.012))
+            us=[u0+(u1-u0)*i/nu for i in range(nu+1)];vs=[v0+(v1-v0)*j/nv for j in range(nv+1)]
+            off={(i,j):reach(p,q)+.002 for i,p in enumerate(us) for j,q in enumerate(vs)}
+            for i in range(nu):
+                for j in range(nv):
+                    b.raw([legacy._plane_point(cross,us[a],vs[c],off[a,c])
+                           for a,c in ((i,j),(i+1,j),(i+1,j+1),(i,j+1))],
+                          conf,DARK_GLASS,legacy._plane_dir(cross))
     ledge=params.detail.get('pigeon_ledge')
     if ledge:
         slab(b,ledge,ledge['u0'],ledge['u1'],ledge['z0'],ledge['z1'],0,ledge['projection_m'],params.detail['conf'],GRANITE)
