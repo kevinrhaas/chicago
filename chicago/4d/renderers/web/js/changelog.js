@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2236, ts: '2026-10-24T01:17:18.677Z', date: 'Oct 23, 2026, 8:17 PM CT', title: 'Early Chicago buildings gain closer forms and clearer picture evidence', kind: 'change',
+    items: [
+      'Green Tree gains seven upper windows and clapboard gables; Sauganash gains a lower reconstructed roof and its pictured end sash.',
+      'The first Tremont gains three shuttered storeys, raised entries, an opaque panel with reconstructed TREMONT lettering, a darker reconstructed roof tone and a roof flag with its own confidence grade.',
+      'St Mary\'s engraving is credited to its verified 1884 publication. Its card and loading fact now explain that the steeple\'s addition year is uncertain.',
+      'Beaubien\'s card distinguishes the homestead from the older Factory House and keeps the panorama identification unresolved.',
+      'The jail and two hotel drawings are credited to W. E. S. Trowbridge in Gale\'s verified 1902 book; retrospective captions and the separately catalogued UCR copy keep their date and rights limits.',
+      'Revised hotel capacity estimates preserve existing reconstructed residents and report empty beds separately from crowding. Picture comparisons still differ; dimensions, hidden details, chronology and flag pose remain disclosed, and the original picture-match cases stay open.',
+    ] },
   { v: 2235, ts: '2026-10-24T00:17:08.828Z', date: 'Oct 23, 2026, 7:17 PM CT', title: 'Glessner House\'s roof tiles checked against an 1887 photograph', kind: 'change',
     items: [
       'Glessner House\'s Evidence panel now says what the earliest pictures show about its roof tiles. An 1887 photograph of the stable and a 1963 survey photograph count the same rows of tile up the same roof, about 42. So the 5-inch course the 1963 surveyors measured was already there when the house was new, and the roof keeps it. An earlier reading of about 6.4 inches came from that photograph\'s camera, not from the roof. The house itself looks the same.',

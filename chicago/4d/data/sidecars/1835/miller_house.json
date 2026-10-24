@@ -12,9 +12,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "blanchard_shober_1867_wolf_point"
+    ]
   },
   "documented_range": {
     "from": "1827-01-01",
@@ -132,6 +134,14 @@
       "confidence": "reconstructed",
       "note": "NOT ATTESTED, and read off the footprint polygon on the same terms as the width: the river-fronting limb is 6 m deep of the bounding box's 11 m, leaving the 5 m the polygon gives the log cabin behind it. Inherits the polygon's invention. Admitted in docs/LIBERTIES.md L27."
     },
+    "frame_addition_cladding": {
+      "value": "log_lower_vertical_upper",
+      "confidence": "inferred",
+      "sources": [
+        "blanchard_shober_1867_wolf_point"
+      ],
+      "note": "The tall Miller House at the right of the inspected 1867 Wolf's Point in 1833 lithograph has exposed horizontal log courses downstairs and vertical boards on its upper storey and gable. This replaces the generator's default horizontal clapboard over both storeys; the source is a retrospective pictured-form witness, not a survey or proof of unchanged appearance on 1 July 1835. The existing two-storey 5.2 m addition height is retained. Its midpoint at 2.6 m is a reconstructed floor/cladding break; the board-edge rhythm, narrow relief and exact joint treatment are reconstructed proxies under L-miller-mixed-cladding-2381. The existing low cabin, main-block plan, openings and exterior stacks still differ from the pictures and are not declared matched. ACTUAL-RENDER FOLLOW-UP: the first same-material 12 mm edge/12 mm relief treatment was visually ineffective. Joint proxies now use 24 mm width and 4 mm relief with the existing darker log material, at the retained nominal 0.24 m board rhythm. These are reconstructed graphic joint cues, not measured historic board gaps, raised battens, a painted finish or surveyed joinery; their faces remain confidence 1.0."
+    },
     "frame_addition_height_m": {
       "value": 5.2,
       "confidence": "inferred",
@@ -153,12 +163,12 @@
       "note": "No pitch is attested. 38 degrees is mid-range for period framing. Inferred from construction practice, not measured."
     },
     "cladding": {
-      "value": "clapboard",
+      "value": "log_and_vertical_boards",
       "confidence": "inferred",
       "sources": [
-        "chicagology_prefire273"
+        "blanchard_shober_1867_wolf_point"
       ],
-      "note": "'a log structure partly sided' — siding is attested on part of the building, and clapboard is the standard board siding for the type and period. Which part was sided, and whether the frame range was clad differently from the cabin, is not stated.",
+      "note": "The earlier inference of clapboard from the text 'partly sided' is superseded for the tall block by the actual 1867 lithograph: log courses on its lower storey, vertical boards upstairs and on the gable. The consumed the addition's exterior covering parameter now builds that distinction. The original cabin remains log. Numeric course/board dimensions and unseen elevations retain their reconstructed treatment; a retrospective view does not settle the building's exact July 1835 condition.",
       "geometry": "simplified"
     },
     "paint": {
@@ -193,6 +203,25 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "blanchard_shober_1867_wolf_point",
+      "citation": "Wolf's Point in 1833. Hand-coloured lithograph, published by Rufus Blanchard, lithographed by Chas. Shober & Co., Chicago, 1867. Issued under the auspices of the Chicago Historical Society.",
+      "url": "https://commons.wikimedia.org/wiki/File:Wolf%27s_Point_in_1833_(NYPL_Hades-118496-54620).tif",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A pictured roof-penetrating chimney head over the Wolf Point tavern, identified by its wolf pole sign.",
+        "Two low gable-front volumes and a separate slender roof pipe, which remain open modelling differences.",
+        "A depicted date of 1833 and printed United States publication/deposit year of 1867.",
+        "At right, Miller House with an exposed-log lower storey and vertically boarded upper storey/gable; its exact dimensions and unchanged 1835 appearance remain unproved."
+      ],
+      "what_it_does_not_supply": [
+        "Coordinates, footprint dimensions, an exact stack position along the ridge, or stack width and height.",
+        "Direct evidence of the building's appearance on 1 July 1835.",
+        "A single camera that reconciles this drawing with every retrospective picture of Wolf Point."
+      ]
+    },
     {
       "source_id": "chicagology_prefire273",
       "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",

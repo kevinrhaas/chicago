@@ -2228,6 +2228,16 @@
       ]
     },
     {
+      "why": "The door aprons and clearance zones read the compiled building faces. Rebuild them before frontage and yard placement consume the doors and their approaches.",
+      "command": [
+        "python3",
+        "tools/generate_entrances.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/enclosures/town_entrance_aprons.json"
+      ]
+    },
+    {
       "why": "T-2747: the 1904 built-so-far walk is WRITTEN from the compiled 1904 records and their image-gate verdicts, never by hand, so every refine PR that changes a building's detail rewrites it; two such PRs conflict on it, and a rebuild is the only right resolution. It reads the sidecars compile_scene writes and feeds compile_jaunts, so it sits between them.",
       "command": [
         "python3",
@@ -2967,6 +2977,16 @@
         "python3",
         "tools/generate_yard_outbuildings.py",
         "--check"
+      ]
+    },
+    {
+      "why": "T-3081: woodpiles follow the last physical obstacle writer, generate_yard_outbuildings.py, and precede kept-ground and closing audits. Ground reads current compiled footprints and exact-phase doorway zones, dooryard pickets and plantings, frontage walks, trade goods, wagons and outbuildings. It skips its own output. The goods world and trade-yard/outbuilding writers do not read woodpiles, so this adds no physical feedback cycle. Existing repeated scene-tail settlement remains required for the wider scene/record cycle. The earlier clean-tree reproduction measurement in writer_inventory.json remains historical; final current derivation is checked normally.",
+      "command": [
+        "python3",
+        "tools/generate_woodpiles.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/yard/town_woodpiles.json"
       ]
     },
     {

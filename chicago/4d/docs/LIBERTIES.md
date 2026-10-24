@@ -32077,3 +32077,184 @@ falling grade carried under the house, would fix its foot.
 **Ticket:** T-3076 (found by T-3074).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3076).
+
+### L-school-pictured-openings-roof-2372 — provisional doorway gable and higher lights
+**Decision:** The owner-approved attributed school-shore reproduction guides a reconstructed
+doorway-gable roof direction and opening treatment without identifying its subject
+as this school or establishing original copyright/publication or a July 1835 state.
+The existing footprint, 90-degree placement and 35-degree pitch remain. Sash
+0.85 m square, doorway 1.20 m wide with 2.05 m clear height, common 2.07 m head,
+rounded inherited front centres, no external front shutters and a local-Y core
+ridge are chosen model dimensions/directions. The unseen rear light follows the
+same new band; roof, loft/gable classification and rear stack follow one declared
+axis. These are not metric evidence. The former eave-front roof assumption is
+superseded only for this record. Open door state, covering, massing/proportions,
+subject identity, historical function and camera remain unresolved; T-2372 stays
+open. The source credit, URL and project-specific owner clearance are retained,
+without claiming public domain or copyright-holder permission.
+**Covers:** `chappel_infant_school.log_1833.form.front_set_out`, `chappel_infant_school.log_1833.form.window_w_m`, `chappel_infant_school.log_1833.form.window_h_m`, `chappel_infant_school.log_1833.form.door_w_m`, `chappel_infant_school.log_1833.form.door_h_m`, `chappel_infant_school.log_1833.form.roof_ridge_axis`, `chappel_infant_school.log_1833.form.front_shutters`.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-cobweb-compound-2374 — five log rooms instead of one bounding box
+**What was done:** Cobweb Castle opts into the connected room layout, partitioning its existing
+reconstructed 20-vertex footprint into a centre, two wings and two rear tails.
+Existing placement, polygon, nominal eave, pitch, finishes and inferred two-stack
+count stay unchanged. Orthogonal gables replace the single bounding-box roof.
+**Evidence:** Wau-Bun (the 1856 Wau-Bun account) describes the 1831 composition and an
+"odd-shaped roof". It establishes neither dimensions nor the precise roof layout.
+**Chosen:** every room dimension remains the old footprint's invention. Equal
+2.6 m eaves, ridge directions, wing roofs extended to the centre ridge, overlapping
+roof surfaces rather than detailed valleys, a centred front door and one window on
+each wing, and stacks against the outer wing ends are reconstructed. Shared room
+walls remain internal geometry; no interior, exact junction joinery or clapboarding
+is recovered. New compound faces carry reconstructed confidence. Partial siding
+remains simplified and its presence by July 1835 uncertain.
+**Limits:** the phase applies the 1831 form back to 1820 and infers survival to
+July 1835; neither issue is resolved. The later Wau-Bun panorama remains an
+uncalibrated comparison whose tiny agency-house subject needs positive identification.
+This is a text-bounded first massing increment, not a picture match. After a pinned
+bake, compare the actual silhouette, roof junctions, openings and finishes and keep
+T-2374 open until its acceptance is demonstrated.
+**Head clearance (T-3081, 2026-10-24):** both outer-wing chimney heads are chosen at 5.05 m
+above grade. The unchanged roofs have a highest ridge of about 4.526 m and
+wing ridges of about 4.175 m: the heads stand 0.524 m above the highest roof
+and 0.875 m above their own wings. The project measures its eighteen-inch
+(0.4572 m) floor conservatively from the highest roof; this head leaves a
+margin without changing any roof, stack count, position or section. The
+newspaper corpus records the 5 August by-law printed on 19 August 1835, not
+Cobweb's actual height or July compliance. Both heads remain reconstructed;
+no image match or historical measurement is claimed.
+**Recorded:** 2026-10-23.
+**Covers:** `cobweb_castle.log_1820.form.plan_composition`, `cobweb_castle.log_1820.form.roof_type`, `cobweb_castle.log_1820.form.compound_parts`, `cobweb_castle.log_1820.footprint`, `cobweb_castle.log_1820.form.chimney_head_m`.
+
+
+### L-miller-mixed-cladding-2381 — logs below, vertical boards above
+**What is read:** the tall Miller House at the right of `the 1867 Wolf Point lithograph`, inspected as the NYPL lithograph `chicago/reference/images/chicago/the NYPL Wolf Point in 1833 image.jpg`. Its ground storey is drawn as horizontal log courses, its upper storey and gable as vertical boards. The sharper Colbert reproduction and the1892 Blanchard chromolithograph repeat that general mixed treatment; retrospective agreement is not promoted to a contemporary construction record. The earlier inference that 'partly sided' meant horizontal clapboard on both storeys is superseded by the actual depicted form.
+**What is reconstructed:** the retained5.2 m addition height is split at its2.6 m midpoint for the lower/upper cladding break. Lower walls use the existing hewn-log/chinking/notching kit; upper walls retain the existing unpainted frame material but receive vertical board-edge relief. The nominal0.24 m board rhythm,0.012 m-wide edges,0.012 m wall relief,0.004 m gable face separation and plain joint representation are modelling choices, not historic board dimensions or evidence for a particular board-and-batten joint. Both unseen rear surfaces follow the same reconstructed finish. The gable overlays are on the roof builder's0.25 m overhang plane so they remain visible rather than hidden behind the old roof-material triangles; that is the existing roof's graphical convention, not an altered footprint. Source courses, board count, texture/tone and exact joinery are not completely reproduced.
+**What remains:** the low cabin is still behind the main block rather than alongside as in the clearest pictures; the main upper front still has two windows instead of the pictured three; exterior chimneys are not the pictured ridge stack; glazing/doors, camera and roof/material details remain open. Existing coordinates, footprint, documented range, identities and uses have not been changed. The retrospective1833 scene does not prove an unchanged1 July1835 state.
+**How to resolve:** perform the pinned family rebuild and actual same-camera before/after comparison, then refine the remaining composition, openings, chimney and material differences against all listed pictures. This first visible finish correction is not a completed image match.
+**Covers:** `miller_house.log_frame_1827.form.cladding`.
+**Ticket:** T-2381.
+
+**Revision:** Combined confidence ruling: wall/gable finish category faces remain inferred; chosen narrow board-edge sections and rhythm emit reconstructed confidence (1.0).
+**Recorded:** 2026-10-23.
+
+
+### L-carpenter-pictured-sash-2382 — upright sash on the Sauganash's log annex
+**What is read:** `the Sauganash engraving published by Andreas in 1884`, the public-domain Braunhold engraving inspected as `chicago/reference/images/chicago/the Sauganash Hotel in 1831 image.jpg`. The cabin already identified by `the Illinois History Journal's Beaubien caption` as Carpenter's former shop has a doorway between two tall, bare sash, their heads approximately aligned. The Petford and Trowbridge copies are not independent corroboration. The retrospective picture bounds appearance, not geographic coordinates or proof of the cabin's use/survival on 1 July 1835.
+**What is reconstructed:** 0.70 m sash width and 1.40 m height under the retained 1.95 m door head, making the sill 0.55 m and the sash proportion 2:1 rather than the former generic almost-square 0.62 by 0.72 m light. Opening centres remain the archetype's former 28-percent flank rule on the retained attested 6.096 m frontage: 1.341, 3.048 and 4.755 m, rounded to millimetres. These are provisional model dimensions/stations, not measurements from a solved camera. The existing archetype propagates the sash band to its unseen rear light; that height and the rear's narrower default width are reconstructed. Default glazing divisions remain a proxy and do not reproduce every drawn muntin. The end-wall chimney, roof, logs and material tones remain under their earlier bounds and still differ from the picture.
+**How to resolve:** fit a joint Sauganash/annex review camera, rebuild the annex, compare the actual before/after GLBs with the original engraving and both derivative pictures, then iterate on all remaining visible differences. No completed image match or T-2382 closure is claimed by these data changes.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.front_set_out`, `philo_carpenter_log_shop.log_1832.form.window_w_m`, `philo_carpenter_log_shop.log_1832.form.window_h_m`, `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_w_m`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_head_m`.
+**Ticket:** T-2382.
+
+**Revision:** T-2382 next increment below supersedes this first entry’s generic end-stack description.
+**Recorded:** 2026-10-23.
+
+
+### L-carpenter-pictured-stack-2382 — the annex's roof-piercing chimney
+**What is read:** the annex chimney in `the Sauganash engraving published by Andreas in 1884`, inspected as the committed Braunhold engraving `chicago/reference/images/chicago/the Sauganash Hotel in 1831 image.jpg`. One small shaft breaks the roof near the cabin's exposed outer gable. The cabin is the existing `the Illinois History Journal's Beaubien caption` caption identification, and the hotel/cabin placement has not been rederived from the drawing.
+**What is reconstructed:** a ridge station of 0.80 on the existing 6.096 m cabin frontage, 4.8768 m from minimum-u and 1.2192 m short of the exposed local +x gable; a square 0.55 m shaft; and a head 0.65 m over the ridge. The roof-piercing disposition is pictured; those exact dimensions and station are first comparison choices requiring actual paired review, not a solved camera or measurements of the historical chimney. The existing ridge-stack builder supplies plain sides and its existing embedded foot. Its hardcoded stick-and-clay tone remains an unresolved proxy for the picture's masonry stack. No geographic position, footprint, scene date, use or occupancy changes.
+**How to resolve:** render the rebuilt cabin and compare its chimney against the full original sheet using the same before/after camera; refine the shaft station, silhouette, head/cap and masonry treatment. Inspect the Petford/Trowbridge derivatives separately while preserving the Braunhold governing-sheet choice. This increment does not claim the annex or hotel matches the picture.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_w_m`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_head_m`.
+**Ticket:** T-2382.
+**Recorded:** 2026-10-23.
+
+
+### L-miller-visible-joints-2381 — readable vertical joint cues
+**Decision:** The first actual neutral review showed that same-material 12 mm edges with
+12 mm relief were effectively invisible. This supersedes those first-proposal
+sections only: joint proxies now use 24 mm width, 4 mm relief and the existing
+darker log material, retaining nominal 0.24 m board rhythm and every room, roof,
+opening, cladding break and surveyed placement. Broad wall/gable finish faces
+remain inferred; chosen contrast-strip geometry remains reconstructed (1.0).
+The source supports vertical boards and their visible joint rhythm, not these
+exact widths, relief, colour, board gaps or an applied board-and-batten joint.
+This is a readable joint depiction, not a measured physical gap or paint claim.
+Unseen surfaces inherit the reconstructed treatment. Existing palette slots are
+reused; no new material is introduced. Same-camera export/review must demonstrate
+that the joints read while source textures, three upper windows, ridge stack,
+side-cabin arrangement and camera remain open differences. T-2381 stays open.
+
+**Recorded:** 2026-10-23.
+**Building:** Miller House.
+
+
+### L-school-dark-door-recess-2372 — a dark blind exterior doorway
+**Decision:** The actual school-shore comparison still shows a closed pale planked leaf where the picture has a dark doorway occupied by a woman. The model now opts into the existing `a recessed front doorway` treatment. Its cut front skin, framed reveals, threshold and dark back 0.30 m inside are reconstructed visual proxies. This does not infer an interior, passage, door swing, historical leaf position, or 1835 occupant. Solid footprint collision and the walker contract remain unchanged. No source pixels become a texture.
+
+**Source:** `eliza_chappel_school_shore_view`. Artist unidentified; reproduced by the Digital Research Library of Illinois History Journal in its 2018 Eliza Chappell article, https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html . The owner approved attributed project reference/comparison/display use on 2026-10-22 (T-3053). This is not a public-domain determination, copyright-holder grant or general open licence. The subject, original artist/publication/date, school/annex identification and historical camera remain unresolved.
+
+**Bounds:** Preserve the proposed roof-axis/opening values, footprint, position, dates, inferred building grade and unknown 1835 use. The school had left this building in 1834. The drawing's broader scene is composed, not a metric construction. Broad facade, plain gable triangle, roof covering, opening alignment, chinking/tones, unestablished rear stack and camera remain different. Rebuild and inspect the actual same-camera comparison before judging this increment. T-2372 retains its full original acceptance and remains open; this proposal is unrendered.
+
+**Covers:** `chappel_infant_school.log_1833.form.front_door_state`.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-school-front-gable-courses-2372 — horizontal courses on the front gable
+**Decision:** The approved attributed school-shore picture visibly continues horizontal courses into the front gable. Its subject, date, artist and original publication remain unresolved. This design category guides an isolated default-off +Y-cap replacement; the existing 340mm course rhythm, 55mm chink bands, small existing relief and exact colour/section/joints are reconstructed model choices, not image measurements. Preserve roof silhouette, ridge, physical footprint, placement, camera, openings, blind doorway and all date/use limits. No rear-gable finish or occupant is asserted.
+
+**Covers:** `chappel_infant_school.log_1833.form.front_gable_cladding`.
+**Building:** Eliza Chappel's infant school.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-elbow-layout-2386 — two outward gable ends and a physical L
+**Building:** Wolf Point Tavern.
+**Decision:** Re-reading `the 1867 Wolf Point lithograph` corrects the earlier parallel-pen assumption. In the actual NYPL sheet the left front gable's ridge recedes rightwards, the right front gable's ridge leftwards, and two inside wall edges meet between them. A connected orthogonal L is a better-supported form hypothesis. Context identifies this left-bank subject by its wolf pole; it is not Miller's house. It does not supply a measured plan or prove the exactJuly1835 state.
+
+The former12x7m rectangle was a placeholder, not an attested footprint. It is replaced by the physical polygon(0,0),(7.2,0),(7.2,5),(5,5),(5,10.1),(0,10.1). The nominal5m span is a reconstructed metric gauge. Core5x10.1m and rear side extension2.2x5m, equal2.6m eaves,42degree pitch, flush eaves, simple roof caps and exact clipped valleys are chosen construction, not surveyed dimensions or directly scaled from the drawing. The cross-roof projects only to the core ridge; the new helper emits the external upper envelope, not two buried crossing roof surfaces. New room/roof/opening/head/pipe geometry emits reconstructed confidence; the inherited sign kit retains its existing occurrence-confidence policy.
+
+The existing partly-log/partly-frame text is retained, but assigning the extension to frame is not identification of a pictured fabric. Log versus clapboard/gable surfaces remain visibly incomplete. The two doorway proxies and right-front window use explicit room/face rectangles; their exact stations, sizes, closure, glass and kits are reconstructed. The+X entry is not falsely flattened onto the+Y front-wall API. A broad existing0.45m ridge head with0.5m rise is trialled at0.29of the new core ridge near the junction; source host/fraction/hidden flue are not established. A separate eight-sided dark projection is trialled at0.74of that ridge,0.14m outside diameter and0.55m head. Metal, stove, cap, hidden pipe and interior are not identified, and it is not silently counted as a second masonry chimney. Existing sign kit remains but its position, height, lean and board still differ.
+
+The current record origin/rotation, dates, use and occupants remain. Physical occupied ground and its centre change: bbox centre(6,3.5) becomes(3.6,5.05), a local(-2.4,+1.55)m shift; at the retained90degree bearing this is(+1.55E,+2.4N)m. The renderer/ShowMe vertex-mean centre shifts differently and is recorded separately in the reader receipt. This is not a newly surveyed world location or an old invisible box left for collision. The actual concave polygon is shared with normal collision, contact, sidecar and ground readers.
+
+The fitted square-pixel research camera gives an analytic corner/apex agreement within manual source-pick uncertainty, not an actual GLB/render match, a surveyed station or evidence of metres. Focal-distance/absolute-scale ambiguity, uncertain ground/eye height, roof details and all other views remain open. The later1892-labelled poster is only an inspected comparison: Newberry's currentPoole27 page says1935 and Copyright Not Evaluated, so its reproduction is not promoted to a cleared source or used to derive this mesh. The independently dated1867 NYPL sheet governs the proposal. No accepted camera, gate exception or whole-building match is added. T-2386 remains open and `differs` until actual comparisons meet acceptance.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.footprint`, `wolf_point_tavern.log_frame_1828.form.frame_addition_side`, `wolf_point_tavern.log_frame_1828.form.frame_addition_width_m`, `wolf_point_tavern.log_frame_1828.form.frame_addition_depth_m`, `wolf_point_tavern.log_frame_1828.form.frame_addition_height_m`, `wolf_point_tavern.log_frame_1828.form.roof_pitch_deg`, `wolf_point_tavern.log_frame_1828.form.compound_joint`, `wolf_point_tavern.log_frame_1828.form.compound_parts`, `wolf_point_tavern.log_frame_1828.form.chimney_ridge_at`, `wolf_point_tavern.log_frame_1828.form.roof_pipe`, `wolf_point_tavern.log_frame_1828.form.ridge_stack_w_m`, `wolf_point_tavern.log_frame_1828.form.ridge_stack_head_m`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-centre-preserving-origin-2386 — rebase a reconstructed model origin
+**Building:** Wolf Point Tavern.
+**Decision:** Changing the former12x7m placeholder to a physical7.2x10.1m L must not silently choose a new world centre or leave its primary worn apron in the river. Rebase the local origin by(-1.55E,-2.40N)m toE446993.85,N4637348.30 at the retained90degree bearing, keeping the old bbox centre exactly. This is an explicitly reconstructed model-origin/plan choice, not a coordinate derived from tier5picture pixels or a new survey. The old coarse source-supported west-bank/relative-order site and40m along/20m across uncertainty remain. Position confidence is reconstructed to expose the exact new choice; no source is promoted to metric control. Relative to the old rectangle the final bbox centre is unchanged, while the different concave outline and the ShowMe vertex-mean centre differ as recorded in geometry receipts.
+
+The retained-origin L trial's primary apron enters the native1835river by about0.39m. With the centre-preserving rebase its body and primary apron clear that committed river outline by about3.69m and2.18m, with nearest stable/store separations about9.15m and9.60m. These are runtime model-coherence checks at the committed datum, not measured historic setbacks or newly verified1835banks. Keep the phase dates, bearing, source credits and historical uncertainty. Sidecar/contact/terrain/entrance/route and app checks must regenerate normally; no asset hash or derived grade is handwritten.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.position`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-pictured-courses-pole-2386 — visible envelope and sign-pole refinement
+**Building:** Wolf Point Tavern.
+**Decision:** The actual two-gable L comparison is a material improvement but differs. Re-read the same independently dated 1867 Blanchard/Shober NYPL sheet, depicting 1833, rather than substitute the uncleared Newberry poster or a new camera. Both facing walls and their gable triangles show horizontal log-like courses. That pictured category is inferred. It does not attest timber section, pale chinking, notches, exact rhythm, literal hidden log construction, colour or a photographic texture. The bounded elbow opts into the existing hewn-log kit on its formerly clapboard face and into matching triangular course faces, at reconstructed emitted confidence. The historical partly-frame text remains; assigning a visible course envelope does not identify hidden framing. The 340 mm rhythm, 55 mm relief bands, existing kit palette and unseen rear face are reconstruction choices, not dimensions read from pixels.
+
+Choose 120 mm roof projection and a 50 mm vertical edge/underside thickness while keeping the existing pitch, ridge elevations and true physical L. The clipped upper envelope remains one external roof, with no duplicate intersecting upper surfaces. These small roof-edge dimensions are chosen proxies, not evidence of metres, exact joinery or measured overhang. Raise the existing small right light by 300 mm to z1.4–2.0 m, keeping its width and station; the prior approximate camera projection put it about nine source pixels low. Its sill, sash and door states remain reconstructed; no additional window is invented.
+
+Choose the sapling base at local [5.4,7.3] m in the actual empty courtyard, head [6.45,6.0,10.3] m, cross-arm vector [-1.32,1.63,0.66] m, board 1.60×1.05 m and hanger drop 0.32 m. The source's pole leans screen-left, with a rising cross-arm, supporting diagonal and tilted board. The local pose is a reconstruction under the unchanged provisional square-pixel camera and 5 m building gauge. All sections, taper, braces, board/iron shapes, silhouette and neutral colours remain reconstructed; the sign's occurrence and mounting evidence are not promoted. Keep the approximately six-pixel base-height residual instead of moving the post tens of metres across the site to force a common-plane pixel match. No geographic coordinate, surveyed placement or literal drawing by Lieutenant Allen is derived here.
+
+All new detailed primitives emit reconstructed confidence. Existing footprint/world origin/position grade/date/source credits and rights remain unchanged. The new position is not a parcel or river claim; the previous centre-preserving origin liberty still governs placement. The solid-footprint walker still has no interior passage. Old closed doors, fabrication/texture/colour, exact roof edges/junction, camera degeneracy, hidden layout, 1833-to-1835 continuity and every other listed source view remain open. No source-image verdict is preassigned; another actual rendered comparison and the full original T-2386 acceptance remain required. The canonical all81 refresh and affected entrance/props/contact/scene/app checks are still owed; the four stale trade-goods instances are not whitelisted.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.compound_parts`, `wolf_point_tavern.log_frame_1828.form.compound_roof_overhang_m`, `wolf_point_tavern.log_frame_1828.form.sign_pole_set_out`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-blind-doors-curved-courses-2386 — exterior dark depth and log-face relief
+**Building:** Wolf Point Tavern.
+**Decision:** The actual surface/pole render improves the governing 1867 NYPL sheet's two gables and sign pose but still has closed pale planked doors and regular pale chink stripes. Re-reading the same sheet, depicting1833, guides two dark/open-looking entry apertures and rounded/unevenly shaded horizontal course faces with narrow recessed joints. These categories do not establish an interior, exact door state or swing, literal timber cross-section, authentic colour/weathering, photographic texture or an original sign-device likeness.
+
+Under the explicit reconstructed compound door-state opt-in, subtract only the existing stated +Y/+X exterior door rectangles from wall skins and inset joint backing. Omit the closed leaves and build the existing casing/reveals/threshold kit with a blind dark back300mm behind the face. This bounds exterior depth; there is no inferred room, route, doorway traversal, occupant or light inside. All doorway stations/sizes, physical concave polygon, world placement, dates and external entrance metadata remain unchanged. The walker still treats the whole building footprint as solid. The existing Hogan +Y cutter is generalized to accept a normal axis and skin-back distance; its default zero-depth selection and all81 prior raw/material/conf outputs are preserved exactly.
+
+The inferred rounded-relief category changes only this explicit log-course compound. Use existing palette materials, a chosen300mm rhythm,20mm joint gaps,15mm dark backing setback,38–48mm seeded curved face relief and six profile panels per course. Continue the same selected phase/rhythm into gable triangles. These dimensions, seeded variation, dark shadow backing, hidden faces and curved sections are reconstructed surface proxies, not source measurements, a new global palette or attested black painted chinking. They replace the earlier pale strip representation and omit its exaggerated squared end notches only for this profile. Chosen sections emit reconstructed confidence; occurrence/category metadata keeps its own grade.
+
+The pole/board/device, light and roof controls, camera bytes, footprint/position/date/source credits and rights remain unchanged. Material lighting/tones, actual course/joint fabrication, opening proportions, sign outline, hidden structure, camera degeneracy, retrospective source continuity and all other ticket pictures remain open. A future actual GLB comparison is required; no match or original acceptance is preassigned. Canonical all81 refresh, affected entrance/props/contact/scene/app checks and normal regeneration of the four stale trade-goods instances remain owed. No app/site/terrain/parcel or passable-interior claim is made by this proposal.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.compound_door_state`, `wolf_point_tavern.log_frame_1828.form.compound_parts`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.

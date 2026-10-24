@@ -5820,3 +5820,14 @@ Fresh derived output/published mirror, the complete corrected strict run and fin
 
 - Native capacity updates preserve all existing lodging identities and seats while reporting physical vacancy and ordinary overflow separately. The carried staffing allowance decreases as later occupants consume beds; reweighting alone cannot replenish it. Focused native builds/checks/self-tests pass, with quota and crowded refusals intact.
 - Finish the refreshed derived outputs, corrected full preflight, current-head published smoke acceptance and policy PR into dev. This prerequisite group does not close the original building picture-match cases.
+
+
+## T-3081 — ship five log-building picture increments
+
+Integrate the bounded school, Cobweb, Miller, Carpenter and Wolf Point changes through the shared log producer. Refresh all 82 official assets and real web derivatives, retain unchanged defaults and Hogan, and use PR #1239 V2 before native population consumers. Complete ordered derivation, site/contact checks, actual app comparisons, strict preflight and published mobile/desktop gates before merging into dev. Keep each original image gate open until every required view matches; continue source-camera and material refinements after this visible unit lands.
+
+T-3081 gate repair: keep Cobweb's chosen 5.05 m chimney heads reconstructed, refresh the complete log family through the official producer, then repeat native convergence and the full published checks before merge. The original five image-match tickets remain open.
+
+T-3081 current native checkpoint: the all-family export redo and 202-step manifest integration are complete; the affected 61-step native tail settles without changing lodging identities. Finish the full preflight, published five-building/source review and applicable mobile/desktop smoke gates before merging the visible increment. Original image-match cases remain open.
+
+T-3081 full preflight 02 passes (1,060 checks); finish published app/source comparisons and the complete applicable mobile/desktop smoke coverage before dev merge.
