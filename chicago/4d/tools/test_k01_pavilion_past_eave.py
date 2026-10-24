@@ -104,7 +104,9 @@ def main() -> int:
     walls = {"k01.wall.street_front": ((0, D - 0.001), (-1.0, 0.0, 0.0), lambda s: (-s, 0.0)),
              "k01.wall.side.south": ((2, -0.001), (0.0, 0.0, -1.0), lambda s: (s, 0.0))}
     for b in p.bays:
-        if b["variant"]["kind"] != "projection":
+        # T-3001: a pavilion on a rear wing's wall stands past no main eave; test_k01_wing_tower
+        # holds it to its wing
+        if b["variant"]["kind"] != "projection" or b.get("wing"):
             continue
         top = sum(float(x["height_m"]) for x in b["variant"]["storeys"])
         plane, back, to_axis = walls[b["wall"]]

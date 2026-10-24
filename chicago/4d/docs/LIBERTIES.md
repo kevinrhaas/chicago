@@ -32078,6 +32078,40 @@ falling grade carried under the house, would fix its foot.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3076).
 
+### L-kimball-1801-gabled-section-3001 — 1801 Prairie's gabled section on 18th Street narrowed to the Taylor photograph and given its coped gable and balcony
+
+**Decision:** 1801 Prairie's gabled section on the 18th Street flank is re-stood from J. W. Taylor's
+c. 1895 photograph (`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074
+re-solved it, on the 18th Street wall's plane (the 1911 sheet runs that wall straight there).
+**What is read, not invented.** The section's face runs from about u -4.5 (its principal storey's
+three round-arched lights and the oriel over them start at x 360-365 on the print) to the pier at
+about u +0.9 (x 445), and its wall head is a cornice at about 11.7 m (y 635-662). Over it, on the
+section's western part, stands a narrow coped gable: its copings' apex at about 14.9 m and its
+finial's top at 15.4 m on an axis at about u -1.8 (x 401), its left kneeler and pinnacle at about
+u -3.2 (x 379, the pinnacle's top 13.2 m), its rakes falling about 6.5 px for every 1 px across.
+Under the gable is an open loggia (x 382-422, its head about 11.4 m) behind a stone balustrade
+(rail 9.6-10.3 m). East of the section, over u -8.5 to -4.5 where T-2843 stood three storeys to
+13.9 m, the print shows sky above about 8.4 m and the east range's roof rising to the section. So
+the sheet's rectangle behind the main block (r3, u -8.5 to 0) is built as two wings: the gabled
+section r3 (u -4.6 to 0), three storeys to 11.7 m under a 45-degree slate hip, and r3b (u -8.5 to
+-4.6), the east range's two storeys to 6.35 m. The gable is K08's coped gable on a shallow
+full-height pavilion (`p_gable`, 0.1 m proud, 2.9 m wide at u -3.25 to -0.35, a new K08 place: a
+rear wing's wall), its gable stood 0.3 m in from each corner, pitched 3.0 (K08's steepest) on a
+wall top of 11.9 m, which renders its finial's top within about 5 px of the print's.
+**What is invented.** The pavilion's 0.1 m depth (the sheet's straight wall, as the front's south
+pavilion); its windows are K06's mullioned and transomed pair a storey, where the print shows
+three round-arched lights, an oriel on corbels and an open loggia; the balcony is K08's floor
+balcony, a stone balustrade bowed 0.35 m out on its slab, where the print's runs straight across
+the loggia; r3's eave is pulled in to 0.05 m so it stays behind the pavilion's face; r3's roof
+behind the gable and r3b's height are the kit's, the print showing only the roof's west slope and
+the tree hiding r3b. The pier at u 0-0.9 and the section's run past the main block's sheet corner
+are not built.
+**How to resolve:** a second picture of the flank (T-3003's 1929 and HABS photographs), a
+drawing of the house, or a sheet drawing the section's projection.
+**Ticket:** T-3001.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3001).
+
 ### L-k01-1812-wheeler-gable-3090 — 1812 Prairie's gable dressed to the Levy and c. 1955 photographs: the grid window's quoins, hood, shelf and dark lights, the shoulder panels, the carved scrolls, the urn finial and the base drawn in
 
 **Decision:** The rest of George H. Wheeler's shaped gable at 1812 Prairie (T-3090, piece 1 of

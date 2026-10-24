@@ -63,6 +63,10 @@
     {
       "what": "T-3024: the 18th Street coping lowered 0.7 ft (parapet 0.5 ft, was 1.2), the 1886 stone re-set to sheet 6 (43.3-44.75 ft ng) and the crosses levelled. Measured from the stack's crest, this print had the coping meeting the stack about 0.8 ft under the built junction (57 px under the crest against 50 at about 8.9 px/ft); re-rendered, it meets the stack under the 1886 stone's foot, as the print shows. The crest stands about 12 px over the print's and the gable's fan level with it, so this camera reads the crest about 1.6 ft nearer the fan than built; HABS 14 reads the same (T-3065).",
       "status": "fixed"
+    },
+    {
+      "what": "T-3080, found: the stable's alley-end roof's north slope, eave to ridge, is 21.4 ft in the model, about 51 courses at 5 in, where this photograph counts 40.6-42.9 courses between the eave and the cresting's foot and the c. 1887 Cornell print 41.7-43.9. Through this camera and T-2758's doorway re-solves the photograph's eave lies 0.2-0.4 m under the model's and the cresting's foot 0.6-1.1 m below the model's ridge. Filed as T-3094 (docs/RESEARCH/glessner-roof-slope-camera-T-3080/README.md).",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

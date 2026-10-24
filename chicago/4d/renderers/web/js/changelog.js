@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2238, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: 'Glessner\'s stable roof: the 1887 photograph\'s camera was wrong, not the roof', kind: 'change',
+    items: [
+      'Nothing you can see changes. An 1887 photograph seemed to show the stable\'s roof a third longer than a 1963 one, because it was being read through a camera fitted to the alley wall. Read through the camera fitted at the stable, its tiles come out at the 5 inches the 1963 surveyors measured.',
+      'Both photographs show the alley end of that roof a few feet shorter from eave to ridge than the model draws it. That is now its own ticket, to rebuild the roof or explain the difference.',
+    ] },
+  { v: 2237, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: '1801 Prairie\'s 18th Street side gains its gabled balcony', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: on its 18th Street side, the tall section behind the main house now has the steep stone gable and balcony that J. W. Taylor\'s c. 1895 photograph shows, instead of a plain hipped roof. The section is narrower too, about 4.6 m instead of 8.5 m, and the low service range now runs up to it, as the photograph shows. Its round-arched windows, oriel and open loggia are still to come.',
+    ] },
   { v: 2236, ts: '2026-10-24T01:17:18.677Z', date: 'Oct 23, 2026, 8:17 PM CT', title: 'Early Chicago buildings gain closer forms and clearer picture evidence', kind: 'change',
     items: [
       'Green Tree gains seven upper windows and clapboard gables; Sauganash gains a lower reconstructed roof and its pictured end sash.',
