@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "habs_1965",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff",
+  "glb_sha256": "34e5d4f97bc6bc4a021d2c46de89cc1949d282b8f2c9e91a789937eb8783c2f8",
   "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
   "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff"
+      "glb_sha256": "34e5d4f97bc6bc4a021d2c46de89cc1949d282b8f2c9e91a789937eb8783c2f8"
     },
     {
       "structure_id": "kimball_house_1801_prairie",
@@ -45,7 +45,7 @@
       "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e"
     }
   ],
-  "group_sha256": "73eb80e4b5643eff76eba63e36303f3b40e38943d0e4f29ca0fe71d24120abdf",
+  "group_sha256": "1005ae9ddd1aed1aebaaabc63004f1e7aabe611d1c989a24ca2aeced5bc10148",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -75,6 +75,10 @@
     },
     {
       "what": "the rest of 1811: its canted cheek past its first few centimetres, the bay, the entrance, the gable and the roof are out of frame; colour (a monochrome print, though the pier's dark tone is the brownstone's)",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3132 re-rendered after the basement grilles and the porch arcade's step: both are on the bay's front and the entrance block's south corner, which this view from the south-west of the Kimball house does not see (1811 stands at the frame's right edge, its north side only); nothing in the frame moved.",
       "status": "not shown"
     }
   ],

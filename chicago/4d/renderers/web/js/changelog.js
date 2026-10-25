@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2271, ts: '2026-10-25T10:44:45.895Z', date: 'Oct 25, 2026, 5:44 AM CT', title: '1811 Prairie\'s scrolled basement grilles and stepped porch arcade', kind: 'change',
+    items: [
+      'The two basement windows under 1811 Prairie\'s bay now carry the scrolled iron grilles the c. 1888 photograph shows: a rosette, eight spokes and a ring, with a curled scroll in each corner, inside a border of short bars. The windows reach lower, to where the photograph puts their foot.',
+      'The small arcade round the porch\'s rounded corner now steps down about 10 cm with each of its three columns, as both the 1888 plate and the photograph draw it.',
+    ] },
   { v: 2270, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: 'Glessner\'s photographs re-read for the sign-off', kind: 'change',
     items: [
       'Every Glessner photograph the model still differs from now says how. The Prairie front\'s small pair over the carriage way reads narrower in its north light in both the 1887 and 1965 prints, the stable gable\'s pigeon holes stand taller in both northwest views, and the 18th Street gable\'s pairs and light differ on HABS 13 and 14. Each finding is ticketed for the sign-off, and the register of what is attested against what is inferred now matches the current model.',

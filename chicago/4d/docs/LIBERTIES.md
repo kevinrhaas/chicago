@@ -31394,13 +31394,21 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3006.
 **Recorded:** 2026-10-22.
 
-### L-k01-1811-round-arcade-2991 — 1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line
+### L-k01-1811-round-arcade-2991 — 1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a stepped line
 
-**Decision:** The porch arcade on the entrance block's rounded south corner at 1811 Prairie (T-2991, `entrance_kit.loggia.round_arcade`) is built from the 1888 Inland Architect plate, read through the T-2541 camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (L-k01-1811-ames-front-2541). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for T-3079's re-solve of the camera.
+**Decision:** The porch arcade on the entrance block's rounded south corner at 1811 Prairie (T-2991, `entrance_kit.loggia.round_arcade`) is built from the 1888 Inland Architect plate, read through the T-2541 camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (L-k01-1811-ames-front-2541). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this. T-3132: the Chicagology photograph steps it the same way through its own camera (capitals 3, 10 and 20 px under the mouth's jamb, bases 5, 10 and 13 px, where a level build renders on the jamb's line), so the step is built: each light, its colonnette and the plinth band under it stand 0, 0.1 and 0.2 m lower round the curve. The drops are read from the two pictures; why the porch steps (a platform following a fall in the ground, or the plinth's own design) no source says, and nothing else is moved to explain it. The lights' stones now reach down to the bed at 2.71 m under the lowest sill.
 
-**Re-opens on:** T-3079's re-solved camera, or a photograph showing the porch's south side close up (T-3052 solves the cameras of 1811's other pictures).
-**Ticket:** T-2991.
-**Recorded:** 2026-10-24.
+**Re-opens on:** a photograph showing the porch's south side close up, or a drawing of the porch.
+**Ticket:** T-2991; revised by T-3132.
+**Recorded:** 2026-10-24; revised 2026-10-25.
+
+### L-k01-1811-basement-grilles-3132 — 1811 Prairie's basement grilles: the scrolls simplified, the sizes scaled
+
+**Decision:** The iron grilles in the two basement lights under 1811 Prairie's bay (T-3132, the bay's `grille.panel`) are built to the pattern the c. 1888 Chicagology photograph shows (chicagology_photo, x 278-362 and 470-525 px, y 1175-1276 px): a flat-bar frame round the light, a border of short bars (uprights over and under, rungs at the sides), and a square panel inside it with a rosette at its centre, eight spokes out to a ring, a volute in each corner and a smaller one on the middle of each side. Two things are invented. (1) The sizes: the border 0.12 m, its bars 0.06 m apart, the ring 0.44 m across and the rosette 0.07 m, scaled off the photograph against the light's 0.95 m width; at about 1.1 cm a pixel they are good to a few centimetres. (2) The detail: the photograph's spokes are paired curves like petals and its scrolls carry small leaves; the build draws straight spokes and plain volutes in the 18 mm bar the K01 grilles use.
+
+**Re-opens on:** a closer photograph of the basement lights, or the ironwork itself.
+**Ticket:** T-3132.
+**Recorded:** 2026-10-25.
 
 ### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
 
