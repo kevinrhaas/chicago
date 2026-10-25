@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "37beab0872e7e645c8b73e83dea5ebf494b5e89954a2c0ff95d766ecea46c2bc",
+  "glb_sha256": "b1981ad7e94d2c72b1e53f947a686e06184d5f829a3b110a45f9f27885186d0e",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "37beab0872e7e645c8b73e83dea5ebf494b5e89954a2c0ff95d766ecea46c2bc"
+      "glb_sha256": "b1981ad7e94d2c72b1e53f947a686e06184d5f829a3b110a45f9f27885186d0e"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -45,7 +45,7 @@
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "5f151790b4fabc5b8d7397b1f82356eee2949575c3e9ab3f23c22ba7865a2fb7",
+  "group_sha256": "44569feb511dd58242137314bede2637a811634fde42d58a5172344f1b498cad",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

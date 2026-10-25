@@ -2765,6 +2765,8 @@ class Assembly:
     K07_ROLES = {"reveal": None, "porch_back": None, "threshold": "stoop_stone", "landing": "stoop_stone",
                  "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
                  "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
+                 # T-3134: a broad mouth's heavy transom beam, in the stoop's dressed stone
+                 "transom_beam": "stoop_stone",
                  "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
                  "hardware": "door_iron", "backing": "backing",
                  # T-2409: a terrace beside the landing and turned balustrades, in the stoop's stone
@@ -2798,10 +2800,14 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
         # T-2952: a segmental porch arch, and a side light beside the door under its transom
         ros = (p.entrance_kit.get("arch") or {}).get("rise_over_span")
-        if ros:
-            v["head"], v["rise_over_span"] = "segmental", ros
+        if ros:   # T-3134: or a half ellipse (`arch.head`)
+            v["head"], v["rise_over_span"] = (p.entrance_kit.get("arch") or {}).get("head", "segmental"), ros
         if p.entrance_kit.get("side_light"):
             v["side_light"] = p.entrance_kit["side_light"]
+        # T-3134: the mouth's heavy transom beam and its fanlight's columns of small panes
+        for k in ("transom_beam", "fanlight_columns"):
+            if p.entrance_kit.get(k):
+                v[k] = p.entrance_kit[k]
         # T-2817: a porch's door at the back of the arch, off its axis
         pd = p.entrance_kit.get("porch_door")
         if pd:
@@ -2856,7 +2862,7 @@ class Assembly:
             cf = p.entrance_kit["cheek_form"]
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
-                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
+                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel") if k in cf}
             elif "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
                 v["stair"]["scroll_block_m"] = cf["foot_block_m"]
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
