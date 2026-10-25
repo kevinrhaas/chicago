@@ -33250,3 +33250,15 @@ range is a rectangle, so it is built square. The windows on both ranges.
 **Ticket:** T-3093.
 **Review:** none; no picture shows the rear.
 **Recorded:** 2026-10-25 (T-3093).
+
+### L-glessner-pigeon-holes-3143 — Glessner's stable dovecote raised 0.85 ft and its holes a course tall, read through HABS photograph 15's stable-fitted camera
+
+**Decision:** T-3147 refitted HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`) at the stable on measured controls in its north face (sheet 2's doorway jambs, sheet 5's 12.6 ft soffit, sheet 3's loft and light jambs). Through that camera the print's pigeon-hole ledge stands at about 32.2-32.4 ft ng and its holes each fill one stone course, sills at about 32.5, 34.0 and 35.5 ft. The build had them 0.85-0.9 ft lower (ledge 31.25-31.55, sills 31.65, 33.0, 34.55), placed by T-2849 through the frozen pinhole that camera replaced, which stood 13-20 px off at the loft. The camera reads the hoist stone's foot (26.0 ft, in the same face) within 1.6 px, so its scale holds up to the gable. The ledge is now 32.1-32.4 ft on its two corbels, and the nine holes (5-3-1, W unchanged) are round-headed, 0.4 ft wide and 0.75 ft tall, sills at 32.5, 33.95 and 35.45 ft. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`), measured on the print alone, gives apex-to-ledge-top over ledge-top-to-relieving-arch-crown as 2.2, which the build now gives (2.1; it was 3.1). The Cornell A. D. White view (`cornell_adw_glessner_stable_1887`) agrees on the holes' shape and height.
+
+**What is invented.** These are photographic readings, about ±0.25 ft, not survey. The holes' 0.75 ft height is one figure for all three rows, where HABS 15's courses read 0.6-0.75 ft and HABS 1's holes 0.65-0.85 ft. The top hole is a faint patch under HABS 15's film holder; HABS 1 puts it 0.3-0.5 ft higher, and the Cornell view's rows read about 1.75 ft apart, against HABS 15's 1.44-1.52 ft through a camera fitted at the stable. Those disagreements are recorded and not resolved, and the build keeps HABS 15's pitch. The corbels keep their 0.45 ft drop; HABS 15 reads them nearer 0.55 ft.
+
+**What is kept.** The holes' W positions and 0.4 ft width, the ledge's length and projection, the corbels' places, and everything else on the gable.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3143.
+**Recorded:** 2026-10-25.
