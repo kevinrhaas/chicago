@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2279, ts: '2026-10-25T14:22:06.513Z', date: 'Oct 25, 2026, 9:22 AM CT', title: 'Photo-match work stops where a visitor would notice', kind: 'chore',
+    items: [
+      'A gap under about a foot, or a pixel offset, is now marked within tolerance instead of opening another ticket.',
+      'Runs no longer file their own follow-ups for houses already matched to photographs; each house gets one final sign-off.',
+    ] },
   { v: 2278, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: '1812 Prairie\'s front stair to Levy\'s photograph', kind: 'improvement',
     items: [
       '1812 Prairie\'s front stair now matches Albert Levy\'s photograph: the south side draws in towards its carved newel, and the north side is pierced by a row of small openings under its broad stone top.',
