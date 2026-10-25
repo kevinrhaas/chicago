@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 2261, ts: '2026-10-25T00:44:22.289Z', date: 'Oct 24, 2026, 7:44 PM CT', title: 'Six more 1904 buildings on Indiana Avenue between 16th and 18th', kind: 'improvement',
+    items: [
+      'Four houses the 1911 atlas no longer shows now stand as they did in 1904, taken from the 1886 atlas: 1637, which the Army Corps of Engineers used as its Chicago office, 1641, and two frame houses at 1727 and 1735. A brick row\'s west end also stands at the 16th Street corner.',
+      '1619\'s brick house stands too, with its stable on the alley. The same family lived there from 1888 to 1908.',
+      '1605-1613 is left as a building site. Its old houses were gone, and the ice-cream factory there was still going up in 1904.',
+      'The dates come from 1902-1905 directories, newspaper notices and building permits. Each house\'s card says what is known and what is inferred.',
+    ] },
+  { v: 2260, ts: '2026-10-24T21:45:38.622Z', date: 'Oct 24, 2026, 4:45 PM CT', title: '1811 Prairie\'s north pier capped below the bay, sky above it', kind: 'improvement',
+    items: [
+      'The narrow stone pier at the front\'s north end now stops below the bay\'s cornice. It has a moulded cap, a band under the cap, and a small slate top, as in the 1888 plate and the photographs.',
+      'The main roof\'s eave no longer runs out over the pier, so there is sky above the cap.',
+      'The pier is rock-faced all the way up. The pale string course no longer crosses it.',
+      'A downpipe now runs down the corner where the pier meets the bay.',
+    ] },
+  { v: 2259, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'First Presbyterian Church\'s roof and cross, checked against a 1912 photograph', kind: 'improvement',
+    items: [
+      'The church at Indiana Avenue and 21st Street now has two small gabled vents on the south side of its roof, and a short chimney on top of its east gable. A 1912 photograph of the church shows both.',
+      'The cross on the west gable is taller, with wider arms and a ring around the centre. The 1912 photograph and the 1887 one agree on its size.',
+      'The 1912 photograph is now a second reference picture for the church, and the model matches it. It was taken from down Indiana Avenue, looking up at the tower.',
+      'The church\'s 21st Street side is still unchanged. The 1912 photograph doesn\'t show it: buildings across the street and a streetcar block the view.',
+    ] },
+  { v: 2258, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'Glessner\'s 18th Street gable window and its stone fan raised a foot', kind: 'fix',
+    items: [
+      'The tall arched window high in the Glessner house\'s 18th Street gable, with the fan of radiating stones over it, now stands a foot higher, closer under the chimney, as three survey photographs from 1963 and 1965 show it. Before, the chimney seemed to rise too far above the fan.',
+    ] },
   { v: 2257, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: '1811 Prairie\'s north corner stands as a rock-faced stone pier', kind: 'improvement',
     items: [
       'The north end of 1811 Prairie\'s front is now a narrow pier of rough-faced brownstone, almost a metre wide. Before, the bay\'s slanted side ran nearly to the corner and left a strip of plain pale stone there. The 1888 plate, a later photograph and a 1965 survey photograph all show the pier.',

@@ -146,6 +146,29 @@
           ],
           "note": "T-3006, on T-3005's re-read of the 1888 plate through the T-2541 camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the entrance block's south corner (K01's 'north', the front's far end) is ROUNDED, not square. The porch arcade's colonnettes (x 476, 490, 501 px) step down as they go round it, the oriel's south return (x 470-497 px) is about 27 px wide where a square 0.6 m return would show about 9, and the rock-faced base under them is lit evenly from x about 458 to 514 px with no arris. A radius of about 0.9 m (centre near u 6.67, v 9.5) reads all of it: the front's tangent at x 470 px and the far side at about x 515-520 px. The round is coursed on the front's own beds in its rock-faced stone from grade; its last course is a dressed corbel rising from the round to the square, so the cornice, the eave and the coped gable stand on the square corner. The plate shows the coped gable's edge rising straight over the round's far side and the oriel's roof hides the corner's head, so that corbel is reconstructed (L-k01-1811-round-corner-3006). The 1911 sheet draws the corner square at its 50 ft scale, where a 0.9 m round is under 1 mm."
         },
+        "front_pier": {
+          "value": {
+            "to_m": 0.93,
+            "band_m": [
+              7.1,
+              7.22
+            ],
+            "cap_m": [
+              7.52,
+              7.72
+            ],
+            "band_proud_m": 0.05,
+            "cap_proud_m": 0.12,
+            "weathering_pitch_deg": 42
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_10_ames_residence",
+            "chicagology_1811_ames_photo",
+            "habs_kimball_house_il_1077"
+          ],
+          "note": "T-3112: the front's north end (K01's low-s end, v 0 to 0.93, where T-3111 put the canted cheek's junction) stands as a pier capped BELOW the bay's cornice, with sky over it, in all three pictures: the 1888 plate through T-2541's camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) caps it at y 475-500 px with a small slate top to y 450 (about 7.3-7.8 m, the slate to 8.4 m), the Chicagology photograph through T-3052's camera (chicagology_photo.json) at y 625-675 px with the slate to y 590 (about 7.1-7.7 m, to 8.1 m), and the 1965 HABS photograph (habs_kimball_house_il_1077, its LoC photograph of 1801 Prairie) shows the same head across 1801's court (its camera is not good for heights, habs_1965.json). Read at twice the plate's scale, the Chicagology print's head is a narrow dressed band (y 670-681 px, about 7.10-7.22 m, scaled from the cap's top at 89 px/m), one rock-faced course of about 0.3 m, and a moulded cap (y 625-642 px, about 7.52-7.72 m), a fillet over a deep cove, about twice the band's projection, with a pale slate weathering over it rising back toward the bay's cornice; the pier's rock-faced courses run unbroken from its base course to that band, the front's dressed string course (4.8-5.0 m) stopping at it. Built so: the pier in the front's stone on the front's own bed lines less its belts, the band 0.05 m and the cap 0.12 m proud (its lower member a narrower fillet) and both returned on the side wall under the weathering, the weathering slated at 42 degrees from the cap's front edge, and the front's wall head, the moulded cornice and the roof's street and side eaves cut back over the pier to that slope, so nothing of the main roof stands over the cap at the front. What the pictures do not show, the weathering's pitch behind its front edge, how the hipped roof meets it over the north wall, and the cap's return along the north side, is reconstructed (L-k01-1811-north-pier-3112)."
+        },
         "street_front_trim": {
           "value": {
             "by_storey": [
@@ -668,11 +691,17 @@
                 "head_m": 7.85,
                 "foot_m": 0.0,
                 "proud_m": -0.368
+              },
+              {
+                "s_m": 0.93,
+                "head_m": 7.0,
+                "foot_m": 0.0,
+                "proud_m": 0.0
               }
             ]
           },
           "confidence": "reconstructed",
-          "note": "The plate draws two downpipes on the front (T-2987), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): one down the main front beside the bay's south return, a pale rod at x 298-302 px clear of the tree's trunk from a box head under the cornice (about y 440-455 px), at about 5.6 m along the front from its north corner, built at 5.7 m so its head clears the bay's own cornice; and one down the entrance block's south corner (x 505-510 px) to a shoe kicked out at grade (y 805-820 px), built at 10.25 m, its head within the front. No eave gutter runs to them (a K01 gable roof hangs none, T-2459), so each runs from a rainwater head of its own (T-2953's front_pipes, which a gable roof may now carry), the heads at 7.85 m under the build's moulded cornice (the plate's stand about 0.4 m higher, under a cornice the build lays lower there). The pipes' fabric and paint (K04's painted tin, round) are the kit's: the print is monochrome and reads them only as pale; the heads' size, the straps and the splash stones are K04's too (L-k01-1811-ames-front-2541). T-2993: with the bay's south return moved to v 5.99, the plate's rod at x 298-302 px reads down the return's own south face, about 0.3 m in from the front's corner: a 1.0 m return there hides the main wall from x 288 to 315 px. K01's front pipes run only along the street front, so the pipe stands on the main front beside the return at 6.24 m (the return plus the same 0.25 m clear of the bay's cornice), landing at about x 323 px, 21 px south of the plate's; carrying it on the return's face is T-2997. T-3006: with the entrance block's south corner rounded on 0.9 m, the plate's rod at x 505-510 px stands on the round itself, about 50 degrees round from the front, so the pipe is built there: 10.29 m along the front and 0.368 m behind its plane (proud_m -0.368), its centre 1.030 m from the round's centre (as far off the curve as a front pipe stands off the front), landing at about x 508 px. T-2997: K01's front pipes learn a projection's return (`on: \"return\"`, `s_m` the return's face, `proud_m` its place along it), so the bay's south pipe stands on the return's own south face 0.8 m before the main front (0.2 m in from the bay front's corner), head, straps, shoe and splash stone turned to that face; it lands at x 297-301 px against the plate's 298-302, where the main-front pipe stood 21 px south."
+          "note": "The plate draws two downpipes on the front (T-2987), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): one down the main front beside the bay's south return, a pale rod at x 298-302 px clear of the tree's trunk from a box head under the cornice (about y 440-455 px), at about 5.6 m along the front from its north corner, built at 5.7 m so its head clears the bay's own cornice; and one down the entrance block's south corner (x 505-510 px) to a shoe kicked out at grade (y 805-820 px), built at 10.25 m, its head within the front. No eave gutter runs to them (a K01 gable roof hangs none, T-2459), so each runs from a rainwater head of its own (T-2953's front_pipes, which a gable roof may now carry), the heads at 7.85 m under the build's moulded cornice (the plate's stand about 0.4 m higher, under a cornice the build lays lower there). The pipes' fabric and paint (K04's painted tin, round) are the kit's: the print is monochrome and reads them only as pale; the heads' size, the straps and the splash stones are K04's too (L-k01-1811-ames-front-2541). T-2993: with the bay's south return moved to v 5.99, the plate's rod at x 298-302 px reads down the return's own south face, about 0.3 m in from the front's corner: a 1.0 m return there hides the main wall from x 288 to 315 px. K01's front pipes run only along the street front, so the pipe stands on the main front beside the return at 6.24 m (the return plus the same 0.25 m clear of the bay's cornice), landing at about x 323 px, 21 px south of the plate's; carrying it on the return's face is T-2997. T-3006: with the entrance block's south corner rounded on 0.9 m, the plate's rod at x 505-510 px stands on the round itself, about 50 degrees round from the front, so the pipe is built there: 10.29 m along the front and 0.368 m behind its plane (proud_m -0.368), its centre 1.030 m from the round's centre (as far off the curve as a front pipe stands off the front), landing at about x 508 px. T-2997: K01's front pipes learn a projection's return (`on: \"return\"`, `s_m` the return's face, `proud_m` its place along it), so the bay's south pipe stands on the return's own south face 0.8 m before the main front (0.2 m in from the bay front's corner), head, straps, shoe and splash stone turned to that face; it lands at x 297-301 px against the plate's 298-302, where the main-front pipe stood 21 px south. T-3112: a third pipe down the north pier's junction with the bay's canted cheek, from under the pier's band to grade: the Chicagology print's dark rod at x 110-115 px and the HABS print's at x 972-975 px, both against the cheek's foot; built at the junction, 0.93 m along the front, its head (K04's box, 6.76-7.0 m) under the pier's band at 7.10 m, where the weathering over the cap would shed to it. Its head and shoe are K04's, as the other two."
         },
         "window_kit": {
           "value": {

@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 927,
+    "structures_placed": 934,
     "structures_reached": 135,
     "structures_reached_by_grade": {
       "inferred": 30,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 233
+      "outside the four sections": 240
     },
     "school_section": {
       "parcels": {
@@ -40560,6 +40560,7 @@
       "high_house_2021_prairie",
       "high_house_2021_prairie_coach_house",
       "house_1600_prairie",
+      "house_1601_indiana",
       "house_1601_prairie",
       "house_1604_prairie",
       "house_1608_prairie",
@@ -40571,6 +40572,8 @@
       "house_1615_prairie",
       "house_1616_prairie",
       "house_1616_prairie_coach_house",
+      "house_1619_indiana",
+      "house_1619_indiana_coach_house",
       "house_1619_prairie",
       "house_1621_prairie",
       "house_1623_indiana",
@@ -40585,7 +40588,9 @@
       "house_1630_prairie_coach_house",
       "house_1634_prairie",
       "house_1636_prairie",
+      "house_1637_indiana",
       "house_1637_indiana_coach_house",
+      "house_1641_indiana",
       "house_1641_indiana_coach_house",
       "house_1703_indiana",
       "house_1703_indiana_coach_house",
@@ -40596,8 +40601,10 @@
       "house_1713_indiana_coach_house",
       "house_1726_prairie",
       "house_1726_prairie_coach_house",
+      "house_1727_indiana",
       "house_1730_prairie",
       "house_1730_prairie_coach_house",
+      "house_1735_indiana",
       "house_1736_prairie",
       "house_1736_prairie_coach_house",
       "house_1828_prairie",
