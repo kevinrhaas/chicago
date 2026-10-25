@@ -998,7 +998,8 @@ class Assembly:
             # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
             cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
                 + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays if b["wall"] == cid]
-            hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
+            # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
+            hs = [hole(o) for o in ops] + cover
             if frame_wing:
                 frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
                                      (w["top_m"],), construction="frame")
@@ -1190,14 +1191,20 @@ class Assembly:
             # T-2780: or the window over a bay on its host wall (`window_over`), with no key
             # block unless the street front's round heads name one
             street = op.wall == "k01.wall.street_front"
-            conf = max(conf, p.conf("street_front_round_heads" if street else "bays"))
+            # T-3133: or a rear wing's flank light its picture draws round-headed (`round_heads`)
+            conf = max(conf, p.conf("street_front_round_heads" if street else
+                                    "rear_wings" if op.wall.startswith("k01.wall.wing.") else "bays"))
             if street and p.round_heads.get("hood"):
                 # T-2960: K09's cornice hood on its two consoles over the head (1736's upper
                 # lights, the c. 1890 photograph), which dresses it in place of the arch band
                 self.glaze(op, frame, body_mat, stone_trim, seed, conf)
                 k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim")))
                 return
-            self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
+            # T-3133: a rear wing's round head is turned in its own brick, as its picture draws
+            # it (1811's flank), where a front's or a bay's hood is the trim's stone
+            wing = op.wall.startswith("k01.wall.wing.") and MATERIALS[body_mat].get("courses")
+            self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True,
+                       head_mat=body_mat if wing else None)
             k = p.round_heads.get("key") if street else None
             if k:
                 self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
@@ -1207,7 +1214,8 @@ class Assembly:
             # T-2884: a head its picture shows plain (1625's south wall): the light, its hole cut
             # square or round, and nothing laid over it — no hood, no K03 arch, no lintel
             self.glaze(op, frame, body_mat, stone_trim, seed,
-                       max(conf, p.conf("north_bays" if op.wall == "k01.wall.side.north" else "side_bays")))
+                       max(conf, p.conf("north_bays" if op.wall == "k01.wall.side.north" else
+                                        "rear_wings" if op.wall.startswith("k01.wall.wing.") else "side_bays")))
             return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
@@ -2405,7 +2413,7 @@ class Assembly:
         v = next(x for x in self._kit["variants"] if x["id"] == self.p.window_kit[op.component]["variant"])
         return v.get("overrides", {}).get("reveal_depth_m", self._kit["parts"]["reveal_depth_m"]["value"])
 
-    def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=(), head=False):
+    def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=(), head=False, head_mat=None):
         from . import k06_windows
         O, R, N = frame
         # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
@@ -2418,7 +2426,7 @@ class Assembly:
         o.build()
         roles = {r: (stone_trim if m == "stone" else (m or body_mat)) for r, m in self.K06_ROLES.items()}
         if head:   # T-2410: the kit's arch band is this head's hood
-            roles["head"] = stone_trim
+            roles["head"] = head_mat or stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
     def graft(self, o, kit, roles, frame, op, seed_conf, skip=(), head=False):
