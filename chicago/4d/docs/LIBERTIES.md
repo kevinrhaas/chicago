@@ -33391,13 +33391,18 @@ at r > 150 on this scan alone (`frame_r_min`); every other sheet re-derives byte
 **What is kept out.** 1911 shops whose 1904 state is not read: the one-storey stores built forward
 of 1801 and 1807 to the street line and the two stores at 205-207 East Eighteenth Street against
 1801's rear wall are kept out of those houses' drafts by depth (`keep_out`, `from_street_m`), and the
-basement cigar factory at 1921-1923 is not carried back. Two frontages are ruled `phase_unresolved`,
-traced and not drafted: the one-storey P.O. sub-station across 1925-1929 and the one-storey corner
-store at 1935-1937 with the 4B frame flats at 216-216a East Twentieth Street behind it. The two
+basement cigar factory at 1921-1923 is not carried back. Two frontages are traced and not drafted:
+the one-storey P.O. sub-station across 1925-1929, ruled `replaced_after_1904` by T-3154 (the 1902
+and 1911 Lakeside directories both put households at 1927, so a house stood there in 1904 and the
+sub-station came later; no outline of the house is in hand, so nothing stands on the lots), and the
+one-storey corner store at 1935-1937 with the 4B frame flats at 216-216a East Twentieth Street
+behind it, still `phase_unresolved` (nothing in hand puts anyone there before 1910). The two
 unnumbered lots between 1839 and 1901, open on the sheet, stay open ground.
 **How to resolve:** T-1946 (the side-street and rail-side background) refines each record in place
-under the same id; T-3154 reads 1925-1929 and 1935-1937 for 1904.
-**Ticket:** T-3151 (piece 2 of T-3145).
+under the same id; an outline of the 1904 house at 1927 Indiana (a pre-1909 plan of the block, a
+photograph or a permit) lets it be drafted, and a permit for the 216-216a flats or a dated record of
+the 1935-1937 corner settles that frontage's phase (T-3154 read the directories).
+**Ticket:** T-3151 (piece 2 of T-3145); T-3154 (the 1904 state of 1925-1929 and 1935-1937).
 **Review:** `data/components/prairie_1904/edges_census_s27w.json`,
 `data/traces/prairie_1904_footprints_s27w.json`, `docs/RESEARCH/sheet-27-footprints-3151/README.md`.
 **Recorded:** 2026-10-25 (T-3151).

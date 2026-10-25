@@ -38,7 +38,7 @@
   "outline": "inferred -- a 1911 survey carried to 1904 on T-3151's per-polygon ruling",
   "part_role": "inferred -- colour, size and position by the rule in each part's role_rule",
   "storeys": "not read here: the census's printed notation is the storey reading",
-  "for_1904": "per building: as_mapped (the census rules it present in 1904 as drawn); not_1904 (a front the census backcasts from the 1886 plate -- the 1911 outline is a later replacement and no draft stands on it); as_mapped_rear_of_backcast (a rear building on a backcast frontage, drawn in 1911 and not ruled out); no_census_ruling; phase_unresolved (the census leaves its 1904 phase open and the draft declares one)"
+  "for_1904": "per building: as_mapped (the census rules it present in 1904 as drawn); not_1904 (a front the census backcasts from the 1886 plate -- the 1911 outline is a later replacement and no draft stands on it); as_mapped_rear_of_backcast (a rear building on a backcast frontage, drawn in 1911 and not ruled out); no_census_ruling; phase_unresolved (the census leaves its 1904 phase open and the draft declares one); a front on a frontage ruled replaced_after_1904 is not_1904 as well (a dated record puts another use on the lot in 1904, so the 1911 outline is the later building and the 1904 one is unread)"
  },
  "accuracy": "the georeference's own fit residual (0.67 m RMS on its control crossings; the sheet's GCP file carries no independent check, so nothing better is claimed) plus about a pixel of trace; relative accuracy inside one lot is the trace's, about 0.1 m",
  "counts": {
@@ -12525,7 +12525,7 @@
    ],
    "census_aliases": [],
    "census_decision_1904": [
-    "phase_unresolved"
+    "replaced_after_1904"
    ],
    "lot_depth_m": 54.31,
    "census_ids_not_traced": [],
@@ -12536,7 +12536,7 @@
      "census_ids": [
       "s27w-1925-front"
      ],
-     "for_1904": "phase_unresolved",
+     "for_1904": "not_1904",
      "note": null,
      "area_m2": 492.15,
      "from_street_m": [0.11, 46.55],
