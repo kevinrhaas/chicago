@@ -1,8 +1,0 @@
-{
-  "title": "Photo-match work stops where a visitor would notice",
-  "kind": "chore",
-  "items": [
-    "A gap under about a foot, or a pixel offset, is now marked within tolerance instead of opening another ticket.",
-    "Runs no longer file their own follow-ups for houses already matched to photographs; each house gets one final sign-off."
-  ]
-}
