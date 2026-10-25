@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """T-3006: K01 rounds a corner of the front block, held on 1811 Prairie's record
-(T-3007: and its oriel carried out over the round; T-2991: and the porch's arcade round it).
+(T-3007: and its oriel carried out over the round; T-2991: and the porch's arcade round it;
+T-3129: stepped down round the curve).
 
 The 1888 Inland Architect plate shows 1811's entrance block turning its south corner
 (K01's 'north') on a round of about 0.9 m, and its corner downpipe running down the round.
@@ -70,7 +71,7 @@ stone = a.prims["rough_stone_trim"].pos
 ra = p.entrance_kit["loggia"]["round_arcade"]
 band = a.round_arcade_band(ra, 0.9, 0.9 * math.pi / 2, a.front_courses)
 near = [q for q in stone if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and q[1] < a.front_courses[-1][0] - 1e-6
-        and not band["y"][0] - 1e-6 <= q[1] <= band["y"][1] + 1e-6]
+        and not band["y_lo"] - 1e-6 <= q[1] <= band["y"][1] + 1e-6]
 rad = [math.hypot(q[0] - cu, -q[2] - cv) for q in near]
 check(bool(near) and min(rad) > 0.9 - 0.02 and max(rad) < 0.9 + 0.05,
       f"the round's rock faces lie on its radius ({min(rad, default=0):.3f}-{max(rad, default=0):.3f} m)")
@@ -92,14 +93,21 @@ check(arc_ is not None and len(arc_["instances"]) == 1 and arc_["instances"][0][
 check(band["y"] == (3.15, 4.05) and abs(band["s"][0]) < 1e-9 and abs(band["s"][1] - (0.9 * math.radians(44) + 0.21)) < 1e-6,
       f"its lights' band runs from the springing's bed to the first bed over the crowns, from the tangent "
       f"to past the last light ({band['y']}, {band['s']})")
-inband = [q for q in stone if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and band["y"][0] - 1e-6 <= q[1] <= band["y"][1] + 1e-6]
+inband = [q for q in stone if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and band["y_lo"] - 1e-6 <= q[1] <= band["y"][1] + 1e-6]
 rin = [math.hypot(q[0] - cu, -q[2] - cv) for q in inband]
 check(bool(rin) and min(rin) > 0.9 - ra["reveal_m"] - 1e-6 and max(rin) < 0.9 + 0.05,
       f"its stones (and the rock faces beside them) lie on the round and the lights run {ra['reveal_m']} m into it "
       f"({min(rin, default=0):.3f}-{max(rin, default=0):.3f} m)")
-dark = [q for q in a.prims["backing"].pos if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and 3.1 < q[1] < 4.0]
+dark = [q for q in a.prims["backing"].pos if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and 2.9 < q[1] < 4.0]
 check(len(dark) > 0 and all(abs(math.hypot(q[0] - cu, -q[2] - cv) - (0.9 - ra["reveal_m"])) < 1e-6 for q in dark),
       "each light's back stands dark at the reveal's depth")
+# T-3129: the plate and the Chicagology photograph step the arcade down round the curve, so each
+# light, its colonnette and the plinth band under it stand `drops_m` lower, the band's stones
+# reaching down to the first bed under the lowest sill
+check(ra.get("drops_m") == [0.0, 0.1, 0.2] and band["drops"] == [0.0, 0.1, 0.2] and abs(band["y_lo"] - 2.708) < 1e-3,
+      f"the arcade steps down 0, 0.1 and 0.2 m round the curve, its stones from the bed at {band["y_lo"]:.3f}")
+sills = sorted({round(q[1], 4) for q in a.prims["backing"].pos if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and 2.9 < q[1] < 3.2})
+check(sills == [2.95, 3.05, 3.15], f"the lights' backs start at their stepped sills ({sills})")
 dress = [q for q in a.prims["dress_stone"].pos if q[0] > cu + 0.05 and -q[2] > cv + 0.05]
 check(any(abs(q[1] - (ra["sill_m"])) < 1e-6 for q in dress) and any(abs(q[1] - (1.35 + 0.86)) < 1e-6 for q in dress),
       "the colonnettes stand on the plinth's top under abaci at the lights' sill")
@@ -161,6 +169,10 @@ refused(variant(lambda f: arcade(f).update(band_m=1.2)), "a plinth band deeper t
         "band_m")
 refused(variant(lambda f: arcade(f).update(arches="pointed")), "an unknown arcade key (T-2991)",
         "round_arcade takes")
+refused(variant(lambda f: arcade(f).update(drops_m=[0.2, 0.1, 0.0])), "an arcade rising round the curve (T-3129)",
+        "drops_m")
+refused(variant(lambda f: arcade(f).update(drops_m=[0.0, 0.1])), "a drop missing for a light (T-3129)",
+        "drops_m")
 refused(variant(lambda f: f["entrance_kit"]["value"]["k01.opening.door_leaf"]["loggia"].update(v_m=[6.75, 9.8])),
         "a loggia running on past the round's tangent (T-2991)", "short of the north round's tangent")
 

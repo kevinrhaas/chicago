@@ -50648,7 +50648,7 @@
     },
     {
       "id": "L-k01-1811-round-arcade-2991",
-      "title": "1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line",
+      "title": "1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a stepped line",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
@@ -50657,22 +50657,47 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "The porch arcade on the entrance block's rounded south corner at 1811 Prairie (entrance kit loggia round arcade) is built from the 1888 Inland Architect plate, read through the camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for later work's re-solve of the camera."
+          "text": "The porch arcade on the entrance block's rounded south corner at 1811 Prairie (entrance kit loggia round arcade) is built from the 1888 Inland Architect plate, read through the camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this. the Chicagology photograph steps it the same way through its own camera (capitals 3, 10 and 20 px under the mouth's jamb, bases 5, 10 and 13 px, where a level build renders on the jamb's line), so the step is built: each light, its colonnette and the plinth band under it stand 0, 0.1 and 0.2 m lower round the curve. The drops are read from the two pictures; why the porch steps (a platform following a fall in the ground, or the plinth's own design) no source says, and nothing else is moved to explain it. The lights' stones now reach down to the bed at 2.71 m under the lowest sill."
         },
         {
           "label": "Re-opens on",
-          "text": "Later work's re-solved camera, or a photograph showing the porch's south side close up (solves the cameras of 1811's other pictures)."
+          "text": "a photograph showing the porch's south side close up, or a drawing of the porch."
         },
         {
           "label": "Recorded",
-          "text": "2026-10-24."
+          "text": "2026-10-24; revised 2026-10-25."
         }
       ],
       "work_refs": [
         "T-2991",
-        "T-2541",
-        "T-3079",
-        "T-3052"
+        "T-3132",
+        "T-2541"
+      ]
+    },
+    {
+      "id": "L-k01-1811-basement-grilles-3132",
+      "title": "1811 Prairie's basement grilles: the scrolls simplified, the sizes scaled",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The iron grilles in the two basement lights under 1811 Prairie's bay (the bay's `grille.panel`) are built to the pattern the c. 1888 Chicagology photograph shows (chicagology photo, x 278-362 and 470-525 px, y 1175-1276 px): a flat-bar frame round the light, a border of short bars (uprights over and under, rungs at the sides), and a square panel inside it with a rosette at its centre, eight spokes out to a ring, a volute in each corner and a smaller one on the middle of each side. Two things are invented. (1) The sizes: the border 0.12 m, its bars 0.06 m apart, the ring 0.44 m across and the rosette 0.07 m, scaled off the photograph against the light's 0.95 m width; at about 1.1 cm a pixel they are good to a few centimetres. (2) The detail: the photograph's spokes are paired curves like petals and its scrolls carry small leaves; the build draws straight spokes and plain volutes in the 18 mm bar the K01 grilles use."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a closer photograph of the basement lights, or the ironwork itself."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-3132"
       ]
     },
     {

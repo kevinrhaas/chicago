@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff",
+  "glb_sha256": "34e5d4f97bc6bc4a021d2c46de89cc1949d282b8f2c9e91a789937eb8783c2f8",
   "camera_sha256": "cb362fce20647693405877df9217185fbe854f22b072fdf325c232d8d6a9771c",
   "photo_sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/chicagology_photo-side-by-side.jpg",
@@ -49,15 +49,23 @@
       "status": "fixed"
     },
     {
-      "what": "the basement lights' grilles: the photograph's are scrolled ironwork round a central rosette; the build's read as plain vertical bars from here",
+      "what": "the basement lights' grilles: the photograph's are scrolled ironwork round a central rosette; the build's read as plain vertical bars from here. T-3132: fixed. Each grille is now the photograph's pattern (the bay's `grille.panel`): a flat-bar frame round the light, a border about 0.12 m wide of short bars 0.06 m apart (uprights over and under, rungs at the sides), and inside it a rosette, eight spokes out to a ring 0.44 m across, a volute in each corner and a smaller one on each side. The scrolls' leaves and the petal-shaped spokes are below the bar's reach (L-k01-1811-basement-grilles-3132).",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement lights' foot: through this camera the lights' heads land on the build's (y 1176 px against 1178), but their foot stands 14 px lower (y 1277 against 1263) over a plinth about half as deep as the build's, so the lights are about 0.15 m taller in the photograph. The bay's basement storey keeps its clear wall from 0.10 m over its plinth, so lowering the lights means lowering the plinth: T-3133's (found by T-3132)",
       "status": "open"
     },
     {
-      "what": "the south flank (T-3079, ruled; T-3099 to settle): past the front block the photograph's flank is short. The coped south wall runs back from the tall stack to x 1160 px, the wall head there drops to a lower brick range whose end stands at x 1197 px, and past it a separate pavilion with an arched door (about u -16, v 9 through this camera, by its foot at y 1215 px) stands in the sheet's rear section with lawn to the right of it. Through this camera the sheet's straight south wall reaches x 1312 px at u -18.4 with a three-storey range all the way. Its windows differ with it: arched ground-floor heads at x 1143, 1163, 1180 and 1195 px and tall first-floor lights over them, where the build has flat-headed sash at its own spacing. The photograph is of about 1888 and the scene is 1904, so this is not copied: what stood in 1904 is T-3099's",
+      "what": "the porch arcade round the rounded corner steps down to the south: against the mouth's south jamb the three colonnettes' capitals stand 3, 10 and 20 px lower (y 1005 to 1025) and their bases 5, 10 and 13 px (y 1093 to 1106), where the build stood level on the jamb's line through this camera. T-3132: fixed. Each light, its colonnette and the plinth band under it now stand 0, 0.1 and 0.2 m lower round the curve (round_arcade.drops_m); through the plate's camera the capitals render about 0, 3 and 9 px down against its 0, 6 and 12, within 3 px. Why the porch steps no source says (L-k01-1811-round-arcade-2991).",
+      "status": "fixed"
+    },
+    {
+      "what": "the south flank (T-3079, ruled; T-3099 to settle): past the front block the photograph's flank is short. The coped south wall runs back from the tall stack to x 1160 px, the wall head there drops to a lower brick range whose end stands at x 1197 px, and past it a separate pavilion with an arched door (about u -16, v 9 through this camera, by its foot at y 1215 px) stands in the sheet's rear section with lawn to the right of it. Through this camera the sheet's straight south wall reaches x 1312 px at u -18.4 with a three-storey range all the way. Its windows differ with it: arched ground-floor heads at x 1143, 1163, 1180 and 1195 px and tall first-floor lights over them, where the build has flat-headed sash at its own spacing. The photograph is of about 1888 and the scene is 1904, so this is not copied: what stood in 1904 is T-3099's. T-3099 ruled the 1911 sheet's continuous 26 m house for 1904 and read the 'short range' as its rear seen end-on through a near camera; what this picture still shows along the flank is T-3133's (split from T-3129), with the photograph's arched rear openings and the coping's height.",
       "status": "open"
     },
     {
-      "what": "the front block's coped south wall: the photograph's coping, read against the flank's vanishing point, stands about 0.6 m higher than the build's level 10.95 m and runs back to about x 1160 px, about 2.8 m past the front block's rear wall, before it drops; both belong to the flank's question (T-3099) and are read with it",
+      "what": "the front block's coped south wall: the photograph's coping, read against the flank's vanishing point, stands about 0.6 m higher than the build's level 10.95 m and runs back to about x 1160 px, about 2.8 m past the front block's rear wall, before it drops; both belong to the flank's question (T-3099) and are read with it. T-3099 ruled the 1911 sheet's continuous 26 m house for 1904 and read the 'short range' as its rear seen end-on through a near camera; what this picture still shows along the flank is T-3133's (split from T-3129), with the photograph's arched rear openings and the coping's height.",
       "status": "open"
     },
     {
