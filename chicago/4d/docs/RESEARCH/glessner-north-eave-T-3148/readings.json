@@ -1,0 +1,300 @@
+{
+ "ticket": "T-3148",
+ "not_a_reading": "A re-reading of two catalogued photographs; no camera is refitted and no building point is fitted.",
+ "gable_feet_W": [
+  127.75,
+  154.25
+ ],
+ "habs01": {
+  "source": "habs_glessner_photo_01_nw_1963",
+  "camera": "T-2758 doorway_eye_height (data/comparisons/glessner/stable-end.json)",
+  "stations": [
+   {
+    "W": 60,
+    "u": 485.1,
+    "tile_end_v": 635.5,
+    "gutter_foot_v": 641,
+    "tile_end_face_ft": 24.23,
+    "gutter_foot_face_ft": 23.68
+   },
+   {
+    "W": 80,
+    "u": 627.6,
+    "tile_end_v": 620,
+    "gutter_foot_v": 626,
+    "tile_end_face_ft": 24.23,
+    "gutter_foot_face_ft": 23.67
+   },
+   {
+    "W": 100,
+    "u": 794.3,
+    "tile_end_v": 602.5,
+    "gutter_foot_v": 608.5,
+    "tile_end_face_ft": 24.17,
+    "gutter_foot_face_ft": 23.65
+   },
+   {
+    "W": 120,
+    "u": 992.1,
+    "tile_end_v": 581.5,
+    "gutter_foot_v": 589,
+    "tile_end_face_ft": 24.13,
+    "gutter_foot_face_ft": 23.54
+   },
+   {
+    "W": 124,
+    "u": 1036.1,
+    "tile_end_v": 577.5,
+    "gutter_foot_v": 585,
+    "tile_end_face_ft": 24.07,
+    "gutter_foot_face_ft": 23.49
+   },
+   {
+    "W": 156,
+    "u": 1459.6,
+    "tile_end_v": 531.5,
+    "gutter_foot_v": 539.5,
+    "tile_end_face_ft": 24.08,
+    "gutter_foot_face_ft": 23.56
+   },
+   {
+    "W": 158,
+    "u": 1491.1,
+    "tile_end_v": 529,
+    "gutter_foot_v": 537.5,
+    "tile_end_face_ft": 24.02,
+    "gutter_foot_face_ft": 23.47
+   },
+   {
+    "W": 160,
+    "u": 1523.4,
+    "tile_end_v": 525.5,
+    "gutter_foot_v": 535,
+    "tile_end_face_ft": 24.02,
+    "gutter_foot_face_ft": 23.41
+   }
+  ],
+  "tile_end_line": {
+   "fitted_on_W": [
+    60,
+    80,
+    100,
+    120,
+    124
+   ],
+   "slope_px_per_px": -0.1055,
+   "east_rms_px": 0.26,
+   "west_off_line_px": [
+    -0.9,
+    -0.1,
+    -0.2
+   ],
+   "a_2_1_ft_step_would_be_px": [
+    32.2,
+    32.6,
+    33.0
+   ]
+  },
+  "tile_end_face_ft": {
+   "east_of_gable": [
+    24.07,
+    24.23
+   ],
+   "west_of_gable": [
+    24.02,
+    24.08
+   ],
+   "west_minus_east_mean": -0.13
+  },
+  "gutter_foot_line": {
+   "fitted_on_W": [
+    60,
+    80,
+    100,
+    120,
+    124
+   ],
+   "slope_px_per_px": -0.10173,
+   "east_rms_px": 0.4,
+   "west_off_line_px": [
+    -2.0,
+    -0.8,
+    0.0
+   ],
+   "a_2_1_ft_step_would_be_px": [
+    32.2,
+    32.6,
+    33.0
+   ]
+  },
+  "gutter_foot_face_ft": {
+   "east_of_gable": [
+    23.49,
+    23.68
+   ],
+   "west_of_gable": [
+    23.41,
+    23.56
+   ],
+   "west_minus_east_mean": -0.13
+  }
+ },
+ "habs15": {
+  "source": "habs_glessner_photo_15_north_stable_1965",
+  "camera": "T-3147 stable_level (habs-15-stable-detail.json)",
+  "stations": [
+   {
+    "W": 118,
+    "u": 769.1,
+    "tile_end_v": 276,
+    "gutter_foot_v": 285.5,
+    "tile_end_face_ft": 25.26,
+    "gutter_foot_face_ft": 24.69
+   },
+   {
+    "W": 121,
+    "u": 818.6,
+    "tile_end_v": 276.5,
+    "gutter_foot_v": 286.5,
+    "tile_end_face_ft": 25.14,
+    "gutter_foot_face_ft": 24.55
+   },
+   {
+    "W": 124,
+    "u": 868.5,
+    "tile_end_v": 277.5,
+    "gutter_foot_v": 286.5,
+    "tile_end_face_ft": 25.0,
+    "gutter_foot_face_ft": 24.47
+   },
+   {
+    "W": 156,
+    "u": 1430.8,
+    "tile_end_v": 279,
+    "gutter_foot_v": 287.5,
+    "tile_end_face_ft": 23.99,
+    "gutter_foot_face_ft": 23.51
+   },
+   {
+    "W": 158,
+    "u": 1467.8,
+    "tile_end_v": 280.5,
+    "gutter_foot_v": 289,
+    "tile_end_face_ft": 23.85,
+    "gutter_foot_face_ft": 23.37
+   },
+   {
+    "W": 160,
+    "u": 1505.1,
+    "tile_end_v": 280.5,
+    "gutter_foot_v": 290.5,
+    "tile_end_face_ft": 23.79,
+    "gutter_foot_face_ft": 23.23
+   }
+  ],
+  "tile_end_line": {
+   "fitted_on_W": [
+    118,
+    121,
+    124
+   ],
+   "slope_px_per_px": 0.0151,
+   "east_rms_px": 0.12,
+   "west_off_line_px": [
+    -6.9,
+    -6.0,
+    -6.5
+   ],
+   "a_2_1_ft_step_would_be_px": [
+    37.4,
+    37.5,
+    37.6
+   ]
+  },
+  "tile_end_face_ft": {
+   "east_of_gable": [
+    25.0,
+    25.26
+   ],
+   "west_of_gable": [
+    23.79,
+    23.99
+   ],
+   "west_minus_east_mean": -1.26
+  },
+  "gutter_foot_line": {
+   "fitted_on_W": [
+    118,
+    121,
+    124
+   ],
+   "slope_px_per_px": 0.01005,
+   "east_rms_px": 0.24,
+   "west_off_line_px": [
+    -4.8,
+    -3.7,
+    -2.6
+   ],
+   "a_2_1_ft_step_would_be_px": [
+    37.4,
+    37.5,
+    37.6
+   ]
+  },
+  "gutter_foot_face_ft": {
+   "east_of_gable": [
+    24.47,
+    24.69
+   ],
+   "west_of_gable": [
+    23.23,
+    23.51
+   ],
+   "west_minus_east_mean": -1.2
+  }
+ },
+ "cornell": {
+  "source": "cornell_adw_glessner_stable_1887",
+  "camera": "none (camera-free); the committed camera only scales the step",
+  "east_picks_uv": [
+   [
+    230,
+    643.5
+   ],
+   [
+    300,
+    629.0
+   ],
+   [
+    380,
+    612.5
+   ],
+   [
+    450,
+    598.0
+   ]
+  ],
+  "west_picks_uv": [
+   [
+    980,
+    485.0
+   ],
+   [
+    1030,
+    473.5
+   ],
+   [
+    1070,
+    466.0
+   ]
+  ],
+  "slope_px_per_px": -0.20675,
+  "east_rms_px": 0.02,
+  "west_off_line_px": [
+   -3.4,
+   -4.6,
+   -3.8
+  ],
+  "a_2_1_ft_step_would_be_px_about": 50.0
+ }
+}

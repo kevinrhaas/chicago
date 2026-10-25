@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
+  "glb_sha256": "f9eda319d9644fb9efd00f71c5453e9c30be05fa0630dffa2c5a0437db36b506",
   "camera_sha256": "593c7c5e3fcdfd3278fef4c109d799b644e36c0db59f3245b3c9af3a0d8ed2f2",
   "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
@@ -17,8 +17,8 @@
       "status": "fixed"
     },
     {
-      "what": "Open, found by T-3147 through the refitted camera: the print draws the north-face eave level on both sides of the gable, its tiles ending at v 278 west of the gable (u 1450-1500) and about 278-287 east of it (u 870-890), where the render's ends at v 249 west (about 1.7 ft higher) and 303 east (about 1.1 ft lower): the build steps from 23.1 ft east of the gable to about 26.2 ft west of it. The level camera keeps a level line level, so the step is the roof's, whatever the vertical scale; T-3148 owns it.",
-      "status": "open"
+      "what": "Open, found by T-3147 through the refitted camera: the print draws the north-face eave level on both sides of the gable, its tiles ending at v 278 west of the gable (u 1450-1500) and about 278-287 east of it (u 870-890), where the render's ends at v 249 west (about 1.7 ft higher) and 303 east (about 1.1 ft lower): the build steps from 23.1 ft east of the gable to about 26.2 ft west of it. The level camera keeps a level line level, so the step is the roof's, whatever the vertical scale; T-3148 owns it. T-3148, reviewed from the rebaked master: fixed. The eave west of the gable is built at the range's 23.1 ft (it was 25.2), so the build no longer steps at the gable. HABS 01, HABS 15 and the Cornell print each draw the tiles' edge west of the gable on the straight line the edge draws east of it (within 1, 7 and 5 px, where the step would be 32-50 px; docs/RESEARCH/glessner-north-eave-T-3148/). On this re-render the gutter runs past the gable on one line, as the print's does. The cross ridge comes down 0.10 m to stay on the alley gable's rake.",
+      "status": "fixed"
     },
     {
       "what": "T-3025, ruled: the roof covering reads slate-grey here because this 1965 print shows the tar HABS recorded over the tiles in 1963 (data p. 21). The roofs were red baked, unglazed terracotta tile, house-wide (Glessner 1923, HABS data p. 13; the 1963 survey finds terracotta under the tar, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. docs/RESEARCH/glessner-roof-covering-T-3025/README.md.",
@@ -49,5 +49,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
