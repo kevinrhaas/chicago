@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 764,
+  "count": 765,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -50714,6 +50714,34 @@
       ],
       "work_refs": [
         "T-3132"
+      ]
+    },
+    {
+      "id": "L-k01-1811-flank-round-heads-3133",
+      "title": "1811 Prairie's south flank: round heads in the brick, basement lights under them, the fan and the places reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1811 Prairie's brick south flank (the rear range's and the rear section's K01 'north' walls) is cut as the c. 1888 Chicagology photograph draws it: every light round-headed, and under each light a round-headed basement light (the print's at x 1084-1197 px, their crowns on the horizon, so about 1.35 m over grade at the camera's eye). Four things are reconstructed. (1) The round heads are turned in the flank's own brick on K06's arch band, because whether a brick ring or a rubbed arch dresses them is below the print's grain. (2) Each round-headed light takes K06's one-over-one sash under a fixed fan (k06.opening.sash round fanlight): the print cannot count lights. (3) The basement lights are K06's fixed round-headed basement light, 1.0 m across from 0.30 to 1.35 m: their width is the light over each (the print draws them 1.0-1.2 times as wide), and their sill is K01's least for an ordinary light, where the print's feet stand a few tenths over the walk. (4) Their places along the flank are the lights' over them, one under each as the print sets them, and the lights' own spacing is still the 2.6 m earlier work reconstructed: the camera's depth along the flank does not place them. The flank's other side (K01's 'south'), seen in no picture, keeps the brick wall's segmental heads and no basement lights."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a camera that reaches the flank's rear, a closer photograph of the flank, or a drawing of it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-3133",
+        "T-3149",
+        "T-3077"
       ]
     },
     {

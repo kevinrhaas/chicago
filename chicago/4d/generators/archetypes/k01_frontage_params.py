@@ -1954,10 +1954,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"(under the proud and 0.03 m), not {h}")
                 w["voussoirs"] = {k: (int(h[k]) if k == "stones" else float(h[k])) for k in sorted(h)}
         # T-2525: a plinth read off a picture: its height only, the kit's proud and stone kept
+        # (T-3133: down to 0.05 m, 1811's bay on the Chicagology print, its lights' sills on it)
         if "plinth_m" in e:
             ph = float(e["plinth_m"])
-            if v["base"] != "grade" or not 0.1 <= ph <= 0.6:
-                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.1-0.6 m")
+            if v["base"] != "grade" or not 0.05 <= ph <= 0.6:
+                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m")
             v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
         if "cap_band" in e:
             # T-2815: a carved band round the bay under its cap, read off a picture (Keith's
@@ -3173,10 +3174,37 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             raise ParamError(f"rear_wings: {wid}'s sash_by_storey needs one row per storey")
         walls = wing_walls({"rect": (u0, u1, v0, v1), "past_host": past})
         ops = []
+        # T-3133: the sides whose lights a picture draws round-headed (1811's south flank on the
+        # c. 1888 Chicagology photograph), cut as one round hole under K06's arch band, and the
+        # round-headed basement lights it draws under each of them, plain, below the first floor
+        rheads = tuple(e.get("round_heads") or ())
+        bls = e.get("basement_lights") or {}
+        for side in (*rheads, *bls):
+            if side not in (e.get("windows") or {}):
+                raise ParamError(f"rear_wings: {wid}'s round_heads and basement_lights name a side whose "
+                                 f"windows it lists, not {side!r}")
         for side, ss in sorted((e.get("windows") or {}).items()):
             if side not in walls:
                 raise ParamError(f"rear_wings: {wid} has no {side} wall ({', '.join(walls)})")
             length = walls[side][2]
+            bl = bls.get(side)
+            if bl is not None:
+                if set(bl) != {"sill_m", "width_m", "height_m"}:
+                    raise ParamError(f"rear_wings: {wid}'s basement_lights.{side} takes sill_m, width_m and height_m")
+                bs, bw, bh = (float(bl[k]) for k in ("sill_m", "width_m", "height_m"))
+                first = floors[0] + float(sash[0]["sill_above_floor_m"])
+                if not 0.5 <= bw <= cw[1] or bs < 0.15 or bh < bw / 2 + 0.2 or bs + bh + 0.45 > first:
+                    raise ParamError(f"rear_wings: {wid}'s basement_lights.{side} stand 0.5-{cw[1]} m across, "
+                                     f"their sill at least 0.15 m up, their spring 0.2 m over it and their crown "
+                                     f"0.45 m under the first floor's sills at {first:.2f} m")
+                for s in ss:
+                    s = float(s)
+                    if s - bw / 2 < 0.30 or s + bw / 2 > length - 0.30:
+                        raise ParamError(f"rear_wings: {wid}'s {side} basement light at s {s} stands closer "
+                                         f"than 0.30 m to a corner of its {length:.3f} m wall")
+                    ops.append(Opening(ROUND_PLAIN, f"k01.wall.wing.{wid}.{side}", s, round(bs, 4), bw, bh,
+                                       False, plain=True, narrow=bw < cw[0]))
+            comp = ROUND_HOODED if side in rheads else "k01.opening.sash_flat"
             for k, row in enumerate(sash):
                 sill = floors[k] + float(row["sill_above_floor_m"])
                 w_, h_ = float(row["width_m"]), float(row["height_m"])
@@ -3184,6 +3212,9 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
                 _within(h_, ch, f"rear_wings.{wid}.sash_by_storey[{k}].height_m")
                 if sill + h_ + 0.30 > top:
                     raise ParamError(f"rear_wings: {wid}'s storey {k} heads run into its deck")
+                if comp == ROUND_HOODED and h_ < w_ / 2 + 0.3:
+                    raise ParamError(f"rear_wings: {wid}'s round-headed {side} lights in storey {k} spring "
+                                     f"under 0.3 m over their sills")
                 for s in ss:
                     s = float(s)
                     if s - w_ / 2 < 0.30 or s + w_ / 2 > length - 0.30:
@@ -3194,8 +3225,8 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
                                                       for a, b in past):
                         raise ParamError(f"rear_wings: {wid}'s front window at s {s} is not 0.30 m clear inside "
                                          f"the stretches past its host wall {[(a - v0, b - v0) for a, b in past]}")
-                    ops.append(Opening("k01.opening.sash_flat", f"k01.wall.wing.{wid}.{side}", s,
-                                       round(sill, 4), w_, h_))
+                    ops.append(Opening(comp, f"k01.wall.wing.{wid}.{side}", s,
+                                       round(sill, 4), w_, h_, comp != ROUND_HOODED))
         # what the wing covers of its host wall: s along that wall, from its left end
         # (T-2900: of a wing longer than it, the host wall's whole length it stands on)
         a, b = hv1 - min(v1, hv1), hv1 - max(v0, hv0)

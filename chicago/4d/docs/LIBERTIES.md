@@ -31414,6 +31414,14 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3132.
 **Recorded:** 2026-10-25.
 
+### L-k01-1811-flank-round-heads-3133 — 1811 Prairie's south flank: round heads in the brick, basement lights under them, the fan and the places reconstructed
+
+**Decision:** 1811 Prairie's brick south flank (the rear range's and the rear section's K01 'north' walls, T-3133) is cut as the c. 1888 Chicagology photograph draws it: every light round-headed, and under each light a round-headed basement light (the print's at x 1084-1197 px, their crowns on the horizon, so about 1.35 m over grade at the camera's eye). Four things are reconstructed. (1) The round heads are turned in the flank's own brick on K06's arch band, because whether a brick ring or a rubbed arch dresses them is below the print's grain. (2) Each round-headed light takes K06's one-over-one sash under a fixed fan (`k06.opening.sash_round_fanlight`): the print cannot count lights. (3) The basement lights are K06's fixed round-headed basement light, 1.0 m across from 0.30 to 1.35 m: their width is the light over each (the print draws them 1.0-1.2 times as wide), and their sill is K01's least for an ordinary light, where the print's feet stand a few tenths over the walk. (4) Their places along the flank are the lights' over them, one under each as the print sets them, and the lights' own spacing is still the 2.6 m T-3077 reconstructed: the camera's depth along the flank does not place them (T-3149). The flank's other side (K01's 'south'), seen in no picture, keeps the brick wall's segmental heads and no basement lights.
+
+**Re-opens on:** a camera that reaches the flank's rear (T-3149), a closer photograph of the flank, or a drawing of it.
+**Ticket:** T-3133.
+**Recorded:** 2026-10-25.
+
 ### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
 
 **Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
