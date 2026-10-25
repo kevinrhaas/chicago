@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2294, ts: '2026-10-25T21:51:22.496Z', date: 'Oct 25, 2026, 4:51 PM CT', title: '1812 Prairie\'s package closed: last pictures read, house measured', kind: 'chore',
+    items: [
+      'The pictures listed for 1812 Prairie that no one had read are now read. The 1915 Tribune item is a portrait. The 1892 view south from 18th Street cannot see the house\'s front, because 1808 and Glessner stand in front of it from that walk. It is written up with a figure rather than solved into a camera that would prove nothing.',
+      'The house is measured in the published app: front, both obliques, rear and roof, on desktop and phone, with load, memory and frame time.',
+    ] },
+  { v: 2293, ts: '2026-10-25T21:38:45.234Z', date: 'Oct 25, 2026, 4:38 PM CT', title: '1815 Prairie, the Sears house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1815 Prairie Avenue is no longer a plain draft block. It now stands as Joseph Sears\'s stone house: a light ashlar front, two storeys over a raised basement, under a slated mansard with a gabled dormer.',
+      'A pavilion at the front\'s north end rises under a steep hipped roof, beside the door at the top of its stoop.',
+      'At the south-west corner a one-storey bay with a canted cheek carries a stone balcony of pierced panels, as the photograph shows it.',
+      'The pavilion\'s attic windows, the carved door hood and the rock-faced south wall are not built yet; they are next.',
+    ] },
+  { v: 2292, ts: '2026-10-25T21:12:04.484Z', date: 'Oct 25, 2026, 4:12 PM CT', title: 'Indiana Avenue\'s 18th-20th block, house by house', kind: 'feature',
+    items: [
+      'Look west from Glessner\'s and Kimball\'s walks: the row of stand-in houses on Indiana Avenue between 18th and 20th Street is replaced by the houses the 1911 fire-insurance map draws there, each on its own lot. That is 22 houses, among them a stone-fronted row at 1801-1807 and three pairs of twin houses, plus three frame flats on 18th Street and 13 stables and sheds on the alley.',
+      'The ten addresses where the 1904 Blue Book lists households now each stand on their own lots. The post-office sub-station and the corner store at 20th Street are left open until someone finds what stood there in 1904.',
+    ] },
   { v: 2291, ts: '2026-10-25T20:39:44.660Z', date: 'Oct 25, 2026, 3:39 PM CT', title: '1801 Prairie\'s round corner bay, from its 1965 photograph', kind: 'improvement',
     items: [
       'The W. W. Kimball house at 1801 Prairie now turns its south-west corner in a two-storey round bay, one window a storey under a pierced stone balcony, as Harold Allen\'s 1965 HABS photograph shows it.',

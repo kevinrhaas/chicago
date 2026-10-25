@@ -163,6 +163,28 @@ SHEETS = {
         "ticket": "T-3009",
         "census_ticket": "T-3009",
     },
+    # The background behind Prairie Avenue (T-3151, piece 2 of T-3145): sheet 27, which T-3150
+    # ingested and fit, read on Indiana Avenue's east frontage from 18th to 20th Street and the
+    # row at 213-217 East Eighteenth Street; the two unnumbered lots between 1839 and 1901 are
+    # open on the sheet and not traced.
+    "27w": {
+        "gcp": "sanborn_1911_v3_sheet_27",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s27w.json",
+        "blocks": ("blk_indiana_prairie_18_20",),
+        "parcels": ("indiana_1801", "indiana_1803", "indiana_1805", "indiana_1807", "e18th_213",
+                    "indiana_1809", "indiana_1813", "indiana_1815", "indiana_1819", "indiana_1821",
+                    "indiana_1825", "indiana_1829", "indiana_1833", "indiana_1837", "indiana_1839",
+                    "indiana_1901", "indiana_1909", "indiana_1913", "indiana_1915", "indiana_1917",
+                    "indiana_1921", "indiana_1925", "indiana_1931", "indiana_1935"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s27w.json",
+        # This copy's frame wash is printed darker than sheets 20's and 28's: the alley sheds
+        # read r 156-169, g 148-161, b 57-70 (10th-90th percentile over 1901's and 1913's), under
+        # the frame rule's r > 170, so they fell out as paper. Their hue is the rule's own
+        # (r-b and g-b far over it); only the floor on r is lowered, for this scan alone.
+        "frame_r_min": 150,
+        "ticket": "T-3151",
+        "census_ticket": "T-3151",
+    },
 }
 
 # Colour rules, on 8-bit sRGB. The paper is cream (r >= g >= b, r - g under 30); brick
@@ -184,6 +206,7 @@ TRIANGLE_FILL = 0.62   # under this share of its box a part is a triangle (a sta
 LINE_MEAN = 140        # under this mean of r, g and b a pixel is a drawn line, not a wash
 LINE_RULE_SCALE = 2.0  # ...on a scan this many times coarser than REF_M_PER_PX, or more
 LINE_RULE = False      # set per sheet by set_px_rules
+FRAME_R_MIN = 170      # the frame rule's floor on r; a scan with a darker yellow wash sets its own (SHEETS)
 LINE_GAP_PX = 3        # ...and a straight wall broken for up to this many pixels is closed
 REAR_SPLIT = 0.30      # the rear share of a lot a split-off service building begins in
 REAR_SPLITS = (REAR_SPLIT, 0.45, 0.60)   # ...widened in these steps when a step finds nothing
@@ -269,7 +292,7 @@ def classify(rgb: np.ndarray) -> np.ndarray:
     out = np.zeros(r.shape, dtype=np.uint8)
     out[(r - g > 30) & (r - b > 25) & (r > 120)] = 1
     out[(b - r >= 10) & (g > 110)] = 2
-    out[(r - b > 80) & (g - b > 60) & (r > 170)] = 3
+    out[(r - b > 80) & (g - b > 60) & (r > FRAME_R_MIN)] = 3
     # A drawn line is darker than any wash. On a fine scan its core is near black and the
     # rules above already leave it out; on a coarse one (sheet 35) a one-pixel wall blurs
     # into the pink and reads as brick, which joins the parts it divides. So on a scan read
@@ -687,6 +710,7 @@ def build(sheet: str) -> dict:
         raise SystemExit(f"{raster}: sha256 differs from {spec['gcp']}_gcps.json; re-read before tracing")
     fit = Fit(gcp)
     px_rules = set_px_rules(fit.m_per_px)
+    globals()["FRAME_R_MIN"] = spec.get("frame_r_min", 170)
     grid = json.loads(GRID.read_text(encoding="utf-8"))
     census = json.loads((spec.get("census_path") or CENSUS_DIR / spec["census"]).read_text(encoding="utf-8"))
     parcels = [p for p in grid["parcels"] if p["block"] in spec["blocks"] and (
@@ -763,7 +787,7 @@ def build(sheet: str) -> dict:
                    else f"chicago/prairie_1904_v1/data/sheet_census/{spec['census']}"),
         "parcels_from": "data/street_grid/1904.json",
         "method": {
-            "classes": "brick r-g>30 & r-b>25 & r>120; stone b-r>=10 & g>110; frame r-b>80 & g-b>60 & r>170 (8-bit sRGB)"
+            "classes": f"brick r-g>30 & r-b>25 & r>120; stone b-r>=10 & g>110; frame r-b>80 & g-b>60 & r>{FRAME_R_MIN} (8-bit sRGB)"
                        + (f"; none where (r+g+b)/3<{LINE_MEAN}, a drawn line on this coarse scan, its "
                           f"breaks of up to {LINE_GAP_PX} px closed along rows and columns" if LINE_RULE else ""),
             **({"px_scale": px_scale(fit.m_per_px)} if px_scale(fit.m_per_px) != 1.0 else {}),

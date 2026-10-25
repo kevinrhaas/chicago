@@ -1,0 +1,201 @@
+{
+  "id": "house_1813_indiana",
+  "phase": "draft_1904",
+  "name": "1813 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+  "aka": [
+    "1813 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/house_1813_indiana__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_27"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3151 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1298.322,
+    "local_n": -3252.341,
+    "rotation_deg": 179.395,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_27"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 32.750, v -4.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet is tied to sheets 20 and 28 where it meets them (T-3150): 0.67 m RMS over its six control components, with no independent check of its own, plus about a pixel (0.05 m) of trace. Rotation 179.395 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1813 S. Indiana Avenue, parcel indiana_1813 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 18th to 20th Street, and East Eighteenth Street's row at 213-217 (Sanborn 1911 vol. 3 sheet 27).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        15.25,
+        0.0
+      ],
+      [
+        15.25,
+        7.75
+      ],
+      [
+        0.0,
+        7.75
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_27"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_27"
+      ],
+      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_27"
+      ],
+      "note": "The register reads the map's colours as 'brick'."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 3,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              15.25,
+              7.75
+            ],
+            "from": "s27wfp-indiana_1813-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+          }
+        ],
+        "lot_v": [
+          -0.03,
+          8.53
+        ],
+        "street_u": 21.723
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_27"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s27wfp-indiana_1813-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 641274253,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 38,
+        "mansard_lower_m": 3.0,
+        "front_bays": 3,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-3151",
+          "refined_by": [
+            "T-1946"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B, the three households the 1904 Blue Book lists at 1813 in it; the two-storey brick GARAGE of 1911 on the alley is backcast as the lot's stable, as T-1841 rules on sheet 28. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 641274253 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3151."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3151",
+        "liberty": "L-draft-district-background-3151",
+        "register_row": "frontage-27w-1813",
+        "census_ids": [
+          "s27w-1813-front"
+        ],
+        "trace_building": "s27wfp-indiana_1813-b1",
+        "seed": 641274253,
+        "replaceable_by": [
+          "T-1946"
+        ],
+        "card": "District draft — refined by T-1946."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_27"
+      ],
+      "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), a fire escape (F.E.) on its south wall'. Carried to 1904 on the T-3151 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_27",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 27.",
+      "url": "https://www.loc.gov/resource/g4104cm.g01790191103/?sp=27",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Lots, lot lines and the 1911 street numbers of Indiana Avenue's east face from 18th to 20th Street, and the corner lots' East 18th and East 20th Street numbers",
+        "Indiana Avenue's two property lines, 18th to 20th, drawn rather than interpolated between sheets 20 and 35",
+        "Footprints, material colour, storeys and use of the buildings on those lots as of 1911 (read by T-3151, not here)"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey, and Glessner House's reading that sheets 20, 28 and 35 changed little between 1904 and 1911 was not made of this sheet",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "Michigan Avenue and its lots, which it draws but nothing here reads yet"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3151, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 27w trace (s27wfp-indiana_1813-b1), the T-3151 census (s27w-1813-front) and the T-1837 register row frontage-27w-1813 (Brick dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3151).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "1813 Indiana Avenue — Brick dwelling"
+}

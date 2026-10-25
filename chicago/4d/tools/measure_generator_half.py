@@ -661,12 +661,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # generators/draft_emit.py, so restaling on that archetype's own rows and on none of the
 # shared ones above.
 #
-# 990 -> 991 on 2026-10-25 (T-1880): the Pullman house at 1729 Prairie moved off its draft onto
+# 990 -> 1024 on 2026-10-25 (T-3151): that row retired, and the face drafted off Sanborn sheet 27
+# instead, twenty-two houses and thirteen alley buildings on `prairie_draft` (35 in, 1 out),
+# emitted through generators/draft_emit.py, so restaling on that archetype's own rows and on
+# none of the shared ones above.
+#
+# 1024 -> 1025 on 2026-10-25 (T-1880): the Pullman house at 1729 Prairie moved off its draft onto
 # `k01_frontage` under the same id, and the stable, range and porte-cochere its draft carried
 # kept as one record of their own on `prairie_draft`: one asset in, none out.
 #
 STATED = {
-    "assets": 991,
+    "assets": 1025,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
