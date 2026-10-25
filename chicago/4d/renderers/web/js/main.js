@@ -2307,6 +2307,8 @@ async function boot() {
     for(const group of [railway.group,terrain.group,streets.group])
       group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
     glessnerOcclusion=createViewOcclusion({camera,renderer,triangles:buildings.viewOccluders,batches,
+      // T-3152: Glessner's flat backings, the cells of each proven covered (planar-occluders.js).
+      planes:buildings.planarCovers??[],
       // Each backing triangle checks its own actual confidence range. Tinting
       // opaque stone is safe; a hidden or dithered backing fails open.
       // The pixel proof covers the scene's July appearance. Winter's on/off
@@ -5370,6 +5372,9 @@ async function boot() {
     /** Same-camera on/off proof, like setFarMerge; no visitor setting. */
     setGlessnerOcclusion(on) { return glessnerOcclusion?.setEnabled(on) ?? false; },
     glessnerOcclusionStats() { return glessnerOcclusion?.stats ?? {active:false}; },
+    /** T-3152: the proven planar backings alone, for the same on/off proof. The filter
+     *  caches its occluders by camera, so the next frame is re-projected either way. */
+    setPlanarCovers(on) { const v=buildings.setPlanarCovers?.(on) ?? false; glessnerOcclusion?.setEnabled(glessnerOcclusion.enabled); return v; },
     walkBudget: WALK,
   });
 

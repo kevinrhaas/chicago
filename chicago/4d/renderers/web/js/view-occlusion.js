@@ -267,6 +267,61 @@ export function boxOccluded(box, vp, occluders, width, height) {
   return false;
 }
 
+/** T-3152: is the box hidden behind a proven planar cover (planar-occluders.js)?
+ * The box lies wholly on the far side of the plane from the eye, so the rays from the
+ * eye to it cross the plane, and its shadow cast from the eye onto the plane is the hull
+ * of its eight corners' shadows. Every grid cell under that hull's bounds, grown by two
+ * pixels at the farthest crossing plus the plane's `tol` and the filter's 2 cm, must be a
+ * proven cell; and every crossing must lie beyond the near plane, where the cover is drawn.
+ * `plane` is in the world frame: `o` on it, `n` its unit normal, `u`/`v` its grid axes.
+ */
+const shadowU=new Float64Array(8),shadowV=new Float64Array(8);
+/** boxOccluded's own entry rule: every corner in front of the near plane and two pixels
+ *  inside the viewport, where T-2227's comparisons found clipped boxes still reach. */
+export function boxInView(box, vp, width, height) {
+  if (box.isEmpty()) return false;
+  const m=vp.elements;
+  for(let i=0;i<8;i++) {
+    const x=i&4?box.max.x:box.min.x,y=i&2?box.max.y:box.min.y,z=i&1?box.max.z:box.min.z;
+    const w=m[3]*x+m[7]*y+m[11]*z+m[15],depth=m[2]*x+m[6]*y+m[10]*z+m[14];
+    if (!Number.isFinite(w) || w<=0 || depth<=-w) return false;
+    const px=(m[0]*x+m[4]*y+m[8]*z+m[12])/w*width/2, py=(m[1]*x+m[5]*y+m[9]*z+m[13])/w*height/2;
+    if (!(px>-width/2+2 && px<width/2-2 && py>-height/2+2 && py<height/2-2)) return false;
+  }
+  return true;
+}
+export function planeOccluded(box, eye, forward, near, pixelAngle, plane) {
+  const {o,n,u,v}=plane;
+  const se=n.x*(eye.x-o.x)+n.y*(eye.y-o.y)+n.z*(eye.z-o.z);
+  if (!(Math.abs(se)>DEPTH_GAP_M)) return false;
+  const sign=se>0?1:-1;
+  let maxDist=0,minCos=1;
+  for(let i=0;i<8;i++) {
+    const x=i&4?box.max.x:box.min.x,y=i&2?box.max.y:box.min.y,z=i&1?box.max.z:box.min.z;
+    const sc=n.x*(x-o.x)+n.y*(y-o.y)+n.z*(z-o.z);
+    if (!(sign*sc < -DEPTH_GAP_M)) return false;
+    const dx=x-eye.x,dy=y-eye.y,dz=z-eye.z,len=Math.hypot(dx,dy,dz);
+    const t=se/(se-sc);
+    const qx=eye.x+t*dx,qy=eye.y+t*dy,qz=eye.z+t*dz;
+    if (!((qx-eye.x)*forward.x+(qy-eye.y)*forward.y+(qz-eye.z)*forward.z > near*1.01+DEPTH_GAP_M)) return false;
+    maxDist=Math.max(maxDist,t*len);
+    minCos=Math.min(minCos,Math.abs(n.x*dx+n.y*dy+n.z*dz)/len);
+    shadowU[i]=u.x*(qx-o.x)+u.y*(qy-o.y)+u.z*(qz-o.z);
+    shadowV[i]=v.x*(qx-o.x)+v.y*(qy-o.y)+v.z*(qz-o.z);
+  }
+  // A grazing sight line turns the plane's own tolerance into a long slide across it.
+  if (minCos<0.2) return false;
+  const margin=(2*pixelAngle*maxDist+plane.tol+DEPTH_GAP_M)/minCos;
+  let u0=Infinity,u1=-Infinity,v0=Infinity,v1=-Infinity;
+  for(let i=0;i<8;i++){u0=Math.min(u0,shadowU[i]);u1=Math.max(u1,shadowU[i]);v0=Math.min(v0,shadowV[i]);v1=Math.max(v1,shadowV[i]);}
+  const gx0=Math.floor((u0-margin-plane.umin)/plane.res),gx1=Math.floor((u1+margin-plane.umin)/plane.res);
+  const gy0=Math.floor((v0-margin-plane.vmin)/plane.res),gy1=Math.floor((v1+margin-plane.vmin)/plane.res);
+  if (gx0<0||gy0<0||gx1>=plane.W||gy1>=plane.H) return false;
+  const W1=plane.W+1,sat=plane.sat;
+  const covered=sat[(gy1+1)*W1+gx1+1]-sat[gy0*W1+gx1+1]-sat[(gy1+1)*W1+gx0]+sat[gy0*W1+gx0];
+  return covered===(gx1-gx0+1)*(gy1-gy0+1);
+}
+
 /** The public BatchedMesh custom-sort hook supplies the already frustum-culled
  * draw ranges. Filtering that list leaves the batch's visibility and pick data
  * untouched. Ground decals retain insertion order; buildings retain Three's
@@ -276,18 +331,33 @@ export function boxOccluded(box, vp, occluders, width, height) {
 // zero), returned as small integers: a returned double is boxed, ~1 MB a frame here.
 const farFirst=(a,b)=>(b.z<a.z?-1:b.z>a.z?1:0), nearFirst=(a,b)=>(a.z<b.z?-1:a.z>b.z?1:0);
 
-export function createViewOcclusion({ camera, renderer, triangles, batches, allow = () => true }) {
+export function createViewOcclusion({ camera, renderer, triangles, batches, planes = [], allow = () => true }) {
   let enabled=true, cachedKey=null, cachedFrame=null, occluders=[];
   const tests=[], active=[], keyBuf=new Float64Array(34);
   let flags=new Uint8Array(0), testOf=new Int32Array(0), answers=new Uint8Array(0);
   const vp=new THREE.Matrix4(),size=new THREE.Vector2(),instance=new THREE.Matrix4();
   const box=new THREE.Box3(),undos=[];
-  const stats={ tested:0,culled:0,triangles:0 };
+  const stats={ tested:0,culled:0,triangles:0,planeCulled:0,planeTriangles:0 };
+  // T-3152: the planar covers standing this frame, and the eye they are cast from.
+  const livePlanes=[],eye=new THREE.Vector3(),forward=new THREE.Vector3();
+  let pixelAngle=0,near=0;
   function prepare() {
     const frame=renderer.info?.render?.frame;
     if (frame!==undefined && frame===cachedFrame) return;
-    cachedFrame=frame;stats.tested=0;stats.culled=0;stats.triangles=0;
+    cachedFrame=frame;stats.tested=0;stats.culled=0;stats.triangles=0;stats.planeCulled=0;stats.planeTriangles=0;
+    livePlanes.length=0;
     if (!enabled || !allow() || renderer.clippingPlanes?.length) {occluders=[];cachedKey=null;return;}
+    // The covers' test is the camera's own perspective; any other camera fails open.
+    if (camera.isPerspectiveCamera && !camera.reversedDepth && camera.coordinateSystem===THREE.WebGLCoordinateSystem) {
+      for(const p of planes) if(p.active())livePlanes.push(p);
+      eye.setFromMatrixPosition(camera.matrixWorld);
+      camera.getWorldDirection(forward);
+      near=camera.near;
+      renderer.getDrawingBufferSize(size);
+      const pm=camera.projectionMatrix.elements;
+      // The widest pixel is the one at the centre of the view.
+      pixelAngle=Math.max(2/(Math.abs(pm[0])*size.x),2/(Math.abs(pm[5])*size.y));
+    }
     // T-2806: the key is compared number by number in reused storage. As a string it
     // was 34 numbers and a character per backing triangle, built every frame.
     // Each distinct `active` test is asked once a frame, as before; which triangle
@@ -339,7 +409,7 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
       // stencil writes can have side effects even when a surface is hidden.
       if(m.displacementMap||m.polygonOffset||m.wireframe||!m.depthTest||m.stencilWrite
           || ![THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc))return;
-      prepare(); if (!occluders.length) return;
+      prepare(); if (!occluders.length && !livePlanes.length) return;
       let keep=0;
       for (const item of list) {
         const geometry=this.getGeometryIdAt(item.index);
@@ -349,6 +419,8 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
         stats.tested++;
         if (boxOccluded(box,vp,occluders,size.x,size.y)) {
           stats.culled++;stats.triangles+=item.count/3;
+        } else if (livePlanes.length && boxInView(box,vp,size.x,size.y) && livePlanes.some(p=>planeOccluded(box,eye,forward,near,pixelAngle,p))) {
+          stats.planeCulled++;stats.planeTriangles+=item.count/3;
         } else list[keep++]=item;
       }
       list.length=keep;
@@ -357,7 +429,7 @@ export function createViewOcclusion({ camera, renderer, triangles, batches, allo
     undos.push(()=>{if(batch.customSort===hook){batch.setCustomSort(previous);batch.sortObjects=sorted;}});
   }
   return {
-    get stats(){return {...stats,active:enabled&&allow(),occluders:occluders.length};},
+    get stats(){return {...stats,active:enabled&&allow(),occluders:occluders.length,planes:livePlanes.length};},
     setEnabled(on){enabled=!!on;cachedFrame=null;return enabled;},
     get enabled(){return enabled;},
     dispose(){for(const undo of undos)undo();undos.length=0;},
