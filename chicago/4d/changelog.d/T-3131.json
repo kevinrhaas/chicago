@@ -1,0 +1,7 @@
+{
+  "title": "Nothing you can see: source-use conflicts now clear themselves",
+  "kind": "chore",
+  "items": [
+    "Nothing in the town changed. Behind it, the list of source-use files that a merge may rebuild instead of refusing had fallen to 303 of the 436 it should name. The other 134 conflicts stopped a branch's merge, or lost its source links when one side was taken by hand. The compiler that writes those files now keeps the list itself, and the gate refuses when the two disagree."
+  ]
+}
