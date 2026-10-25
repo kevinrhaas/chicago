@@ -1,8 +1,0 @@
-{
-  "title": "Glessner House from 18th Street, back inside the full-detail budget",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed: from 18th Street, west of Glessner House, the full-detail view no longer draws the court, south and east walls hidden behind the house's own north and west fronts.",
-    "That stand had crept over the full-detail triangle budget again; it now sits about 126,000 triangles inside it, and the Prairie Avenue stand south-east of the house gains about 120,000 more headroom."
-  ]
-}
