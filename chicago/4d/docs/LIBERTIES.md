@@ -33089,3 +33089,30 @@ cheek's curve.
 **Ticket:** T-3144.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3144).
+
+### L-glessner-north-eave-3148 — Glessner's 18th Street eave level either side of the stable gable; the cross ridge 0.10 m lower on the alley gable's rake
+
+**Decision:** the `glessner_house` north-face eave west of the stable's 18th Street gable stands at the north
+range's 23.1 ft ng, where T-2231 had put it at 25.2 ft (L-glessner-west-profile-2231's "starts at z25.2 on the
+north-west corner"). The gable's west foot, the alley parapet's north foot and the cross roof's north foot go
+down with it. The cross roof's north plane stays the alley gable's north rake (L-glessner-alley-ridge-3096),
+now from 23.1 ft at S 0 to the gable's unmoved apex at 38.6 ft on S 14.6, so the cross ridge at S 12.31 stands
+at 36.17 ft where it stood at 36.5, and the plane at 46.7 degrees where it stood at 42.5.
+**What is read, not invented.** That the eave is level. A level line on one flat face projects to one straight
+image line through any pinhole, so no camera is needed. HABS photograph 1's tile edge west of the gable
+(W 156-160) lies within 1 px of the straight line the same edge draws along the range at W 60-124, where a
+2.1 ft step would stand 32-33 px off it. HABS photograph 15 and the c. 1887 Cornell print put it 3-7 px off
+lines carried farther, where the step would be 37 and about 50 px. The height is sheet 4's 23.1 ft, where the
+roof meets the 18th Street wall.
+**What is invented.** Nothing new is drawn. The ridge's 0.10 m follows from keeping T-3096's rule that the roof
+and the alley gable's rake share a plane; T-3096's cameras place the ridge's roll foot only to 0.3 m.
+**What is left open.** Through T-2758's stable-fitted HABS 01 camera the visible edge reads about 24.1 ft on
+the face on both sides of the gable, about 1 ft over sheet 4's line. HABS 15's refit reads the one level line
+1.2 ft apart across the gable, so at eave height the cameras do not measure to a foot. The slope from the
+lowered eave to the ridge is 1.2 ft longer than T-3096's, about three more 5 in courses than the 41-44 T-3095
+counted.
+**How to resolve:** a measured section through the stable's 18th Street end; T-3102 for the cameras.
+**Ticket:** T-3148 (T-3139's second piece). Readings: `docs/RESEARCH/glessner-north-eave-T-3148/`.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3148).
