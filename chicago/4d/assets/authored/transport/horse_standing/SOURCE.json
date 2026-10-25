@@ -1,7 +1,7 @@
 {
   "asset_id": "sevket_horse_standing_development_01",
   "kind": "authored",
-  "authored_exception": "Licensed third-party derivative adopted under assets/authored with exact source/rights/credit/change notice; no generator master is asserted.",
+  "authored_exception": "Licensed third-party derivative with exact source/rights/credit/change notice. Portable stdlib eye-UV-v1 generator reproduces the separately versioned derivative from the protected existing b479 baseline; no original-source generator master is asserted.",
   "source_id": "sevketkabatas_2021_horse_model",
   "author": "sevketkabatas",
   "title": "Horse",
@@ -13,9 +13,9 @@
   "original_source_not_modified": true,
   "original_source_preservation": "Preserved acquisition/external recovery; original15rig/sixclips are not selected in this runtime.",
   "runtime_derivative": {
-    "file": "transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
-    "sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
-    "bytes": 3783600,
+    "file": "transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+    "sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "bytes": 3784176,
     "animation_count": 1,
     "declared_idle_clip": "sevket_reconstructed_planted_posture_v1",
     "coordinate_space": "canonical_metres_Yup_Zforward_Xleft",
@@ -27,13 +27,25 @@
     "original_head_tail_composed": false,
     "walking_enabled": false,
     "license": "CC-BY-4.0",
-    "creator_credit": "“Horse” by sevketkabatas, CC BY4.0, via Objaverse.",
+    "creator_credit": "\u201cHorse\u201d by sevketkabatas, CC BY4.0, via Objaverse.",
     "source_original_unchanged": true,
-    "adaptation": "Original rest surface baked to canonical metres; reconstructed26 rig/V16 skin and one planted-standing clip. Maps/UVs/indices preserved; original15 rig/clips retained separately. No walking/head-tail composition.",
-    "loaded_qualification_summary": "../../../../data/transport/parked/standing-horse-planted/loaded129-summary.json",
-    "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
-    "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
-    "actual_app_world_photo_qualified": false
+    "adaptation": "Original rest surface baked to canonical metres; reconstructed26 rig/V16 skin and one planted-standing clip. Eye-UV-v1 changes only eye UV10, its bounds and explicit derivative notice from protected b479; all image payloads, materials, geometry, body/hair UVs, indices, rig and animation are exact. Original15 rig/clips and original b479 qualification remain separate historical stages. No walking/head-tail composition.",
+    "loaded_qualification_summary": "../../../../data/transport/parked/standing-horse-planted/eye-uv-v1-loaded129-summary.json",
+    "loaded_raw_result_sha256": "60f693bf10c17b04376d9a521cd91c51bacae12da32e0eec821de8bdd3b15d5a",
+    "loaded_qualification_status": "FRESH_GLTFLOADER_PRODUCTION_CLONE_MIXER129_HOSTED_CPU_PASS_ONLY",
+    "actual_app_world_photo_qualified": false,
+    "standing_export_receipt_applies_to_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+    "eye_uv_derivation_receipt_file": "transport/parked/standing-horse-planted/eye-uv-v1-derivation-receipt.json",
+    "eye_uv_derivation_receipt_sha256": "2b44bc2cc505efd90793c21ea7c8ff089d277d46a2588d4f525e9d069f24efdd",
+    "historical_b479_qualification": {
+      "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+      "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
+      "loaded_qualification_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
+      "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
+      "asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+      "bytes": 3783600,
+      "scope": "Historical original b479 qualification only; not inherited by d454."
+    }
   },
   "rig_hierarchy_reference": {
     "author": "antemeossa",
@@ -47,7 +59,8 @@
     "Canonical26 planted-standing derivative already in metres; unit runtime scale and zero runtime origin.",
     "Existing reconstructed1835yard placement, rigid support quaternion and organic_dielectric_v1 cloned materials retained.",
     "Reconstructed26 controls, accepted V16 field and12s planted body shift; source15 rig and six clips preserved in separate original only.",
-    "Single standing AnimationMixer with existing host-delta/visibility/pause/reduced-motion clock and teardown."
+    "Single standing AnimationMixer with existing host-delta/visibility/pause/reduced-motion clock and teardown.",
+    "Reconstructed horizontal dark pupil/gaze from existing source eye texture through UV10 only; original six texture payloads and original b479 baseline remain unchanged. Same-camera CPU software diagnostic informed this limited improvement; photographic completion is not asserted."
   ],
   "historical_evidence_limits": "Modern rights/model credit does not attest an1835horse, breed, owner, coat or dimensions; yard context only is historical.",
   "capabilities": {

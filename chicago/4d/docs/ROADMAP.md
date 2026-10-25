@@ -1,3 +1,24 @@
+### Carriage lamps, horse eyes and access — T-3083/T-3086/T-3087, 2026-10-24
+
+The scoped delivery selects the reproducible d4544c28 eye-UV derivative, with
+unchanged geometry/rig/images and a fresh real loader/clone/Mixer129 CPU proof.
+Both fixed-camera software eye pairs were reviewed; native/photo acceptance
+remains open. T-3084/T-3085 and T-3088/T-3089 retain the full remaining parent
+requirements after the normal queue-preserving split.
+
+
+V18 changes the reconstructed catalogue Brougham's lamps to rounded upper
+housings and narrower lower bodies, at 33,374 near / 11,706 mid triangles.
+Actual non-lamp geometry, materials, contacts, anchors and the original near
+collision proxy remain protected. Matched software mesh projections reviewed
+against the original 1893 plate support only this limited form improvement;
+native rendering, photographic matching, world clearance and published budgets
+remain unqualified. Historical V17 visual acceptance is retained separately.
+The existing 1835 yard horse gains a viewpoint whose arrival passes the ground
+and roof check. These increments do not close photographic, gait, gear,
+occupied-team, driving, riding or boarding acceptance. The queue remains the
+operational work order; no acceptance box or queue rank changes here.
+
 ## T-2794 — Parked Brougham distance model and prototype replacement
 
 The Brougham replaces only the obsolete1904C02 display, retaining its own existing qualified stand and the five distinct1835wagons; C02 assets and model remain compatible. Exact33,502near geometry is paired with the unchanged validated11,706mid candidate. All physical feature categories, materials, nodes, anchors, contacts and original near conservative proxy remain; only source tessellation and active triangle reporting change. Eight fixed native views support distance-LOD appearance, not photographic or world-budget acceptance.
@@ -5822,6 +5843,8 @@ Fresh derived output/published mirror, the complete corrected strict run and fin
 - Finish the refreshed derived outputs, corrected full preflight, current-head published smoke acceptance and policy PR into dev. This prerequisite group does not close the original building picture-match cases.
 
 
+T-2800 eye-UV-v1 checkpoint (2026-10-23): limited dark-eye correction prepared with exact source protection and fresh current-SHA production clone/Mixer129 CPU pass. Native app/yard/mobile inspection, photographic completion, locomotion, tack, teams and interaction remain open; preserve ticket ownership and continue the existing people/horse/carriage bands.
+
 ## T-3081 — ship five log-building picture increments
 
 Integrate the bounded school, Cobweb, Miller, Carpenter and Wolf Point changes through the shared log producer. Refresh all 82 official assets and real web derivatives, retain unchanged defaults and Hogan, and use PR #1239 V2 before native population consumers. Complete ordered derivation, site/contact checks, actual app comparisons, strict preflight and published mobile/desktop gates before merging into dev. Keep each original image gate open until every required view matches; continue source-camera and material refinements after this visible unit lands.
@@ -5868,3 +5891,8 @@ T-3106 retains its medium parent and provenance history. Its two independent no-
 ### T-3126 — Boarded Dearborn parapets, one bounded visible increment
 
 Adopt only the reviewed board-parapet selector and credited Andreas correction, preserving the flat deck and original support set-out. The old curved-deck/native-profile/rigid-refusal/horse-bound proposal stays separate. The keyword-only selector preserves the legacy positional API/default streams. Genuine pinned six-master/six-web refresh, native reader fixed point, actual both-viewport normal/ByGrade/card/contact review and official source comparison are complete; the source comparison remains DIFFERS. Retain the broad Fly over-cap diagnostic and geometry-only previous-WEB control; closer inspection is not its repair. Before merging, require strict preflight and exact-head both-viewport full published coverage/CI, with final verdicts recorded in the PR. Keep original T-2375 open/DIFFERS; this is not the full photographic-match acceptance.
+
+
+### T-3125 — keep complete release notes inside the Navigator
+
+The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.
