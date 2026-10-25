@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2280, ts: '2026-10-25T14:38:11.686Z', date: 'Oct 25, 2026, 9:38 AM CT', title: 'The missing map sheet for Indiana Avenue, 18th to 20th, is in', kind: 'change',
+    items: [
+      'The 1911 fire-insurance map sheet that draws Indiana Avenue between 18th and 20th Street was the one gap in the Prairie Avenue maps. It is now copied from the Library of Congress and lined up with the sheets on either side; where the three sheets meet they agree to within about two-thirds of a metre. Its 26 lots, 1801 to 1937 Indiana and 213 to 217 East 18th Street, are now on the 1904 street plan, and the avenue\'s east curb, walk and elms along the block follow the line the sheet draws instead of a straight guess between its neighbours. The far-off city behind the avenue is laid out again from the new lot widths. The houses on the block are still the reconstructed row; reading them off the sheet comes next.',
+    ] },
   { v: 2279, ts: '2026-10-25T14:22:06.513Z', date: 'Oct 25, 2026, 9:22 AM CT', title: 'Photo-match work stops where a visitor would notice', kind: 'chore',
     items: [
       'A gap under about a foot, or a pixel offset, is now marked within tolerance instead of opening another ticket.',
