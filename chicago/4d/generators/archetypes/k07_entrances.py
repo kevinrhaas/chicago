@@ -319,9 +319,12 @@ class Entrance(Opening):
             for y, hy in ((ya, -1.0), (yb, 1.0)):
                 self.face("transom_beam", [self.P(day.s0, y, e), self.P(day.s1, y, e), self.P(day.s1, y, d),
                                            self.P(day.s0, y, d)], (0.0, hy, 0.0))
-            for x, hx in ((day.s0, -1.0), (day.s1, 1.0)):
-                self.face("transom_beam", [self.P(x, ya, e), self.P(x, yb, e), self.P(x, yb, d), self.P(x, ya, d)],
-                          (hx, 0.0, 0.0))
+            # its ends, only where they stand before the frame's face (behind it the frame's
+            # sight edges are the same plane)
+            rev = d - self.data["parts"]["stop_m"]
+            for x, hx in ((day.s0, -1.0), (day.s1, 1.0)) if e < rev - 1e-6 else ():
+                self.face("transom_beam", [self.P(x, ya, e), self.P(x, yb, e), self.P(x, yb, rev),
+                                           self.P(x, ya, rev)], (hx, 0.0, 0.0))
         self.meta["transom_beam"] = {"from_m": round(y0, 4), "to_m": round(y1, 4)}
 
     def _column_fan(self, fan, d, sa, mu, st, fc, centres):
@@ -455,14 +458,17 @@ class Entrance(Opening):
             if k == n:
                 break
             yt = yb
-            self.quad(tread_role, [(sa, yt, a), (ba, yt, a), (bb, yt, a + g), (sa, yt, a + g)], Y)
+            # T-3134: under a flared cheek the tread's end follows the cheek's inner face, kink by kink
+            kinks = [o for o in (getattr(at, "nodes", ())) if a + 1e-9 < o < a + g - 1e-9]
+            for oa, ob in zip([a] + kinks, kinks + [a + g]):
+                self.quad(tread_role, [(sa, yt, oa), (at(oa), yt, oa), (at(ob), yt, ob), (sa, yt, ob)], Y)
             self.probe((sa + sb) / 2, yt, a + g / 2, (tread_role,), f"tread {k}")
             if ends:
                 for x, hx in ((sa, -1.0), (sb, 1.0)):
                     self.quad(end_role, [(x, end_floor, a), (x, end_floor, a + g), (x, yt, a + g), (x, yt, a)],
                               (hx, 0.0, 0.0))
             ym = (end_floor + yt) / 2 if end_floor is not None else yt / 2
-            for x in (sa, (ba + bb) / 2):
+            for x in (sa, at(a + g / 2)):
                 self.probe(x, ym, a + g / 2, (end_role,) if ends else ("cheek", "area_wall"),
                            f"the end of step {k}")
         return out0 + (n - 1) * g
@@ -520,8 +526,11 @@ class Entrance(Opening):
         fl = self._flare_at(sw, L, L + (n - 1) * g, n, g) if cheeks and st.get("cheek_form") == "swept" else None
         if fl and sw["flare"]["side"] != "right":
             raise ValueError("a swept cheek flares on the stoop's right")
-        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R,
-                         sb_at=(lambda o: c + half + fl[0](o)) if fl else None)
+        sb_at = None
+        if fl:
+            sb_at = lambda o: c + half + fl[0](o)
+            sb_at.nodes = fl[1]
+        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R, sb_at=sb_at)
         self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4),
                               **({"axis_s_m": round(c, 4)} if c else {})}
         if cheeks:
