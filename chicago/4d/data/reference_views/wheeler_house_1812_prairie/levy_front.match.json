@@ -2,11 +2,11 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029",
+  "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Massing: three storeys over a raised basement at the photograph's heights (principal floor 1.65 m, the projection's top 9.45 m, the wall head 12.45 m) — the draft's were the rules' (T-2543)",
@@ -77,8 +77,12 @@
       "status": "fixed"
     },
     {
-      "what": "South projection: under the cornice the print's face is a stone frieze from the cornice's foot down to the paired window's caps (y 700-740 px, about 8.8-9.25 m), with a block under the balcony's pedestal (x 527-557) and a moulded band at the caps' top; built as brick, the cornice's section as a plain soffit and fascia where the print's is moulded (T-3113)",
-      "status": "open"
+      "what": "South projection: under the cornice the print's face is a stone frieze from the cornice's foot down to the paired window's caps (y 700-740 px, about 8.8-9.25 m), with a block under the balcony's pedestal (x 527-557) and a moulded band at the caps' top; built so (T-3093): the frieze in stone round the front and both cheeks where it had been brick, a band 0.06 m proud at the caps' top and a block 0.34 m across under the pedestal (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: the cornice's section is moulded in the print and built as the kit's plain soffit and fascia; a profile under 0.3 m on a cornice at its place and height (T-3093)",
+      "status": "within tolerance"
     },
     {
       "what": "Third storey: the large window over the balcony under its flat segmental arch (2.78 m across, crown 12.05 m) with its fanlight, and the small round-arched window to its north (1.2 m, crown 12.0 m), each in a ring of voussoirs running up into the gable's face, the large one under its keystone (T-2889)",
@@ -149,16 +153,20 @@
       "status": "fixed"
     },
     {
-      "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields; built as T-2819's guilloche of rings and plain oval bosses in a moulded ring",
-      "status": "open"
+      "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields, where they had been built as T-2819's guilloche of rings and plain oval bosses; built so (T-3093): two straps 0.07 m wide crossing every 0.5 m, over and under in turn, and the bosses shield-shaped, square-headed and pointed; re-rendered, the straps cross about where the print's do along x 767-1042 px (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "Carving: the leaves between the interlace's straps, and the shields' carved faces and scrolled heads, are not modelled; carving under 0.3 m inside elements built at their place, size and outline (T-3093)",
+      "status": "within tolerance"
     },
     {
       "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice (8.53-8.80 m), its mullion is a heavy pier (0.24 m) carried up as far, a moulded hood stands over the sashes' heads (8.04 m) and over it a low transom light in each bay glazed in small squares to 8.64 m; built so, the quoins carried to 8.53 m under dressed caps whose carving (a swag) is a raised oval boss (T-3091; L-k01-1812-wheeler-windows-3091)",
       "status": "fixed"
     },
     {
-      "what": "Tone: the print's stone reads lighter than its brick; the built brown sandstone renders darker than the buff brick beside it (the colours are not shown, the relation is)",
-      "status": "open"
+      "what": "Tone: the print's stone reads lighter than its brick, where the built brown sandstone had rendered darker than the buff brick beside it; the stone front re-laid in Lemont limestone and the street front's brick toned red-brown (T-3093), so the basement, the first storey beside the porch and every dressing render lighter than the brick, as the print draws them (the colours are not shown, the relation is; L-k01-1812-wheeler-tone-3093)",
+      "status": "fixed"
     },
     {
       "what": "Downpipes down both ends of the front: the north one from a head under the north kneeler (10.3 m, the print's pipe top) down the main front's north end to grade; the south one down the projection's south corner from a head under its cornice to grade, and from a head under the south kneeler down the main front to the projection's top (T-2953)",
@@ -177,8 +185,12 @@
       "status": "fixed"
     },
     {
-      "what": "South wall line: the print's main front's south corner (its downpipe at x 293-300 px) stands about 23 px south of the build's (x 320), and the parapet's end and the outside stack by the same 26-30 px, about 0.26-0.31 m: sheet 28's traced wall may lie that far inside the wall the print shows (the permit's 30 ft, 9.14 m, is wider than the traced 8.5 m); the footprint is not moved for one reading (T-3075)",
-      "status": "open"
+      "what": "South wall line: the print's main front's south corner (its downpipe at x 293-300 px) stands about 23 px south of the build's (x 320), and the parapet's end and the outside stack by the same 26-30 px, about 0.26-0.31 m: sheet 28's traced wall may lie that far inside the wall the print shows (the permit's 30 ft, 9.14 m, is wider than the traced 8.5 m); the footprint is not moved for one reading (T-3075). Within tolerance (T-3093, under the photo-ticket stopping rule): about 0.26-0.31 m, at or under the 1 ft bar, and read off one camera whose solve the c. 1955 view's 14 px only partly bears out; T-3075 was withdrawn on that ground",
+      "status": "within tolerance"
+    },
+    {
+      "what": "South projection: the second storey stands on a smooth stone band from the belt to the paired window's sill (y 1000-1055 px, about 5.6-6.2 m), round the front and cheeks, the shields set in it, where it had been brick between a narrow sill and the belt; found and built in the sign-off (T-3093), re-rendered at y 1000-1052 (L-k01-1812-wheeler-carving-3093)",
+      "status": "fixed"
     },
     {
       "what": "Colour: the print is monochrome, so every stone, brick and paint colour",
@@ -189,5 +201,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
