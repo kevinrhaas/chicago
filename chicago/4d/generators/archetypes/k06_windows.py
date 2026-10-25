@@ -157,6 +157,12 @@ class Head:
             self.cy = spring - (self.R - self.rise)
         elif kind == "round":
             self.rise, self.R, self.cy = half, half, spring
+        elif kind == "elliptical":
+            # T-3134: a half ellipse on the springing line, its semi-axes the half span and
+            # `rise_over_span` of the span: steep at the jambs, flatter at the crown than a
+            # segment (1812 Prairie's porch arch, the Levy print)
+            self.rise, self.cy = span * rise_over_span, spring
+            self.R = half
         elif kind == "pointed" and radius_ratio != 1.0:
             if not 0.5 < radius_ratio < 1.0:
                 raise ValueError(f"a drop head's radius_ratio must lie between 0.5 and 1, not {radius_ratio}")
@@ -177,6 +183,15 @@ class Head:
         """The head inset by `inset` (negative: outward), from x=xa (right) to x=xb (left)."""
         if self.kind == "flat":
             return [(xa, self.spring - inset), (xb, self.spring - inset)]
+        if self.kind == "elliptical":
+            # an inset ellipse: both semi-axes drawn in by `inset`, its vertices at equal
+            # steps of the parametric angle (the round head's 12 over the half)
+            ra, rb = self.R - inset, self.rise - inset
+            ta = math.acos(max(-1, min(1, (xa - self.cx) / ra)))
+            tb = math.acos(max(-1, min(1, (xb - self.cx) / ra)))
+            n = 12
+            return [(self.cx + ra * math.cos(ta + (tb - ta) * i / n), self.cy + rb * math.sin(ta + (tb - ta) * i / n))
+                    for i in range(n + 1)]
         if self.kind in ("segmental", "round"):
             r = self.R - inset
             n = 12 if self.kind == "round" else 8
@@ -219,6 +234,15 @@ class Region:
                 xa, xb = self.head.cx + dx, self.head.cx - dx
                 top = self.head.curve(self.head_inset + t, xa, xb)
                 top[0], top[-1] = (xa, self.y0 + b), (xb, self.y0 + b)   # on the line exactly
+            elif self.head.kind == "elliptical" and top[0][1] < self.y0 + b - 1e-9:
+                # T-3134: the same on a half ellipse's spring (1812's porch fanlight): its corners
+                # where the inset ellipse crosses the region's foot
+                ra, rb = self.head.R - self.head_inset - t, self.head.rise - self.head_inset - t
+                q = max(-1.0, min(1.0, (self.y0 + b - self.head.cy) / rb))
+                dx = ra * math.sqrt(max(0.0, 1.0 - q * q))
+                xa, xb = self.head.cx + dx, self.head.cx - dx
+                top = self.head.curve(self.head_inset + t, xa, xb)
+                top[0], top[-1] = (xa, self.y0 + b), (xb, self.y0 + b)
         return [(xb, self.y0 + b), (xa, self.y0 + b)] + top
 
 
@@ -247,7 +271,8 @@ class Opening:
         # (kept to round heads, whose regions alone do it: the flat and segmental
         # variants' meshes, which committed houses carry, stay their bytes). T-2889: a
         # segmental fanlight's region starts on its spring the same way
-        if self.v.get("head") == "round" or self.v.get("operation") == "double_hung_fanlight":
+        # T-3134: and a half-elliptical head's, which no committed mesh carried before it
+        if self.v.get("head") in ("round", "elliptical") or self.v.get("operation") == "double_hung_fanlight":
             pts = [q for i, q in enumerate(pts) if math.dist(q, pts[i - 1]) > 1e-6]
             if len(pts) < 3:
                 return
