@@ -54698,7 +54698,14 @@
       "subjects": [
         "wheeler_house_1812_prairie"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wheeler_house_1812_prairie",
+          "phase": "as_built_1884",
+          "aspect": "form.street_front_brick"
+        }
+      ],
       "recorded": "2026-10-25",
       "revised": null,
       "fields": [
@@ -54709,6 +54716,10 @@
         {
           "label": "How to resolve",
           "text": "a colour description, a specification or a surviving fragment of the house."
+        },
+        {
+          "label": "Covers",
+          "text": "`wheeler_house_1812_prairie.as_built_1884.form.street_front_brick`."
         },
         {
           "label": "Review",

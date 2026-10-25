@@ -33177,6 +33177,7 @@ named; Lemont is the local grey-buff stone the K02 profiles hold for an undocume
 the red-brown is the tone a monochrome print of the 1880s draws darker than a light stone. Only the
 relation, stone lighter than brick and side wall paler than front, is read.
 **How to resolve:** a colour description, a specification or a surviving fragment of the house.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.street_front_brick`.
 **Ticket:** T-3093.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
