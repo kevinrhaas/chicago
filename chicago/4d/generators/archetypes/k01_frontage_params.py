@@ -2510,11 +2510,11 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
     out = []
     for g in groups:
         lights = []
-        seg = None
+        seg = ell = None
         for i in g["ops"]:
             o = openings[i]
             # T-2526: the door is K07's one round-headed hole, its spring a half span under its crown
-            v = ({"bays": 1, **({"head": "segmental", "rise_over_span": g["rise_over_span"]}
+            v = ({"bays": 1, **({"head": g.get("head", "segmental"), "rise_over_span": g["rise_over_span"]}
                                 if g.get("rise_over_span") else {})}
                  if o.component == "k01.opening.door_leaf" else variants[kit[o.component]["variant"]])
             n, mull = int(v.get("bays", 1)), float(v.get("mullion_m", 0.0))
@@ -2525,6 +2525,9 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
             if v.get("head") == "segmental":
                 rise = bw * _rise_over_span(v)
                 seg = {"radius_m": round((bw * bw / 4 + rise * rise) / (2 * rise), 5), "rise_m": round(rise, 5)}
+            elif v.get("head") == "elliptical":   # T-3134: a half ellipse, its rise the upright semi-axis
+                rise = bw * _rise_over_span(v)
+                ell = {"rise_m": round(rise, 5)}
             for k in range(n):
                 s0 = o.s_m - o.width_m / 2 + k * (bw + mull)
                 lights.append((round(s0, 5), round(s0 + bw, 5), round(o.head_m - rise, 5), round(rise, 5), round(o.sill_m, 5)))
@@ -2546,7 +2549,9 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
                                  "bed_m": round(spring + max(q[3] for q in lights), 5),
                                  "top_m": g["keystone_top_m"], "width_m": g["keystone_m"]},
                     **({"extrados": g["extrados"], "ring_proud_m": g["ring_proud_m"]} if "extrados" in g else {}),
-                    **({"segmental": seg} if seg else {})})
+                    **({"segmental": seg} if seg else {}),
+                    **({"elliptical": ell} if ell else {}),
+                    **({"moulding": g["moulding"]} if g.get("moulding") else {})})
     blocks = sorted((g["cuts"][0], g["cuts"][-1], g["sill_m"], g["top_m"]) for g in out)
     for a, b in zip(blocks, blocks[1:]):
         if a[1] > b[0] and a[3] > b[2] and b[3] > a[2]:
@@ -3988,12 +3993,27 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         need = {"ring_m", "keystone_top_m", "keystone_m"}
         # T-2531: optionally the ring's curved extrados (`extrados`, the ring `ring_proud_m`
         # before the wall) and a band over its crown (`band_m`, a belt course [foot, top])
-        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span"}:
-            raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m, band_m and "
-                             f"rise_over_span")
+        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span", "head", "moulding"}:
+            raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m, band_m, "
+                             f"rise_over_span, head and moulding")
+        # T-3134: the head a half ellipse rising `rise_over_span` of its span (1812's porch arch, the
+        # Levy print: flatter at the crown than a segment), and a narrow moulded ring of light stone
+        # round it and down its jambs, `steps_m` [inner, outer] broad and `proud_m` before the wall
+        if "head" in da and (da["head"] != "elliptical" or "rise_over_span" not in da):
+            raise ParamError("entrance_kit.arch.head is 'elliptical', rising rise_over_span of its span")
+        if "moulding" in da:
+            mo = da["moulding"]
+            if set(mo) != {"steps_m", "proud_m"} or len(mo["steps_m"]) != 2 or len(mo["proud_m"]) != 2:
+                raise ParamError("entrance_kit.arch.moulding takes steps_m and proud_m, [inner, outer] each")
+            (w1, w2), (p1, p2) = (float(x) for x in mo["steps_m"]), (float(x) for x in mo["proud_m"])
+            if not (0.02 <= w1 and 0.02 <= w2 and w1 + w2 <= float(da["ring_m"])) or not 0.0 < p2 < p1 <= 0.08 \
+                    or "extrados" in da:
+                raise ParamError(f"entrance_kit.arch.moulding {mo}: two steps at least 0.02 m broad inside the "
+                                 f"{da['ring_m']} m ring, the inner the prouder, at most 0.08 m (no curved extrados)")
         # T-2952: a broad porch arch whose head is a segment, not a half circle (1812's, the Levy
         # print: about 2.7 m across, rising about 0.8 m from its spring to its crown)
         if "rise_over_span" in da and (not 0.15 <= float(da["rise_over_span"]) <= 0.45 or "extrados" in da):
+            # T-3134: (a half ellipse's rise is a semi-axis, the same bounds)
             raise ParamError("entrance_kit.arch.rise_over_span: a segmental head rising 0.15-0.45 of its span, "
                              "in a voussoir block (no curved extrados)")
         if not 0.15 <= float(da["ring_m"]) <= 0.6:
@@ -4006,6 +4026,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                               "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
                               "keystone_m": tuple(float(x) for x in da["keystone_m"]),
                               **({"rise_over_span": float(da["rise_over_span"])} if "rise_over_span" in da else {}),
+                              **({"head": da["head"]} if "head" in da else {}),
+                              **({"moulding": {k: [float(x) for x in da["moulding"][k]] for k in ("steps_m", "proud_m")}}
+                                 if "moulding" in da else {}),
                               **({"extrados": "curved", "ring_proud_m": float(da["ring_proud_m"])}
                                  if "extrados" in da else {})})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
@@ -4211,6 +4234,27 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit.side_light {sl}: a light 0.5-1.5 m across beside a 0.15-0.5 m pier, "
                              f"its sill 0.3-1.5 m up, leaving the door 1.0 m of the {door_w} m mouth")
         door_kit["side_light"] = {"width_m": lw, "pier_m": pw, "sill_m": ls}
+    # T-3134: under such a mouth a heavy moulded transom beam `depth_m` deep (a cap and a bead,
+    # each [high, proud]), and the fanlight over it parted by two narrow columns of small panes
+    # (`width_m` between their posts, `rows` panes up), over the leaves' meeting and the pier
+    if "transom_beam" in door_kit_in:
+        tb = door_kit_in["transom_beam"]
+        if "side_light" not in door_kit or not isinstance(tb, dict) or set(tb) != {"depth_m", "cap_m", "bead_m"}:
+            raise ParamError("entrance_kit.transom_beam takes depth_m, cap_m and bead_m, under a side-lit mouth")
+        dp, cap, bead = float(tb["depth_m"]), [float(x) for x in tb["cap_m"]], [float(x) for x in tb["bead_m"]]
+        ros = float(door_arch.get("rise_over_span", 0.5))
+        if not 0.07 <= dp <= 0.4 or cap[0] + bead[0] > dp or not 0.0 < cap[1] <= 0.08 or not 0.0 < bead[1] <= 0.08 \
+                or door_h - door_w * ros - dp < 2.0:
+            raise ParamError(f"entrance_kit.transom_beam {tb}: a beam 0.07-0.4 m deep holding its cap and bead, "
+                             f"each at most 0.08 m proud, leaving the leaves 2.0 m under it")
+        door_kit["transom_beam"] = {"depth_m": dp, "cap_m": cap, "bead_m": bead}
+    if "fanlight_columns" in door_kit_in:
+        fc = door_kit_in["fanlight_columns"]
+        if "side_light" not in door_kit or not isinstance(fc, dict) or set(fc) != {"width_m", "rows"} \
+                or not 0.1 <= float(fc["width_m"]) <= 0.5 or not 1 <= int(fc["rows"]) <= 8:
+            raise ParamError("entrance_kit.fanlight_columns takes width_m (0.1-0.5 m) and rows (1-8), over a "
+                             "side-lit mouth")
+        door_kit["fanlight_columns"] = {"width_m": float(fc["width_m"]), "rows": int(fc["rows"])}
     # T-2910: a loggia behind the arch (1801's, the Taylor photograph): a room `v_m` [from, to]
     # along the front and `depth_m` behind its face, its floor the door's, a flat ceiling
     # `ceiling_m` over it, the porch door in its back wall; and `side_arch`, a round arch
@@ -4307,7 +4351,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             door_kit["cheek_form"]["foot_block_m"] = fb
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
-        if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \
+        if not isinstance(cf, dict) or cf.get("kind") != "swept" \
+                or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
+                                                                             "flare", "newel"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -4318,7 +4364,25 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not 0.0 <= float(cf["head_m"]) <= 0.6 or not 0.3 <= float(cf["foot_m"]) <= 1.2 or not 0.2 <= float(cf["block_m"]) <= 1.0:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
-        door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()}
+        door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
+                                  if k not in ("flare", "newel")}
+        # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
+        # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
+        # stair, the Levy print)
+        if "flare" in cf:
+            fl = cf["flare"]
+            if set(fl) != {"side", "out_m"} or fl["side"] != "right" or not 0.1 <= float(fl["out_m"]) <= 1.2:
+                raise ParamError("entrance_kit.cheek_form.flare is {side: 'right', out_m 0.1-1.2 m}")
+            door_kit["cheek_form"]["flare"] = {"side": "right", "out_m": float(fl["out_m"])}
+        if "newel" in cf:
+            nw = cf["newel"]
+            if set(nw) != {"width_m", "cap_m", "knob_m"} or not 0.3 <= float(nw["width_m"]) <= 0.8 \
+                    or not 0.04 <= float(nw["cap_m"][0]) <= 0.25 or not 0.0 <= float(nw["cap_m"][1]) <= 0.1 \
+                    or not 0.0 < float(nw["knob_m"]) <= 0.4:
+                raise ParamError("entrance_kit.cheek_form.newel takes width_m 0.3-0.8, cap_m [0.04-0.25 high, "
+                                 "0-0.1 over] and knob_m to 0.4")
+            door_kit["cheek_form"]["newel"] = {"width_m": float(nw["width_m"]),
+                                               "cap_m": [float(x) for x in nw["cap_m"]], "knob_m": float(nw["knob_m"])}
     # T-2369: a stoop between iron rails has no stone cheeks, and a door in a vestibule's
     # mouth stands deeper in its wall than the kit's outer leaf
     if "cheeks" in door_kit_in:

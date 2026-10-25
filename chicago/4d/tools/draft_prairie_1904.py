@@ -664,6 +664,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     # a service-kind building that is no one's stable names its own use (sheet 20's 16th Street station)
     use = frow.get("use") if kind == "service" else None
     front_use = use
+    # a front that is no house names its own use too (1605-1613 Indiana's ice-cream works,
+    # rising on the target date: T-3130), with the dated sources that rule it beside the sheet
+    house_use = frow.get("use") if kind == "house" else None
     # one of several service buildings on a lot names its own id suffix and, if it is no one's
     # stable, its use (2140's three-storey alley building beside its stable)
     svc = frow.get("services", {}).get(cp.get("id"), {}) if kind == "service" else {}
@@ -901,7 +904,13 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         name = f"{label} {street[1]} — {who}{fam_name} (district draft; refined by {', '.join(refined_by)})"
         reading = cp.get('reading_1911', '')
         ruling = (f or {}).get('decision_1904', 'present_as_mapped')
-        function = _attr("residence", "inferred", plate["function_note"], [src]) if plate else _attr(
+        if house_use:
+            name = f"{label} {street[1]} — {house_use['name']} (district draft; refined by {', '.join(refined_by)})"
+        function = _attr(house_use["function"], "inferred",
+                         f"The 1911 sheet reads '{reading}'. {house_use['note']} "
+                         f"Carried to 1904 on the {cen} census ruling ({ruling}).",
+                         [src] + [s_ for s_ in house_use.get("sources", []) if s_ != src]) if house_use else _attr(
+                         "residence", "inferred", plate["function_note"], [src]) if plate else _attr(
                          "residence", "inferred",
                          f"The 1911 sheet marks the building 'D' (dwelling): '{reading}'. "
                          f"Carried to 1904 on the {cen} census ruling ({ruling})." if "(D)" in reading else
