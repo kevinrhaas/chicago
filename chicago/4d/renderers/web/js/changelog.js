@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2291, ts: '2026-10-25T20:39:44.660Z', date: 'Oct 25, 2026, 3:39 PM CT', title: '1801 Prairie\'s round corner bay, from its 1965 photograph', kind: 'improvement',
+    items: [
+      'The W. W. Kimball house at 1801 Prairie now turns its south-west corner in a two-storey round bay, one window a storey under a pierced stone balcony, as Harold Allen\'s 1965 HABS photograph shows it.',
+      'The gabled pavilion beside it is narrower, its paired windows and carved gable centred on its face.',
+    ] },
   { v: 2290, ts: '2026-10-25T20:08:01.384Z', date: 'Oct 25, 2026, 3:08 PM CT', title: 'Glessner House signed off against its photographs', kind: 'improvement',
     items: [
       'The window over the great arch on 18th Street is now one wide opening, as the c. 1887 print and both HABS photographs show it. It had been built as three lights split by stone piers.',
