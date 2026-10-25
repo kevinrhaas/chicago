@@ -656,8 +656,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # draft on `prairie_draft` in its works shell, emitted through generators/draft_emit.py, so
 # restaling on that archetype's own rows and on none of the shared ones above.
 #
+# 989 -> 990 on 2026-10-25 (T-3011): Indiana Avenue's east frontage from 18th to 20th Street,
+# twenty-two background houses as one `site` record on `prairie_draft`, emitted through
+# generators/draft_emit.py, so restaling on that archetype's own rows and on none of the
+# shared ones above.
+#
 STATED = {
-    "assets": 989,
+    "assets": 990,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
