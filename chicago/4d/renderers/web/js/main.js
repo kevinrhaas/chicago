@@ -2102,7 +2102,10 @@ async function boot() {
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
-    collectViewBackings: inspectionLod && detailLevel!=='full',
+    // T-3012: every tier collects them now, Full too (refreshGlessnerOcclusion says
+    // why). Balanced draws without the filter but keeps them, because a Balanced ->
+    // Light switch keeps the same asset and batches and Light filters with them.
+    collectViewBackings: inspectionLod,
     // Balanced and Light share the reduced asset and its batches. Keep their
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
@@ -2278,7 +2281,18 @@ async function boot() {
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
     glessnerOcclusion?.dispose();glessnerOcclusion=null;
-    if (!inspectionLod || detailLevel!=='light') return;
+    // T-3012: Full as well as Light. From Calumet's east walk at 20th, looking north,
+    // Glessner stands about 290 m off behind the Calumet houses and their elms, in the
+    // frustum and hidden from it, and its full master still went to the colour pass
+    // whole: 1,421,694 of the frame's 4,739,066 triangles against Full's 4,600,000. The
+    // filter is the one Light has carried since T-2227, unchanged: a piece is left out
+    // only when its whole box projects inside one opaque building triangle and behind
+    // it, and the sun's pass is not filtered. With it, 2,921,468. Filter off against on
+    // at eight stands, five of them round Glessner: seven pixel-identical, one with 3
+    // pixels of 1,024,000 a few levels apart on its shaded granite. Costs about 8 MB of
+    // heap for Full's backing triangles. Balanced shares Light's asset and stands inside
+    // its ceiling without it. Receipts: docs/RESEARCH/calumet-walk-budget-3012/.
+    if (!inspectionLod || detailLevel==='balanced') return;
     const batches=[...buildings.batches];
     for(const group of [railway.group,terrain.group,streets.group])
       group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
@@ -2952,7 +2966,7 @@ async function boot() {
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             shadowCasters,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
-            collectViewBackings: level!=='full',
+            collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
