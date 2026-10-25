@@ -1146,6 +1146,12 @@
       "asset": "gltf/livery_2123_indiana__draft_1904.glb"
     },
     {
+      "id": "livery_2129_indiana",
+      "name": "2129 S. Indiana Avenue — Bane Brothers' livery stable at 2129-2131 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/livery_2129_indiana.json",
+      "asset": "gltf/livery_2129_indiana__draft_1904.glb"
+    },
+    {
       "id": "mark_kimball_house_2108_prairie",
       "name": "2108 Prairie Avenue — Mark Kimball compact brick house (district draft; refined by T-1921)",
       "sidecar": "sidecars/1904/mark_kimball_house_2108_prairie.json",

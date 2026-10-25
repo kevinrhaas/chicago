@@ -3255,6 +3255,16 @@
       "phase_id": "draft_1904",
       "structure_id": "livery_2123_indiana"
     },
+    "livery_2129_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 239048,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "6dd2517ed8d2bb55493f73b613ce7a4674ad97dcfe0c29ee8dd3caaef6572949",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "livery_2129_indiana"
+    },
     "log_jail__log_1833.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

@@ -921,9 +921,11 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          [src])
     elif use:
         name = f"{where} — {use['name']} (district draft; refined by {', '.join(refined_by)})"
+        # T-3013: a use a directory names (2129's livery in the 1904 Blue Book) cites it beside the sheet
         function = _attr(use["function"], "inferred",
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. " + (cp.get("note_1904") or "")
-                         + f" Carried to 1904 on the {cen} census ruling ({(f or {}).get('decision_1904')}).", [src])
+                         + f" Carried to 1904 on the {cen} census ruling ({(f or {}).get('decision_1904')}).",
+                         [src] + use.get("sources", []))
     elif join:
         # one building on two lots: both halves' readings, and the ruling that makes them one
         _, ocp = polys[b["census_ids"][-1]]
