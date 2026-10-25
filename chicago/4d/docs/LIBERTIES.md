@@ -1098,6 +1098,63 @@ rooms.
 **Recorded:** 2026-08-11.
 **Resolved:** 2026-10-23 (T-2385): Gifford’s newly adopted whole-building drawing supersedes this text-only two-storey/roof reading. The historical entry is retained verbatim here. Unsettled footprint, height, paint and gallery decisions continue in L-tremont-corner-elevations-2385; this resolves no image-match ticket.
 
+### L-draft-district-background-3011 — Indiana Avenue's east frontage, 18th to 20th Street, stood up as one reconstructed background row where the sheet that draws it is not in hand
+
+**Covered until T-3151 retired the record:** `indiana_east_frontage_18th_20th_background_row.draft_1904.position`, `indiana_east_frontage_18th_20th_background_row.draft_1904.footprint`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.stories`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.construction`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_plan`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_elevation`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft`
+**Decision:** the last piece of the district's background (T-3011, piece 4 of T-2983). The
+background census (`data/components/prairie_1904/background_census.json`) ranks the Indiana half
+of the 18th-20th block first of everything behind Prairie Avenue: seen from 48 of the avenue's
+stands, half its ground in view. It is the one face of the district with no 1904 lots, because
+Sanborn 1911 vol. 3 **sheet 27**, which draws it, is not among the committed scans (the 1904 grid
+carries Indiana's east line straight between sheets 20 and 35 and leaves the face unlotted). Left
+bare, the walks of Prairie's 18th-20th block look west past Glessner's and Kimball's stables onto
+an empty field where a built avenue stood. So the face is drafted as **one record, a row of 22
+houses**, and every number in it is a reconstruction bounded by the drafts already standing on the
+two neighbouring Indiana faces:
+- **Presence is inferred, from a dated source.** The 1904 Blue Book (`chicago_blue_book_1904`)
+  seats households at ten numbers on this face: 1813, 1815, 1819, 1821, 1825, 1829 and 1833, and
+  1901, 1921 and 1933. It lists selected households only, so the numbers it omits (1801-1811,
+  1835-1899, the rest of the 1900s) are not thereby empty, and the row fills them by the same rule.
+- **The split.** The face is divided where the same block's Prairie face turns from 1834 to 1900
+  (122.3 m south of 18th Street). The 1800s half, where the Blue Book lists a run of consecutive odd
+  numbers, each its own household, is a row of 15 houses re-stood from the 20th-21st face's 3B row
+  (2007-2027, consecutive numbers on lots of about 8 m, sheet 35). The 1900s half, where it lists
+  three households in 122 m, is 7 freestanding houses re-stood from the 16th-18th face (1601-1703,
+  sheet 20).
+- **Each house** is its model's drafted main body (depth, width, storeys, roof) at its model's
+  setback from the street line, centred on its model's lot width, the lots stretched by one common
+  factor per half (1.045 and 1.052) so they meet the corners 1.0 m inside 18th and 20th Streets.
+  Rear ranges, porches, bays and alley stables are not carried: the row is what the avenue's walks
+  see over the alley, not the lots' back yards.
+- **Material, storeys and dress** are the district draft's default family: brick (18 of the 23
+  neighbouring drafts), the commonest three storeys (15 of 23) as the record's own count with each
+  house keeping its model's, 3.9/3.5/3.3/3.1 m storeys over a 1.4 m principal floor, two front bays
+  and a north door.
+- **The Blue Book numbers are placed** at about 2.9 m a number south of 18th Street in the 1800s and
+  3.5 m a number from the half-block in the 1900s, as the Prairie face of the block prints its own
+  (1834 ends 116.7 m south of 18th, 1900 begins at 123.5 m, 1936 ends at 245 m); each house's row of
+  the plan names the numbers that fall on it. That placement is good to a lot either way, and no
+  house is said to BE a listed household's.
+**What is invented:** every house's size, height, roof, material, setback and lot; the number of
+houses; that the 1800s half was a row and the 1900s half freestanding; and everything on the
+numbers the Blue Book does not list. Not invented: that households lived at those ten numbers in
+1904, and where the face's street and corner lines run.
+**Also ruled here, open:** the census's other unparcelled target, the ground between Prairie's east
+lots (16th-18th) and the Illinois Central (`unparcelled:blk_prairie_ic_16_18`), is about 150 m2 of
+slivers where E. 18th Street's north line curves into Calumet Avenue beside 1729's lot and meets the
+railway's line. Sheet 20 draws nothing on it; the lots themselves run back to the right-of-way. It
+is recorded open in the rules (`open_ground`, `data/components/prairie_1904/draft_prairie_1904.json`),
+which is not a liberty but a reading.
+**How to resolve:** T-3145 ingests sheet 27, lots the face, traces and censuses it as sheets 20w
+and 35w were, and replaces the row house by house; the Blue Book's ten numbers then go to their own
+lots.
+**Ticket:** T-3011 (piece 4 of T-2983, the district's background).
+**Review:** `data/components/prairie_1904/draft_prairie_1904.json` (the site row and its plan's
+per-house `from`), `docs/RESEARCH/district-background-3011/README.md`.
+**Recorded:** 2026-10-25 (T-3011).
+**Resolved:** 2026-10-25, by the reading this entry asked for. T-3150 ingested Sanborn 1911 sheet 27 and read the face's 26 lots into the 1904 grid; T-3151 traced and censused its buildings as sheet `27w` and replaced the row with 35 drafts read off the sheet, house by house and stable by stable (`L-draft-district-background-3151`). The record `indiana_east_frontage_18th_20th_background_row` and its masters are gone, and the Blue Book's ten numbers now stand on their own lots: each falls on a lot whose 1911 front is a dwelling.
+
+
 ## Per-subject liberties
 
 ### L4 — Sauganash Hotel: the gallery question, and how it was decided
@@ -14492,7 +14549,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 174 structures (173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 194 structures (174 until T-3151, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while T-3011's background row, which they replace, leaves it; 173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -33039,61 +33096,6 @@ the cut's depth and how the moulding turns the corner.
 **Ticket:** T-3124 (T-2388 stays open; this does not discharge its every-building, every-picture obligations).
 **Recorded:** 2026-10-25.
 
-### L-draft-district-background-3011 — Indiana Avenue's east frontage, 18th to 20th Street, stood up as one reconstructed background row where the sheet that draws it is not in hand
-
-**Covers:** `indiana_east_frontage_18th_20th_background_row.draft_1904.position`, `indiana_east_frontage_18th_20th_background_row.draft_1904.footprint`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.stories`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.construction`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_plan`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_elevation`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft`
-**Decision:** the last piece of the district's background (T-3011, piece 4 of T-2983). The
-background census (`data/components/prairie_1904/background_census.json`) ranks the Indiana half
-of the 18th-20th block first of everything behind Prairie Avenue: seen from 48 of the avenue's
-stands, half its ground in view. It is the one face of the district with no 1904 lots, because
-Sanborn 1911 vol. 3 **sheet 27**, which draws it, is not among the committed scans (the 1904 grid
-carries Indiana's east line straight between sheets 20 and 35 and leaves the face unlotted). Left
-bare, the walks of Prairie's 18th-20th block look west past Glessner's and Kimball's stables onto
-an empty field where a built avenue stood. So the face is drafted as **one record, a row of 22
-houses**, and every number in it is a reconstruction bounded by the drafts already standing on the
-two neighbouring Indiana faces:
-- **Presence is inferred, from a dated source.** The 1904 Blue Book (`chicago_blue_book_1904`)
-  seats households at ten numbers on this face: 1813, 1815, 1819, 1821, 1825, 1829 and 1833, and
-  1901, 1921 and 1933. It lists selected households only, so the numbers it omits (1801-1811,
-  1835-1899, the rest of the 1900s) are not thereby empty, and the row fills them by the same rule.
-- **The split.** The face is divided where the same block's Prairie face turns from 1834 to 1900
-  (122.3 m south of 18th Street). The 1800s half, where the Blue Book lists a run of consecutive odd
-  numbers, each its own household, is a row of 15 houses re-stood from the 20th-21st face's 3B row
-  (2007-2027, consecutive numbers on lots of about 8 m, sheet 35). The 1900s half, where it lists
-  three households in 122 m, is 7 freestanding houses re-stood from the 16th-18th face (1601-1703,
-  sheet 20).
-- **Each house** is its model's drafted main body (depth, width, storeys, roof) at its model's
-  setback from the street line, centred on its model's lot width, the lots stretched by one common
-  factor per half (1.045 and 1.052) so they meet the corners 1.0 m inside 18th and 20th Streets.
-  Rear ranges, porches, bays and alley stables are not carried: the row is what the avenue's walks
-  see over the alley, not the lots' back yards.
-- **Material, storeys and dress** are the district draft's default family: brick (18 of the 23
-  neighbouring drafts), the commonest three storeys (15 of 23) as the record's own count with each
-  house keeping its model's, 3.9/3.5/3.3/3.1 m storeys over a 1.4 m principal floor, two front bays
-  and a north door.
-- **The Blue Book numbers are placed** at about 2.9 m a number south of 18th Street in the 1800s and
-  3.5 m a number from the half-block in the 1900s, as the Prairie face of the block prints its own
-  (1834 ends 116.7 m south of 18th, 1900 begins at 123.5 m, 1936 ends at 245 m); each house's row of
-  the plan names the numbers that fall on it. That placement is good to a lot either way, and no
-  house is said to BE a listed household's.
-**What is invented:** every house's size, height, roof, material, setback and lot; the number of
-houses; that the 1800s half was a row and the 1900s half freestanding; and everything on the
-numbers the Blue Book does not list. Not invented: that households lived at those ten numbers in
-1904, and where the face's street and corner lines run.
-**Also ruled here, open:** the census's other unparcelled target, the ground between Prairie's east
-lots (16th-18th) and the Illinois Central (`unparcelled:blk_prairie_ic_16_18`), is about 150 m2 of
-slivers where E. 18th Street's north line curves into Calumet Avenue beside 1729's lot and meets the
-railway's line. Sheet 20 draws nothing on it; the lots themselves run back to the right-of-way. It
-is recorded open in the rules (`open_ground`, `data/components/prairie_1904/draft_prairie_1904.json`),
-which is not a liberty but a reading.
-**How to resolve:** T-3145 ingests sheet 27, lots the face, traces and censuses it as sheets 20w
-and 35w were, and replaces the row house by house; the Blue Book's ten numbers then go to their own
-lots.
-**Ticket:** T-3011 (piece 4 of T-2983, the district's background).
-**Review:** `data/components/prairie_1904/draft_prairie_1904.json` (the site row and its plan's
-per-house `from`), `docs/RESEARCH/district-background-3011/README.md`.
-**Recorded:** 2026-10-25 (T-3011).
-
 ### L-k07-1812-stair-foot-3144 — 1812 Prairie's stair: the south cheek drawn in to its newel and the north cheek pierced under its coping, to the Levy photograph
 
 **Decision:** the stair of George H. Wheeler's house at 1812 Prairie keeps its landing, its 2.05 m
@@ -33262,3 +33264,95 @@ range is a rectangle, so it is built square. The windows on both ranges.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-3143.
 **Recorded:** 2026-10-25.
+
+### L-kimball-1801-round-bay-3108 — 1801 Prairie's south-west corner rebuilt as a two-storey round bay on a cut-back corner, the pavilion's face narrowed between the sheet's and the photographs' widths
+
+**Decision:** the front's south-west corner of the W. W. Kimball house at 1801 Prairie (T-3108,
+piece 2 of T-3003) is the two-storey round bay Harold Allen's HABS photograph of June 1965
+(`habs_kimball_photo_01_sw_1965`) shows between the gabled pavilion and the south wall, where the
+build ran the pavilion on to a 0.44 m chamfer. **What is read, not invented.** The bay's being
+there, round, two storeys to the main cornice, one light a storey, under a stone balustrade
+pierced in a lattice; the corner cut back under it, which the 1911 sheet 28 trace
+(`s28fp-1801-b1`) draws about 1.0-1.4 m back over about 2 m (the face holding to v 9.26, the line
+meeting the south wall at about u 19.2); the gable standing on the face's axis over the paired
+lights. **What is invented or held by the kit.** The pavilion's chamfer is cut 1.3 m along the
+front and 1.4 m behind it, and the round is a K08 bow standing on that cut (`on_chamfer`), chord
+1.684 m rising 0.5 m, a little fuller than a quarter round off the face so its windows' recesses close inside it; its storeys (5.0 and 3.7 m, to 8.7 m)
+and its transomed sash are the front bow's, its balustrade the front bow's in two panels. **The
+face's width is a compromise, not a reading.** The sheet's trace gives the face about 2.4 m; both
+photographs read 3.4-3.7 m across it and the round's near part; the face is built 2.85 m
+(v 6.85-9.7), its pairs 1.5 m clear (they were 2.0 m), so through the Taylor camera it renders
+x 1227-1325 against the print's 1230-1332. The gable is laid on the whole face at pitch 2.49 (it
+was 2.04 on a gable inset 0.41 m) so that its apex keeps the height T-3015 matched to the Taylor
+print. Over the round the chamfer's face rises blank to the gable's shoulder: the photograph's
+small light there is open, since K08's sash on the cant rendered with its recess occluded. The
+south wall's downpipe by the front corner is gone with the corner, where a K01 pipe may not stand.
+**HABS photograph 1's camera is re-solved on the rebuilt corner and does not fit the whole front.**
+Its eye and heading were fitted to the pavilion's rows and edges, the round and the south-east
+cornice (rms 11.8 px); the loggia's arch then renders about 117 px north of the print's, the
+round's rows about 20 px under it and the finial about 69 px over it. The two photographs disagree
+about the storey heights and the front's layout north of the pavilion; the build keeps the period
+print's.
+**How to resolve:** a measured elevation or plan of the house; or a third photograph of the
+front from the south-west at a known station.
+**Ticket:** T-3108.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3108).
+
+### L-glessner-great-arch-window-3140 — Glessner's window over the great arch is one opening; its sash is the kit's
+
+**Decision:** the `glessner_house` window over the great arch on 18th Street (W 97.7-110.1, 19.75-22.80 ft ng)
+is one opening, where it had been built as three lights between two stone piers. Its span and heights are
+unchanged.
+**What is read, not invented.** That it is one opening. The c. 1887 Cornell print, taken as the house was
+finished, shows it unglazed: one dark opening under one lintel, with no pier in it. HABS photograph 1 (1963)
+and HABS photograph 15 (1965) show the same opening filled with a sash of small panes in two rows, still
+with no pier. Three pictures across 78 years agree, so the form is attested.
+**What is invented.** The sash: two one-over-one double-hung units on a timber mullion, the kit's for an
+opening this wide. The 1887 print shows no sash and the 1963 one is a later sash of small panes, so neither
+is copied.
+**How to resolve:** a photograph of 18th Street between 1887 and about 1930 that shows the sash.
+**Ticket:** T-3140 (Glessner's photographic sign-off). Readings: `docs/RESEARCH/glessner-signoff-T-3140/`.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3140).
+
+### L-draft-district-background-3151 — Indiana Avenue's east frontage, 18th to 20th Street, and the row at 213-217 East Eighteenth Street, stood up as drafts read off Sanborn 1911 sheet 27
+
+**Covers:** `house_1801_indiana.draft_1904.form.draft_elevation`, `house_1801_indiana.draft_1904.form.draft`, `house_1803_indiana.draft_1904.form.draft_elevation`, `house_1803_indiana.draft_1904.form.draft`, `house_1803_indiana_shed.draft_1904.form.draft_elevation`, `house_1803_indiana_shed.draft_1904.form.draft`, `house_1805_indiana.draft_1904.form.draft_elevation`, `house_1805_indiana.draft_1904.form.draft`, `house_1805_indiana_shed.draft_1904.form.draft_elevation`, `house_1805_indiana_shed.draft_1904.form.draft`, `house_1807_indiana.draft_1904.form.draft_elevation`, `house_1807_indiana.draft_1904.form.draft`, `house_1807_indiana_shed.draft_1904.form.draft_elevation`, `house_1807_indiana_shed.draft_1904.form.draft`, `house_1809_indiana.draft_1904.form.draft_elevation`, `house_1809_indiana.draft_1904.form.draft`, `house_1809_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1809_indiana_coach_house.draft_1904.form.draft`, `house_1813_indiana.draft_1904.form.draft_elevation`, `house_1813_indiana.draft_1904.form.draft`, `house_1813_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1813_indiana_coach_house.draft_1904.form.draft`, `house_1815_indiana.draft_1904.form.draft_elevation`, `house_1815_indiana.draft_1904.form.draft`, `house_1815_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1815_indiana_coach_house.draft_1904.form.draft`, `house_1819_indiana.draft_1904.form.draft_elevation`, `house_1819_indiana.draft_1904.form.draft`, `house_1821_indiana.draft_1904.form.draft_elevation`, `house_1821_indiana.draft_1904.form.draft`, `house_1825_indiana.draft_1904.form.draft_elevation`, `house_1825_indiana.draft_1904.form.draft`, `house_1829_indiana.draft_1904.form.draft_elevation`, `house_1829_indiana.draft_1904.form.draft`, `house_1829_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1829_indiana_coach_house.draft_1904.form.draft`, `house_1833_indiana.draft_1904.form.draft_elevation`, `house_1833_indiana.draft_1904.form.draft`, `house_1833_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1833_indiana_coach_house.draft_1904.form.draft`, `house_1837_indiana.draft_1904.form.draft_elevation`, `house_1837_indiana.draft_1904.form.draft`, `house_1839_indiana.draft_1904.form.draft_elevation`, `house_1839_indiana.draft_1904.form.draft`, `house_1901_indiana.draft_1904.form.draft_elevation`, `house_1901_indiana.draft_1904.form.draft`, `house_1901_indiana_shed.draft_1904.form.draft_elevation`, `house_1901_indiana_shed.draft_1904.form.draft`, `house_1909_indiana.draft_1904.form.draft_elevation`, `house_1909_indiana.draft_1904.form.draft`, `house_1909_indiana_shed.draft_1904.form.draft_elevation`, `house_1909_indiana_shed.draft_1904.form.draft`, `house_1913_indiana.draft_1904.form.draft_elevation`, `house_1913_indiana.draft_1904.form.draft`, `house_1913_indiana_shed.draft_1904.form.draft_elevation`, `house_1913_indiana_shed.draft_1904.form.draft`, `house_1915_indiana.draft_1904.form.draft_elevation`, `house_1915_indiana.draft_1904.form.draft`, `house_1917_indiana.draft_1904.form.draft_elevation`, `house_1917_indiana.draft_1904.form.draft`, `house_1921_indiana.draft_1904.form.draft_elevation`, `house_1921_indiana.draft_1904.form.draft`, `house_1921_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1921_indiana_coach_house.draft_1904.form.draft`, `house_1931_indiana.draft_1904.form.draft_elevation`, `house_1931_indiana.draft_1904.form.draft`, `house_1931_indiana_rear_dwelling.draft_1904.form.draft_elevation`, `house_1931_indiana_rear_dwelling.draft_1904.form.draft`, `house_213_e18th.draft_1904.form.draft_elevation`, `house_213_e18th.draft_1904.form.draft`
+**Decision:** the face T-3011 stood up as one reconstructed row while its sheet was not in hand
+(T-3151, piece 2 of T-3145). T-3150 ingested Sanborn 1911 vol. 3 sheet 27 and read the face's 26
+lots into the 1904 grid; this pass reads the buildings on them off the same scan in a census of
+their own (`data/components/prairie_1904/edges_census_s27w.json`), traces them with the T-2327
+tool as sheet `27w`, and drafts them under the rules of `L-draft-district-background-3008`, whose
+"What is invented" holds here word for word. 22 houses and 13 alley buildings replace the row's 22
+re-stood houses. Robinson 1886 plate 10's page ends at 18th Street, so, as on 35w, the 1911 sheet is
+the only plan and a building's presence in 1904 is inferred from it alone (study ruling 11).
+**The Blue Book's households go to their lots.** The 1904 Blue Book (`chicago_blue_book_1904`, T-3011's
+reading) lists households at 1813 (three), 1815, 1819, 1821, 1825, 1829, 1833 (two), 1901, 1921 and
+1933. Each number falls on a lot of the 1904 grid whose 1911 front is a dwelling: 1813 to 1833 and
+1901 each on its own lot, 1921 on the 1921-1923 pair's, 1933 on the 1931-1933 pair's. That is a
+dated household at the number, not a description of the house, and no house's form is taken from it.
+**What is invented here, beyond the 3008 list.** The three pairs on one lot each (1917-1919,
+1921-1923, 1931-1933) and the row of three frame flats at 213-217 East Eighteenth Street stand as one
+record each, the sheet's one outline, until T-1946 parts them; the trace parts each at its party
+walls into a body and ranges, and the draft holds the ranges at the houses' printed storeys
+(`rear2B`, `rear3`, `rear3B`). The blue strips along the fronts of 1801-1807, 1821, 1825, 1913, 1915
+and 1921-1923 stand as stone fronts on brick houses. The two-storey brick GARAGE behind 1813 is
+backcast as a stable (as T-1841 rules on sheet 28), and the SHEDS behind 1803-1807, the BARN behind
+1815 and the PEDDLERS' building behind 1829 stand as the two-storey brick outbuildings the sheet
+draws. This copy prints its frame wash darker than sheets 20's and 28's, so the tracer reads frame
+at r > 150 on this scan alone (`frame_r_min`); every other sheet re-derives byte for byte.
+**What is kept out.** 1911 shops whose 1904 state is not read: the one-storey stores built forward
+of 1801 and 1807 to the street line and the two stores at 205-207 East Eighteenth Street against
+1801's rear wall are kept out of those houses' drafts by depth (`keep_out`, `from_street_m`), and the
+basement cigar factory at 1921-1923 is not carried back. Two frontages are ruled `phase_unresolved`,
+traced and not drafted: the one-storey P.O. sub-station across 1925-1929 and the one-storey corner
+store at 1935-1937 with the 4B frame flats at 216-216a East Twentieth Street behind it. The two
+unnumbered lots between 1839 and 1901, open on the sheet, stay open ground.
+**How to resolve:** T-1946 (the side-street and rail-side background) refines each record in place
+under the same id; T-3154 reads 1925-1929 and 1935-1937 for 1904.
+**Ticket:** T-3151 (piece 2 of T-3145).
+**Review:** `data/components/prairie_1904/edges_census_s27w.json`,
+`data/traces/prairie_1904_footprints_s27w.json`, `docs/RESEARCH/sheet-27-footprints-3151/README.md`.
+**Recorded:** 2026-10-25 (T-3151).

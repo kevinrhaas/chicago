@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2292, ts: '2026-10-25T21:12:04.484Z', date: 'Oct 25, 2026, 4:12 PM CT', title: 'Indiana Avenue\'s 18th-20th block, house by house', kind: 'feature',
+    items: [
+      'Look west from Glessner\'s and Kimball\'s walks: the row of stand-in houses on Indiana Avenue between 18th and 20th Street is replaced by the houses the 1911 fire-insurance map draws there, each on its own lot. That is 22 houses, among them a stone-fronted row at 1801-1807 and three pairs of twin houses, plus three frame flats on 18th Street and 13 stables and sheds on the alley.',
+      'The ten addresses where the 1904 Blue Book lists households now each stand on their own lots. The post-office sub-station and the corner store at 20th Street are left open until someone finds what stood there in 1904.',
+    ] },
+  { v: 2291, ts: '2026-10-25T20:39:44.660Z', date: 'Oct 25, 2026, 3:39 PM CT', title: '1801 Prairie\'s round corner bay, from its 1965 photograph', kind: 'improvement',
+    items: [
+      'The W. W. Kimball house at 1801 Prairie now turns its south-west corner in a two-storey round bay, one window a storey under a pierced stone balcony, as Harold Allen\'s 1965 HABS photograph shows it.',
+      'The gabled pavilion beside it is narrower, its paired windows and carved gable centred on its face.',
+    ] },
+  { v: 2290, ts: '2026-10-25T20:08:01.384Z', date: 'Oct 25, 2026, 3:08 PM CT', title: 'Glessner House signed off against its photographs', kind: 'improvement',
+    items: [
+      'The window over the great arch on 18th Street is now one wide opening, as the c. 1887 print and both HABS photographs show it. It had been built as three lights split by stone piers.',
+      'All twelve photographs and drawings of Glessner House now match the model. The last small differences are recorded as within tolerance, each with what was measured.',
+    ] },
   { v: 2289, ts: '2026-10-25T19:34:24.312Z', date: 'Oct 25, 2026, 2:34 PM CT', title: 'Glessner House from 18th Street, back inside the full-detail budget', kind: 'fix',
     items: [
       'Nothing you can see changed: from 18th Street, west of Glessner House, the full-detail view no longer draws the court, south and east walls hidden behind the house\'s own north and west fronts.',
