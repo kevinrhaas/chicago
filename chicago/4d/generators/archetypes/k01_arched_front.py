@@ -986,6 +986,48 @@ def _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf):
     return n
 
 
+def _interlace_run(a, frame, s0, s1, b0, b1, il, seed, conf):
+    """T-3093: an interlace on one run [s0, s1] of a belt [b0, b1], two straps crossing as a
+    plait (1812's frieze, read at 3x on Levy's print: crossing straps where T-2819's rings had
+    stood for them). Each strap's centre line is a sine about the belt's middle, the second
+    the first's mirror, so they cross every half `wavelength_m`; each stands up to `proud_m`
+    before the belt and dips to a fifth of that at alternate crossings, the other strap over
+    it there, as a plait's straps pass over and under. The print's leaves between the straps
+    are not modelled. Returns the crossings."""
+    st, rp, mg = il["strap_m"], il["proud_m"], il["margin_m"]
+    wl, k = il["wavelength_m"], int(il["segments"])
+    d0 = BELT_PROUD_M - 0.005
+    yc = (b0 + b1) / 2
+    amp = (b1 - b0) / 2 - mg - st / 2
+    halves = max(1, round((s1 - s0) / (wl / 2)))
+    lam = 2 * (s1 - s0) / halves              # whole half waves on the run, so both ends cross
+    n = halves * k
+    for i in (0, 1):
+        sign = 1.0 if i == 0 else -1.0
+        ph = lambda s: 2 * math.pi * (s - s0) / lam
+        c = [(s0 + (s1 - s0) * j / n) for j in range(n + 1)]
+        mid = [(s, yc + sign * amp * math.sin(ph(s))) for s in c]
+        dep = [BELT_PROUD_M + rp * (0.6 + 0.4 * sign * math.cos(ph(s))) for s in c]
+        edges = []
+        for j, (s, y) in enumerate(mid):
+            sa, ya = mid[max(j - 1, 0)]
+            sb, yb = mid[min(j + 1, n)]
+            ts, ty = sb - sa, yb - ya
+            ln = math.hypot(ts, ty)
+            ns, ny = -ty / ln * st / 2, ts / ln * st / 2
+            edges.append(((s + ns, y + ny), (s - ns, y - ny)))
+        for j in range(n):
+            (u0, l0), (u1, l1) = edges[j], edges[j + 1]
+            e0, e1 = dep[j], dep[j + 1]
+            _face(a, "limestone_trim", frame, [(*l0, e0), (*l1, e1), (*u1, e1)], (0, 0, 1), seed, conf)
+            _face(a, "limestone_trim", frame, [(*l0, e0), (*u1, e1), (*u0, e0)], (0, 0, 1), seed, conf)
+            for (p0, p1), hint in (((u0, u1), (u0[0] - mid[j][0], u0[1] - mid[j][1], 0.0)),
+                                   ((l0, l1), (l0[0] - mid[j][0], l0[1] - mid[j][1], 0.0))):
+                _face(a, "limestone_trim", frame, [(*p0, d0), (*p1, d0), (*p1, e1)], hint, seed, conf)
+                _face(a, "limestone_trim", frame, [(*p0, d0), (*p1, e1), (*p0, e0)], hint, seed, conf)
+    return halves + 1
+
+
 def _panel_run(a, frame, s0, s1, b0, b1, pa, seed, conf):
     """T-2915: a band of sunk panels on one run of a belt: raised ribs on the belt's face, one
     along its bed, one along its top and one between each two rows, and in each row upright
@@ -1029,13 +1071,16 @@ def street_carved_bands(a, frame, bands, conf):
     for cb in bands:
         b0, b1 = cb["bed_m"], cb["top_m"]
         s0, s1 = cb["s_m"]
-        kind = "guilloche" if "guilloche" in cb else "panels"
+        kind = next(k for k in ("guilloche", "interlace", "panels") if k in cb)
         seed = a.instance("k01.wall.carved_band", "wall",
                           {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
                           {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
         if kind == "guilloche":
             n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n
+        elif kind == "interlace":
+            n = _interlace_run(a, frame, s0, s1, b0, b1, cb["interlace"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["crossings"] = n
         else:
             n = _panel_run(a, frame, s0, s1, b0, b1, cb["panels"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["panels"] = n
