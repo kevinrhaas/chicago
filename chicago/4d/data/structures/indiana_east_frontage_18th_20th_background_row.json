@@ -1,6 +1,6 @@
 {
   "id": "indiana_east_frontage_18th_20th_background_row",
-  "name": "1801-1935 Indiana Avenue — the east frontage, 18th to 20th Street, as a background row (district draft; refined by T-3145)",
+  "name": "1801-1935 Indiana Avenue — the east frontage, 18th to 20th Street, as a background row (district draft; refined by T-3151)",
   "aka": [
     "1801-1935 S. Indiana Avenue",
     "Indiana Avenue's east frontage, 18th to 20th Street"
@@ -15,7 +15,7 @@
     "note": "Dwellings: the 1904 Blue Book (the street-and-number list's Indiana Avenue section, about printed page 156; the item's OCR text, lines 24563-24597) seats households at ten numbers on this face, 1813, 1815, 1819, 1821, 1825, 1829 and 1833 in the 1800s and 1901, 1921 and 1933 in the 1900s, so houses stood along it at the target. The Blue Book lists selected households only, so a number it omits is not thereby empty, and it says nothing of the buildings themselves."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-3011, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3145 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3011). Sanborn 1911 vol. 3 sheet 27, the sheet that draws this face, is not among the committed scans (data/street_grid/1904.json carries Indiana's east line straight between sheets 20 and 35 and leaves the face unlotted), and the visibility census (data/components/prairie_1904/background_census.json) finds the ground seen from 48 Prairie stands, the most-seen target behind the avenue. So the face is drafted as ONE BACKGROUND ROW rather than left bare: 22 houses whose presence the Blue Book's ten households carry and whose every dimension is re-stood from the drafted houses of the neighbouring Indiana faces (the 16th-18th face off sheet 20, the 20th-21st face off sheet 35). T-3145 ingests sheet 27 and replaces the row house by house.",
+  "research_note": "A DISTRICT DRAFT (T-3011, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3151 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3011). Sanborn 1911 vol. 3 sheet 27, the sheet that draws this face, was not among the scans Glessner House supplied when this row was drafted; T-3150 has since fetched it from the Library of Congress, read Indiana's east line and the face's 26 lots off it into data/street_grid/1904.json, and left its buildings to T-3151, so the row still stands on the lots unread. The visibility census (data/components/prairie_1904/background_census.json) finds the ground seen from 48 Prairie stands, the most-seen target behind the avenue. So the face is drafted as ONE BACKGROUND ROW rather than left bare: 22 houses whose presence the Blue Book's ten households carry and whose every dimension is re-stood from the drafted houses of the neighbouring Indiana faces (the 16th-18th face off sheet 20, the 20th-21st face off sheet 35). T-3151 replaces the row house by house off sheet 27.",
   "phases": [
     {
       "id": "draft_1904",
@@ -29,12 +29,12 @@
         "note": "The 1904 Blue Book (published 1903, for 1904) puts households on the face at the target; the phase keeps the study's 1904-1911 window (study ruling 11), and its 1911 end is that window, not a sighting."
       },
       "position": {
-        "utm_e": 448377.038,
-        "utm_n": 4633947.582,
-        "rotation_deg": 179.356,
-        "symbolic_location": "The east frontage of Indiana Avenue from 18th to 20th Street, the Indiana half of the block whose Prairie half holds Glessner, Kimball and Keith: on Sanborn 1911 sheet 27, which is not in hand.",
+        "utm_e": 448377.108,
+        "utm_n": 4633947.603,
+        "rotation_deg": 179.318,
+        "symbolic_location": "The east frontage of Indiana Avenue from 18th to 20th Street, the Indiana half of the block whose Prairie half holds Glessner, Kimball and Keith: on Sanborn 1911 sheet 27, whose lots T-3150 read into the 1904 grid and whose buildings T-3151 reads.",
         "confidence": "reconstructed",
-        "note": "The rear corner of the main body (u -26.020, v -13.640 m from the building's front and southernmost faces), set from the corner at local (1278.47, -3462.15): Indiana Avenue's east line as the 1904 grid carries it between sheets 20 and 35 (data/street_grid/1904.json, ruling: carried straight), with its centre 10.06 m (66 ft) west of it; the row runs from 1.0 m inside 20th Street's measured north line to 1.0 m inside 18th Street's south line, and each house's front stands behind the street line by its model's own drafted setback. Good to the georeference and a lot either way. Rotation 179.356 degrees squares the plan to the avenue.",
+        "note": "The rear corner of the main body (u -26.020, v -13.640 m from the building's front and southernmost faces), set from the corner at local (1278.55, -3462.15): Indiana Avenue's east line as the 1904 grid reads it off sheet 27 (data/street_grid/1904.json, T-3150), with its centre 10.06 m (66 ft) west of it; the row runs from 1.0 m inside 20th Street's measured north line to 1.0 m inside 18th Street's south line, and each house's front stands behind the street line by its model's own drafted setback. Good to the georeference and a lot either way. Rotation 179.318 degrees squares the plan to the avenue.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the 1904 street grid's faces and the rules' site row by tools/draft_prairie_1904.py --check instead."
@@ -741,7 +741,7 @@
             "draft_label": {
               "pass": "T-3011",
               "refined_by": [
-                "T-3145"
+                "T-3151"
               ]
             },
             "v_toward": "south"
@@ -758,9 +758,9 @@
             "trace_building": null,
             "seed": 1469694543,
             "replaceable_by": [
-              "T-3145"
+              "T-3151"
             ],
-            "card": "District draft — refined by T-3145."
+            "card": "District draft — refined by T-3151."
           },
           "confidence": "reconstructed",
           "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",

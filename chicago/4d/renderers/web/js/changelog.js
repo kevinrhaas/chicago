@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2281, ts: '2026-10-25T14:48:44.986Z', date: 'Oct 25, 2026, 9:48 AM CT', title: 'Glessner House up close, back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Standing on Prairie Avenue or 18th Street near Glessner House, the 1904 scene at full detail drew up to 4.7 million triangles, over its 4.6 million budget. Part of that was the sunlight pass drawing the shadows of houses beside and behind the visitor, shadows the sun throws away from anything on screen. Full detail now skips those, as Light has done since October, and the closest view on Prairie draws 4.4 million. Nothing a visitor can see changes: at all seven views tested, the picture matches pixel for pixel.',
+    ] },
+  { v: 2280, ts: '2026-10-25T14:38:11.686Z', date: 'Oct 25, 2026, 9:38 AM CT', title: 'The missing map sheet for Indiana Avenue, 18th to 20th, is in', kind: 'change',
+    items: [
+      'The 1911 fire-insurance map sheet that draws Indiana Avenue between 18th and 20th Street was the one gap in the Prairie Avenue maps. It is now copied from the Library of Congress and lined up with the sheets on either side; where the three sheets meet they agree to within about two-thirds of a metre. Its 26 lots, 1801 to 1937 Indiana and 213 to 217 East 18th Street, are now on the 1904 street plan, and the avenue\'s east curb, walk and elms along the block follow the line the sheet draws instead of a straight guess between its neighbours. The far-off city behind the avenue is laid out again from the new lot widths. The houses on the block are still the reconstructed row; reading them off the sheet comes next.',
+    ] },
+  { v: 2279, ts: '2026-10-25T14:22:06.513Z', date: 'Oct 25, 2026, 9:22 AM CT', title: 'Photo-match work stops where a visitor would notice', kind: 'chore',
+    items: [
+      'A gap under about a foot, or a pixel offset, is now marked within tolerance instead of opening another ticket.',
+      'Runs no longer file their own follow-ups for houses already matched to photographs; each house gets one final sign-off.',
+    ] },
   { v: 2278, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: '1812 Prairie\'s front stair to Levy\'s photograph', kind: 'improvement',
     items: [
       '1812 Prairie\'s front stair now matches Albert Levy\'s photograph: the south side draws in towards its carved newel, and the north side is pierced by a row of small openings under its broad stone top.',

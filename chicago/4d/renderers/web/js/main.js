@@ -828,6 +828,16 @@ const DETAIL_DECLARED = {
   // and measured strings below are retained as the history of these rungs.
   full:     { triangles: 3470000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
+              // T-3146: Full as well as Light runs T-2529's sun-pass test
+              // (shadow-casters.js), unchanged: a structure piece is left out of
+              // the shadow map only when its whole swept shadow lies outside one
+              // plane of the view frustum. On Prairie 38 m east and 30 m south of
+              // Glessner looking at it, 4,677,248 -> 4,383,566 against 4,600,000;
+              // on 18th 45 m west and 32 m north, 4,601,509 -> 4,594,157 (the sun
+              // throws Glessner's shadow toward that camera, so it keeps casting).
+              // Every pixel of each held frame reads the same off and on.
+              // Receipts: docs/RESEARCH/glessner-close-budget-3146/.
+              castersTowardView: true,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
               // protects is the next version of this ticket". The archaeology

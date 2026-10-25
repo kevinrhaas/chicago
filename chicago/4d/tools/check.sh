@@ -791,7 +791,7 @@ selftest "…and its own assertions still fire when broken" \
 # is fitted and printed and not adopted; its contract fails if the street bands
 # stop agreeing with the bar, or if the Glessner sheet's three standing houses stop
 # landing within 5 m of their OpenStreetMap outlines.
-step "the four Prairie Avenue sheets still re-derive their georeference (T-1250)" \
+step "the five Prairie Avenue sheets still re-derive their georeference (T-1250, T-3150)" \
   python3 tools/georef_prairie_1904.py --check
 
 selftest "…and a moved control, a misread bar or a mislaid house still fails it" \
@@ -4044,6 +4044,13 @@ step "ticket queue (faults in the tickets repo are reported, not charged to this
 # in this repo's own files, a tickets clone this run dirtied, and embedded mode.
 step "a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it" \
   node tools/test_ticket_filing_effort.mjs
+
+# T-3153. The owner's photo-ticket stopping rule (2026-10-25): a run files no ticket on a
+# photo-gated house (the gap goes into its match record), any house past 25 tickets since
+# the image gate takes new ones only from the owner, and `split` refuses a sign-off or a
+# gated house past the cap unless `--owner-asked`. Proved on a fixture tickets folder.
+step "photo follow-ups stop: no run-filed tickets on a photo-gated house, no split sign-off" \
+  node tools/test_ticket_photo_stop.mjs
 
 # T-1548. `done` refuses to close a ticket a committed file still records as live work
 # — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,

@@ -8,6 +8,7 @@
  "sources": [
   "chicago_revised_municipal_code_1905",
   "sanborn_1911_chicago_v3_sheet_20",
+  "sanborn_1911_chicago_v3_sheet_27",
   "sanborn_1911_chicago_v3_sheet_28",
   "sanborn_1911_chicago_v3_sheet_35"
  ],
@@ -238,7 +239,7 @@
  "derived_lines": {
   "indiana_e_18_20": {
    "how": "the straight line through sheet 20's Indiana east line at its row 6000 and sheet 35's at its row 300",
-   "why": "Indiana Avenue between 18th and 20th is on sheet 27, which was not supplied; the two sheets either side draw the line 2 m apart in easting over 290 m, so it is carried straight between them",
+   "why": "what Indiana's west line south of 20th Street is offset from: no sheet here draws that line. Between 18th and 20th it is no longer the east line: sheet 27, fetched for T-3150, draws it there, 0.6-0.8 m east of this one",
    "tier": "inferred"
   },
   "indiana_w_18_22": {
@@ -462,12 +463,12 @@
    "where": "Indiana to Prairie, 18th to 20th Street",
    "outline_local_m": [
     [
-     1275.73,
-     -3218.6
+     1276.2,
+     -3218.59
     ],
     [
-     1278.48,
-     -3463.15
+     1279.11,
+     -3463.14
     ],
     [
      1394.51,
@@ -478,10 +479,10 @@
      -3217.24
     ]
    ],
-   "area_m2": 28425.86,
+   "area_m2": 28291.28,
    "edges": [
     {
-     "line": "derived line indiana_e_18_20",
+     "line": "sheet 27 line indiana_e",
      "kind": "street",
      "street": "indiana",
      "face": "indiana__indiana_prairie_18_20"
@@ -506,9 +507,8 @@
     }
    ],
    "sources": [
-    "sanborn_1911_chicago_v3_sheet_20",
-    "sanborn_1911_chicago_v3_sheet_28",
-    "sanborn_1911_chicago_v3_sheet_35"
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
    ],
    "geometry_tier": "inferred"
   },
@@ -2335,95 +2335,95 @@
    "where": "Indiana Avenue, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
-     1275.73,
-     -3218.6
+     1276.2,
+     -3218.59
     ],
     [
-     1278.48,
-     -3463.15
+     1279.11,
+     -3463.14
     ]
    ],
    "length_m": 244.57,
-   "street_line_tier": "derived",
-   "street_line_from": "derived line indiana_e_18_20",
+   "street_line_tier": "inferred",
+   "street_line_from": "sheet 27 line indiana_e",
    "bands": {
     "margin": [
      [
       [
-       1275.73,
-       -3218.6
+       1276.2,
+       -3218.59
       ],
       [
-       1278.48,
-       -3463.15
+       1279.11,
+       -3463.14
       ],
       [
-       1278.17,
-       -3463.46
+       1278.81,
+       -3463.45
       ],
       [
-       1275.42,
-       -3218.3
+       1275.89,
+       -3218.29
       ]
      ]
     ],
     "walk": [
      [
       [
-       1275.42,
-       -3218.3
+       1275.89,
+       -3218.29
       ],
       [
-       1278.17,
-       -3463.46
+       1278.81,
+       -3463.45
       ],
       [
-       1276.37,
+       1277.0,
        -3465.3
       ],
       [
-       1273.58,
-       -3216.49
+       1274.04,
+       -3216.48
       ]
      ]
     ],
     "parkway": [
      [
       [
-       1273.58,
-       -3216.49
+       1274.04,
+       -3216.48
       ],
       [
-       1276.37,
+       1277.0,
        -3465.3
       ],
       [
-       1274.41,
+       1275.04,
        -3467.3
       ],
       [
-       1271.57,
-       -3214.53
+       1272.04,
+       -3214.52
       ]
      ]
     ],
     "curb": [
      [
       [
-       1271.57,
-       -3214.53
+       1272.04,
+       -3214.52
       ],
       [
-       1274.41,
+       1275.04,
        -3467.3
       ],
       [
-       1274.26,
-       -3467.46
+       1274.89,
+       -3467.45
       ],
       [
-       1271.42,
-       -3214.38
+       1271.88,
+       -3214.37
       ]
      ]
     ]
@@ -2437,23 +2437,23 @@
    "where": "East Twentieth Street, beside the block Indiana to Prairie, 18th to 20th Street",
    "street_line_local_m": [
     [
-     1278.48,
-     -3463.15
+     1279.11,
+     -3463.14
     ],
     [
      1394.51,
      -3461.99
     ]
    ],
-   "length_m": 116.04,
+   "length_m": 115.41,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 line s20_n",
    "bands": {
     "margin": [
      [
       [
-       1278.48,
-       -3463.15
+       1279.11,
+       -3463.14
       ],
       [
        1394.51,
@@ -2464,16 +2464,16 @@
        -3462.29
       ],
       [
-       1278.17,
-       -3463.46
+       1278.81,
+       -3463.45
       ]
      ]
     ],
     "walk": [
      [
       [
-       1278.17,
-       -3463.46
+       1278.81,
+       -3463.45
       ],
       [
        1394.82,
@@ -2484,7 +2484,7 @@
        -3464.1
       ],
       [
-       1276.37,
+       1277.0,
        -3465.3
       ]
      ]
@@ -2492,7 +2492,7 @@
     "parkway": [
      [
       [
-       1276.37,
+       1277.0,
        -3465.3
       ],
       [
@@ -2504,7 +2504,7 @@
        -3466.06
       ],
       [
-       1274.41,
+       1275.04,
        -3467.3
       ]
      ]
@@ -2512,7 +2512,7 @@
     "curb": [
      [
       [
-       1274.41,
+       1275.04,
        -3467.3
       ],
       [
@@ -2524,8 +2524,8 @@
        -3466.21
       ],
       [
-       1274.26,
-       -3467.46
+       1274.89,
+       -3467.45
       ]
      ]
     ]
@@ -2645,11 +2645,11 @@
      -3217.24
     ],
     [
-     1275.73,
-     -3218.6
+     1276.2,
+     -3218.59
     ]
    ],
-   "length_m": 116.33,
+   "length_m": 115.86,
    "street_line_tier": "inferred",
    "street_line_from": "sheet 28 line s18_s_c",
    "bands": {
@@ -2660,12 +2660,12 @@
        -3217.24
       ],
       [
-       1275.73,
-       -3218.6
+       1276.2,
+       -3218.59
       ],
       [
-       1275.42,
-       -3218.3
+       1275.89,
+       -3218.29
       ],
       [
        1392.36,
@@ -2680,12 +2680,12 @@
        -3216.93
       ],
       [
-       1275.42,
-       -3218.3
+       1275.89,
+       -3218.29
       ],
       [
-       1273.58,
-       -3216.49
+       1274.04,
+       -3216.48
       ],
       [
        1394.17,
@@ -2700,12 +2700,12 @@
        -3215.08
       ],
       [
-       1273.58,
-       -3216.49
+       1274.04,
+       -3216.48
       ],
       [
-       1271.57,
-       -3214.53
+       1272.04,
+       -3214.52
       ],
       [
        1396.13,
@@ -2720,12 +2720,12 @@
        -3213.08
       ],
       [
-       1271.57,
-       -3214.53
+       1272.04,
+       -3214.52
       ],
       [
-       1271.42,
-       -3214.38
+       1271.88,
+       -3214.37
       ],
       [
        1396.28,
@@ -7426,55 +7426,51 @@
    "where": "Indiana Avenue, 18th to 20th Street",
    "polygon_local_m": [
     [
-     1259.65,
-     -3198.35
+     1260.04,
+     -3198.34
     ],
     [
-     1262.83,
+     1263.42,
      -3481.72
     ],
     [
-     1274.42,
+     1275.06,
      -3481.72
     ],
     [
-     1271.24,
-     -3198.22
+     1271.69,
+     -3198.21
     ]
    ],
    "quads_local_m": [
     [
      [
-      1259.65,
-      -3198.35
+      1260.04,
+      -3198.34
      ],
      [
-      1262.83,
+      1263.42,
       -3481.72
      ],
      [
-      1274.42,
+      1275.06,
       -3481.72
      ],
      [
-      1271.24,
-      -3198.22
+      1271.69,
+      -3198.21
      ]
     ]
    ],
-   "area_m2": 3285.22,
+   "area_m2": 3300.94,
    "between": [
-    "derived line indiana_w_18_22",
-    "derived line indiana_e_18_20"
+    "sheet 27 line indiana_w",
+    "sheet 27 line indiana_e"
    ],
    "geometry_tier": "inferred",
    "sources": [
     "chicago_revised_municipal_code_1905",
-    "sanborn_1911_chicago_v3_sheet_28"
-   ],
-   "derived_sides": [
-    "derived line indiana_w_18_22",
-    "derived line indiana_e_18_20"
+    "sanborn_1911_chicago_v3_sheet_27"
    ]
   },
   {
@@ -16810,6 +16806,1525 @@
     "216 E. 18th St."
    ],
    "note": "The sheet prints 200 E. 18th St., 216 E. 18th St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "indiana_1801",
+   "addresses_1911": [
+    "1801"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.2,
+     -3218.59
+    ],
+    [
+     1276.27,
+     -3224.34
+    ],
+    [
+     1307.19,
+     -3223.99
+    ],
+    [
+     1307.1,
+     -3218.23
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.2,
+     -3218.59
+    ],
+    "SW_street": [
+     1276.27,
+     -3224.34
+    ],
+    "SE_rear": [
+     1307.19,
+     -3223.99
+    ],
+    "NE_rear": [
+     1307.1,
+     -3218.23
+    ]
+   },
+   "frontage_ft": 18.9,
+   "depth_ft": 101.4,
+   "area_m2": 177.95,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [None, 1360.7] (profile peaks at column 3745); front sheet 27 line indiana_e, rear sheet 27 line ind_18_corner_rear",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "205 E. 18th St.",
+    "207 E. 18th St."
+   ],
+   "note": "The two-storey stores printed 205 and 207 stand on 1801's lot, behind the house and against it, fronting 18th Street; the sheet draws no line between them and the house's lot. The sheet prints 205 E. 18th St., 207 E. 18th St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "indiana_1803",
+   "addresses_1911": [
+    "1803"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.27,
+     -3224.34
+    ],
+    [
+     1276.35,
+     -3230.87
+    ],
+    [
+     1307.31,
+     -3230.52
+    ],
+    [
+     1307.19,
+     -3223.99
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.27,
+     -3224.34
+    ],
+    "SW_street": [
+     1276.35,
+     -3230.87
+    ],
+    "SE_rear": [
+     1307.31,
+     -3230.52
+    ],
+    "NE_rear": [
+     1307.19,
+     -3223.99
+    ]
+   },
+   "frontage_ft": 21.4,
+   "depth_ft": 101.5,
+   "area_m2": 202.09,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [1360.7, 1489.9] (profile peaks at column 3745); front sheet 27 line indiana_e, rear sheet 27 line ind_18_corner_rear",
+   "library_frontage_ids": [],
+   "note": "The two-storey stores printed 205 and 207 stand on 1801's lot, behind the house and against it, fronting 18th Street; the sheet draws no line between them and the house's lot."
+  },
+  {
+   "id": "indiana_1805",
+   "addresses_1911": [
+    "1805"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.35,
+     -3230.87
+    ],
+    [
+     1276.42,
+     -3237.19
+    ],
+    [
+     1307.42,
+     -3236.84
+    ],
+    [
+     1307.31,
+     -3230.52
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.35,
+     -3230.87
+    ],
+    "SW_street": [
+     1276.42,
+     -3237.19
+    ],
+    "SE_rear": [
+     1307.42,
+     -3236.84
+    ],
+    "NE_rear": [
+     1307.31,
+     -3230.52
+    ]
+   },
+   "frontage_ft": 20.7,
+   "depth_ft": 101.6,
+   "area_m2": 195.74,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [1489.9, 1614.9] (profile peaks at column 3745); front sheet 27 line indiana_e, rear sheet 27 line ind_18_corner_rear",
+   "library_frontage_ids": [],
+   "note": "The two-storey stores printed 205 and 207 stand on 1801's lot, behind the house and against it, fronting 18th Street; the sheet draws no line between them and the house's lot."
+  },
+  {
+   "id": "indiana_1807",
+   "addresses_1911": [
+    "1807"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.42,
+     -3237.19
+    ],
+    [
+     1276.5,
+     -3243.86
+    ],
+    [
+     1307.53,
+     -3243.52
+    ],
+    [
+     1307.42,
+     -3236.84
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.42,
+     -3237.19
+    ],
+    "SW_street": [
+     1276.5,
+     -3243.86
+    ],
+    "SE_rear": [
+     1307.53,
+     -3243.52
+    ],
+    "NE_rear": [
+     1307.42,
+     -3236.84
+    ]
+   },
+   "frontage_ft": 21.9,
+   "depth_ft": 101.7,
+   "area_m2": 207.03,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [1614.9, None] (profile peaks at column 3745); front sheet 27 line indiana_e, rear sheet 27 line ind_18_corner_rear",
+   "library_frontage_ids": [],
+   "note": "The two-storey stores printed 205 and 207 stand on 1801's lot, behind the house and against it, fronting 18th Street; the sheet draws no line between them and the house's lot."
+  },
+  {
+   "id": "e18th_213",
+   "addresses_1911": [
+    "213",
+    "215",
+    "217"
+   ],
+   "street": "e18th",
+   "side": "south",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "e18th__indiana_prairie_18_20",
+   "where": "the south side of East Eighteenth Street, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1307.53,
+     -3243.52
+    ],
+    [
+     1330.97,
+     -3243.26
+    ],
+    [
+     1330.69,
+     -3217.96
+    ],
+    [
+     1307.1,
+     -3218.23
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1307.1,
+     -3218.23
+    ],
+    "NE_street": [
+     1330.69,
+     -3217.96
+    ],
+    "SE_rear": [
+     1330.97,
+     -3243.26
+    ],
+    "SW_rear": [
+     1307.53,
+     -3243.52
+    ]
+   },
+   "frontage_ft": 77.4,
+   "depth_ft": 83.0,
+   "area_m2": 594.95,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 columns [None, None] (profile peaks at row 1450); front sheet 28 line s18_s_c, rear sheet 27 line ind_18_l1747",
+   "library_frontage_ids": [],
+   "note": "A row of three 3-storey frame flats on basements, printed 213, 215 and 217 with the pre-1909 numbers (45) to (41) over them, which are not carried. Its party walls stop at the row's rear (column peaks at about 4480 and 4580 across rows 1300-1450, none across 1700-1745), so the sheet draws no lot line between them and the row is one lot here. A line behind its rear sheds (row 1686.5, from the row's west wall to the alley) stops 3 m short of the 1807/1809 line; the strip between, and the 3 m between the corner lots' east line and the row's west wall, are the row's lot's here, and the sheet does not say whose they are."
+  },
+  {
+   "id": "indiana_1809",
+   "addresses_1911": [
+    "1809"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.5,
+     -3243.86
+    ],
+    [
+     1276.6,
+     -3252.54
+    ],
+    [
+     1331.07,
+     -3251.97
+    ],
+    [
+     1330.97,
+     -3243.26
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.5,
+     -3243.86
+    ],
+    "SW_street": [
+     1276.6,
+     -3252.54
+    ],
+    "SE_rear": [
+     1331.07,
+     -3251.97
+    ],
+    "NE_rear": [
+     1330.97,
+     -3243.26
+    ]
+   },
+   "frontage_ft": 28.5,
+   "depth_ft": 178.7,
+   "area_m2": 473.68,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [None, 1920.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1813",
+   "addresses_1911": [
+    "1813"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.6,
+     -3252.54
+    ],
+    [
+     1276.71,
+     -3261.1
+    ],
+    [
+     1331.16,
+     -3260.52
+    ],
+    [
+     1331.07,
+     -3251.97
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.6,
+     -3252.54
+    ],
+    "SW_street": [
+     1276.71,
+     -3261.1
+    ],
+    "SE_rear": [
+     1331.16,
+     -3260.52
+    ],
+    "NE_rear": [
+     1331.07,
+     -3251.97
+    ]
+   },
+   "frontage_ft": 28.1,
+   "depth_ft": 178.7,
+   "area_m2": 466.07,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [1920.6, 2089.9] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1815",
+   "addresses_1911": [
+    "1815"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.71,
+     -3261.1
+    ],
+    [
+     1276.82,
+     -3271.07
+    ],
+    [
+     1331.27,
+     -3270.5
+    ],
+    [
+     1331.16,
+     -3260.52
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.71,
+     -3261.1
+    ],
+    "SW_street": [
+     1276.82,
+     -3271.07
+    ],
+    "SE_rear": [
+     1331.27,
+     -3270.5
+    ],
+    "NE_rear": [
+     1331.16,
+     -3260.52
+    ]
+   },
+   "frontage_ft": 32.7,
+   "depth_ft": 178.7,
+   "area_m2": 543.07,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [2089.9, 2287.2] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1819",
+   "addresses_1911": [
+    "1819"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.82,
+     -3271.07
+    ],
+    [
+     1276.95,
+     -3281.99
+    ],
+    [
+     1331.39,
+     -3281.42
+    ],
+    [
+     1331.27,
+     -3270.5
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.82,
+     -3271.07
+    ],
+    "SW_street": [
+     1276.95,
+     -3281.99
+    ],
+    "SE_rear": [
+     1331.39,
+     -3281.42
+    ],
+    "NE_rear": [
+     1331.27,
+     -3270.5
+    ]
+   },
+   "frontage_ft": 35.8,
+   "depth_ft": 178.6,
+   "area_m2": 594.72,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [2287.2, 2503.3] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1821",
+   "addresses_1911": [
+    "1821"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1276.95,
+     -3281.99
+    ],
+    [
+     1277.06,
+     -3291.08
+    ],
+    [
+     1331.49,
+     -3290.5
+    ],
+    [
+     1331.39,
+     -3281.42
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1276.95,
+     -3281.99
+    ],
+    "SW_street": [
+     1277.06,
+     -3291.08
+    ],
+    "SE_rear": [
+     1331.49,
+     -3290.5
+    ],
+    "NE_rear": [
+     1331.39,
+     -3281.42
+    ]
+   },
+   "frontage_ft": 29.8,
+   "depth_ft": 178.6,
+   "area_m2": 494.47,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [2503.3, 2683.0] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1825",
+   "addresses_1911": [
+    "1825"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.06,
+     -3291.08
+    ],
+    [
+     1277.17,
+     -3300.21
+    ],
+    [
+     1331.59,
+     -3299.63
+    ],
+    [
+     1331.49,
+     -3290.5
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.06,
+     -3291.08
+    ],
+    "SW_street": [
+     1277.17,
+     -3300.21
+    ],
+    "SE_rear": [
+     1331.59,
+     -3299.63
+    ],
+    "NE_rear": [
+     1331.49,
+     -3290.5
+    ]
+   },
+   "frontage_ft": 30.0,
+   "depth_ft": 178.6,
+   "area_m2": 497.15,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [2683.0, 2863.7] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1829",
+   "addresses_1911": [
+    "1829"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.17,
+     -3300.21
+    ],
+    [
+     1277.38,
+     -3317.6
+    ],
+    [
+     1331.79,
+     -3317.02
+    ],
+    [
+     1331.59,
+     -3299.63
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.17,
+     -3300.21
+    ],
+    "SW_street": [
+     1277.38,
+     -3317.6
+    ],
+    "SE_rear": [
+     1331.79,
+     -3317.02
+    ],
+    "NE_rear": [
+     1331.59,
+     -3299.63
+    ]
+   },
+   "frontage_ft": 57.0,
+   "depth_ft": 178.5,
+   "area_m2": 946.23,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [2863.7, 3207.7] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1833",
+   "addresses_1911": [
+    "1833"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.38,
+     -3317.6
+    ],
+    [
+     1277.49,
+     -3326.64
+    ],
+    [
+     1331.89,
+     -3326.06
+    ],
+    [
+     1331.79,
+     -3317.02
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.38,
+     -3317.6
+    ],
+    "SW_street": [
+     1277.49,
+     -3326.64
+    ],
+    "SE_rear": [
+     1331.89,
+     -3326.06
+    ],
+    "NE_rear": [
+     1331.79,
+     -3317.02
+    ]
+   },
+   "frontage_ft": 29.7,
+   "depth_ft": 178.5,
+   "area_m2": 491.99,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [3207.7, 3386.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1837",
+   "addresses_1911": [
+    "1837"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.49,
+     -3326.64
+    ],
+    [
+     1277.58,
+     -3334.3
+    ],
+    [
+     1331.97,
+     -3333.72
+    ],
+    [
+     1331.89,
+     -3326.06
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.49,
+     -3326.64
+    ],
+    "SW_street": [
+     1277.58,
+     -3334.3
+    ],
+    "SE_rear": [
+     1331.97,
+     -3333.72
+    ],
+    "NE_rear": [
+     1331.89,
+     -3326.06
+    ]
+   },
+   "frontage_ft": 25.1,
+   "depth_ft": 178.5,
+   "area_m2": 416.59,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [3386.6, 3538.1] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1839",
+   "addresses_1911": [
+    "1839"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.58,
+     -3334.3
+    ],
+    [
+     1277.76,
+     -3349.38
+    ],
+    [
+     1332.14,
+     -3348.81
+    ],
+    [
+     1331.97,
+     -3333.72
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.58,
+     -3334.3
+    ],
+    "SW_street": [
+     1277.76,
+     -3349.38
+    ],
+    "SE_rear": [
+     1332.14,
+     -3348.81
+    ],
+    "NE_rear": [
+     1331.97,
+     -3333.72
+    ]
+   },
+   "frontage_ft": 49.5,
+   "depth_ft": 178.4,
+   "area_m2": 820.65,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [3538.1, 3836.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1839_1901_a",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.76,
+     -3349.38
+    ],
+    [
+     1277.85,
+     -3357.19
+    ],
+    [
+     1332.22,
+     -3356.61
+    ],
+    [
+     1332.14,
+     -3348.81
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.76,
+     -3349.38
+    ],
+    "SW_street": [
+     1277.85,
+     -3357.19
+    ],
+    "SE_rear": [
+     1332.22,
+     -3356.61
+    ],
+    "NE_rear": [
+     1332.14,
+     -3348.81
+    ]
+   },
+   "frontage_ft": 25.6,
+   "depth_ft": 178.4,
+   "area_m2": 424.41,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [3836.6, 3991.0] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet. Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1839_1901_b",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.85,
+     -3357.19
+    ],
+    [
+     1277.94,
+     -3364.95
+    ],
+    [
+     1332.31,
+     -3364.38
+    ],
+    [
+     1332.22,
+     -3356.61
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.85,
+     -3357.19
+    ],
+    "SW_street": [
+     1277.94,
+     -3364.95
+    ],
+    "SE_rear": [
+     1332.31,
+     -3364.38
+    ],
+    "NE_rear": [
+     1332.22,
+     -3356.61
+    ]
+   },
+   "frontage_ft": 25.5,
+   "depth_ft": 178.4,
+   "area_m2": 422.16,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [3991.0, 4144.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet. Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1901",
+   "addresses_1911": [
+    "1901"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1277.94,
+     -3364.95
+    ],
+    [
+     1278.07,
+     -3376.25
+    ],
+    [
+     1332.43,
+     -3375.68
+    ],
+    [
+     1332.31,
+     -3364.38
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1277.94,
+     -3364.95
+    ],
+    "SW_street": [
+     1278.07,
+     -3376.25
+    ],
+    "SE_rear": [
+     1332.43,
+     -3375.68
+    ],
+    "NE_rear": [
+     1332.31,
+     -3364.38
+    ]
+   },
+   "frontage_ft": 37.1,
+   "depth_ft": 178.4,
+   "area_m2": 614.46,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [4144.6, 4368.2] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1909",
+   "addresses_1911": [
+    "1909"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.07,
+     -3376.25
+    ],
+    [
+     1278.21,
+     -3387.67
+    ],
+    [
+     1332.56,
+     -3387.1
+    ],
+    [
+     1332.43,
+     -3375.68
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.07,
+     -3376.25
+    ],
+    "SW_street": [
+     1278.21,
+     -3387.67
+    ],
+    "SE_rear": [
+     1332.56,
+     -3387.1
+    ],
+    "NE_rear": [
+     1332.43,
+     -3375.68
+    ]
+   },
+   "frontage_ft": 37.5,
+   "depth_ft": 178.3,
+   "area_m2": 620.67,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [4368.2, 4594.1] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1913",
+   "addresses_1911": [
+    "1913"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.21,
+     -3387.67
+    ],
+    [
+     1278.31,
+     -3396.34
+    ],
+    [
+     1332.66,
+     -3395.76
+    ],
+    [
+     1332.56,
+     -3387.1
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.21,
+     -3387.67
+    ],
+    "SW_street": [
+     1278.31,
+     -3396.34
+    ],
+    "SE_rear": [
+     1332.66,
+     -3395.76
+    ],
+    "NE_rear": [
+     1332.56,
+     -3387.1
+    ]
+   },
+   "frontage_ft": 28.4,
+   "depth_ft": 178.3,
+   "area_m2": 471.13,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [4594.1, 4765.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1915",
+   "addresses_1911": [
+    "1915"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.31,
+     -3396.34
+    ],
+    [
+     1278.4,
+     -3404.02
+    ],
+    [
+     1332.74,
+     -3403.44
+    ],
+    [
+     1332.66,
+     -3395.76
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.31,
+     -3396.34
+    ],
+    "SW_street": [
+     1278.4,
+     -3404.02
+    ],
+    "SE_rear": [
+     1332.74,
+     -3403.44
+    ],
+    "NE_rear": [
+     1332.66,
+     -3395.76
+    ]
+   },
+   "frontage_ft": 25.2,
+   "depth_ft": 178.3,
+   "area_m2": 417.23,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [4765.6, 4917.5] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1917",
+   "addresses_1911": [
+    "1917",
+    "1919"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.4,
+     -3404.02
+    ],
+    [
+     1278.52,
+     -3413.84
+    ],
+    [
+     1332.85,
+     -3413.27
+    ],
+    [
+     1332.74,
+     -3403.44
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.4,
+     -3404.02
+    ],
+    "SW_street": [
+     1278.52,
+     -3413.84
+    ],
+    "SE_rear": [
+     1332.85,
+     -3413.27
+    ],
+    "NE_rear": [
+     1332.74,
+     -3403.44
+    ]
+   },
+   "frontage_ft": 32.2,
+   "depth_ft": 178.3,
+   "area_m2": 533.9,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [4917.5, 5111.9] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1921",
+   "addresses_1911": [
+    "1921",
+    "1923"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.52,
+     -3413.84
+    ],
+    [
+     1278.7,
+     -3429.07
+    ],
+    [
+     1333.02,
+     -3428.5
+    ],
+    [
+     1332.85,
+     -3413.27
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.52,
+     -3413.84
+    ],
+    "SW_street": [
+     1278.7,
+     -3429.07
+    ],
+    "SE_rear": [
+     1333.02,
+     -3428.5
+    ],
+    "NE_rear": [
+     1332.85,
+     -3413.27
+    ]
+   },
+   "frontage_ft": 50.0,
+   "depth_ft": 178.2,
+   "area_m2": 827.33,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [5111.9, 5413.2] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1925",
+   "addresses_1911": [
+    "1925",
+    "1929"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.7,
+     -3429.07
+    ],
+    [
+     1278.85,
+     -3441.06
+    ],
+    [
+     1333.15,
+     -3440.48
+    ],
+    [
+     1333.02,
+     -3428.5
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.7,
+     -3429.07
+    ],
+    "SW_street": [
+     1278.85,
+     -3441.06
+    ],
+    "SE_rear": [
+     1333.15,
+     -3440.48
+    ],
+    "NE_rear": [
+     1333.02,
+     -3428.5
+    ]
+   },
+   "frontage_ft": 39.3,
+   "depth_ft": 178.2,
+   "area_m2": 651.18,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [5413.2, 5650.4] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1931",
+   "addresses_1911": [
+    "1931",
+    "1933"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1278.85,
+     -3441.06
+    ],
+    [
+     1279.01,
+     -3455.07
+    ],
+    [
+     1333.3,
+     -3454.49
+    ],
+    [
+     1333.15,
+     -3440.48
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.85,
+     -3441.06
+    ],
+    "SW_street": [
+     1279.01,
+     -3455.07
+    ],
+    "SE_rear": [
+     1333.3,
+     -3454.49
+    ],
+    "NE_rear": [
+     1333.15,
+     -3440.48
+    ]
+   },
+   "frontage_ft": 46.0,
+   "depth_ft": 178.2,
+   "area_m2": 760.83,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [5650.4, 5927.6] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them."
+  },
+  {
+   "id": "indiana_1935",
+   "addresses_1911": [
+    "1935",
+    "1937"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_18_20",
+   "street_face": "indiana__indiana_prairie_18_20",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1279.01,
+     -3455.07
+    ],
+    [
+     1279.11,
+     -3463.14
+    ],
+    [
+     1333.39,
+     -3462.6
+    ],
+    [
+     1333.3,
+     -3454.49
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.01,
+     -3455.07
+    ],
+    "SW_street": [
+     1279.11,
+     -3463.14
+    ],
+    "SE_rear": [
+     1333.39,
+     -3462.6
+    ],
+    "NE_rear": [
+     1333.3,
+     -3454.49
+    ]
+   },
+   "frontage_ft": 26.5,
+   "depth_ft": 178.1,
+   "area_m2": 439.13,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_27",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 27 rows [5927.6, None] (profile peaks at column 4125); front sheet 27 line indiana_e, rear sheet 28 line alley_w_w",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "216 E. 20th St.",
+    "216a E. 20th St."
+   ],
+   "note": "Rows read at column 4125, mid-lot, and each line kept only where it also reaches the street side (columns 3712-3840) or the alley (columns 4690-4740): the house fronts stand close to the street line here, so 1809/1813's line begins at the houses' fronts and not at the street. Three party walls cross the middle of a lot and reach neither, and are not lot lines here: 1917/1919 (row 5012), 1921/1923 (5260, the two houses lettered CIGAR FACTORY B.) and 1931/1933 (5784); each pair of numbers is one lot, like 1925-1929, which one building (the post-office sub-station) carries. Two lots between 1839 and 1901 are drawn empty and numbered nothing. 1935-1937 runs from Indiana to the alley with the frame flats 216 and 216a E. 20th St. at its rear; no line divides them. The sheet prints 216 E. 20th St., 216a E. 20th St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
   },
   {
    "id": "indiana_2001",
