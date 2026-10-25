@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2278, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: '1812 Prairie\'s front stair to Levy\'s photograph', kind: 'improvement',
+    items: [
+      '1812 Prairie\'s front stair now matches Albert Levy\'s photograph: the south side draws in towards its carved newel, and the north side is pierced by a row of small openings under its broad stone top.',
+    ] },
+  { v: 2277, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: 'Glessner\'s 18th Street gable window: transom lowered, seven stones in its fan', kind: 'fix',
+    items: [
+      'The stone bar across the tall arched window in the Glessner house\'s 18th Street gable now sits about 5 inches lower, as two 1965 survey photographs show it, so the round top stands taller over it. The fan of stones above the window is now seven broad stones with a keystone at the top, as the closer photograph counts them, where there were eleven narrow ones.',
+    ] },
   { v: 2276, ts: '2026-10-25T12:53:49.519Z', date: 'Oct 25, 2026, 7:53 AM CT', title: 'Indiana Avenue between 18th and 20th Street is no longer empty', kind: 'change',
     items: [
       'From Prairie Avenue\'s walks by Glessner and Kimball you used to look west, past the stables, onto bare ground where Indiana Avenue\'s east side should be. It now holds a row of 22 houses, the last stretch of the background behind the avenue. The 1904 Blue Book lists households at ten numbers along it. The houses themselves are reconstructed from the neighbouring Indiana blocks, because the 1911 map sheet that draws this block is not in hand yet. The card says so, and a later ticket replaces them house by house.',
