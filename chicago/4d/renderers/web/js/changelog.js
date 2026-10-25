@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2290, ts: '2026-10-25T20:08:01.384Z', date: 'Oct 25, 2026, 3:08 PM CT', title: 'Glessner House signed off against its photographs', kind: 'improvement',
+    items: [
+      'The window over the great arch on 18th Street is now one wide opening, as the c. 1887 print and both HABS photographs show it. It had been built as three lights split by stone piers.',
+      'All twelve photographs and drawings of Glessner House now match the model. The last small differences are recorded as within tolerance, each with what was measured.',
+    ] },
   { v: 2289, ts: '2026-10-25T19:34:24.312Z', date: 'Oct 25, 2026, 2:34 PM CT', title: 'Glessner House from 18th Street, back inside the full-detail budget', kind: 'fix',
     items: [
       'Nothing you can see changed: from 18th Street, west of Glessner House, the full-detail view no longer draws the court, south and east walls hidden behind the house\'s own north and west fronts.',
