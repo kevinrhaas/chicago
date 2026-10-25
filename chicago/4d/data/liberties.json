@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 771,
+  "count": 772,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -54881,6 +54881,38 @@
         "T-3147",
         "T-2849",
         "T-3143"
+      ]
+    },
+    {
+      "id": "L-glessner-great-arch-window-3140",
+      "title": "Glessner's window over the great arch is one opening; its sash is the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House window over the great arch on 18th Street (W 97.7-110.1, 19.75-22.80 ft ng) is one opening, where it had been built as three lights between two stone piers. Its span and heights are unchanged. **What is read, not invented.** That it is one opening. The c. 1887 Cornell print, taken as the house was finished, shows it unglazed: one dark opening under one lintel, with no pier in it. HABS photograph 1 (1963) and HABS photograph 15 (1965) show the same opening filled with a sash of small panes in two rows, still with no pier. Three pictures across 78 years agree, so the form is attested. **What is invented.** The sash: two one-over-one double-hung units on a timber mullion, the kit's for an opening this wide. The 1887 print shows no sash and the 1963 one is a later sash of small panes, so neither is copied."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of 18th Street between 1887 and about 1930 that shows the sash."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-3140)."
+        }
+      ],
+      "work_refs": [
+        "T-3140"
       ]
     },
     {
