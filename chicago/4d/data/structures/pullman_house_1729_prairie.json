@@ -152,7 +152,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "Plain stone lintels stand in for the photograph's arched and hooded window heads, which a K02 stone front lays only on a three-bay front entered in its middle bay (open in the match record)."
+          "note": "K09 dresses none of the Prairie front's windows (T-3157): each is named off the Detroit print (street_front_windows), round-arched, the second storey's under their rings. The side walls keep K01's plain stone lintels, the photograph's arched heads on the 18th Street flank being T-3160's."
         },
         "wall_head": {
           "value": {
@@ -197,43 +197,55 @@
             "dormers": [
               {
                 "face": "street",
-                "along_m": 11.23,
-                "head": "hood",
+                "along_m": 11.45,
+                "head": "round",
                 "sash": {
-                  "variant": "k06.opening.sash_2over2_flat",
-                  "width_m": 0.8,
-                  "height_m": 1.2,
-                  "sill_m": 0.15
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.9,
+                  "height_m": 1.7,
+                  "sill_m": 0.1
                 },
-                "surround_m": 0.2,
-                "face_setback_m": 0.3,
-                "hood": {
-                  "shelf_m": 0.12,
-                  "shelf_proud_m": 0.08,
-                  "rise_m": 0.8,
-                  "lean_m": 0.15,
-                  "taper_m": 0.3
-                }
+                "surround_m": 0.35,
+                "face_setback_m": 0.1
               },
               {
                 "face": "street",
-                "along_m": 15.23,
-                "head": "hood",
+                "along_m": 14.8,
+                "head": "round",
                 "sash": {
-                  "variant": "k06.opening.sash_2over2_flat",
-                  "width_m": 0.8,
-                  "height_m": 1.2,
-                  "sill_m": 0.15
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.6,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
                 },
                 "surround_m": 0.2,
-                "face_setback_m": 0.3,
-                "hood": {
-                  "shelf_m": 0.12,
-                  "shelf_proud_m": 0.08,
-                  "rise_m": 0.8,
-                  "lean_m": 0.15,
-                  "taper_m": 0.3
-                }
+                "face_setback_m": 0.1
+              },
+              {
+                "face": "north",
+                "along_m": 17.7,
+                "head": "round",
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.6,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.1
+              },
+              {
+                "face": "north",
+                "along_m": 22.75,
+                "head": "round",
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.6,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.1
               }
             ],
             "storeys": 1,
@@ -248,7 +260,7 @@
           "sources": [
             "loc_det_4a08065_pullman_residence"
           ],
-          "note": "Through the photograph's camera: the lower faces rise from the cornice (about 12.0 m) to the curb under the cresting (about 16.8 m at y 240 px), steep and straight; hooded dormers on the Prairie face at about v 11.2 and 15.2 (x 445-482 and 500-520 px); iron cresting about 0.8 m high round the deck (y 222-235 px)."
+          "note": "Through the photograph's camera: the lower faces rise from the cornice (about 12.0 m) to the curb under the cresting (about 16.8 m at y 240 px), steep and straight; iron cresting about 0.8 m high round the deck (y 222-235 px). T-3157: four round-arched dormers, read on the dormers' own plane (0.1 m in from the cornice's face): on the Prairie face the centre one's light at x 455-468 px (v 11.0-11.9) between pilasters at x 449-477, its crown at about 14.8 m (y 266) and its sill on the cornice (y 299), built as a 0.9 x 1.7 m arched light in a 0.35 m surround at v 11.45; the south pavilion's narrower one at x 502-518 (v 14.3-15.3), built 0.6 m in a 0.2 m surround at v 14.8; on the 18th Street face two at x 592-604 and 618-630 px, which this oblique view puts at u 21.7-23.8 and 16.5-19.0 to within about 2 m (built at u 22.75 and 17.7). The print draws the Prairie dormers arched and the flank ones too small to read their heads, so the flank's are taken arched like the front's; the Prairie ones' segmental hoods and ears over the arch are not laid (L-k01-1729-pullman-heads-3157). The north-west pavilion's own dormer (x 330) stands on its own mansard section, T-3158's."
         },
         "roof_covering": {
           "value": {
@@ -352,15 +364,6 @@
           ],
           "note": "Through the photograph's camera: the centre bay's second-storey window from about 7.8 to 10.5 m over grade (y 378 and 335 px at 16.0 px/m); the principal storey's, behind the ivy, are taken as tall."
         },
-        "basement_lights": {
-          "value": {
-            "sill_m": 0.35,
-            "width_m": 0.9,
-            "height_m": 0.75
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the raised basement's lights, hidden in the photograph behind the street wall and the ivy; sized under the base courses."
-        },
         "chimneys": {
           "value": {
             "plan_m": [
@@ -408,10 +411,12 @@
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false
-            }
+            },
+            "k01.opening.street_sash_round_fanlight": "k06.opening.sash_round_fanlight",
+            "k01.opening.street_sash_round_fanlight_wide": "k06.opening.sash_round_fanlight_wide"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: two-over-two sash, the kit's ordinary pattern; the photograph does not resolve the glazing bars."
+          "note": "RECONSTRUCTED: two-over-two sash, the kit's ordinary pattern; the photograph does not resolve the glazing bars. T-3157: the street front's round-arched lights glazed as K06's round fanlight sash (its wide two-light one at the second storey's centre); the print does not resolve their bars either."
         },
         "entrance_kit": {
           "value": {
@@ -626,6 +631,85 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "The sheet's one-storey 'B' block at the south-east corner (u -2.0 to 0, v 11.6-18.8), laid in brick behind the stone house."
+        },
+        "street_front_windows": {
+          "value": {
+            "windows": [
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 0,
+                "s_m": 11.3,
+                "width_m": 1.2,
+                "sill_m": 2.5,
+                "height_m": 3.25
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 0,
+                "s_m": 15.45,
+                "width_m": 0.9,
+                "sill_m": 2.5,
+                "height_m": 2.75
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 1,
+                "s_m": 6.45,
+                "width_m": 1.0,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight_wide",
+                "storey": 1,
+                "s_m": 11.26,
+                "width_m": 1.45,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              },
+              {
+                "component": "k01.opening.street_sash_round_fanlight",
+                "storey": 1,
+                "s_m": 15.45,
+                "width_m": 0.8,
+                "sill_m": 7.7,
+                "height_m": 2.65,
+                "voussoirs": {
+                  "ring_m": 0.25,
+                  "stones": 13,
+                  "proud_m": 0.05,
+                  "key_m": [
+                    0.22,
+                    0.3
+                  ]
+                }
+              }
+            ],
+            "base_top_m": 0.9
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "T-3157: the Prairie front's street windows read off the Detroit print through its camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the front's plane u 27.75, v along it from the north wall, 14-16 px a metre), each on 5-6x crops. Second storey: three round-arched lights between the rusticated piers, the north one over the portico at x 390-402 px (v 6.0-6.9), the centre one the widest at x 452-472 (v 10.6-12.0) and the south one narrow at x 519-528 (v 15.2-15.7); their sills at about 7.5-7.8 m (y 380-382) and their crowns at about 10.1-10.3 m (y 339), each arch under a moulded ring (x 447-473 at the centre, about 0.25 m out from the light), laid as K02 voussoirs flush but for 0.05 m, with a keystone barely larger, since the print's 15 px a metre does not part a moulding from a ring of stones (L-k01-1729-pullman-heads-3157). Principal storey, behind the ivy: the centre light's arched head at y 411 (5.8 m) over a sill hidden at about y 468, and the south one's at y 418 (5.3 m); the ivy hides their surrounds, so their arches carry none, and the centre one is held 1.2 m wide so its head stands clear of the portico's south end (v 10.6). The north bay's principal storey is the door under the portico. Widths are the lights between the jambs' dark edges plus a sash frame each side."
         }
       }
     }
