@@ -174,6 +174,7 @@ class K01FrontageParams:
     # courses still read through it; empty for the unpainted brick of every other house
     wall_paint: tuple = ()
     wall_paint_opaque: bool = False
+    front_brick_tone: tuple = ()   # T-3093: the street front's brick, tinted apart from the side walls
     # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
@@ -260,7 +261,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "rear_section", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
-    "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
+    "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "front_pier",
 })
@@ -2402,10 +2403,12 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     ovals = []
     for j, q in enumerate(ds.get("ovals") or ()):
         need = {"run", "s_m", "y_m", "width_m", "height_m", "proud_m"}
-        if set(q) - {"field"} != need or q.get("field", "dark") not in ("dark", "stone", "boss") \
-                or not 0 <= int(q["run"]) < len(pts) - 1:
-            raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)} and an optional field "
-                             f"(dark, stone or boss), on a run of its plan")
+        # T-3093: an optional `shape`, `shield` for a carved shield's outline (1812's bosses under
+        # the projection's jambs, Levy's print): square-shouldered and drawn to a point below
+        if set(q) - {"field", "shape"} != need or q.get("field", "dark") not in ("dark", "stone", "boss") \
+                or q.get("shape", "oval") not in ("oval", "shield") or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)}, an optional field "
+                             f"(dark, stone or boss) and an optional shape (oval or shield), on a run of its plan")
         run, s_, y_ = int(q["run"]), float(q["s_m"]), float(q["y_m"])
         w, h, d = float(q["width_m"]), float(q["height_m"]), float(q["proud_m"])
         # T-2909: up to 1.6 m across, for the broad sunk roundel in 1637's bay's base
@@ -2414,7 +2417,8 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
             raise ParamError(f"bays: {bid}.dress.ovals[{j}] {q} is 0.1-1.6 m across, 0.1-1.0 m tall and "
                              f"0.01-0.1 m proud, inside its run and the bay's wall (top {top:.2f} m)")
         ovals.append({"run": run, "s_m": s_, "y_m": y_, "width_m": w, "height_m": h, "proud_m": d,
-                      **({"field": q["field"]} if q.get("field") in ("stone", "boss") else {})})
+                      **({"field": q["field"]} if q.get("field") in ("stone", "boss") else {}),
+                      **({"shape": "shield"} if q.get("shape") == "shield" else {})})
     if ovals:
         out["ovals"] = tuple(ovals)
     run_len = lambda r: math.dist(pts[r], pts[r + 1])
@@ -2684,9 +2688,12 @@ def _street_dress(sfw, openings, floors, width) -> dict:
         # whole front unless named) with T-2819's guilloche, or with `panels`, rows of sunk
         # panels between raised ribs, each row's joints halfway along the row under it
         what = f"street_front_windows.carved_bands[{j}]"
-        carving = set(cb) & {"guilloche", "panels"}
+        # T-3093: or with `interlace`, two straps crossing as a plait (1812's frieze, read at 3x:
+        # crossing straps, where the guilloche's rings had stood for them)
+        carving = set(cb) & {"guilloche", "panels", "interlace"}
         if len(carving) != 1 or set(cb) - {"s_m"} != {"bed_m", "top_m", *carving}:
-            raise ParamError(f"{what} takes bed_m, top_m, an optional s_m [from, to] and one of guilloche or panels")
+            raise ParamError(f"{what} takes bed_m, top_m, an optional s_m [from, to] and one of guilloche, "
+                             f"panels or interlace")
         if "belts" not in sfw:
             raise ParamError(f"{what}: a front with carved bands names its belts too, since they replace K01's two")
         b0, b1 = float(cb["bed_m"]), float(cb["top_m"])
@@ -2706,6 +2713,18 @@ def _street_dress(sfw, openings, floors, width) -> dict:
                 raise ParamError(f"{what}.guilloche takes radius_m (at most half the band), ring_width_m, "
                                  f"ring_proud_m (at most 0.05 m), margin_m, pitch and segments")
             band["guilloche"] = {k: float(v) for k, v in g_.items()}
+        elif "interlace" in cb:
+            il = cb["interlace"]
+            if set(il) != {"strap_m", "proud_m", "margin_m", "wavelength_m", "segments"}:
+                raise ParamError(f"{what}.interlace takes strap_m, proud_m, margin_m, wavelength_m and segments")
+            st, pr, mg, wl, sg = (float(il["strap_m"]), float(il["proud_m"]), float(il["margin_m"]),
+                                  float(il["wavelength_m"]), int(il["segments"]))
+            if not 0.02 <= st <= (b1 - b0) / 4 or not 0.005 <= pr <= 0.05 or not 0.0 <= mg <= (b1 - b0) / 4 \
+                    or not 0.2 <= wl <= s1 - s0 or not 4 <= sg <= 32:
+                raise ParamError(f"{what}.interlace: straps 0.02 m up to a quarter of the band, 0.005-0.05 m proud, "
+                                 f"a margin up to a quarter of the band, a wavelength 0.2 m up to the run and "
+                                 f"4-32 segments a half wave")
+            band["interlace"] = {"strap_m": st, "proud_m": pr, "margin_m": mg, "wavelength_m": wl, "segments": sg}
         else:
             pa = cb["panels"]
             if set(pa) != {"rows", "length_m", "rib_m", "proud_m"}:
@@ -3540,6 +3559,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("wall_finish.paint.opaque is true or false")
         if len(paint) != 3 or not all(0.05 <= x <= 1.0 for x in paint):
             raise ParamError(f"wall_finish.paint.color {wf['paint']['color']}: three factors in [0.05, 1]")
+
+    # T-3093: the street front's brick (over a stone front's brick_above_m line, the shaped
+    # gable and the front's brick bays) toned apart from the K03 common brick of the side and
+    # rear walls: a factor over the same panel, where a photograph reads the front's brick
+    # darker than its stone and the side wall paler than the front (1812's)
+    sfb = val("street_front_brick", {}) or {}
+    front_tone = ()
+    if sfb:
+        if set(sfb) != {"tone"} or len(sfb["tone"]) != 3 or not all(0.2 <= float(x) <= 1.0 for x in sfb["tone"]):
+            raise ParamError("street_front_brick is {\"tone\": [r, g, b]}, three factors in [0.2, 1]")
+        if not (val("stone_front") or {}).get("brick_above_m"):
+            raise ParamError("street_front_brick tones the brick over a stone front's brick_above_m line, "
+                             "and this front names none")
+        front_tone = tuple(float(x) for x in sfb["tone"])
 
     stories = int(val("stories"))
     heights = tuple(float(h) for h in val("storey_heights_m"))
@@ -4991,7 +5024,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
-        wall_paint=paint, wall_paint_opaque=paint_opaque, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
+        wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, front_pier=front_pier,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},

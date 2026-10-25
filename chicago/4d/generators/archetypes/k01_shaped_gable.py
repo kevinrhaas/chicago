@@ -112,6 +112,7 @@ def element(a, k5, ye):
     foot = a.p.shaped_gable["foot_m"]
     if a.p.shaped_gable.get("fabric") == "front":
         a.front_parapet_u = g["xb"] - 1e-6   # T-2730: _emit_shell dresses the slab in the front's stone
+    a.front_gable_u = g["xb"] - 1e-6         # T-3093: and a toned front's brick, its brick
 
     def role(i, p_, q_):
         if abs(p_[1] - foot) < 1e-9 and abs(q_[1] - foot) < 1e-9:
