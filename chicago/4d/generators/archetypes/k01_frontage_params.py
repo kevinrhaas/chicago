@@ -441,6 +441,11 @@ TOWER_PAST_EAVE_M = 1.0
 TURRET_CORNER_M = 0.3
 SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
 CHAMFER_BEHIND_M = 0.6  # T-3048: and its chamfer runs back at most this far behind the wall's face
+# T-3108: a chamfer a round bay stands on (`on_chamfer`, 1801's south-west corner on HABS
+# photograph 1 and its 1911 sheet: the corner cut back about 1.0-1.4 m over about 2 m) may run
+# this far along the front (and at most half the pavilion's width) and this far behind it
+ROUND_CHAMFER_ALONG_M = 2.0
+ROUND_CHAMFER_BEHIND_M = 1.6
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -1647,6 +1652,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
     import copy as _copy
     kit = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}
     out = []
+    carried = {e["on_chamfer"] for e in entries or () if e.get("on_chamfer") is not None}   # T-3108
     for e in entries or ():
         if e["variant"] not in kit:
             raise ParamError(f"bays: {e['variant']} is not a K08 variant (k08_bays.json)")
@@ -1780,10 +1786,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
                                      f"behind_m, on a shallow pavilion flush with that corner")
                 ca, cb = float(ch["along_m"]), float(ch["behind_m"])
-                if not (0.2 <= ca <= min(1.0, w / 4) and 0.1 <= cb <= CHAMFER_BEHIND_M):
-                    raise ParamError(f"bays: {e['id']}'s chamfer runs 0.2-1.0 m (and at most a quarter of its "
-                                     f"width) along its front and 0.1-{CHAMFER_BEHIND_M} m behind the wall, "
-                                     f"not {ca} and {cb}")
+                # T-3108: further on a chamfer a round bay stands on, which closes the cut in front
+                rb = e["id"] in carried
+                most_a, most_b = (ROUND_CHAMFER_ALONG_M, w / 2) if rb else (1.0, w / 4)
+                most_c = ROUND_CHAMFER_BEHIND_M if rb else CHAMFER_BEHIND_M
+                if not (0.2 <= ca <= min(most_a, most_b) and 0.1 <= cb <= most_c):
+                    raise ParamError(f"bays: {e['id']}'s chamfer runs 0.2-{most_a} m (and at most "
+                                     f"{'half' if rb else 'a quarter'} of its width) along its front and "
+                                     f"0.1-{most_c} m behind the wall, not {ca} and {cb}")
                 pts = v["plan"]["points"]
                 if ch["corner"] == "right":
                     pts[2], pts[3] = [w / 2 - ca, d], [w / 2, -cb]
@@ -2171,11 +2181,35 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
+        # T-3108: a bow standing on a chamfered pavilion's canted face (1801's south-west corner,
+        # HABS photograph 1: a two-storey round bay between the gabled face and the south wall,
+        # where the 1911 sheet cuts the corner back): its wall is the cant, s_m measured along it
+        # from its left end, and on its host wall it stands over the cant's own span
+        cant = None
+        if e.get("on_chamfer") is not None:
+            host = next((x for x in out if x["id"] == e["on_chamfer"]), None)
+            ch = chamfer_of(host) if host is not None else None
+            if ch is None or host["wall"] != e["wall"] or v["kind"] != "bay" or v["plan"]["kind"] != "bow" \
+                    or oriel or e.get("flush_corner") or e.get("corner") or e.get("window_over") \
+                    or e.get("strips") or e.get("columns") or e.get("dress"):
+                raise ParamError(f"bays: {e['id']} stands on_chamfer: a bow on grade, on the chamfer of a "
+                                 f"projection laid before it on the same wall")
+            hp = host["variant"]["plan"]["points"]
+            (ax, az), (bx, bz) = (hp[2], hp[3]) if ch[0] == "right" else (hp[0], hp[1])
+            L = math.hypot(bx - ax, bz - az)
+            ex, ez = (bx - ax) / L, (bz - az) / L
+            if not (BAY_PIER_M / 2 - 1e-9 <= a and b <= L - BAY_PIER_M / 2 + 1e-9):
+                raise ParamError(f"bays: {e['id']} meets its chamfer at s {a:.3f}..{b:.3f}, closer than "
+                                 f"{BAY_PIER_M / 2} m to an end of its {L:.3f} m face")
+            cant = {"host": host["id"], "origin": (round(host["s_m"] + ax, 6), round(az, 6)),
+                    "along": (round(ex, 6), round(ez, 6)), "out": (round(-ez, 6), round(ex, 6)),
+                    "length_m": round(L, 4), "s_m": s}
+            a, b = host["s_m"] + min(ax, bx), host["s_m"] + max(ax, bx)
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
         flush = e.get("flush_corner")
-        if flush is not None:
+        if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
                 raise ParamError(f"bays: {e['id']}: flush_corner is 'left' or 'right', on a projection only")
             at = a if flush == "left" else wall_len[e["wall"]] - b
@@ -2198,8 +2232,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s ring stands {gap:.3f} m inside its {corner} end; a corner turret's "
                                  f"stands 0-{TURRET_CORNER_M} m inside it, never past the end wall's plane")
             v["cap_whole"] = True
-        if (a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or \
-                (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right" and corner != "right"):
+        if cant is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or
+                             (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right" and corner != "right")):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
@@ -2238,7 +2272,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             raise ParamError(f"bays: {e['id']} is a tower whose wall top {top:.2f} m is not {TOWER_PAST_EAVE_M} m "
                              f"over the eave ({eave:.2f} m); a shorter one is a bay with its cap in the eave")
         for o in list(openings):
-            if o.wall != e["wall"]:
+            if o.wall != e["wall"] or cant is not None:   # T-3108: its host stood over them
                 continue
             o0, o1 = o.s_m - o.width_m / 2 - 0.12, o.s_m + o.width_m / 2 + 0.12   # the lintel's horns
             if o1 <= a or o0 >= b or o.sill_m >= top or o.head_m + 0.30 <= bottom:
@@ -2348,7 +2382,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if e.get("fabric", "stone") not in ("stone", "front_stone") or not any(abs(brick_above - y) < 1e-6 for y in lines):
                 raise ParamError(f"bays: {e['id']}.brick_above_m {brick_above} must be one of a stone bay's "
                                  f"storey lines {lines}")
-        out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
+        out.append({"id": e["id"], "wall": e["wall"], "s_m": s if cant is None else round(a, 4),
+                    "span_m": (round(a, 4), round(b, 4)),
+                    **({"on_chamfer": cant} if cant else {}),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),

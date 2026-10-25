@@ -2467,6 +2467,15 @@ class Assembly:
         p = self.p
         O, R, N = frame
         v = b["variant"]
+        # T-3108: a bow on a chamfered pavilion's canted face: the cant is its wall, so its frame
+        # is the cant's (R along it, N out of it) and its s_m is measured along the cant
+        cant = b.get("on_chamfer")
+        s_at = b["s_m"]
+        if cant:
+            (ox, oz), (ex, ez), (nx, nz) = cant["origin"], cant["along"], cant["out"]
+            O, R, N = (_add(O, _add(_mul(R, ox), _mul(N, oz))), _add(_mul(R, ex), _mul(N, ez)),
+                       _add(_mul(R, nx), _mul(N, nz)))
+            s_at = cant["s_m"]
         c = (v.get("masonry") or {}).get("coursing")
         if c and c["rhythm"] == "street_front":
             # T-2773: the bay's courses on the street front's own beds, as the 1888 plate
@@ -2488,13 +2497,15 @@ class Assembly:
         if b.get("cut_by_entrance"):
             self.cut_by_entrance(b, built)
         conf = p.conf("bays")
+        lo_, hi_ = k01_frontage_params._bay_span(v["plan"])
         seed = self.instance(f"k08.{v['kind']}", "bay",
                              {"k08_variant": b["id"], "plan": v["plan"]["kind"], "storeys": len(v["storeys"]),
                               "wall_top_m": built.meta["wall_top_m"], "projection_m": built.meta["plan"]["projection_m"],
-                              "windows": len(built.windows), "wall": b["wall"]},
-                             {"junction_left": _add(O, _mul(R, b["span_m"][0])),
-                              "junction_right": _add(O, _mul(R, b["span_m"][1]))})
-        base = _add(O, _mul(R, b["s_m"]))
+                              "windows": len(built.windows), "wall": b["wall"],
+                              **({"on_chamfer": cant["host"]} if cant else {})},
+                             {"junction_left": _add(O, _mul(R, s_at + lo_ if cant else b["span_m"][0])),
+                              "junction_right": _add(O, _mul(R, s_at + hi_ if cant else b["span_m"][1]))})
+        base = _add(O, _mul(R, s_at))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
         body = {"brick": "bay_brick", "frame": "bay_frame"}.get(b["fabric"], "bay_stone")
         roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {})
@@ -2635,12 +2646,14 @@ class Assembly:
             wt = built.meta["wall_top_m"]
             low = [q for q in pts if q[1] < wt - 0.01 and q[2] < 0.02]
             parts = [low + [(min(q[0] for q in low), wt, 0.0)], [q for q in pts if q[1] >= wt - 0.01]]
-        for part in parts:
+        for part in parts if not cant else ():   # T-3108: the chamfer cut the front's courses there
             self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0) for q in part], "k08")
         roof = built.prims.get("roof")
         on_wall = [q[1] for q in roof.pos if abs(q[2]) < 1e-6] if roof else []
         top = max(on_wall) if on_wall else built.meta["eave_m"]
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
+        if cant:   # T-3108: on its host wall it reaches over the cant's span
+            return top, tuple(b["span_m"])
         return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
 
     def cut_by_entrance(self, b, built):
