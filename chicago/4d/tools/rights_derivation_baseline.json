@@ -41,6 +41,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "coleman_ames_house_1811_prairie/as_mapped_1904/form.rear_wings": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1811_ames_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
       "kind": "structure",
       "blocked_sources": [

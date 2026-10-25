@@ -31414,6 +31414,14 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3132.
 **Recorded:** 2026-10-25.
 
+### L-k01-1811-flank-round-heads-3133 — 1811 Prairie's south flank: round heads in the brick, basement lights under them, the fan and the places reconstructed
+
+**Decision:** 1811 Prairie's brick south flank (the rear range's and the rear section's K01 'north' walls, T-3133) is cut as the c. 1888 Chicagology photograph draws it: every light round-headed, and under each light a round-headed basement light (the print's at x 1084-1197 px, their crowns on the horizon, so about 1.35 m over grade at the camera's eye). Four things are reconstructed. (1) The round heads are turned in the flank's own brick on K06's arch band, because whether a brick ring or a rubbed arch dresses them is below the print's grain. (2) Each round-headed light takes K06's one-over-one sash under a fixed fan (`k06.opening.sash_round_fanlight`): the print cannot count lights. (3) The basement lights are K06's fixed round-headed basement light, 1.0 m across from 0.30 to 1.35 m: their width is the light over each (the print draws them 1.0-1.2 times as wide), and their sill is K01's least for an ordinary light, where the print's feet stand a few tenths over the walk. (4) Their places along the flank are the lights' over them, one under each as the print sets them, and the lights' own spacing is still the 2.6 m T-3077 reconstructed: the camera's depth along the flank does not place them (T-3149). The flank's other side (K01's 'south'), seen in no picture, keeps the brick wall's segmental heads and no basement lights.
+
+**Re-opens on:** a camera that reaches the flank's rear (T-3149), a closer photograph of the flank, or a drawing of it.
+**Ticket:** T-3133.
+**Recorded:** 2026-10-25.
+
 ### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
 
 **Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
@@ -33153,3 +33161,30 @@ comparison must resolve the visible differences before the ticket closes.
 **Bounded adoption scope:** This selective board-only increment keeps the flat deck and original crib set-out. It includes no rise/profile/support controls or new runtime sampler. The original provisional 4.5.3 preview still differs; its principal point reaches a bound. Native six-family regeneration, current app/source comparisons and full policy gates remain owed. This entry admits only the board parapets. Original T-2375 remains open; image acceptance and scene dates are unchanged.
 
 **Adoption checkpoint:** 2026-10-24, T-3126 authored; official six-family refresh and app/policy gates not yet run at this checkpoint.
+
+### L-glessner-north-eave-3148 — Glessner's 18th Street eave level either side of the stable gable; the cross ridge 0.10 m lower on the alley gable's rake
+
+**Decision:** the `glessner_house` north-face eave west of the stable's 18th Street gable stands at the north
+range's 23.1 ft ng, where T-2231 had put it at 25.2 ft (L-glessner-west-profile-2231's "starts at z25.2 on the
+north-west corner"). The gable's west foot, the alley parapet's north foot and the cross roof's north foot go
+down with it. The cross roof's north plane stays the alley gable's north rake (L-glessner-alley-ridge-3096),
+now from 23.1 ft at S 0 to the gable's unmoved apex at 38.6 ft on S 14.6, so the cross ridge at S 12.31 stands
+at 36.17 ft where it stood at 36.5, and the plane at 46.7 degrees where it stood at 42.5.
+**What is read, not invented.** That the eave is level. A level line on one flat face projects to one straight
+image line through any pinhole, so no camera is needed. HABS photograph 1's tile edge west of the gable
+(W 156-160) lies within 1 px of the straight line the same edge draws along the range at W 60-124, where a
+2.1 ft step would stand 32-33 px off it. HABS photograph 15 and the c. 1887 Cornell print put it 3-7 px off
+lines carried farther, where the step would be 37 and about 50 px. The height is sheet 4's 23.1 ft, where the
+roof meets the 18th Street wall.
+**What is invented.** Nothing new is drawn. The ridge's 0.10 m follows from keeping T-3096's rule that the roof
+and the alley gable's rake share a plane; T-3096's cameras place the ridge's roll foot only to 0.3 m.
+**What is left open.** Through T-2758's stable-fitted HABS 01 camera the visible edge reads about 24.1 ft on
+the face on both sides of the gable, about 1 ft over sheet 4's line. HABS 15's refit reads the one level line
+1.2 ft apart across the gable, so at eave height the cameras do not measure to a foot. The slope from the
+lowered eave to the ridge is 1.2 ft longer than T-3096's, about three more 5 in courses than the 41-44 T-3095
+counted.
+**How to resolve:** a measured section through the stable's 18th Street end; T-3102 for the cameras.
+**Ticket:** T-3148 (T-3139's second piece). Readings: `docs/RESEARCH/glessner-north-eave-T-3148/`.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3148).
