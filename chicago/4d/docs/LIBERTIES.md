@@ -32940,6 +32940,48 @@ section, the beam's mouldings and the newels' carving; T-3135 rules the porch's 
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3134).
 
+### L-k07-1812-porch-arch-jamb-3135 — 1812 Prairie's porch arch cut into the south projection's corner, its south jamb and moulding on the projection's face, to the Levy photograph and the c. 1955 photograph
+
+**Decision:** the porch arch of George H. Wheeler's house at 1812 Prairie (T-3135, piece 2 of
+T-3114) is cut into the north corner of the south projection, where L-k07-1812-porch-arch-3134
+had stood its 2.7 m mouth clear of the projection from 5.2 m. The mouth is 3.05 m across, from
+4.85 m to 7.9 m along the front, its axis at 6.375 m (`axis_s_m`, 0.175 m south of the bay's
+6.55 m, the windows over it on their own centres); its north jamb stays where it was, and the
+half-elliptical head keeps its 0.79 m rise (rise over span 0.259) from the same 4.28 m springing.
+The projection (`cut_by_entrance`) is cut away under that head from the door's floor (1.65 m),
+from the south jamb (0.2 m inside its 5.05 m north face) through its whole 1.2 m depth, and the
+cut is closed in the projection's stone: the jamb carried forward from the door's reveal, the
+head's soffit on the reveal's own polyline, and a floor at the door's. The moulded ring's south
+leg, from the landing round the head to the projection's corner, stands on the projection's face;
+past the corner it runs on round the head on the main front as before. The springing band on the
+projection's face stops at the moulding (4.74 m). The door's leaves take the wider mouth (about
+1.72 m, beside the same 0.29 m pier and 1.04 m side light), and the strip of the threshold south
+of the stoop's landing stands on the projection's floor. No other house names either key, so every
+other house re-emits as before.
+**What is read, not invented.** Through Levy's camera (88.5 px a metre at the main front, 92.8 at
+the projection's face 1.2 m nearer), on 2-3x crops of x 600-1150, y 1000-1600 px: the arch's
+south moulding at x 740-755 px and the opening's edge (the door's south side) near x 755, both
+south of the projection's corner, which the print draws at x 770-777 above the arch. Nothing
+behind the projection's face can draw south of x 775 from this camera, so the jamb stands on the
+projection's face: 4.69-4.85 m along the front. The c. 1955 photograph, from 13.4 m south of the
+house, puts the opening's edge at x about 328 px and its moulding at 324-327, on the projection's
+face (47.5 px a metre from its south corner at x 100): 4.75-4.80 m. The arch does not stand forward
+of the main front as a whole: its north jamb draws at x about 1029 in Levy's print (the build's
+1027 on the main front) and at x about 444 in the c. 1955 photograph, where a jamb on the
+projection's plane would stand at 471-475, past the main front's own north corner (468). Rebuilt,
+the south moulding renders at x 745-754 in Levy's camera and 325-331 in the c. 1955 one.
+**What is invented.** The cut's inside: the jamb's depth through the projection, its soffit and
+its floor, which neither picture sees (both look from the south of the cut); the moulding ending
+square at the projection's corner, where it may return along the cut; the cut's floor at the
+door's, under the landing's stone.
+**What is built otherwise than read.** The stair is not moved: its foot and pierced north cheek
+are T-3144's.
+**How to resolve:** a view of the porch from the north, or a plan of the first floor, would show
+the cut's depth and how the moulding turns the corner.
+**Ticket:** T-3135.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3135).
+
 ### L-draft-district-background-3011 — Indiana Avenue's east frontage, 18th to 20th Street, stood up as one reconstructed background row where the sheet that draws it is not in hand
 
 **Covers:** `indiana_east_frontage_18th_20th_background_row.draft_1904.position`, `indiana_east_frontage_18th_20th_background_row.draft_1904.footprint`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.stories`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.construction`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_plan`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_elevation`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft`
