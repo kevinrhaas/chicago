@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 760,
+  "count": 761,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -5566,12 +5566,6 @@
           "domain": "structure",
           "structure": "fort_dearborn_officers_quarters",
           "phase": "log_1816",
-          "aspect": "form.gallery"
-        },
-        {
-          "domain": "structure",
-          "structure": "fort_dearborn_officers_quarters",
-          "phase": "log_1816",
           "aspect": "form.stories"
         },
         {
@@ -5599,6 +5593,10 @@
           "text": "two witnesses walked round the inside of this fort and wrote down what stood where — Gurdon Hubbard in 1827 and the key to the 1855 photograph — and between them they give one building's dimensions, one building's material twice, and nothing at all about height, roof or chimney for anything. The 1830 plan is a plan: it has no third dimension. What fills the gap here is building type, which is a real argument and not evidence: a magazine has no windows, a block-house has a jettied upper storey and loopholes because that is what the word means, and a barracks for two companies does not fit on one floor of a ninety-foot range. **The galleries are the subtlest of these and they are a decision, not an omission.** Captain Whistler's 1808 index for the FIRST fort says its barracks were *\"two storeys high with shingled Roofs and Galliaries fronting the parade\"*. Nothing says the 1816 fort's ranges had them, and John H. Kinzie says the two forts were \"differently constructed\". So the ranges are built with plain fronts, which renders as a claim — a visitor sees flat elevations facing the parade — made because the evidence for the alternative belongs to a building that burned in 1812."
         },
         {
+          "label": "Superseded for the officers' quarters",
+          "text": "this paragraph was written without Hubbard's p. 36, which gives the officers' quarters he saw in 1818 a piazza on a line with the second floor. That range now carries a reconstructed upper piazza under “The second fort's officers' quarters carry Hubbard's upper piazza, with the building it describes unresolved”; the barracks keep the plain front argued here."
+        },
+        {
           "label": "Consequence",
           "text": "the fort's massing is ours. Roof heights set the skyline of the whole complex, and a two-storey barracks against a one-storey one changes the scene from across the river."
         },
@@ -5608,14 +5606,16 @@
         },
         {
           "label": "Covers",
-          "text": "`fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_officers_quarters.log_1816.form.gallery`, `fort_dearborn_barracks.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.gallery`, `fort_dearborn_blockhouse.log_1816.form.wall_height_m`, `fort_dearborn_blockhouse.log_1816.form.upper_overhang_m`, `fort_dearborn_blockhouse.log_1816.form.loopholes`, `fort_dearborn_blockhouse.log_1816.form.roof_type`, `fort_dearborn_blockhouse.log_1816.form.roof_pitch_deg`, `fort_dearborn_blockhouse.log_1816.form.chimneys`, `fort_dearborn_magazine.brick_1816.form.wall_height_m`, `fort_dearborn_magazine.brick_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.construction`, `fort_dearborn_artillery_house.log_1816.form.stories`, `fort_dearborn_artillery_house.log_1816.form.wall_height_m`, `fort_dearborn_artillery_house.log_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.roof_pitch_deg`, `fort_dearborn_root_house.cellar_1816.form.wall_height_m`, `fort_dearborn_root_house.cellar_1816.form.roof_type`."
+          "text": "`fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.gallery`, `fort_dearborn_blockhouse.log_1816.form.wall_height_m`, `fort_dearborn_blockhouse.log_1816.form.upper_overhang_m`, `fort_dearborn_blockhouse.log_1816.form.loopholes`, `fort_dearborn_blockhouse.log_1816.form.roof_type`, `fort_dearborn_blockhouse.log_1816.form.roof_pitch_deg`, `fort_dearborn_blockhouse.log_1816.form.chimneys`, `fort_dearborn_magazine.brick_1816.form.wall_height_m`, `fort_dearborn_magazine.brick_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.construction`, `fort_dearborn_artillery_house.log_1816.form.stories`, `fort_dearborn_artillery_house.log_1816.form.wall_height_m`, `fort_dearborn_artillery_house.log_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.roof_pitch_deg`, `fort_dearborn_root_house.cellar_1816.form.wall_height_m`, `fort_dearborn_root_house.cellar_1816.form.roof_type`."
         },
         {
           "label": "Recorded",
           "text": "2026-08-11."
         }
       ],
-      "work_refs": []
+      "work_refs": [
+        "T-3124"
+      ]
     },
     {
       "id": "L43",
@@ -54367,6 +54367,76 @@
         "T-3135",
         "T-3114",
         "T-3144"
+      ]
+    },
+    {
+      "id": "L-second-fort-officers-piazza-3124",
+      "title": "The second fort's officers' quarters carry Hubbard's upper piazza, with the building it describes unresolved",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_officers_quarters"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_officers_quarters",
+          "phase": "log_1816",
+          "aspect": "form.face_openings"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_officers_quarters",
+          "phase": "log_1816",
+          "aspect": "form.gallery"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_officers_quarters",
+          "phase": "log_1816",
+          "aspect": "form.gallery_storeys"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_officers_quarters",
+          "phase": "log_1816",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_officers_quarters.log_1816.form.gallery`, `fort_dearborn_officers_quarters.log_1816.form.gallery_storeys`, `fort_dearborn_officers_quarters.log_1816.form.face_openings`."
+        },
+        {
+          "label": "Decision",
+          "text": "The west range inside the second Fort Dearborn opts into the fort archetype's existing two-level gallery (`gallery: true`, gallery storeys: 2): an open ground level of posts under an upper walk at the second floor, a railed front and a canopy from the main eave. The source is Hubbard's description of the fort as he first saw it in October 1818: *\"The officers' quarters were outside of the pickets, fronting east on the parade, and was a two-story building of hewn logs. A piazza extended along the entire front on a line with the floor of the second story, and was reached by stairs on the outside\"* (Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard…, leaf 74, printed p. 36, committed text lines 2353-2358). Everything about it stays **reconstructed**, for two reasons the same book supplies. (1) **OUTSIDE against WITHIN.** Page 36 puts that building outside the pickets; Hubbard's 1827 walk puts *\"The old officers' quarters, built of logs, on the west, and within the pickets\"* (leaf 205, printed p. 167, lines 7612-7613), which is where the 1830 plan draws this range. The book contradicts itself and this entry does not resolve it. (2) **Same range or not.** Nothing identifies the 1818 building with the range standing in July 1835; the post stood ungarrisoned from October 1823 to October 1828 and from May 1831 to June 1832, and no building inside it is dated. Continuity into the 1831/1835 garrison is therefore **conditional** on both readings going this way."
+        },
+        {
+          "label": "Reconstructed dimensions",
+          "text": "the helper's own, unchanged and documented at “the upper courtyard walks”: 2.1 m reach, 0.14 m posts on the nominal 3 m rhythm, 0.14 m deck, 0.95 m rail, pales at most 0.18 m apart, and a canopy falling 0.45 m from the existing 4.8 m eave. The upper deck sits at the existing 2.4 m storey line. Hubbard gives no dimension."
+        },
+        {
+          "label": "Openings written down, not re-read",
+          "text": "face openings declares exactly the rectangles the archetype's procedural default already built (five bays to the parade front with a ground-floor centre door, four to the back, blank gable ends), so that the posts can be set clear of them by the helper's support rule. One post moves from 9.145 m to 8.405 m, off the door. Every old triangle of the 1,764-triangle mesh is kept: same positions, footprint, height, storey count and grade, dates, occupants and materials. The bake adds 1,618 for the gallery (3,382 in all)."
+        },
+        {
+          "label": "Not done",
+          "text": "the outside stairs are **unmodelled**. Hubbard attests them but not where they ran or which way they climbed, and the helper invents no stair. The storey count is **not promoted**: its note now quotes p. 36 and says why the grade stays. The **prior refusal stays visible** on the record. Until this entry the gallery read `false` because nothing tied galleries to the 1816 fort, Whistler's 1808 *\"Galliaries\"* belonged to the first, and John H. Kinzie called the two forts *\"differently constructed\"*. That refusal is quoted in the gallery note as the alternative. The **1855 photograph** remains a diagnostic only, twenty years after the scene, with no camera solved on it as a matched July 1835 view."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a quartermaster return, repair estimate or plan of the post that dates the west range, places the officers' quarters inside or outside the pickets, or draws the piazza; or a pre-1856 picture of the west range's parade front with a camera that can be solved."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-3124",
+        "T-2388"
       ]
     },
     {
