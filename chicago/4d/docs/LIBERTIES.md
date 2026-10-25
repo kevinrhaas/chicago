@@ -33200,3 +33200,22 @@ counted.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-3143.
 **Recorded:** 2026-10-25.
+
+### L-glessner-great-arch-window-3140 — Glessner's window over the great arch is one opening; its sash is the kit's
+
+**Decision:** the `glessner_house` window over the great arch on 18th Street (W 97.7-110.1, 19.75-22.80 ft ng)
+is one opening, where it had been built as three lights between two stone piers. Its span and heights are
+unchanged.
+**What is read, not invented.** That it is one opening. The c. 1887 Cornell print, taken as the house was
+finished, shows it unglazed: one dark opening under one lintel, with no pier in it. HABS photograph 1 (1963)
+and HABS photograph 15 (1965) show the same opening filled with a sash of small panes in two rows, still
+with no pier. Three pictures across 78 years agree, so the form is attested.
+**What is invented.** The sash: two one-over-one double-hung units on a timber mullion, the kit's for an
+opening this wide. The 1887 print shows no sash and the 1963 one is a later sash of small panes, so neither
+is copied.
+**How to resolve:** a photograph of 18th Street between 1887 and about 1930 that shows the sash.
+**Covers:** `glessner_house.as_built_1887.form.openings_18th`.
+**Ticket:** T-3140 (Glessner's photographic sign-off). Readings: `docs/RESEARCH/glessner-signoff-T-3140/`.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3140).

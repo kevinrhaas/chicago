@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings and entry: fourteen jambs (the four first-floor windows south of the door, the door, the pair, the single and both second-floor groups in the plate) fit the model's spacing camera-free to 3.30 px rms, and the door, its fan and the basement grilles sit on the photograph's (docs/RESEARCH/glessner-prairie-front-T-2857/).",

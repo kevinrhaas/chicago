@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
   "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2855: the camera is re-solved (tools/glessner_north_pairs.py) with the gable pairs' sill and head left free. T-2200's frozen camera had taken the heads at the corridor rows' 22.25 ft and so drew the windows about two feet high. On the re-solved camera the corner, the grade line, both upper pairs (rebuilt at 19.6-24.3 ft, the photographs' reading) and the two narrow first-floor lights fall where the photograph has them.",
