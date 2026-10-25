@@ -1660,6 +1660,166 @@
       "phase_id": "as_standing_1904",
       "structure_id": "house_1736_prairie_coach_house"
     },
+    "house_1801_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 60008,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "1a7d7ce9d846ce9869ef4caa20f37588b811be1b590d64fbccc1503d4534c455",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1801_indiana"
+    },
+    "house_1803_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 68452,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "56e01ed3c66c90198029c8b277b45c479f08a434abd25f54eecca36a65965e13",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1803_indiana"
+    },
+    "house_1803_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 33576,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c88de5c428c178e220c33677ef247727a29470b258a2c2f13d363e26c9a16cb5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1803_indiana_shed"
+    },
+    "house_1805_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 60016,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bdf6847aac4487a16230657996bc2023baeb7bc8acf456fc15ae890643ec7c7d",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1805_indiana"
+    },
+    "house_1805_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 18556,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "881546b8cd91082016a20c99b55afd41e73736c4284faa274585e69c9ddf8531",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1805_indiana_shed"
+    },
+    "house_1807_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 60008,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "68510253587a3ecdf22d53c9583ef379e64f18c38330a63e65dc2f4304aca814",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1807_indiana"
+    },
+    "house_1807_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 33572,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "eb5f320d5ea9840c7eb3e8ca9842f0efc5cec8305522330d30c6d8269a9d0caf",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1807_indiana_shed"
+    },
+    "house_1809_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 207784,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "3c998c4e75fe88ed252b57554db026e81ea899b03236e354f12afdde6163f4a5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1809_indiana"
+    },
+    "house_1809_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 26092,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "906abae657a82211b3ea3fed47584fabe5d167c8d31dac7bf557d5c87562f1b7",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1809_indiana_coach_house"
+    },
+    "house_1813_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 81384,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bc4006220fb6f2663d9dff508b797698c842427460b8e31a4b55ab38b8b69a55",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1813_indiana"
+    },
+    "house_1813_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 26096,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "d612ef4eefce61151a4b314e8950d68f15d92d7fe644d914461b08ab098fdab8",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1813_indiana_coach_house"
+    },
+    "house_1815_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 210344,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "8362b255908c6dd46e6ac148b64891838ce10c1e45ecf561957c1572c6354b6e",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1815_indiana"
+    },
+    "house_1815_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 48584,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "94d343a8838137f407ba522d29c849fb098b0f460c5652774ae590d6bb234c02",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1815_indiana_coach_house"
+    },
+    "house_1819_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 283584,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c5c50ccda0393a85bd5d6d83b30e346a04ce6bdb414d86ca758f89f005d2f771",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1819_indiana"
+    },
+    "house_1821_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 44032,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c0ee801b74f32444540ea7ae392cf3fbc7b0116537d2db52bda8710c539c4934",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1821_indiana"
+    },
+    "house_1825_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 146132,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "9416b1f2080d54ea2ccefe26da19f6a1664fc79f681b99f71acc1d07d7469f78",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1825_indiana"
+    },
     "house_1828_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1679,6 +1839,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1828_prairie_coach_house"
+    },
+    "house_1829_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 139404,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "3d4fbefeaceb634ca3b819cede3260bb56353160cff25e3dc88187e80e29f9e5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1829_indiana"
+    },
+    "house_1829_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 93516,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "3dba11fb36c0fe042cbd5241dad9e648b92dffbeac605d0566fea42b2770a428",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1829_indiana_coach_house"
     },
     "house_1830_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1700,6 +1880,26 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1832_calumet"
     },
+    "house_1833_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 70812,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "96281f8143319c099af69c577ef6ff9be9c5d0b1dd5f16c629d3c8343aab9b5a",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1833_indiana"
+    },
+    "house_1833_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 26104,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "a965be9691e5bfafc1c92025638ff303a776feb92e5f2c44537b6f445f74cbb7",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1833_indiana_coach_house"
+    },
     "house_1836_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1719,6 +1919,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1836_calumet_coach_house"
+    },
+    "house_1837_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 107352,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "1288bf742f95a4fdfa6502833937fe1cbcbab51d0128014aa33d82547ee83696",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1837_indiana"
+    },
+    "house_1839_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 188056,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "e118f45cf6476d1d0b1df262c994d0d9564049106437e97eedccda4d5c51d7f9",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1839_indiana"
     },
     "house_1840_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1750,6 +1970,46 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1900_calumet_coach_house"
     },
+    "house_1901_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 100060,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "3a6c85dc7d29d7a5c7f5502ee7f8ba6158994cba920a2486a0b61acd2f9f2a9d",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1901_indiana"
+    },
+    "house_1901_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 48556,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "d88a131fdc98a6fdea552d5bff51f71382882baa14ed56eb79f88c0da96eddcf",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1901_indiana_shed"
+    },
+    "house_1909_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 119708,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "697a5d8e68f6faef3db81ef91c3d7ab80ca397d93e8cf5af6f6cd1fa103e336f",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1909_indiana"
+    },
+    "house_1909_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 58832,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "2fb5e02adc860de12ccebbe4337875702a1635464d7c674f5553bf5c2fa11186",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1909_indiana_shed"
+    },
     "house_1910_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1770,6 +2030,46 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1910_calumet_coach_house"
     },
+    "house_1913_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 110600,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "cf796e492013fa6748d105bf89567183f561c37ba593755141491aef71c36350",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1913_indiana"
+    },
+    "house_1913_indiana_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 17616,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "f41e07599da3486c7bc1bbe2695e0451b6709b273a1ada7c9f98ad164299ba0e",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1913_indiana_shed"
+    },
+    "house_1915_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 83452,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "75ab2449c153337c47b6d522e6d6851d2aa8cdd4338df9d69fe6ffab66b176db",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1915_indiana"
+    },
+    "house_1917_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 141208,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c5d20f951f2066dce5a45748e44d2bb661cb349961ae5de963c1f51dc5e1a7e0",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1917_indiana"
+    },
     "house_1918_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1789,6 +2089,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1918_prairie_coach_house"
+    },
+    "house_1921_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 303396,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "0b8555198d4b0e17d5672474647f0e7324b757472bab6dbdd3589234836802e3",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1921_indiana"
+    },
+    "house_1921_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 93524,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "64454cf292d68ac2232f28107e4ff091bf47373493db11182c2f15e363a2978c",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1921_indiana_coach_house"
     },
     "house_1922_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1829,6 +2149,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1928_calumet"
+    },
+    "house_1931_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 278908,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "da4f4ace292d50d30f96e6e2b97d0baeb6b000e9178fd7ce2ccaef081859c0a9",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1931_indiana"
+    },
+    "house_1931_indiana_rear_dwelling__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 86032,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "029023cf215961f96867ad65101407da4cc16139e94beaf6fa0df64b004d2289",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1931_indiana_rear_dwelling"
     },
     "house_1932_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -2530,6 +2870,16 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2128_calumet_coach_house"
     },
+    "house_213_e18th__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 355652,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "0abbedfdc08bd6196d25fb7b2b2593be7ad7385350c3986ff4ef46f7818f842a",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_213_e18th"
+    },
     "house_213_e20th__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -2609,16 +2959,6 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "ice_cream_works_1605_indiana"
-    },
-    "indiana_east_frontage_18th_20th_background_row__draft_1904.glb": {
-      "archetype": "prairie_draft",
-      "baked_ao": false,
-      "bytes": 4405552,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "26ffeec25145213e6e7dd80808943524c1861b5b266040583b7f1ca52ffbd6b0",
-      "kind": "generated",
-      "phase_id": "draft_1904",
-      "structure_id": "indiana_east_frontage_18th_20th_background_row"
     },
     "inf_artisan_dwelling_west_a__inferred_1835.glb": {
       "archetype": "frame_dwelling",
