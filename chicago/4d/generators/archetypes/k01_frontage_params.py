@@ -2076,6 +2076,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             fabric = bl.pop("fabric", "iron")
             # T-2930: or a stone balustrade's pierced panels in place of its bars (1801's bow)
             panels = bl.pop("panels", None)
+            # T-3092: or a stone panel in one run's middle rising to a pedestal, iron scrolls
+            # over its sweeps, and a roundel on every bar (1812's, the Levy print)
+            spanel, roundel = bl.pop("panel", None), bl.pop("roundel", None)
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
             flat_top = v["plan"]["kind"] == "polyline" and v["kind"] in ("bay", "projection") \
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
@@ -2100,6 +2103,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if v["kind"] == "projection" and not bal["rail_m"][0] < bal["post_m"]:
                 raise ParamError(f"bays: {e['id']}'s balcony rail {bal['rail_m'][0]} m is no thinner than its "
                                  f"{bal['post_m']} m posts, so it cannot stop inside the projection's corner posts")
+            if spanel is not None:
+                pk = {"run", "width_m", "end_m", "sweep_m", "shoulder_m", "thickness_m", "pedestal_m", "scroll_m", "boss_m"}
+                if fabric != "iron" or panels is not None or not isinstance(spanel, dict) or set(spanel) != pk:
+                    raise ParamError(f"bays: {e['id']}'s balcony panel is stone in an iron rail and takes {sorted(pk)}")
+                sp = {k: (int(x) if k == "run" else [float(y) for y in x] if k == "pedestal_m" else float(x))
+                      for k, x in spanel.items()}
+                pw, ph = sp["pedestal_m"]
+                if not 0 <= sp["run"] < len(v["plan"]["points"]) - 1 or not 0.5 <= sp["width_m"] <= 5.0 \
+                        or not 0.0 < sp["end_m"] < sp["shoulder_m"] < bal["height_m"] - bal["rail_m"][1] \
+                        or not 0.1 <= sp["sweep_m"] < (sp["width_m"] - pw) / 2 or not 0.06 <= sp["thickness_m"] <= 0.3 \
+                        or not 0.15 <= pw <= 0.8 or not sp["shoulder_m"] < ph <= bal["height_m"] + 0.3 \
+                        or not 0.03 <= sp["scroll_m"] <= 0.25 or not 0.02 <= sp["boss_m"] <= 0.12:
+                    raise ParamError(f"bays: {e['id']}'s balcony panel {sp} is not a panel under its rail: its "
+                                     f"ends under its shoulders under the rail, its sweeps clear of its pedestal")
+                bal["panel"] = sp
+            if roundel is not None:
+                rk = {"radius_m", "width_m", "drop_m"}
+                if fabric != "iron" or not isinstance(roundel, dict) or set(roundel) != rk:
+                    raise ParamError(f"bays: {e['id']}'s balcony roundel is an iron ring on each bar, and takes {sorted(rk)}")
+                rd_ = {k: float(x) for k, x in roundel.items()}
+                if not bal["bar_m"] / 2 < rd_["radius_m"] - rd_["width_m"] or not 0.005 <= rd_["width_m"] <= 0.03 \
+                        or not 2 * rd_["radius_m"] < bal["pitch_m"] or not 0.0 <= rd_["drop_m"] <= 0.2:
+                    raise ParamError(f"bays: {e['id']}'s balcony roundel {rd_} does not ring its bar inside its pitch")
+                bal["roundel"] = rd_
             v["balcony"] = bal
         # T-2534: a balcony on a projection's floor, bowed out from its front under the window
         # it serves (1637 Prairie's wing, from its engraving): a stone slab and its balustrade

@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb",
+  "glb_sha256": "37beab0872e7e645c8b73e83dea5ebf494b5e89954a2c0ff95d766ecea46c2bc",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -69,11 +69,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal, with iron scrolls against it; built as more of the iron rail, its balusters plain square bars without the print's roundels",
-      "status": "open"
+      "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal (x 527-557 px), with iron scrolls against it and roundels on the balusters either side; built so, the panel 3.14 m across, 0.09 m high at its ends and swept straight up over 0.8 m to 0.42 m shoulders, the pedestal 0.32 m across and 0.52 m high under a cap at about the rail's top, an iron scroll of about 0.11 m hung from the rail over each sweep and standing before the panel's slope, its tail returning into the rail, a carved scroll beside the pedestal each side, and a roundel under the rail on every baluster; re-rendered, each scroll reads about the print's size over the same part of the sweep (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
     },
     {
-      "what": "South projection: its top, K08's 0.2 m fascia over the 9.45 m wall head, renders about 25-30 px over the print's cornice, and the balcony stands on it, about as high again",
+      "what": "South projection: its top brought down to the print's cornice, the foot at about y 700 px and the top at y 677-693 (the print is warped, lower to the north): the last storey 3.65 m, the wall head at 9.25 m under an eave 0.2 m out and 0.15 m deep to 9.40 m, where K08's 0.28 m fascia over the 9.45 m wall head had stood about 25-30 px over the print's, and the balcony stands on it at the print's height; the render's top reads at about y 679 (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: under the cornice the print's face is a stone frieze from the cornice's foot down to the paired window's caps (y 700-740 px, about 8.8-9.25 m), with a block under the balcony's pedestal (x 527-557) and a moulded band at the caps' top; built as brick, the cornice's section as a plain soffit and fascia where the print's is moulded (T-3113)",
       "status": "open"
     },
     {
