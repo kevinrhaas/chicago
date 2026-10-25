@@ -89,6 +89,21 @@ def main():
         assert signature.parameters[name].kind == inspect.Parameter.KEYWORD_ONLY
     assert p.gallery_storeys == 1 and p.face_openings is None
 
+    # An absent cover and a horizontal cover are different physical contracts.
+    # The flat positive control prevents fixing none by dropping both branches.
+    for roof_type in ('none', 'flat'):
+        shell = replace(p, roof_type=roof_type)
+        cover = MeshBuilder('cover-'+roof_type)
+        assert fort._roof(cover, shell, 0.0, 0.0, 24.0, 15.0, 4.0, .5) == 4.0
+        if roof_type == 'none':
+            assert cover.verts == [] and cover.faces == []
+        else:
+            assert [[cover.verts[i] for i in face] for face in cover.faces] == [
+                [(0.0, 0.0, 4.0), (0.0, 15.0, 4.0),
+                 (24.0, 15.0, 4.0), (24.0, 0.0, 4.0)]]
+            assert cover.mat_index == [fort.M_ROOF]
+
+
     # A five-bay front put the old centre support directly through the centre sash.
     holes = []
     for storey in (0.0, 2.5):

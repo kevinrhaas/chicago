@@ -39,6 +39,7 @@
   "exchange_coffee_house_stable",
   "first_presbyterian_church",
   "fort_dearborn_big_barn",
+  "fort_dearborn_officers_quarters",
   "fort_dearborn_out_building_a",
   "fort_dearborn_out_building_b",
   "fort_dearborn_shop",
@@ -1018,6 +1019,20 @@
     [1048.22, 132.09],
     [1047.33, 133.56],
     [1050.64, 137.24]
+   ],
+   [
+    [1140.94, 231.32],
+    [1138.28, 212.42],
+    [1139.67, 212.23],
+    [1140.75, 219.94],
+    [1142.45, 220.21],
+    [1142.71, 220.28],
+    [1142.85, 220.51],
+    [1143.1, 222.29],
+    [1143.03, 222.55],
+    [1142.8, 222.69],
+    [1141.24, 223.41],
+    [1142.32, 231.13]
    ],
    [
     [1179.14, 51.54],
@@ -9949,6 +9964,16 @@
    "width_m": 2.9
   },
   {
+   "id": "fort_dearborn_officers_quarters__door_1",
+   "structure_id": "fort_dearborn_officers_quarters",
+   "archetype": "fort_structure",
+   "kind": "door",
+   "read_by": "facade_openings.fort_structure",
+   "at_local_enu_m": [1139.61, 221.87],
+   "bearing_deg": 98.0,
+   "width_m": 1.1
+  },
+  {
    "id": "fort_dearborn_out_building_a__door_1",
    "structure_id": "fort_dearborn_out_building_a",
    "archetype": "outbuilding",
@@ -16252,7 +16277,7 @@
   },
   {
    "archetype": "fort_structure",
-   "count": 15,
+   "count": 14,
    "why": "no reader states this archetype's front door"
   },
   {

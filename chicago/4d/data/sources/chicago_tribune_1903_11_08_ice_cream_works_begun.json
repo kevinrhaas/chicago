@@ -1,0 +1,26 @@
+{
+ "id": "chicago_tribune_1903_11_08_ice_cream_works_begun",
+ "type": "newspaper",
+ "citation": "Real-estate column, Chicago Daily Tribune, 8 November 1903: the building news that Thompson-Reid and Collins Bros. 'have begun the construction of a four story building ... and a barn, at 1605 to 1618 [1613] Indiana avenue'.",
+ "author": "Chicago Daily Tribune",
+ "date": "1903-11-08",
+ "describes_date": "1903-11-08",
+ "repository": "Internet Archive, item per_chicago-daily-tribune_1903-11-08_62_45.",
+ "url": "https://archive.org/details/per_chicago-daily-tribune_1903-11-08_62_45",
+ "locator": "The real-estate column's building news: '[Thompson]-Reid and Collins Bros., manufacturers of ice cream, have begun the construction of a four story building to be occupied for the manufacture of ice cream, and a barn, at 1605 to 1618 [1613] Indiana avenue, the cost of which will be $50,000. The building will front 100 feet, with a depth of 177, and will be of brick. The plans were prepared by A. R. Buckley.' The OCR reads the number '1618'; the September sale and the March 1904 report both give 1605-1613.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "rights_note": "A US newspaper published in 1903, in the public domain. Read for a building's storeys, material, size and start.",
+ "access_notes": "Found 2026-10-25 (T-3130) through the Internet Archive's full-text search of the Tribune for \"Collins Bros\" \"ice cream\"; read from the item's OCR text.",
+ "note": "The building the plant was to be: four storeys of brick, 100 by 177 feet, with a barn, $50,000, from A. R. Buckley's plans. 'Have begun' is the column's word in November 1903, but the foundation was still being dug on 22 March 1904 (abendpost_1904_03_22_indiana_1605_foundation), so the start the column reports is not the walls' start.",
+ "what_it_supplies": [
+  "the plant's planned form: a four-storey brick building 100 by 177 feet, with a barn",
+  "its architect, A. R. Buckley, and its cost, $50,000"
+ ],
+ "what_it_does_not_supply": [
+  "how far the walls had risen by 1 July 1904",
+  "when the plant was finished"
+ ]
+}

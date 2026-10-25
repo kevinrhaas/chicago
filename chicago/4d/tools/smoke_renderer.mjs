@@ -20128,7 +20128,21 @@ for (const [label, viewport, touch] of [
           'house_1703_indiana',
           'house_1703_indiana_coach_house',
           'house_1713_indiana',
-          'house_1713_indiana_coach_house'].sort();
+          'house_1713_indiana_coach_house',
+          // T-3068: the seven lots the two plans disagree on, read against dated sources.
+          'house_1601_indiana',
+          'house_1619_indiana',
+          'house_1619_indiana_coach_house',
+          'house_1637_indiana',
+          'house_1641_indiana',
+          'house_1727_indiana',
+          'house_1735_indiana',
+          // T-3013: Bane Brothers' livery on 2129-2131, read off the 1904 Blue Book
+          'livery_2129_indiana',
+          // T-3130: the ice-cream works rising on 1605-1613 Indiana.
+          'ice_cream_works_1605_indiana',
+          // T-3011: Indiana Avenue's east frontage 18th-20th, one reconstructed background row
+          'indiana_east_frontage_18th_20th_background_row'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

@@ -1,4 +1,94 @@
 export const CHANGELOG = [ // newest first
+  { v: 2280, ts: '2026-10-25T14:38:11.686Z', date: 'Oct 25, 2026, 9:38 AM CT', title: 'The missing map sheet for Indiana Avenue, 18th to 20th, is in', kind: 'change',
+    items: [
+      'The 1911 fire-insurance map sheet that draws Indiana Avenue between 18th and 20th Street was the one gap in the Prairie Avenue maps. It is now copied from the Library of Congress and lined up with the sheets on either side; where the three sheets meet they agree to within about two-thirds of a metre. Its 26 lots, 1801 to 1937 Indiana and 213 to 217 East 18th Street, are now on the 1904 street plan, and the avenue\'s east curb, walk and elms along the block follow the line the sheet draws instead of a straight guess between its neighbours. The far-off city behind the avenue is laid out again from the new lot widths. The houses on the block are still the reconstructed row; reading them off the sheet comes next.',
+    ] },
+  { v: 2279, ts: '2026-10-25T14:22:06.513Z', date: 'Oct 25, 2026, 9:22 AM CT', title: 'Photo-match work stops where a visitor would notice', kind: 'chore',
+    items: [
+      'A gap under about a foot, or a pixel offset, is now marked within tolerance instead of opening another ticket.',
+      'Runs no longer file their own follow-ups for houses already matched to photographs; each house gets one final sign-off.',
+    ] },
+  { v: 2278, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: '1812 Prairie\'s front stair to Levy\'s photograph', kind: 'improvement',
+    items: [
+      '1812 Prairie\'s front stair now matches Albert Levy\'s photograph: the south side draws in towards its carved newel, and the north side is pierced by a row of small openings under its broad stone top.',
+    ] },
+  { v: 2277, ts: '2026-10-25T13:59:29.803Z', date: 'Oct 25, 2026, 8:59 AM CT', title: 'Glessner\'s 18th Street gable window: transom lowered, seven stones in its fan', kind: 'fix',
+    items: [
+      'The stone bar across the tall arched window in the Glessner house\'s 18th Street gable now sits about 5 inches lower, as two 1965 survey photographs show it, so the round top stands taller over it. The fan of stones above the window is now seven broad stones with a keystone at the top, as the closer photograph counts them, where there were eleven narrow ones.',
+    ] },
+  { v: 2276, ts: '2026-10-25T12:53:49.519Z', date: 'Oct 25, 2026, 7:53 AM CT', title: 'Indiana Avenue between 18th and 20th Street is no longer empty', kind: 'change',
+    items: [
+      'From Prairie Avenue\'s walks by Glessner and Kimball you used to look west, past the stables, onto bare ground where Indiana Avenue\'s east side should be. It now holds a row of 22 houses, the last stretch of the background behind the avenue. The 1904 Blue Book lists households at ten numbers along it. The houses themselves are reconstructed from the neighbouring Indiana blocks, because the 1911 map sheet that draws this block is not in hand yet. The card says so, and a later ticket replaces them house by house.',
+    ] },
+  { v: 2275, ts: '2026-10-25T12:07:27.151Z', date: 'Oct 25, 2026, 7:07 AM CT', title: 'Fort Dearborn\'s officers\' quarters get their upper piazza', kind: 'feature',
+    items: [
+      'The log officers\' quarters on the fort\'s west side now have a covered walk along their parade front at second-floor height, on open posts with a railing. Gurdon Hubbard, recalling the fort as he saw it in 1818, describes this piazza running along the whole front at the level of the upper floor, reached by stairs outside. The building itself is unchanged.',
+      'It is marked as a reconstruction. Hubbard puts that building outside the stockade, but in the same book he puts the log officers\' quarters inside it on the west, and nothing confirms that his 1818 building is the one standing in 1835. The walk\'s measurements are borrowed from the first fort\'s galleries, and the outside stairs are left out because nobody says where they ran.',
+    ] },
+  { v: 2274, ts: '2026-10-25T11:56:01.240Z', date: 'Oct 25, 2026, 6:56 AM CT', title: 'Calumet Avenue\'s walk back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Standing on Calumet Avenue\'s east walk at 20th Street looking north, the 1904 scene at full detail was drawing about 4.7 million triangles, over its 4.6 million budget. Nearly half came from one house the visitor cannot see there: Glessner House, about 290 m off and hidden behind the Calumet houses and their elms. Full detail now leaves out pieces of a building that sit completely behind another building\'s wall, as Light has done since October, and the same view draws 2.9 million. Nothing a visitor can see is removed: seven of the eight views tested match pixel for pixel, and the eighth differs at three pixels by a barely measurable shade.',
+    ] },
+  { v: 2273, ts: '2026-10-25T11:56:01.240Z', date: 'Oct 25, 2026, 6:56 AM CT', title: 'Glessner\'s stable end, seen through a camera fitted at the stable', kind: 'improvement',
+    items: [
+      'The 1965 photograph of the stable\'s 18th Street end is now matched through a camera fitted to its doorway, loft and windows, so the model\'s front lies over the picture instead of tilting off it.',
+      'The hoist stone over the loft was checked against both photographs of it and stands where it was built.',
+    ] },
+  { v: 2272, ts: '2026-10-25T11:30:49.834Z', date: 'Oct 25, 2026, 6:30 AM CT', title: '1812 Prairie\'s porch arch cut into the projection\'s corner', kind: 'change',
+    items: [
+      'The porch arch of 1812 Prairie is now cut into the corner of the projection beside it, as both photographs of the house show: its south jamb and light moulding run down the projection\'s own face, about 0.3 m further south than before, so the arch is broader and the double doors under it wider. Albert Levy\'s print and the c. 1955 photograph both draw that jamb south of the projection\'s corner, and the north jamb on the main front, so the arch is cut into the corner rather than standing forward. The inside of the cut, which neither picture shows, is reconstructed.',
+    ] },
+  { v: 2271, ts: '2026-10-25T10:44:45.895Z', date: 'Oct 25, 2026, 5:44 AM CT', title: '1811 Prairie\'s scrolled basement grilles and stepped porch arcade', kind: 'change',
+    items: [
+      'The two basement windows under 1811 Prairie\'s bay now carry the scrolled iron grilles the c. 1888 photograph shows: a rosette, eight spokes and a ring, with a curled scroll in each corner, inside a border of short bars. The windows reach lower, to where the photograph puts their foot.',
+      'The small arcade round the porch\'s rounded corner now steps down about 10 cm with each of its three columns, as both the 1888 plate and the photograph draw it.',
+    ] },
+  { v: 2270, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: 'Glessner\'s photographs re-read for the sign-off', kind: 'change',
+    items: [
+      'Every Glessner photograph the model still differs from now says how. The Prairie front\'s small pair over the carriage way reads narrower in its north light in both the 1887 and 1965 prints, the stable gable\'s pigeon holes stand taller in both northwest views, and the 18th Street gable\'s pairs and light differ on HABS 13 and 14. Each finding is ticketed for the sign-off, and the register of what is attested against what is inferred now matches the current model.',
+    ] },
+  { v: 2269, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: 'The Lake House building site stands open to the sky', kind: 'fix',
+    items: [
+      'The Lake House under construction in 1835 no longer wears a flat lid over its unfinished walls — and its Sources card now says plainly that the missing roof is our reconstruction, not something a witness saw.',
+    ] },
+  { v: 2268, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: '1812 Prairie\'s porch arch, transom and stair newels to the photograph', kind: 'change',
+    items: [
+      'The porch arch of 1812 Prairie now has the half-elliptical head Albert Levy\'s photograph shows, flat over the crown, turned in a narrow moulded ring of light stone that runs down both jambs. Under its fanlight is a heavy moulded transom beam, and two narrow columns of small panes divide the fanlight, one over the doors\' meeting and one over the pier. The stair\'s north cheek now flares out as it sweeps down, and each cheek ends in a carved newel under a cap with a turned knob. The mouldings, the knob and the carving are reconstructed; the arch\'s south jamb against the projection is still to come.',
+    ] },
+  { v: 2267, ts: '2026-10-25T08:19:57.097Z', date: 'Oct 25, 2026, 3:19 AM CT', title: 'The ice-cream works rising on Indiana Avenue in 1904', kind: 'improvement',
+    items: [
+      '1605-1613 Indiana is no longer an empty lot. The Thompson-Reid and Collins Bros. ice-cream works stands there as it was on 1 July 1904: brick walls three storeys up, with no roof yet, empty window openings and a scaffold along the street.',
+      'Newspapers from 1903 and 1904 date it. The plan was four storeys of brick, 100 by 177 feet, and the foundation was dug that March. In September the firm let out its old premises. How high the walls had got by July is an estimate between those dates, and the building\'s card says so.',
+    ] },
+  { v: 2266, ts: '2026-10-25T07:29:32.280Z', date: 'Oct 25, 2026, 2:29 AM CT', title: 'Bane Brothers\' livery joins the Indiana Avenue background', kind: 'feature',
+    items: [
+      'A second livery building now stands at 2129-2131 Indiana Avenue. The 1904 Blue Book advertises Bane Brothers\' livery and boarding stables there, so the brick building the 1911 atlas labels a garage is drawn as the livery stable it was in 1904.',
+      'Four other Indiana-side lots the atlas shows in 1911 commercial use have now been looked up in 1902-1909 directories and newspapers: houses at 2001-2003 Indiana, rooms and an agent\'s office at 2101-2105, and a house letting rooms at 215 East 21st Street. The printing works, garage and repair shop came later, so those lots stay empty until a plan or picture of the older buildings turns up.',
+    ] },
+  { v: 2265, ts: '2026-10-25T07:16:19.814Z', date: 'Oct 25, 2026, 2:16 AM CT', title: 'Glessner\'s 18th Street gable window widened to the photographs', kind: 'fix',
+    items: [
+      'The tall arched window high in the Glessner house\'s 18th Street gable is now 2.1 ft wide instead of 1.5, as two survey photographs from 1963 and 1965 show it. Its round top stays at the same height, and the fan of radiating stones over it is a little wider to match.',
+    ] },
+  { v: 2264, ts: '2026-10-25T07:16:19.814Z', date: 'Oct 25, 2026, 2:16 AM CT', title: '1812 Prairie\'s balcony to its photograph', kind: 'improvement',
+    items: [
+      'The balcony over George H. Wheeler\'s south bay now has the carved stone panel Albert Levy\'s photograph shows in its middle, rising to a pedestal, with iron scrolls the size the picture shows standing before it and ringed balusters either side, and the bay\'s top drops to the picture\'s cornice.',
+    ] },
+  { v: 2263, ts: '2026-10-25T06:29:23.480Z', date: 'Oct 25, 2026, 1:29 AM CT', title: 'Nothing you can see: source-use conflicts now clear themselves', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind it, the list of source-use files that a merge may rebuild instead of refusing had fallen to 303 of the 436 it should name. The other 134 conflicts stopped a branch\'s merge, or lost its source links when one side was taken by hand. The compiler that writes those files now keeps the list itself, and the gate refuses when the two disagree.',
+    ] },
+  { v: 2262, ts: '2026-10-25T06:29:23.480Z', date: 'Oct 25, 2026, 1:29 AM CT', title: '1811 Prairie\'s stable stands two storeys, as in 1904', kind: 'change',
+    items: [
+      'The coach house behind 1811 Prairie now rises two storeys. A Tribune advertisement of April 1904 offers the house with a \'2 story stable\', and the 1891 atlas draws a stable on the alley in the same place.',
+      'The house itself is unchanged: the 1891 atlas draws it about 27 m deep, as the 1911 map does, so the long brick range was already standing.',
+    ] },
+  { v: 2261, ts: '2026-10-25T00:44:22.289Z', date: 'Oct 24, 2026, 7:44 PM CT', title: 'Six more 1904 buildings on Indiana Avenue between 16th and 18th', kind: 'improvement',
+    items: [
+      'Four houses the 1911 atlas no longer shows now stand as they did in 1904, taken from the 1886 atlas: 1637, which the Army Corps of Engineers used as its Chicago office, 1641, and two frame houses at 1727 and 1735. A brick row\'s west end also stands at the 16th Street corner.',
+      '1619\'s brick house stands too, with its stable on the alley. The same family lived there from 1888 to 1908.',
+      '1605-1613 is left as a building site. Its old houses were gone, and the ice-cream factory there was still going up in 1904.',
+      'The dates come from 1902-1905 directories, newspaper notices and building permits. Each house\'s card says what is known and what is inferred.',
+    ] },
   { v: 2260, ts: '2026-10-24T21:45:38.622Z', date: 'Oct 24, 2026, 4:45 PM CT', title: '1811 Prairie\'s north pier capped below the bay, sky above it', kind: 'improvement',
     items: [
       'The narrow stone pier at the front\'s north end now stops below the bay\'s cornice. It has a moulded cap, a band under the cap, and a small slate top, as in the 1888 plate and the photographs.',

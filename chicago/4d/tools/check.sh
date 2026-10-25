@@ -794,7 +794,7 @@ selftest "…and its own assertions still fire when broken" \
 # is fitted and printed and not adopted; its contract fails if the street bands
 # stop agreeing with the bar, or if the Glessner sheet's three standing houses stop
 # landing within 5 m of their OpenStreetMap outlines.
-step "the four Prairie Avenue sheets still re-derive their georeference (T-1250)" \
+step "the five Prairie Avenue sheets still re-derive their georeference (T-1250, T-3150)" \
   python3 tools/georef_prairie_1904.py --check
 
 selftest "…and a moved control, a misread bar or a mislaid house still fails it" \
@@ -1035,6 +1035,12 @@ step "a K01 rear wing takes a slated hip or gable, its junction with the host cl
 # stepped ends, out of its pitch range, over the ridge or with too long a head refused.
 step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
   python3 tools/test_k01_rear_fall.py
+
+# T-3144. A K07 swept stoop's cheek drawn in to its newel (a negative flare) and a cheek pierced
+# by a row of openings under its top, as Levy's print shows 1812 Prairie's: built so, each
+# opening open through the cheek, the plain stair back without them, and the misfits refused.
+step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3144)" \
+  python3 tools/test_k07_stair_foot.py
 
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
@@ -3802,6 +3808,13 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
   python3 tools/glessner_cupola_read.py --check
 
+# HABS 15's camera is the stable_level fit on measured controls at the stable, and
+# the hoist stone is read through it and through T-2758's HABS 01 doorway fit, so a
+# pick, camera or record number that moves without the report and the camera being
+# re-written and re-read is caught here (T-3147).
+step "Glessner stable-end reading and HABS 15's camera re-derive (T-3147)" \
+  python3 tools/glessner_stable_end_read.py --check
+
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,
 # or a record that builds the pairs outside it, is caught here (T-2850).
@@ -4034,6 +4047,13 @@ step "ticket queue (faults in the tickets repo are reported, not charged to this
 # in this repo's own files, a tickets clone this run dirtied, and embedded mode.
 step "a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it" \
   node tools/test_ticket_filing_effort.mjs
+
+# T-3153. The owner's photo-ticket stopping rule (2026-10-25): a run files no ticket on a
+# photo-gated house (the gap goes into its match record), any house past 25 tickets since
+# the image gate takes new ones only from the owner, and `split` refuses a sign-off or a
+# gated house past the cap unless `--owner-asked`. Proved on a fixture tickets folder.
+step "photo follow-ups stop: no run-filed tickets on a photo-gated house, no split sign-off" \
+  node tools/test_ticket_photo_stop.mjs
 
 # T-1548. `done` refuses to close a ticket a committed file still records as live work
 # — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,

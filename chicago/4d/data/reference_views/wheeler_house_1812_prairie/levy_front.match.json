@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb",
+  "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -69,11 +69,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal, with iron scrolls against it; built as more of the iron rail, its balusters plain square bars without the print's roundels",
-      "status": "open"
+      "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal (x 527-557 px), with iron scrolls against it and roundels on the balusters either side; built so, the panel 3.14 m across, 0.09 m high at its ends and swept straight up over 0.8 m to 0.42 m shoulders, the pedestal 0.32 m across and 0.52 m high under a cap at about the rail's top, an iron scroll of about 0.11 m hung from the rail over each sweep and standing before the panel's slope, its tail returning into the rail, a carved scroll beside the pedestal each side, and a roundel under the rail on every baluster; re-rendered, each scroll reads about the print's size over the same part of the sweep (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
     },
     {
-      "what": "South projection: its top, K08's 0.2 m fascia over the 9.45 m wall head, renders about 25-30 px over the print's cornice, and the balcony stands on it, about as high again",
+      "what": "South projection: its top brought down to the print's cornice, the foot at about y 700 px and the top at y 677-693 (the print is warped, lower to the north): the last storey 3.65 m, the wall head at 9.25 m under an eave 0.2 m out and 0.15 m deep to 9.40 m, where K08's 0.28 m fascia over the 9.45 m wall head had stood about 25-30 px over the print's, and the balcony stands on it at the print's height; the render's top reads at about y 679 (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
+    },
+    {
+      "what": "South projection: under the cornice the print's face is a stone frieze from the cornice's foot down to the paired window's caps (y 700-740 px, about 8.8-9.25 m), with a block under the balcony's pedestal (x 527-557) and a moulded band at the caps' top; built as brick, the cornice's section as a plain soffit and fascia where the print's is moulded (T-3113)",
       "status": "open"
     },
     {
@@ -113,20 +117,20 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px), so the arch reads about 0.3 m further south and broader; the build stands its 2.7 m mouth clear of the projection, from 5.2 m",
-      "status": "open"
+      "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px, the opening's edge near 755, south of the corner at 770-777), so the arch reads about 0.3 m further south and broader; built so (T-3135): the arch cut into the projection's corner, the mouth 3.05 m from 4.85 m (its north jamb where it was, on the main front), the projection cut away under the head through its depth and the moulding's south leg on its face; re-rendered, the moulding draws at x 745-754 (L-k07-1812-porch-arch-jamb-3135)",
+      "status": "fixed"
     },
     {
-      "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built as K01's voussoir block on a segmental head with a keystone flush with the ring",
-      "status": "open"
+      "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built so (T-3134): a half-elliptical head on the same 0.79 m rise, and a ring of two moulded steps 0.11 m broad round it and down both jambs, unbroken over the crown where the block's keystone stood. The voussoir block outside the ring is still radiating rock-faced stones where the print shows the porch's coursed ashlar run to the moulding",
+      "status": "fixed"
     },
     {
-      "what": "Entrance: the transom under the fanlight is a heavy moulded beam about 0.25 m deep, and the fanlight's three lights are divided by narrow columns of small panes; built as K07's 0.07 m bar and three plain lights",
-      "status": "open"
+      "what": "Entrance: the transom under the fanlight is a heavy moulded beam about 0.25 m deep, and the fanlight's three lights are divided by narrow columns of small panes; built so (T-3134): a 0.25 m beam (4.03-4.28 m) under a moulded cap and over a bead, and two 0.27 m columns three panes up, over the leaves' meeting and the pier",
+      "status": "fixed"
     },
     {
-      "what": "Stair: the north cheek flares out as it sweeps down and both end in a carved newel under a cap; built straight, to a plain block",
-      "status": "open"
+      "what": "Stair: the north cheek flares out as it sweeps down and both end in a carved newel under a cap; built so (T-3134): the north cheek carried 0.55 m out to its foot, the treads widening under it, and each foot a newel 0.45 m across under a cap at 1.1 m with a turned knob and a carved panel standing for the print's carving",
+      "status": "fixed"
     },
     {
       "what": "Fabric: a rock-faced stone basement to a smooth water table, the entrance bay's first storey in coursed stone up to the second floor's belt, and brick over it, banded and dressed in stone (the belts, sills, flat arches, voussoirs, the north window's quoined surround); the south projection brick over its rock-faced basement, its bands, sills, heads and reveals stone (T-2914)",
@@ -138,6 +142,10 @@
     },
     {
       "what": "Fabric: the projection's windows in quoined stone jambs, short and long in turn, and the band at the arched window's spring running from each corner to the arch (T-2915)",
+      "status": "fixed"
+    },
+    {
+      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare); built so (T-3144): the south cheek drawn in 0.2 m toward the stair's axis along its sweep to its newel (now x 760-812 against the print's 767-809, the north newel 1052-1105 against 1050-1100), and ten openings 0.11 m along the run and 0.08 m high through the north cheek, 0.35 m under its top and running with it, which the camera lays on the print's dark openings from the landing to the newel. The review render's sun lights their far reveals on the cheek's shaded face, so they read light where the print's read dark on its lit one: the light, not the form (L-k07-1812-stair-foot-3144)",
       "status": "fixed"
     },
     {

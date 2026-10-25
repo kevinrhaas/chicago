@@ -11,28 +11,28 @@
     900,
     603
   ],
-  "focal_px": 1598.11111111,
+  "focal_px": 1598.11,
   "eye": [
-    14.79591352,
-    47.53954371,
-    2.5
+    6.7089,
+    50.9335,
+    1.7634
   ],
   "yaw_deg": 0,
   "basis_right_up_forward": [
     [
-      -0.9862459817,
-      0.1636606029,
-      0.0231099687
+      -0.989857,
+      -0.142069,
+      0.0
     ],
     [
-      0.0202996664,
-      -0.0188233869,
-      0.9996167284
+      0.0,
+      0.0,
+      1.0
     ],
     [
-      -0.1640328843,
-      -0.9863371063,
-      -0.0152422341
+      0.142069,
+      -0.989857,
+      0.0
     ]
   ],
   "sky": "sun",
@@ -42,17 +42,31 @@
     0.643
   ],
   "solve": {
-    "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
-    "record": "data/comparisons/glessner/report.json#stable-detail",
-    "fit_controls": 6,
-    "withheld_checks": 4,
-    "baseline_fit_rms_px": 13.3728,
-    "baseline_check_rms_px": 26.8534,
+    "method": "T-3147 (piece of T-3139) refits T-2200's frozen pinhole at the stable (tools/glessner_stable_end_read.py): level, at T-2200's focal length and principal point, with the eye's position and the heading free, on measured controls in the north face S 0 -- sheet 2's doorway jambs W 134.9-147.0, sheet 5's 12.6 ft soffit and the threshold, sheet 3's loft (W 137.5-144.7) and flanking-light jambs (132.4-133.6, 149.1-150.3), and the north-west arris W 161.25. The print's verticals stand within 2 px, so it is level; roll freed takes the RMS to 2.5 px at -0.9 degrees by leaning the arris against its own picks.",
+    "record": "data/comparisons/glessner/stable-end.json#habs15.stable_level",
+    "fit_controls": 16,
+    "withheld_checks": 3,
     "bounds_active": [
       "height"
     ],
-    "limitations": "1965 plate; parked cars block grade and ridge is cropped. Altered carriage-door leaves and loft infill are excluded. Stable opening masonry remains a check. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
-    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting: see light (T-2848).",
-    "light": "T-2848, read off the photograph: hazy sun behind the stable. There is flare at the top of the frame over the gable, the camera's own side of 18th Street (the foreground sidewalk) is sunlit, the parked cars throw short soft shadows straight under them, and the stable's north wall is in shade with no cast shadow on it. Same reading as HABS 14 of the same series: azimuth about 200 degrees (behind the building, south-south-west); the elevation (40 degrees) is not measured and only has to keep the north face unlit."
+    "limitations": "1965 plate; parked cars hide grade at the east jamb and the film holder hides the gable apex and cupola. Every control lies in the one north-face plane, seen square, so the focal length (held at T-2200's) and the lens's lateral shift (held at its principal point; freed, one sigma 253 px) are not measured: anything standing off the face, the hoist stone's nose included, is placed by them. Hand picks about +/-2 px.",
+    "warning": "Lighting: see light (T-2848).",
+    "light": "T-2848, read off the photograph: hazy sun behind the stable. There is flare at the top of the frame over the gable, the camera's own side of 18th Street (the foreground sidewalk) is sunlit, the parked cars throw short soft shadows straight under them, and the stable's north wall is in shade with no cast shadow on it. Same reading as HABS 14 of the same series: azimuth about 200 degrees (behind the building, south-south-west); the elevation (40 degrees) is not measured and only has to keep the north face unlit.",
+    "fit_rms_px": 3.26,
+    "roll_deg": 0.0,
+    "hoist_check_px": {
+      "foot": [
+        0.5,
+        -1.6
+      ],
+      "nose_top": [
+        -14.0,
+        -13.1
+      ],
+      "nose_foot": [
+        -14.0,
+        -12.4
+      ]
+    }
   }
 }
