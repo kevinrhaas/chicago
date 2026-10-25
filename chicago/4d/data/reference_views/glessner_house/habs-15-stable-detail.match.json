@@ -3,7 +3,7 @@
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
   "glb_sha256": "6ba8c9f7cebf52683b2b6ac0830de3a55a7e6bd6ce5a231774a626f544f5d1f0",
-  "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
+  "camera_sha256": "1b9a5443c78f4de7b39d907a07c5e442fcafd595d844c929737a72e46a197c01",
   "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
@@ -13,7 +13,11 @@
       "status": "fixed"
     },
     {
-      "what": "Still open at the stable end: the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The camera's roll (about 1.2 degrees) and its 13-20 px offset at the loft still shift the hoist about 15 px west of the print's. T-3139 owns it (T-3136).",
+      "what": "T-3147 (piece of T-3139): the camera is refitted at the stable. T-2200's frozen pinhole carried 1.3 degrees of roll and missed this print's own measured controls by 17.9 px RMS (35.7 at worst); re-solved level, at T-2200's focal length and principal point, on sheet 2's doorway jambs, sheet 5's 12.6 ft soffit and the threshold, sheet 3's loft and flanking-light jambs and the north-west arris, it fits all 16 at 3.3 px (5.8 at worst), and the side-by-side now lays the doorway, the lights, the loft, the relieving arch and both gable slopes over the print's. The hoist stone's foot at the wall, where the old camera drew it 19.7 px west, now reads 0.5 px across and 1.6 px up. Its nose's place off the wall is not this print's to read: a face seen square cannot measure the lens's lateral shift (one sigma 253 px when freed) or its focal length, and the nose's parallax rides on both, so its 6-17 px east and 9-13 px high across the fits is the camera's spread, not the stone. HABS 01, which sees the cantilever from the north-west, puts the nose top within 0.0 px across and 4.1 px of its lit end face through T-2758's stable-fitted camera: the 4.0 ft stone stands and is not rebuilt (tools/glessner_stable_end_read.py, data/comparisons/glessner/stable-end.json). The gable apex and cupola stay behind the film holder.",
+      "status": "fixed"
+    },
+    {
+      "what": "Open, found by T-3147 through the refitted camera: the print draws the north-face eave level on both sides of the gable, its tiles ending at v 278 west of the gable (u 1450-1500) and about 278-287 east of it (u 870-890), where the render's ends at v 249 west (about 1.7 ft higher) and 303 east (about 1.1 ft lower): the build steps from 23.1 ft east of the gable to about 26.2 ft west of it. The level camera keeps a level line level, so the step is the roof's, whatever the vertical scale; T-3148 owns it.",
       "status": "open"
     },
     {
