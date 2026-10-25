@@ -441,44 +441,60 @@ class Entrance(Opening):
 
     # the stairs -----------------------------------------------------------------
     def _flight(self, sa, sb, y0, out0, n, r, g, sign, ends, end_role="stair_end", tread_role="tread",
-                riser_role="riser", end_floor=None, sb_at=None):
+                riser_role="riser", end_floor=None, sb_at=None, sa_at=None):
         """n risers from y0, the first at out0, each `g` further out; sign -1 descends
         (a stoop, risers facing the street), +1 climbs (an area stair, facing the door).
         T-3134: `sb_at(out)`, where a flared cheek carries the flight's right-hand end out
-        as it descends, is that end's s at each riser's and nosing's line."""
+        as it descends, is that end's s at each riser's and nosing's line; T-3144: `sa_at`
+        the left-hand end's, where that cheek is carried out or drawn in."""
         rn = (0.0, 0.0, 1.0 if sign < 0 else -1.0)
         at = sb_at or (lambda o: sb)
+        at_a = sa_at or (lambda o: sa)
         for k in range(1, n + 1):
             a = out0 + (k - 1) * g
             ya, yb = y0 + sign * (k - 1) * r, y0 + sign * k * r
             lo, hi = min(ya, yb), max(ya, yb)
-            ba, bb = at(a), at(a + g)
-            self.quad(riser_role, [(sa, lo, a), (ba, lo, a), (ba, hi, a), (sa, hi, a)], rn)
+            ba = at(a)
+            self.quad(riser_role, [(at_a(a), lo, a), (ba, lo, a), (ba, hi, a), (at_a(a), hi, a)], rn)
             self.probe((sa + sb) / 2, (lo + hi) / 2, a, (riser_role,), f"riser {k}")
             if k == n:
                 break
             yt = yb
             # T-3134: under a flared cheek the tread's end follows the cheek's inner face, kink by kink
-            kinks = [o for o in (getattr(at, "nodes", ())) if a + 1e-9 < o < a + g - 1e-9]
+            nodes = set(getattr(at, "nodes", ())) | set(getattr(at_a, "nodes", ()))
+            kinks = sorted(o for o in nodes if a + 1e-9 < o < a + g - 1e-9)
             for oa, ob in zip([a] + kinks, kinks + [a + g]):
-                self.quad(tread_role, [(sa, yt, oa), (at(oa), yt, oa), (at(ob), yt, ob), (sa, yt, ob)], Y)
+                self.quad(tread_role, [(at_a(oa), yt, oa), (at(oa), yt, oa), (at(ob), yt, ob), (at_a(ob), yt, ob)], Y)
             self.probe((sa + sb) / 2, yt, a + g / 2, (tread_role,), f"tread {k}")
             if ends:
                 for x, hx in ((sa, -1.0), (sb, 1.0)):
                     self.quad(end_role, [(x, end_floor, a), (x, end_floor, a + g), (x, yt, a + g), (x, yt, a)],
                               (hx, 0.0, 0.0))
             ym = (end_floor + yt) / 2 if end_floor is not None else yt / 2
-            for x in (sa, at(a + g / 2)):
+            for x in (at_a(a + g / 2), at(a + g / 2)):
                 self.probe(x, ym, a + g / 2, (end_role,) if ends else ("cheek", "area_wall"),
                            f"the end of step {k}")
         return out0 + (n - 1) * g
 
-    def _flare_at(self, sw, L, F, n, g):
+    @staticmethod
+    def _flares(sw):
+        """T-3144: a swept stoop's `flare`, one {side, out_m} or a list of one a side."""
+        fl = sw.get("flare") or []
+        fl = fl if isinstance(fl, list) else [fl]
+        sides = [f["side"] for f in fl]
+        if len(set(sides)) != len(sides) or set(sides) - {"left", "right"}:
+            raise ValueError(f"a swept stoop flares each of its two cheeks once at most, not {sides}")
+        return {f["side"]: f for f in fl}
+
+    def _flare_at(self, sw, L, F, n, g, side="right"):
         """T-3134: a swept cheek's flare (`flare`: the side it carries out, and `out_m`) as a
         function of out: nothing beside the landing, then out along the sweep's own reversed
         curve to `out_m` at the foot block, piecewise straight between the nosings' lines so
-        the treads' ends and the cheek's inner face are one line. None without a flare."""
-        fl = sw.get("flare")
+        the treads' ends and the cheek's inner face are one line. None without a flare.
+        T-3144: either cheek may flare, and a negative `out_m` draws it in toward the stoop's
+        axis instead (1812's south cheek, the Levy print); the value is measured outward
+        from the axis on that side, so the caller turns it into s with the side's sign."""
+        fl = self._flares(sw).get(side)
         if not fl:
             return None
         o1, m = F - sw["block_m"], fl["out_m"]
@@ -524,16 +540,20 @@ class Entrance(Opening):
         if not cheeks:
             for x, hx in ((c - half, -1.0), (c + half, 1.0)):
                 self.quad("stair_end", [(x, -R, 0), (x, -R, L), (x, 0, L), (x, 0, 0)], (hx, 0.0, 0.0))
-        # T-3134: a swept cheek flared out on the stoop's right (1812's north cheek, the Levy print)
+        # T-3134: a swept cheek flared out on the stoop's right (1812's north cheek, the Levy print);
+        # T-3144: and the left one carried out or drawn in (1812's south cheek, drawn in to its newel)
         sw = st.get("swept") or {}
-        fl = self._flare_at(sw, L, L + (n - 1) * g, n, g) if cheeks and st.get("cheek_form") == "swept" else None
-        if fl and sw["flare"]["side"] != "right":
-            raise ValueError("a swept cheek flares on the stoop's right")
-        sb_at = None
-        if fl:
-            sb_at = lambda o: c + half + fl[0](o)
-            sb_at.nodes = fl[1]
-        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R, sb_at=sb_at)
+        swept = cheeks and st.get("cheek_form") == "swept"
+        ends = {}
+        for side, sgn in (("left", -1.0), ("right", 1.0)):
+            fl = self._flare_at(sw, L, L + (n - 1) * g, n, g, side) if swept else None
+            if fl:
+                ends[side] = (lambda f, k: lambda o: c + k * (half + f(o)))(fl[0], sgn)
+                ends[side].nodes = fl[1]
+        if swept and 2 * half + sum(f["out_m"] for f in self._flares(sw).values()) < 0.6:
+            raise ValueError("a swept stoop's cheeks are drawn in to leave less than 0.6 m of tread at its foot")
+        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R,
+                         sb_at=ends.get("right"), sa_at=ends.get("left"))
         self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4),
                               **({"axis_s_m": round(c, 4)} if c else {})}
         if cheeks:
@@ -1334,11 +1354,17 @@ class Entrance(Opening):
         top = lambda o: h0 if o <= L else yF if o >= o1 else \
             yF + (h0 - yF) * (1.0 + math.cos(math.pi * (o - L) / (o1 - L))) / 2.0
         cuts = ([0.0] if start < L else []) + [L] + [L + (o1 - L) * i / N for i in range(1, N)] + [o1, F]
-        # T-3134: the right cheek flared out as it descends, its strips cut at the nosings' lines too
-        fl = self._flare_at(sw, L, F, n, g) if sgn > 0 else None
-        dx = fl[0] if fl else (lambda o: 0.0)
+        # T-3134: the right cheek flared out as it descends, its strips cut at the nosings' lines too;
+        # T-3144: either cheek, out (a positive out_m) or in toward the axis (a negative one)
+        side = "right" if sgn > 0 else "left"
+        fl = self._flare_at(sw, L, F, n, g, side)
+        dx = (lambda f: lambda o: sgn * f(o))(fl[0]) if fl else (lambda o: 0.0)
         if fl:
             cuts = sorted({round(x, 9) for x in cuts} | {o for o in fl[1] if L < o < o1})
+        # T-3144: a row of small openings through the cheek under its top, along the sweep
+        holes = self._cheek_holes(sw, side, L, o1, top, n, r, g)
+        if holes:
+            cuts = sorted({round(x, 9) for x in cuts} | {round(o, 9) for h in holes for o in h})
         nw = sw.get("newel")
         if nw:   # T-3134: the foot block is a newel; the cheek's strips stop at it
             cuts = [o for o in cuts if o <= o1 + 1e-9]
@@ -1349,12 +1375,32 @@ class Entrance(Opening):
                 if top(o) < -k * r + 0.1 - 1e-9:
                     raise ValueError(f"a swept cheek dips to {top(o):.3f} m over tread {k}'s nosing at "
                                      f"{-k * r:.3f} m, {o:.3f} m out")
+        u0, u1 = (sw.get("pierced") or {}).get("under_m", 0.0), None
+        if holes:
+            u1 = u0 + sw["pierced"]["hole_m"][1]
         for a, b in zip(cuts, cuts[1:]):
             ya, yb = top(a), top(b)
             da, db = dx(a), dx(b)
+            # an opening may span several strips (a nosing's line can fall inside it)
+            hole = next(((h0_, h1_) for h0_, h1_ in holes if h0_ - 1e-6 <= a and b <= h1_ + 1e-6), None)
             for x, hx in ((si, -sgn), (so, sgn)):
-                self.quad("cheek", [(x + da, -R, a), (x + db, -R, b), (x + db, yb, b), (x + da, ya, a)],
-                          (hx * (b - a), 0.0, -hx * (db - da)))
+                nrm = (hx * (b - a), 0.0, -hx * (db - da))
+                if not hole:
+                    self.quad("cheek", [(x + da, -R, a), (x + db, -R, b), (x + db, yb, b), (x + da, ya, a)], nrm)
+                    continue
+                # the face under the opening and over it; the opening's sill and head run with the top
+                self.quad("cheek", [(x + da, -R, a), (x + db, -R, b), (x + db, yb - u1, b), (x + da, ya - u1, a)], nrm)
+                self.quad("cheek", [(x + da, ya - u0, a), (x + db, yb - u0, b), (x + db, yb, b), (x + da, ya, a)], nrm)
+            if hole:   # its four reveals, through the cheek's thickness
+                self.quad("cheek", [(si + da, ya - u1, a), (so + da, ya - u1, a), (so + db, yb - u1, b),
+                                    (si + db, yb - u1, b)], (0.0, b - a, ya - yb))
+                self.quad("cheek", [(si + da, ya - u0, a), (so + da, ya - u0, a), (so + db, yb - u0, b),
+                                    (si + db, yb - u0, b)], (0.0, -(b - a), yb - ya))
+                for o, d, y_, k in ((a, da, ya, 1.0), (b, db, yb, -1.0)):
+                    if abs(o - hole[0]) > 1e-6 and abs(o - hole[1]) > 1e-6:
+                        continue   # an inner cut of the opening, not one of its ends
+                    self.quad("cheek", [(si + d, y_ - u1, o), (so + d, y_ - u1, o), (so + d, y_ - u0, o),
+                                        (si + d, y_ - u0, o)], (0.0, 0.0, k))
             self.quad("cheek", [(si + da, ya, a), (so + da, ya, a), (so + db, yb, b), (si + db, yb, b)],
                       (0.0, b - a, ya - yb))
         if nw:
@@ -1372,6 +1418,35 @@ class Entrance(Opening):
         for pt in (top_s, foot_s):
             self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
         self.meta.setdefault("swept_cheeks", {"head_m": h0, "foot_m": sw["foot_m"], "block_m": blk})
+        if holes:
+            self.meta["pierced_cheek"] = {"side": side, "openings": len(holes),
+                                          "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
+
+    def _cheek_holes(self, sw, side, L, o1, top, n, r, g):
+        """T-3144: `pierced` {side, count, hole_m [along the run, high], under_m}: a row of
+        `count` openings through that swept cheek, each `under_m` under its top and running
+        with it (so a parallelogram where the top falls), spaced evenly along the sweep from
+        the landing's edge to the foot block, as the Levy print shows 1812's north cheek. Their
+        sills stand clear of the treads they run beside by 0.05 m at least. [] without one."""
+        pc = sw.get("pierced")
+        if not pc or pc["side"] != side:
+            return []
+        k, (w, h), u = pc["count"], pc["hole_m"], pc["under_m"]
+        gap = (o1 - L - k * w) / (k + 1)
+        if k < 1 or w <= 0 or h <= 0 or u < 0.03 or gap < 0.05:
+            raise ValueError(f"a swept cheek {o1 - L:.3f} m along its sweep holds no {k} openings {w} m across "
+                             f"{u} m under its top")
+        out = []
+        for i in range(k):
+            a = L + gap + i * (w + gap)
+            b = a + w
+            for o in (a, b):
+                tread = -min(n - 1, max(1, math.floor((o - L) / g) + 1)) * r
+                if top(o) - u - h < tread + 0.05 - 1e-9:
+                    raise ValueError(f"a swept cheek's opening {i + 1} has its sill at {top(o) - u - h:.3f} m, "
+                                     f"within 0.05 m of the tread beside it at {tread:.3f} m, {o:.3f} m out")
+            out.append((a, b))
+        return out
 
     def _newel_foot(self, si, sgn, o1, F, y0, yF, nw):
         """T-3134: a swept cheek's foot as a newel, as the Levy print shows 1812's: a square
