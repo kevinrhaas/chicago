@@ -33408,9 +33408,9 @@ cant back to (6.87, 11.24); built as a polyline 6.28 m along the wall, 0.85 m pr
 0.87 m along it. From the photograph: the bay's being there and lit, two storeys to the main
 cornice, one column of transomed lights a storey on its front, nothing in the shaded face beyond
 it. **What is invented or held by the kit.** Its storey heights (5.0 and 3.7 m, to 8.7 m), its
-light (1.1 m clear, the round bay's transomed sash), its moulded stone cornice and plinth (the
-round's), and a low slated hip on it under the main cornice's line, where the print carries the
-cornice round the bay and the mansard's slate down over it (open). The wall's reconstructed
+light (1.1 m clear, the round bay's transomed sash), and a low slated hip on it under the main cornice's line with no cornice of its own, where the
+print carries the main cornice round the bay and the mansard's slate down over it (open; a K08
+moulded cornice on this one-light bay put its far-view copy over the kit's triangle budget). The wall's reconstructed
 columns at u 11.5 (behind the bay) and u 6.5 are taken out: the print shows neither. **The camera
 and the print disagree about the cants.** Through the re-solved camera the bay's front renders
 about three times as foreshortened as the print's, and the print's courses fall more steeply on

@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e22ab65e2d715c1745cbc421c26c7da33188245ca0da577a0685e8616db5188c",
+  "glb_sha256": "1d9e6c4f855fb23c48af92c2cc6538aa8f2faf8fe9a47bc427d16b96ba9d3665",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -49,7 +49,7 @@
       "status": "open"
     },
     {
-      "what": "the south bay: the print's lit face with its column of lights (x 1037-1150 px) stands proud of the wall with a shaded face beyond it to x 1222; the build's south wall was flat. T-3109 builds it on K08 to the 1911 sheet's trace: a canted bay from u 13.15 to 6.87, 0.85 m proud with cants 0.87 m along the wall, two storeys to 8.7 m under the moulded stone cornice, one transomed light a storey on its front (L-kimball-1801-south-bay-3109)",
+      "what": "the south bay: the print's lit face with its column of lights (x 1037-1150 px) stands proud of the wall with a shaded face beyond it to x 1222; the build's south wall was flat. T-3109 builds it on K08 to the 1911 sheet's trace: a canted bay from u 13.15 to 6.87, 0.85 m proud with cants 0.87 m along the wall, two storeys to 8.7 m, one transomed light a storey on its front (L-kimball-1801-south-bay-3109)",
       "status": "fixed"
     },
     {
@@ -77,7 +77,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the bay's top: the print carries the main cornice round the bay and the mansard's slate down over it; the build stands a separate low slated hip on the bay under the cornice's line (T-3109)",
+      "what": "the bay's top: the print carries the main cornice round the bay and the mansard's slate down over it; the build stands a low slated hip on the bay under the cornice's line, with no cornice of its own (T-3109)",
       "status": "open"
     },
     {
