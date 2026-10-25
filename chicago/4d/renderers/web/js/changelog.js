@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2263, ts: '2026-10-25T06:29:23.480Z', date: 'Oct 25, 2026, 1:29 AM CT', title: 'Nothing you can see: source-use conflicts now clear themselves', kind: 'chore',
+    items: [
+      'Nothing in the town changed. Behind it, the list of source-use files that a merge may rebuild instead of refusing had fallen to 303 of the 436 it should name. The other 134 conflicts stopped a branch\'s merge, or lost its source links when one side was taken by hand. The compiler that writes those files now keeps the list itself, and the gate refuses when the two disagree.',
+    ] },
+  { v: 2262, ts: '2026-10-25T06:29:23.480Z', date: 'Oct 25, 2026, 1:29 AM CT', title: '1811 Prairie\'s stable stands two storeys, as in 1904', kind: 'change',
+    items: [
+      'The coach house behind 1811 Prairie now rises two storeys. A Tribune advertisement of April 1904 offers the house with a \'2 story stable\', and the 1891 atlas draws a stable on the alley in the same place.',
+      'The house itself is unchanged: the 1891 atlas draws it about 27 m deep, as the 1911 map does, so the long brick range was already standing.',
+    ] },
   { v: 2261, ts: '2026-10-25T00:44:22.289Z', date: 'Oct 24, 2026, 7:44 PM CT', title: 'Six more 1904 buildings on Indiana Avenue between 16th and 18th', kind: 'improvement',
     items: [
       'Four houses the 1911 atlas no longer shows now stand as they did in 1904, taken from the 1886 atlas: 1637, which the Army Corps of Engineers used as its Chicago office, 1641, and two frame houses at 1727 and 1735. A brick row\'s west end also stands at the 16th Street corner.',
