@@ -105,7 +105,7 @@ check(len(dark) > 0 and all(abs(math.hypot(q[0] - cu, -q[2] - cv) - (0.9 - ra["r
 # light, its colonnette and the plinth band under it stand `drops_m` lower, the band's stones
 # reaching down to the first bed under the lowest sill
 check(ra.get("drops_m") == [0.0, 0.1, 0.2] and band["drops"] == [0.0, 0.1, 0.2] and abs(band["y_lo"] - 2.708) < 1e-3,
-      f"the arcade steps down 0, 0.1 and 0.2 m round the curve, its stones from the bed at {band["y_lo"]:.3f}")
+      f"the arcade steps down 0, 0.1 and 0.2 m round the curve, its stones from the bed at {band['y_lo']:.3f}")
 sills = sorted({round(q[1], 4) for q in a.prims["backing"].pos if q[0] > cu - 1e-6 and -q[2] > cv - 1e-6 and 2.9 < q[1] < 3.2})
 check(sills == [2.95, 3.05, 3.15], f"the lights' backs start at their stepped sills ({sills})")
 dress = [q for q in a.prims["dress_stone"].pos if q[0] > cu + 0.05 and -q[2] > cv + 0.05]
