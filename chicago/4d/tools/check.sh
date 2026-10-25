@@ -4045,6 +4045,13 @@ step "ticket queue (faults in the tickets repo are reported, not charged to this
 step "a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it" \
   node tools/test_ticket_filing_effort.mjs
 
+# T-3153. The owner's photo-ticket stopping rule (2026-10-25): a run files no ticket on a
+# photo-gated house (the gap goes into its match record), any house past 25 tickets since
+# the image gate takes new ones only from the owner, and `split` refuses a sign-off or a
+# gated house past the cap unless `--owner-asked`. Proved on a fixture tickets folder.
+step "photo follow-ups stop: no run-filed tickets on a photo-gated house, no split sign-off" \
+  node tools/test_ticket_photo_stop.mjs
+
 # T-1548. `done` refuses to close a ticket a committed file still records as live work
 # — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
 # T-1299 as #26), each found hours later by a different run from a red gate. The
