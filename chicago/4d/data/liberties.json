@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 757,
+  "count": 758,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -54274,6 +54274,40 @@
       "work_refs": [
         "T-2379",
         "T-3123"
+      ]
+    },
+    {
+      "id": "L-k07-1812-porch-arch-3134",
+      "title": "1812 Prairie's porch arch turned as a half ellipse in a narrow moulded ring, its heavy transom beam and paned fanlight columns, and the stair's flared north cheek and carved newels, to the Levy photograph",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the porch entrance of George H. Wheeler's house at 1812 Prairie is built as Albert Levy's photograph shows four of its parts, where “1812 Prairie's porch arch, side light, swept stair, pierced parapet, flush projection and front downpipes, read off the photograph” had built them from the kits. The arch's head is a half ellipse on its springing line (K06's new `elliptical` head, `arch.head`), its semi-axes the mouth's half span (1.35 m) and its rise (0.79 m, the same rise over span 0.293 as before), so it springs steep from the jambs and runs flatter over the crown than the segment it replaces; the voussoir block is cut on the ellipse's vertices. Round its intrados and down both jambs to the landing runs a narrow moulded ring of light dressed stone in two steps, 0.06 m and 0.05 m broad, 0.05 m and 0.025 m before the wall (`arch.moulding`), unbroken over the crown, so the keystone the block carried is not laid (the print shows none). The transom under the fanlight is a beam 0.25 m deep (transom beam, 4.03-4.28 m over the walk) under a moulded cap 0.06 m high and 0.04 m proud and over a bead 0.04 m high and 0.02 m proud, where K07's bar was 0.07 m. The fanlight's three lights are parted by two narrow columns of small panes, each 0.27 m between its posts and three panes up (fanlight columns), one over the meeting of the leaves and one over the pier. The stair's north cheek flares out as it sweeps down, 0.55 m at its foot along the sweep's own reversed curve (cheek form flare), the treads widening under it to its inner face; and both cheeks end in a newel 0.45 m across (cheek form newel) under a cap 0.1 m high overhanging 0.04 m, its top the cheek's 1.1 m foot line, with a turned knob 0.2 m high on it and a raised panel on its front and its outer face. No other house names any of these keys, so every other house re-emits as before. **What is read, not invented.** Through Levy's camera (the levy front data, 88.5 px a metre at the main front's plane, the walk at y 1549.6 px), on 2-4x crops of x 700-1120, y 1000-1560 px: the arch's outline, steep at both jambs and flat over the crown, its intrados crown at y about 1099 (5.09 m) and its sides upright from about y 1165 (4.35 m); the ring's light moulding about 10 px (0.11 m) broad, running on down the jambs; the beam from y about 1169 to 1191 (4.30 to 4.05 m), lined along its top and foot; the fanlight's two narrow columns at x 830-854 and 905-930 (about 0.27 m), over the leaves' meeting and the pier, each crossed by bars into small panes, about 0.2 m high; the north cheek's inner face moving out from about x 960 at the landing to about x 1050 at its foot, and both newels' caps at about y 1453-1468 with a knob over each. **What is invented.** The ring's section (two square steps standing for a moulding the print shows as two lines); the beam's cap and bead; the columns' three rows (the print's are about three to four); the flare's curve, taken from the sweep's; the newels' width (the print's read 0.42 m south and 0.52 m north), their cap, the knob's turned profile and the panels standing for the print's carving. **What is built otherwise than read.** The voussoir block outside the ring is still laid as radiating rock-faced stones, where the print shows the porch's coursed ashlar running to the moulding; the north cheek is solid where the print's is pierced in a row of small openings under its coping; and the print's arch, its south jamb and the stair's foot stand 0.2-0.3 m from where the build has them, which is later work's (the porch's plan), not this piece of work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the porch, or a view of it at an angle, would fix the ring's section, the beam's mouldings and the newels' carving; later work rules the porch's plan."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-3134)."
+        }
+      ],
+      "work_refs": [
+        "T-3134",
+        "T-3114",
+        "T-3135"
       ]
     },
     {

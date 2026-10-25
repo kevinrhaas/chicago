@@ -234,6 +234,74 @@ def wedges_segmental(cx, spring, rise, radius, L, R, top):
     return out
 
 
+def wedges_elliptical(cx, spring, half, rise, L, R, top):
+    """T-3134: the block L..R x spring..top over a half-elliptical head (semi-axes `half` and
+    `rise`, centred on the springing line) cut into stones along K06's own head vertices
+    (k06_windows.Head.curve: 12 equal steps of the parametric angle over the half), the two
+    at the crown one stone, each joint run from the ellipse's centre through its vertex out
+    to the block's edge. Each as wedges() gives it."""
+    ts = [math.pi * i / ROUND_SEGMENTS for i in range(ROUND_SEGMENTS + 1)]
+    h = ROUND_SEGMENTS // 2
+    ts = ts[:h] + ts[h + 1:]
+    P = lambda t: (cx + half * math.cos(t), spring + rise * math.sin(t))
+    ang = lambda t: math.atan2(rise * math.sin(t), half * math.cos(t))
+    corners = [(math.atan2(top - spring, R - cx), (R, top)), (math.atan2(top - spring, L - cx), (L, top))]
+    out = []
+    for t0, t1 in zip(ts, ts[1:]):
+        a0, a1 = ang(t0), ang(t1)
+        pts = [P(t0), _hit(cx, spring, a0, L, R, top)]
+        pts += [q for an, q in corners if a0 + 1e-6 < an < a1 - 1e-6]
+        pts += [_hit(cx, spring, a1, L, R, top), P(t1)]
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        if math.dist(clean[0], clean[-1]) < 1e-6:
+            clean.pop()
+        out.append((clean, ["radial"] * (len(clean) - 1) + ["intrados"], (a0 + a1) / 2))
+    return out
+
+
+def _moulding(a, frame, g, mo, conf):
+    """T-3134: a narrow moulded ring of light stone round an arch's intrados and down both
+    jambs to the floor, as the Levy print shows 1812's porch arch: two faces stepped out from
+    the opening's edge (`steps_m` broad, `proud_m` before the wall), on the head's own curve
+    (k06_windows.Head, the hole K07 cuts) so its inner edge is the reveal's."""
+    from . import k06_windows
+    (s0, s1, spring, rise, floor), = g["lights"]
+    el = g.get("elliptical")
+    kind = "elliptical" if el else "segmental" if g.get("segmental") else "round"
+    ros = rise / (s1 - s0)
+    (w1, w2), (p1, p2) = mo["steps_m"], mo["proud_m"]
+    seed = a.instance("k01.opening.arch_moulding", "opening",
+                      {"of": g["component"], "head": kind, "width_m": round(w1 + w2, 4), "proud_m": p1},
+                      {"springing": _P(frame, s0 - w1 - w2, spring, p1)})
+
+    def path(off):
+        hd = k06_windows.Head(kind, s0, s1, spring, ros)
+        return [(s0 - off, floor)] + hd.curve(-off, s1 + off, s0 - off)[::-1] + [(s1 + off, floor)]
+    sec = [(0.0, 0.0), (0.0, p1), (w1, p1), (w1, p2), (w1 + w2, p2), (w1 + w2, 0.0)]
+    rings = {off: path(off) for off in (0.0, w1, w1 + w2)}
+    cx = (s0 + s1) / 2
+    for (oa, da), (ob, db) in zip(sec, sec[1:]):
+        A, B = rings[oa], rings[ob]
+        for i in range(len(A) - 1):
+            pts = [(*A[i], da), (*A[i + 1], da), (*B[i + 1], db), (*B[i], db)]
+            if oa == ob:   # a riser: the innermost faces the opening, the outermost the wall
+                m = ((A[i][0] + A[i + 1][0]) / 2, (A[i][1] + A[i + 1][1]) / 2)
+                k = 1.0 if oa > 0 else -1.0
+                o = (m[0] - cx, m[1] - spring) if m[1] > spring + 1e-9 else (m[0] - cx, 0.0)
+                hint = (k * o[0], k * o[1], 0.0)
+            else:
+                hint = (0, 0, 1)
+            _face(a, "dress_stone", frame, pts, hint, seed, conf)
+    for sg in (-1, 1):   # the feet, on the floor
+        for (ra, rb, d) in ((0.0, w1, p1), (w1, w1 + w2, p2)):
+            x0, x1 = sorted((cx + sg * ((s1 - s0) / 2 + ra), cx + sg * ((s1 - s0) / 2 + rb)))
+            _face(a, "dress_stone", frame, [(x0, floor, 0.0), (x1, floor, 0.0), (x1, floor, d), (x0, floor, d)],
+                  (0, -1, 0), seed, conf)
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -297,8 +365,10 @@ def _voussoirs(a, frame, g, conf, recess):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
         sg = g.get("segmental")
-        for pts, kinds, mid in (wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
-                                else wedges(cx, spring, r, L, Rr, g["top_m"])):
+        ws = (wedges_elliptical(cx, spring, (s1 - s0) / 2, r, L, Rr, g["top_m"]) if g.get("elliptical")
+              else wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
+              else wedges(cx, spring, r, L, Rr, g["top_m"]))
+        for pts, kinds, mid in ws:
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
             a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
@@ -314,6 +384,9 @@ def _voussoirs(a, frame, g, conf, recess):
     cv = loggia_carving(a.p, g)
     if cv:   # T-2923: the loggia's carving stands where the keystone would (the print has none)
         _loggia_carving(a, frame, g, cv, conf)
+        return
+    if g.get("moulding"):   # T-3134: the moulded ring runs unbroken over the crown (the print has no keystone)
+        _moulding(a, frame, g, g["moulding"], conf)
         return
     _keystone(a, frame, g["keystone"], a._stone_seed(cid, inst, j), conf)
 

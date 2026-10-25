@@ -669,7 +669,33 @@
               0.2,
               0.22
             ],
-            "rise_over_span": 0.293
+            "rise_over_span": 0.293,
+            "head": "elliptical",
+            "moulding": {
+              "steps_m": [
+                0.06,
+                0.05
+              ],
+              "proud_m": [
+                0.05,
+                0.025
+              ]
+            }
+          },
+          "transom_beam": {
+            "depth_m": 0.25,
+            "cap_m": [
+              0.06,
+              0.04
+            ],
+            "bead_m": [
+              0.04,
+              0.02
+            ]
+          },
+          "fanlight_columns": {
+            "width_m": 0.27,
+            "rows": 3
           },
           "side_light": {
             "width_m": 1.04,
@@ -697,7 +723,19 @@
             "kind": "swept",
             "head_m": 0.5,
             "foot_m": 1.1,
-            "block_m": 0.45
+            "block_m": 0.45,
+            "flare": {
+              "side": "right",
+              "out_m": 0.55
+            },
+            "newel": {
+              "width_m": 0.45,
+              "cap_m": [
+                0.1,
+                0.04
+              ],
+              "knob_m": 0.2
+            }
           }
         }
       },
@@ -705,7 +743,7 @@
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph's entrance (T-2952): a broad porch arch on the north bay, its head a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk, 2.63 m over the 1.65 m floor) to its crown (5.07 m), under a 0.15 m ring to 5.22 m (opening_m, arch.rise_over_span 0.293); the transom at the spring and the segment over it glazed; under it the double door, a 0.29 m stone pier and the side light, 1.04 m across from a sill 0.56 m over the floor (side_light). The print's north jamb is at x 1020 px (7.9 m); its south jamb runs down the projection's corner, and the mouth is built clear of the projection from 5.2 m. The stair (stoop_v_m 6.1, 2.05 m wide) runs straight to the walk between solid cheeks level 0.5 m over the landing and swept down to a 0.45 m block 1.1 m high at the foot (cheek_form), its left cheek against the projection; the landing runs on north to 8.2 m as a terrace behind a 0.5 m stone parapet pierced in two rows of 0.08 m square holes, the print's pierced panel (L-k01-1812-wheeler-porch-2952)."
+      "note": "The photograph's entrance (T-2952): a broad porch arch on the north bay, its head a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk, 2.63 m over the 1.65 m floor) to its crown (5.07 m), under a 0.15 m ring to 5.22 m (opening_m, arch.rise_over_span 0.293); the transom at the spring and the segment over it glazed; under it the double door, a 0.29 m stone pier and the side light, 1.04 m across from a sill 0.56 m over the floor (side_light). The print's north jamb is at x 1020 px (7.9 m); its south jamb runs down the projection's corner, and the mouth is built clear of the projection from 5.2 m. The stair (stoop_v_m 6.1, 2.05 m wide) runs straight to the walk between solid cheeks level 0.5 m over the landing and swept down to a 0.45 m block 1.1 m high at the foot (cheek_form), its left cheek against the projection; the landing runs on north to 8.2 m as a terrace behind a 0.5 m stone parapet pierced in two rows of 0.08 m square holes, the print's pierced panel (L-k01-1812-wheeler-porch-2952). T-3134, read through the camera on 2-4x crops of x 700-1120, y 1000-1560 px: the arch's head a half ellipse (arch.head), steep at the jambs and flat over the crown, its intrados crown at about 5.09 m and its sides upright from about 4.35 m (built on the same 0.79 m rise); a narrow moulded ring of light stone about 0.11 m broad round it and down both jambs to the landing (arch.moulding, two steps 0.06 and 0.05 m), the print showing no keystone; the transom a beam from about 4.05 to 4.30 m (transom_beam, 0.25 m deep under a moulded cap and over a bead); the fanlight's lights parted by two narrow columns of small panes about 0.27 m across, over the leaves' meeting and the pier (fanlight_columns, three panes up); the north cheek's inner face carried out about 0.55 m as it sweeps down (cheek_form.flare, the treads widening under it) and each cheek ending in a newel about 0.45 m across under a cap at the 1.1 m foot line with a knob over it and a carved panel (cheek_form.newel). The sections, the knob and the panels are invented; the arch's south jamb and the porch's plan are T-3135's (L-k07-1812-porch-arch-3134)."
     },
     "shaped_gable": {
       "value": {
