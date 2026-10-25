@@ -167,9 +167,13 @@ def rule_keyed(b, v):
         p = r.world(end, 0.0, 0.0)
         if "side" in (r.start, r.end) and (r.end if side == "right" else r.start) == "side":
             q = r.world(0.0 if side == "right" else r.L, 0.0, 0.0)
-            if not (-0.6 - 1e-6 <= p[2] < -1e-6 and q[2] > 1e-6):
+            # T-3108: as far back as a chamfer a round bay stands on may run; the record's params
+            # hold a bare one to CHAMFER_BEHIND_M (k01_frontage_params._bays)
+            from archetypes import k01_frontage_params as P
+            most = P.ROUND_CHAMFER_BEHIND_M
+            if not (-most - 1e-6 <= p[2] < -1e-6 and q[2] > 1e-6):
                 fails.append(f"keyed: a chamfer's end at x {p[0]:.3f} stands {p[2]:.4f} m off the host wall's "
-                             f"face, where it meets its side wall 0-0.6 m behind it from a front proud of it")
+                             f"face, where it meets its side wall 0-{most} m behind it from a front proud of it")
             cross = p[0] + (q[0] - p[0]) * (-p[2]) / (q[2] - p[2])
             corner = (min(cross, p[0]) - 0.05, max(cross, p[0]) + 1e-6, p[2] - 1e-6)
             continue
