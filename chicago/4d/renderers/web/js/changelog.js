@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2275, ts: '2026-10-25T12:07:27.151Z', date: 'Oct 25, 2026, 7:07 AM CT', title: 'Fort Dearborn\'s officers\' quarters get their upper piazza', kind: 'feature',
+    items: [
+      'The log officers\' quarters on the fort\'s west side now have a covered walk along their parade front at second-floor height, on open posts with a railing. Gurdon Hubbard, recalling the fort as he saw it in 1818, describes this piazza running along the whole front at the level of the upper floor, reached by stairs outside. The building itself is unchanged.',
+      'It is marked as a reconstruction. Hubbard puts that building outside the stockade, but in the same book he puts the log officers\' quarters inside it on the west, and nothing confirms that his 1818 building is the one standing in 1835. The walk\'s measurements are borrowed from the first fort\'s galleries, and the outside stairs are left out because nobody says where they ran.',
+    ] },
+  { v: 2274, ts: '2026-10-25T11:56:01.240Z', date: 'Oct 25, 2026, 6:56 AM CT', title: 'Calumet Avenue\'s walk back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Standing on Calumet Avenue\'s east walk at 20th Street looking north, the 1904 scene at full detail was drawing about 4.7 million triangles, over its 4.6 million budget. Nearly half came from one house the visitor cannot see there: Glessner House, about 290 m off and hidden behind the Calumet houses and their elms. Full detail now leaves out pieces of a building that sit completely behind another building\'s wall, as Light has done since October, and the same view draws 2.9 million. Nothing a visitor can see is removed: seven of the eight views tested match pixel for pixel, and the eighth differs at three pixels by a barely measurable shade.',
+    ] },
+  { v: 2273, ts: '2026-10-25T11:56:01.240Z', date: 'Oct 25, 2026, 6:56 AM CT', title: 'Glessner\'s stable end, seen through a camera fitted at the stable', kind: 'improvement',
+    items: [
+      'The 1965 photograph of the stable\'s 18th Street end is now matched through a camera fitted to its doorway, loft and windows, so the model\'s front lies over the picture instead of tilting off it.',
+      'The hoist stone over the loft was checked against both photographs of it and stands where it was built.',
+    ] },
   { v: 2272, ts: '2026-10-25T11:30:49.834Z', date: 'Oct 25, 2026, 6:30 AM CT', title: '1812 Prairie\'s porch arch cut into the projection\'s corner', kind: 'change',
     items: [
       'The porch arch of 1812 Prairie is now cut into the corner of the projection beside it, as both photographs of the house show: its south jamb and light moulding run down the projection\'s own face, about 0.3 m further south than before, so the arch is broader and the double doors under it wider. Albert Levy\'s print and the c. 1955 photograph both draw that jamb south of the projection\'s corner, and the north jamb on the main front, so the arch is cut into the corner rather than standing forward. The inside of the cut, which neither picture shows, is reconstructed.',
