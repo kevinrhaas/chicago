@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2270, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: 'Glessner\'s photographs re-read for the sign-off', kind: 'change',
+    items: [
+      'Every Glessner photograph the model still differs from now says how. The Prairie front\'s small pair over the carriage way reads narrower in its north light in both the 1887 and 1965 prints, the stable gable\'s pigeon holes stand taller in both northwest views, and the 18th Street gable\'s pairs and light differ on HABS 13 and 14. Each finding is ticketed for the sign-off, and the register of what is attested against what is inferred now matches the current model.',
+    ] },
+  { v: 2269, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: 'The Lake House building site stands open to the sky', kind: 'fix',
+    items: [
+      'The Lake House under construction in 1835 no longer wears a flat lid over its unfinished walls — and its Sources card now says plainly that the missing roof is our reconstruction, not something a witness saw.',
+    ] },
+  { v: 2268, ts: '2026-10-25T09:47:51.192Z', date: 'Oct 25, 2026, 4:47 AM CT', title: '1812 Prairie\'s porch arch, transom and stair newels to the photograph', kind: 'change',
+    items: [
+      'The porch arch of 1812 Prairie now has the half-elliptical head Albert Levy\'s photograph shows, flat over the crown, turned in a narrow moulded ring of light stone that runs down both jambs. Under its fanlight is a heavy moulded transom beam, and two narrow columns of small panes divide the fanlight, one over the doors\' meeting and one over the pier. The stair\'s north cheek now flares out as it sweeps down, and each cheek ends in a carved newel under a cap with a turned knob. The mouldings, the knob and the carving are reconstructed; the arch\'s south jamb against the projection is still to come.',
+    ] },
   { v: 2267, ts: '2026-10-25T08:19:57.097Z', date: 'Oct 25, 2026, 3:19 AM CT', title: 'The ice-cream works rising on Indiana Avenue in 1904', kind: 'improvement',
     items: [
       '1605-1613 Indiana is no longer an empty lot. The Thompson-Reid and Collins Bros. ice-cream works stands there as it was on 1 July 1904: brick walls three storeys up, with no roof yet, empty window openings and a scaffold along the street.',
