@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2294, ts: '2026-10-25T21:51:22.496Z', date: 'Oct 25, 2026, 4:51 PM CT', title: '1812 Prairie\'s package closed: last pictures read, house measured', kind: 'chore',
+    items: [
+      'The pictures listed for 1812 Prairie that no one had read are now read. The 1915 Tribune item is a portrait. The 1892 view south from 18th Street cannot see the house\'s front, because 1808 and Glessner stand in front of it from that walk. It is written up with a figure rather than solved into a camera that would prove nothing.',
+      'The house is measured in the published app: front, both obliques, rear and roof, on desktop and phone, with load, memory and frame time.',
+    ] },
   { v: 2293, ts: '2026-10-25T21:38:45.234Z', date: 'Oct 25, 2026, 4:38 PM CT', title: '1815 Prairie, the Sears house, rebuilt from its photographs', kind: 'feature',
     items: [
       '1815 Prairie Avenue is no longer a plain draft block. It now stands as Joseph Sears\'s stone house: a light ashlar front, two storeys over a raised basement, under a slated mansard with a gabled dormer.',
