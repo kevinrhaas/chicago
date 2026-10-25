@@ -2148,11 +2148,15 @@ Roofs and Galliaries fronting the parade"*. Nothing says the 1816 fort's ranges 
 John H. Kinzie says the two forts were "differently constructed". So the ranges are built with
 plain fronts, which renders as a claim — a visitor sees flat elevations facing the parade — made
 because the evidence for the alternative belongs to a building that burned in 1812.
+**Superseded for the officers' quarters (T-3124, 2026-10-25):** this paragraph was written
+without Hubbard's p. 36, which gives the officers' quarters he saw in 1818 a piazza on a line with
+the second floor. That range now carries a reconstructed upper piazza under
+**L-second-fort-officers-piazza-3124**; the barracks keep the plain front argued here.
 **Consequence:** the fort's massing is ours. Roof heights set the skyline of the whole complex,
 and a two-storey barracks against a one-storey one changes the scene from across the river.
 **How to resolve:** the same records that would settle the stockade — returns, repair estimates,
 the Chicago Democrat's building notices — or any measured elevation of the fort before 1856.
-**Covers:** `fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_officers_quarters.log_1816.form.gallery`, `fort_dearborn_barracks.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.gallery`, `fort_dearborn_blockhouse.log_1816.form.wall_height_m`, `fort_dearborn_blockhouse.log_1816.form.upper_overhang_m`, `fort_dearborn_blockhouse.log_1816.form.loopholes`, `fort_dearborn_blockhouse.log_1816.form.roof_type`, `fort_dearborn_blockhouse.log_1816.form.roof_pitch_deg`, `fort_dearborn_blockhouse.log_1816.form.chimneys`, `fort_dearborn_magazine.brick_1816.form.wall_height_m`, `fort_dearborn_magazine.brick_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.construction`, `fort_dearborn_artillery_house.log_1816.form.stories`, `fort_dearborn_artillery_house.log_1816.form.wall_height_m`, `fort_dearborn_artillery_house.log_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.roof_pitch_deg`, `fort_dearborn_root_house.cellar_1816.form.wall_height_m`, `fort_dearborn_root_house.cellar_1816.form.roof_type`.
+**Covers:** `fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.stories`, `fort_dearborn_barracks.log_1816.form.gallery`, `fort_dearborn_blockhouse.log_1816.form.wall_height_m`, `fort_dearborn_blockhouse.log_1816.form.upper_overhang_m`, `fort_dearborn_blockhouse.log_1816.form.loopholes`, `fort_dearborn_blockhouse.log_1816.form.roof_type`, `fort_dearborn_blockhouse.log_1816.form.roof_pitch_deg`, `fort_dearborn_blockhouse.log_1816.form.chimneys`, `fort_dearborn_magazine.brick_1816.form.wall_height_m`, `fort_dearborn_magazine.brick_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.construction`, `fort_dearborn_artillery_house.log_1816.form.stories`, `fort_dearborn_artillery_house.log_1816.form.wall_height_m`, `fort_dearborn_artillery_house.log_1816.form.roof_type`, `fort_dearborn_artillery_house.log_1816.form.roof_pitch_deg`, `fort_dearborn_root_house.cellar_1816.form.wall_height_m`, `fort_dearborn_root_house.cellar_1816.form.roof_type`.
 **Recorded:** 2026-08-11.
 
 ### L43 — Three things inside and beside the fort are placed by a sentence, a side, or nothing
@@ -14488,7 +14492,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 168 structures (159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 174 structures (173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -31308,6 +31312,51 @@ under the same id; T-3068 reads the seven open lots.
 `data/traces/prairie_1904_footprints_s20w.json`.
 **Recorded:** 2026-10-23 (T-3019).
 
+### L-draft-indiana-1904-lots-3068 — The seven Indiana lots the two plans disagree on, read against dated sources: five 1886 houses stood from Robinson's plate, 1619 from the 1911 sheet, and 1605-1613 left a building site
+
+**Covers:** `house_1601_indiana.draft_1904.form.stories`, `house_1601_indiana.draft_1904.form.draft_elevation`, `house_1601_indiana.draft_1904.form.draft`, `house_1619_indiana.draft_1904.form.draft_elevation`, `house_1619_indiana.draft_1904.form.draft`, `house_1619_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1619_indiana_coach_house.draft_1904.form.draft`, `house_1637_indiana.draft_1904.form.stories`, `house_1637_indiana.draft_1904.form.draft_elevation`, `house_1637_indiana.draft_1904.form.draft`, `house_1641_indiana.draft_1904.form.stories`, `house_1641_indiana.draft_1904.form.draft_elevation`, `house_1641_indiana.draft_1904.form.draft`, `house_1727_indiana.draft_1904.form.stories`, `house_1727_indiana.draft_1904.form.draft_elevation`, `house_1727_indiana.draft_1904.form.draft`, `house_1735_indiana.draft_1904.form.stories`, `house_1735_indiana.draft_1904.form.draft_elevation`, `house_1735_indiana.draft_1904.form.draft`
+**Decision:** T-3068 reads the seven lots on Indiana Avenue's east frontage, 16th to 18th Street, that
+T-3019 left `phase_unresolved` because Sanborn 1911 and Robinson 1886 disagree, against sources dated
+between the two: the Blue Book's street section in every edition from 1890 to 1911
+(`chicago_blue_book_1904`), the 1902 Lakeside directory (`lakeside_directory_chicago_1902`), the Chicago
+Tribune (`chicago_tribune_1903_09_04_ice_cream_plant`, `chicago_tribune_1883_04_15_indiana_1729_1731`),
+the Abendpost (`abendpost_1904_03_22_indiana_1605_foundation`, `abendpost_1905_08_09_building_permits`)
+and Engineering News (`engineering_news_1904_06_30_supplement`). What they settle:
+- **1605-1613** was the ice-cream plant's building site on 1 July 1904: bought in September 1903 for a
+  plant covering the whole ground, its foundation being dug on 22 March 1904. The 1886 houses were gone
+  and the factory not finished, so neither is drafted; how far the walls had risen is not read.
+  (T-3130 has since stood the rising works there: `L-draft-indiana-1605-works-3130`.)
+- **1637** was the U.S. Engineer Office, whose notices are dated from the address on 20 and 25 June 1904;
+  **1641** held the Cummings household in every Blue Book from 1890 to 1908. Both 1886 houses stand for
+  1904 from the plate (`r1886-1637-f`, `r1886-1641-f`) beside the stables T-3019 drafted.
+- **1619**'s brick house stands as the 1911 sheet draws it, because one household (Dr. E. C. Dudley's)
+  lived there without a break from 1888 to 1908.
+- **1601-1603** and **1727-1737** are backcast (`backcast_1886`): the corner was not in the ice-cream
+  firms' 1903 purchase, and the photographic-supply factory on 1727-1737 was permitted in August 1905.
+  The plate's corner of the 16th Street brick row (`r1886-1601-f`) and its two frame houses
+  (`r1886-1727-f`, `r1886-1735-f`) stand for 1904.
+**What is invented here, beyond the 3008 list.** Every plate house's storeys: three for the brick
+houses, the median of the storeys the 1911 sheet prints on the block face; two for the frame houses,
+from the Tribune's 1883 '2-story, basement, and mansard-roof frame' at 1729-1731, carried to the corner
+house beside it. The corner row stands filling its lot (`fills_lot`) instead of where the plate's
+4.5 m fit carries it, which is about 4 m south, and it fronts Indiana Avenue like the draft's other
+houses although the row's doors were on 16th Street. 1637 and 1641 stand where the plate puts them,
+about 13 m back from the avenue's line where their drafted neighbours stand 8-10 m back; the
+difference is within the plate's fit and is not corrected. 1637 is built as the house it was built as,
+not as an office. The plate's outbuildings on 1727-1737 are not drafted.
+**What is inferred, not attested.** That the corner row and the two frame houses on 1727-1737 still
+stood on 1 July 1904: nothing dated shows them after 1893 (1735's rooms to let) or the row's houses
+at all, and nothing shows them taken down before the works reached their ground. The 1902 directory
+finds no home at an odd number from 1727 to 1737, which may mean empty houses or the directory's
+rough text. That 1619's brick house was built for the Dudleys soon after 1886 rather than under them
+later. Why the 1911 sheet draws no house at 1637, where the Engineer Office still was, is not read.
+**How to resolve:** T-1946 (the side-street and rail-side background) refines each record in place
+under the same id; a dated view of either corner, or the 1894-97 Rascher plan, replaces the backcasts.
+**Ticket:** T-3068.
+**Review:** `data/components/prairie_1904/edges_census_s20w.json`,
+`data/components/prairie_1904/draft_prairie_1904.json` (block `20w`'s `plates`).
+**Recorded:** 2026-10-24 (T-3068).
+
 ### L-kimball-1801-pavilion-face-3015 — 1801 Prairie's south pavilion's face and heights re-read off the Taylor photograph: its north cheek at the bow, its gable lowered to the print's springing, and its depth held at 0.6 m by its window recesses and the main eave's gutter
 
 **Decision:** 1801 Prairie's south pavilion (T-3015, piece 1 of T-2999) is re-stood and re-heighted
@@ -31349,13 +31398,21 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3006.
 **Recorded:** 2026-10-22.
 
-### L-k01-1811-round-arcade-2991 — 1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line
+### L-k01-1811-round-arcade-2991 — 1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a stepped line
 
-**Decision:** The porch arcade on the entrance block's rounded south corner at 1811 Prairie (T-2991, `entrance_kit.loggia.round_arcade`) is built from the 1888 Inland Architect plate, read through the T-2541 camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (L-k01-1811-ames-front-2541). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for T-3079's re-solve of the camera.
+**Decision:** The porch arcade on the entrance block's rounded south corner at 1811 Prairie (T-2991, `entrance_kit.loggia.round_arcade`) is built from the 1888 Inland Architect plate, read through the T-2541 camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (L-k01-1811-ames-front-2541). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this. T-3132: the Chicagology photograph steps it the same way through its own camera (capitals 3, 10 and 20 px under the mouth's jamb, bases 5, 10 and 13 px, where a level build renders on the jamb's line), so the step is built: each light, its colonnette and the plinth band under it stand 0, 0.1 and 0.2 m lower round the curve. The drops are read from the two pictures; why the porch steps (a platform following a fall in the ground, or the plinth's own design) no source says, and nothing else is moved to explain it. The lights' stones now reach down to the bed at 2.71 m under the lowest sill.
 
-**Re-opens on:** T-3079's re-solved camera, or a photograph showing the porch's south side close up (T-3052 solves the cameras of 1811's other pictures).
-**Ticket:** T-2991.
-**Recorded:** 2026-10-24.
+**Re-opens on:** a photograph showing the porch's south side close up, or a drawing of the porch.
+**Ticket:** T-2991; revised by T-3132.
+**Recorded:** 2026-10-24; revised 2026-10-25.
+
+### L-k01-1811-basement-grilles-3132 — 1811 Prairie's basement grilles: the scrolls simplified, the sizes scaled
+
+**Decision:** The iron grilles in the two basement lights under 1811 Prairie's bay (T-3132, the bay's `grille.panel`) are built to the pattern the c. 1888 Chicagology photograph shows (chicagology_photo, x 278-362 and 470-525 px, y 1175-1276 px): a flat-bar frame round the light, a border of short bars (uprights over and under, rungs at the sides), and a square panel inside it with a rosette at its centre, eight spokes out to a ring, a volute in each corner and a smaller one on the middle of each side. Two things are invented. (1) The sizes: the border 0.12 m, its bars 0.06 m apart, the ring 0.44 m across and the rosette 0.07 m, scaled off the photograph against the light's 0.95 m width; at about 1.1 cm a pixel they are good to a few centimetres. (2) The detail: the photograph's spokes are paired curves like petals and its scrolls carry small leaves; the build draws straight spokes and plain volutes in the 18 mm bar the K01 grilles use.
+
+**Re-opens on:** a closer photograph of the basement lights, or the ironwork itself.
+**Ticket:** T-3132.
+**Recorded:** 2026-10-25.
 
 ### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
 
@@ -31631,6 +31688,28 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
 
+### L-draft-livery-2129-3013 — Bane Brothers' livery at 2129-2131 Indiana stood up as a draft at the 1911 garage's outline
+
+**Decision:** 2129-2131 Indiana Avenue, which T-3009 left unread under a 1911 GARAGE, is drafted for
+1904 as part of Bane Brothers' livery and boarding stables (T-3013), by the district draft's builder
+and under `L-draft-district-background-3009`'s rules word for word, exactly as the livery's 2123-2125
+half beside it was. **What is read, not invented.** The Chicago Blue Book for 1904 advertises Bane
+Brothers' livery at 2125, 2127 and 2129 Indiana Avenue (and the 1902 Lakeside directory at 2129);
+the 1905 Blue Book has the incorporated company at 2123-2129; the 1910 Blue Book has George G. West's
+livery at the same four numbers; the 1911 Blue Book has the West Motor Livery Co.'s garage at
+2127-2129 on the livery's 405 and 406 lines. The outline, the three storeys and the brick are sheet
+35's, as the T-3009 trace reads them. **What is inferred.** That the three-storey brick building the
+1911 sheet letters GARAGE is the livery's own stable kept in use, and so stood on 1 July 1904: one
+horse livery at one address from 1902 to 1910 turning motor livery by 1911 is read as one building,
+not a rebuilding, but no permit, photograph or earlier plan says so. A single garbled 1907 rental
+advertisement for a "seven-room modern apartment" at 2131 is not acted on. **What is invented.** The
+draft's gable, height and closed faces are the service rules', as for 2123-2125: no view of the
+livery is in hand. **How to resolve:** a building permit for the 2129 building, a pre-1909 Sanborn
+or atlas plate of the 20th-22nd blocks, or any photograph of the livery's front.
+
+**Covers:** `livery_2129_indiana.draft_1904.form.draft_elevation`, `livery_2129_indiana.draft_1904.form.draft`
+**Ticket:** T-3013.
+**Recorded:** 2026-10-23 (T-3013).
 
 ### L-standing-horse-development-2800 — a planted-standing horse in the Western Hotel yard
 
@@ -32440,6 +32519,50 @@ at the south-west corner. The heads' panels and collar are T-3109's.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3107).
 
+### L-k08-1812-balcony-panel-3113 — 1812 Prairie's balcony given the Levy photograph's stone panel, pedestal, iron scrolls and roundel balusters, and the south projection's top brought down to the print's cornice
+
+**Decision:** the balcony on the south projection of George H. Wheeler's house at 1812 Prairie
+(T-3113, piece 1 of T-3092) is built as Albert Levy's photograph shows its front run, where
+L-k08-1812-projection-balcony-2888 had run the iron rail across the print's stone middle: a solid
+stone panel 3.14 m across on the front's middle, its top 0.09 m over the deck at its ends and rising
+in a straight sweep over 0.8 m to shoulders 0.42 m up, level from there to a pedestal 0.32 m across
+and 0.52 m high under a broader cap; an iron C-scroll hung from the top rail over each sweep and a
+small carved scroll on the panel each side of the pedestal; the top rail running from the posts
+into the pedestal, the foot rail stopping at the panel's ends; and a roundel on every iron baluster
+just under the top rail. The projection's top comes down to the print's cornice: its last storey
+3.65 m where it was 3.85, so its wall head stands at 9.25 m (the print's cornice foot, y about
+700 px) under a moulded eave 0.2 m out and 0.15 m deep, its top at 9.40 m, where K08's own 0.35 m
+eave and 0.28 m fascia over a 9.45 m wall head had stood its top at 9.73 m, about 25-30 px over
+the print's. K08's balcony learns `panel` and `roundel` (k01_frontage_params validates them; no
+other house names either, so every other house re-emits as before).
+**What is read, not invented.** Through Levy's camera
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`) at the projection's 92.4 px a
+metre, on 3x crops of x 280-780, y 600-720 px: the panel from x 390 to 680 px; its ends about
+8 px over the cornice, its top rising to about 36-40 px over it by x 467 and 610, level from there to
+the pedestal at x 527-557, whose cap stands at about the rail's top; the scrolls' places, over the
+sweeps about 35 px in from the panel's ends and beside the pedestal; the roundels, about 9 px
+across, one on each baluster under the rail; the cornice's top at about y 677-693 (the print is
+warped, so it reads lower to the north) and its foot at about y 700.
+**What is invented.** The panel's 0.14 m and the pedestal's 0.2 m thickness and the cap's
+projection; the scrolls' form (a bar half the balusters' section wound a turn and a quarter
+inward, its tail into the rail); the iron scrolls' depth: they take the print's radius of about
+0.11 m and stand before the panel's slope as the print's do, their backs set 10 mm clear of the
+stone face (a constructed clearance, not a reading) and their tails swept back into the top rail's
+plane, where the first build drew them at 0.07 m hanging clear of the slope in the rail's plane; the carved scrolls drawn as
+plain rings 0.06 m in radius; the roundels' 0.012 m section; the eave's section (a plain soffit and
+fascia, where the print's is a moulded cornice), its 0.2 m and 0.15 m read as the print's cornice
+height and set to place its top; the panel's stone, which is the projection's dressing.
+**What is built otherwise than read.** Under the print's cornice the projection's face is a stone
+frieze to the paired window's caps (y 700-740 px), with a block under the pedestal; the build's is
+brick there, and it stays open in the Levy match record.
+**How to resolve:** a sharper print of the front, or a view of the balcony at an angle, would fix
+the panel's thickness, the scrolls and the cornice's section.
+**Ticket:** T-3113.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3113); the scrolls amended 2026-10-25 (T-3113).
+
+
 ### L-school-pictured-openings-roof-2372 — provisional doorway gable and higher lights
 **Decision:** The owner-approved attributed school-shore reproduction guides a reconstructed
 doorway-gable roof direction and opening treatment without identifying its subject
@@ -32775,3 +32898,221 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 **Re-opens on:** a photograph of the north side, or a drawing of the roof at the north corner.
 **Ticket:** T-3112.
 **Recorded:** 2026-10-24.
+
+### L-draft-indiana-1605-works-3130 — 1605-1613 Indiana's ice-cream works standing as a brick shell three storeys up on 1 July 1904, the height between a March excavation and a September move
+
+**Covers:** `ice_cream_works_1605_indiana.draft_1904.form.draft_elevation`, `ice_cream_works_1605_indiana.draft_1904.form.draft`
+**Decision:** T-3068 ruled 1605-1613 the plant's building site on the scene date and drafted nothing. T-3130 stands the works there in the working phase the census leaves open (`phase_unresolved`), the way 2126's Robbins house is stood (`works_shell`, T-2351). It sits on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. Four dated sources set the building's form and frame its date:
+- **September 1903:** the two firms buy the ground for a plant covering all of it (`chicago_tribune_1903_09_04_ice_cream_plant`).
+- **November 1903:** the Tribune calls it a four-storey brick building with a barn, $50,000, from A. R. Buckley's plans (`chicago_tribune_1903_11_08_ice_cream_works_begun`).
+- **22 March 1904:** its foundation is still being dug (`abendpost_1904_03_22_indiana_1605_foundation`).
+- **1 September 1904:** Thompson-Reid lets a floor of its old Wabash Avenue premises from this date (`chicago_tribune_1904_09_11_thompson_reid_lease`).
+**What is invented here.** How high the walls stood: three of the four storeys, with the street wall and its front returns 1.6 m into the fourth. No source gives it. Three storeys is the draft's reading of a brick shell about fourteen weeks after its excavation and about two months before the firm's move. Also invented: the 0.55 m wall, the eight street bays and the openings' places (no picture of the building is known), the stone foundation course and deck at the drafts' principal floor, and the pole scaffold along the street. The function is the plant the walls were for, `large_workshop`, the closed vocabulary's nearest term; the building was not yet working.
+**What is inferred, not attested.** That the works were not finished on 1 July 1904. The September lease reads as the move being near, and it is a lease, not a report of the building. That the 1886 houses on the lots were gone is T-3068's reading of the March excavation.
+**How to resolve:** a building-permit entry, a completion notice or a dated view of the works in 1904 sets the walls' height. T-1946 refines the record in place under the same id.
+**Ticket:** T-3130.
+**Review:** `data/components/prairie_1904/draft_prairie_1904.json` (`frontage-20w-1605–1613`), `data/components/prairie_1904/edges_census_s20w.json`.
+**Recorded:** 2026-10-25 (T-3130).
+
+### L-lake-house-open-shell-2379 — distinguish an omitted roof from a flat cap
+
+**Covers:** `lake_house_construction.shell_1835.form.roof_type`.
+
+**Decision:** Keep the existing reconstructed one-storey/four-metre, 24×15 m worksite and `roof_type: none`, and make that selector omit the generic roof cap. `flat` retains its exact existing cap; all pitched roofs and other role dispatch remain unchanged. This removes a 360 m² cap/four raw vertices/two triangles; it introduces no excavation, floor, scaffold, interior passage, construction stock or new phase.
+
+**Evidence and bounds:** The held Chicago Democrat notice of 10 June 1835, p.2 col.5, reports an active house-building project in Kinzie's Addition, understood to be named Lake House. The bracketed/transcription-mediated reading does not show roof or progress. June 1836 unfinished work and autumn 1836 opening do not establish July 1835 roof absence. The roof field therefore becomes reconstructed; all phase dates, footprint, coordinates, dimensions, whole-building grade and the zero-to-two-storey uncertainty stay unchanged. Bonnell's conflicting retrospective dates remain unresolved. No later completed-hotel picture supplies the July construction stage. Original T-2379 remains open/differs; this is not an accepted picture match.
+
+**Ticket:** T-3123, a bounded omitted-cap increment; original T-2379 remains open.
+
+**Recorded:** 2026-10-24; finished 2026-10-25.
+
+### L-k07-1812-porch-arch-3134 — 1812 Prairie's porch arch turned as a half ellipse in a narrow moulded ring, its heavy transom beam and paned fanlight columns, and the stair's flared north cheek and carved newels, to the Levy photograph
+
+**Decision:** the porch entrance of George H. Wheeler's house at 1812 Prairie (T-3134, piece 1 of
+T-3114) is built as Albert Levy's photograph shows four of its parts, where
+L-k01-1812-wheeler-porch-2952 had built them from the kits. The arch's head is a half ellipse on
+its springing line (K06's new `elliptical` head, `arch.head`), its semi-axes the mouth's half span
+(1.35 m) and its rise (0.79 m, the same rise_over_span 0.293 as before), so it springs steep from
+the jambs and runs flatter over the crown than the segment it replaces; the voussoir block is cut
+on the ellipse's vertices. Round its intrados and down both jambs to the landing runs a narrow
+moulded ring of light dressed stone in two steps, 0.06 m and 0.05 m broad, 0.05 m and 0.025 m
+before the wall (`arch.moulding`), unbroken over the crown, so the keystone the block carried is
+not laid (the print shows none). The transom under the fanlight is a beam 0.25 m deep
+(`transom_beam`, 4.03-4.28 m over the walk) under a moulded cap 0.06 m high and 0.04 m proud and
+over a bead 0.04 m high and 0.02 m proud, where K07's bar was 0.07 m. The fanlight's three lights
+are parted by two narrow columns of small panes, each 0.27 m between its posts and three panes up
+(`fanlight_columns`), one over the meeting of the leaves and one over the pier. The stair's north
+cheek flares out as it sweeps down, 0.55 m at its foot along the sweep's own reversed curve
+(`cheek_form.flare`), the treads widening under it to its inner face; and both cheeks end in a
+newel 0.45 m across (`cheek_form.newel`) under a cap 0.1 m high overhanging 0.04 m, its top the
+cheek's 1.1 m foot line, with a turned knob 0.2 m high on it and a raised panel on its front and
+its outer face. No other house names any of these keys, so every other house re-emits as before.
+**What is read, not invented.** Through Levy's camera (the levy front data, 88.5 px a metre at
+the main front's plane, the walk at y 1549.6 px), on 2-4x crops of x 700-1120, y 1000-1560 px: the
+arch's outline, steep at both jambs and flat over the crown, its intrados crown at y about 1099
+(5.09 m) and its sides upright from about y 1165 (4.35 m); the ring's light moulding about 10 px
+(0.11 m) broad, running on down the jambs; the beam from y about 1169 to 1191 (4.30 to 4.05 m),
+lined along its top and foot; the fanlight's two narrow columns at x 830-854 and 905-930 (about
+0.27 m), over the leaves' meeting and the pier, each crossed by bars into small panes, about 0.2 m
+high; the north cheek's inner face moving out from about x 960 at the landing to about x 1050 at
+its foot, and both newels' caps at about y 1453-1468 with a knob over each. **What is invented.**
+The ring's section (two square steps standing for a moulding the print shows as two lines); the
+beam's cap and bead; the columns' three rows (the print's are about three to four); the flare's
+curve, taken from the sweep's; the newels' width (the print's read 0.42 m south and 0.52 m north),
+their cap, the knob's turned profile and the panels standing for the print's carving.
+**What is built otherwise than read.** The voussoir block outside the ring is still laid as
+radiating rock-faced stones, where the print shows the porch's coursed ashlar running to the
+moulding; the north cheek is solid where the print's is pierced in a row of small openings under
+its coping; and the print's arch, its south jamb and the stair's foot stand 0.2-0.3 m from where
+the build has them, which is T-3135's (the porch's plan), not this ticket's.
+**How to resolve:** a sharper print of the porch, or a view of it at an angle, would fix the ring's
+section, the beam's mouldings and the newels' carving; T-3135 rules the porch's plan.
+**Ticket:** T-3134.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3134).
+
+### L-k07-1812-porch-arch-jamb-3135 — 1812 Prairie's porch arch cut into the south projection's corner, its south jamb and moulding on the projection's face, to the Levy photograph and the c. 1955 photograph
+
+**Decision:** the porch arch of George H. Wheeler's house at 1812 Prairie (T-3135, piece 2 of
+T-3114) is cut into the north corner of the south projection, where L-k07-1812-porch-arch-3134
+had stood its 2.7 m mouth clear of the projection from 5.2 m. The mouth is 3.05 m across, from
+4.85 m to 7.9 m along the front, its axis at 6.375 m (`axis_s_m`, 0.175 m south of the bay's
+6.55 m, the windows over it on their own centres); its north jamb stays where it was, and the
+half-elliptical head keeps its 0.79 m rise (rise over span 0.259) from the same 4.28 m springing.
+The projection (`cut_by_entrance`) is cut away under that head from the door's floor (1.65 m),
+from the south jamb (0.2 m inside its 5.05 m north face) through its whole 1.2 m depth, and the
+cut is closed in the projection's stone: the jamb carried forward from the door's reveal, the
+head's soffit on the reveal's own polyline, and a floor at the door's. The moulded ring's south
+leg, from the landing round the head to the projection's corner, stands on the projection's face;
+past the corner it runs on round the head on the main front as before. The springing band on the
+projection's face stops at the moulding (4.74 m). The door's leaves take the wider mouth (about
+1.72 m, beside the same 0.29 m pier and 1.04 m side light), and the strip of the threshold south
+of the stoop's landing stands on the projection's floor. No other house names either key, so every
+other house re-emits as before.
+**What is read, not invented.** Through Levy's camera (88.5 px a metre at the main front, 92.8 at
+the projection's face 1.2 m nearer), on 2-3x crops of x 600-1150, y 1000-1600 px: the arch's
+south moulding at x 740-755 px and the opening's edge (the door's south side) near x 755, both
+south of the projection's corner, which the print draws at x 770-777 above the arch. Nothing
+behind the projection's face can draw south of x 775 from this camera, so the jamb stands on the
+projection's face: 4.69-4.85 m along the front. The c. 1955 photograph, from 13.4 m south of the
+house, puts the opening's edge at x about 328 px and its moulding at 324-327, on the projection's
+face (47.5 px a metre from its south corner at x 100): 4.75-4.80 m. The arch does not stand forward
+of the main front as a whole: its north jamb draws at x about 1029 in Levy's print (the build's
+1027 on the main front) and at x about 444 in the c. 1955 photograph, where a jamb on the
+projection's plane would stand at 471-475, past the main front's own north corner (468). Rebuilt,
+the south moulding renders at x 745-754 in Levy's camera and 325-331 in the c. 1955 one.
+**What is invented.** The cut's inside: the jamb's depth through the projection, its soffit and
+its floor, which neither picture sees (both look from the south of the cut); the moulding ending
+square at the projection's corner, where it may return along the cut; the cut's floor at the
+door's, under the landing's stone.
+**What is built otherwise than read.** The stair is not moved: its foot and pierced north cheek
+are T-3144's.
+**How to resolve:** a view of the porch from the north, or a plan of the first floor, would show
+the cut's depth and how the moulding turns the corner.
+**Ticket:** T-3135.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3135).
+
+### L-second-fort-officers-piazza-3124 — The second fort's officers' quarters carry Hubbard's upper piazza, with the building it describes unresolved
+
+**Covers:** `fort_dearborn_officers_quarters.log_1816.form.stories`, `fort_dearborn_officers_quarters.log_1816.form.gallery`, `fort_dearborn_officers_quarters.log_1816.form.gallery_storeys`, `fort_dearborn_officers_quarters.log_1816.form.face_openings`.
+**Decision:** The west range inside the second Fort Dearborn opts into the fort archetype's existing two-level gallery (`gallery: true`, `gallery_storeys: 2`): an open ground level of posts under an upper walk at the second floor, a railed front and a canopy from the main eave. The source is Hubbard's description of the fort as he first saw it in October 1818: *"The officers' quarters were outside of the pickets, fronting east on the parade, and was a two-story building of hewn logs. A piazza extended along the entire front on a line with the floor of the second story, and was reached by stairs on the outside"* (`hubbard_autobiography_1911`, leaf 74, printed p. 36, committed text lines 2353-2358). Everything about it stays **reconstructed**, for two reasons the same book supplies. (1) **OUTSIDE against WITHIN.** Page 36 puts that building outside the pickets; Hubbard's 1827 walk puts *"The old officers' quarters, built of logs, on the west, and within the pickets"* (leaf 205, printed p. 167, lines 7612-7613), which is where the 1830 plan draws this range. The book contradicts itself and this entry does not resolve it. (2) **Same range or not.** Nothing identifies the 1818 building with the range standing in July 1835; the post stood ungarrisoned from October 1823 to October 1828 and from May 1831 to June 1832, and no building inside it is dated. Continuity into the 1831/1835 garrison is therefore **conditional** on both readings going this way.
+**Reconstructed dimensions:** the helper's own, unchanged and documented at **L-first-fort-double-galleries**: 2.1 m reach, 0.14 m posts on the nominal 3 m rhythm, 0.14 m deck, 0.95 m rail, pales at most 0.18 m apart, and a canopy falling 0.45 m from the existing 4.8 m eave. The upper deck sits at the existing 2.4 m storey line. Hubbard gives no dimension.
+**Openings written down, not re-read:** `face_openings` declares exactly the rectangles the archetype's procedural default already built (five bays to the parade front with a ground-floor centre door, four to the back, blank gable ends), so that the posts can be set clear of them by the helper's support rule. One post moves from 9.145 m to 8.405 m, off the door. Every old triangle of the 1,764-triangle mesh is kept: same positions, footprint, height, storey count and grade, dates, occupants and materials. The bake adds 1,618 for the gallery (3,382 in all).
+**Not done:** the outside stairs are **unmodelled**. Hubbard attests them but not where they ran or which way they climbed, and the helper invents no stair. The storey count is **not promoted**: its note now quotes p. 36 and says why the grade stays. The **prior refusal stays visible** on the record. Until this entry the gallery read `false` because nothing tied galleries to the 1816 fort, Whistler's 1808 *"Galliaries"* belonged to the first, and John H. Kinzie called the two forts *"differently constructed"*. That refusal is quoted in the gallery note as the alternative. The **1855 photograph** remains a diagnostic only, twenty years after the scene, with no camera solved on it as a matched July 1835 view.
+**How to resolve:** a quartermaster return, repair estimate or plan of the post that dates the west range, places the officers' quarters inside or outside the pickets, or draws the piazza; or a pre-1856 picture of the west range's parade front with a camera that can be solved.
+**Ticket:** T-3124 (T-2388 stays open; this does not discharge its every-building, every-picture obligations).
+**Recorded:** 2026-10-25.
+
+### L-draft-district-background-3011 — Indiana Avenue's east frontage, 18th to 20th Street, stood up as one reconstructed background row where the sheet that draws it is not in hand
+
+**Covers:** `indiana_east_frontage_18th_20th_background_row.draft_1904.position`, `indiana_east_frontage_18th_20th_background_row.draft_1904.footprint`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.stories`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.construction`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_plan`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_elevation`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft`
+**Decision:** the last piece of the district's background (T-3011, piece 4 of T-2983). The
+background census (`data/components/prairie_1904/background_census.json`) ranks the Indiana half
+of the 18th-20th block first of everything behind Prairie Avenue: seen from 48 of the avenue's
+stands, half its ground in view. It is the one face of the district with no 1904 lots, because
+Sanborn 1911 vol. 3 **sheet 27**, which draws it, is not among the committed scans (the 1904 grid
+carries Indiana's east line straight between sheets 20 and 35 and leaves the face unlotted). Left
+bare, the walks of Prairie's 18th-20th block look west past Glessner's and Kimball's stables onto
+an empty field where a built avenue stood. So the face is drafted as **one record, a row of 22
+houses**, and every number in it is a reconstruction bounded by the drafts already standing on the
+two neighbouring Indiana faces:
+- **Presence is inferred, from a dated source.** The 1904 Blue Book (`chicago_blue_book_1904`)
+  seats households at ten numbers on this face: 1813, 1815, 1819, 1821, 1825, 1829 and 1833, and
+  1901, 1921 and 1933. It lists selected households only, so the numbers it omits (1801-1811,
+  1835-1899, the rest of the 1900s) are not thereby empty, and the row fills them by the same rule.
+- **The split.** The face is divided where the same block's Prairie face turns from 1834 to 1900
+  (122.3 m south of 18th Street). The 1800s half, where the Blue Book lists a run of consecutive odd
+  numbers, each its own household, is a row of 15 houses re-stood from the 20th-21st face's 3B row
+  (2007-2027, consecutive numbers on lots of about 8 m, sheet 35). The 1900s half, where it lists
+  three households in 122 m, is 7 freestanding houses re-stood from the 16th-18th face (1601-1703,
+  sheet 20).
+- **Each house** is its model's drafted main body (depth, width, storeys, roof) at its model's
+  setback from the street line, centred on its model's lot width, the lots stretched by one common
+  factor per half (1.045 and 1.052) so they meet the corners 1.0 m inside 18th and 20th Streets.
+  Rear ranges, porches, bays and alley stables are not carried: the row is what the avenue's walks
+  see over the alley, not the lots' back yards.
+- **Material, storeys and dress** are the district draft's default family: brick (18 of the 23
+  neighbouring drafts), the commonest three storeys (15 of 23) as the record's own count with each
+  house keeping its model's, 3.9/3.5/3.3/3.1 m storeys over a 1.4 m principal floor, two front bays
+  and a north door.
+- **The Blue Book numbers are placed** at about 2.9 m a number south of 18th Street in the 1800s and
+  3.5 m a number from the half-block in the 1900s, as the Prairie face of the block prints its own
+  (1834 ends 116.7 m south of 18th, 1900 begins at 123.5 m, 1936 ends at 245 m); each house's row of
+  the plan names the numbers that fall on it. That placement is good to a lot either way, and no
+  house is said to BE a listed household's.
+**What is invented:** every house's size, height, roof, material, setback and lot; the number of
+houses; that the 1800s half was a row and the 1900s half freestanding; and everything on the
+numbers the Blue Book does not list. Not invented: that households lived at those ten numbers in
+1904, and where the face's street and corner lines run.
+**Also ruled here, open:** the census's other unparcelled target, the ground between Prairie's east
+lots (16th-18th) and the Illinois Central (`unparcelled:blk_prairie_ic_16_18`), is about 150 m2 of
+slivers where E. 18th Street's north line curves into Calumet Avenue beside 1729's lot and meets the
+railway's line. Sheet 20 draws nothing on it; the lots themselves run back to the right-of-way. It
+is recorded open in the rules (`open_ground`, `data/components/prairie_1904/draft_prairie_1904.json`),
+which is not a liberty but a reading.
+**How to resolve:** T-3145 ingests sheet 27, lots the face, traces and censuses it as sheets 20w
+and 35w were, and replaces the row house by house; the Blue Book's ten numbers then go to their own
+lots.
+**Ticket:** T-3011 (piece 4 of T-2983, the district's background).
+**Review:** `data/components/prairie_1904/draft_prairie_1904.json` (the site row and its plan's
+per-house `from`), `docs/RESEARCH/district-background-3011/README.md`.
+**Recorded:** 2026-10-25 (T-3011).
+
+### L-k07-1812-stair-foot-3144 — 1812 Prairie's stair: the south cheek drawn in to its newel and the north cheek pierced under its coping, to the Levy photograph
+
+**Decision:** the stair of George H. Wheeler's house at 1812 Prairie keeps its landing, its 2.05 m
+width between the cheeks there and its north cheek's 0.55 m flare (L-k07-1812-porch-arch-3134), and
+takes two things more from Levy's print. Its south cheek is drawn in 0.2 m toward the stair's axis as
+it sweeps down, along the same reversed curve the north cheek's flare follows (`cheek_form.flare`
+now one a side; a negative `out_m` draws a cheek in), the treads' south ends following its inner
+face, so the south newel stands at 4.83-5.28 m along the front where it stood at 4.63-5.08 m and the
+foot is about 2.4 m between the newels. And the north cheek is pierced by a row of ten openings
+(`cheek_form.pierced`), each 0.11 m along the run and 0.08 m high, 0.35 m under the cheek's top and
+running with it (so each is a parallelogram where the top falls), spaced evenly along the sweep from
+the landing's edge to the newel and cut clean through the cheek's 0.3 m, their four reveals in its
+stone. No other house names either key, so every other house re-emits as before.
+**What is read, not invented.** Through Levy's camera (88.5 px a metre at the main front, about 100
+at the stair's foot), on 2-4x crops of x 650-1200, y 1150-1600 px: the south newel at x 768-808 px
+against the build's 744-790, the north newel at 1050-1100 against 1052-1102, and both cheeks at the
+landing within 5 px of the build's; so the foot's south side, not the stair, moved, and the newel's
+two edges put it 0.18-0.24 m north. The south cheek's inner edge drifts north from about x 770 at
+the landing to about 802 just behind the newel, where a straight cheek draws 774-787. On the north
+cheek's inner face, under a broad coping, a row of small dark openings slanting with the sweep,
+about ten from the landing to the newel, each about 4-5 px by 7-9 px. The openings' outlines,
+projected through the camera from the record, land on the print's from the landing to the newel.
+Rebuilt, the south newel renders at x 760-812.
+**What is invented.** The openings' count to one either way, their size to a few centimetres, and
+their running clean through the cheek with plain square reveals (the print sees only their mouths);
+the drawn-in cheek following the flare's curve, where the print shows its foot and its landing end
+and not the curve between; the coping's depth, read only as the openings' depth under the top (the
+cheek's top is still the plain swept slab).
+**What is built otherwise than read.** The review render's sun lights the openings' far reveals on
+the cheek's shaded face, so they read light where the print's read dark on its lit one: the light,
+not the form. The newels stay 0.45 m across where the print's south newel reads nearer 0.4 m.
+**How to resolve:** a second picture of the stair from the north, or one with the c. 1955
+photograph's parked car gone, would show the openings' shape through the cheek and the south
+cheek's curve.
+**Ticket:** T-3144.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3144).

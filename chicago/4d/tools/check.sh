@@ -1033,6 +1033,12 @@ step "a K01 rear wing takes a slated hip or gable, its junction with the host cl
 step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
   python3 tools/test_k01_rear_fall.py
 
+# T-3144. A K07 swept stoop's cheek drawn in to its newel (a negative flare) and a cheek pierced
+# by a row of openings under its top, as Levy's print shows 1812 Prairie's: built so, each
+# opening open through the cheek, the plain stair back without them, and the misfits refused.
+step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3144)" \
+  python3 tools/test_k07_stair_foot.py
+
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
 # brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
@@ -3798,6 +3804,13 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 # (T-3031).
 step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
   python3 tools/glessner_cupola_read.py --check
+
+# HABS 15's camera is the stable_level fit on measured controls at the stable, and
+# the hoist stone is read through it and through T-2758's HABS 01 doorway fit, so a
+# pick, camera or record number that moves without the report and the camera being
+# re-written and re-read is caught here (T-3147).
+step "Glessner stable-end reading and HABS 15's camera re-derive (T-3147)" \
+  python3 tools/glessner_stable_end_read.py --check
 
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,

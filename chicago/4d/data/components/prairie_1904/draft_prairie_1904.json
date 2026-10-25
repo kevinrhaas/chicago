@@ -519,7 +519,405 @@
       "rear_ticket": {
         "east": "T-1946",
         "south": "T-1946"
-      }
+      },
+      "plates": [
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are. It is drawn filling the corner lot from 16th Street to the lot's south line, as a row along the cross street does, so it stands between the 1904 grid's own lot lines (`fills_lot`, as 1635 does) rather than wherever the plate's 4.5 m fit carries it, which is about 4 m south.",
+          "id": "r1886-1601-f",
+          "frontage_id": "frontage-20w-1601–1603",
+          "parcel_id": "indiana_1601",
+          "lot_parcels": [
+            "indiana_1601"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              173.75,
+              1006.25
+            ],
+            [
+              238.0,
+              1006.25
+            ],
+            [
+              238.0,
+              1035.5
+            ],
+            [
+              191.25,
+              1035.5
+            ],
+            [
+              191.25,
+              1045.5
+            ],
+            [
+              173.75,
+              1045.5
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1601-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 draws a pink (brick) row along 16th Street across lot 2, its houses numbered 21-37 on the old 16th Street numbering; its west end stands on the Indiana corner, the corner house about 13.5 m deep and the rest about 10 m, its Indiana face about 3.5 m back from the avenue's line. Read here to the line where the 1904 grid's corner lot meets the 209-217 lot, which the 1911 outline already stands on.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws the ice-cream works' five-storey office and tin shop at 1601-1603. The T-3019 census, as T-3068 rules it (frontage-20w-1601–1603, backcast_1886), stands the corner of the 1886 brick row for 1904, because the corner was not in the ground the ice-cream firms bought in September 1903 and is first in their hands in December 1906. Residence is inferred from the row's 1886 form; no household at the corner is in the 1902 directory or the 1904 Blue Book.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the row and T-3068 carries its corner to 1904 because the ice-cream works reached the corner only after the scene. When the corner houses came down is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the row. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1601",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The west end of the 1886 brick row on 16th Street, at the Indiana corner: the brick family's hip over three storeys, until T-1946 parts it into its houses."
+          },
+          "fills_lot": true
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1637-f",
+          "frontage_id": "frontage-20w-1637",
+          "parcel_id": "indiana_1637",
+          "lot_parcels": [
+            "indiana_1623_1637_c",
+            "indiana_1637"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              204.5,
+              1289.25
+            ],
+            [
+              268.0,
+              1289.25
+            ],
+            [
+              268.0,
+              1302.5
+            ],
+            [
+              257.5,
+              1302.5
+            ],
+            [
+              257.5,
+              1312.5
+            ],
+            [
+              245.0,
+              1312.5
+            ],
+            [
+              245.0,
+              1324.25
+            ],
+            [
+              204.5,
+              1324.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1637-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1637 against a pink (brick) house across lots 27 and 28: about 22 m deep at its north side and 14 m at its south, stepped back twice along its south side, about 12 m along the street, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1637. T-3068 stands the 1886 brick house for 1904 because the U.S. Engineer Office, the Corps of Engineers' Chicago district, dated its contract notices from 1637 Indiana Avenue on 20 and 25 June 1904 and had been there since 1896; the Blue Book lists households at 1637 in 1890 and 1894 and none after. Its 1904 use is therefore an office in a former house, inferred; the draft builds it as the house it was built as.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house, and the Engineer Office's notices put a building in use at the address in June 1904. When it was built and when it went are not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1637",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 brick house at 1637, the Corps of Engineers' Chicago office in 1904: the brick family's hip over three storeys, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1641-f",
+          "frontage_id": "frontage-20w-1641",
+          "parcel_id": "indiana_1641",
+          "lot_parcels": [
+            "indiana_1641"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              205.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1353.0
+            ],
+            [
+              266.25,
+              1353.0
+            ],
+            [
+              266.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1382.5
+            ],
+            [
+              219.5,
+              1382.5
+            ],
+            [
+              219.5,
+              1376.25
+            ],
+            [
+              205.5,
+              1376.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1641-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1641 against a pink (brick) house across lots 29 and 30 with a darker (stone) strip along its whole Indiana face: about 15 m along the street, its front body about 15 m deep and a rear range to about 21 m, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1641. T-3068 stands the 1886 house for 1904 because the Blue Book lists the Cummings household at 1641 in every edition from 1890 to 1908, the 1904 edition included; residence is attested by that listing and the house's form is the plate's.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the 1904 Blue Book lists its household. The 1911 sheet shows it gone; when it went is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick_with_stone_front",
+          "construction_note": "Robinson 1886 colours the house pink, the plate's brick, with a darker strip along its Indiana face, the plate's mark for a stone front, as on 1615 and 1703.",
+          "frontage": {
+            "register": {
+              "address": "1641",
+              "family": "Stone-front brick dwelling",
+              "map_material": "brick, stone front",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 stone-front brick house at 1641: the brick family's hip over three storeys behind a stone face, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1727-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1600.5
+            ],
+            [
+              213.75,
+              1600.5
+            ],
+            [
+              213.75,
+              1595.0
+            ],
+            [
+              231.25,
+              1595.0
+            ],
+            [
+              231.25,
+              1600.5
+            ],
+            [
+              265.0,
+              1600.5
+            ],
+            [
+              265.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1618.75
+            ],
+            [
+              211.25,
+              1618.75
+            ],
+            [
+              211.25,
+              1613.75
+            ],
+            [
+              198.0,
+              1613.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1727-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1727 against a yellow (frame) house across lots 41 and 42: about 23 m deep, its body about 4.6 m along the street with wider middle parts, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let it in 1883 as '1729 and 1731 Indiana-av., 2-story, basement, and mansard-roof frame', so it was a house let as two. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED on a reading: the Chicago Tribune's 1883 notice lets the house as '2-story, basement, and mansard-roof frame' (chicago_tribune_1883_04_15_indiana_1729_1731), three years before the plate, so the draft builds two storeys under the mansard; it keeps the draft's word for a plate house's storeys because the notice is twenty-one years before the scene.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1727",
+              "family": "Frame house, mansard roof",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house at 1727-1731, let in 1883 as two storeys over a basement under a mansard: the mansard family's roof over two storeys, every face closed."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1735-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1642.5
+            ],
+            [
+              216.25,
+              1642.5
+            ],
+            [
+              216.25,
+              1636.25
+            ],
+            [
+              261.75,
+              1636.25
+            ],
+            [
+              261.75,
+              1656.25
+            ],
+            [
+              252.5,
+              1656.25
+            ],
+            [
+              252.5,
+              1668.0
+            ],
+            [
+              226.25,
+              1668.0
+            ],
+            [
+              226.25,
+              1663.75
+            ],
+            [
+              198.0,
+              1663.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1735-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1735 against a yellow (frame) house on lot 43, the 65 ft corner of 18th Street: about 22 m deep, about 7 m along the street at its front and widening behind, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's corner frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let rooms in it, '1735 Indiana-av., corner Eighteenth-st.', from 1888 to 1893. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count and no source describes the corner house; two storeys is its neighbour's, the frame house at 1727 that the Tribune let in 1883 as two storeys over a basement.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1735",
+              "family": "Frame house",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house on the 18th Street corner: the house family's hip over two storeys, every face closed."
+          }
+        }
+      ]
     }
   },
   "skip": {
@@ -557,16 +955,12 @@
     "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it.",
     "s20-1726-f": "1726 Prairie now stands as the K01 brick frontage house_1726_prairie (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the main body on K01 with the sheet's front and south canted bays and its side projections on K08, and the sheet's two-storey rear piece and frame porch on K01's rear wings; the draft stands no second building beside it.",
     "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it.",
-    "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and T-3013 read two houses on the lots in 1904 (2001 a residence in the 1904 Blue Book and still in 1909, 2003 a twelve-room stone-front house in 1902), so the census rules the frontage replaced_after_1904: the works is not the 1904 building and no outline of the houses is in hand, so the draft stands nothing rather than invent them.",
+    "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and T-3013 read other uses on the lots in 1904 (an agent's office at 2105 from January 1904, rooms let at 2101 in 1905-1907, the Stanley Motor Carriage Co. only by 1909), so the census rules it replaced_after_1904: the garage is not the 1904 building and no outline of what stood is in hand, so the draft stands nothing.",
+    "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and T-3013 read a dwelling letting a room at 215 in July 1904, so the census rules it replaced_after_1904: the shop is not the 1904 building and no outline of the dwelling is in hand, so the draft stands nothing.",
     "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
-    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws a five-storey office and tin shop at the 16th Street corner, where Robinson 1886 draws the west end of the brick row along 16th Street, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
-    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory across these lots, where Robinson 1886 draws a brick house and a frame house, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
-    "s20w-1619-front": "1619 Indiana: the 1911 sheet draws a 2½B brick house where Robinson 1886 draws a frame one, so the brick house was built between the plans and nothing in hand says which stood on 1 July 1904 (census ruling phase_unresolved); the draft stands neither, and T-3068 reads it.",
-    "s20w-1619-rear": "1619 Indiana's frame building on the alley is on both plans, but its frontage's 1904 phase is open (census ruling phase_unresolved), so it waits with the house for T-3068 rather than stand as a stable without its lot read.",
-    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. photographic-supply factory across these lots, where Robinson 1886 draws two frame houses and their outbuildings, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it."
+    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws the ice-cream works' five-storey office and tin shop at the 16th Street corner, which T-3068 dates after 1904 (the corner was not in the works' 1903 purchase); the 1904 building is the plate's corner of the 1886 brick row (r1886-1601-f), so the 1911 outline is not drafted.",
+    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. factory, permitted in August 1905 (T-3068), so the 1911 outline is not drafted; the 1904 houses are the plate's (r1886-1727-f, r1886-1735-f)."
   },
   "frontages": {
     "frontage-28-038": {
@@ -708,7 +1102,20 @@
       "entrance": "north",
       "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's.",
       "house_id": "coleman_ames_house_1811_prairie",
-      "house_address": "1811"
+      "house_address": "1811",
+      "services": {
+        "s28-1811-rear": {
+          "storeys_1904": {
+            "value": 2,
+            "confidence": "attested",
+            "sources": [
+              "chicago_tribune_1904_04_16_1811_prairie_to_rent",
+              "carlson_greeley_1891_prairie_environs"
+            ],
+            "note": "Two storeys in 1904, where the 1911 sheet reads a '1½-storey brick GARAGE on the alley' (T-3099). The Tribune of 16 April 1904 offers the empty house to rent with a '2 story stable', and the same agents repeat it in September 1905; the Greeley-Carlson plate of 1891 draws a crossed stable marked '25' at the alley behind the house, 38-46 m from the street line where the 1911 sheet's garage stands 37-46 m; and the Chicagology photograph (after 1886; its rights unresolved, so read beside these and not cited for the count) shows it past the house's south flank as a separate pavilion with an arched carriage door under a steep roof. The plan stays the 1911 trace's. Why the 1911 sheet counts one and a half storeys no source says: the stable altered when it became a garage, or its loft counted as a roof storey, are both open."
+          }
+        }
+      }
     },
     "frontage-28-051": {
       "slug": "sears_meeker_house",
@@ -1987,6 +2394,23 @@
       "rear_ticket": "T-1946",
       "why": "A livery the sheet draws from Indiana Avenue to the alley: the brick stable and the frame wagon shed joined, drafted as one service building at the trace's outline under a gable, its height the service rules'. A horse-age use, carried to 1904 as one."
     },
+    "frontage-35w-2129–2131": {
+      "slug": "livery",
+      "use": {
+        "function": "stable_and_wagon_yard",
+        "name": "Bane Brothers' livery stable at 2129-2131",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1911"
+        ]
+      },
+      "register": {
+        "address": "2129–2131",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "Bane Brothers' livery and boarding stables, 2125 to 2129 Indiana Avenue in the 1904 Blue Book (T-3013), which the 1911 sheet draws as a three-storey brick GARAGE from Indiana Avenue to the alley, the West Motor Livery Co.'s by then: drafted as one service building at the trace's outline under a gable, its height the service rules', like the livery's 2123-2125 half beside it."
+    },
     "frontage-35w-2029–2035": {
       "house_id": "first_presbyterian_church_2029_indiana",
       "rear_ticket": "T-3014",
@@ -2081,6 +2505,63 @@
       },
       "rear_ticket": "T-1946",
       "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B with shallow bays on both side walls, which the fitted plan does not carry: they are the refining ticket's. Robinson 1886 draws a brick house here."
+    },
+    "frontage-20w-1619": {
+      "slug": "house",
+      "register": {
+        "address": "1619",
+        "raw_story_notation": "2½B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "pass": "T-3068",
+      "liberty": "L-draft-indiana-1904-lots-3068",
+      "why": "A background house with no named record: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B with canted front corners, a 1B brick rear piece and a one-storey frame piece behind; the corners and the frame piece are the refining ticket's. Carried to 1904 on T-3068's reading of the Dudley household, at 1619 from 1888 to 1908."
+    },
+    "frontage-20w-1601–1603": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 office at the corner is skipped; the 1904 building is the plate's (block 20w's `plates`, r1886-1601-f)."
+    },
+    "frontage-20w-1605–1613": {
+      "slug": "ice_cream_works",
+      "register": {
+        "address": "1605–1613",
+        "raw_story_notation": "4",
+        "map_material": "brick",
+        "family": "Brick factory",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "pass": "T-3130",
+      "liberty": "L-draft-indiana-1605-works-3130",
+      "front_bays": 8,
+      "entrance": "centre",
+      "use": {
+        "function": "large_workshop",
+        "name": "the Thompson-Reid and Collins Bros. ice-cream works, building",
+        "sources": [
+          "chicago_tribune_1903_09_04_ice_cream_plant",
+          "chicago_tribune_1903_11_08_ice_cream_works_begun",
+          "abendpost_1904_03_22_indiana_1605_foundation",
+          "chicago_tribune_1904_09_11_thompson_reid_lease"
+        ],
+        "note": "On the target date the works are being built (T-3130). Collins Bros. and the Thompson-Reid company bought 1605-1613 in September 1903 for a plant covering the whole ground (chicago_tribune_1903_09_04_ice_cream_plant). In November 1903 the Tribune describes it as a four-storey brick building with a barn, 100 by 177 feet, from A. R. Buckley's plans (chicago_tribune_1903_11_08_ice_cream_works_begun). Its foundation was still being dug on 22 March 1904 (abendpost_1904_03_22_indiana_1605_foundation). From 1 September 1904 Thompson-Reid let a floor of its old Wabash Avenue premises (chicago_tribune_1904_09_11_thompson_reid_lease). So on 1 July 1904 the works were a building rising on the 1911 footprint, not yet the factory the sheet letters. The function is the plant the walls were for; 'large_workshop' is the closed vocabulary's nearest term for a manufactory."
+      },
+      "works": {
+        "raised_storeys": 3,
+        "course_m": 1.6,
+        "wall_m": 0.55,
+        "note": "How high the walls stood is RECONSTRUCTED (liberty L-draft-indiana-1605-works-3130): three of the four storeys, and part of the fourth along the street. No dated source gives the walls' height. The dates either side frame it: a foundation was being dug on 22 March 1904, and the firm let a floor of its old premises from 1 September 1904. Three storeys is the draft's reading of a brick shell about fourteen weeks after its excavation, with the move about two months off."
+      },
+      "why": "The Thompson-Reid and Collins Bros. ice-cream works RISING on 1 July 1904 (T-3130), in the working phase the census leaves open (phase_unresolved) and the draft declares, as 2126's Robbins house is declared. It stands on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. The brick shell is three storeys up over its stone foundation, the street wall and its front returns 1.6 m into the fourth. The openings are empty, and there is no roof. A deck is laid at the first floor, with a pole scaffold along the street. The eight bays and the central opening are the draft's: no picture of the building is known. The 1886 houses are not stood, and the finished 1911 factory is not carried back."
+    },
+    "frontage-20w-1727–1737": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 factory is skipped; the 1904 houses are the plate's two frame houses (block 20w's `plates`, r1886-1727-f and r1886-1735-f), each with its own overlay there."
     }
   },
   "sites": [
@@ -3125,6 +3606,700 @@
         ]
       ],
       "to_is": "seen"
+    },
+    {
+      "_doc": "A building no traced sheet or 1904 parcel reaches (T-2982). `place` sets its corner where the avenue's line, moved in by its half-width and a setback, meets the cross street's measured line moved in by a setback; `parts` are rectangles in metres, u from the building's front face toward the street and v from its southernmost face along the front, the first the main body. T-3011: a whole block face as one BACKGROUND ROW, every part a house; `confidence` names the tiers the row's plan, footprint and construction take, since no drawing gives them.",
+      "id": "indiana_east_frontage_18th_20th_background_row",
+      "name": "1801-1935 Indiana Avenue — the east frontage, 18th to 20th Street, as a background row (district draft; refined by T-3145)",
+      "aka": [
+        "1801-1935 S. Indiana Avenue",
+        "Indiana Avenue's east frontage, 18th to 20th Street"
+      ],
+      "where": "The east frontage of Indiana Avenue from 18th to 20th Street, the Indiana half of the block whose Prairie half holds Glessner, Kimball and Keith: on Sanborn 1911 sheet 27, which is not in hand.",
+      "pass": "T-3011",
+      "liberty": "L-draft-district-background-3011",
+      "refined_by": [
+        "T-3145"
+      ],
+      "register_row": null,
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "function": "residence",
+      "function_confidence": "inferred",
+      "confidence": {
+        "plan": "reconstructed",
+        "footprint": "reconstructed",
+        "construction": "reconstructed"
+      },
+      "construction": "brick",
+      "place": {
+        "along_face": "indiana__indiana_prairie_18_20",
+        "cross_face": "e20th__indiana_prairie_18_20",
+        "avenue_centre_local_m": [
+          1267.05,
+          -3340.99
+        ],
+        "front": "west",
+        "half_row_m": 10.06,
+        "setback_front_m": 0.0,
+        "setback_side_m": 1.0
+      },
+      "parts": [
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.02,
+            1.28,
+            -3.77,
+            13.64
+          ],
+          "from": "house 1 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1601_indiana's drafted main body re-stood (22.25 x 12.36 m, 3 storeys, hip roof, front 3.77 m behind the street line) on a 12.91 m lot (its own 12.36 m stretched by the zone's common 1.045); about 231-244 m south of 18th Street, where the 1904 Blue Book lists a household at 1933 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -27.43,
+            16.59,
+            -10.93,
+            22.09
+          ],
+          "from": "house 2 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1615_indiana's drafted main body re-stood (16.50 x 5.50 m, 3 storeys, hip roof, front 10.93 m behind the street line) on a 10.86 m lot (its own 10.39 m stretched by the zone's common 1.045); about 220-231 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 2,
+          "roof": "hip",
+          "rect_m": [
+            -34.72,
+            28.92,
+            -8.47,
+            37.42
+          ],
+          "from": "house 3 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1619_indiana's drafted main body re-stood (26.25 x 8.50 m, 2 storeys, hip roof, front 8.47 m behind the street line) on a 16.80 m lot (its own 16.08 m stretched by the zone's common 1.045); about 203-220 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -35.25,
+            45.37,
+            -10.25,
+            54.37
+          ],
+          "from": "house 4 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1623_indiana's drafted main body re-stood (25.00 x 9.00 m, 3 storeys, hip roof, front 10.25 m behind the street line) on a 16.60 m lot (its own 15.89 m stretched by the zone's common 1.045); about 186-203 m south of 18th Street, where the 1904 Blue Book lists a household at 1921 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.82,
+            60.37,
+            -13.07,
+            72.12
+          ],
+          "from": "house 5 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1637_indiana's drafted main body re-stood (13.75 x 11.75 m, 3 storeys, hip roof, front 13.07 m behind the street line) on a 16.13 m lot (its own 15.44 m stretched by the zone's common 1.045); about 170-186 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "flat",
+          "rect_m": [
+            -28.09,
+            76.17,
+            -13.09,
+            91.42
+          ],
+          "from": "house 6 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1641_indiana's drafted main body re-stood (15.00 x 15.25 m, 3 storeys, flat roof, front 13.09 m behind the street line) on a 18.98 m lot (its own 18.16 m stretched by the zone's common 1.045); about 151-170 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 2,
+          "roof": "hip",
+          "rect_m": [
+            -37.39,
+            103.67,
+            -12.89,
+            111.92
+          ],
+          "from": "house 7 of 22 from 20th Street, in the 1900s (20th Street to the half-block): house_1703_indiana's drafted main body re-stood (24.50 x 8.25 m, 2 storeys, hip roof, front 12.89 m behind the street line) on a 29.02 m lot (its own 27.77 m stretched by the zone's common 1.045); about 122-151 m south of 18th Street, where the 1904 Blue Book lists a household at 1901 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.98,
+            123.18,
+            -4.48,
+            129.68
+          ],
+          "from": "house 8 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2019_indiana's drafted main body re-stood (22.50 x 6.50 m, 3 storeys, hip roof, front 4.48 m behind the street line) on a 8.25 m lot (its own 7.84 m stretched by the zone's common 1.052); about 114-122 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.71,
+            131.47,
+            -4.46,
+            137.72
+          ],
+          "from": "house 9 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2017_indiana's drafted main body re-stood (22.25 x 6.25 m, 3 storeys, hip roof, front 4.46 m behind the street line) on a 8.09 m lot (its own 7.69 m stretched by the zone's common 1.052); about 106-114 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.69,
+            140.0,
+            -5.94,
+            145.5
+          ],
+          "from": "house 10 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2013_indiana's drafted main body re-stood (20.75 x 5.50 m, 3 storeys, hip roof, front 5.94 m behind the street line) on a 8.22 m lot (its own 7.81 m stretched by the zone's common 1.052); about 98-106 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.18,
+            148.03,
+            -4.43,
+            153.53
+          ],
+          "from": "house 11 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2011_indiana's drafted main body re-stood (12.75 x 5.50 m, 3 storeys, hip roof, front 4.43 m behind the street line) on a 7.83 m lot (its own 7.44 m stretched by the zone's common 1.052); about 90-98 m south of 18th Street, where the 1904 Blue Book lists a household at 1833 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.21,
+            155.76,
+            -7.71,
+            161.51
+          ],
+          "from": "house 12 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2009_indiana's drafted main body re-stood (9.50 x 5.75 m, 3 storeys, hip roof, front 7.71 m behind the street line) on a 7.88 m lot (its own 7.49 m stretched by the zone's common 1.052); about 82-90 m south of 18th Street, where the 1904 Blue Book lists a household at 1829 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.19,
+            163.46,
+            -6.19,
+            169.96
+          ],
+          "from": "house 13 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2007_indiana's drafted main body re-stood (11.00 x 6.50 m, 3 storeys, hip roof, front 6.19 m behind the street line) on a 8.27 m lot (its own 7.86 m stretched by the zone's common 1.052); about 74-82 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.52,
+            171.89,
+            -4.77,
+            177.89
+          ],
+          "from": "house 14 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2027_indiana's drafted main body re-stood (21.75 x 6.00 m, 3 storeys, hip roof, front 4.77 m behind the street line) on a 8.09 m lot (its own 7.69 m stretched by the zone's common 1.052); about 66-74 m south of 18th Street, where the 1904 Blue Book lists a household at 1825 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -27.01,
+            179.95,
+            -4.26,
+            186.2
+          ],
+          "from": "house 15 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2023_indiana's drafted main body re-stood (22.75 x 6.25 m, 3 storeys, hip roof, front 4.26 m behind the street line) on a 8.27 m lot (its own 7.86 m stretched by the zone's common 1.052); about 57-66 m south of 18th Street, where the 1904 Blue Book lists a household at 1821 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -16.99,
+            187.63,
+            -4.99,
+            194.63
+          ],
+          "from": "house 16 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2021_indiana's drafted main body re-stood (12.00 x 7.00 m, 3 storeys, hip roof, front 4.99 m behind the street line) on a 7.85 m lot (its own 7.46 m stretched by the zone's common 1.052); about 50-57 m south of 18th Street, where the 1904 Blue Book lists a household at 1819 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.98,
+            195.93,
+            -4.48,
+            202.43
+          ],
+          "from": "house 17 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2019_indiana's drafted main body re-stood (22.50 x 6.50 m, 3 storeys, hip roof, front 4.48 m behind the street line) on a 8.25 m lot (its own 7.84 m stretched by the zone's common 1.052); about 41-50 m south of 18th Street, where the 1904 Blue Book lists a household at 1815 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.71,
+            204.23,
+            -4.46,
+            210.48
+          ],
+          "from": "house 18 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2017_indiana's drafted main body re-stood (22.25 x 6.25 m, 3 storeys, hip roof, front 4.46 m behind the street line) on a 8.09 m lot (its own 7.69 m stretched by the zone's common 1.052); about 33-41 m south of 18th Street, where the 1904 Blue Book lists a household at 1813 Indiana"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -26.69,
+            212.76,
+            -5.94,
+            218.26
+          ],
+          "from": "house 19 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2013_indiana's drafted main body re-stood (20.75 x 5.50 m, 3 storeys, hip roof, front 5.94 m behind the street line) on a 8.22 m lot (its own 7.81 m stretched by the zone's common 1.052); about 25-33 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.18,
+            220.78,
+            -4.43,
+            226.28
+          ],
+          "from": "house 20 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2011_indiana's drafted main body re-stood (12.75 x 5.50 m, 3 storeys, hip roof, front 4.43 m behind the street line) on a 7.83 m lot (its own 7.44 m stretched by the zone's common 1.052); about 17-25 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.21,
+            228.51,
+            -7.71,
+            234.26
+          ],
+          "from": "house 21 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2009_indiana's drafted main body re-stood (9.50 x 5.75 m, 3 storeys, hip roof, front 7.71 m behind the street line) on a 7.88 m lot (its own 7.49 m stretched by the zone's common 1.052); about 9-17 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        },
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "rect_m": [
+            -17.19,
+            236.21,
+            -6.19,
+            242.71
+          ],
+          "from": "house 22 of 22 from 20th Street, in the 1800s (the half-block to 18th Street): house_2007_indiana's drafted main body re-stood (11.00 x 6.50 m, 3 storeys, hip roof, front 6.19 m behind the street line) on a 8.27 m lot (its own 7.86 m stretched by the zone's common 1.052); about 1-9 m south of 18th Street, where the 1904 Blue Book lists nobody (it lists selected households only)"
+        }
+      ],
+      "elevation": {
+        "stories": 3,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 38,
+        "front_bays": 2,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "stone": "stone"
+      },
+      "notes": {
+        "function": "Dwellings: the 1904 Blue Book (the street-and-number list's Indiana Avenue section, about printed page 156; the item's OCR text, lines 24563-24597) seats households at ten numbers on this face, 1813, 1815, 1819, 1821, 1825, 1829 and 1833 in the 1800s and 1901, 1921 and 1933 in the 1900s, so houses stood along it at the target. The Blue Book lists selected households only, so a number it omits is not thereby empty, and it says nothing of the buildings themselves.",
+        "research": "Sanborn 1911 vol. 3 sheet 27, the sheet that draws this face, is not among the committed scans (data/street_grid/1904.json carries Indiana's east line straight between sheets 20 and 35 and leaves the face unlotted), and the visibility census (data/components/prairie_1904/background_census.json) finds the ground seen from 48 Prairie stands, the most-seen target behind the avenue. So the face is drafted as ONE BACKGROUND ROW rather than left bare: 22 houses whose presence the Blue Book's ten households carry and whose every dimension is re-stood from the drafted houses of the neighbouring Indiana faces (the 16th-18th face off sheet 20, the 20th-21st face off sheet 35). T-3145 ingests sheet 27 and replaces the row house by house.",
+        "range": "The 1904 Blue Book (published 1903, for 1904) puts households on the face at the target; the phase keeps the study's 1904-1911 window (study ruling 11), and its 1911 end is that window, not a sighting.",
+        "position": "Indiana Avenue's east line as the 1904 grid carries it between sheets 20 and 35 (data/street_grid/1904.json, ruling: carried straight), with its centre 10.06 m (66 ft) west of it; the row runs from 1.0 m inside 20th Street's measured north line to 1.0 m inside 18th Street's south line, and each house's front stands behind the street line by its model's own drafted setback. Good to the georeference and a lot either way.",
+        "footprint": "The row's outline, along every house's front and back: a background mass, so the side yards inside it are not walkable ground.",
+        "stories": "Three storeys, the commonest count among the neighbouring drafts (15 of 23); each house's own count is its model's, in the plan.",
+        "construction": "Brick, as 18 of the 23 neighbouring Indiana drafts are on their sheets (three of them with stone fronts; the other five are frame); nothing in hand says what this face was built of.",
+        "plan": "The face splits at the half-block where the same block's Prairie face turns from 1834 to 1900 (122.3 m): the 1800s half, where the Blue Book lists a run of consecutive odd numbers (1813-1833, each a separate household), is a row of the 20th-21st face's 3B houses (2007-2027, its consecutive numbers on lots of about 8 m), and the 1900s half, where it lists three households in 122 m (1901, 1921, 1933), is the 16th-18th face's freestanding houses (1601-1703). Each house is its model's drafted main body at its model's setback, centred on its model's lot width stretched by one factor per half so the lots meet the corners; rear ranges, porches and stables are not carried. A Blue Book number is placed at about 2.9 m per number south of 18th Street in the 1800s and 3.5 m per number from the half-block in the 1900s, as the Prairie face of this block prints them (1834 ends 116.7 m, 1900 begins 123.5 m, 1936 ends 245 m), and each house's row of the plan names the numbers that fall on it.",
+        "elevation": "The district draft's default family (RECONSTRUCTION-RULES.md starting ranges, as every unnamed background house takes them): 3.9/3.5/3.3/3.1 m storeys over a 1.4 m principal floor, 38-degree roofs, two front bays and a door at the north end of each front."
+      },
+      "outline_m": [
+        [
+          -3.77,
+          1.28
+        ],
+        [
+          -3.77,
+          13.64
+        ],
+        [
+          -10.93,
+          16.59
+        ],
+        [
+          -10.93,
+          22.09
+        ],
+        [
+          -8.47,
+          28.92
+        ],
+        [
+          -8.47,
+          37.42
+        ],
+        [
+          -10.25,
+          45.37
+        ],
+        [
+          -10.25,
+          54.37
+        ],
+        [
+          -13.07,
+          60.37
+        ],
+        [
+          -13.07,
+          72.12
+        ],
+        [
+          -13.09,
+          76.17
+        ],
+        [
+          -13.09,
+          91.42
+        ],
+        [
+          -12.89,
+          103.67
+        ],
+        [
+          -12.89,
+          111.92
+        ],
+        [
+          -4.48,
+          123.18
+        ],
+        [
+          -4.48,
+          129.68
+        ],
+        [
+          -4.46,
+          131.47
+        ],
+        [
+          -4.46,
+          137.72
+        ],
+        [
+          -5.94,
+          140.0
+        ],
+        [
+          -5.94,
+          145.5
+        ],
+        [
+          -4.43,
+          148.03
+        ],
+        [
+          -4.43,
+          153.53
+        ],
+        [
+          -7.71,
+          155.76
+        ],
+        [
+          -7.71,
+          161.51
+        ],
+        [
+          -6.19,
+          163.46
+        ],
+        [
+          -6.19,
+          169.96
+        ],
+        [
+          -4.77,
+          171.89
+        ],
+        [
+          -4.77,
+          177.89
+        ],
+        [
+          -4.26,
+          179.95
+        ],
+        [
+          -4.26,
+          186.2
+        ],
+        [
+          -4.99,
+          187.63
+        ],
+        [
+          -4.99,
+          194.63
+        ],
+        [
+          -4.48,
+          195.93
+        ],
+        [
+          -4.48,
+          202.43
+        ],
+        [
+          -4.46,
+          204.23
+        ],
+        [
+          -4.46,
+          210.48
+        ],
+        [
+          -5.94,
+          212.76
+        ],
+        [
+          -5.94,
+          218.26
+        ],
+        [
+          -4.43,
+          220.78
+        ],
+        [
+          -4.43,
+          226.28
+        ],
+        [
+          -7.71,
+          228.51
+        ],
+        [
+          -7.71,
+          234.26
+        ],
+        [
+          -6.19,
+          236.21
+        ],
+        [
+          -6.19,
+          242.71
+        ],
+        [
+          -17.19,
+          242.71
+        ],
+        [
+          -17.19,
+          236.21
+        ],
+        [
+          -17.21,
+          234.26
+        ],
+        [
+          -17.21,
+          228.51
+        ],
+        [
+          -17.18,
+          226.28
+        ],
+        [
+          -17.18,
+          220.78
+        ],
+        [
+          -26.69,
+          218.26
+        ],
+        [
+          -26.69,
+          212.76
+        ],
+        [
+          -26.71,
+          210.48
+        ],
+        [
+          -26.71,
+          204.23
+        ],
+        [
+          -26.98,
+          202.43
+        ],
+        [
+          -26.98,
+          195.93
+        ],
+        [
+          -16.99,
+          194.63
+        ],
+        [
+          -16.99,
+          187.63
+        ],
+        [
+          -27.01,
+          186.2
+        ],
+        [
+          -27.01,
+          179.95
+        ],
+        [
+          -26.52,
+          177.89
+        ],
+        [
+          -26.52,
+          171.89
+        ],
+        [
+          -17.19,
+          169.96
+        ],
+        [
+          -17.19,
+          163.46
+        ],
+        [
+          -17.21,
+          161.51
+        ],
+        [
+          -17.21,
+          155.76
+        ],
+        [
+          -17.18,
+          153.53
+        ],
+        [
+          -17.18,
+          148.03
+        ],
+        [
+          -26.69,
+          145.5
+        ],
+        [
+          -26.69,
+          140.0
+        ],
+        [
+          -26.71,
+          137.72
+        ],
+        [
+          -26.71,
+          131.47
+        ],
+        [
+          -26.98,
+          129.68
+        ],
+        [
+          -26.98,
+          123.18
+        ],
+        [
+          -37.39,
+          111.92
+        ],
+        [
+          -37.39,
+          103.67
+        ],
+        [
+          -28.09,
+          91.42
+        ],
+        [
+          -28.09,
+          76.17
+        ],
+        [
+          -26.82,
+          72.12
+        ],
+        [
+          -26.82,
+          60.37
+        ],
+        [
+          -35.25,
+          54.37
+        ],
+        [
+          -35.25,
+          45.37
+        ],
+        [
+          -34.72,
+          37.42
+        ],
+        [
+          -34.72,
+          28.92
+        ],
+        [
+          -27.43,
+          22.09
+        ],
+        [
+          -27.43,
+          16.59
+        ],
+        [
+          -26.02,
+          13.64
+        ],
+        [
+          -26.02,
+          1.28
+        ]
+      ]
     }
-  ]
+  ],
+  "open_ground": {
+    "_doc": "Ground the visibility census (data/components/prairie_1904/background_census.json) finds seen that is RULED OPEN for 1904 rather than drafted (T-3011): each row names the census target, what the sheet draws there and why nothing stands on it. tools/draft_prairie_1904.py writes nothing for these rows; they are the record that the ground was looked at.",
+    "unparcelled:blk_prairie_ic_16_18": {
+      "sheet": "sanborn_1911_chicago_v3_sheet_20",
+      "reading": "About 150 m2 in slivers, almost all of it beside 1729's lot where E. 18th Street's north line curves into Calumet Avenue and meets the Illinois Central right-of-way line (local E 1495-1537, N -3215 to -3295). The sheet draws no building, fence or structure on it: the lots of Prairie's east side, 1601 to 1729, run back to the right-of-way themselves, and past the line are the Illinois Central and Michigan Central tracks and Lake Michigan.",
+      "decision_1904": "open",
+      "why": "Nothing on the 1911 sheet stands here and nothing in hand puts a building here in 1904; it is the edge of the street's curve and the railway's land, not a lot. Seen from 24 Prairie stands, it is read as the open ground it is."
+    }
+  }
 }

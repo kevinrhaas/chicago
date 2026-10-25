@@ -33,7 +33,8 @@ to its lot.
 
 THE ELEVATION. Storeys come from the map's printed notation (`3B`, `2½S.B.; rear2B`):
 the leading figure is the full storeys, a ½ is a roof storey, `rearN` sets the ranges;
-for service buildings the census reading (`2-storey brick BARN`). Everything else —
+for service buildings the census reading (`2-storey brick BARN`), unless the frontage row's
+`services` entry carries a dated 1904 count (`storeys_1904`, with its own sources). Everything else —
 heights, roof, bays, entrance, features — is the rules' family row overlaid with the
 frontage's own row, and is RECONSTRUCTED; the record says so attribute by attribute.
 
@@ -533,6 +534,9 @@ def site_record(rules, site, datum, grid) -> dict:
         elev["v_toward"] = "south"
     src = site["sources"]
     notes = site["notes"]
+    # T-3011: a row no measured drawing gives (Indiana's 18th-20th face, re-stood from its
+    # neighbours' drafted bodies) says its own tiers; every other site keeps the defaults
+    tier = site.get("confidence", {})
     return {
         "id": sid,
         "name": site["name"],
@@ -571,12 +575,12 @@ def site_record(rules, site, datum, grid) -> dict:
                             if site.get("outline_m") else
                             [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
                              [0.0, round(mv1 - mv0, 3)]]),
-                "confidence": "inferred", "sources": src,
+                "confidence": tier.get("footprint", "inferred"), "sources": src,
                 "note": notes["footprint"]},
             "form": {
                 "stories": _attr(el["stories"], "reconstructed", notes["stories"]),
-                "construction": _attr(site["construction"], "attested", notes["construction"], src),
-                "draft_plan": _attr(plan, "inferred", notes["plan"], src),
+                "construction": _attr(site["construction"], tier.get("construction", "attested"), notes["construction"], src),
+                "draft_plan": _attr(plan, tier.get("plan", "inferred"), notes["plan"], src),
                 "draft_elevation": _attr(elev, "reconstructed",
                                          f"RECONSTRUCTED by the site row: {notes['elevation']} The seed {seed} only "
                                          f"tints the fabric inside +-6 %. Liberty {site['liberty']}."),
@@ -663,6 +667,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     # a service-kind building that is no one's stable names its own use (sheet 20's 16th Street station)
     use = frow.get("use") if kind == "service" else None
     front_use = use
+    # a front that is no house names its own use too (1605-1613 Indiana's ice-cream works,
+    # rising on the target date: T-3130), with the dated sources that rule it beside the sheet
+    house_use = frow.get("use") if kind == "house" else None
     # one of several service buildings on a lot names its own id suffix and, if it is no one's
     # stable, its use (2140's three-storey alley building beside its stable)
     svc = frow.get("services", {}).get(cp.get("id"), {}) if kind == "service" else {}
@@ -731,6 +738,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     else:
         full, half = service_storeys(cp.get("reading_1911", ""))
         rear_n = bay_n = None
+        if svc.get("storeys_1904"):
+            # a dated source nearer the scene than the 1911 sheet counts the storeys itself
+            # (1811's '2 story stable' of April 1904, a 1½-storey garage by 1911: T-3099)
+            full, half = svc["storeys_1904"]["value"], False
     fam = family_row(rules, row.get("family", "")) if kind == "house" else {"roof": "gable", "pitch_deg": 40,
                                                                              "chimneys": 0, "family_rule": "service"}
     if kind == "house":
@@ -821,8 +832,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     rear_ticket = frow.get("rear_ticket") or block["rear_ticket"][parcel["side"]]
     # a side drafted by a later ticket names its own pass and liberty (T-2330 drafts block 28's east)
     side_rules = block.get("by_side", {}).get(parcel["side"], {})
-    pass_ = side_rules.get("pass", block.get("pass", rules["ticket"]))
-    liberty = side_rules.get("liberty", block["liberty"])
+    # and a frontage a later ticket drafts on a block already drafted names its own (T-3068's
+    # Indiana lots, ruled after T-3019 stood the rest of the block face)
+    pass_ = frow.get("pass") or side_rules.get("pass", block.get("pass", rules["ticket"]))
+    liberty = frow.get("liberty") or side_rules.get("liberty", block["liberty"])
     refined_by = [t.strip() for t in (front_tickets.split(",") if front_tickets else [rear_ticket]) if t.strip()]
 
     # ---- elevation
@@ -894,7 +907,13 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         name = f"{label} {street[1]} — {who}{fam_name} (district draft; refined by {', '.join(refined_by)})"
         reading = cp.get('reading_1911', '')
         ruling = (f or {}).get('decision_1904', 'present_as_mapped')
-        function = _attr("residence", "inferred", plate["function_note"], [src]) if plate else _attr(
+        if house_use:
+            name = f"{label} {street[1]} — {house_use['name']} (district draft; refined by {', '.join(refined_by)})"
+        function = _attr(house_use["function"], "inferred",
+                         f"The 1911 sheet reads '{reading}'. {house_use['note']} "
+                         f"Carried to 1904 on the {cen} census ruling ({ruling}).",
+                         [src] + [s_ for s_ in house_use.get("sources", []) if s_ != src]) if house_use else _attr(
+                         "residence", "inferred", plate["function_note"], [src]) if plate else _attr(
                          "residence", "inferred",
                          f"The 1911 sheet marks the building 'D' (dwelling): '{reading}'. "
                          f"Carried to 1904 on the {cen} census ruling ({ruling})." if "(D)" in reading else
@@ -905,9 +924,11 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          [src])
     elif use:
         name = f"{where} — {use['name']} (district draft; refined by {', '.join(refined_by)})"
+        # T-3013: a use a directory names (2129's livery in the 1904 Blue Book) cites it beside the sheet
         function = _attr(use["function"], "inferred",
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. " + (cp.get("note_1904") or "")
-                         + f" Carried to 1904 on the {cen} census ruling ({(f or {}).get('decision_1904')}).", [src])
+                         + f" Carried to 1904 on the {cen} census ruling ({(f or {}).get('decision_1904')}).",
+                         [src] + use.get("sources", []))
     elif join:
         # one building on two lots: both halves' readings, and the ruling that makes them one
         _, ocp = polys[b["census_ids"][-1]]
@@ -982,6 +1003,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          + ". The building's other rectangles are in draft_plan.")},
             "form": {
                 "stories": _attr(plate["stories"], "reconstructed", plate["stories_note"]) if plate else _attr(
+                                 full, svc["storeys_1904"]["confidence"], svc["storeys_1904"]["note"],
+                                 svc["storeys_1904"]["sources"]) if svc.get("storeys_1904") else _attr(
                                  full, "attested",
                                  (f"'{notation}' printed on the 1911 sheet: {full} full storeys"
                                   f"{' and a half storey in the roof' if half else ''}." if kind == "house" else

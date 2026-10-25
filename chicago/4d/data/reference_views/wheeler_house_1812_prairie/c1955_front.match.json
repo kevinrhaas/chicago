@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb",
+  "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "801e8cfcbb842f74eaab9ef81a29dce7bdcf2b12db9fc881168f88e6d5655dfb"
+      "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -41,11 +41,11 @@
         0,
         16.293259561004927
       ],
-      "rotation_y": 8.726646259971656e-05,
+      "rotation_y": 0.00008726646259971656,
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "8c5ef8415982816b2f251cdbaa7474490a6a504ce2a490193e668f9bde02f2c4",
+  "group_sha256": "c438b78f676515c25cb9100e92a5c5d1554d299e1adcd7a3a65c790d650c2208",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -94,11 +94,15 @@
       "status": "fixed"
     },
     {
-      "what": "Balcony: a solid carved stone panel in the middle of its front run with iron scrolls each side (x 230-335 px), as Levy's record already holds open; built as iron rail",
-      "status": "open"
+      "what": "Balcony: a solid carved stone panel in the middle of its front run with iron scrolls each side (x 230-335 px); built so to Levy's print, the panel rising to a pedestal with an iron scroll over each sweep (T-3113; L-k08-1812-balcony-panel-3113)",
+      "status": "fixed"
     },
     {
       "what": "South projection: the second storey's jambs rise past the window's head to carved caps under the cornice, and the paired window's mullion and hood are heavy dressed stone; built from Levy's print (the caps, the pier, the hood and the transom lights), and this camera's render shows them where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the porch arch's south jamb stands on the projection's face, the opening's edge at x about 328 px and its moulding at 324-327, about 0.25 m south of the projection's corner (x 340), where the build's mouth had stood clear of the projection; built so (T-3135), the arch cut into the projection's corner, and re-rendered its moulding draws at x 325-331. The arch's north jamb (x about 444) is on the main front, where the projection's plane would put it at 471-475 (L-k07-1812-porch-arch-jamb-3135)",
       "status": "fixed"
     },
     {

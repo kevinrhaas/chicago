@@ -307,6 +307,76 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
              "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+
+
+def entrance_cut(p):
+    """T-3135: the projection the porch arch is cut into (`cut_by_entrance`), or None: the
+    bay, the arched door group, which side of the mouth the bay stands (`left`: its jamb
+    inside the bay, the bay to the south), and how far the bay stands proud."""
+    bays = [b for b in p.bays if b.get("cut_by_entrance")]
+    if not bays:
+        return None
+    b, = bays
+    g = next(g for g in (p.arched_front or {}).get("groups", ()) if g["component"] == "k01.opening.door_leaf")
+    (s0, s1, _sp, _r, _f), = g["lights"]
+    side = "left" if b["span_m"][0] < s0 < b["span_m"][1] else "right"
+    return {"bay": b, "group": g, "side": side, "corner_s_m": b["span_m"][1] if side == "left" else b["span_m"][0],
+            "proud_m": max(float(q[1]) for q in b["variant"]["plan"]["points"])}
+
+
+def _cut_convex(src, hs, eps=1e-7):
+    """T-3135: `src`'s triangles less the convex region where dot(n, p) <= c for every (n, c)
+    in `hs`: each triangle split into the convex pieces outside one plane after another (the
+    rest inside them all is gone), its normal kept and its UVs carried linearly."""
+    out = Prim(src.name)
+    out.tone_of = src.tone_of
+    has_conf, has_tone = len(src.conf) == len(src.pos), len(src.tone) == len(src.pos)
+
+    def clip(poly, n, c, keep_in):
+        # a vertex within eps of the plane is inside it, for both halves alike, so a face
+        # lying on the plane goes on with the rest and is never emitted twice
+        res = []
+        for i, a in enumerate(poly):
+            b_ = poly[(i + 1) % len(poly)]
+            da, db = _dot(n, a[0]) - c, _dot(n, b_[0]) - c
+            oa, ob = da > eps, db > eps
+            if oa != keep_in:
+                res.append(a)
+            if oa != ob and abs(da - db) > 1e-12:
+                t = da / (da - db)
+                res.append((tuple(a[0][j] + (b_[0][j] - a[0][j]) * t for j in range(3)),
+                            tuple(a[1][j] + (b_[1][j] - a[1][j]) * t for j in range(2)),
+                            a[2] + (b_[2] - a[2]) * t, a[3] + (b_[3] - a[3]) * t))
+        return res
+
+    def emit(poly, nrm, conf):
+        base = len(out.pos)
+        for q, uv, cf, tn in poly:
+            out.pos.append(q)
+            out.nrm.append(nrm)
+            out.uv.append(uv)
+            if has_conf:
+                out.conf.append(conf)
+            if has_tone:
+                out.tone.append(tn)
+        for i in range(1, len(poly) - 1):
+            out.idx += [base, base + i, base + i + 1]
+
+    for t in range(0, len(src.idx), 3):
+        ids = src.idx[t:t + 3]
+        poly = [(tuple(src.pos[i]), tuple(src.uv[i]), 0.0, src.tone[i] if has_tone else 1.0) for i in ids]
+        nrm, conf = src.nrm[ids[0]], (src.conf[ids[0]] if has_conf else None)
+        if not any(_dot(n, q[0]) - c > eps for n, c in hs for q in poly):
+            continue   # wholly inside the cut
+        rest = poly
+        for n, c in hs:
+            if len(rest) < 3:
+                break
+            piece = clip(rest, n, c, keep_in=False)
+            if len(piece) >= 3:
+                emit(piece, nrm, conf)
+            rest = clip(rest, n, c, keep_in=True)
+    return out
 #: T-2914: the cells a coursed front dresses in stone by intent, kept stone over a brick line
 DRESSED_CELLS = ("K01.surround", "K01.quoin", "K01.panel")
 # T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
@@ -2137,7 +2207,7 @@ class Assembly:
                 jv = af["banded"]["vertical_joint_m"] / 2
             F = {"coping": k["coping_overhang_m"], "belt": 0.05}.get(kind, 0.0)
             pieces = _lay(rng, 0.0, arc, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
-            if band and band["y"][0] - 1e-6 <= ya < band["y"][1] - 1e-6:
+            if band and band["y_lo"] - 1e-6 <= ya < band["y"][1] - 1e-6:
                 f0, f1 = (band["s"][1], arc) if p.round_corner["corner"] == "north" else (0.0, band["s"][0])
                 pieces = _lay(rng, f0, f1, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
             prev = [s1 for _, s1 in pieces[:-1]]
@@ -2182,10 +2252,18 @@ class Assembly:
         if y1 is None or y1 > self.front_courses[-1][0] + 1e-6:
             raise ValueError(f"round_arcade: no bed of the round clears the lights' crowns ({top:.3f} m) under "
                              f"its corbel")
+        # T-3129: a light stepped down (`drops_m`) takes its stone down to the first bed under its sill
+        drops = ra.get("drops_m") or [0.0] * len(sc)
+        lo = y0 - max(drops)
+        y_lo = max((ya for ya, _, _ in courses if ya <= lo + 1e-6), default=None)
+        if y_lo is None:
+            raise ValueError(f"round_arcade: no bed of the round stands under the lowest light's sill ({lo:.3f} m)")
         m = ra["clear_width_m"] / 2 + k01_frontage_params.ROUND_ARCADE_MARGIN_M
         s = (0.0, max(sc) + m) if north else (min(sc) - m, arc)
+        order = sorted(range(len(sc)), key=lambda i: sc[i])
         cuts = [s[0]] + [(a + b) / 2 for a, b in zip(sorted(sc), sorted(sc)[1:])] + [s[1]]
-        return {"s": s, "y": (y0, y1), "lights": sorted(sc), "cuts": cuts}
+        return {"s": s, "y": (y0, y1), "y_lo": y_lo, "lights": sorted(sc), "cuts": cuts,
+                "drops": [drops[i] for i in order]}
 
     def round_arcade(self, ra, band, C, rad, a_lo, conf, cid, inst, j):
         """T-2991: 1811's porch arcade round its rounded corner (the Inland Architect plate of
@@ -2201,9 +2279,9 @@ class Assembly:
         cl = p.entrance_kit["loggia"]["columns"]
         wk = k["wall"]
         y0, y1 = band["y"]
+        yl, drops = band["y_lo"], band["drops"]
         w, crown, rev = ra["clear_width_m"], ra["crown_m"], ra["reveal_m"]
         hw = w / 2
-        spring = y0 + crown - hw
         rs, pr = cl["radius_m"], cl["proud_m"]
         ph, bh, ch = cl["plinth_m"], cl["base_m"], cl["capital_m"]
         yp = ra["floor_m"] + ph
@@ -2216,7 +2294,8 @@ class Assembly:
                               "sill_m": round(y0, 4), "crown_m": round(y0 + crown, 4), "reveal_m": rev,
                               "angles_deg": ra["angles_deg"], "colonnette_radius_m": rs,
                               "plinth_top_m": round(yp, 4), "band_m": ra["band_m"],
-                              "carving": "a necking ring, a flared bell and an abacus standing for the plate's leafage"},
+                              "carving": "a necking ring, a flared bell and an abacus standing for the plate's leafage",
+                              **({"drops_m": drops} if any(drops) else {})},
                              {"sill": P(ang(band["lights"][0]), y0, 0.0)})
         # the lights' stones: each from cut to cut, the band's two courses high, its face on the
         # round, dressed, with the light's round-headed hole through it
@@ -2225,6 +2304,8 @@ class Assembly:
         steps = 8   # the head's semicircle
         for i, sl in enumerate(band["lights"]):
             s0, s1 = band["cuts"][i] + (0.0 if i == 0 else jv), band["cuts"][i + 1] - jv
+            sill = y0 - drops[i]           # T-3129: the light stepped down with its colonnette
+            spring = sill + crown - hw
             bseed = self._stone_seed(cid, inst, j + i)
             a0 = ang(s0)
             origin, bed, mirror = P(a0, y0, 0.0), tangent(ang((s0 + s1) / 2)), bool(bseed >> 31)
@@ -2234,7 +2315,7 @@ class Assembly:
             head = lambda x: spring + math.sqrt(max(0.0, hw * hw - x * x))
             xs = sorted({s0, s1, sl - hw, sl + hw, *[sl - hw + w * q / steps for q in range(1, steps)],
                          *[s0 + (s1 - s0) * q / 6 for q in range(1, 6)]})
-            g0, g1 = y0 + jh, y1 - jh
+            g0, g1 = yl + jh, y1 - jh
             for xa, xb in zip(xs, xs[1:]):
                 am = ang((xa + xb) / 2)
                 inside = sl - hw - 1e-9 <= xa and xb <= sl + hw + 1e-9
@@ -2247,15 +2328,23 @@ class Assembly:
                 if not inside:
                     face([P(ang(xa), g0, 0.0), P(ang(xb), g0, 0.0), P(ang(xb), g0, -recess),
                           P(ang(xa), g0, -recess)], _mul(Y, -1))
-                    self.prim("mortar").face([P(ang(xa), y0, -recess), P(ang(xb), y0, -recess),
+                    self.prim("mortar").face([P(ang(xa), yl, -recess), P(ang(xb), yl, -recess),
                                               P(ang(xb), y1, -recess), P(ang(xa), y1, -recess)], radial(am),
                                              self.basis("mortar", origin, bed, Y, bseed), conf)
-                else:   # the light: its head's soffit, its sill and its back in the porch's shadow
+                else:
+                    if sill > g0 + 1e-6:   # the stone under a light whose sill stands over the band's foot
+                        face([P(ang(xa), g0, 0.0), P(ang(xb), g0, 0.0), P(ang(xb), sill, 0.0), P(ang(xa), sill, 0.0)],
+                             radial(am))
+                        face([P(ang(xa), g0, 0.0), P(ang(xb), g0, 0.0), P(ang(xb), g0, -recess),
+                              P(ang(xa), g0, -recess)], _mul(Y, -1))
+                        self.prim("mortar").face([P(ang(xa), yl, -recess), P(ang(xb), yl, -recess),
+                                                  P(ang(xb), sill, -recess), P(ang(xa), sill, -recess)], radial(am),
+                                                 self.basis("mortar", origin, bed, Y, bseed), conf)   # the light: its head's soffit, its sill and its back in the porch's shadow
                     face([P(ang(xa), lo_a, 0.0), P(ang(xb), lo_b, 0.0), P(ang(xb), lo_b, -rev),
                           P(ang(xa), lo_a, -rev)], (0.0, -1.0, 0.0))
-                    face([P(ang(xa), y0, 0.0), P(ang(xb), y0, 0.0), P(ang(xb), y0, -rev), P(ang(xa), y0, -rev)],
+                    face([P(ang(xa), sill, 0.0), P(ang(xb), sill, 0.0), P(ang(xb), sill, -rev), P(ang(xa), sill, -rev)],
                          (0.0, 1.0, 0.0))
-                    self.prim("backing").face([P(ang(xa), y0, -rev), P(ang(xb), y0, -rev),
+                    self.prim("backing").face([P(ang(xa), sill, -rev), P(ang(xb), sill, -rev),
                                                P(ang(xb), lo_b, -rev), P(ang(xa), lo_a, -rev)], radial(am),
                                               self.basis("backing", origin, bed, Y, bseed), conf)
                     self.prim("mortar").face([P(ang(xa), lo_a, -recess), P(ang(xb), lo_b, -recess),
@@ -2265,15 +2354,21 @@ class Assembly:
                 face([P(ang(x), g0, 0.0), P(ang(x), g1, 0.0), P(ang(x), g1, -recess), P(ang(x), g0, -recess)],
                      _mul(tangent(ang(x)), sg))
             for x, sg in ((sl - hw, 1.0), (sl + hw, -1.0)):   # the light's jambs, sill to spring
-                face([P(ang(x), y0, 0.0), P(ang(x), spring, 0.0), P(ang(x), spring, -rev), P(ang(x), y0, -rev)],
+                face([P(ang(x), sill, 0.0), P(ang(x), spring, 0.0), P(ang(x), spring, -rev), P(ang(x), sill, -rev)],
                      _mul(tangent(ang(x)), sg))
         # the plinth band: the mouth's plinth carried round under the colonnettes, its face as
         # proud of the round as the plinth's is of the front, `band_m` deep under its top
         bw, aw = rs + 0.03, rs * 1.55
         out = pr + bw + 0.04
         pseed = self._stone_seed(cid, inst, j + len(band["lights"]))
-        self.round_stone(C, rad, ang(band["s"][0]), ang(band["s"][1]), yp - ra["band_m"], yp, (0.0, 0.0, 0.0, 0.0),
-                         "dress_stone", pseed, conf, recess=0.02, bevel=0.0, F=out)
+        if not any(drops):
+            self.round_stone(C, rad, ang(band["s"][0]), ang(band["s"][1]), yp - ra["band_m"], yp, (0.0, 0.0, 0.0, 0.0),
+                             "dress_stone", pseed, conf, recess=0.02, bevel=0.0, F=out)
+        else:   # T-3129: stepped down under each colonnette, as the plate and the photograph step it
+            for i, dr in enumerate(drops):
+                self.round_stone(C, rad, ang(band["cuts"][i]), ang(band["cuts"][i + 1]), yp - dr - ra["band_m"],
+                                 yp - dr, (0.0, 0.0, 0.0, 0.0), "dress_stone", pseed + i, conf, recess=0.02,
+                                 bevel=0.0, F=out)
         # the colonnettes, each in the frame of the round at its own angle: +R along the curve,
         # +N out of it; each abacus kept clear of its neighbours'
         ss = band["lights"]
@@ -2282,12 +2377,13 @@ class Assembly:
             frame = (P(a, 0.0, 0.0), tangent(a), radial(a))
             room = min([abs(sl - x) for x in ss if x != sl] or [2 * aw]) / 2 - 0.005
             awi = min(aw, room)
-            yb, yc = yp + bh, y0 - ch
-            AF._box(self, "dress_stone", frame, -bw, bw, yp, yb, pr - bw, pr + bw, seed, conf, skip=("bottom",))
+            ypi, sill = yp - drops[i], y0 - drops[i]
+            yb, yc = ypi + bh, sill - ch
+            AF._box(self, "dress_stone", frame, -bw, bw, ypi, yb, pr - bw, pr + bw, seed, conf, skip=("bottom",))
             AF._frustum(self, "dress_stone", frame, 0.0, pr, yb, yc, rs, rs * 0.92, seed, conf)
             AF._frustum(self, "dress_stone", frame, 0.0, pr, yc, yc + 0.04, rs * 1.08, rs * 1.08, seed, conf)
-            AF._frustum(self, "dress_stone", frame, 0.0, pr, yc + 0.04, y0 - 0.06, rs * 0.92, awi, seed, conf)
-            AF._box(self, "dress_stone", frame, -awi, awi, y0 - 0.06, y0, pr - awi, pr + awi, seed, conf)
+            AF._frustum(self, "dress_stone", frame, 0.0, pr, yc + 0.04, sill - 0.06, rs * 0.92, awi, seed, conf)
+            AF._box(self, "dress_stone", frame, -awi, awi, sill - 0.06, sill, pr - awi, pr + awi, seed, conf)
 
     def kit_variant(self, op) -> dict:
         from . import k06_windows
@@ -2389,6 +2485,8 @@ class Assembly:
             v = {**v, "back_over": {"x": [g[0] - b["s_m"], g[1] - b["s_m"]],
                                     "y": [K8.support_bottom(v), y_round]}}
         built = K8.Bay(v, K8.load(), "full").build(board=False)
+        if b.get("cut_by_entrance"):
+            self.cut_by_entrance(b, built)
         conf = p.conf("bays")
         seed = self.instance(f"k08.{v['kind']}", "bay",
                              {"k08_variant": b["id"], "plan": v["plan"]["kind"], "storeys": len(v["storeys"]),
@@ -2544,6 +2642,63 @@ class Assembly:
         top = max(on_wall) if on_wall else built.meta["eave_m"]
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
         return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
+
+    def cut_by_entrance(self, b, built):
+        """T-3135: the porch arch cut into a projection's corner (1812's: the Levy print and the
+        c. 1955 photograph draw its south jamb and moulding on the projection's own face). In
+        the bay's frame, everything the kit built under the arch's head from the door's floor,
+        between the jamb inside the projection and its cheek, is cut away through its whole
+        depth, and the cut is closed in the bay's stone: the jamb carried forward from the
+        door's reveal, the head's soffit on the reveal's own polyline (k06_windows.Head, the
+        hole K07 cuts), and the floor at the door's."""
+        from . import k06_windows
+        cut = entrance_cut(self.p)
+        if cut is None or cut["bay"] is not b:
+            raise ValueError(f"{b['id']} is cut_by_entrance and the entrance's mouth does not reach it")
+        g, side, proud = cut["group"], cut["side"], cut["proud_m"]
+        (s0, s1, spring, rise, floor), = g["lights"]
+        kind = "elliptical" if g.get("elliptical") else "segmental" if g.get("segmental") else "round"
+        head = k06_windows.Head(kind, s0, s1, spring, rise / (s1 - s0)).curve(0.0, s1, s0)[::-1]
+        k = 1.0 if side == "left" else -1.0       # x measured into the mouth from the jamb
+        jamb = (s0 if side == "left" else s1) - b["s_m"]
+        edge = (b["span_m"][1] if side == "left" else b["span_m"][0]) - b["s_m"]
+        arc = [(x - b["s_m"], y) for x, y in head]
+        if side == "right":
+            arc = arc[::-1]
+        # the region cut, a convex prism: past the jamb, over the floor, under every chord
+        # of the head, from behind the wall's plane to past the bay's face and cheek
+        X = lambda x: k * (x - jamb)               # 0 at the jamb, rising into the mouth
+        hs = [((-k, 0.0, 0.0), -k * jamb), ((k, 0.0, 0.0), k * edge + 0.3),
+              ((0.0, -1.0, 0.0), -floor), ((0.0, 0.0, -1.0), 0.01), ((0.0, 0.0, 1.0), proud + 0.3)]
+        for (xa, ya), (xb, yb) in zip(arc, arc[1:]):
+            if X(xa) > X(edge) + 0.3:
+                break
+            # under the chord: the line's upward normal, (-(yb - ya), xb - xa) turned to +y
+            nx, ny = -(yb - ya), (xb - xa)
+            if ny < 0:
+                nx, ny = -nx, -ny
+            hs.append(((nx, ny, 0.0), nx * xa + ny * ya))
+        for role, src in built.prims.items():
+            built.prims[role] = _cut_convex(src, hs)
+        # the cut's own faces, in the bay's stone (K08's `reveal`, never its brick `wall`)
+        pr = built.prims.setdefault("reveal", Prim("reveal"))
+        on = [(x, y) for x, y in arc if X(x) < X(edge) - 1e-6]
+        (xa, ya), (xb, yb) = next(((a_, b_) for a_, b_ in zip(arc, arc[1:]) if X(b_[0]) >= X(edge) - 1e-6))
+        t = (X(edge) - X(xa)) / (X(xb) - X(xa))
+        on.append((edge, ya + (yb - ya) * t))
+        basis = lambda o, au, av: (o, au, av, 1.0, 1.0, 0.0, 0.0)
+        sx = (k, 0.0, 0.0)
+        pr.face([(jamb, floor, 0.0), (jamb, on[0][1], 0.0), (jamb, on[0][1], proud), (jamb, floor, proud)],
+                sx, basis((jamb, floor, 0.0), (0.0, 0.0, 1.0), (0.0, 1.0, 0.0)), None)
+        for (xa, ya), (xb, yb) in zip(on, on[1:]):
+            n = _unit((yb - ya, -(xb - xa), 0.0))
+            if n[1] > 0:
+                n = _mul(n, -1)
+            L = math.hypot(xb - xa, yb - ya)
+            pr.face([(xa, ya, 0.0), (xb, yb, 0.0), (xb, yb, proud), (xa, ya, proud)], n,
+                    basis((xa, ya, 0.0), ((xb - xa) / L, (yb - ya) / L, 0.0), (0.0, 0.0, 1.0)), None)
+        pr.face([(jamb, floor, 0.0), (edge, floor, 0.0), (edge, floor, proud), (jamb, floor, proud)], Y,
+                basis((jamb, floor, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)), None)
 
     def bay_columns(self, b, pts, W, R, N, mat, seed, conf):
         """T-2781: a stone bay's engaged columns (1637's south bay, the Grosvenor photograph).
@@ -2708,7 +2863,8 @@ class Assembly:
             fr = (W((x0, 0.0, z0)), V(tx, tz), V(nx, nz))
             cuts = [0.0, *[x for g in q["gaps_m"] for x in g], L]
             for s0, s1 in zip(cuts[0::2], cuts[1::2]):
-                self.proud_box(mat, fr, s0, s1, q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
+                if s1 - s0 > 1e-6:   # T-3135: a gap may run to the run's end (an arch cut into the corner)
+                    self.proud_box(mat, fr, s0, s1, q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
         # T-3091: dressed blocks along one run (a pier, a hood, a cap under the cornice)
         for j, q in enumerate(d.get("blocks", ())):
             (x0, z0), (tx, tz), (nx, nz), L = runs[q["run"]]
@@ -2765,6 +2921,8 @@ class Assembly:
     K07_ROLES = {"reveal": None, "porch_back": None, "threshold": "stoop_stone", "landing": "stoop_stone",
                  "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
                  "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
+                 # T-3134: a broad mouth's heavy transom beam, in the stoop's dressed stone
+                 "transom_beam": "stoop_stone",
                  "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
                  "hardware": "door_iron", "backing": "backing",
                  # T-2409: a terrace beside the landing and turned balustrades, in the stoop's stone
@@ -2798,16 +2956,24 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
         # T-2952: a segmental porch arch, and a side light beside the door under its transom
         ros = (p.entrance_kit.get("arch") or {}).get("rise_over_span")
-        if ros:
-            v["head"], v["rise_over_span"] = "segmental", ros
+        if ros:   # T-3134: or a half ellipse (`arch.head`)
+            v["head"], v["rise_over_span"] = (p.entrance_kit.get("arch") or {}).get("head", "segmental"), ros
         if p.entrance_kit.get("side_light"):
             v["side_light"] = p.entrance_kit["side_light"]
+        # T-3134: the mouth's heavy transom beam and its fanlight's columns of small panes
+        for k in ("transom_beam", "fanlight_columns"):
+            if p.entrance_kit.get(k):
+                v[k] = p.entrance_kit[k]
         # T-2817: a porch's door at the back of the arch, off its axis
         pd = p.entrance_kit.get("porch_door")
         if pd:
             v["porch_door"] = {"s_m": pd["offset_m"], **{k: x for k, x in pd.items() if k != "offset_m"}}
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
+        # T-3135: the door's end over the floor of a projection its arch is cut into
+        cut = entrance_cut(p)
+        if cut is not None:
+            v["stair"]["carried"] = [cut["side"]]
         # T-2463: a stoop off its door's axis
         if p.stoop_s_m(door.s_m) != door.s_m:
             v["stair"]["axis_s_m"] = p.stoop_s_m(door.s_m) - door.s_m
@@ -2856,7 +3022,7 @@ class Assembly:
             cf = p.entrance_kit["cheek_form"]
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
-                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
+                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced") if k in cf}
             elif "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
                 v["stair"]["scroll_block_m"] = cf["foot_block_m"]
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
