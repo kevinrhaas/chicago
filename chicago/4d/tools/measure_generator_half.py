@@ -653,7 +653,7 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # own rows and on none of the shared ones above.
 #
 STATED = {
-    "assets": 987,
+    "assets": 988,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,

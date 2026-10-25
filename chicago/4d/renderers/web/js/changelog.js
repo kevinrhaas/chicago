@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2265, ts: '2026-10-25T07:16:19.814Z', date: 'Oct 25, 2026, 2:16 AM CT', title: 'Glessner\'s 18th Street gable window widened to the photographs', kind: 'fix',
+    items: [
+      'The tall arched window high in the Glessner house\'s 18th Street gable is now 2.1 ft wide instead of 1.5, as two survey photographs from 1963 and 1965 show it. Its round top stays at the same height, and the fan of radiating stones over it is a little wider to match.',
+    ] },
+  { v: 2264, ts: '2026-10-25T07:16:19.814Z', date: 'Oct 25, 2026, 2:16 AM CT', title: '1812 Prairie\'s balcony to its photograph', kind: 'improvement',
+    items: [
+      'The balcony over George H. Wheeler\'s south bay now has the carved stone panel Albert Levy\'s photograph shows in its middle, rising to a pedestal, with iron scrolls the size the picture shows standing before it and ringed balusters either side, and the bay\'s top drops to the picture\'s cornice.',
+    ] },
   { v: 2263, ts: '2026-10-25T06:29:23.480Z', date: 'Oct 25, 2026, 1:29 AM CT', title: 'Nothing you can see: source-use conflicts now clear themselves', kind: 'chore',
     items: [
       'Nothing in the town changed. Behind it, the list of source-use files that a merge may rebuild instead of refusing had fallen to 303 of the 436 it should name. The other 134 conflicts stopped a branch\'s merge, or lost its source links when one side was taken by hand. The compiler that writes those files now keeps the list itself, and the gate refuses when the two disagree.',

@@ -20136,7 +20136,9 @@ for (const [label, viewport, touch] of [
           'house_1637_indiana',
           'house_1641_indiana',
           'house_1727_indiana',
-          'house_1735_indiana'].sort();
+          'house_1735_indiana',
+          // T-3013: Bane Brothers' livery on 2129-2131, read off the 1904 Blue Book
+          'livery_2129_indiana'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

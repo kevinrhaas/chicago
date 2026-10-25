@@ -955,10 +955,9 @@
     "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it.",
     "s20-1726-f": "1726 Prairie now stands as the K01 brick frontage house_1726_prairie (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the main body on K01 with the sheet's front and south canted bays and its side projections on K08, and the sheet's two-storey rear piece and frame porch on K01's rear wings; the draft stands no second building beside it.",
     "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it.",
-    "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and T-3013 read two houses on the lots in 1904 (2001 a residence in the 1904 Blue Book and still in 1909, 2003 a twelve-room stone-front house in 1902), so the census rules the frontage replaced_after_1904: the works is not the 1904 building and no outline of the houses is in hand, so the draft stands nothing rather than invent them.",
+    "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and T-3013 read other uses on the lots in 1904 (an agent's office at 2105 from January 1904, rooms let at 2101 in 1905-1907, the Stanley Motor Carriage Co. only by 1909), so the census rules it replaced_after_1904: the garage is not the 1904 building and no outline of what stood is in hand, so the draft stands nothing.",
+    "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and T-3013 read a dwelling letting a room at 215 in July 1904, so the census rules it replaced_after_1904: the shop is not the 1904 building and no outline of the dwelling is in hand, so the draft stands nothing.",
     "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
     "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws the ice-cream works' five-storey office and tin shop at the 16th Street corner, which T-3068 dates after 1904 (the corner was not in the works' 1903 purchase); the 1904 building is the plate's corner of the 1886 brick row (r1886-1601-f), so the 1911 outline is not drafted.",
     "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory, whose foundation was being dug in March 1904 on ground bought in September 1903 (T-3068): on 1 July 1904 the lots were its building site, the 1886 houses gone and the factory not finished, so neither is drafted (census ruling phase_unresolved).",
@@ -2395,6 +2394,23 @@
       },
       "rear_ticket": "T-1946",
       "why": "A livery the sheet draws from Indiana Avenue to the alley: the brick stable and the frame wagon shed joined, drafted as one service building at the trace's outline under a gable, its height the service rules'. A horse-age use, carried to 1904 as one."
+    },
+    "frontage-35w-2129–2131": {
+      "slug": "livery",
+      "use": {
+        "function": "stable_and_wagon_yard",
+        "name": "Bane Brothers' livery stable at 2129-2131",
+        "sources": [
+          "chicago_blue_book_1904",
+          "chicago_blue_book_1911"
+        ]
+      },
+      "register": {
+        "address": "2129–2131",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "Bane Brothers' livery and boarding stables, 2125 to 2129 Indiana Avenue in the 1904 Blue Book (T-3013), which the 1911 sheet draws as a three-storey brick GARAGE from Indiana Avenue to the alley, the West Motor Livery Co.'s by then: drafted as one service building at the trace's outline under a gable, its height the service rules', like the livery's 2123-2125 half beside it."
     },
     "frontage-35w-2029–2035": {
       "house_id": "first_presbyterian_church_2029_indiana",
