@@ -17,7 +17,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758).",
+      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758). T-3136: the cupola's corners carry no strip on the current render (T-3036 fixed it), so what stays open here is the stable end's place through this camera, about 17-35 px right and 30-40 px high at the gable and cupola: T-3139's.",
       "status": "open"
     },
     {
@@ -83,6 +83,10 @@
     {
       "what": "T-3127 (found by T-3116): the gable light reads 1.9-2.1 ft wide through this camera, less the method's own error on the render (which returns the built 1.5 ft as 1.61), and the fan's ring 10.0 ft across against the built 9.4. Rebuilt 2.1 ft wide with the fan's radius 5.0 ft (HABS 14 is the finer print, 2.08-2.12). Re-rendered: the light reads 11 px across against the photograph's 10.5 (8 before). docs/RESEARCH/glessner-gable-light-T-3127/.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3136, read at 3x: the stable's north-gable pigeon holes stand about a course tall in this print, where the render draws small slits (built 0.45-0.65 ft), and the print sets the ledge higher under the apex: apex to ledge about 2.7 times ledge to the loft arch's crown, against the render's 3.7, a ratio this camera's offset at the stable does not move. The Cornell print shows the same holes. T-3143 owns them.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

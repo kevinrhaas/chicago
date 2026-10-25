@@ -97,7 +97,7 @@ The first five existing cameras retain their original bytes. The wide court sect
 is newly framed from the same fixed drawing controls; four import unchanged T-2200
 poses. The Cornell northwest view adds independent west-plane corner controls,
 with every window withheld from the camera fit; reconstructed-eave uncertainty remains explicit. [The discrepancy register](discrepancies.json) distinguishes
-visible corrections from open work. No row is photographic signoff.
+visible corrections from open work. No row is photographic signoff. T-3136 re-read every row against the current master, ruled two, replaced the two catch-alls with the specific open rows and named each row's ticket: [the reading](../glessner-signoff-reading-T-3136/README.md).
 
 | View | Current comparison |
 |---|---|

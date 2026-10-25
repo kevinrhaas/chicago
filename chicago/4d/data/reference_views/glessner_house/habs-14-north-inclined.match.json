@@ -69,8 +69,12 @@
       "status": "fixed"
     },
     {
-      "what": "T-3127 (found by T-3116): the gable light's width. Its jambs, read through the camera the north pairs solved, put it 2.08-2.12 ft wide (sash and head) where the same picks on the render return the built 1.5 ft as 1.43-1.45; the fan's outer ring spans 9.8 ft against the built 9.4. Rebuilt 2.1 ft wide on its old centre (W 17.75-19.85), its head held at 36.2 ft ng, so its spring comes down to 35.15 and the fan's radius goes to 5.0 ft to keep the crown at 40.15. Re-rendered: the light reads 39 px across against the photograph's 38 (27 before). The print sets the centre about 0.2 ft east, which HABS 01 contradicts, so it is not moved. Still open for T-3117: the head stands higher over the transom here than built, and the fan shows fewer, broader stones than the 11 built. docs/RESEARCH/glessner-gable-light-T-3127/.",
+      "what": "T-3127 (found by T-3116): the gable light's width. Its jambs, read through the camera the north pairs solved, put it 2.08-2.12 ft wide (sash and head) where the same picks on the render return the built 1.5 ft as 1.43-1.45; the fan's outer ring spans 9.8 ft against the built 9.4. Rebuilt 2.1 ft wide on its old centre (W 17.75-19.85), its head held at 36.2 ft ng, so its spring comes down to 35.15 and the fan's radius goes to 5.0 ft to keep the crown at 40.15. Re-rendered: the light reads 39 px across against the photograph's 38 (27 before). The print sets the centre about 0.2 ft east, which HABS 01 contradicts, so it is not moved. What it left open is its own entry below (T-3136). docs/RESEARCH/glessner-gable-light-T-3127/.",
       "status": "fixed"
+    },
+    {
+      "what": "Handed on by T-3127, re-read by T-3136: the light's round head stands higher over its transom in this print than built. T-3116's camera-free fit read the transom 0.54-0.70 ft and the head 1.23 ft over the build before its 1.0 ft rise, which leaves the print's transom about 0.3-0.5 ft under the build's 34.14-34.88 ft. The fan shows fewer, broader stones than the 11 voussoirs built. HABS 01 does not resolve the transom, and neither print resolves every joint of the fan, so both rest on this print alone; T-3137 owns them.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
