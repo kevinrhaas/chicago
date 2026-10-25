@@ -534,6 +534,9 @@ def site_record(rules, site, datum, grid) -> dict:
         elev["v_toward"] = "south"
     src = site["sources"]
     notes = site["notes"]
+    # T-3011: a row no measured drawing gives (Indiana's 18th-20th face, re-stood from its
+    # neighbours' drafted bodies) says its own tiers; every other site keeps the defaults
+    tier = site.get("confidence", {})
     return {
         "id": sid,
         "name": site["name"],
@@ -572,12 +575,12 @@ def site_record(rules, site, datum, grid) -> dict:
                             if site.get("outline_m") else
                             [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
                              [0.0, round(mv1 - mv0, 3)]]),
-                "confidence": "inferred", "sources": src,
+                "confidence": tier.get("footprint", "inferred"), "sources": src,
                 "note": notes["footprint"]},
             "form": {
                 "stories": _attr(el["stories"], "reconstructed", notes["stories"]),
-                "construction": _attr(site["construction"], "attested", notes["construction"], src),
-                "draft_plan": _attr(plan, "inferred", notes["plan"], src),
+                "construction": _attr(site["construction"], tier.get("construction", "attested"), notes["construction"], src),
+                "draft_plan": _attr(plan, tier.get("plan", "inferred"), notes["plan"], src),
                 "draft_elevation": _attr(elev, "reconstructed",
                                          f"RECONSTRUCTED by the site row: {notes['elevation']} The seed {seed} only "
                                          f"tints the fabric inside +-6 %. Liberty {site['liberty']}."),

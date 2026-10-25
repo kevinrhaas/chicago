@@ -1080,6 +1080,12 @@
       "asset": "gltf/ice_cream_works_1605_indiana__draft_1904.glb"
     },
     {
+      "id": "indiana_east_frontage_18th_20th_background_row",
+      "name": "1801-1935 Indiana Avenue — the east frontage, 18th to 20th Street, as a background row (district draft; refined by T-3145)",
+      "sidecar": "sidecars/1904/indiana_east_frontage_18th_20th_background_row.json",
+      "asset": "gltf/indiana_east_frontage_18th_20th_background_row__draft_1904.glb"
+    },
+    {
       "id": "jones_house_1834_prairie",
       "name": "1834 Prairie Avenue — Jones villa with mansard addition (district draft; refined by T-1888)",
       "sidecar": "sidecars/1904/jones_house_1834_prairie.json",
