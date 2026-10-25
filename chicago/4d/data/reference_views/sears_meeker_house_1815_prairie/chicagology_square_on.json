@@ -1,0 +1,27 @@
+{
+ "structure_id": "sears_meeker_house_1815_prairie",
+ "source_id": "chicagology_1815_sears_two_views",
+ "library_image": "a18-cgy-1815-sears-two-views",
+ "photo": "../../sources/assets/sears_1815_photos_t1893/sears_1815_two_views.jpg",
+ "image_px": [
+  2000,
+  1295
+ ],
+ "principal_px": [
+  532,
+  926
+ ],
+ "focal_px": 1966,
+ "eye": [
+  45.0,
+  5.2,
+  1.6
+ ],
+ "yaw_deg": 270.0,
+ "sun_uvy": [
+  1.0,
+  0.7,
+  1.0
+ ],
+ "solve": "Fitted by T-3155 to the LEFT print of the two-view copy alone (x 0-1045 px of the image store's 2000 x 1295 px copy; the right print, an oblique from the south-west, is not this camera's), against the 1911 sheet's plan (s28fp-1815-b1). The footprint frame's u runs toward Prairie Avenue (west) and v along the front from its north wall (v 0) to its south wall (v 10.47); K01's frame calls those east and north, so yaw 270 looks back along -u, at the street front. The camera is LEVEL and square-on: the front's verticals are vertical, its horizontals level (the plinth at y 1035-1040 px from end to end), and the corner bay's north cheek is seen while no south face is, so the eye stands north of the bay. SCALE: the front's main plane from the pavilion's north corner (x 160 px) to the corner bay's south edge (x 905 px) is the sheet's 10.42 m, 71.5 px/m; the recessed strip north of the pavilion (x 105-160 px) is the sheet's stair projection's face 0.86 m behind the front, and the render puts it on those pixels. DISTANCE: f 1966 px puts that scale on the front at 27.5 m, the eye at u 45.0 on the far walk of Prairie Avenue (the street line at u 26.8, the avenue 20.1 m wide), v 5.2 (x 532 px, the principal point), 1.6 m over grade (the horizon at y 926 px, 1.6 m over the plinth's foot). CHECKS: rendered against the print, the pavilion's north corner falls within 2 px, the door, the window column and the corner bay's cheek within 10-20 px, the cornice's top and the grade within 5 px; the corner bay's south edge renders about 40 px south of the print's (the bay's 1.2 m projection read through the camera, open in the match record). UNCERTAINTY: the distance trades against the house's width (10.47 m on the sheet, its georeference 1.47 m RMS): 10% nearer and every height reads 10% lower. LIGHT: the front lit and the recessed north strip in shadow, so the sun from the south-west (sun_uvy)."
+}
