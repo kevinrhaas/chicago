@@ -33265,6 +33265,58 @@ range is a rectangle, so it is built square. The windows on both ranges.
 **Ticket:** T-3143.
 **Recorded:** 2026-10-25.
 
+### L-kimball-1801-round-bay-3108 — 1801 Prairie's south-west corner rebuilt as a two-storey round bay on a cut-back corner, the pavilion's face narrowed between the sheet's and the photographs' widths
+
+**Decision:** the front's south-west corner of the W. W. Kimball house at 1801 Prairie (T-3108,
+piece 2 of T-3003) is the two-storey round bay Harold Allen's HABS photograph of June 1965
+(`habs_kimball_photo_01_sw_1965`) shows between the gabled pavilion and the south wall, where the
+build ran the pavilion on to a 0.44 m chamfer. **What is read, not invented.** The bay's being
+there, round, two storeys to the main cornice, one light a storey, under a stone balustrade
+pierced in a lattice; the corner cut back under it, which the 1911 sheet 28 trace
+(`s28fp-1801-b1`) draws about 1.0-1.4 m back over about 2 m (the face holding to v 9.26, the line
+meeting the south wall at about u 19.2); the gable standing on the face's axis over the paired
+lights. **What is invented or held by the kit.** The pavilion's chamfer is cut 1.3 m along the
+front and 1.4 m behind it, and the round is a K08 bow standing on that cut (`on_chamfer`), chord
+1.684 m rising 0.5 m, a little fuller than a quarter round off the face so its windows' recesses close inside it; its storeys (5.0 and 3.7 m, to 8.7 m)
+and its transomed sash are the front bow's, its balustrade the front bow's in two panels. **The
+face's width is a compromise, not a reading.** The sheet's trace gives the face about 2.4 m; both
+photographs read 3.4-3.7 m across it and the round's near part; the face is built 2.85 m
+(v 6.85-9.7), its pairs 1.5 m clear (they were 2.0 m), so through the Taylor camera it renders
+x 1227-1325 against the print's 1230-1332. The gable is laid on the whole face at pitch 2.49 (it
+was 2.04 on a gable inset 0.41 m) so that its apex keeps the height T-3015 matched to the Taylor
+print. Over the round the chamfer's face rises blank to the gable's shoulder: the photograph's
+small light there is open, since K08's sash on the cant rendered with its recess occluded. The
+south wall's downpipe by the front corner is gone with the corner, where a K01 pipe may not stand.
+**HABS photograph 1's camera is re-solved on the rebuilt corner and does not fit the whole front.**
+Its eye and heading were fitted to the pavilion's rows and edges, the round and the south-east
+cornice (rms 11.8 px); the loggia's arch then renders about 117 px north of the print's, the
+round's rows about 20 px under it and the finial about 69 px over it. The two photographs disagree
+about the storey heights and the front's layout north of the pavilion; the build keeps the period
+print's.
+**How to resolve:** a measured elevation or plan of the house; or a third photograph of the
+front from the south-west at a known station.
+**Ticket:** T-3108.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3108).
+
+### L-glessner-great-arch-window-3140 — Glessner's window over the great arch is one opening; its sash is the kit's
+
+**Decision:** the `glessner_house` window over the great arch on 18th Street (W 97.7-110.1, 19.75-22.80 ft ng)
+is one opening, where it had been built as three lights between two stone piers. Its span and heights are
+unchanged.
+**What is read, not invented.** That it is one opening. The c. 1887 Cornell print, taken as the house was
+finished, shows it unglazed: one dark opening under one lintel, with no pier in it. HABS photograph 1 (1963)
+and HABS photograph 15 (1965) show the same opening filled with a sash of small panes in two rows, still
+with no pier. Three pictures across 78 years agree, so the form is attested.
+**What is invented.** The sash: two one-over-one double-hung units on a timber mullion, the kit's for an
+opening this wide. The 1887 print shows no sash and the 1963 one is a later sash of small panes, so neither
+is copied.
+**How to resolve:** a photograph of 18th Street between 1887 and about 1930 that shows the sash.
+**Ticket:** T-3140 (Glessner's photographic sign-off). Readings: `docs/RESEARCH/glessner-signoff-T-3140/`.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3140).
+
 ### L-draft-district-background-3151 — Indiana Avenue's east frontage, 18th to 20th Street, and the row at 213-217 East Eighteenth Street, stood up as drafts read off Sanborn 1911 sheet 27
 
 **Covers:** `house_1801_indiana.draft_1904.form.draft_elevation`, `house_1801_indiana.draft_1904.form.draft`, `house_1803_indiana.draft_1904.form.draft_elevation`, `house_1803_indiana.draft_1904.form.draft`, `house_1803_indiana_shed.draft_1904.form.draft_elevation`, `house_1803_indiana_shed.draft_1904.form.draft`, `house_1805_indiana.draft_1904.form.draft_elevation`, `house_1805_indiana.draft_1904.form.draft`, `house_1805_indiana_shed.draft_1904.form.draft_elevation`, `house_1805_indiana_shed.draft_1904.form.draft`, `house_1807_indiana.draft_1904.form.draft_elevation`, `house_1807_indiana.draft_1904.form.draft`, `house_1807_indiana_shed.draft_1904.form.draft_elevation`, `house_1807_indiana_shed.draft_1904.form.draft`, `house_1809_indiana.draft_1904.form.draft_elevation`, `house_1809_indiana.draft_1904.form.draft`, `house_1809_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1809_indiana_coach_house.draft_1904.form.draft`, `house_1813_indiana.draft_1904.form.draft_elevation`, `house_1813_indiana.draft_1904.form.draft`, `house_1813_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1813_indiana_coach_house.draft_1904.form.draft`, `house_1815_indiana.draft_1904.form.draft_elevation`, `house_1815_indiana.draft_1904.form.draft`, `house_1815_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1815_indiana_coach_house.draft_1904.form.draft`, `house_1819_indiana.draft_1904.form.draft_elevation`, `house_1819_indiana.draft_1904.form.draft`, `house_1821_indiana.draft_1904.form.draft_elevation`, `house_1821_indiana.draft_1904.form.draft`, `house_1825_indiana.draft_1904.form.draft_elevation`, `house_1825_indiana.draft_1904.form.draft`, `house_1829_indiana.draft_1904.form.draft_elevation`, `house_1829_indiana.draft_1904.form.draft`, `house_1829_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1829_indiana_coach_house.draft_1904.form.draft`, `house_1833_indiana.draft_1904.form.draft_elevation`, `house_1833_indiana.draft_1904.form.draft`, `house_1833_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1833_indiana_coach_house.draft_1904.form.draft`, `house_1837_indiana.draft_1904.form.draft_elevation`, `house_1837_indiana.draft_1904.form.draft`, `house_1839_indiana.draft_1904.form.draft_elevation`, `house_1839_indiana.draft_1904.form.draft`, `house_1901_indiana.draft_1904.form.draft_elevation`, `house_1901_indiana.draft_1904.form.draft`, `house_1901_indiana_shed.draft_1904.form.draft_elevation`, `house_1901_indiana_shed.draft_1904.form.draft`, `house_1909_indiana.draft_1904.form.draft_elevation`, `house_1909_indiana.draft_1904.form.draft`, `house_1909_indiana_shed.draft_1904.form.draft_elevation`, `house_1909_indiana_shed.draft_1904.form.draft`, `house_1913_indiana.draft_1904.form.draft_elevation`, `house_1913_indiana.draft_1904.form.draft`, `house_1913_indiana_shed.draft_1904.form.draft_elevation`, `house_1913_indiana_shed.draft_1904.form.draft`, `house_1915_indiana.draft_1904.form.draft_elevation`, `house_1915_indiana.draft_1904.form.draft`, `house_1917_indiana.draft_1904.form.draft_elevation`, `house_1917_indiana.draft_1904.form.draft`, `house_1921_indiana.draft_1904.form.draft_elevation`, `house_1921_indiana.draft_1904.form.draft`, `house_1921_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1921_indiana_coach_house.draft_1904.form.draft`, `house_1931_indiana.draft_1904.form.draft_elevation`, `house_1931_indiana.draft_1904.form.draft`, `house_1931_indiana_rear_dwelling.draft_1904.form.draft_elevation`, `house_1931_indiana_rear_dwelling.draft_1904.form.draft`, `house_213_e18th.draft_1904.form.draft_elevation`, `house_213_e18th.draft_1904.form.draft`

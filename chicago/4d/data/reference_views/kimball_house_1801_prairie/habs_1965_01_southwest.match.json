@@ -2,8 +2,8 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "39ed6df6e220bf154aeba2bbe776c00db29741fd4e3c9b2c74a4fce7adbb8285",
-  "camera_sha256": "f46ae16fefb6fcc9978291adbe19363723815faa4c42f16927fd46e51084a5bc",
+  "glb_sha256": "5891f094859ef0d81f1115fc79d727179a647950c27d1e26d1112a4e2b577765",
+  "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
   "verdict": "differs",
@@ -25,15 +25,27 @@
       "status": "open"
     },
     {
-      "what": "the south-west corner: a two-storey round bay (x 620-750 px) between the gabled face and the south wall, a single window a storey, under a pierced lattice balcony at the cornice (y 510-550) with a light in the roof behind it; the build's pavilion runs flat to the corner and turns it in a 0.44 m chamfer (T-3108)",
+      "what": "the south-west corner: a two-storey round bay (x 620-757 px) between the gabled face and the south wall, a single window a storey, under a pierced lattice balcony at the cornice (y 510-550) with a light in the roof behind it. T-3108 builds it: the pavilion's chamfer now cuts the corner 1.3 m along the front and 1.4 m behind it, and a K08 bow stands on the cut (`on_chamfer`), chord 1.68 m, rising 0.5 m, two storeys to 8.7 m under the moulded stone cornice, one transomed sash a storey and a stone balustrade of pierced lattice panels on its top. Through the re-solved camera its junction with the south wall renders at x 737 against the print's 757 and its second-storey light at x 684 against 686",
+      "status": "fixed"
+    },
+    {
+      "what": "the gabled pavilion's face: the print's spans x 465-620 px with its paired lights (x 487-600) and the gable's apex (x 543) on its axis. T-3108 narrows the face to 2.85 m (v 6.85-9.7), the pairs to 1.5 m clear on its middle and the gable onto the whole face (its inset off, pitch 2.49 so the apex holds T-3015's height); through the re-solved camera the face renders x 480-613 and the pairs' axis at x 546-550, the face about 20 px narrower than the print's (about 0.3 m)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the south cornice, re-measured on the rebuilt corner through the re-solved camera (T-3108; it read about 85 px under the print's at the corner): the round's wall top renders about 19 px under the print's (y 614 against 595) and its balustrade's rail about 50 px under (y 560 against 510), and the main cornice at the south-east corner about 23 px over (y 632 against 655). The pavilion's window rows fit within about 13 px; the round's rows read about 20 px under the print's, so through this camera the round's storeys stand about 0.3 m higher than the build's against the pavilion's, which the Taylor print (it sees only the round's cornice end) cannot check",
       "status": "open"
     },
     {
-      "what": "the gabled pavilion's face: the print's spans x 465-620 px with its paired lights (x 487-600) and the gable's apex (x 543) on its axis, narrower than the build's 4.15 m and centred about 1 m further north (the 1911 sheet's front bulge runs v 7.1-9.3 before its corner cut); the build's pair and apex stand south of the print's (T-3108)",
+      "what": "the light behind the corner balcony: a small window on the canted face over the round bay (x 640-680, y 445-500); the build's chamfer face is blank there (T-3108 tried K08's sash on the cant and its recess rendered occluded, so it was taken out)",
       "status": "open"
     },
     {
-      "what": "the south cornice: the print's runs from about y 548 at the round bay to y 655 at the south-east corner; the render's about 85 px lower at the bay and about 10 px at the corner. The camera or the corner's cornice is wrong, and the front T-3108 rebuilds decides which; the deck's cresting along the south curb renders under the print's with it",
+      "what": "the gable's height: through the re-solved camera the finial's top renders about 69 px over the print's (y 83 against 152), about 1.2 m, while the Taylor print holds it within 10 px (y 230 against 220); the two pictures disagree about the gable's height against the pavilion's rows, and the build keeps the period print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the front north of the pavilion: the camera re-solved on the rebuilt corner (T-3108) cannot also fit the loggia: its arch's crown renders about 117 px north of the print's (x 278 against 395) and the bow between them wider than the print's, where T-3107's camera, fitted with the pavilion's face free to stand 2.1 m proud, held the arch within 10 px. The front's layout between the loggia and the pavilion and this picture's do not agree; the Taylor camera holds that stretch",
       "status": "open"
     },
     {
@@ -73,5 +85,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

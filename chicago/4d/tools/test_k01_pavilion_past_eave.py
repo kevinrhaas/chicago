@@ -63,6 +63,10 @@ def mansard_refused(change, why, says):
     check(False, f"{why}: refused")
 
 
+def K1_bays(phase):
+    return KP.from_phase(phase, load(SID)[0]).bays
+
+
 def closed_back(a, plane, back, span, y0, y1):
     """The bay walling's area facing `back` on the wall plane (axis, value), between the
     junctions `span` (along the other horizontal axis) and from y0 to y1."""
@@ -169,8 +173,9 @@ def main() -> int:
     D, W = p.depth_m, p.width_m
     bs = next(x for x in p.bays if x["id"] == "p_south")
     ch = KP.chamfer_of(bs)
-    check(ch is not None and ch[0] == "right" and abs(ch[1] - 0.44) < 1e-9 and abs(ch[2] - 0.35) < 1e-9,
-          "1801's pavilion chamfers its corner 0.44 m along its front, back to 0.35 m behind it")
+    # T-3108: cut back 1.3 m along the front and 1.4 m behind it, the round bay standing on the cut
+    check(ch is not None and ch[0] == "right" and abs(ch[1] - 1.3) < 1e-9 and abs(ch[2] - 1.4) < 1e-9,
+          "1801's pavilion chamfers its corner 1.3 m along its front, back to 1.4 m behind it")
     check(KP.chamfer_spans(p.bays, D, W) == {"k01.wall.street_front": (W - ch[3], W),
                                               "k01.wall.side.north": (0.0, ch[2])},
           f"the front cut from {W - ch[3]:.3f} m to the corner, the side wall back to {ch[2]} m")
@@ -178,9 +183,17 @@ def main() -> int:
     (un, sn), (ub, sb_) = (D + proud, W - ch[1]), (D - ch[2], W)
     side = lambda u, s_: (u - ub) * (sn - sb_) - (s_ - sb_) * (un - ub)
     out = side(D + proud, W)
+    # T-3108: what stands in front of the cut inside the round bay's reach (its rise, cornice and
+    # balustrade, within the cant's length) is the bay's own, not the house's
+    rb = next(x for x in p.bays if x.get("on_chamfer"))
+    Lc = math.hypot(un - ub, sn - sb_)
+    reach = float(rb["variant"]["plan"]["rise_m"]) + 0.8
+    along = lambda u, s_: ((u - un) * (ub - un) + (s_ - sn) * (sb_ - sn)) / Lc
+    in_bay = lambda u, s_: -0.05 <= along(u, s_) <= Lc + 0.05 and abs(side(u, s_)) / Lc <= reach
     left = [q for name, pr in a.prims.items() if not name.startswith("bay_") for q in pr.pos
             if q[1] < a.soffit_m - 0.05 and ub <= q[0] <= un and sn <= -q[2] <= W
-            and side(q[0], -q[2]) * out > 0 and abs(side(q[0], -q[2])) / math.hypot(un - ub, sn - sb_) > 0.005]
+            and side(q[0], -q[2]) * out > 0 and abs(side(q[0], -q[2])) / Lc > 0.005
+            and not in_bay(q[0], -q[2])]
     check(not left, f"no masonry of the house stands outside the canted face under the soffit ({len(left)} vertices)")
 
     def chamfer_refused(change, why, says):
@@ -199,8 +212,48 @@ def main() -> int:
                     "a chamfer on the corner the pavilion is not flush with", "flush with that corner")
     chamfer_refused(lambda e: e["plan"].pop("shallow"), "a chamfer on a pavilion that is not shallow",
                     "on a shallow pavilion")
-    chamfer_refused(lambda e: e["plan"]["chamfer"].__setitem__("behind_m", 0.8),
-                    "a chamfer 0.8 m behind the wall", "behind the wall")
+    chamfer_refused(lambda e: e["plan"]["chamfer"].__setitem__("behind_m", 1.8),
+                    "a chamfer a round bay stands on, 1.8 m behind the wall", "0.1-1.6 m behind the wall")
+    chamfer_refused(lambda e: e["plan"]["chamfer"].__setitem__("along_m", 2.2),
+                    "a chamfer a round bay stands on, 2.2 m along the front", "0.2-2.0 m")
+
+    # T-3108: a chamfer nothing stands on keeps T-3048's bounds
+    def bare(change, why, says):
+        st, phase = load(SID)
+        phase["form"]["bays"]["value"] = [x for x in phase["form"]["bays"]["value"] if not x.get("on_chamfer")]
+        e = next(x for x in phase["form"]["bays"]["value"] if x["id"] == "p_south")
+        e["plan"]["chamfer"].update({"along_m": 0.44, "behind_m": 0.35})
+        change(e)
+        try:
+            KP.from_phase(phase, st)
+        except KP.ParamError as err:
+            check(says in str(err), f"{why}: refused ({str(err)[:90]}...)")
+            return
+        check(False, f"{why}: refused")
+    bare(lambda e: e["plan"]["chamfer"].__setitem__("behind_m", 0.8), "a bare chamfer 0.8 m behind the wall",
+         "0.1-0.6 m behind the wall")
+    bare(lambda e: e["plan"]["chamfer"].__setitem__("along_m", 1.3), "a bare chamfer 1.3 m along the front",
+         "0.2-1.0 m")
+
+    # T-3108: a bay on a chamfer is a bow, and its host must be a chamfered projection laid before it
+    def on_cant(change, why, says):
+        st, phase = load(SID)
+        e = next(x for x in phase["form"]["bays"]["value"] if x.get("on_chamfer"))
+        change(e, phase)
+        try:
+            KP.from_phase(phase, st)
+        except KP.ParamError as err:
+            check(says in str(err), f"{why}: refused ({str(err)[:90]}...)")
+            return
+        check(False, f"{why}: refused")
+    on_cant(lambda e, ph: ph["form"]["bays"]["value"].append({**copy.deepcopy(e), "id": "x", "on_chamfer": "front_bow"}),
+            "a second bay on a bow, not a chamfer", "stands on_chamfer")
+    on_cant(lambda e, ph: e["plan"].__setitem__("chord_m", 1.9), "a round bay wider than its cant allows",
+            "meets its chamfer")
+    lb = load(SID)[1]
+    rb = next(x for x in K1_bays(lb) if x.get("on_chamfer"))
+    check(abs(rb["on_chamfer"]["length_m"] - math.hypot(1.3, 1.5)) < 1e-3 and rb["span_m"] == (round(W - 1.3, 4), W),
+          f"the round bay stands on the {rb['on_chamfer']['length_m']} m cant, over the front's last 1.3 m")
 
     if failures:
         print(f"test_k01_pavilion_past_eave: {len(failures)} failed")
