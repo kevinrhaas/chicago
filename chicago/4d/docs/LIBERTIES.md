@@ -33159,3 +33159,64 @@ counted.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3148).
+
+### L-k01-1812-wheeler-tone-3093 — 1812 Prairie's stone front laid in Lemont limestone and its street front's brick toned red-brown, to the tones of Levy's print and the c. 1955 photograph
+
+**Decision:** the stone front of George H. Wheeler's house at 1812 Prairie (the rock-faced basement and
+the entrance bay's coursed first storey) is laid in K02's Lemont limestone where it was the brown
+sandstone, and the brick of the street front (over the stone line, in the shaped gable and in the south
+projection's upper storeys) is the K03 common-bond panel toned by a factor of 0.78, 0.56, 0.52 to a
+red-brown (`street_front_brick`, a new K01 key, read by no other house, so every other house re-emits
+as before). The side and rear walls keep the K03 common buff.
+**What is read, not invented.** Levy's print reads the stone (the basement, the first storey beside the
+porch, every sill, belt, quoin and voussoir) as light as the dressed trim and well lighter than the brick
+over it; the brownstone had rendered darker than the brick beside it. The c. 1955 photograph reads the
+south wall in the gap to 1816 paler than the front's brick.
+**What is invented.** Both colours. The pictures are monochrome, so neither the stone nor the brick is
+named; Lemont is the local grey-buff stone the K02 profiles hold for an undocumented Chicago front, and
+the red-brown is the tone a monochrome print of the 1880s draws darker than a light stone. Only the
+relation, stone lighter than brick and side wall paler than front, is read.
+**How to resolve:** a colour description, a specification or a surviving fragment of the house.
+**Ticket:** T-3093.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3093).
+
+### L-k01-1812-wheeler-carving-3093 — 1812 Prairie's frieze an interlace of two straps, its bosses shields, and the south projection's stone bands
+
+**Decision:** the carved frieze over the second storey's north window (8.55-8.95 m) is an interlace
+where it was T-2819's guilloche of rings: two straps 0.07 m wide, each a sine about the band's middle
+mirroring the other, crossing every 0.5 m, up to 0.05 m proud and dipping under the other at alternate
+crossings (a new `interlace` carving on K01's carved bands). The two bosses under the south projection's
+second-storey jambs are shields (a square head and shoulders drawn in to a point by two arcs; a new
+`shape` on K08's dress ovals) where they were ovals. The projection's second storey stands on a smooth
+stone band from the belt to the sills (5.61-6.2 m), and its top under the cornice is a stone frieze
+(8.8-9.25 m) under a moulded band, with a block under the balcony's pedestal, round the front and both
+cheeks, where both had been brick. No other house names either key.
+**What is read, not invented.** On Levy's print at 2-3x: the frieze's straps crossing about every
+0.5 m along x 767-1042 px; the bosses' square heads and pointed feet (about 0.45 m across); the stone
+band at y 1000-1055 px with the shields set in it, and the frieze at y 700-740 px with its block at
+x 527-557.
+**What is invented.** The interlace's leaves between the straps and the shields' carved faces and
+scrolled heads, none of them modelled; the straps' section; the bands' projection (0.02-0.06 m); the
+moulded cornice of the projection is still the kit's plain soffit and fascia.
+**How to resolve:** a closer or sharper picture of the frieze and the bosses.
+**Ticket:** T-3093.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3093).
+
+### L-k01-1812-wheeler-rear-3093 — 1812 Prairie's rear range built as two ranges to the 1911 sheet's step, its south-west corner square
+
+**Decision:** the rear part behind 1812 Prairie's main body is two flat-decked three-storey ranges:
+`rear_range` 6.6 m deep, 1.65 m in from the south wall, and `rear_end` 4.1 m deep behind it, 2.25 m in,
+so the house runs 25.8 m from the main front to the rear wall where it ran 25.7 m. Their windows and
+decks are reconstructed as the single range's were (L-k01-1812-wheeler-front-2543).
+**What is read, not invented.** Sheet 28's trace of the building (s28fp-1812-b1, local metres): the main
+body's rear wall at x 1370.0; the rear part's south wall at y -3258.6 back to a step at x 1363.4, then at
+y -3257.95 to the rear wall at x 1359.32; the north wall straight through.
+**What is invented.** The sheet cuts the rear end's south-west corner back about 1.1 by 1.2 m; a K01
+range is a rectangle, so it is built square. The windows on both ranges.
+**How to resolve:** an earlier sheet or a photograph of the rear from the alley.
+**Ticket:** T-3093.
+**Review:** none; no picture shows the rear.
+**Recorded:** 2026-10-25 (T-3093).

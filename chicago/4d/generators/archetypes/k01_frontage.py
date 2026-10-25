@@ -275,6 +275,9 @@ MATERIALS.update({
 # its courses and texture run on through the band; and the clay pot, should a source show one
 MATERIALS["chimney_soot"] = dict(k03_brick.MATERIALS["brick"], color=(0.48, 0.40, 0.37))
 MATERIALS["chimney_pot"] = {"color": (0.66, 0.36, 0.22), "roughness": 0.8}
+# T-3093: a street front's brick toned apart from the side walls' (`street_front_brick`); its
+# name begins "brick" because it is the envelope's wall, and its colour is the record's tone
+MATERIALS["brick_front"] = dict(k03_brick.MATERIALS["brick"])
 # T-2319: the K11 boundary wall's brick. Its own slot for the bays' reason: "brick" is an
 # envelope material, and the contract reads grade off its lowest vertex, so a boundary wall
 # sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
@@ -307,6 +310,27 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
              "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+
+
+def _shield_outline():
+    """T-3093: a carved shield's outline in a unit box, anticlockwise from its right shoulder
+    as the oval's ellipse runs: square shoulders at 0.2 under a level head, and two arcs
+    (centred 0.22 across the axis, radius 1.22) drawn in to a point at the foot. Convex, so
+    the boss's field is one fan."""
+    pts = [(1.0, 0.2), (1.0, 0.6), (1.0, 1.0), (0.5, 1.0), (0.0, 1.0), (-0.5, 1.0), (-1.0, 1.0), (-1.0, 0.6),
+           (-1.0, 0.2)]
+    c, r = 0.22, 1.22
+    end = math.acos(c / r)                     # where an arc meets the axis, under the centre's side
+    for k in range(1, 7):                      # the left arc, its centre right of the axis
+        t = math.pi + end * k / 6
+        pts.append((c + r * math.cos(t), 0.2 + r * math.sin(t)))
+    for k in range(5, 0, -1):                  # and the right, back up to the shoulder
+        t = -end * k / 6
+        pts.append((-c + r * math.cos(t), 0.2 + r * math.sin(t)))
+    return tuple((round(x, 6), round(y, 6)) for x, y in pts)
+
+
+SHIELD_OUTLINE = _shield_outline()
 
 
 def entrance_cut(p):
@@ -591,6 +615,12 @@ class Assembly:
                     self.spec[slot]["color"] = tuple(round(min(1.0, f * t), 4)
                                                      for f, t in zip(params.wall_paint, tint))
                     self.fabric[slot] = None
+        # T-3093: the front's brick toned (1812's), its brick bays with it
+        self.front_brick = "brick_front" if params.front_brick_tone else "brick"
+        if params.front_brick_tone:
+            for slot in ("brick_front", "bay_brick"):
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
+                                                 zip(self.spec[slot]["color"], params.front_brick_tone))
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
@@ -1579,7 +1609,7 @@ class Assembly:
         brick = k.get("brick_above_m") if beds is None else None
         if brick is not None:
             P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-            bb = self.basis("brick", O, R, Y, 0, k03_brick.phase_u(cid, length, self.tiles[MATERIALS["brick"]["fabric"]][0]))
+            bb = self.basis(self.front_brick, O, R, Y, 0, k03_brick.phase_u(cid, length, self.tiles[MATERIALS["brick"]["fabric"]][0]))
         for ci, (ya, yb, kind) in enumerate(courses):
             trim = kind in ("coping", "belt", "band")
             spec = tk if trim else wk
@@ -1638,7 +1668,7 @@ class Assembly:
             for sa, sb, free, _ in spans:
                 for fy0, fy1 in free:
                     if in_brick and not self._seated(here, sa, sb, fy0, fy1):
-                        self.prim("brick").face([P(sa, fy0, 0.0), P(sb, fy0, 0.0), P(sb, fy1, 0.0), P(sa, fy1, 0.0)],
+                        self.prim(self.front_brick).face([P(sa, fy0, 0.0), P(sb, fy0, 0.0), P(sb, fy1, 0.0), P(sa, fy1, 0.0)],
                                                 N, bb, conf)
                         continue
                     first = None
@@ -1710,7 +1740,7 @@ class Assembly:
         s_lo = p.front_pier["to_m"] if p.front_pier and beds is None else 0.0
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
-                self.prim("brick").face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
+                self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
             else:
                 self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)],
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
@@ -1766,9 +1796,9 @@ class Assembly:
                     ba = self.p.stone.get("brick_above_m")
                     if ba is not None and min(q[1] for q in pts) >= ba - 1e-6:
                         # T-2914: a spandrel over the brick line is brick, flush, its bond the wall's
-                        bb = self.basis("brick", O, R, Y, 0, k03_brick.phase_u(
+                        bb = self.basis(self.front_brick, O, R, Y, 0, k03_brick.phase_u(
                             "k01.wall.street_front", self.p.width_m, self.tiles[MATERIALS["brick"]["fabric"]][0]))
-                        self.prim("brick").face([P(*q) for q in pts], N, bb, conf)
+                        self.prim(self.front_brick).face([P(*q) for q in pts], N, bb, conf)
                         continue
                     self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
                                recess=recess, bevel=0.0)
@@ -2832,8 +2862,12 @@ class Assembly:
             Rw, Nw = V(tx, tz), V(nx, nz)
             C = W((x0 + tx * q["s_m"], q["y_m"], z0 + tz * q["s_m"]))
             a, b_, rim, n = q["width_m"] / 2, q["height_m"] / 2, 0.035, 20
-            E = lambda aa, bb, k, dd: _add(_add(C, _mul(Nw, dd)), _add(_mul(Rw, aa * math.cos(2 * math.pi * k / n)),
-                                                                     _mul(Y, bb * math.sin(2 * math.pi * k / n))))
+            unit = [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n)) for k in range(n)]
+            if q.get("shape") == "shield":
+                unit = SHIELD_OUTLINE
+                n = len(unit)
+            E = lambda aa, bb, k, dd: _add(_add(C, _mul(Nw, dd)), _add(_mul(Rw, aa * unit[k % n][0]),
+                                                                     _mul(Y, bb * unit[k % n][1])))
             pr, dark = self.prim(mat), self.prim("backing")
             sunk, dd = 0.015, q["proud_m"]
             boss = q.get("field") == "boss"      # T-2915: the field raised past the ring, a boss
@@ -3770,6 +3804,9 @@ class Assembly:
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_parapet_u", math.inf)):
                 mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone;
                                                           # T-2788: every parapet, on an all-stone house
+            elif role == "parapet" and self.front_brick != "brick" and min(
+                    q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_gable_u", math.inf):
+                mat = self.front_brick                    # T-3093: the shaped gable's brick, the front's
             elif role in ("soffit", "fascia") and min(q[0] for q in (pts[a], pts[b], pts[c])) \
                     >= getattr(self, "stone_cornice_u", math.inf):
                 mat = "dress_stone"                       # T-2577: the cornice box, in the front's stone

@@ -1088,6 +1088,12 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
 
+# T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
+# (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's
+# `shape: shield`; a record naming none builds as before, and each refusal says why.
+step "a K01 front's brick toned, its frieze an interlace, its bosses shields (T-3093)" \
+  python3 tools/test_k01_wheeler_signoff.py
+
 # T-3064. A wall gable's pinnacle shaft may stop under its block (1811's north pinnacle off the
 # 1888 plate): a band below the face's eave, a scaled stone leaning in from it to the block's
 # plinth, and the eave's end dying into that stone. Each refusal says why.
