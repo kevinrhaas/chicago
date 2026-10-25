@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
+  "glb_sha256": "3253812059d7d7f9c0fe1dc427d791a78929a075e652c09a95a6344f2e0ba482",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "photo_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
@@ -85,13 +85,13 @@
       "status": "fixed"
     },
     {
-      "what": "T-3136, read at 3x: the stable's north-gable pigeon holes stand about a course tall in this print, where the render draws small slits (built 0.45-0.65 ft), and the print sets the ledge higher under the apex: apex to ledge about 2.7 times ledge to the loft arch's crown, against the render's 3.7, a ratio this camera's offset at the stable does not move. The Cornell print shows the same holes. T-3143 owns them.",
-      "status": "open"
+      "what": "T-3136, read at 3x: the stable's north-gable pigeon holes stand about a course tall in this print, where the render draws small slits (built 0.45-0.65 ft), and the print sets the ledge higher under the apex: apex to ledge about 2.7 times ledge to the loft arch's crown, against the render's 3.7, a ratio this camera's offset at the stable does not move. The Cornell print shows the same holes. T-3143 owns them. T-3143: Built (T-3143): the ledge and all nine holes raised 0.85 ft, the ledge to 32.1-32.4 ft ng on its two corbels; each hole round-headed, 0.4 ft wide and 0.75 ft tall (a course), sills at 32.5, 33.95 and 35.45 ft (1.45 and 1.5 ft pitch), where they stood 0.45-0.65 ft tall at 31.65, 33.0 and 34.55. Read again in this print at 5x: the holes are round-headed and about a course tall (about 9-11 px), the rows about 21 px apart at the axis; measured on the print alone, apex (v 357) to ledge top (v 446) over ledge top to the relieving arch's crown (v 486) is 2.2, which the build now gives (2.1 on the ledge top, against 3.1 before). Through the doorway re-solve the print reads the gable apex 1.3-1.5 ft under the record's 39.6, so that camera's absolute heights at the gable are not used; the top hole reads 0.3-0.5 ft higher here than HABS 15 puts it, which two pictures disagree about and is within tolerance.",
+      "status": "fixed"
     },
     {
       "what": "T-3137: the gable fan's stones. At about 5 px to the foot this print cannot count them, but a polar profile across the fan finds 7-8 joints where the same profile on the render of the 11 built voussoirs found 10-13, which agrees with HABS 14's count of seven; the fan is rebuilt with seven, keyed at the crown, and the transom 0.4 ft lower (this print does not resolve the transom). docs/RESEARCH/glessner-gable-transom-T-3137/.",
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

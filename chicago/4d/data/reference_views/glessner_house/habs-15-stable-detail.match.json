@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
+  "glb_sha256": "3253812059d7d7f9c0fe1dc427d791a78929a075e652c09a95a6344f2e0ba482",
   "camera_sha256": "593c7c5e3fcdfd3278fef4c109d799b644e36c0db59f3245b3c9af3a0d8ed2f2",
   "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
@@ -47,7 +47,11 @@
     {
       "what": "T-3036, reviewed from the rebaked master: only the cupola's corner faces changed (its walls now meet without coplanar ends), and the cupola stands above this print's top edge, so nothing this view compares moved.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3143, reviewed from the rebaked master through T-3147's stable-fitted camera, read at 4-8x with the contrast stretched: the print's ledge front stands at about v 138-141 and its holes each fill one course, the lower row v 126.5-138, the middle v 100-113 and the top hole a faint patch at v 76-86 under the film holder; through the camera that is the ledge at about 32.2-32.4 ft and sills at about 32.5, 34.0 and 35.5 ft, where the build stood 0.85-0.9 ft lower (its ledge read about 19 px under the print's) and its holes were slits. The camera reads the hoist foot (26.0 ft, in the face) within 1.6 px, so its scale holds to the gable. Built (T-3143): the ledge and all nine holes raised 0.85 ft, the ledge to 32.1-32.4 ft ng on its two corbels; each hole round-headed, 0.4 ft wide and 0.75 ft tall (a course), sills at 32.5, 33.95 and 35.45 ft (1.45 and 1.5 ft pitch), where they stood 0.45-0.65 ft tall at 31.65, 33.0 and 34.55. Now each hole sits on the print's course, centres within about 1 px across. What remains is within tolerance: the render as a whole stands about 4 px (0.2-0.25 ft) over the print here and at the doorway soffit alike, which is this camera's frame (fitted on heights above north grade, while the mesh lays them 0.20 ft over it, grade_datum), not the dovecote; the ledge reads level in the print and falls about 5 px westward through the camera (heading, about 0.15 ft); and the corbels read about 0.55 ft deep against the built 0.45.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

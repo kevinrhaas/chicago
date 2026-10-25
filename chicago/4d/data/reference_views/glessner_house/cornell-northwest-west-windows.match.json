@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
+  "glb_sha256": "3253812059d7d7f9c0fe1dc427d791a78929a075e652c09a95a6344f2e0ba482",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
@@ -25,7 +25,7 @@
       "status": "not shown"
     },
     {
-      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README \u00a7 3).",
+      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README § 3).",
       "status": "not shown"
     },
     {
@@ -65,9 +65,13 @@
       "status": "fixed"
     },
     {
-      "what": "T-3136, read at 2x: the stable's north-gable pigeon holes. The print shows nine round-headed holes (5-3-1) each about a course tall, about 32 px on the 2x crop where the render's read about 15 (built 0.45-0.65 ft), and the print's rows stand about 70 px apart on that crop against the render's 58 (built 31.65, 33.0 and 34.55 ft). HABS 01 shows the same taller holes. T-3143 owns them.",
-      "status": "open"
+      "what": "T-3136, read at 2x: the stable's north-gable pigeon holes. The print shows nine round-headed holes (5-3-1) each about a course tall, about 32 px on the 2x crop where the render's read about 15 (built 0.45-0.65 ft), and the print's rows stand about 70 px apart on that crop against the render's 58 (built 31.65, 33.0 and 34.55 ft). HABS 01 shows the same taller holes. T-3143 owns them. T-3143: Built (T-3143): the ledge and all nine holes raised 0.85 ft, the ledge to 32.1-32.4 ft ng on its two corbels; each hole round-headed, 0.4 ft wide and 0.75 ft tall (a course), sills at 32.5, 33.95 and 35.45 ft (1.45 and 1.5 ft pitch), where they stood 0.45-0.65 ft tall at 31.65, 33.0 and 34.55. The holes now render round-headed and about a course tall as this print draws them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3143: this print's rows read about 1.75 ft apart (70 px against 58 on T-3136's 2x crop), wider than the 1.44-1.52 ft HABS 15 measures square-on through a camera fitted at the stable and the about 1.5 ft HABS 01 shows; this camera is a west-wall homography that stands off at the gable (the render frames the stable about 75 px off the print), so the build keeps HABS 15's pitch. A gap two pictures disagree about (T-3153).",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
