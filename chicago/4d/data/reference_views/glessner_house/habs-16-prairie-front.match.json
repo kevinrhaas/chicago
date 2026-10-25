@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings and entry: fourteen jambs (the four first-floor windows south of the door, the door, the pair, the single and both second-floor groups in the plate) fit the model's spacing camera-free to 3.30 px rms, and the door, its fan and the basement grilles sit on the photograph's (docs/RESEARCH/glessner-prairie-front-T-2857/).",
@@ -53,8 +53,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-3136, read on this side-by-side at 2-6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light 37.5 px and its pier 21 px where the render draws 47.5 and 14 (the south light 40 against 41): about 2.2 and 1.25 ft at the plate's 17 px a foot, against the built 2.7 (S 63.5-66.2) and 0.8 (S 66.2-67.0). Taylor 2135 reads the same. Separately, the render's openings stand progressively north (right) of the print's away from the south corner, about 7 px at the pair, 14 at the next first-floor light and 18-20 at the door, where T-2857 fits their spacing camera-free to 3.3 px: this camera's scale against the rebuilt front. T-3141 owns both.",
-      "status": "open"
+      "what": "T-3136, read on this side-by-side at 2-6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light 37.5 px and its pier 21 px where the render draws 47.5 and 14 (the south light 40 against 41): about 2.2 and 1.25 ft at the plate's 17 px a foot, against the built 2.7 (S 63.5-66.2) and 0.8 (S 66.2-67.0). Taylor 2135 reads the same. Separately, the render's openings stand progressively north (right) of the print's away from the south corner, about 7 px at the pair, 14 at the next first-floor light and 18-20 at the door, where T-2857 fits their spacing camera-free to 3.3 px: this camera's scale against the rebuilt front. T-3141 owns both. T-3140, ruled within tolerance (T-3153): the pair is there with its two lights and pier. The north light reads 0.3-0.5 ft narrower and the pier 0.3-0.45 ft wider than built, both under the 1 ft bar, and the openings' 7-20 px northward drift is this camera's scale, since their spacing fits camera-free to 3.3 px (T-2857). T-3141 was withdrawn on this ground.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

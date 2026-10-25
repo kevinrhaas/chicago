@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2289, ts: '2026-10-25T19:34:24.312Z', date: 'Oct 25, 2026, 2:34 PM CT', title: 'Glessner House from 18th Street, back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Nothing you can see changed: from 18th Street, west of Glessner House, the full-detail view no longer draws the court, south and east walls hidden behind the house\'s own north and west fronts.',
+      'That stand had crept over the full-detail triangle budget again; it now sits about 126,000 triangles inside it, and the Prairie Avenue stand south-east of the house gains about 120,000 more headroom.',
+    ] },
   { v: 2288, ts: '2026-10-25T19:00:17.216Z', date: 'Oct 25, 2026, 2:00 PM CT', title: '1812 Prairie signed off against both of its photographs', kind: 'improvement',
     items: [
       '1812 Prairie\'s stone now reads lighter than its brick, as Albert Levy\'s photograph shows it: a pale limestone basement and porch storey under a red-brown brick front, with the side walls a paler common brick.',

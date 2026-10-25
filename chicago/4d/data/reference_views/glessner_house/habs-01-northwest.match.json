@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "photo_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Actual master reviewed: pointed north cone and lower connector retain the integrated flat north facade and curved west drum. The corrected north service door/window and stable roof junction remain visible.",
@@ -17,8 +17,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758). T-3136: the cupola's corners carry no strip on the current render (T-3036 fixed it), so what stays open here is the stable end's place through this camera, about 17-35 px right and 30-40 px high at the gable and cupola: T-3139's. T-3147 (piece of T-3139) reads the stable end through T-2758's doorway re-solve instead, which fits this print's own controls and the doorway's four corners at 3.1 px (the doorway at 2.8): the hoist stone's nose top lands within 0.0 px across and 4.1 px of its lit end face, so the 4.0 ft cantilever stands. This camera is left as it is, because the stable fit costs the north tower's finial (1.5 px to 8.7) the whole-house view is judged on. What stays open is the stable end's height through it: the gable's coping apex reads 38.1-38.6 ft through every doorway fit against the built 39.6 (T-2758), with HABS 15's eaves either side of the gable (T-3148).",
-      "status": "open"
+      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758). T-3136: the cupola's corners carry no strip on the current render (T-3036 fixed it), so what stays open here is the stable end's place through this camera, about 17-35 px right and 30-40 px high at the gable and cupola: T-3139's. T-3147 (piece of T-3139) reads the stable end through T-2758's doorway re-solve instead, which fits this print's own controls and the doorway's four corners at 3.1 px (the doorway at 2.8): the hoist stone's nose top lands within 0.0 px across and 4.1 px of its lit end face, so the 4.0 ft cantilever stands. This camera is left as it is, because the stable fit costs the north tower's finial (1.5 px to 8.7) the whole-house view is judged on. What stays open is the stable end's height through it: the gable's coping apex reads 38.1-38.6 ft through every doorway fit against the built 39.6 (T-2758), with HABS 15's eaves either side of the gable (T-3148). T-3140, ruled within tolerance (T-3153): what was left here is a reading, not a part. The coping apex's 1.0-1.5 ft rests on this print's doorway fits alone (the record scaled the 39.6 ft off this same print, and gives it about 1.5 ft either way); HABS 15 hides the apex behind its film holder, and the Cornell camera, fitted at the stable on measured controls, carries no open difference at the gable. The parts this camera's offset hid are settled elsewhere: the hoist's 4.0 ft cantilever by T-3147, the eave either side of the gable by T-3148.",
+      "status": "within tolerance"
     },
     {
       "what": "T-3025, ruled: the covering this print reads slate-grey, the cupola's pyramid included, is the 1963 tar HABS records over the tiles (data p. 21), not the 1904 surface. The roofs were red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta under the tar, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. docs/RESEARCH/glessner-roof-covering-T-3025/README.md.",
@@ -94,6 +94,10 @@
     },
     {
       "what": "T-3148, reviewed from the rebaked master: the tiles' edge on the 18th Street front, read in this print at eight stations, draws one straight line from W 60 to W 160: west of the stable gable it lies within 1 px of the line fitted east of it, where the build's step (23.1 ft east, 25.2 ft west) would stand 32-33 px off. The eave west of the gable is rebuilt at 23.1 ft, and the gable's west foot, the alley parapet's north foot and the cross roof's north foot come down with it; the cross ridge comes down 0.10 m to 36.17 ft at S 12.31 to stay on the alley gable's rake. Through T-2758's stable-fitted camera the edge reads 24.0-24.2 ft on the face on both sides, about 1 ft over sheet 4's 23.1 ft line where the roof meets the wall (within tolerance: HABS 15's refit reads that one level line 1.2 ft apart across the gable, so the cameras do not measure a foot at eave height). The slope above is now about three 5 in courses longer than the 41-44 T-3095 counted (within tolerance). docs/RESEARCH/glessner-north-eave-T-3148/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3140, the window over the great arch: this print shows one long opening under one lintel, its sash about eleven narrow lights wide in two rows, with no stone pier in it, where the build had three lights between two piers. The c. 1887 Cornell print and HABS 15 show the same. Rebuilt as one opening on its old span and heights; re-rendered, its jambs stand within about 5 px of the print's (read at 4x). The 1963 sash is not copied: the c. 1887 print shows the opening unglazed, so the kit's sash stands in it. docs/RESEARCH/glessner-signoff-T-3140/.",
       "status": "fixed"
     }
   ],
