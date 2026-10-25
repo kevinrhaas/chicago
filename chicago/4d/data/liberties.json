@@ -54784,14 +54784,7 @@
       "subjects": [
         "glessner_house"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
-          "aspect": "form.openings_18th"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-10-25",
       "revised": null,
       "fields": [
@@ -54802,10 +54795,6 @@
         {
           "label": "How to resolve",
           "text": "a photograph of 18th Street between 1887 and about 1930 that shows the sash."
-        },
-        {
-          "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.openings_18th`."
         },
         {
           "label": "Review",

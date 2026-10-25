@@ -33214,7 +33214,6 @@ with no pier. Three pictures across 78 years agree, so the form is attested.
 opening this wide. The 1887 print shows no sash and the 1963 one is a later sash of small panes, so neither
 is copied.
 **How to resolve:** a photograph of 18th Street between 1887 and about 1930 that shows the sash.
-**Covers:** `glessner_house.as_built_1887.form.openings_18th`.
 **Ticket:** T-3140 (Glessner's photographic sign-off). Readings: `docs/RESEARCH/glessner-signoff-T-3140/`.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
