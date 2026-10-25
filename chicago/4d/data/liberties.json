@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 754,
+  "count": 755,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1072,6 +1072,10 @@
     {
       "id": "ic_16th_street_station_1605_prairie",
       "name": "1605 S. Prairie Avenue — the Illinois Central's 16th Street station"
+    },
+    {
+      "id": "ice_cream_works_1605_indiana",
+      "name": "1605–1613 Indiana Avenue — the Thompson-Reid and Collins Bros. ice-cream works, building"
     },
     {
       "id": "inf_*",
@@ -20806,14 +20810,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 171
+        "count": 172
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 171 structures (168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 172 structures (171 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20830,6 +20834,7 @@
       ],
       "work_refs": [
         "T-1687",
+        "T-3130",
         "T-3068",
         "T-3019",
         "T-3018",
@@ -50560,7 +50565,7 @@
         },
         {
           "label": "Decision",
-          "text": "This work reads the seven lots on Indiana Avenue's east frontage, 16th to 18th Street, that left phase unresolved because Sanborn 1911 and Robinson 1886 disagree, against sources dated between the two: the Blue Book's street section in every edition from 1890 to 1911 (The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the…), the 1902 Lakeside directory (The Lakeside Annual Directory of the City of Chicago, 1902), the Chicago Tribune ('Two ice cream concerns to erect plant jointly, Chicago Daily Tribune, 15 April 1883, classified 'To rent': '1729 and 1731…), the Abendpost (Abendpost (Chicago), 22 March 1904, vol. 16, no. 69, 'Gewaltsames Ende': the…, Abendpost (Chicago), 9 August 1905, vol. 17, no. 187: 'Bau-Erlaubnisscheine…) and Engineering News (Engineering News, vol. 51, supplement, 23 and 30 June 1904: the contract…). What they settle: - **1605-1613** was the ice-cream plant's building site on 1 July 1904: bought in September 1903 for a plant covering the whole ground, its foundation being dug on 22 March 1904. The 1886 houses were gone and the factory not finished, so neither is drafted; how far the walls had risen is not read. - **1637** was the U.S. Engineer Office, whose notices are dated from the address on 20 and 25 June 1904; **1641** held the Cummings household in every Blue Book from 1890 to 1908. Both 1886 houses stand for 1904 from the plate (`r1886-1637-f`, `r1886-1641-f`) beside the stables earlier work drafted. - **1619**'s brick house stands as the 1911 sheet draws it, because one household (Dr. E. C. Dudley's) lived there without a break from 1888 to 1908. - **1601-1603** and **1727-1737** are backcast (backcast 1886): the corner was not in the ice-cream firms' 1903 purchase, and the photographic-supply factory on 1727-1737 was permitted in August 1905. The plate's corner of the 16th Street brick row (`r1886-1601-f`) and its two frame houses (`r1886-1727-f`, `r1886-1735-f`) stand for 1904. **What is invented here, beyond the 3008 list.** Every plate house's storeys: three for the brick houses, the median of the storeys the 1911 sheet prints on the block face; two for the frame houses, from the Tribune's 1883 '2-story, basement, and mansard-roof frame' at 1729-1731, carried to the corner house beside it. The corner row stands filling its lot (fills lot) instead of where the plate's 4.5 m fit carries it, which is about 4 m south, and it fronts Indiana Avenue like the draft's other houses although the row's doors were on 16th Street. 1637 and 1641 stand where the plate puts them, about 13 m back from the avenue's line where their drafted neighbours stand 8-10 m back; the difference is within the plate's fit and is not corrected. 1637 is built as the house it was built as, not as an office. The plate's outbuildings on 1727-1737 are not drafted. **What is inferred, not attested.** That the corner row and the two frame houses on 1727-1737 still stood on 1 July 1904: nothing dated shows them after 1893 (1735's rooms to let) or the row's houses at all, and nothing shows them taken down before the works reached their ground. The 1902 directory finds no home at an odd number from 1727 to 1737, which may mean empty houses or the directory's rough text. That 1619's brick house was built for the Dudleys soon after 1886 rather than under them later. Why the 1911 sheet draws no house at 1637, where the Engineer Office still was, is not read."
+          "text": "This work reads the seven lots on Indiana Avenue's east frontage, 16th to 18th Street, that left phase unresolved because Sanborn 1911 and Robinson 1886 disagree, against sources dated between the two: the Blue Book's street section in every edition from 1890 to 1911 (The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the…), the 1902 Lakeside directory (The Lakeside Annual Directory of the City of Chicago, 1902), the Chicago Tribune ('Two ice cream concerns to erect plant jointly, Chicago Daily Tribune, 15 April 1883, classified 'To rent': '1729 and 1731…), the Abendpost (Abendpost (Chicago), 22 March 1904, vol. 16, no. 69, 'Gewaltsames Ende': the…, Abendpost (Chicago), 9 August 1905, vol. 17, no. 187: 'Bau-Erlaubnisscheine…) and Engineering News (Engineering News, vol. 51, supplement, 23 and 30 June 1904: the contract…). What they settle: - **1605-1613** was the ice-cream plant's building site on 1 July 1904: bought in September 1903 for a plant covering the whole ground, its foundation being dug on 22 March 1904. The 1886 houses were gone and the factory not finished, so neither is drafted; how far the walls had risen is not read. (has since stood the rising works there: `“1605-1613 Indiana's ice-cream works standing as a brick shell three storeys up on 1 July 1904, the height between a March excavation and a September move”`.) - **1637** was the U.S. Engineer Office, whose notices are dated from the address on 20 and 25 June 1904; **1641** held the Cummings household in every Blue Book from 1890 to 1908. Both 1886 houses stand for 1904 from the plate (`r1886-1637-f`, `r1886-1641-f`) beside the stables earlier work drafted. - **1619**'s brick house stands as the 1911 sheet draws it, because one household (Dr. E. C. Dudley's) lived there without a break from 1888 to 1908. - **1601-1603** and **1727-1737** are backcast (backcast 1886): the corner was not in the ice-cream firms' 1903 purchase, and the photographic-supply factory on 1727-1737 was permitted in August 1905. The plate's corner of the 16th Street brick row (`r1886-1601-f`) and its two frame houses (`r1886-1727-f`, `r1886-1735-f`) stand for 1904. **What is invented here, beyond the 3008 list.** Every plate house's storeys: three for the brick houses, the median of the storeys the 1911 sheet prints on the block face; two for the frame houses, from the Tribune's 1883 '2-story, basement, and mansard-roof frame' at 1729-1731, carried to the corner house beside it. The corner row stands filling its lot (fills lot) instead of where the plate's 4.5 m fit carries it, which is about 4 m south, and it fronts Indiana Avenue like the draft's other houses although the row's doors were on 16th Street. 1637 and 1641 stand where the plate puts them, about 13 m back from the avenue's line where their drafted neighbours stand 8-10 m back; the difference is within the plate's fit and is not corrected. 1637 is built as the house it was built as, not as an office. The plate's outbuildings on 1727-1737 are not drafted. **What is inferred, not attested.** That the corner row and the two frame houses on 1727-1737 still stood on 1 July 1904: nothing dated shows them after 1893 (1735's rooms to let) or the row's houses at all, and nothing shows them taken down before the works reached their ground. The 1902 directory finds no home at an odd number from 1727 to 1737, which may mean empty houses or the directory's rough text. That 1619's brick house was built for the Dudleys soon after 1886 rather than under them later. Why the 1911 sheet draws no house at 1637, where the Engineer Office still was, is not read."
         },
         {
           "label": "How to resolve",
@@ -50576,6 +50581,7 @@
         }
       ],
       "work_refs": [
+        "T-3130",
         "T-3068",
         "T-3019",
         "T-1946"
@@ -54117,6 +54123,66 @@
         "T-3112",
         "T-3052",
         "T-2541"
+      ]
+    },
+    {
+      "id": "L-draft-indiana-1605-works-3130",
+      "title": "1605-1613 Indiana's ice-cream works standing as a brick shell three storeys up on 1 July 1904, the height between a March excavation and a September move",
+      "section": "per_subject",
+      "subjects": [
+        "ice_cream_works_1605_indiana"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "ice_cream_works_1605_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "ice_cream_works_1605_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`ice_cream_works_1605_indiana.draft_1904.form.draft_elevation`, `ice_cream_works_1605_indiana.draft_1904.form.draft`"
+        },
+        {
+          "label": "Decision",
+          "text": "Earlier work ruled 1605-1613 the plant's building site on the scene date and drafted nothing. This work stands the works there in the working phase the census leaves open (phase unresolved), the way 2126's Robbins house is stood (works shell). It sits on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. Four dated sources set the building's form and frame its date: -"
+        },
+        {
+          "label": "September 1903",
+          "text": "the two firms buy the ground for a plant covering all of it ('Two ice cream concerns to erect plant jointly). -"
+        },
+        {
+          "label": "November 1903",
+          "text": "the Tribune calls it a four-storey brick building with a barn, $50,000, from A. R. Buckley's plans (Real-estate column, Chicago Daily Tribune, 8 November 1903: the building news…). - **22 March 1904:** its foundation is still being dug (Abendpost (Chicago), 22 March 1904, vol. 16, no. 69, 'Gewaltsames Ende': the…). - **1 September 1904:** Thompson-Reid lets a floor of its old Wabash Avenue premises from this date (Real-estate column, Chicago Daily Tribune, 11 September 1904: the week's…). **What is invented here.** How high the walls stood: three of the four storeys, with the street wall and its front returns 1.6 m into the fourth. No source gives it. Three storeys is the draft's reading of a brick shell about fourteen weeks after its excavation and about two months before the firm's move. Also invented: the 0.55 m wall, the eight street bays and the openings' places (no picture of the building is known), the stone foundation course and deck at the drafts' principal floor, and the pole scaffold along the street. The function is the plant the walls were for, large workshop, the closed vocabulary's nearest term; the building was not yet working. **What is inferred, not attested.** That the works were not finished on 1 July 1904. The September lease reads as the move being near, and it is a lease, not a report of the building. That the 1886 houses on the lots were gone is earlier work's reading of the March excavation."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a building-permit entry, a completion notice or a dated view of the works in 1904 sets the walls' height. Earlier work refines the record in place under the same id."
+        },
+        {
+          "label": "Review",
+          "text": "the draft prairie 1904 data (`frontage-20w-1605–1613`), the edges census s20w data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-3130)."
+        }
+      ],
+      "work_refs": [
+        "T-2351",
+        "T-3068",
+        "T-3130",
+        "T-1946"
       ]
     },
     {

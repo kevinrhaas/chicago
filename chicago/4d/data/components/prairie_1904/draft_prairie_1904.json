@@ -961,7 +961,6 @@
     "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
     "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
     "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws the ice-cream works' five-storey office and tin shop at the 16th Street corner, which T-3068 dates after 1904 (the corner was not in the works' 1903 purchase); the 1904 building is the plate's corner of the 1886 brick row (r1886-1601-f), so the 1911 outline is not drafted.",
-    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory, whose foundation was being dug in March 1904 on ground bought in September 1903 (T-3068): on 1 July 1904 the lots were its building site, the 1886 houses gone and the factory not finished, so neither is drafted (census ruling phase_unresolved).",
     "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. factory, permitted in August 1905 (T-3068), so the 1911 outline is not drafted; the 1904 houses are the plate's (r1886-1727-f, r1886-1735-f)."
   },
   "frontages": {
@@ -2509,6 +2508,39 @@
       "slug": "house",
       "rear_ticket": "T-1946",
       "why": "The 1911 office at the corner is skipped; the 1904 building is the plate's (block 20w's `plates`, r1886-1601-f)."
+    },
+    "frontage-20w-1605–1613": {
+      "slug": "ice_cream_works",
+      "register": {
+        "address": "1605–1613",
+        "raw_story_notation": "4",
+        "map_material": "brick",
+        "family": "Brick factory",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "pass": "T-3130",
+      "liberty": "L-draft-indiana-1605-works-3130",
+      "front_bays": 8,
+      "entrance": "centre",
+      "use": {
+        "function": "large_workshop",
+        "name": "the Thompson-Reid and Collins Bros. ice-cream works, building",
+        "sources": [
+          "chicago_tribune_1903_09_04_ice_cream_plant",
+          "chicago_tribune_1903_11_08_ice_cream_works_begun",
+          "abendpost_1904_03_22_indiana_1605_foundation",
+          "chicago_tribune_1904_09_11_thompson_reid_lease"
+        ],
+        "note": "On the target date the works are being built (T-3130). Collins Bros. and the Thompson-Reid company bought 1605-1613 in September 1903 for a plant covering the whole ground (chicago_tribune_1903_09_04_ice_cream_plant). In November 1903 the Tribune describes it as a four-storey brick building with a barn, 100 by 177 feet, from A. R. Buckley's plans (chicago_tribune_1903_11_08_ice_cream_works_begun). Its foundation was still being dug on 22 March 1904 (abendpost_1904_03_22_indiana_1605_foundation). From 1 September 1904 Thompson-Reid let a floor of its old Wabash Avenue premises (chicago_tribune_1904_09_11_thompson_reid_lease). So on 1 July 1904 the works were a building rising on the 1911 footprint, not yet the factory the sheet letters. The function is the plant the walls were for; 'large_workshop' is the closed vocabulary's nearest term for a manufactory."
+      },
+      "works": {
+        "raised_storeys": 3,
+        "course_m": 1.6,
+        "wall_m": 0.55,
+        "note": "How high the walls stood is RECONSTRUCTED (liberty L-draft-indiana-1605-works-3130): three of the four storeys, and part of the fourth along the street. No dated source gives the walls' height. The dates either side frame it: a foundation was being dug on 22 March 1904, and the firm let a floor of its old premises from 1 September 1904. Three storeys is the draft's reading of a brick shell about fourteen weeks after its excavation, with the move about two months off."
+      },
+      "why": "The Thompson-Reid and Collins Bros. ice-cream works RISING on 1 July 1904 (T-3130), in the working phase the census leaves open (phase_unresolved) and the draft declares, as 2126's Robbins house is declared. It stands on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. The brick shell is three storeys up over its stone foundation, the street wall and its front returns 1.6 m into the fourth. The openings are empty, and there is no roof. A deck is laid at the first floor, with a pole scaffold along the street. The eight bays and the central opening are the draft's: no picture of the building is known. The 1886 houses are not stood, and the finished 1911 factory is not carried back."
     },
     "frontage-20w-1727–1737": {
       "slug": "house",
