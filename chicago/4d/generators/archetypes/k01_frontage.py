@@ -2639,7 +2639,6 @@ class Assembly:
         if (v["kind"] == "tower" and not b.get("corner")) or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
-            on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
             pr = self.prim(body)
             bb = self.basis(body, O, R, Y, seed)
             snap = lambda x, y: tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
@@ -2649,7 +2648,9 @@ class Assembly:
             if ch is not None:   # T-3048: short of where a chamfer's face crosses the plane
                 (x0, x1), ys = closes[0]
                 closes = [((x0 + ch[3], x1) if ch[0] == "left" else (x0, x1 - ch[3]), ys)]
-            if not shallow:
+            # T-3156: a pavilion under a raised crown has no soffit of its own: the crown's is over it
+            if not shallow and "soffit" in built.prims:
+                on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
                 for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
@@ -3386,7 +3387,7 @@ class Assembly:
             solids = more + solids
         cr = (m or {}).get("crown")
         if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
-            crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["pitch_deg"],
+            crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], cr.get("eave_m", E), cr["pitch_deg"],
                                                cr["end_pitch_deg"], cr["overhang_m"], f)
             solids.append(crown)
         elif cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
@@ -3643,9 +3644,18 @@ class Assembly:
         in front of them); in front of its face the eave box stops square at its cheek and, past
         a corner it is flush with, at its face, each end closed in the eave's trim (`return`)."""
         out = []
-        D, top = self.p.depth_m, self.p.eave_m + 10.0
-        P = lambda a, b_, c: (a, c, -b_)
-        for b, s0, s1, proud, behind in self.shallow_bays():
+        D, P = self.p.depth_m, lambda a, b_, c: (a, c, -b_)
+        cr = (self.p.mansard or {}).get("crown") or {}
+        cut = list(self.shallow_bays())
+        if cr.get("eave_m"):   # T-3156: and a pavilion carried up an attic under a raised crown
+            b = next(x for x in self.p.bays if x["id"] == cr["over_bay"])
+            if not b["variant"].get("shallow"):
+                proud = max(float(q[1]) for q in b["variant"]["plan"]["points"])
+                cut.append((b, b["span_m"][0], b["span_m"][1], proud, 0.05))
+        for b, s0, s1, proud, behind in cut:
+            # T-3156: under a crown raised over its attic the cuts stop at the crown's soffit
+            top = (cr["eave_m"] - (self.p.eave_m - yf) - 0.005
+                   if cr.get("eave_m") and cr["over_bay"] == b["id"] else self.p.eave_m + 10.0)
             far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
             near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
             inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005), (D + proud + 0.005, s1 - 0.005),

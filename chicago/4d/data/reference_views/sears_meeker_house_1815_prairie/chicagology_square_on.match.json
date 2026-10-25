@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a1ad109f99e2973c187bdc6d415a4a84d33c343b136212a34e079970b4adeabf",
+  "glb_sha256": "3fa3e8354f3be1fb374dbd16a1e0205b51c189c1cfb73994fa59a00eb35a8281",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -34,12 +34,13 @@
       "how": "T-3155: a gabled dormer at 6.1 m on the street face"
     },
     {
-      "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half; the build's is 2.45 m wide north of the door and 0.45 m proud, because K01 cannot cut a door through a projection and K06's sash recess needs that depth",
+      "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half; the build's is 2.2 m wide, 0.3 m in from the north corner and clear of the door, because K01 cannot cut a door through a projection; so the attic storey over it stands about 0.5-0.7 m north of the print's",
       "status": "open"
     },
     {
       "what": "the pavilion's attic storey: a stone wall carried up past the main cornice to its own eave at y 205 px (11.6 m), two paired lights in it (x 178-302 px, y 248-390 px), under its steep roof; the build's steep hipped crown starts at the main eave, so the paired lights and their wall are missing and the roof starts 2.4 m lower (its apex within 0.4 m of the print's)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3156: the pavilion carried up a 2.4 m attic storey past the main cornice, the main eave stopping at its cheeks, a mullioned and transomed pair of lights in it (1.5 m clear, 9.25-11.0 m over grade), and K01's hipped crown raised onto its wall head (mansard.crown.attic_m 2.35): the crown's eave and apex render within about 0.3 m of the print's heights"
     },
     {
       "what": "the pavilion's own dentil band at the second storey's head (y 440-470 px), lower than the main cornice; the build carries the main cornice across the pavilion",
@@ -67,7 +68,7 @@
       "status": "open"
     },
     {
-      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial",
+      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial (K01's deck cresting cannot stand on a mansard that carries a crown, k01_mansard_deck.resolve)",
       "status": "open"
     },
     {
@@ -85,8 +86,17 @@
       "how": "outside the building record; the boundary is not built on this house yet"
     },
     {
-      "what": "which front stood in 1904: the photographs are undated, and the 1911 sheet draws a one-storey projection north of the front's centre and no corner bay, so Arthur Heun's 1902 remodel may have changed what this print shows",
+      "what": "which front stood in 1904: the photographs are undated and show Joseph Sears's house; he sold it to Mrs. Grace Murray Meeker in March 1902 with fifteen rooms (Inter Ocean, 28 March 1902), and in 1915 it had twenty-one, 'extensively remodeled' after the purchase (Chicago Tribune, 1 May 1915), Arthur Heun's remodel (Chicagology); the 1911 sheet, drawing a one-storey projection north of the front's centre and no corner bay, is the remodelled house. Whether the remodel came before 1 July 1904 is not known (T-3156): the build follows the photographs (L-k01-1815-sears-1893)",
       "status": "open"
+    },
+    {
+      "what": "the main cornice: the print's is a deep bracketed one, a row of large stone consoles under a moulded crown (y 360-430 px); the build carries K10's moulded stone cornice with no consoles",
+      "status": "open"
+    },
+    {
+      "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic",
+      "status": "open",
+      "how": "one with the pavilion's width (above)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
