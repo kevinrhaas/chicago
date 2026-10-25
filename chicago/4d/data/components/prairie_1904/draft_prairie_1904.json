@@ -519,7 +519,405 @@
       "rear_ticket": {
         "east": "T-1946",
         "south": "T-1946"
-      }
+      },
+      "plates": [
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are. It is drawn filling the corner lot from 16th Street to the lot's south line, as a row along the cross street does, so it stands between the 1904 grid's own lot lines (`fills_lot`, as 1635 does) rather than wherever the plate's 4.5 m fit carries it, which is about 4 m south.",
+          "id": "r1886-1601-f",
+          "frontage_id": "frontage-20w-1601–1603",
+          "parcel_id": "indiana_1601",
+          "lot_parcels": [
+            "indiana_1601"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              173.75,
+              1006.25
+            ],
+            [
+              238.0,
+              1006.25
+            ],
+            [
+              238.0,
+              1035.5
+            ],
+            [
+              191.25,
+              1035.5
+            ],
+            [
+              191.25,
+              1045.5
+            ],
+            [
+              173.75,
+              1045.5
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1601-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 draws a pink (brick) row along 16th Street across lot 2, its houses numbered 21-37 on the old 16th Street numbering; its west end stands on the Indiana corner, the corner house about 13.5 m deep and the rest about 10 m, its Indiana face about 3.5 m back from the avenue's line. Read here to the line where the 1904 grid's corner lot meets the 209-217 lot, which the 1911 outline already stands on.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws the ice-cream works' five-storey office and tin shop at 1601-1603. The T-3019 census, as T-3068 rules it (frontage-20w-1601–1603, backcast_1886), stands the corner of the 1886 brick row for 1904, because the corner was not in the ground the ice-cream firms bought in September 1903 and is first in their hands in December 1906. Residence is inferred from the row's 1886 form; no household at the corner is in the 1902 directory or the 1904 Blue Book.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the row and T-3068 carries its corner to 1904 because the ice-cream works reached the corner only after the scene. When the corner houses came down is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the row. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1601",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The west end of the 1886 brick row on 16th Street, at the Indiana corner: the brick family's hip over three storeys, until T-1946 parts it into its houses."
+          },
+          "fills_lot": true
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1637-f",
+          "frontage_id": "frontage-20w-1637",
+          "parcel_id": "indiana_1637",
+          "lot_parcels": [
+            "indiana_1623_1637_c",
+            "indiana_1637"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              204.5,
+              1289.25
+            ],
+            [
+              268.0,
+              1289.25
+            ],
+            [
+              268.0,
+              1302.5
+            ],
+            [
+              257.5,
+              1302.5
+            ],
+            [
+              257.5,
+              1312.5
+            ],
+            [
+              245.0,
+              1312.5
+            ],
+            [
+              245.0,
+              1324.25
+            ],
+            [
+              204.5,
+              1324.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1637-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1637 against a pink (brick) house across lots 27 and 28: about 22 m deep at its north side and 14 m at its south, stepped back twice along its south side, about 12 m along the street, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1637. T-3068 stands the 1886 brick house for 1904 because the U.S. Engineer Office, the Corps of Engineers' Chicago district, dated its contract notices from 1637 Indiana Avenue on 20 and 25 June 1904 and had been there since 1896; the Blue Book lists households at 1637 in 1890 and 1894 and none after. Its 1904 use is therefore an office in a former house, inferred; the draft builds it as the house it was built as.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house, and the Engineer Office's notices put a building in use at the address in June 1904. When it was built and when it went are not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1637",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 brick house at 1637, the Corps of Engineers' Chicago office in 1904: the brick family's hip over three storeys, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1641-f",
+          "frontage_id": "frontage-20w-1641",
+          "parcel_id": "indiana_1641",
+          "lot_parcels": [
+            "indiana_1641"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              205.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1353.0
+            ],
+            [
+              266.25,
+              1353.0
+            ],
+            [
+              266.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1382.5
+            ],
+            [
+              219.5,
+              1382.5
+            ],
+            [
+              219.5,
+              1376.25
+            ],
+            [
+              205.5,
+              1376.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1641-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1641 against a pink (brick) house across lots 29 and 30 with a darker (stone) strip along its whole Indiana face: about 15 m along the street, its front body about 15 m deep and a rear range to about 21 m, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1641. T-3068 stands the 1886 house for 1904 because the Blue Book lists the Cummings household at 1641 in every edition from 1890 to 1908, the 1904 edition included; residence is attested by that listing and the house's form is the plate's.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the 1904 Blue Book lists its household. The 1911 sheet shows it gone; when it went is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick_with_stone_front",
+          "construction_note": "Robinson 1886 colours the house pink, the plate's brick, with a darker strip along its Indiana face, the plate's mark for a stone front, as on 1615 and 1703.",
+          "frontage": {
+            "register": {
+              "address": "1641",
+              "family": "Stone-front brick dwelling",
+              "map_material": "brick, stone front",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 stone-front brick house at 1641: the brick family's hip over three storeys behind a stone face, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1727-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1600.5
+            ],
+            [
+              213.75,
+              1600.5
+            ],
+            [
+              213.75,
+              1595.0
+            ],
+            [
+              231.25,
+              1595.0
+            ],
+            [
+              231.25,
+              1600.5
+            ],
+            [
+              265.0,
+              1600.5
+            ],
+            [
+              265.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1618.75
+            ],
+            [
+              211.25,
+              1618.75
+            ],
+            [
+              211.25,
+              1613.75
+            ],
+            [
+              198.0,
+              1613.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1727-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1727 against a yellow (frame) house across lots 41 and 42: about 23 m deep, its body about 4.6 m along the street with wider middle parts, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let it in 1883 as '1729 and 1731 Indiana-av., 2-story, basement, and mansard-roof frame', so it was a house let as two. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED on a reading: the Chicago Tribune's 1883 notice lets the house as '2-story, basement, and mansard-roof frame' (chicago_tribune_1883_04_15_indiana_1729_1731), three years before the plate, so the draft builds two storeys under the mansard; it keeps the draft's word for a plate house's storeys because the notice is twenty-one years before the scene.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1727",
+              "family": "Frame house, mansard roof",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house at 1727-1731, let in 1883 as two storeys over a basement under a mansard: the mansard family's roof over two storeys, every face closed."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1735-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1642.5
+            ],
+            [
+              216.25,
+              1642.5
+            ],
+            [
+              216.25,
+              1636.25
+            ],
+            [
+              261.75,
+              1636.25
+            ],
+            [
+              261.75,
+              1656.25
+            ],
+            [
+              252.5,
+              1656.25
+            ],
+            [
+              252.5,
+              1668.0
+            ],
+            [
+              226.25,
+              1668.0
+            ],
+            [
+              226.25,
+              1663.75
+            ],
+            [
+              198.0,
+              1663.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1735-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1735 against a yellow (frame) house on lot 43, the 65 ft corner of 18th Street: about 22 m deep, about 7 m along the street at its front and widening behind, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's corner frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let rooms in it, '1735 Indiana-av., corner Eighteenth-st.', from 1888 to 1893. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count and no source describes the corner house; two storeys is its neighbour's, the frame house at 1727 that the Tribune let in 1883 as two storeys over a basement.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1735",
+              "family": "Frame house",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house on the 18th Street corner: the house family's hip over two storeys, every face closed."
+          }
+        }
+      ]
     }
   },
   "skip": {
@@ -562,11 +960,9 @@
     "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
     "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
     "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
-    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws a five-storey office and tin shop at the 16th Street corner, where Robinson 1886 draws the west end of the brick row along 16th Street, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
-    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory across these lots, where Robinson 1886 draws a brick house and a frame house, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
-    "s20w-1619-front": "1619 Indiana: the 1911 sheet draws a 2½B brick house where Robinson 1886 draws a frame one, so the brick house was built between the plans and nothing in hand says which stood on 1 July 1904 (census ruling phase_unresolved); the draft stands neither, and T-3068 reads it.",
-    "s20w-1619-rear": "1619 Indiana's frame building on the alley is on both plans, but its frontage's 1904 phase is open (census ruling phase_unresolved), so it waits with the house for T-3068 rather than stand as a stable without its lot read.",
-    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. photographic-supply factory across these lots, where Robinson 1886 draws two frame houses and their outbuildings, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it."
+    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws the ice-cream works' five-storey office and tin shop at the 16th Street corner, which T-3068 dates after 1904 (the corner was not in the works' 1903 purchase); the 1904 building is the plate's corner of the 1886 brick row (r1886-1601-f), so the 1911 outline is not drafted.",
+    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory, whose foundation was being dug in March 1904 on ground bought in September 1903 (T-3068): on 1 July 1904 the lots were its building site, the 1886 houses gone and the factory not finished, so neither is drafted (census ruling phase_unresolved).",
+    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. factory, permitted in August 1905 (T-3068), so the 1911 outline is not drafted; the 1904 houses are the plate's (r1886-1727-f, r1886-1735-f)."
   },
   "frontages": {
     "frontage-28-038": {
@@ -2081,6 +2477,30 @@
       },
       "rear_ticket": "T-1946",
       "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B with shallow bays on both side walls, which the fitted plan does not carry: they are the refining ticket's. Robinson 1886 draws a brick house here."
+    },
+    "frontage-20w-1619": {
+      "slug": "house",
+      "register": {
+        "address": "1619",
+        "raw_story_notation": "2½B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "pass": "T-3068",
+      "liberty": "L-draft-indiana-1904-lots-3068",
+      "why": "A background house with no named record: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B with canted front corners, a 1B brick rear piece and a one-storey frame piece behind; the corners and the frame piece are the refining ticket's. Carried to 1904 on T-3068's reading of the Dudley household, at 1619 from 1888 to 1908."
+    },
+    "frontage-20w-1601–1603": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 office at the corner is skipped; the 1904 building is the plate's (block 20w's `plates`, r1886-1601-f)."
+    },
+    "frontage-20w-1727–1737": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 factory is skipped; the 1904 houses are the plate's two frame houses (block 20w's `plates`, r1886-1727-f and r1886-1735-f), each with its own overlay there."
     }
   },
   "sites": [

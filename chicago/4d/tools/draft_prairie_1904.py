@@ -821,8 +821,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     rear_ticket = frow.get("rear_ticket") or block["rear_ticket"][parcel["side"]]
     # a side drafted by a later ticket names its own pass and liberty (T-2330 drafts block 28's east)
     side_rules = block.get("by_side", {}).get(parcel["side"], {})
-    pass_ = side_rules.get("pass", block.get("pass", rules["ticket"]))
-    liberty = side_rules.get("liberty", block["liberty"])
+    # and a frontage a later ticket drafts on a block already drafted names its own (T-3068's
+    # Indiana lots, ruled after T-3019 stood the rest of the block face)
+    pass_ = frow.get("pass") or side_rules.get("pass", block.get("pass", rules["ticket"]))
+    liberty = frow.get("liberty") or side_rules.get("liberty", block["liberty"])
     refined_by = [t.strip() for t in (front_tickets.split(",") if front_tickets else [rear_ticket]) if t.strip()]
 
     # ---- elevation

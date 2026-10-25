@@ -228,6 +228,12 @@
       "asset": "gltf/house_1600_prairie__as_mapped_1904.glb"
     },
     {
+      "id": "house_1601_indiana",
+      "name": "1601 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1601_indiana.json",
+      "asset": "gltf/house_1601_indiana__draft_1904.glb"
+    },
+    {
       "id": "house_1601_prairie",
       "name": "1601 Prairie Avenue — frame dwelling at the 16th Street corner, K16 clapboard",
       "sidecar": "sidecars/1904/house_1601_prairie.json",
@@ -292,6 +298,18 @@
       "name": "1616 S. Prairie Avenue — the alley building of the house at 1616 (district draft; refined by T-1932)",
       "sidecar": "sidecars/1904/house_1616_prairie_coach_house.json",
       "asset": "gltf/house_1616_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1619_indiana",
+      "name": "1619 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1619_indiana.json",
+      "asset": "gltf/house_1619_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_1619_indiana_coach_house",
+      "name": "1619 S. Indiana Avenue — the alley building of the house at 1619 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1619_indiana_coach_house.json",
+      "asset": "gltf/house_1619_indiana_coach_house__draft_1904.glb"
     },
     {
       "id": "house_1619_prairie",
@@ -378,10 +396,22 @@
       "asset": "gltf/house_1636_prairie__as_mapped_1904.glb"
     },
     {
+      "id": "house_1637_indiana",
+      "name": "1637 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1637_indiana.json",
+      "asset": "gltf/house_1637_indiana__draft_1904.glb"
+    },
+    {
       "id": "house_1637_indiana_coach_house",
       "name": "1623-1637-c S. Indiana Avenue — the alley building of the house at 1637 (district draft; refined by T-1946)",
       "sidecar": "sidecars/1904/house_1637_indiana_coach_house.json",
       "asset": "gltf/house_1637_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1641_indiana",
+      "name": "1641 Indiana Avenue — Stone-front brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1641_indiana.json",
+      "asset": "gltf/house_1641_indiana__draft_1904.glb"
     },
     {
       "id": "house_1641_indiana_coach_house",
@@ -444,6 +474,12 @@
       "asset": "gltf/house_1726_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_1727_indiana",
+      "name": "1727 Indiana Avenue — Frame house, mansard roof (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1727_indiana.json",
+      "asset": "gltf/house_1727_indiana__draft_1904.glb"
+    },
+    {
       "id": "house_1730_prairie",
       "name": "1730 Prairie Avenue — brick house under a mansard with its two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1730_prairie.json",
@@ -454,6 +490,12 @@
       "name": "1730 S. Prairie Avenue — the alley building of the house at 1730 (district draft; refined by T-1932)",
       "sidecar": "sidecars/1904/house_1730_prairie_coach_house.json",
       "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1735_indiana",
+      "name": "1735 Indiana Avenue — Frame house (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1735_indiana.json",
+      "asset": "gltf/house_1735_indiana__draft_1904.glb"
     },
     {
       "id": "house_1736_prairie",

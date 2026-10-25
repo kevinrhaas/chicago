@@ -647,8 +647,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # the draught's third no. 31 house on the 1812 north bank, one `log_dwelling` emitted
 # through generators/emit.py like La Lime's and Le Mai's beside it.
 #
+# 980 -> 987 on 2026-10-24 (T-3068): the seven Indiana lots read against dated sources, seven
+# drafts on Indiana Avenue's east frontage from 16th to 18th Street (six houses and 1619's stable)
+# on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that archetype's
+# own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 980,
+    "assets": 987,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,

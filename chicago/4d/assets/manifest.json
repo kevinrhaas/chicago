@@ -1190,6 +1190,16 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1600_prairie"
     },
+    "house_1601_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 128212,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "54e4ae3ef4deeb482adc6de1de8ef38e3e549f96af19b088c512535f0b47edf5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1601_indiana"
+    },
     "house_1601_prairie__as_mapped_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
@@ -1299,6 +1309,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1616_prairie_coach_house"
+    },
+    "house_1619_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 136852,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "760fbe7facb3dbdc46e9c6b23a5fe4bf20b5393132ac84bea6a9da2378906889",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1619_indiana"
+    },
+    "house_1619_indiana_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 78556,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "cab3337837e4811720818738dda164e4c62cb8be23a6c7345baf35c520d975ee",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1619_indiana_coach_house"
     },
     "house_1619_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -1440,6 +1470,16 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1636_prairie"
     },
+    "house_1637_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 172928,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "61b6b7e32d18cb85042cda03ee145c7896ca1e352bbebac012efdb26f12474dc",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1637_indiana"
+    },
     "house_1637_indiana_coach_house__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1449,6 +1489,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1637_indiana_coach_house"
+    },
+    "house_1641_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 226480,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "a0547730a0d7f77df1ce0e50ba11e969b6867f1581fd6f8c56e0e743ab9896a2",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1641_indiana"
     },
     "house_1641_indiana_coach_house__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1550,6 +1600,16 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1726_prairie_coach_house"
     },
+    "house_1727_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 174860,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "2713fb484e7df2d711900245e0de887ff9883c3b7e6ffc52377d138291d3f49d",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1727_indiana"
+    },
     "house_1730_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -1569,6 +1629,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1730_prairie_coach_house"
+    },
+    "house_1735_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 127276,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c62502e8dfd6d298bf56a6874012b6a34ffbbc8b5b20ca3d5045b22cda94b6e2",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1735_indiana"
     },
     "house_1736_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",

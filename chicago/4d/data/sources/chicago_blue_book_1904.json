@@ -1,0 +1,26 @@
+{
+ "id": "chicago_blue_book_1904",
+ "type": "book",
+ "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company, 1903.",
+ "author": "The Chicago Directory Company",
+ "date": "1903",
+ "describes_date": "1904",
+ "repository": "Internet Archive, item chicagobluebooko1904chic (from the Newberry/University of Illinois scans).",
+ "url": "https://archive.org/details/chicagobluebooko1904chic",
+ "locator": "The street-and-number section, INDIANA AVENUE: the odd numbers 1619 (Dr. & Mrs. E. C. Dudley, Miss Katherine Dudley, John H. Dudley), 1623 (Mr. & Mrs. Murry Nelson), 1641 (Mrs. C. R. Cummings, Mrs. H. T. Robinson), 1703 and 1713; line 21874 onward in the item's OCR text.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "rights_note": "A US directory published in 1903, in the public domain. Read for who lived at an address; no asset is derived from it.",
+ "access_notes": "Read 2026-10-24 (T-3068) from the item's OCR text (chicagobluebooko1904chic_djvu.txt), checked against the 1890, 1894, 1898 and 1901-1911 editions of the same series (items chicagobluebooko<year>chic), whose Indiana Avenue sections carry the same households at 1619 (Dudley, 1890-1908) and 1641 (Cummings and Robinson, 1890-1908).",
+ "note": "The Blue Book lists selected households only, so a number it omits is not thereby empty. What it does give is a dated household AT a number: on Indiana Avenue's east side, 16th to 18th Street, the 1904 edition lists 1619, 1623, 1641, 1703 and 1713, and nobody at 1601-1613, 1637 or 1727-1737.",
+ "what_it_supplies": [
+  "a household at 1619 Indiana in the 1904 edition, the same Dudley household the series lists there from 1890 to 1908",
+  "a household at 1641 Indiana in the 1904 edition, the Cummings and Robinson household the series lists there from 1890 to 1908"
+ ],
+ "what_it_does_not_supply": [
+  "any building's form, material or date",
+  "anything about numbers it does not list"
+ ]
+}
