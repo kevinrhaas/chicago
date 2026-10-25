@@ -32906,7 +32906,6 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 **Ticket:** T-3106, prerequisite for T-3105.
 **Recorded:** 2026-10-24.
 
-
 ### L-k01-1811-north-pier-3112 — 1811 Prairie's north pier capped under the bay's cornice, its slate weathering and the eave cut back over it
 
 **Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated like a dormer's cheek. From every camera that sees the pier this reads as the pictures do: sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
@@ -33133,6 +33132,36 @@ cheek's curve.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3144).
 
+### L-dearborn-board-parapet-2375 — Dearborn's boarded parapets
+
+**Building:** `dearborn_street_drawbridge`.
+**Decision:** Replace the open pole rail with horizontal-board parapets, read from
+the public-domain Andreas 1884 plate, p. 631
+(`andreas_1884_dearborn_drawbridge_plate`;
+`chicago/reference/images/chicago/chicago_dearborn_drawbridge_1834.png`).
+The plate shows the broad boarded sides and horizontal joints. It is retrospective,
+so this is inferred form for the 1835 bridge, not a contemporary specification.
+**What is invented:** retain the existing 0.95 m height and approximately 2.2 m
+post spacing; use five boards, each 162 mm high and 40 mm thick, with 10 mm gaps,
+starting 40 mm above the deck, under a 200 mm wide, 60 mm thick cap. These sections,
+course count, joints and neutral weathered-deck material are reconstructed.
+Boards and cap are jointed at post bays, draw ends and the two leaves' meeting line;
+neither becomes a continuous timber across a moving leaf. Post heads stop at
+the cap underside (0.89 m above the deck); the 0.95 m figure is the overall
+parapet height. This avoids overlapping coplanar cap/post top faces.
+**What remains unresolved:** the pictures' raised central deck profile, approach
+geometry, camera calibration and the remaining image comparison. The flat closed
+deck is retained; this change does not claim the bridge matches its pictures.
+**How to resolve:** the trustees' specification, premium drawing or repair accounts
+could replace the reconstructed sections; a completed camera solve and rendered
+comparison must resolve the visible differences before the ticket closes.
+**Ticket:** T-3126; bounded visible increment for original T-2375.
+**Recorded:** 2026-10-22.
+
+**Bounded adoption scope:** This selective board-only increment keeps the flat deck and original crib set-out. It includes no rise/profile/support controls or new runtime sampler. The original provisional 4.5.3 preview still differs; its principal point reaches a bound. Native six-family regeneration, current app/source comparisons and full policy gates remain owed. This entry admits only the board parapets. Original T-2375 remains open; image acceptance and scene dates are unchanged.
+
+**Adoption checkpoint:** 2026-10-24, T-3126 authored; official six-family refresh and app/policy gates not yet run at this checkpoint.
+
 ### L-glessner-north-eave-3148 — Glessner's 18th Street eave level either side of the stable gable; the cross ridge 0.10 m lower on the alley gable's rake
 
 **Decision:** the `glessner_house` north-face eave west of the stable's 18th Street gable stands at the north
@@ -33159,6 +33188,18 @@ counted.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3148).
+
+### L-glessner-pigeon-holes-3143 — Glessner's stable dovecote raised 0.85 ft and its holes a course tall, read through HABS photograph 15's stable-fitted camera
+
+**Decision:** T-3147 refitted HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`) at the stable on measured controls in its north face (sheet 2's doorway jambs, sheet 5's 12.6 ft soffit, sheet 3's loft and light jambs). Through that camera the print's pigeon-hole ledge stands at about 32.2-32.4 ft ng and its holes each fill one stone course, sills at about 32.5, 34.0 and 35.5 ft. The build had them 0.85-0.9 ft lower (ledge 31.25-31.55, sills 31.65, 33.0, 34.55), placed by T-2849 through the frozen pinhole that camera replaced, which stood 13-20 px off at the loft. The camera reads the hoist stone's foot (26.0 ft, in the same face) within 1.6 px, so its scale holds up to the gable. The ledge is now 32.1-32.4 ft on its two corbels, and the nine holes (5-3-1, W unchanged) are round-headed, 0.4 ft wide and 0.75 ft tall, sills at 32.5, 33.95 and 35.45 ft. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`), measured on the print alone, gives apex-to-ledge-top over ledge-top-to-relieving-arch-crown as 2.2, which the build now gives (2.1; it was 3.1). The Cornell A. D. White view (`cornell_adw_glessner_stable_1887`) agrees on the holes' shape and height.
+
+**What is invented.** These are photographic readings, about ±0.25 ft, not survey. The holes' 0.75 ft height is one figure for all three rows, where HABS 15's courses read 0.6-0.75 ft and HABS 1's holes 0.65-0.85 ft. The top hole is a faint patch under HABS 15's film holder; HABS 1 puts it 0.3-0.5 ft higher, and the Cornell view's rows read about 1.75 ft apart, against HABS 15's 1.44-1.52 ft through a camera fitted at the stable. Those disagreements are recorded and not resolved, and the build keeps HABS 15's pitch. The corbels keep their 0.45 ft drop; HABS 15 reads them nearer 0.55 ft.
+
+**What is kept.** The holes' W positions and 0.4 ft width, the ledge's length and projection, the corbels' places, and everything else on the gable.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3143.
+**Recorded:** 2026-10-25.
 
 ### L-kimball-1801-round-bay-3108 — 1801 Prairie's south-west corner rebuilt as a two-storey round bay on a cut-back corner, the pavilion's face narrowed between the sheet's and the photographs' widths
 
