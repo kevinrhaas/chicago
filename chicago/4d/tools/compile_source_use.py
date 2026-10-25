@@ -11,6 +11,8 @@ from compile_scene import cite, resolve_phase
 from exclusion_scope import ruled_for
 
 ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / 'tools/derived_manifest.json'
+STEP = ['python3', 'tools/compile_source_use.py']
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
@@ -493,6 +495,27 @@ class Compiler:
         return '\n'.join(lines)
 
 
+def owned_resolves(manifest, owned):
+    """T-3131: this step's `resolves` in tools/derived_manifest.json, set to exactly what it writes.
+
+    The list is what lets rederive.mjs --resolve clear a merge conflict in a file by rebuilding
+    it, and it enumerates rather than pattern-matches on purpose. Written by hand at T-1248 and
+    once more at T-2747, it had fallen to 303 of the 436 files this compiler writes, because
+    every new source record adds a per-source file and nothing added the line: a conflict in
+    any of the other 134 was refused, and a lap that took one side by hand dropped that
+    branch's source-use edges without a word. So the compiler that decides the set now writes
+    the list, and --check refuses the moment the two disagree. Returns (missing, extra)."""
+    steps = [s for s in manifest['steps'] if s.get('command') == STEP]
+    if len(steps) != 1:
+        raise SystemExit(f'SOURCE USE FAIL — tools/derived_manifest.json has {len(steps)} steps running '
+                         f'{" ".join(STEP)}; expected exactly one')
+    step, want = steps[0], sorted(owned)
+    missing = sorted(set(want) - set(step['resolves']))
+    extra = sorted(set(step['resolves']) - set(want))
+    step['resolves'] = want
+    return missing, extra
+
+
 def compile_outputs(root):
     compiler = Compiler(root)
     compiler.collect()
@@ -515,15 +538,25 @@ def main():
     files[ROOT / 'docs/measurements/source_use_coverage.md'] = report
     stale = [str(p.relative_to(ROOT)) for p, body in files.items() if not p.exists() or p.read_text() != body]
     extra = sorted(set(dest.glob('*.json')) - set(files))
+    manifest = json.loads(MANIFEST.read_text())
+    unlisted, unowned = owned_resolves(manifest, {'chicago/4d/' + str(p.relative_to(ROOT)) for p in files})
     if args.check:
         if stale or extra:
             raise SystemExit('SOURCE USE FAIL — rebuild with python3 tools/compile_source_use.py: ' + ', '.join(stale + [str(p) for p in extra]))
+        if unlisted or unowned:
+            raise SystemExit(f'SOURCE USE FAIL — tools/derived_manifest.json lists {len(unowned)} file(s) this compiler '
+                             f'does not write and omits {len(unlisted)} it does, so rederive.mjs --resolve would refuse '
+                             f'a conflict in them; rebuild with python3 tools/compile_source_use.py: '
+                             + ', '.join((unlisted + unowned)[:5])
+                             + (f' and {len(unlisted + unowned) - 5} more' if len(unlisted + unowned) > 5 else ''))
     else:
         for p, body in files.items():
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(body)
         for p in extra:
             p.unlink()
+        if unlisted or unowned:
+            MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
     print(f'SOURCE USE PASS — {len(outputs)-1} sources; {len(outputs["index.json"].encode())} index bytes; all source IDs resolve')
 
 

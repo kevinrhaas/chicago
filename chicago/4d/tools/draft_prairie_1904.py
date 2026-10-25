@@ -33,7 +33,8 @@ to its lot.
 
 THE ELEVATION. Storeys come from the map's printed notation (`3B`, `2½S.B.; rear2B`):
 the leading figure is the full storeys, a ½ is a roof storey, `rearN` sets the ranges;
-for service buildings the census reading (`2-storey brick BARN`). Everything else —
+for service buildings the census reading (`2-storey brick BARN`), unless the frontage row's
+`services` entry carries a dated 1904 count (`storeys_1904`, with its own sources). Everything else —
 heights, roof, bays, entrance, features — is the rules' family row overlaid with the
 frontage's own row, and is RECONSTRUCTED; the record says so attribute by attribute.
 
@@ -731,6 +732,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     else:
         full, half = service_storeys(cp.get("reading_1911", ""))
         rear_n = bay_n = None
+        if svc.get("storeys_1904"):
+            # a dated source nearer the scene than the 1911 sheet counts the storeys itself
+            # (1811's '2 story stable' of April 1904, a 1½-storey garage by 1911: T-3099)
+            full, half = svc["storeys_1904"]["value"], False
     fam = family_row(rules, row.get("family", "")) if kind == "house" else {"roof": "gable", "pitch_deg": 40,
                                                                              "chimneys": 0, "family_rule": "service"}
     if kind == "house":
@@ -986,6 +991,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          + ". The building's other rectangles are in draft_plan.")},
             "form": {
                 "stories": _attr(plate["stories"], "reconstructed", plate["stories_note"]) if plate else _attr(
+                                 full, svc["storeys_1904"]["confidence"], svc["storeys_1904"]["note"],
+                                 svc["storeys_1904"]["sources"]) if svc.get("storeys_1904") else _attr(
                                  full, "attested",
                                  (f"'{notation}' printed on the 1911 sheet: {full} full storeys"
                                   f"{' and a half storey in the roof' if half else ''}." if kind == "house" else

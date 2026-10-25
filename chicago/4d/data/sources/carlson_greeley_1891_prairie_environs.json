@@ -14,10 +14,11 @@
   "asset_use": "cross_check",
   "verified": true,
   "access_notes": "Read from the owner's image store copy of a web reproduction; not georeferenced.",
-  "note": "Spent by T-2478: four or five Illinois Central tracks along the lake east of Prairie Avenue, a wavy water's edge right against them, and the railway's breakwater drawn offshore. No beach, park or walk between the tracks and the lake.",
+  "note": "Spent by T-2478: four or five Illinois Central tracks along the lake east of Prairie Avenue, a wavy water's edge right against them, and the railway's breakwater drawn offshore. No beach, park or walk between the tracks and the lake. Spent by T-3099: 1811 Prairie's house drawn one continuous body about 27 m deep (5.7-32.8 m from the street line, read along the lot's own 150 ft at 0.86 px a foot), as the 1911 sheet draws it, and its stable drawn crossed and marked '25' on the alley 38-46 m back. Only depths are read on that lot: the plate draws the house as wide as its lot.",
   "what_it_supplies": [
     "The 1891 track count beside Prairie Avenue (four or five), a bound from before on the 1911 sheets' eleven",
-    "The breakwater offshore and the water's edge against the railway"
+    "The breakwater offshore and the water's edge against the railway",
+    "1811 Prairie's house depth and its stable on the alley in 1891 (T-3099)"
   ],
   "what_it_does_not_supply": [
     "Measured positions: the copy is not georeferenced",
