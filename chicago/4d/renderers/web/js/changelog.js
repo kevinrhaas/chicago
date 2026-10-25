@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2286, ts: '2026-10-25T17:59:56.014Z', date: 'Oct 25, 2026, 12:59 PM CT', title: 'Dearborn drawbridge gains boarded parapets', kind: 'improvement',
+    items: [
+      'Horizontal boards fill the drawbridge\'s side parapets, following the credited historical engraving. Their dimensions are reconstructed; the deck stays flat while the pictured central rise and other differences await further work.',
+    ] },
   { v: 2285, ts: '2026-10-25T16:43:49.172Z', date: 'Oct 25, 2026, 11:43 AM CT', title: 'Glessner\'s 18th Street eave runs level past the stable gable', kind: 'fix',
     items: [
       'West of the stable\'s street gable, the eave came down 2.1 ft to the range\'s own 23.1 ft. Three photographs from 1887 to 1965 draw one level eave there, not the step the house had.',
