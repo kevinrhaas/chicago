@@ -24934,6 +24934,15 @@ The declared plantings render without refusal. Uniform 1812 Light and Full accep
 T-3106 retains its medium parent and provenance history. Its two independent no-bake demonstrations are T-3119 (the declared garden plants and physical clearance) and T-3120 (the Light/Full woodland sweep within unchanged caps), grouped with T-3105. This ticket mapping changes no model, planting, renderer, camera, source grade or original picture acceptance.
 
 
+## T-3126 — Dearborn board parapets
+
+Dearborn selects horizontal-board side parapets inferred from the credited Andreas 1884 engraving. Board/cap sections, course count and joints remain reconstructed; the flat closed deck, original cribs, coordinates, dates and every existing field grade are unchanged. The new selector is keyword-only and defaults to the existing pole rail. Source credit now records the visible L. Braunhold signature and the lighthouse, bank buildings and extra masts the old source note wrongly excluded. Baker-Co remains check_required. Current name readers retain the first-fort gallery/opening additions.
+
+The genuine pinned six-master/six-web refresh completed. Five defaults retain decoded geometry, normals, materials and confidence; all five default WEB assets are byte-identical, with four master-only byte differences confined to unused UV layouts. Native readers settled to fixed point; the incoming workbook was restored byte-exact only after semantic parity and a native dependent-package refresh. Actual mobile/desktop full-span and close-board normal/ByGrade, credited Images/Sources, Building Liberty and grounded 2.22 m deck contacts passed with zero page/network/unexpected-loader errors. The supported official source comparison was inspected and remains DIFFERS; its provisional camera reaches a principal-point bound.
+
+The broad Full Fly diagnostic remains over the unchanged triangle cap: exact previous-WEB geometry-only control 3,483,153 versus candidate 3,494,017 at the same camera/detail/frozen animation, +10,864. This is not a whole-Abb-app or all-view budget PASS. Closer views provide visual inspection only; native named stands and full published smoke remain required. Initial credit/framing, stale API alias and optional resize diagnostics remain historical. See docs/RESEARCH/photo-match/dearborn_street_drawbridge/T3126-board-parapets/README.md. Strict preflight and exact-head published/CI verdicts belong to the PR before merge. Rise, mechanism, supports, approaches, tones and context remain unresolved. Original T-2375 remains open with its full image acceptance; T-3126 owns this bounded increment only.
+
+
 ## T-3125 — complete release notes inside the Navigator (2026-10-24)
 
 The retained before-change published view at 390 x 780 shows inherited clipping: a 292 px host contains a 349.859 px news-grid track, and entry boxes extend to x 424.859 beyond the screen's x 381 edge. All 2,250 rows rendered without page or HTTP errors. The screenshot and actual bounds distinguish this layout defect from the earlier diagnostic helper's stricter readiness timeout.
