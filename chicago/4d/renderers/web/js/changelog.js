@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2261, ts: '2026-10-25T00:44:22.289Z', date: 'Oct 24, 2026, 7:44 PM CT', title: 'Six more 1904 buildings on Indiana Avenue between 16th and 18th', kind: 'improvement',
+    items: [
+      'Four houses the 1911 atlas no longer shows now stand as they did in 1904, taken from the 1886 atlas: 1637, which the Army Corps of Engineers used as its Chicago office, 1641, and two frame houses at 1727 and 1735. A brick row\'s west end also stands at the 16th Street corner.',
+      '1619\'s brick house stands too, with its stable on the alley. The same family lived there from 1888 to 1908.',
+      '1605-1613 is left as a building site. Its old houses were gone, and the ice-cream factory there was still going up in 1904.',
+      'The dates come from 1902-1905 directories, newspaper notices and building permits. Each house\'s card says what is known and what is inferred.',
+    ] },
   { v: 2260, ts: '2026-10-24T21:45:38.622Z', date: 'Oct 24, 2026, 4:45 PM CT', title: '1811 Prairie\'s north pier capped below the bay, sky above it', kind: 'improvement',
     items: [
       'The narrow stone pier at the front\'s north end now stops below the bay\'s cornice. It has a moulded cap, a band under the cap, and a small slate top, as in the 1888 plate and the photographs.',
