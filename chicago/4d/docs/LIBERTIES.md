@@ -32858,3 +32858,15 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 **Re-opens on:** a photograph of the north side, or a drawing of the roof at the north corner.
 **Ticket:** T-3112.
 **Recorded:** 2026-10-24.
+
+### L-lake-house-open-shell-2379 — distinguish an omitted roof from a flat cap
+
+**Covers:** `lake_house_construction.shell_1835.form.roof_type`.
+
+**Decision:** Keep the existing reconstructed one-storey/four-metre, 24×15 m worksite and `roof_type: none`, and make that selector omit the generic roof cap. `flat` retains its exact existing cap; all pitched roofs and other role dispatch remain unchanged. This removes a 360 m² cap/four raw vertices/two triangles; it introduces no excavation, floor, scaffold, interior passage, construction stock or new phase.
+
+**Evidence and bounds:** The held Chicago Democrat notice of 10 June 1835, p.2 col.5, reports an active house-building project in Kinzie's Addition, understood to be named Lake House. The bracketed/transcription-mediated reading does not show roof or progress. June 1836 unfinished work and autumn 1836 opening do not establish July 1835 roof absence. The roof field therefore becomes reconstructed; all phase dates, footprint, coordinates, dimensions, whole-building grade and the zero-to-two-storey uncertainty stay unchanged. Bonnell's conflicting retrospective dates remain unresolved. No later completed-hotel picture supplies the July construction stage. Original T-2379 remains open/differs; this is not an accepted picture match.
+
+**Ticket:** T-3123, a bounded omitted-cap increment; original T-2379 remains open.
+
+**Recorded:** 2026-10-24; finished 2026-10-25.
