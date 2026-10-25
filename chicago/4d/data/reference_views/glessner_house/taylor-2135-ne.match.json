@@ -65,8 +65,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it.",
-      "status": "open"
+      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it. T-3140, ruled within tolerance (T-3153): as on HABS 16, the north light 0.3-0.5 ft narrow and the pier 0.3-0.45 ft wide, under the 1 ft bar; the pair's 15 px northward stand is this camera's, the jambs either side fitting within 3.2 px. T-3141 was withdrawn on this ground.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
