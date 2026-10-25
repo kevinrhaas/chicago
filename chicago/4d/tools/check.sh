@@ -3799,6 +3799,13 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
   python3 tools/glessner_cupola_read.py --check
 
+# HABS 15's camera is the stable_level fit on measured controls at the stable, and
+# the hoist stone is read through it and through T-2758's HABS 01 doorway fit, so a
+# pick, camera or record number that moves without the report and the camera being
+# re-written and re-read is caught here (T-3147).
+step "Glessner stable-end reading and HABS 15's camera re-derive (T-3147)" \
+  python3 tools/glessner_stable_end_read.py --check
+
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,
 # or a record that builds the pairs outside it, is caught here (T-2850).

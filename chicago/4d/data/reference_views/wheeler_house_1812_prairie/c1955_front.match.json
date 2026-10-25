@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "b1981ad7e94d2c72b1e53f947a686e06184d5f829a3b110a45f9f27885186d0e",
+  "glb_sha256": "61f79b15111826e39ab209128888b233b57fcf6af9713df05ef2caba241d473e",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b1981ad7e94d2c72b1e53f947a686e06184d5f829a3b110a45f9f27885186d0e"
+      "glb_sha256": "61f79b15111826e39ab209128888b233b57fcf6af9713df05ef2caba241d473e"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -41,11 +41,11 @@
         0,
         16.293259561004927
       ],
-      "rotation_y": 8.726646259971656e-05,
+      "rotation_y": 0.00008726646259971656,
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "44569feb511dd58242137314bede2637a811634fde42d58a5172344f1b498cad",
+  "group_sha256": "82f052085f09816df33050612eabb77d9afa3e9a0ab57beacd3d3b7f13df13f1",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -99,6 +99,10 @@
     },
     {
       "what": "South projection: the second storey's jambs rise past the window's head to carved caps under the cornice, and the paired window's mullion and hood are heavy dressed stone; built from Levy's print (the caps, the pier, the hood and the transom lights), and this camera's render shows them where the photograph does (T-3091; L-k01-1812-wheeler-windows-3091)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the porch arch's south jamb stands on the projection's face, the opening's edge at x about 328 px and its moulding at 324-327, about 0.25 m south of the projection's corner (x 340), where the build's mouth had stood clear of the projection; built so (T-3135), the arch cut into the projection's corner, and re-rendered its moulding draws at x 325-331. The arch's north jamb (x about 444) is on the main front, where the projection's plane would put it at 471-475 (L-k07-1812-porch-arch-jamb-3135)",
       "status": "fixed"
     },
     {

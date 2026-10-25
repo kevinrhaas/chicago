@@ -514,7 +514,10 @@ class Entrance(Opening):
         if len(set(psides)) != len(psides):
             raise ValueError("a stoop takes one terrace a side")
         W = self.v["clear_width_m"] / 2
-        if (-W < c - half - 1e-9 and -1.0 not in psides) or (W > c + half + 1e-9 and 1.0 not in psides):
+        # T-3135: or the floor of a projection the arch is cut into carries that end (1812's)
+        held = {{"left": -1.0, "right": 1.0}[x] for x in st.get("carried", ())}
+        if (-W < c - half - 1e-9 and -1.0 not in psides and -1.0 not in held) or \
+                (W > c + half + 1e-9 and 1.0 not in psides and 1.0 not in held):
             raise ValueError(f"the door hangs off a stoop {c:+.3f} m off its axis, where no terrace carries it on")
         self.quad("landing", [(c - half, 0, 0), (c + half, 0, 0), (c + half, 0, L), (c - half, 0, L)], Y)
         self.probe(c, 0.0, L / 2, ("landing",), "the landing")
