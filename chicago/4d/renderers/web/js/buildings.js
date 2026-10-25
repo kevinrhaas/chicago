@@ -625,9 +625,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // surface: the proof joins a plane's two facings, which a front-only face does not.
       let planar = null;
       if (occludesView && record.id === 'glessner_house' && material.side === THREE.DoubleSide) {
-        const p = source.getAttribute('position'), ix = source.getIndex();
-        const xyz = new Float64Array(p.count * 3);
-        for (let i = 0; i < p.count; i += 1) { xyz[3 * i] = p.getX(i); xyz[3 * i + 1] = p.getY(i); xyz[3 * i + 2] = p.getZ(i); }
+        const corners = source.getAttribute('position'), ix = source.getIndex();
+        const xyz = new Float64Array(corners.count * 3);
+        for (let i = 0; i < corners.count; i += 1) {
+          xyz[3 * i] = corners.getX(i); xyz[3 * i + 1] = corners.getY(i); xyz[3 * i + 2] = corners.getZ(i);
+        }
         const covers = planarCoverPlanes(xyz, ix ? ix.array : null);
         if (covers.length) planar = { record, covers, actives: [], range: [Infinity, -Infinity] };
         if (planar) planarSources.push(planar);

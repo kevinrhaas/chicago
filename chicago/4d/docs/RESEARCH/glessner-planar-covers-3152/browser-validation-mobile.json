@@ -1,0 +1,88 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `full`; animation paused after readiness; each stand renders the same held frame with the T-3152 planar backings off (setPlanarCovers(false)), off again (QA_CONTROL), on, and with the whole T-2227 filter off, and with Glessner hidden as the positive control, reads triangles from renderer.info and every pixel with gl.readPixels in the same task. glessner-* stands are offsets in metres from Glessner's footprint centre. Software GL on this machine.",
+  "result": {
+    "viewport": {
+      "width": 390,
+      "height": 780
+    },
+    "detail": "full",
+    "boot": {
+      "scene": "1904",
+      "detail": "full",
+      "budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "build": "0.1.0"
+    },
+    "errors": [],
+    "bad": [],
+    "stands": [
+      {
+        "name": "glessner-18th-nw",
+        "off": {
+          "triangles": 4255247,
+          "drawCalls": 2491,
+          "culled": 202,
+          "culledTriangles": 22756,
+          "occluders": 64
+        },
+        "on": {
+          "triangles": 4164202,
+          "drawCalls": 2619,
+          "withinBudget": true,
+          "culled": 202,
+          "culledTriangles": 22756,
+          "planeCulled": 371,
+          "planeTriangles": 91045,
+          "planes": 49,
+          "occluders": 64
+        },
+        "filterOff": {
+          "triangles": 4278003
+        },
+        "bisect": null,
+        "pixels": 304200,
+        "pixelsDiffering": 1,
+        "differingAt": [
+          {
+            "x": 327,
+            "y": 390,
+            "a": [
+              25,
+              31,
+              35
+            ],
+            "b": [
+              28,
+              31,
+              34
+            ]
+          }
+        ],
+        "noFilterDifferingAt": [
+          {
+            "x": 327,
+            "y": 390,
+            "a": [
+              25,
+              31,
+              35
+            ],
+            "b": [
+              28,
+              31,
+              34
+            ]
+          }
+        ],
+        "maxChannelDelta": 3,
+        "pixelsDifferingFromNoFilter": 1,
+        "offPixelsDifferingFromNoFilter": 0,
+        "controlOffOffPixelsDiffering": null,
+        "controlPixelsDifferingWithoutGlessner": 38438,
+        "problems": 0
+      }
+    ]
+  }
+}
