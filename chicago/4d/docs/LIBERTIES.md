@@ -32906,7 +32906,6 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 **Ticket:** T-3106, prerequisite for T-3105.
 **Recorded:** 2026-10-24.
 
-
 ### L-k01-1811-north-pier-3112 — 1811 Prairie's north pier capped under the bay's cornice, its slate weathering and the eave cut back over it
 
 **Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated like a dormer's cheek. From every camera that sees the pier this reads as the pictures do: sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
@@ -33132,6 +33131,36 @@ cheek's curve.
 **Ticket:** T-3144.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3144).
+
+### L-dearborn-board-parapet-2375 — Dearborn's boarded parapets
+
+**Building:** `dearborn_street_drawbridge`.
+**Decision:** Replace the open pole rail with horizontal-board parapets, read from
+the public-domain Andreas 1884 plate, p. 631
+(`andreas_1884_dearborn_drawbridge_plate`;
+`chicago/reference/images/chicago/chicago_dearborn_drawbridge_1834.png`).
+The plate shows the broad boarded sides and horizontal joints. It is retrospective,
+so this is inferred form for the 1835 bridge, not a contemporary specification.
+**What is invented:** retain the existing 0.95 m height and approximately 2.2 m
+post spacing; use five boards, each 162 mm high and 40 mm thick, with 10 mm gaps,
+starting 40 mm above the deck, under a 200 mm wide, 60 mm thick cap. These sections,
+course count, joints and neutral weathered-deck material are reconstructed.
+Boards and cap are jointed at post bays, draw ends and the two leaves' meeting line;
+neither becomes a continuous timber across a moving leaf. Post heads stop at
+the cap underside (0.89 m above the deck); the 0.95 m figure is the overall
+parapet height. This avoids overlapping coplanar cap/post top faces.
+**What remains unresolved:** the pictures' raised central deck profile, approach
+geometry, camera calibration and the remaining image comparison. The flat closed
+deck is retained; this change does not claim the bridge matches its pictures.
+**How to resolve:** the trustees' specification, premium drawing or repair accounts
+could replace the reconstructed sections; a completed camera solve and rendered
+comparison must resolve the visible differences before the ticket closes.
+**Ticket:** T-3126; bounded visible increment for original T-2375.
+**Recorded:** 2026-10-22.
+
+**Bounded adoption scope:** This selective board-only increment keeps the flat deck and original crib set-out. It includes no rise/profile/support controls or new runtime sampler. The original provisional 4.5.3 preview still differs; its principal point reaches a bound. Native six-family regeneration, current app/source comparisons and full policy gates remain owed. This entry admits only the board parapets. Original T-2375 remains open; image acceptance and scene dates are unchanged.
+
+**Adoption checkpoint:** 2026-10-24, T-3126 authored; official six-family refresh and app/policy gates not yet run at this checkpoint.
 
 ### L-glessner-north-eave-3148 — Glessner's 18th Street eave level either side of the stable gable; the cross ridge 0.10 m lower on the alley gable's rake
 
