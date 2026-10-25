@@ -2610,6 +2610,16 @@
       "phase_id": "draft_1904",
       "structure_id": "ice_cream_works_1605_indiana"
     },
+    "indiana_east_frontage_18th_20th_background_row__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 4405552,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "6a6fedae71327036ed1ae8be8b56421193b27432f084b45d1d5e7a9f183e846e",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "indiana_east_frontage_18th_20th_background_row"
+    },
     "inf_artisan_dwelling_west_a__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
