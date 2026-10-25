@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029",
+  "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029"
+      "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -41,13 +41,13 @@
         0,
         16.293259561004927
       ],
-      "rotation_y": 0.00008726646259971656,
+      "rotation_y": 8.726646259971656e-05,
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "c438b78f676515c25cb9100e92a5c5d1554d299e1adcd7a3a65c790d650c2208",
+  "group_sha256": "775af07562823e2bcc725c2130a0e99e8cf8cf6784e53fb536a6e35fdd958a4f",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Front: the projection's front (x 100-340 px), its south cheek (x 77-99) and the main front's north corner (x 468) land within about 2 px, and the heights Levy's print gave the front (the third storey's large arch, the grid window's head and sill, the projection's cornice) within about 5 px: this photograph and Levy's agree on the front as built (T-2543 to T-3033)",
@@ -66,12 +66,16 @@
       "status": "fixed"
     },
     {
-      "what": "South wall line: the stack's 14 px and Levy's 23-30 px agree on a south wall about 0.3 m outside sheet 28's traced line (T-3075)",
-      "status": "open"
+      "what": "South wall line: the stack's 14 px and Levy's 23-30 px agree on a south wall about 0.3 m outside sheet 28's traced line (T-3075). Within tolerance (T-3093): about 0.3 m, the 1 ft bar, and two cameras that do not agree on it to the pixel; the footprint stays sheet 28's trace",
+      "status": "within tolerance"
     },
     {
-      "what": "South wall: its face in the gap to 1816 (x 22-75 px) reads a paler brick than the front, and carries a downpipe close to the front (x 66-71 px, about u 14.5), where the build's south-wall pipe stands about 1.5 m further back (x 43); the pipe may be later",
-      "status": "open"
+      "what": "South wall: its face in the gap to 1816 (x 22-75 px) reads a paler brick than the front; the front's brick toned red-brown and the side walls left in the K03 common buff (T-3093), so the south wall renders paler than the front as it does here (L-k01-1812-wheeler-tone-3093)",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall: a downpipe close to the front (x 66-71 px, about u 14.5), where the 1904 build has none: the south wall is carried up as a coped parapet (T-3061) with no gutter for it to serve, and the only picture of it is fifty years after the scene, with the later sash, lamp and aerial (item below); taken for later, not built for 1904 (T-3093)",
+      "status": "not shown"
     },
     {
       "what": "North stack: a tall plain brick stack behind the gable's north shoulder (x 383-435 px, top y 128). On 1812's ground it could stand only within 1.2 m behind the front, where Levy's camera draws it against the open sky the print shows, so it was built after Levy's print or stands behind 1812 on 1808's ground; not built for 1904 (L-k01-1812-wheeler-stacks-3034)",
@@ -114,6 +118,10 @@
       "status": "not shown"
     },
     {
+      "what": "Fabric: the stone band under the projection's second storey with its shields, the projection's stone frieze under the cornice, and the basement and porch storey lighter than the brick; built from Levy's print (T-3093), and this camera's render shows them where the photograph does",
+      "status": "fixed"
+    },
+    {
       "what": "Colour: the print is monochrome; it shows the stone and the brick close in tone, where the build's brown sandstone renders darker than its buff brick",
       "status": "not shown"
     },
@@ -122,5 +130,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

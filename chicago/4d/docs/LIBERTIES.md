@@ -33191,6 +33191,68 @@ counted.
 `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3148).
 
+### L-k01-1812-wheeler-tone-3093 — 1812 Prairie's stone front laid in Lemont limestone and its street front's brick toned red-brown, to the tones of Levy's print and the c. 1955 photograph
+
+**Decision:** the stone front of George H. Wheeler's house at 1812 Prairie (the rock-faced basement and
+the entrance bay's coursed first storey) is laid in K02's Lemont limestone where it was the brown
+sandstone, and the brick of the street front (over the stone line, in the shaped gable and in the south
+projection's upper storeys) is the K03 common-bond panel toned by a factor of 0.78, 0.56, 0.52 to a
+red-brown (`street_front_brick`, a new K01 key, read by no other house, so every other house re-emits
+as before). The side and rear walls keep the K03 common buff.
+**What is read, not invented.** Levy's print reads the stone (the basement, the first storey beside the
+porch, every sill, belt, quoin and voussoir) as light as the dressed trim and well lighter than the brick
+over it; the brownstone had rendered darker than the brick beside it. The c. 1955 photograph reads the
+south wall in the gap to 1816 paler than the front's brick.
+**What is invented.** Both colours. The pictures are monochrome, so neither the stone nor the brick is
+named; Lemont is the local grey-buff stone the K02 profiles hold for an undocumented Chicago front, and
+the red-brown is the tone a monochrome print of the 1880s draws darker than a light stone. Only the
+relation, stone lighter than brick and side wall paler than front, is read.
+**How to resolve:** a colour description, a specification or a surviving fragment of the house.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.street_front_brick`.
+**Ticket:** T-3093.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3093).
+
+### L-k01-1812-wheeler-carving-3093 — 1812 Prairie's frieze an interlace of two straps, its bosses shields, and the south projection's stone bands
+
+**Decision:** the carved frieze over the second storey's north window (8.55-8.95 m) is an interlace
+where it was T-2819's guilloche of rings: two straps 0.07 m wide, each a sine about the band's middle
+mirroring the other, crossing every 0.5 m, up to 0.05 m proud and dipping under the other at alternate
+crossings (a new `interlace` carving on K01's carved bands). The two bosses under the south projection's
+second-storey jambs are shields (a square head and shoulders drawn in to a point by two arcs; a new
+`shape` on K08's dress ovals) where they were ovals. The projection's second storey stands on a smooth
+stone band from the belt to the sills (5.61-6.2 m), and its top under the cornice is a stone frieze
+(8.8-9.25 m) under a moulded band, with a block under the balcony's pedestal, round the front and both
+cheeks, where both had been brick. No other house names either key.
+**What is read, not invented.** On Levy's print at 2-3x: the frieze's straps crossing about every
+0.5 m along x 767-1042 px; the bosses' square heads and pointed feet (about 0.45 m across); the stone
+band at y 1000-1055 px with the shields set in it, and the frieze at y 700-740 px with its block at
+x 527-557.
+**What is invented.** The interlace's leaves between the straps and the shields' carved faces and
+scrolled heads, none of them modelled; the straps' section; the bands' projection (0.02-0.06 m); the
+moulded cornice of the projection is still the kit's plain soffit and fascia.
+**How to resolve:** a closer or sharper picture of the frieze and the bosses.
+**Ticket:** T-3093.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3093).
+
+### L-k01-1812-wheeler-rear-3093 — 1812 Prairie's rear range built as two ranges to the 1911 sheet's step, its south-west corner square
+
+**Decision:** the rear part behind 1812 Prairie's main body is two flat-decked three-storey ranges:
+`rear_range` 6.6 m deep, 1.65 m in from the south wall, and `rear_end` 4.1 m deep behind it, 2.25 m in,
+so the house runs 25.8 m from the main front to the rear wall where it ran 25.7 m. Their windows and
+decks are reconstructed as the single range's were (L-k01-1812-wheeler-front-2543).
+**What is read, not invented.** Sheet 28's trace of the building (s28fp-1812-b1, local metres): the main
+body's rear wall at x 1370.0; the rear part's south wall at y -3258.6 back to a step at x 1363.4, then at
+y -3257.95 to the rear wall at x 1359.32; the north wall straight through.
+**What is invented.** The sheet cuts the rear end's south-west corner back about 1.1 by 1.2 m; a K01
+range is a rectangle, so it is built square. The windows on both ranges.
+**How to resolve:** an earlier sheet or a photograph of the rear from the alley.
+**Ticket:** T-3093.
+**Review:** none; no picture shows the rear.
+**Recorded:** 2026-10-25 (T-3093).
+
 ### L-glessner-pigeon-holes-3143 — Glessner's stable dovecote raised 0.85 ft and its holes a course tall, read through HABS photograph 15's stable-fitted camera
 
 **Decision:** T-3147 refitted HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`) at the stable on measured controls in its north face (sheet 2's doorway jambs, sheet 5's 12.6 ft soffit, sheet 3's loft and light jambs). Through that camera the print's pigeon-hole ledge stands at about 32.2-32.4 ft ng and its holes each fill one stone course, sills at about 32.5, 34.0 and 35.5 ft. The build had them 0.85-0.9 ft lower (ledge 31.25-31.55, sills 31.65, 33.0, 34.55), placed by T-2849 through the frozen pinhole that camera replaced, which stood 13-20 px off at the loft. The camera reads the hoist stone's foot (26.0 ft, in the same face) within 1.6 px, so its scale holds up to the gable. The ledge is now 32.1-32.4 ft on its two corbels, and the nine holes (5-3-1, W unchanged) are round-headed, 0.4 ft wide and 0.75 ft tall, sills at 32.5, 33.95 and 35.45 ft. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`), measured on the print alone, gives apex-to-ledge-top over ledge-top-to-relieving-arch-crown as 2.2, which the build now gives (2.1; it was 3.1). The Cornell A. D. White view (`cornell_adw_glessner_stable_1887`) agrees on the holes' shape and height.

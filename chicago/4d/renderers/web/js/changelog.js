@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2289, ts: '2026-10-25T19:34:24.312Z', date: 'Oct 25, 2026, 2:34 PM CT', title: 'Glessner House from 18th Street, back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Nothing you can see changed: from 18th Street, west of Glessner House, the full-detail view no longer draws the court, south and east walls hidden behind the house\'s own north and west fronts.',
+      'That stand had crept over the full-detail triangle budget again; it now sits about 126,000 triangles inside it, and the Prairie Avenue stand south-east of the house gains about 120,000 more headroom.',
+    ] },
+  { v: 2288, ts: '2026-10-25T19:00:17.216Z', date: 'Oct 25, 2026, 2:00 PM CT', title: '1812 Prairie signed off against both of its photographs', kind: 'improvement',
+    items: [
+      '1812 Prairie\'s stone now reads lighter than its brick, as Albert Levy\'s photograph shows it: a pale limestone basement and porch storey under a red-brown brick front, with the side walls a paler common brick.',
+      'The carved frieze over the north window is now an interlace of crossing straps, and the bosses under the south bay\'s windows are carved shields.',
+      'The south bay\'s second storey stands on a smooth stone band, and its top under the balcony is a stone frieze rather than brick.',
+      'Behind the house, the rear range now steps in towards the alley as the 1911 fire-insurance map draws it.',
+    ] },
+  { v: 2287, ts: '2026-10-25T18:34:58.890Z', date: 'Oct 25, 2026, 1:34 PM CT', title: 'Glessner\'s stable dovecote set higher, with proper pigeon holes', kind: 'fix',
+    items: [
+      'The nine pigeon holes in the stable\'s north gable on 18th Street are now round-headed and a stone course tall, as two photographs and an 1887 print show them. They had been narrow slits.',
+      'The holes and the ledge under them are about 10 inches higher, where the 1965 survey photograph, taken square to the gable, places them.',
+    ] },
   { v: 2286, ts: '2026-10-25T17:59:56.014Z', date: 'Oct 25, 2026, 12:59 PM CT', title: 'Dearborn drawbridge gains boarded parapets', kind: 'improvement',
     items: [
       'Horizontal boards fill the drawbridge\'s side parapets, following the credited historical engraving. Their dimensions are reconstructed; the deck stays flat while the pictured central rise and other differences await further work.',
