@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2283, ts: '2026-10-25T15:42:58.521Z', date: 'Oct 25, 2026, 10:42 AM CT', title: 'Rounder carriage lamps and clearer horse eyes', kind: 'change',
+    items: [
+      'Rounder coach-lamp heads replace the earlier tall angular ones on the parked 1904 Brougham.',
+      'The standing horse has darker, more coherent eyes, with its coat, shape and natural weight shift preserved.',
+      'The 1835 viewpoint list now includes the Western Hotel yard, with a direct arrival near its standing horse.',
+      'Long links and release notes wrap within What\'s new at normal and enlarged text sizes, keeping the complete text readable inside the Navigator.',
+    ] },
+  { v: 2282, ts: '2026-10-25T15:42:58.521Z', date: 'Oct 25, 2026, 10:42 AM CT', title: '1801 Prairie\'s south side: its first photograph and two tall stacks', kind: 'improvement',
+    items: [
+      'The Kimball house\'s south wall, toward 1811, is now checked against the 1965 survey photograph taken from across Prairie Avenue, the only known picture of that side.',
+      'Two tall stacks in pale stone, the walls\' own tone, rise from the cornice over the south wall, where one small brick stack stood before. The front one is kept low enough to stay hidden behind the roof, as the 1890s photograph from the corner shows it. Its full 1965 height, and both stacks\' latticed heads, are still to come.',
+    ] },
+  { v: 2281, ts: '2026-10-25T14:48:44.986Z', date: 'Oct 25, 2026, 9:48 AM CT', title: 'Glessner House up close, back inside the full-detail budget', kind: 'fix',
+    items: [
+      'Standing on Prairie Avenue or 18th Street near Glessner House, the 1904 scene at full detail drew up to 4.7 million triangles, over its 4.6 million budget. Part of that was the sunlight pass drawing the shadows of houses beside and behind the visitor, shadows the sun throws away from anything on screen. Full detail now skips those, as Light has done since October, and the closest view on Prairie draws 4.4 million. Nothing a visitor can see changes: at all seven views tested, the picture matches pixel for pixel.',
+    ] },
   { v: 2280, ts: '2026-10-25T14:38:11.686Z', date: 'Oct 25, 2026, 9:38 AM CT', title: 'The missing map sheet for Indiana Avenue, 18th to 20th, is in', kind: 'change',
     items: [
       'The 1911 fire-insurance map sheet that draws Indiana Avenue between 18th and 20th Street was the one gap in the Prairie Avenue maps. It is now copied from the Library of Congress and lined up with the sheets on either side; where the three sheets meet they agree to within about two-thirds of a metre. Its 26 lots, 1801 to 1937 Indiana and 213 to 217 East 18th Street, are now on the 1904 street plan, and the avenue\'s east curb, walk and elms along the block follow the line the sheet draws instead of a straight guess between its neighbours. The far-off city behind the avenue is laid out again from the new lot widths. The houses on the block are still the reconstructed row; reading them off the sheet comes next.',
