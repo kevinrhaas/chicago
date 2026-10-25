@@ -34,11 +34,11 @@
       },
       "position": {
         "utm_e": 448169.049,
-        "utm_n": 4633939.79,
+        "utm_n": 4633939.799,
         "rotation_deg": -0.572,
         "symbolic_location": "1936 S. Michigan Avenue, the north-west corner of Michigan Avenue and East Twentieth Street, west of every committed Sanborn sheet.",
         "confidence": "reconstructed",
-        "note": "The rear corner of the main body (u -32.340, v 5.960 m from the building's front and southernmost faces), set from the corner at local (1128.75, -3461.65): Michigan Avenue's centre is the e1871 terrain box's reading at 16th Street (E +1136.7), carried south on the bearing of Indiana Avenue's measured east line; its west line is 10.06 m out (the 66 ft every street on the committed sheets prints; Michigan's own width is not read here), and the church's east face stands a reconstructed 3.0 m behind it, as the photograph's lawn strip shows; the south face stands 3.0 m behind East Twentieth Street's measured north line (data/street_grid/1904.json). Good to a few metres. Rotation -0.572 degrees squares the plan to the avenue.",
+        "note": "The rear corner of the main body (u -32.340, v 5.960 m from the building's front and southernmost faces), set from the corner at local (1128.75, -3461.64): Michigan Avenue's centre is the e1871 terrain box's reading at 16th Street (E +1136.7), carried south on the bearing of Indiana Avenue's measured east line; its west line is 10.06 m out (the 66 ft every street on the committed sheets prints; Michigan's own width is not read here), and the church's east face stands a reconstructed 3.0 m behind it, as the photograph's lawn strip shows; the south face stands 3.0 m behind East Twentieth Street's measured north line (data/street_grid/1904.json). Good to a few metres. Rotation -0.572 degrees squares the plan to the avenue.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the 1904 street grid's faces and the rules' site row by tools/draft_prairie_1904.py --check instead."

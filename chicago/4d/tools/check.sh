@@ -791,7 +791,7 @@ selftest "…and its own assertions still fire when broken" \
 # is fitted and printed and not adopted; its contract fails if the street bands
 # stop agreeing with the bar, or if the Glessner sheet's three standing houses stop
 # landing within 5 m of their OpenStreetMap outlines.
-step "the four Prairie Avenue sheets still re-derive their georeference (T-1250)" \
+step "the five Prairie Avenue sheets still re-derive their georeference (T-1250, T-3150)" \
   python3 tools/georef_prairie_1904.py --check
 
 selftest "…and a moved control, a misread bar or a mislaid house still fails it" \
