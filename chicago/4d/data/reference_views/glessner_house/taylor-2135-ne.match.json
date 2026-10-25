@@ -63,6 +63,10 @@
     {
       "what": "T-3115 (found by T-3065): the west cross no longer stands past the face's edge from this eye; draped on the rock instead of at its furthest reach, it falls on the face (docs/RESEARCH/glessner-crosses-T-3115/taylor-before-after.jpg). The print does not resolve the crosses themselves.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
