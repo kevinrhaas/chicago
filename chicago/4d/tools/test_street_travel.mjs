@@ -77,7 +77,10 @@ const footprints = footprintsFrom(registry), fp = footprints.find(f => f.id === 
 const centre = { e: fp.pts.reduce((s, p) => s + p[0], 0) / fp.pts.length, n: fp.pts.reduce((s, p) => s + p[1], 0) / fp.pts.length };
 const terrain = { ...dry, heightfield: { loaded: true, originE: 1100, originN: -3800, widthM: 700, depthM: 900 } };
 const city = createRouter({ terrain, streetGrid: read('street_grid/1904.json'), footprints, cell: 1, inflate: 0.1 });
-const start = { e: 1300, n: -3230 };
+// The start stands on Indiana Avenue's east walk in front of 1809, the far side of the block from
+// Glessner's front. Until T-3151 it stood at e 1300, open ground behind T-3011's background row;
+// the sheet-27 drafts put 1809's house on that spot, so the walker starts at its street instead.
+const start = { e: 1273, n: -3230 };
 for (const mode of ['walk', 'horse', 'wagon']) {
   const stand = city.standOff(fp.id, centre, 25, { mode, distance: 60 });
   assert.equal(stand.front.street, 'prairie'); assert(stand.e > 1390);

@@ -661,8 +661,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # generators/draft_emit.py, so restaling on that archetype's own rows and on none of the
 # shared ones above.
 #
+# 990 -> 1024 on 2026-10-25 (T-3151): that row retired, and the face drafted off Sanborn sheet 27
+# instead, twenty-two houses and thirteen alley buildings on `prairie_draft` (35 in, 1 out),
+# emitted through generators/draft_emit.py, so restaling on that archetype's own rows and on
+# none of the shared ones above.
+#
 STATED = {
-    "assets": 990,
+    "assets": 1024,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
