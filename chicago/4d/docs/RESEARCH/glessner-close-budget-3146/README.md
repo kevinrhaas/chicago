@@ -62,9 +62,15 @@ changed none at the two ticket stands. No page errors or failed requests. Files:
 `browser-validation-{desktop,mobile}-*.json`, and the two ticket frames as
 `after-desktop-glessner-*.jpg`.
 
+**Re-read after dev took T-3011** (the Indiana 18th-20th background row, #1302), on the
+rebased tree, desktop: Prairie 38 m E / 30 m S **4,783,248 -> 4,489,566**, 18th 45 m W /
+32 m N **4,600,755 -> 4,593,403**, both inside, every pixel the same
+(`browser-validation-desktop-ticket-stands-after-t3011.json`). The background row cost
+the Prairie stand about 106,000 and the test still clears it by 110,434.
+
 ## What is still thin
 
-**18th, 45 m W / 32 m N stands only 5,843 inside at desktop.** From there the sun throws
+**18th, 45 m W / 32 m N stands only 5,843 inside at desktop (6,597 after T-3011).** From there the sun throws
 Glessner's shadow toward the camera, so the test rightly keeps it (7,352 saved), and the
 house's view pass is 1,408,436 of its 1,421,694 although the camera sees only its north and
 west fronts: the court, south and east walls are behind its own walls, and T-2227's filter
