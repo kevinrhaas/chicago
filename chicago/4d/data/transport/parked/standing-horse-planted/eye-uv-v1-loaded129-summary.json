@@ -1,0 +1,85 @@
+{
+  "selected_asset_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "historical_b479_qualification_not_inherited": true,
+  "status": "FRESH_GLTFLOADER_PRODUCTION_CLONE_MIXER129_HOSTED_CPU_PASS_ONLY",
+  "scene_id": "1904",
+  "normal_activation": false,
+  "world_qualified": false,
+  "photographic_or_GPU_acceptance": false,
+  "dimension_only_image_shim": true,
+  "new_browser_contexts": 0,
+  "fixture": "Explicit external diagnostic row only; canonical1904enabled/world/animation flags remainfalse",
+  "canonical_loaded_inspection": {
+    "bounds": [
+      [
+        -0.36283543503190147,
+        1.7881393449270533e-09,
+        -1.1616865107544931
+      ],
+      [
+        0.3618392442646423,
+        1.792453269958496,
+        1.5428501618638077
+      ]
+    ],
+    "meshes": 3,
+    "textures": 6,
+    "estimated_texture_mip_bytes": 23068671.999999996
+  },
+  "actual_production_idle_holds_and_advance": true,
+  "actual_hosted_loop_position_m": 0,
+  "metrics": {
+    "samples": 129,
+    "key_count": 65,
+    "midpoint_count": 64,
+    "maximum_hosted_temporal_contact_drift_m": 8.585658108158584e-06,
+    "maximum_per_hoof_minimum_gap_m": 0.00020473008395072156,
+    "minimum_hosted_vertex_clearance_m": 1.4569358013361011e-06,
+    "triangle_edge_ratio_range": [
+      0.9311366568529011,
+      1.0673066530242914
+    ],
+    "triangle_area_ratio_range": [
+      0.928463820890193,
+      1.0880592513462586
+    ],
+    "reversed_triangles": 0,
+    "maximum_anatomical_segment_length_error_m": 1.5604184611106575e-13,
+    "original_patch_counts": {
+      "fore_l": 59,
+      "fore_r": 59,
+      "hind_l": 13,
+      "hind_r": 10
+    },
+    "additional_e_only_counts": {
+      "fore_l": 19,
+      "fore_r": 19,
+      "hind_l": 32,
+      "hind_r": 37
+    }
+  },
+  "controls": {
+    "three_mm_lift_rejected": true,
+    "twenty_um_penetration_rejected": true
+  },
+  "scope": "Fresh native loader/clone/production instantiation, actual hierarchy and skeleton Float32 palettes plus independently stored model/bind uniforms; CPU Float64 shader-order arithmetic, not GPU Float32 execution. Dimension-only image shim reads exact embedded bytes but decodes no pixels. Canonical1904 activation remainsfalse; no appcamera/rendering/wholeworldclearance/performance/photographic acceptance.",
+  "owned_resources_closed": true,
+  "elapsed_ms": 2595.232699,
+  "inputs_unchanged": true,
+  "sources_unchanged": true,
+  "schema": "standing_horse_eye_uv_v1_loaded129_summary",
+  "raw_result_file": "eye-uv-v1-loaded129-result.json",
+  "raw_result_sha256": "60f693bf10c17b04376d9a521cd91c51bacae12da32e0eec821de8bdd3b15d5a",
+  "terminal_file": "eye-uv-v1-loaded129-terminal.json",
+  "terminal_sha256": "7e6b4fa6f2ad2bfe5eda18338f97659704e74bbc3480e80e2b72f29f461435e7",
+  "fresh_input_asset_bytes": 3784176,
+  "maximum_rss_bytes": 268435456,
+  "original_physical_limits_unchanged": true,
+  "historical_b479_summary_file": "loaded129-summary.json",
+  "historical_b479_summary_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
+  "historical_b479_asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "protected_input_bridge_diff_sha256": "a678dd4934eb77c618990581a87d309eaf7f7850d6c342dd51cef360f3e7a062",
+  "unchanged_physical_verifier_original_sha256": "3eb60131e903ca74579e4e533854b770fdf1c796cacff4d39e4e7a5c38d1bf47",
+  "fresh_identity_bridge_proof_sha256": "1e2c22f0a63f9a54f0d81cecbedef658f6309dea4070bb9404ba996d35193518",
+  "root_release_sha256": "5f956b9aae911771ceac0b2117d017559242e406e810a5f9b9653a393eee12ca"
+}

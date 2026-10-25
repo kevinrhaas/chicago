@@ -1,0 +1,77 @@
+{
+  "structure_id": "kimball_house_1801_prairie",
+  "view": "habs_1965_01_southwest",
+  "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+  "glb_sha256": "39ed6df6e220bf154aeba2bbe776c00db29741fd4e3c9b2c74a4fce7adbb8285",
+  "camera_sha256": "f46ae16fefb6fcc9978291adbe19363723815faa4c42f16927fd46e51084a5bc",
+  "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
+  "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
+      "status": "fixed"
+    },
+    {
+      "what": "the front stack's height: the print's cap stands about 167 px (about 3.5 m) over the cresting beside it, its top at y 128 px; the build holds it to 18.0 m, the most the c. 1895 Taylor print allows (it shows nothing over the deck there), so its cap renders well under the print's (L-kimball-1801-south-stacks-3107)",
+      "status": "open"
+    },
+    {
+      "what": "the stacks' heads: a moulded collar (about y 200-220 px on the front one) under a stage of diamond-latticed panels about 1.5 m deep and a moulded cap, the stage about 0.15 m proud of the shaft each side; the build lays one plain cap 0.8 m deep (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the stacks' lower stages: each shaft widens below about the curb into a broader base carried down the steep lower face to the cornice (the front one x 860-965 px below y 350); the build's shafts run straight (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the south-west corner: a two-storey round bay (x 620-750 px) between the gabled face and the south wall, a single window a storey, under a pierced lattice balcony at the cornice (y 510-550) with a light in the roof behind it; the build's pavilion runs flat to the corner and turns it in a 0.44 m chamfer (T-3108)",
+      "status": "open"
+    },
+    {
+      "what": "the gabled pavilion's face: the print's spans x 465-620 px with its paired lights (x 487-600) and the gable's apex (x 543) on its axis, narrower than the build's 4.15 m and centred about 1 m further north (the 1911 sheet's front bulge runs v 7.1-9.3 before its corner cut); the build's pair and apex stand south of the print's (T-3108)",
+      "status": "open"
+    },
+    {
+      "what": "the south cornice: the print's runs from about y 548 at the round bay to y 655 at the south-east corner; the render's about 85 px lower at the bay and about 10 px at the corner. The camera or the corner's cornice is wrong, and the front T-3108 rebuilds decides which; the deck's cresting along the south curb renders under the print's with it",
+      "status": "open"
+    },
+    {
+      "what": "the south bay: the print's bay toward the east end (its front x about 1000-1150 px, its canted east side x 1150-1222 in shade) stands proud of the wall, the 1911 sheet's 0.8 m projection over u 12.1-6.7 with canted sides; the build's south wall is flat (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the south wall's openings: the print shows one column at x 850-905 px near the round bay and one on the bay's front at x 1060-1125 (second-storey sill about y 835, transom at y 755), with the tree hiding the wall between; the build's three reconstructed columns at u 6.5, 11.5 and 16.5, two of which fall on the print's two (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the south mansard's dormers: a hooded dormer between the stacks (x 1040-1130 px, its light y 430-490, a tall slated hood over it) and a small light behind the corner balcony (x 640-680); the build has none on this face (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the roof's south-east corner: a tall slender pinnacle or gablet (x 1200-1245 px, y 380-600) where the south slope meets the rear; the build has none (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the rear range beyond the court: a lower two-storey white range with a gable and a hooded dormer facing the court (x 1300-1640 px); the build's wings stand there with hipped roofs (T-3110)",
+      "status": "open"
+    },
+    {
+      "what": "colour: the stone's tone and the slate's",
+      "status": "not shown"
+    },
+    {
+      "what": "the east side and the 18th Street front",
+      "status": "not shown"
+    },
+    {
+      "what": "the neighbours: 1811's brownstone north wall at the right edge, the fence, the lawn and the trees (the review renders 1801 alone)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

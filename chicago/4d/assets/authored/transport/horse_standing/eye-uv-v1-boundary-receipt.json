@@ -1,0 +1,39 @@
+{
+  "status": "PASS_INDEPENDENT_UV_ONLY_CHANGE_BOUNDARY",
+  "baseline_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+  "candidate_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "candidate_bytes": 3784176,
+  "UV10_changed_values": 7936,
+  "non_UV_BIN_exact": true,
+  "JSON_except_UVbounds_and_explicit_derivative_notice_exact": true,
+  "six_image_payloads_materials_26rig_weights_inversebind_nodes_animation_indices_body_hair_UVs_exact": true,
+  "negative_controls": [
+    {
+      "case": "protected_position_byte",
+      "rejected": true,
+      "reason": "Protected binary bytes"
+    },
+    {
+      "case": "material_change",
+      "rejected": true,
+      "reason": "Protected semantic JSON"
+    },
+    {
+      "case": "animation_change",
+      "rejected": true,
+      "reason": "Protected semantic JSON"
+    },
+    {
+      "case": "false_uv_bounds",
+      "rejected": true,
+      "reason": "Actual bounds"
+    },
+    {
+      "case": "nonfinite_uv",
+      "rejected": true,
+      "reason": "Finite bounded UVs"
+    }
+  ],
+  "source_baseline_unchanged_after": true,
+  "scope": "Exact source-data equivalence and five rejected controls only; fresh d454 Mixer129 qualification is recorded separately. Historical b479 loaded129 remains historical."
+}

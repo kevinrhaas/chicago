@@ -1,7 +1,7 @@
 {
   "id": "sevketkabatas_2021_horse_model",
   "type": "website",
-  "citation": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
+  "citation": "sevketkabatas, \u201cHorse\u201d, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
   "author": "sevketkabatas",
   "date": "2021-03-29",
   "describes_date": "2021-03-29",
@@ -18,7 +18,7 @@
   },
   "asset_use": "cross_check",
   "verified": true,
-  "note": "Modern development-base geometry/coat/rights only, not historical evidence. All1835 individual, phenotype, size, grooming and placement choices remain reconstructed. The current canonical26 derivative b479442c uses project-reconstructed rig/V16 skin and planted body-shift clip; original source remains unchanged in preserved acquisition/recovery records. No source motion is relabelled walk or composed with this clip. Photographic, tack, riding and hitching remain open.",
+  "note": "Modern development-base geometry/coat/rights only, not historical evidence. All1835 individual, phenotype, size, grooming and placement choices remain reconstructed. The current canonical26 derivative b479442c uses project-reconstructed rig/V16 skin and planted body-shift clip; original source remains unchanged in preserved acquisition/recovery records. No source motion is relabelled walk or composed with this clip. Photographic, tack, riding and hitching remain open. Eye-UV-v1 d4544c28 separately supersedes the selected b479 appearance with reconstructed dark pupil/gaze through existing UV10 only; all six source image payloads remain exact. Fresh d454 production clone/Mixer129 CPU passed without inheriting b479 historical qualification. Native browser, mobile, world, tack, routes and photographic completion remain open.",
   "what_it_supplies": [
     "Redistributable textured modern source mesh/maps under CC BY4.0, used in an explicitly reconstructed canonical26 planted-standing derivative."
   ],

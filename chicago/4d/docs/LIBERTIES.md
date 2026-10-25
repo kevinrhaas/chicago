@@ -31505,6 +31505,8 @@ mouth's floor against the street mouth's, before the court was paved for parking
 
 **Reconstructed:** all absolute metres, hidden sides/interior/construction, pigments and optical materials, support/hardware attachment, opposite-side symmetry and the stop. V17 has separated footplates, slender curved step supports and two 8mm recessed dark opaque rear-quarter surfaces; the illustration does not identify these as glass, curtains or a specific lining. No image pixels are embedded. Matched native catalogue views prefer V17 over V15, but its flat paint, uniform inset, glass and smaller fittings remain visibly simplified. Photographic completion remains open.
 
+**V18 lamp-form refinement (2026-10-23):** Rounded twin-faced upper housings and narrower lower bodies follow the visible catalogue lamp silhouette more closely than V17's tall straight cages. Their exact dimensions, surfaces, hidden faces and transparency remain reconstructed. Actual fixed-camera software mesh projections were personally compared with the untouched plate; protected non-lamp streams and unaffected pixels match exactly. This is a bounded form review, not browser/Three PBR, world, distance-LOD or photographic acceptance. Current near is33,374triangles; current mid is11,706. V17's earlier native appearance acceptance remains historical only; both current V18 appearance flags are false. Source gates enforce consistent current source/recipe/receipt bindings and reject stale V17 or unearned acceptance metadata.
+
 **Delivery and limits:** only the indexed near model is supplied. Full100m/Balanced65m/Light0 reach and existing confidence/picking/material batching remain unchanged. The fixed paired-team pole and its original ground shoe are parked-down geometry, not a new hinge or working-height hitch. The same rendered carriageway provider checks all wheels and four shoe corners, refusing nonfinite ground, wheel span over30mm, penetration over1mm or shoe gap over30mm. For this Brougham only, the least rigid vertical base clears both the wheels and the declared shoe corners; the maximum wheel gap is checked again after that solve. At the unchanged stand, actual source sampling found the previous wheel-only base put the shoe4.866mm into the road; the all-contact base rises4.866mm and leaves at most9.466mm wheel gap. The four corners bound this particular shoe patch on the current bilinear source surface; they do not qualify arbitrary terrain, full pole/body/obstacle clearance or rendered world contact. Actual world, phone, publication and whole-scene budget acceptance remain pending. No horizontal relocation, tilt, support geometry change or weakened renderer limit qualifies a failed stand.
 
 **Unsupported:** occupants, boarding, door operation, steering/wheel animation, horse/rein/hitch coupling, collision physics, traffic and riding. All source interface capability flags remain false. The native hitch[0,.037,3.8]m is a parked datum. T-2794 photographic and occupied work remains OPEN.
@@ -31666,6 +31668,9 @@ The roof's form and its faces are now inferred from Levy's print, so `form.roof_
 **Ticket:** T-2794.
 **Recorded:** 2026-10-23.
 
+**V18 distance-model amendment (2026-10-24, T-3083):** The preceding decision and eight-view native appearance acceptance describe archived V17 only; they are not transferred to V18. The1904 Brougham uses the exact accepted11,706-triangle source-derived distance model beyond the existing24m/screen-size boundary, with unchanged5% hysteresis. The current V18 near has33,374triangles; its original conservative collision proxy remains exact. Physical feature names,64spokes,16spring leaves, materials,42nodes,13runtime anchors, eight static targets, full bounds and wheel/pole/shoe contacts remain. Current V18 subdivision records change480→314; no physical feature category is omitted. The original ring16 distance recipe and non-lamp fittings remain; V18 lamp reconstruction is declared in L-brougham-parked-2794. Earlier V17 counts468→302 and native appearance acceptance are historical only. The tighter mid mudguard maxY is5.755mm lower inside the original conservative proxy; it is not used to reduce production clearance. Current source/geometry checks do not supply native appearance, PBR, world or photographic acceptance; both current V18 appearance flags remain false.
+
+
 ### L-kimball-1801-pavilion-shallow-3047 — 1801 Prairie's south pavilion stood at the 1911 sheet's 0.1 m as a shallow projection, its corner still square
 
 **Decision:** 1801 Prairie's south pavilion (T-3047, piece 1 of T-3016) stands 0.1 m proud of the
@@ -31730,6 +31735,9 @@ or atlas plate of the 20th-22nd blocks, or any photograph of the livery's front.
 **Sources:** sevketkabatas_2021_horse_model supplies modern source/rights only; chicagology_prefire278 supplies historical horsekeeping context only.
 **Ticket:** T-2800/T-2803, partial standing increment; both master/gait acceptance remain open.
 **Recorded:**2026-10-23.
+
+
+**2026-10-23 eye-UV-v1 amendment (T-2800).** The selected planted-standing development horse now has a separately versioned dark-eye UV correction (d4544c28) from preserved b479. Gaze and an approximately horizontal2:1 pupil are reconstructed on the unchanged source eye globes using the existing brown iris/pupil texture. The bounded recipe preserves existing charts/tessellation, rejects folds/cracks and retains the original4/256UV centroid error limit. Only eye UV10/accessor bounds and explicit GLB derivative notice change; original six image payloads, material records, body/hair UVs, geometry, canonical26 rig/weights and planted clip remain exact. Modern horse-model rights do not attest this eye, breed or historical individual. Root reviewed equal-camera software texture projections and approved a limited appearance improvement; current-SHA native app/yard/mobile/PBR/photographic acceptance remains pending. Fresh d454 production loader/clone/Mixer129 CPU passed unchanged physical guards; historical b479 loaded129 remains historical. Opaque mane/tail, baked coat glints and near-closed/coarse eyelids remain quality limits. No route, harness, team, rider or player interaction is certified. **How to resolve:** anatomy/reference-led modelling and actual matched native/browser/device review; no software diagnostic is relabelled photographic proof.
 
 ### L-glessner-course-relief-3046 — Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows
 
@@ -32499,6 +32507,33 @@ or elevation of the house.
 **Ticket:** T-3097.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3097).
+
+### L-kimball-1801-south-stacks-3107 — 1801 Prairie's two south stacks read off HABS photograph 1, the front one held to the height the Taylor print allows, their heads simplified
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`
+**Decision:** the south wall of the W. W. Kimball house at 1801 Prairie (T-3107, piece 1 of T-3003)
+carries the two tall stacks Harold Allen's HABS photograph of June 1965 (`habs_kimball_photo_01_sw_1965`)
+shows rising from its main cornice, where the build had one reconstructed brick stack. **What is
+read, not invented.** Through the photograph's solved camera
+(`data/reference_views/kimball_house_1801_prairie/habs_1965_01_southwest.json`): the front stack at
+u 14.45, about 1.2 m across; the rear one at u 3.2, about 1.45 m across, where the reconstructed
+stack stood; both rising from the cornice over the wall line, in pale ashlar the walls' tone, not
+brick; the rear one's cap at about 20.1 m. **What is invented.** Their depth into the roof (the
+print sees their south and west faces only): about 0.85 of their width, the outer face 0.3 m
+outside the wall line, inside the 0.4 m cornice. Their heads: the print's moulded collar under a
+stage of diamond-latticed panels about 1.5 m deep and a moulded cap are built as one plain cap
+0.8 m deep and 0.15 m proud. The shaft in the walls' rough stone material, the cap in the trim's.
+**The front stack's height is a ruling, not a reading.** The 1965 print stands its cap about
+3.5 m over the cresting beside it; J. W. Taylor's photograph of c. 1895, the period view the phase
+guard prefers (T-1890), shows nothing over the deck where that cap would show from its eye. It is
+built to 18.0 m, the most the period print allows through its camera; the 1965 height is open in
+both match records.
+**How to resolve:** a period view of the south side or the roof; or the camera re-solved on the
+rebuilt front (T-3108), which may move the reading: its cornice reads up to 85 px over the build's
+at the south-west corner. The heads' panels and collar are T-3109's.
+**Ticket:** T-3107.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3107).
 
 ### L-k08-1812-balcony-panel-3113 — 1812 Prairie's balcony given the Levy photograph's stone panel, pedestal, iron scrolls and roundel balusters, and the south projection's top brought down to the print's cornice
 

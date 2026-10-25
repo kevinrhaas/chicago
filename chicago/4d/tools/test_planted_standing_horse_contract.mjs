@@ -7,7 +7,7 @@ import { standingHorseCard } from '../renderers/web/js/standing-horse-card.js';
 import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP }
   from '../renderers/web/js/standing-horse-planted-idle.js';
 const spec = JSON.parse(readFileSync(new URL('../data/transport/parked/horse-sevket-sidecar.json', import.meta.url)));
-const buffer = readFileSync(new URL('../renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb', import.meta.url));
+const buffer = readFileSync(new URL('../renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb', import.meta.url));
 assert.equal(createHash('sha256').update(buffer).digest('hex'), PLANTED_SHA);
 const bytes = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
 const header = validatePlantedStandingHeader(bytes, spec);

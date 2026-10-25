@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""Read the exact V17 near delivery; no producer or browser is launched."""
+"""Read the exact registered near/mid delivery; no producer or browser is launched."""
 from pathlib import Path
 import json
 from transport.brougham.check_near import check_near

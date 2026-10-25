@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Play one explicit glTF planted-standing clip; no procedural bone motion/blend.
-export const PLANTED_SHA = 'b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be';
+export const PLANTED_SHA = 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914';
 export const PLANTED_CLIP = 'sevket_reconstructed_planted_posture_v1';
 const ROTATIONS = [7, 8, 9, 12, 13, 14, 17, 18, 19, 22, 23, 24];
 const NAMES = { 1: 'horse_body', 7: 'fore_l_elbow', 8: 'fore_l_carpus', 9: 'fore_l_fetlock',
@@ -12,11 +12,11 @@ const hash = text => { let h = 2166136261; for (const c of text) { h ^= c.charCo
 
 /** Bytes are SHA-verified by caller before this metadata/inventory guard. */
 export function validatePlantedStandingHeader(bytes, spec) {
-  check(spec.runtime_asset?.sha256 === PLANTED_SHA && spec.runtime_asset.bytes === 3783600,
+  check(spec.runtime_asset?.sha256 === PLANTED_SHA && spec.runtime_asset.bytes === 3784176,
     'explicit standing asset identity required');
   check(spec.runtime_scale_m_per_unit === 1 && spec.runtime_origin_m?.length === 3
     && spec.runtime_origin_m.every(v => v === 0), 'canonical metres require unit scale and zero origin');
-  check(bytes.byteLength === 3783600 && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
+  check(bytes.byteLength === 3784176 && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
   const view = new DataView(bytes);
   check(view.getUint32(0, true) === 0x46546c67 && view.getUint32(4, true) === 2
     && view.getUint32(8, true) === bytes.byteLength && view.getUint32(16, true) === 0x4e4f534a,
