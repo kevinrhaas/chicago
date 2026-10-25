@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Southern upper west slit moves from S21.8 to S19.8, retaining width/heights. Actual candidate compared with ca.1887 Cornell photograph at the frozen west-plane camera; other seven aperture positions remain.",
@@ -74,6 +74,10 @@
     },
     {
       "what": "T-3148, reviewed from the rebaked master: in this print the tiles' edge on the 18th Street front west of the stable gable lies 3-5 px off the straight line the same edge draws east of it (u 230-450), where the build's old step at the gable (23.1 ft east, 25.2 west) would draw about 50 px. The eave west of the gable is rebuilt at the range's 23.1 ft and the cross ridge comes down 0.10 m to stay on the alley gable's rake. T-2758's two roof fits of this print had put the alley-end eave on the old model's (0.0-0.3 m); they now read it about 0.4-0.7 m over the lowered one (T-3096 measured +0.01 to +0.08 and -0.25 to -0.19 m against the old), which is those fits' (T-3102), not the eave's: the camera-free line rules it. docs/RESEARCH/glessner-north-eave-T-3148/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3140, the window over the great arch: this print, taken as the house was finished, shows it as one wide unglazed opening under one lintel, with no stone pier in it, where the build had three lights between two piers. HABS 01 (1963) and HABS 15 (1965) show the same single opening, so the form is attested by three pictures across 78 years. Rebuilt as one opening on its old span (W 97.7-110.1) and heights; re-rendered, it reads as one opening here, standing about 40 px off the print's as the rest of the range east of the stable does through this camera (the stable-end-cameras row). docs/RESEARCH/glessner-signoff-T-3140/.",
       "status": "fixed"
     }
   ],

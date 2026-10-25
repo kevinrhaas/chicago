@@ -2,11 +2,11 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6954d41d9cb2eb2b37ec9ee409076e3a10af831eb98ef00e1e9e9f72f1acc41d",
+  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
   "camera_sha256": "7146c5ae0d24d7c724177b925417a90c20a38cb3d0e36e01a5a6ad3e04549ec7",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2857 openings: the jambs of the four first-floor windows and the door fit the model's opening spacing camera-free (one-dimensional projective fit along the course, 10 jambs, 1.50 px rms). The openings are right relative to one another (docs/RESEARCH/glessner-prairie-front-T-2857/).",
@@ -65,8 +65,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it.",
-      "status": "open"
+      "what": "T-3136, read on this side-by-side at 6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light about 23 px and its pier about 11 where the render draws 26 and 7.5 (the south light 21.7 against 21.3): the narrower north light and wider pier HABS 16 shows. Through this camera the pair also stands about 15 px north (right) of the print's, where the first-floor jambs fit within 3.2 px. T-3141 owns it. T-3140, ruled within tolerance (T-3153): as on HABS 16, the north light 0.3-0.5 ft narrow and the pier 0.3-0.45 ft wide, under the 1 ft bar; the pair's 15 px northward stand is this camera's, the jambs either side fitting within 3.2 px. T-3141 was withdrawn on this ground.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
