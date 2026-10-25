@@ -106,6 +106,8 @@ def verdicts(name, a):
     for o in [*a.p.openings, *[x for w in a.p.rear_wings for x in w["openings"]]]:
         if o.wall in ("k01.wall.street_front", "k01.wall.dormer_face") or o.wall in timber:
             continue   # the front keeps its own K09 heads; a dormer's face is the roof's; timber is cased
+        if o.component in P.ROUND_CUT:
+            continue   # T-3133: a round head is K06's arch band, or plain as its picture draws it (T-2884)
         O, R = frames[o.wall]
         s0 = o.s_m - o.width_m / 2 - 0.12   # the arch's springing, seated 0.12 m into the wall
         want = (O[0] + R[0] * s0, o.head_m, O[2] + R[2] * s0)
