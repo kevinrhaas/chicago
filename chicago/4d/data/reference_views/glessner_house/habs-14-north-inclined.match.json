@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "62d7f5257f1106ed6d75a4a9ff3e748758433ddaaa865574c5803a3bb232c167",
+  "glb_sha256": "6ba8c9f7cebf52683b2b6ac0830de3a55a7e6bd6ce5a231774a626f544f5d1f0",
   "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
   "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
@@ -66,6 +66,10 @@
     },
     {
       "what": "T-3116 (found by T-3024 and T-3065): the crest against the gable's fan. Sheet 6 draws the gable edge-on, so the fan is read off the photograph camera-free, on its vertical through the stack and the light, scaled by sheet 6's crest and both stones and by the north pairs' sill and head (a 1-D projective fit, residuals 0.14 ft at most; run on the render it returns the built heights within 0.25 ft). The fan's crown read 1.4 ft, the light's head 1.2 and its sill 0.8 over the build, while the fan's crown stood as far over the light's head as built (69 px in both), so the camera's 15 px at the crest was not all of it: the light and fan stood low under a stack sheet 6 sets. Rebuilt 1.0 ft higher (sill 30.0, transom 34.14-34.88, spring 35.45, the fan's crown 40.15 ft ng), the readings' mean with HABS 01's. Re-rendered: the crest stands 147 px over the fan's crown against the photograph's 142 (162 before). The coping's junction reads 42.6-43.0 ft ng through the same fit, 0.3-0.7 ft under the built 43.3 and about 8 px under the 1886 stone's foot (T-3115's 13 px was the raw crop); sheet 6 draws it 43.5-43.7, so T-3024's middle stands. docs/RESEARCH/glessner-gable-fan-T-3116/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3127 (found by T-3116): the gable light's width. Its jambs, read through the camera the north pairs solved, put it 2.08-2.12 ft wide (sash and head) where the same picks on the render return the built 1.5 ft as 1.43-1.45; the fan's outer ring spans 9.8 ft against the built 9.4. Rebuilt 2.1 ft wide on its old centre (W 17.75-19.85), its head held at 36.2 ft ng, so its spring comes down to 35.15 and the fan's radius goes to 5.0 ft to keep the crown at 40.15. Re-rendered: the light reads 39 px across against the photograph's 38 (27 before). The print sets the centre about 0.2 ft east, which HABS 01 contradicts, so it is not moved. Still open for T-3117: the head stands higher over the transom here than built, and the fan shows fewer, broader stones than the 11 built. docs/RESEARCH/glessner-gable-light-T-3127/.",
       "status": "fixed"
     }
   ],

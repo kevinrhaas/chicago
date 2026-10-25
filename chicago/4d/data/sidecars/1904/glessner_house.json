@@ -2908,22 +2908,22 @@
             "datum": "ng",
             "items": [
               {
-                "what": "east-wing north-gable round-headed light over a stone transom and a one-over-one sash, HABS photo 14",
+                "what": "east-wing north-gable round-headed light over a stone transom and a one-over-one sash, HABS photo 14 (T-3127: 2.1 ft wide between the jambs, read on HABS 14 and HABS 01 against the north pairs' solved cameras, centre held; its head held at 36.2 so the spring comes down to 35.15, and the fan's radius 5.0 ft keeps its crown at T-3116's 40.15 and reads the prints' 9.8-10.0 ft span)",
                 "kind": "arch",
                 "at": [
-                  18.05,
-                  19.55
+                  17.75,
+                  19.85
                 ],
                 "z": [
                   30.0,
                   36.2
                 ],
-                "spring": 35.45,
+                "spring": 35.15,
                 "transom": [
                   34.14,
                   34.88
                 ],
-                "ring_ft": 4.7,
+                "ring_ft": 5.0,
                 "voussoirs": 11,
                 "style": "gable_slit"
               }
