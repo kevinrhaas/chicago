@@ -346,7 +346,9 @@ def _roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1,
     """
     c_wall = conf if c_wall is None else c_wall
     t = math.tan(math.radians(p.roof_pitch_deg))
-    if p.roof_type in ("flat", "none"):
+    if p.roof_type == "none":
+        return eave_z
+    if p.roof_type == "flat":
         b.add_poly([(x0, y0, eave_z), (x0, y1, eave_z), (x1, y1, eave_z),
                     (x1, y0, eave_z)], conf, M_ROOF)
         return eave_z
