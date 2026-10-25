@@ -24317,7 +24317,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24397,6 +24397,12 @@ rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stand
 1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the
 draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate
 draws it filling lot 6; `fills_lot`). The ruling itself is `L-1635-forsyth-standing-empty-2443`'s.
+**1729 retired in part from this liberty by T-1880 (2026-10-25):** the Pullman house's main block now stands as the K01 stone house
+read off the Detroit Publishing photograph, under `L-k01-1729-pullman-1880`, under the same id; its draft attributes are gone.
+The sheet's stable and garage at the lot's east end, the 1B range north of the house's rear and the one-storey porte-cochere
+on 18th Street stay this draft's, at the massing it stood them, as `pullman_house_1729_prairie_ranges`, written by T-1880
+from the draft's own rectangles on the draft builder (the rules' skip names it) until T-1934; the stable keeps its two
+storeys and mansard, and the range and the porte-cochere stand at one storey under flat roofs, as the sheet letters them.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -33401,3 +33407,40 @@ under the same id; T-3154 reads 1925-1929 and 1935-1937 for 1904.
 **Review:** `data/components/prairie_1904/edges_census_s27w.json`,
 `data/traces/prairie_1904_footprints_s27w.json`, `docs/RESEARCH/sheet-27-footprints-3151/README.md`.
 **Recorded:** 2026-10-25 (T-3151).
+
+### L-k01-1729-pullman-1880 — 1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph
+
+**Decision:** the George M. Pullman house at 1729 Prairie Avenue (T-1880) is no longer a district
+draft. It stands, under the draft's own id `pullman_house_1729_prairie`, as a `k01_frontage` record
+built by `generators/k01_emit.py`, against the Detroit Publishing Co. photograph of between 1890 and
+1901 (`loc_det_4a08065_pullman_residence`, Library of Congress LC-D4-12551; no known restrictions):
+brownstone walls two storeys over a raised basement, a deep stone cornice, a slated mansard with
+hooded dormers and iron cresting, the north-west block and the 18th Street pavilion carried full
+height, a portico on columns carrying a balcony across the Prairie front's north part, the
+one-storey brick block at the south-east corner, and a low stone wall on the Prairie line.
+**What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1729-b1, census
+s20-1729-f): the main block's place and plan (27.75 by 17.93 m, stopped at the conservatory's south
+wall), the north-west block, the 18th Street pavilion, the portico's place and depth, the south-east
+block, stone. From the photograph, through its solved camera
+(`data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`): the principal floor,
+the storey heights, the cornice's and the curb's heights, the cresting, the windows' heights and the
+Prairie front's three bays, the portico's balcony, two dormers' places, the wall on the street line.
+Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row
+pa-1729-5); the print is monochrome.
+**What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang;
+the treads; the north flank's, the 18th Street flank's and the rear's windows (no picture read here
+places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the
+south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the
+sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m
+out (the sheet draws it 10.25 m wide and 2.0 m out): a K08 pavilion's most.
+**What is not built.** The rusticated piers and quoins, the arched and hooded window heads, the
+pedimented dormers and the flank's dormers, the modillions, the portico's further columns and stone
+balustrade, the stoop at the portico's north end (a broad flight stands across its width), the
+arcade on the 18th Street flank, the round bay on the north flank and the wall's 18th Street run:
+open on the match record for T-1881.
+**How to resolve:** T-1881 builds those and brings the match record to `matches`; T-1934 refines
+the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.north_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`
+**Ticket:** T-1880.
+**Review:** `docs/RESEARCH/k01-1729-pullman-1880/README.md`.
+**Recorded:** 2026-10-25 (T-1880).
