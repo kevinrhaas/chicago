@@ -38,6 +38,7 @@ import { castOnlyTowardView } from './shadow-casters.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
+import { planarCoverPlanes } from './planar-occluders.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
 import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
@@ -426,6 +427,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const groups = new Map();
   const sourceRoles = new WeakMap();
   const viewOccluders = [];
+  /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
+  const planarSources = [];
+  let planarOn = true;
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
   /**
@@ -616,7 +620,19 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         && material.colorWrite && !material.wireframe && !material.stencilWrite
         && !material.clippingPlanes?.length;
       const { geo: source, base, factors } = prepared;
-      const entryOf = (geo) => ({ record, geo, base, factors, occludesView, bodyRole });
+      // T-3152: the cells of this mesh's own large flat faces that they are proven to
+      // cover, read before the cells cut it (planar-occluders.js). Only a double-sided
+      // surface: the proof joins a plane's two facings, which a front-only face does not.
+      let planar = null;
+      if (occludesView && record.id === 'glessner_house' && material.side === THREE.DoubleSide) {
+        const p = source.getAttribute('position'), ix = source.getIndex();
+        const xyz = new Float64Array(p.count * 3);
+        for (let i = 0; i < p.count; i += 1) { xyz[3 * i] = p.getX(i); xyz[3 * i + 1] = p.getY(i); xyz[3 * i + 2] = p.getZ(i); }
+        const covers = planarCoverPlanes(xyz, ix ? ix.array : null);
+        if (covers.length) planar = { record, covers, actives: [], range: [Infinity, -Infinity] };
+        if (planar) planarSources.push(planar);
+      }
+      const entryOf = (geo) => ({ record, geo, base, factors, occludesView, bodyRole, planar });
       if (!cells) {
         bucket.entries.push(entryOf(source));
       } else {
@@ -801,7 +817,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, base, factors, occludesView, bodyRole } of bucket.entries) {
+    for (const { record, geo, base, factors, occludesView, bodyRole, planar } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
       const frame = instanceFrames.get(record.id);
@@ -868,6 +884,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && opaqueConfidenceRange(triangle.confidenceRange,confidence));
           viewOccluders.push({...triangle,active:ranges.get(key)});
         }
+        // Every piece of the source mesh has to stand as the backing's does.
+        if (planar) planar.actives.push(active);
       }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
@@ -907,6 +925,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         seen.min = Math.min(seen.min, lo);
         seen.max = Math.max(seen.max, hi);
         if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
+        // The pieces' decoded range, as a whole: a rectangle stands only where all of
+        // its source mesh is opaque, a superset of the triangles that cover it.
+        if (planar && count) { planar.range[0] = Math.min(planar.range[0], lo); planar.range[1] = Math.max(planar.range[1], hi); }
       }
       geo.dispose();
     }
@@ -927,6 +948,25 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
     bucket.entries = [];
   }
+
+  // T-3152: each proven planar cover, in the world frame, for the view filter's
+  // `planes`. It stands only while every piece of its source mesh passes the backing's
+  // own test and the whole mesh's confidence is opaque; `setPlanarCovers(false)`
+  // withdraws them all.
+  const planarCovers = [];
+  for (const planar of planarSources) {
+    const place = placements.get(planar.record.id);
+    const range = planar.range, actives = planar.actives;
+    if (!place || !actives.length || !(range[0] <= range[1])) continue;
+    const active = () => planarOn && actives.every((f) => f()) && opaqueConfidenceRange(range, confidence);
+    const turn = new THREE.Matrix3().setFromMatrix4(place);
+    const axis = (a) => new THREE.Vector3(...a).applyMatrix3(turn).normalize();
+    for (const c of planar.covers) {
+      planarCovers.push({ ...c, o: new THREE.Vector3(...c.normal.map((x) => x * c.d)).applyMatrix4(place),
+        n: axis(c.normal), u: axis(c.u), v: axis(c.v), active, structure: planar.record.id });
+    }
+  }
+  planarSources.length = 0;
 
   /**
    * How much of the facade tone is applied, 0..1 — T-0002's runtime handle.
@@ -1025,6 +1065,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batches,
     coalesce,
     viewOccluders,
+    /** T-3152: the proven planar backings on or off, for the on/off pixel proof. */
+    setPlanarCovers(on) { planarOn = !!on; return planarOn; },
+    planarCovers,
     problems,
     triangles: totalTris,
 
