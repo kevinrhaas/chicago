@@ -283,6 +283,26 @@ def _moulding(a, frame, g, mo, conf):
     sec = [(0.0, 0.0), (0.0, p1), (w1, p1), (w1, p2), (w1 + w2, p2), (w1 + w2, 0.0)]
     rings = {off: path(off) for off in (0.0, w1, w1 + w2)}
     cx = (s0 + s1) / 2
+    # T-3135: an arch cut into a projection's corner: its moulding past the corner stands on
+    # the projection's own face, as both 1812 photographs draw it, each face split at the corner
+    cut = _k01().entrance_cut(a.p) if g["component"] == "k01.opening.door_leaf" else None
+
+    def face(a, mat, frame, pts, hint, seed, conf, _put=_face):
+        if cut is None:
+            return _put(a, mat, frame, pts, hint, seed, conf)
+        k, xc, fwd = (1.0 if cut["side"] == "left" else -1.0), cut["corner_s_m"], cut["proud_m"]
+        for keep_in, dd in ((True, fwd), (False, 0.0)):   # the side within the bay goes forward
+            res = []
+            for i, q in enumerate(pts):
+                r = pts[(i + 1) % len(pts)]
+                dq, dr = k * (q[0] - xc), k * (r[0] - xc)
+                if (dq <= 1e-9) == keep_in:
+                    res.append(q)
+                if (dq <= 1e-9) != (dr <= 1e-9):
+                    t = dq / (dq - dr)
+                    res.append(tuple(q[j] + (r[j] - q[j]) * t for j in range(3)))
+            if len(res) >= 3 and max(abs(k * (x[0] - xc)) for x in res) > 1e-6:
+                _put(a, mat, frame, [(x, y, d + dd) for x, y, d in res], hint, seed, conf)
     for (oa, da), (ob, db) in zip(sec, sec[1:]):
         A, B = rings[oa], rings[ob]
         for i in range(len(A) - 1):
@@ -294,11 +314,11 @@ def _moulding(a, frame, g, mo, conf):
                 hint = (k * o[0], k * o[1], 0.0)
             else:
                 hint = (0, 0, 1)
-            _face(a, "dress_stone", frame, pts, hint, seed, conf)
+            face(a, "dress_stone", frame, pts, hint, seed, conf)
     for sg in (-1, 1):   # the feet, on the floor
         for (ra, rb, d) in ((0.0, w1, p1), (w1, w1 + w2, p2)):
             x0, x1 = sorted((cx + sg * ((s1 - s0) / 2 + ra), cx + sg * ((s1 - s0) / 2 + rb)))
-            _face(a, "dress_stone", frame, [(x0, floor, 0.0), (x1, floor, 0.0), (x1, floor, d), (x0, floor, d)],
+            face(a, "dress_stone", frame, [(x0, floor, 0.0), (x1, floor, 0.0), (x1, floor, d), (x0, floor, d)],
                   (0, -1, 0), seed, conf)
 
 
