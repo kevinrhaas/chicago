@@ -32883,6 +32883,18 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 **Review:** `data/components/prairie_1904/draft_prairie_1904.json` (`frontage-20w-1605–1613`), `data/components/prairie_1904/edges_census_s20w.json`.
 **Recorded:** 2026-10-25 (T-3130).
 
+### L-lake-house-open-shell-2379 — distinguish an omitted roof from a flat cap
+
+**Covers:** `lake_house_construction.shell_1835.form.roof_type`.
+
+**Decision:** Keep the existing reconstructed one-storey/four-metre, 24×15 m worksite and `roof_type: none`, and make that selector omit the generic roof cap. `flat` retains its exact existing cap; all pitched roofs and other role dispatch remain unchanged. This removes a 360 m² cap/four raw vertices/two triangles; it introduces no excavation, floor, scaffold, interior passage, construction stock or new phase.
+
+**Evidence and bounds:** The held Chicago Democrat notice of 10 June 1835, p.2 col.5, reports an active house-building project in Kinzie's Addition, understood to be named Lake House. The bracketed/transcription-mediated reading does not show roof or progress. June 1836 unfinished work and autumn 1836 opening do not establish July 1835 roof absence. The roof field therefore becomes reconstructed; all phase dates, footprint, coordinates, dimensions, whole-building grade and the zero-to-two-storey uncertainty stay unchanged. Bonnell's conflicting retrospective dates remain unresolved. No later completed-hotel picture supplies the July construction stage. Original T-2379 remains open/differs; this is not an accepted picture match.
+
+**Ticket:** T-3123, a bounded omitted-cap increment; original T-2379 remains open.
+
+**Recorded:** 2026-10-24; finished 2026-10-25.
+
 ### L-k07-1812-porch-arch-3134 — 1812 Prairie's porch arch turned as a half ellipse in a narrow moulded ring, its heavy transom beam and paned fanlight columns, and the stair's flared north cheek and carved newels, to the Levy photograph
 
 **Decision:** the porch entrance of George H. Wheeler's house at 1812 Prairie (T-3134, piece 1 of
