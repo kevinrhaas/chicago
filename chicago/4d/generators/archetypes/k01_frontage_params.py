@@ -2230,7 +2230,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if o1 <= a or o0 >= b or o.sill_m >= top or o.head_m + 0.30 <= bottom:
                 continue
             if o.component == "k01.opening.door_leaf":
-                raise ParamError(f"bays: {e['id']} stands in front of the entrance")
+                # T-3135: a projection the porch arch is cut into at its corner (1812's: the Levy
+                # print and the c. 1955 photograph draw the arch's south jamb and its moulding on
+                # the projection's own face, south of its corner): the mouth's one jamb inside the
+                # projection, at most half a metre in, its axis clear of it; the rest stands
+                j0, j1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
+                if e.get("cut_by_entrance") is True and v["kind"] == "projection" and (
+                        (a < j0 < b < o.s_m and b - j0 <= 0.5) or (o.s_m < a < j1 < b and j1 - a <= 0.5)):
+                    continue
+                raise ParamError(f"bays: {e['id']} stands in front of the entrance"
+                                 + ("" if not e.get("cut_by_entrance") else
+                                    " (cut_by_entrance: true cuts a projection's corner for one jamb, "
+                                    "at most 0.5 m in, the mouth's axis clear of it)"))
             if o0 < a or o1 > b:
                 raise ParamError(f"bays: {e['id']}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
                                  f"s {o.s_m} on {o.wall}")
@@ -2329,6 +2340,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"flush_corner": flush} if flush else {}),
                     **({"corner": corner} if corner else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3101: a canted cheek seats the bay part by part on its wall
                     **({"canted": True} if any(float((e.get("plan") or {}).get(k, 0.0))
                                                for k in ("cant_left_m", "cant_right_m")) else {}),
@@ -2424,7 +2436,7 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
         y0, y1, d = float(q["from_m"]), float(q["to_m"]), float(q["proud_m"])
         gaps = sorted(tuple(sorted(float(x) for x in g)) for g in q["gaps_m"])
         if not 0.0 < y0 < y1 <= top or y1 - y0 > 0.6 or not 0.01 <= d <= 0.1 \
-                or any(not 0.0 < g0 < g1 < run_len(run) for g0, g1 in gaps) \
+                or any(not 0.0 < g0 < g1 <= run_len(run) + 1e-9 for g0, g1 in gaps) \
                 or any(p_[1] >= n_[0] for p_, n_ in zip(gaps, gaps[1:])):
             raise ParamError(f"bays: {bid}.dress.run_bands[{j}] {q} is a band up to 0.6 m tall inside the bay's "
                              f"wall (top {top:.2f} m), 0.01-0.1 m proud, its gaps inside the run and apart")
@@ -3555,6 +3567,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if entrance != "middle" or len(front_bays) != 3:
             raise ParamError("street_front_openings builds a three-bay front entered in its middle bay")
         door_s = front_bays[1]
+    # T-3135: a porch arch whose mouth stands off its bay's centre (1812's, the Levy print and
+    # the c. 1955 photograph: the south jamb run down the projection's corner, the north jamb
+    # where the bay's was), the bay's windows over it on their own centres: `axis_s_m` the
+    # mouth's centre along the front, at most half a metre off the bay's, under a sized mouth
+    door_bay = door_s
+    dax = ((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("axis_s_m")
+    if dax is not None:
+        if sfo or abs(float(dax) - door_bay) > 0.5 \
+                or "opening_m" not in (val("entrance_kit") or {}).get("k01.opening.door_leaf"):
+            raise ParamError(f"entrance_kit.axis_s_m {dax}: a sized mouth's (`opening_m`) centre at most 0.5 m "
+                             f"off its bay's ({door_bay}), on a front laid by front_bays")
+        door_s = float(dax)
     # T-2752: a stone front whose windows its photograph puts off the bays' columns, each
     # storey its own (1625's): every street window named with its centre, width, sill and head
     sfw = val("street_front_windows") or {}
@@ -3648,7 +3672,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
         for s in (() if sfo or sfw else fbs.get(k, front_bays)):
-            if k == 0 and s == door_s:
+            if k == 0 and s == door_bay:
                 continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
@@ -3798,7 +3822,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                          "and only of one")
     bsill = float(bl.get("sill_m", 0.0))
     for s in (() if sfo or sfw else front_bays):
-        if s != door_s:
+        if s != door_bay:
             openings.append(Opening("k01.opening.area_light", "k01.wall.street_front", s, bsill,
                                     float(bl["width_m"]), float(bl["height_m"]), False))
     if not sfo and not sfw and bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
@@ -3998,7 +4022,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 or not 0.0 <= float(da.get("ring_proud_m", 0.0)) <= 0.06:
             raise ParamError("entrance_kit.arch.extrados is 'curved', with ring_proud_m 0-0.06 m beside it")
         di = next(i for i, o in enumerate(openings) if o.component == "k01.opening.door_leaf")
-        arched_groups.append({"component": "k01.opening.door_leaf", "bay": front_bays.index(door_s), "ops": [di],
+        arched_groups.append({"component": "k01.opening.door_leaf", "bay": front_bays.index(door_bay), "ops": [di],
                               "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
                               "keystone_m": tuple(float(x) for x in da["keystone_m"]),
                               **({"rise_over_span": float(da["rise_over_span"])} if "rise_over_span" in da else {}),
@@ -4434,6 +4458,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             else ({door_kit["terrace"]["side"]} if door_kit.get("terrace") else set())
         if not 0 <= sv - half or not sv + half <= width:
             raise ParamError(f"entrance_kit.stoop_v_m: a {2 * half} m stoop on v {sv} leaves the front")
+        # T-3135: or on the floor of a projection the arch is cut into, abutting the landing
+        for q in val("bays") or ():
+            if q.get("cut_by_entrance") is True and q.get("wall") == "k01.wall.street_front":
+                qa = float(q["s_m"]) - float(q["plan"]["width_m"]) / 2
+                qb = float(q["s_m"]) + float(q["plan"]["width_m"]) / 2
+                if qa < door_s - dh < qb and 0.0 <= sv - half - qb <= 0.1:
+                    sides = sides | {"left"}
+                if qa < door_s + dh < qb and 0.0 <= qa - (sv + half) <= 0.1:
+                    sides = sides | {"right"}
         if (door_s - dh < sv - half - 1e-9 and "left" not in sides) or \
                 (door_s + dh > sv + half + 1e-9 and "right" not in sides):
             raise ParamError(f"entrance_kit.stoop_v_m: the door at v {door_s} hangs off the stoop's landing "
