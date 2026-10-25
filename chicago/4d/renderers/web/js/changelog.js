@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2288, ts: '2026-10-25T19:00:17.216Z', date: 'Oct 25, 2026, 2:00 PM CT', title: '1812 Prairie signed off against both of its photographs', kind: 'improvement',
+    items: [
+      '1812 Prairie\'s stone now reads lighter than its brick, as Albert Levy\'s photograph shows it: a pale limestone basement and porch storey under a red-brown brick front, with the side walls a paler common brick.',
+      'The carved frieze over the north window is now an interlace of crossing straps, and the bosses under the south bay\'s windows are carved shields.',
+      'The south bay\'s second storey stands on a smooth stone band, and its top under the balcony is a stone frieze rather than brick.',
+      'Behind the house, the rear range now steps in towards the alley as the 1911 fire-insurance map draws it.',
+    ] },
   { v: 2287, ts: '2026-10-25T18:34:58.890Z', date: 'Oct 25, 2026, 1:34 PM CT', title: 'Glessner\'s stable dovecote set higher, with proper pigeon holes', kind: 'fix',
     items: [
       'The nine pigeon holes in the stable\'s north gable on 18th Street are now round-headed and a stone course tall, as two photographs and an 1887 print show them. They had been narrow slits.',
