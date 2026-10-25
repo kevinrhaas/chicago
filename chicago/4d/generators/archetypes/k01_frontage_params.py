@@ -441,6 +441,7 @@ TOWER_PAST_EAVE_M = 1.0
 TURRET_CORNER_M = 0.3
 SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
 CHAMFER_BEHIND_M = 0.6  # T-3048: and its chamfer runs back at most this far behind the wall's face
+CHAMFER_ALONG_M = 1.0   # ...and at most this far (and a quarter of its width) along its front
 # T-3108: a chamfer a round bay stands on (`on_chamfer`, 1801's south-west corner on HABS
 # photograph 1 and its 1911 sheet: the corner cut back about 1.0-1.4 m over about 2 m) may run
 # this far along the front (and at most half the pavilion's width) and this far behind it
@@ -1788,7 +1789,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 ca, cb = float(ch["along_m"]), float(ch["behind_m"])
                 # T-3108: further on a chamfer a round bay stands on, which closes the cut in front
                 rb = e["id"] in carried
-                most_a, most_b = (ROUND_CHAMFER_ALONG_M, w / 2) if rb else (1.0, w / 4)
+                most_a, most_b = (ROUND_CHAMFER_ALONG_M, w / 2) if rb else (CHAMFER_ALONG_M, w / 4)
                 most_c = ROUND_CHAMFER_BEHIND_M if rb else CHAMFER_BEHIND_M
                 if not (0.2 <= ca <= min(most_a, most_b) and 0.1 <= cb <= most_c):
                     raise ParamError(f"bays: {e['id']}'s chamfer runs 0.2-{most_a} m (and at most "

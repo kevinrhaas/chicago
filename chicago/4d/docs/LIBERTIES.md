@@ -33172,7 +33172,7 @@ pierced in a lattice; the corner cut back under it, which the 1911 sheet 28 trac
 meeting the south wall at about u 19.2); the gable standing on the face's axis over the paired
 lights. **What is invented or held by the kit.** The pavilion's chamfer is cut 1.3 m along the
 front and 1.4 m behind it, and the round is a K08 bow standing on that cut (`on_chamfer`), chord
-1.684 m rising 0.384 m, about a quarter round off the face; its storeys (5.0 and 3.7 m, to 8.7 m)
+1.684 m rising 0.5 m, a little fuller than a quarter round off the face so its windows' recesses close inside it; its storeys (5.0 and 3.7 m, to 8.7 m)
 and its transomed sash are the front bow's, its balustrade the front bow's in two panels. **The
 face's width is a compromise, not a reading.** The sheet's trace gives the face about 2.4 m; both
 photographs read 3.4-3.7 m across it and the round's near part; the face is built 2.85 m
