@@ -1,6 +1,6 @@
 {
   "schema": "standing_horse_canonical26_planted_v1",
-  "status": "Standing26 replacement source proposal: original stationary CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed. Actual yard/mobile/render/photo qualification remains open.",
+  "status": "Development planted-standing horse with bounded reconstructed dark-eye UV improvement. Fresh d454 production loader/clone/Mixer129 CPU passed; native app/yard/mobile/GPU/photographic qualification remains pending.",
   "source": {
     "id": "sevketkabatas_2021_horse_model",
     "title": "Horse",
@@ -9,7 +9,7 @@
     "author_url": "https://sketchfab.com/sevketkabatas6153",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "credit": "“Horse” by sevketkabatas, CC BY4.0, via Objaverse.",
+    "credit": "\u201cHorse\u201d by sevketkabatas, CC BY4.0, via Objaverse.",
     "sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
     "bytes": 3211248,
     "acquired_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
@@ -5120,7 +5120,7 @@
     },
     "organic_dielectric_v1": {
       "metalness_override": 0,
-      "change_notice": "Declared adaptation: metalness=0 on all three cloned runtime materials (body, mane/tail and eyes). Original source GLB and declared runtime derivative, metallic-roughness image bytes, base-color maps, roughnessFactor0.6, UVs, opacity, double-sided policy and source geometry unchanged. Needs matched source/variant review; not applied in first native previews."
+      "change_notice": "Declared runtime material adaptation: metalness=0 on all three cloned materials. The selected eye-UV-v1 derivative changes only eye TEXCOORD_0 and its bounds plus derivative notice, affecting both existing eye base-color and metallic-roughness UV maps as runtime uses them. All six embedded image payloads, material records, roughnessFactor0.6, opacity, double-sided policy, geometry, body/hair UVs, rig and clip are exact b479 bytes/semantics. Opaque hair and baked coat highlights remain; no native or photographic acceptance."
     }
   },
   "capabilities": {
@@ -5168,7 +5168,8 @@
     "Solid mane and pointed opaque sheet tail, coarse/near-closed eyes,1K coat; not photographic master.",
     "Source default four-foot minimum height difference~5.24mm normalized; upright yard gaps max5.771mm unaccepted. Proposed whole-root support rotation handled explicitly by placement data.",
     "Actual source-surface hoof annotations and bounded sample checks are not certified anatomical soles, bones or coupling sockets.",
-    "Modern source author publication does not attest Chicago date, owner, measurements, phenotype, grooming or tack."
+    "Modern source author publication does not attest Chicago date, owner, measurements, phenotype, grooming or tack.",
+    "Eye UV v1 reconstructs coherent dark brown iris/pupil placement on the unchanged near-closed source globes; gaze and approximately horizontal pupil are authored choices, not measured equine anatomy or historical identity. Same-camera CPU diagnostic was reviewed; actual browser PBR, close eye detail and mobile inspection remain unqualified."
   ],
   "contact_annotation_history": {
     "original_upright_contact_receipt_sha256": "90de41647c80d450ed05ae16f8b50d742c3c0cc1e561b1bd06eacbc0ba28a6ba",
@@ -5198,13 +5199,13 @@
   },
   "ground_support": {
     "region_id": "western_hotel_yard_horse_support_01",
-    "snapshot": "Exact actual yard-worn_earth drawn triangle copies retained before normal coarse upload release, max32triangles/4096typed-array bytes for one ≤4m² rectangle. No whole-town array retention, no RELEASE_KEEP change, no ?keep-geometry.",
+    "snapshot": "Exact actual yard-worn_earth drawn triangle copies retained before normal coarse upload release, max32triangles/4096typed-array bytes for one \u22644m\u00b2 rectangle. No whole-town array retention, no RELEASE_KEEP change, no ?keep-geometry.",
     "status": "Pre-upload bounded snapshot source and finite real-Three CPU release regression reviewed; actual published-yard coarse count/bytes/gaps remain to be inspected."
   },
   "runtime_asset": {
-    "file": "transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
-    "sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
-    "bytes": 3783600,
+    "file": "transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+    "sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "bytes": 3784176,
     "animation_count": 1,
     "declared_idle_clip": "sevket_reconstructed_planted_posture_v1",
     "coordinate_space": "canonical_metres_Yup_Zforward_Xleft",
@@ -5214,7 +5215,10 @@
     "standing_export_receipt_file": "transport/parked/standing-horse-planted/export-receipt.json",
     "standing_export_receipt_sha256": "3212f61c3688cc550bfcf5a7a2116c1a12aa06d501b6e7dff9583369ed5d060c",
     "original_head_tail_composed": false,
-    "walking_enabled": false
+    "walking_enabled": false,
+    "standing_export_receipt_applies_to_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+    "eye_uv_derivation_receipt_file": "transport/parked/standing-horse-planted/eye-uv-v1-derivation-receipt.json",
+    "eye_uv_derivation_receipt_sha256": "2b44bc2cc505efd90793c21ea7c8ff089d277d46a2588d4f525e9d069f24efdd"
   },
   "idle": {
     "enabled": true,
@@ -5224,11 +5228,20 @@
     "cpu_stationary_result_sha256": "807dba14460aca11ec78e8f94d6357fffd1b9afb9cc18bbcaaea2f78f81cb396",
     "actual_loaded_mixer_accepted": true,
     "actual_yard_native_visual_world_GPU_qualified": false,
-    "activation_note": "Actual loaded129 V2 accepted by root; this external source patch remains unapplied while the main fullgate owns the lane. App/yard/mobile/render/photo qualification remains open.",
-    "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
-    "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
-    "loaded_qualification_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
-    "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997"
+    "activation_note": "Current d454 was freshly loaded and production-cloned for actual Mixer129 CPU checking with unchanged physical guards in an external 1904 diagnostic fixture. This is not 1904 scene activation or app/yard/native/GPU/photo acceptance.",
+    "loaded_qualification_status": "FRESH_GLTFLOADER_PRODUCTION_CLONE_MIXER129_HOSTED_CPU_PASS_ONLY",
+    "loaded_qualification_file": "transport/parked/standing-horse-planted/eye-uv-v1-loaded129-summary.json",
+    "loaded_qualification_sha256": "3e8fd9351fce726bf1216360cfda00197a288dd903877993dd5231f67ab4e39d",
+    "loaded_raw_result_sha256": "60f693bf10c17b04376d9a521cd91c51bacae12da32e0eec821de8bdd3b15d5a",
+    "historical_b479_qualification": {
+      "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+      "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
+      "loaded_qualification_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
+      "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
+      "asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+      "bytes": 3783600,
+      "scope": "Historical original b479 qualification only; not inherited by d454."
+    }
   },
   "upstream_native_normalization": {
     "origin_native": [
@@ -5260,23 +5273,23 @@
   "citation_records": {
     "chicagology_prefire278": {
       "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
-      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 \u2014 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
       "source_id": "chicagology_prefire278",
       "tier": 2,
       "tier_label": "near-primary recollection",
       "transcribes": [
         {
           "date": "1883-07-22",
-          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2.",
+          "note": "Carries all four Western Hotel claims in this dataset \u2014 the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets \u2014 and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2.",
           "tier": 2,
-          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son"
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' \u2014 the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son"
         }
       ],
       "url": "https://chicagology.com/prefire/prefire278/"
     },
     "sevketkabatas_2021_horse_model": {
       "archived_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
-      "citation": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
+      "citation": "sevketkabatas, \u201cHorse\u201d, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
       "source_id": "sevketkabatas_2021_horse_model",
       "tier": 5,
       "tier_label": "modern retrospective illustration/reconstruction",

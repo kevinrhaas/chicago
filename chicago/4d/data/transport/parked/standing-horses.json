@@ -1,9 +1,9 @@
 {
   "schema": "standing_horse_placements_v1",
-  "status": "Conditional replacement of same1835development horse with reconstructed planted body shifts; actual loaded129 V2 passed. App/yard/mobile/render/photo qualification remains pending.",
+  "status": "Same1835 development horse placement with versioned eye-UV-v1 appearance correction and fresh current-SHA production clone/Mixer129 CPU pass. App/yard/mobile/native/GPU/photo qualification remains pending.",
   "models": {
     "sevket_horse_standing_development_01": {
-      "file": "transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
+      "file": "transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
       "sidecar": "transport/parked/horse-sevket-sidecar.json"
     }
   },

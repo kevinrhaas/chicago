@@ -10,12 +10,55 @@ roof, and the Lake House is the one fort-family phase that reaches it with
 `none`, so it is the one mesh rebaked. Original T-2379 stays open with its
 picture-match scope.
 
-## T-2800 — planted standing horse integration (2026-10-23)
+## T-3083 / T-3086 / T-3087 — carriage lamps, horse eyes and viewpoint (2026-10-24)
+
+These scoped children deliver visible increments. T-2794 and T-2800 retain
+their original photographic asks as split parents: T-3084/T-3085 own the remaining
+carriage work, and T-3088/T-3089 own horse anatomy/materials/portable qualification.
+
+The reconstructed 1904 Studebaker-catalogue Brougham now has rounded coach-lamp
+heads and narrower lower bodies. Current V18 assets contain 33,374 near and
+11,706 mid triangles. Independent binary review preserves all 450 near and
+284 mid non-lamp occurrences, materials, anchors, contacts and the original
+near collision proxy. Current receipts bind the new assets; the archived V17
+appearance acceptance is historical and is not transferred to V18.
+
+The installed near/mid and actual Three-loader card/LOD checks pass. A matched
+CPU software projection of the actual V17/V18 meshes was visually reviewed
+against the untouched 1893 catalogue plate and supports the limited lamp-form
+improvement. It does not qualify Three PBR materials, native desktop/mobile
+appearance, photographic matching, world clearance or published world budgets.
+Both browser attempts failed before any app frame because Chromium could not
+create threads. A separate isolated-container attempt failed at OCI process
+startup; none of those attempts produced native acceptance.
+
+The 1835 viewpoint list gains “Western Hotel yard and horse”, aimed at the
+existing planted-standing horse. The corrected arrival point passes the actual
+anchor ground/roof check. This is a camera-only discoverability change; its
+first candidate was inside the stable and that failed measurement is retained.
+
+The selected horse is now the versioned d4544c28 eye-UV derivative. A portable
+stdlib recipe reproduces its exact bytes from b479442c while protecting every
+geometry, rig, weight, clip, material and embedded image byte. Root reviewed both
+fixed-camera textured software quarter comparisons and accepted the limited
+dark-eye improvement. A fresh exact-SHA loader/production-clone/Mixer check passes
+65 keys and 64 midpoints on its declared CPU support fixture. This proves loaded
+mechanics, not native world or photographic acceptance. The original b479 assets
+and export/loaded-pose receipts remain unchanged historical evidence.
+
+The existing planted horse was merged through normal green PR #1244 into DEV
+as fa115d72534e234fe5ac7b94fd2f1a3eb38065c8, and public asset hashes were verified.
+That exact prior commit's CI does not qualify this new refinement. Fresh final
+source preflight and normal required PR checks remain necessary before merging.
+Photographic anatomy/materials, native published inspection, walking, tack,
+teams, occupants, riding and boarding remain open under the existing tickets.
+
+## T-2800 — planted standing horse integration history (2026-10-23)
 
 One reconstructed horse is placed in the 1835 Western Hotel yard with a
 12-second planted weight shift, a selectable provenance card and the existing
 host visibility, pause and resource-lifetime policies. The licensed canonical
-asset is `b479442c`. Its standard-loader standing check passed all 65 keys and
+asset was `b479442c`. Its standard-loader standing check passed all 65 keys and
 64 midpoints. Actual published mobile/desktop qualification is still pending;
 photographic anatomy, walking, tack, teams and riding remain open.
 
@@ -24794,6 +24837,8 @@ The three-storey Tremont changes six ordinary-capacity weights in the existing l
 Actual native lodging/staffing builds, checks and self-tests pass, including a same-total reweighting, fixed point, availability/crowded/class refusals, opposing vacancy/overflow and sequential occupancy. The earlier net-as-vacancy assertion was corrected with a counterexample; quota/crowded assertions remain intact. The first native 55-step refresh reached a fixed point before this reporting follow-up. Its next refresh, complete corrected strict preflight and full published mobile/desktop smoke acceptance remain pending. Original picture-match cases remain open/differs.
 
 
+T-2800 bounded eye-UV-v1 development refinement (2026-10-23): selected separately versioned d4544c28 corrects cloudy exposed eyes using the original brown iris/pupil pixels through UV10 only. All geometry/rig/clip/material/image payload and budget guards remain exact. Actual independent source-boundary checks and fresh production GLTFLoader/SkeletonUtils clone/Mixer129 CPU65keys+64midpoints passed; old b479 qualifications remain historical. Equal-camera software texture diagnostics were reviewed for this limited improvement. Native app/yard/desktop/mobile/PBR and photographic acceptance remain unverified; native capture attempts produced no new browser image. This does not close T-2800/T-2803 or enable walking, teams, routes, tack, rider or player interaction. Full current-tree integration gates remain required.
+
 ## T-3081 — log-building picture details, integration in progress (2026-10-23)
 
 Five visible increments are being integrated: larger school openings, dark doorway and front-gable log courses; Cobweb's reconstructed centre, wings and tails; Miller's boarded upper storey; Carpenter's tall sash and roof-piercing chimney; and Wolf Point's physical L, rounded logs, entry recesses and sign pole. Evidence, inferred readings and reconstructed dimensions remain distinct. School and Cobweb retain their uncertain-picture rulings; the independently cleared 1867 Blanchard/Shober sheet is a source for the earlier view, not proof of unchanged July 1835 fabric. No source rights have been relaxed.
@@ -24887,3 +24932,10 @@ The declared plantings render without refusal. Uniform 1812 Light and Full accep
 
 
 T-3106 retains its medium parent and provenance history. Its two independent no-bake demonstrations are T-3119 (the declared garden plants and physical clearance) and T-3120 (the Light/Full woodland sweep within unchanged caps), grouped with T-3105. This ticket mapping changes no model, planting, renderer, camera, source grade or original picture acceptance.
+
+
+## T-3125 — complete release notes inside the Navigator (2026-10-24)
+
+The retained before-change published view at 390 x 780 shows inherited clipping: a 292 px host contains a 349.859 px news-grid track, and entry boxes extend to x 424.859 beyond the screen's x 381 edge. All 2,250 rows rendered without page or HTTP errors. The screenshot and actual bounds distinguish this layout defect from the earlier diagnostic helper's stricter readiness timeout.
+
+The change constrains only the three existing news grids to a zero-minimum flexible column and permits intact text, including long links, to wrap. Typography, content, unread logic, navigation and every pre-existing CSS rule remain intact; no clipping mask or smaller font is introduced. Delivery evidence must cover real published 390 x 780 and 1280 x 800 views, every row at 100% and 140% text size, the six news-flow assertions, current content and the About route, together with preflight and ordinary exact-head CI. Focused notes evidence is recorded separately from a whole-part13/full-renderer pass.

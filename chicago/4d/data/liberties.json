@@ -50891,6 +50891,10 @@
           "text": "all absolute metres, hidden sides/interior/construction, pigments and optical materials, support/hardware attachment, opposite-side symmetry and the stop. V17 has separated footplates, slender curved step supports and two 8mm recessed dark opaque rear-quarter surfaces; the illustration does not identify these as glass, curtains or a specific lining. No image pixels are embedded. Matched native catalogue views prefer V17 over V15, but its flat paint, uniform inset, glass and smaller fittings remain visibly simplified. Photographic completion remains open."
         },
         {
+          "label": "V18 lamp-form refinement (2026-10-23)",
+          "text": "Rounded twin-faced upper housings and narrower lower bodies follow the visible catalogue lamp silhouette more closely than V17's tall straight cages. Their exact dimensions, surfaces, hidden faces and transparency remain reconstructed. Actual fixed-camera software mesh projections were personally compared with the untouched plate; protected non-lamp streams and unaffected pixels match exactly. This is a bounded form review, not browser/Three PBR, world, distance-LOD or photographic acceptance. Current near is33,374triangles; current mid is11,706. V17's earlier native appearance acceptance remains historical only; both current V18 appearance flags are false. Source gates enforce consistent current source/recipe/receipt bindings and reject stale V17 or unearned acceptance metadata."
+        },
+        {
           "label": "Delivery and limits",
           "text": "only the indexed near model is supplied. Full100m/Balanced65m/Light0 reach and existing confidence/picking/material batching remain unchanged. The fixed paired-team pole and its original ground shoe are parked-down geometry, not a new hinge or working-height hitch. The same rendered carriageway provider checks all wheels and four shoe corners, refusing nonfinite ground, wheel span over30mm, penetration over1mm or shoe gap over30mm. For this Brougham only, the least rigid vertical base clears both the wheels and the declared shoe corners; the maximum wheel gap is checked again after that solve. At the unchanged stand, actual source sampling found the previous wheel-only base put the shoe4.866mm into the road; the all-contact base rises4.866mm and leaves at most9.466mm wheel gap. The four corners bound this particular shoe patch on the current bilinear source surface; they do not qualify arbitrary terrain, full pole/body/obstacle clearance or rendered world contact. Actual world, phone, publication and whole-scene budget acceptance remain pending. No horizontal relocation, tilt, support geometry change or weakened renderer limit qualifies a failed stand."
         },
@@ -51534,10 +51538,15 @@
         {
           "label": "Recorded",
           "text": "2026-10-23."
+        },
+        {
+          "label": "V18 distance-model amendment",
+          "text": "The preceding decision and eight-view native appearance acceptance describe archived V17 only; they are not transferred to V18. The1904 Brougham uses the exact accepted11,706-triangle source-derived distance model beyond the existing24m/screen-size boundary, with unchanged5% hysteresis. The current V18 near has33,374triangles; its original conservative collision proxy remains exact. Physical feature names,64spokes,16spring leaves, materials,42nodes,13runtime anchors, eight static targets, full bounds and wheel/pole/shoe contacts remain. Current V18 subdivision records change480→314; no physical feature category is omitted. The original ring16 distance recipe and non-lamp fittings remain; V18 lamp reconstruction is declared in “catalogue-guided parked Brougham in 1904”. Earlier V17 counts468→302 and native appearance acceptance are historical only. The tighter mid mudguard maxY is5.755mm lower inside the original conservative proxy; it is not used to reduce production clearance. Current source/geometry checks do not supply native appearance, PBR, world or photographic acceptance; both current V18 appearance flags remain false."
         }
       ],
       "work_refs": [
-        "T-2794"
+        "T-2794",
+        "T-3083"
       ]
     },
     {
@@ -51649,7 +51658,11 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-23."
+          "text": "2026-10-23. **2026-10-23 eye-UV-v1 amendment (T-2800).** The selected planted-standing development horse now has a separately versioned dark-eye UV correction (d4544c28) from preserved b479. Gaze and an approximately horizontal2:1 pupil are reconstructed on the unchanged source eye globes using the existing brown iris/pupil texture. The bounded recipe preserves existing charts/tessellation, rejects folds/cracks and retains the original4/256UV centroid error limit. Only eye UV10/accessor bounds and explicit GLB derivative notice change; original six image payloads, material records, body/hair UVs, geometry, canonical26 rig/weights and planted clip remain exact. Modern horse-model rights do not attest this eye, breed or historical individual. Root reviewed equal-camera software texture projections and approved a limited appearance improvement; current-SHA native app/yard/mobile/PBR/photographic acceptance remains pending. Fresh d454 production loader/clone/Mixer129 CPU passed unchanged physical guards; historical b479 loaded129 remains historical. Opaque mane/tail, baked coat glints and near-closed/coarse eyelids remain quality limits. No route, harness, team, rider or player interaction is certified."
+        },
+        {
+          "label": "How to resolve",
+          "text": "anatomy/reference-led modelling and actual matched native/browser/device review; no software diagnostic is relabelled photographic proof."
         }
       ],
       "work_refs": [
