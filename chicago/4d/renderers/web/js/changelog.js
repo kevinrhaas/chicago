@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2267, ts: '2026-10-25T08:19:57.097Z', date: 'Oct 25, 2026, 3:19 AM CT', title: 'The ice-cream works rising on Indiana Avenue in 1904', kind: 'improvement',
+    items: [
+      '1605-1613 Indiana is no longer an empty lot. The Thompson-Reid and Collins Bros. ice-cream works stands there as it was on 1 July 1904: brick walls three storeys up, with no roof yet, empty window openings and a scaffold along the street.',
+      'Newspapers from 1903 and 1904 date it. The plan was four storeys of brick, 100 by 177 feet, and the foundation was dug that March. In September the firm let out its old premises. How high the walls had got by July is an estimate between those dates, and the building\'s card says so.',
+    ] },
   { v: 2266, ts: '2026-10-25T07:29:32.280Z', date: 'Oct 25, 2026, 2:29 AM CT', title: 'Bane Brothers\' livery joins the Indiana Avenue background', kind: 'feature',
     items: [
       'A second livery building now stands at 2129-2131 Indiana Avenue. The 1904 Blue Book advertises Bane Brothers\' livery and boarding stables there, so the brick building the 1911 atlas labels a garage is drawn as the livery stable it was in 1904.',
