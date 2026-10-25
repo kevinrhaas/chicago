@@ -2,6 +2,101 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 185,
+      "takenAt": "2026-10-25T22:42:38.028Z",
+      "ref": "steward/t3109-1801-south-stacks-bay",
+      "commit": "174c48a5425d",
+      "devCommit": "cc1df8e96f47",
+      "treeHash": "sha256:0fa910fc8da2d921",
+      "treeDirty": false,
+      "changelogHash": "sha256:6cbe4ad21974ec26",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          3.9
+        ]
+      },
+      "source": "/tmp/work/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 421,
+      "takenAt": "2026-10-25T22:39:28.518Z",
+      "ref": "steward/t3109-1801-south-stacks-bay",
+      "commit": "174c48a5425d",
+      "devCommit": "cc1df8e96f47",
+      "treeHash": "sha256:0fa910fc8da2d921",
+      "treeDirty": false,
+      "changelogHash": "sha256:6cbe4ad21974ec26",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.2,
+          3.8
+        ]
+      },
+      "source": "/tmp/work/smoke_d3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 65,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-25T22:32:21.017Z",
+      "ref": "steward/t3109-1801-south-stacks-bay",
+      "commit": "174c48a5425d",
+      "devCommit": "cc1df8e96f47",
+      "treeHash": "sha256:0fa910fc8da2d921",
+      "treeDirty": false,
+      "changelogHash": "sha256:6cbe4ad21974ec26",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.3,
+          4.4,
+          3.6
+        ]
+      },
+      "source": "/tmp/work/smoke_d1.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "3",
       "parts": [
@@ -1599,102 +1694,6 @@
         ]
       },
       "source": "/workspace/t2203-proof/smoke-mobile-3-12-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12-13",
-      "parts": [
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 216,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 2739,
-      "takenAt": "2026-10-09T15:53:03.931Z",
-      "ref": "steward/t-2202-glessner-frontage",
-      "commit": "ef75326f5bad",
-      "devCommit": "ef75326f5bad",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": null,
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          1.8,
-          4.9,
-          5.1
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-frontage-2202/smoke-desktop-12-13.log",
-      "note": "Run began on T-2202 over 0919967530a0; upstream dev was integrated and the published mirror refreshed to ef75326f during the run. All assertions passed, including the 1904 tail after refresh. No single complete-tree hash is claimed. Dedicated final dev QA separately verifies the deployed Glessner asset."
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12-13",
-      "parts": [
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 216,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 833,
-      "takenAt": "2026-10-09T15:11:38.004Z",
-      "ref": "steward/t-2202-glessner-frontage",
-      "commit": "0919967530a0",
-      "devCommit": "0919967530a0",
-      "treeHash": "sha256:5d9e6b812569a5c0",
-      "treeDirty": true,
-      "changelogHash": "sha256:92cf75abd321d7ba",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4.1,
-          5.7,
-          4.5
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-frontage-2202/smoke-mobile-12-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1185,
-      "takenAt": "2026-10-09T06:26:09.363Z",
-      "ref": "steward/t-2200-glessner-camera-baseline",
-      "commit": "d3aa85ea5353",
-      "devCommit": "d3aa85ea5353",
-      "treeHash": "sha256:c89c914063cb6ca1",
-      "treeDirty": true,
-      "changelogHash": "sha256:a450d1f6a5f8d0be",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          3.9,
-          4.2,
-          3.9
-        ]
-      },
-      "source": "/workspace/t2200-proof/smoke-desktop-12.log"
     },
     {
       "viewport": "desktop",
