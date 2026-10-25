@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "b1981ad7e94d2c72b1e53f947a686e06184d5f829a3b110a45f9f27885186d0e",
+  "glb_sha256": "61f79b15111826e39ab209128888b233b57fcf6af9713df05ef2caba241d473e",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -117,8 +117,8 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px), so the arch reads about 0.3 m further south and broader; the build stands its 2.7 m mouth clear of the projection, from 5.2 m (T-3135)",
-      "status": "open"
+      "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px, the opening's edge near 755, south of the corner at 770-777), so the arch reads about 0.3 m further south and broader; built so (T-3135): the arch cut into the projection's corner, the mouth 3.05 m from 4.85 m (its north jamb where it was, on the main front), the projection cut away under the head through its depth and the moulding's south leg on its face; re-rendered, the moulding draws at x 745-754 (L-k07-1812-porch-arch-jamb-3135)",
+      "status": "fixed"
     },
     {
       "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built so (T-3134): a half-elliptical head on the same 0.79 m rise, and a ring of two moulded steps 0.11 m broad round it and down both jambs, unbroken over the crown where the block's keystone stood. The voussoir block outside the ring is still radiating rock-faced stones where the print shows the porch's coursed ashlar run to the moulding",
@@ -145,7 +145,7 @@
       "status": "fixed"
     },
     {
-      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare): the cheek is built solid, and the stair's place is the porch's plan, T-3135's",
+      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare): the cheek is built solid, and the stair's place and the pierced cheek are T-3144's",
       "status": "open"
     },
     {
