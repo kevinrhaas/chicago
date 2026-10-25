@@ -4377,7 +4377,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
                 or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
-                                                                             "flare", "newel"} \
+                                                                             "flare", "newel", "pierced"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -4389,15 +4389,35 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
         door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
-                                  if k not in ("flare", "newel")}
+                                  if k not in ("flare", "newel", "pierced")}
         # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
         # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
         # stair, the Levy print)
+        # T-3144: or one a side, as a list, and a cheek drawn in toward the axis (a negative
+        # out_m, to 0.5 m: 1812's south cheek) rather than carried out
         if "flare" in cf:
-            fl = cf["flare"]
-            if set(fl) != {"side", "out_m"} or fl["side"] != "right" or not 0.1 <= float(fl["out_m"]) <= 1.2:
-                raise ParamError("entrance_kit.cheek_form.flare is {side: 'right', out_m 0.1-1.2 m}")
-            door_kit["cheek_form"]["flare"] = {"side": "right", "out_m": float(fl["out_m"])}
+            fls = cf["flare"] if isinstance(cf["flare"], list) else [cf["flare"]]
+            sides = [fl.get("side") for fl in fls if isinstance(fl, dict)]
+            if len(sides) != len(fls) or not fls or len(set(sides)) != len(sides) \
+                    or any(set(fl) != {"side", "out_m"} or fl["side"] not in ("left", "right")
+                           or not (0.1 <= float(fl["out_m"]) <= 1.2 or -0.5 <= float(fl["out_m"]) <= -0.05)
+                           for fl in fls):
+                raise ParamError("entrance_kit.cheek_form.flare is {side: 'left'|'right', out_m 0.1-1.2 m out "
+                                 "or -0.5 to -0.05 m drawn in}, or a list of one a side")
+            out = [{"side": fl["side"], "out_m": float(fl["out_m"])} for fl in fls]
+            door_kit["cheek_form"]["flare"] = out if isinstance(cf["flare"], list) else out[0]
+        # T-3144: a row of small openings through one cheek under its top (1812's north cheek)
+        if "pierced" in cf:
+            pc = cf["pierced"]
+            if not isinstance(pc, dict) or set(pc) != {"side", "count", "hole_m", "under_m"} \
+                    or pc["side"] not in ("left", "right") or not 1 <= int(pc["count"]) <= 24 \
+                    or len(pc["hole_m"]) != 2 or not all(0.03 <= float(x) <= 0.3 for x in pc["hole_m"]) \
+                    or not 0.03 <= float(pc["under_m"]) <= 0.4:
+                raise ParamError("entrance_kit.cheek_form.pierced is {side, count 1-24, hole_m [0.03-0.3 along, "
+                                 "0.03-0.3 high], under_m 0.03-0.4 under the cheek's top}")
+            door_kit["cheek_form"]["pierced"] = {"side": pc["side"], "count": int(pc["count"]),
+                                                 "hole_m": [float(x) for x in pc["hole_m"]],
+                                                 "under_m": float(pc["under_m"])}
         if "newel" in cf:
             nw = cf["newel"]
             if set(nw) != {"width_m", "cap_m", "knob_m"} or not 0.3 <= float(nw["width_m"]) <= 0.8 \

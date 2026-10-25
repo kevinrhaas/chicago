@@ -1033,6 +1033,12 @@ step "a K01 rear wing takes a slated hip or gable, its junction with the host cl
 step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
   python3 tools/test_k01_rear_fall.py
 
+# T-3144. A K07 swept stoop's cheek drawn in to its newel (a negative flare) and a cheek pierced
+# by a row of openings under its top, as Levy's print shows 1812 Prairie's: built so, each
+# opening open through the cheek, the plain stair back without them, and the misfits refused.
+step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3144)" \
+  python3 tools/test_k07_stair_foot.py
+
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
 # brick range under its flat deck and on 1811 as all-stone with its rear section hipped in

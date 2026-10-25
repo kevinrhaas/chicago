@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6ba8c9f7cebf52683b2b6ac0830de3a55a7e6bd6ce5a231774a626f544f5d1f0",
+  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
   "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
   "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
@@ -73,8 +73,8 @@
       "status": "fixed"
     },
     {
-      "what": "Handed on by T-3127, re-read by T-3136: the light's round head stands higher over its transom in this print than built. T-3116's camera-free fit read the transom 0.54-0.70 ft and the head 1.23 ft over the build before its 1.0 ft rise, which leaves the print's transom about 0.3-0.5 ft under the build's 34.14-34.88 ft. The fan shows fewer, broader stones than the 11 voussoirs built. HABS 01 does not resolve the transom, and neither print resolves every joint of the fan, so both rest on this print alone; T-3137 owns them.",
-      "status": "open"
+      "what": "Handed on by T-3127, re-read by T-3136: the light's round head stands higher over its transom in this print than built. T-3116's camera-free fit read the transom 0.54-0.70 ft and the head 1.23 ft over the build before its 1.0 ft rise, which leaves the print's transom about 0.3-0.5 ft under the build's 34.14-34.88 ft. The fan shows fewer, broader stones than the 11 voussoirs built. HABS 01 does not resolve the transom, and neither print resolves every joint of the fan, so both rest on this print alone; T-3137 owns them. T-3137, read with HABS 17 as the second picture: the transom's centre reads 0.45 ft under the build's here (camera-free on T-3116's vertical, the method's error taken off) and 0.40 on HABS 17, so it is rebuilt 0.4 ft lower at 33.74-34.48 ft ng, the head standing 0.67 ft plumb over it; a polar profile of the fan finds six joints about 24 degrees apart with a keystone at the crown, where the same profile finds all ten joints of the 11 built, so the fan is rebuilt with seven. Re-rendered: the transom reads 34.35-33.59 against the photograph's 34.31-33.52 (34.74-33.98 before), and the fan's two crown joints land on the print's (75 and 102 degrees against 75 and 101). docs/RESEARCH/glessner-gable-transom-T-3137/.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

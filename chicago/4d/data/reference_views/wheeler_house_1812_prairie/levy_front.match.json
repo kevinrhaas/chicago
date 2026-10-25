@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "61f79b15111826e39ab209128888b233b57fcf6af9713df05ef2caba241d473e",
+  "glb_sha256": "2e4ec9844179ec80c6d2df5309d16ecc89b302733bb483bd265da82213667029",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -145,8 +145,8 @@
       "status": "fixed"
     },
     {
-      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare): the cheek is built solid, and the stair's place and the pierced cheek are T-3144's",
-      "status": "open"
+      "what": "Stair: the north cheek is pierced in a row of small openings under its coping, and the stair's foot reads about 0.2-0.3 m north of the build's (the south newel at x 768-808 px, the north at 1050-1100, against the build's about 743-788 and 1050-1095 after the flare); built so (T-3144): the south cheek drawn in 0.2 m toward the stair's axis along its sweep to its newel (now x 760-812 against the print's 767-809, the north newel 1052-1105 against 1050-1100), and ten openings 0.11 m along the run and 0.08 m high through the north cheek, 0.35 m under its top and running with it, which the camera lays on the print's dark openings from the landing to the newel. The review render's sun lights their far reveals on the cheek's shaded face, so they read light where the print's read dark on its lit one: the light, not the form (L-k07-1812-stair-foot-3144)",
+      "status": "fixed"
     },
     {
       "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields; built as T-2819's guilloche of rings and plain oval bosses in a moulded ring",

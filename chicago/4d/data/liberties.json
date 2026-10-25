@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 762,
+  "count": 763,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -54531,6 +54531,38 @@
         "T-3011",
         "T-2983",
         "T-3145"
+      ]
+    },
+    {
+      "id": "L-k07-1812-stair-foot-3144",
+      "title": "1812 Prairie's stair: the south cheek drawn in to its newel and the north cheek pierced under its coping, to the Levy photograph",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the stair of George H. Wheeler's house at 1812 Prairie keeps its landing, its 2.05 m width between the cheeks there and its north cheek's 0.55 m flare (“1812 Prairie's porch arch turned as a half ellipse in a narrow moulded ring, its heavy transom beam and paned fanlight columns, and the stair's flared north cheek and carved newels, to the Levy photograph”), and takes two things more from Levy's print. Its south cheek is drawn in 0.2 m toward the stair's axis as it sweeps down, along the same reversed curve the north cheek's flare follows (cheek form flare now one a side; a negative out (m) draws a cheek in), the treads' south ends following its inner face, so the south newel stands at 4.83-5.28 m along the front where it stood at 4.63-5.08 m and the foot is about 2.4 m between the newels. And the north cheek is pierced by a row of ten openings (cheek form pierced), each 0.11 m along the run and 0.08 m high, 0.35 m under the cheek's top and running with it (so each is a parallelogram where the top falls), spaced evenly along the sweep from the landing's edge to the newel and cut clean through the cheek's 0.3 m, their four reveals in its stone. No other house names either key, so every other house re-emits as before. **What is read, not invented.** Through Levy's camera (88.5 px a metre at the main front, about 100 at the stair's foot), on 2-4x crops of x 650-1200, y 1150-1600 px: the south newel at x 768-808 px against the build's 744-790, the north newel at 1050-1100 against 1052-1102, and both cheeks at the landing within 5 px of the build's; so the foot's south side, not the stair, moved, and the newel's two edges put it 0.18-0.24 m north. The south cheek's inner edge drifts north from about x 770 at the landing to about 802 just behind the newel, where a straight cheek draws 774-787. On the north cheek's inner face, under a broad coping, a row of small dark openings slanting with the sweep, about ten from the landing to the newel, each about 4-5 px by 7-9 px. The openings' outlines, projected through the camera from the record, land on the print's from the landing to the newel. Rebuilt, the south newel renders at x 760-812. **What is invented.** The openings' count to one either way, their size to a few centimetres, and their running clean through the cheek with plain square reveals (the print sees only their mouths); the drawn-in cheek following the flare's curve, where the print shows its foot and its landing end and not the curve between; the coping's depth, read only as the openings' depth under the top (the cheek's top is still the plain swept slab). **What is built otherwise than read.** The review render's sun lights the openings' far reveals on the cheek's shaded face, so they read light where the print's read dark on its lit one: the light, not the form. The newels stay 0.45 m across where the print's south newel reads nearer 0.4 m."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a second picture of the stair from the north, or one with the c. 1955 photograph's parked car gone, would show the openings' shape through the cheek and the south cheek's curve."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-3144)."
+        }
+      ],
+      "work_refs": [
+        "T-3144"
       ]
     },
     {
