@@ -50,6 +50,16 @@ VIEWS = roof.VIEWS
 REPORT = ROOT / 'data/comparisons/glessner/stable-end.json'
 H15 = VIEWS / 'habs-15-stable-detail.json'
 
+# T-2200's frozen pinhole, as HABS 15 carried it until this tool's --camera replaced it.
+# Pinned here, never read off H15: --camera rewrites H15 with the stable_level fit, so a
+# 'committed' row read from it would report the refit under T-2200's name, and every fit
+# would start from its own output.
+T2200 = {'eye': [14.79591352, 47.53954371, 2.5],
+         'basis_right_up_forward': [[-0.9862459817, 0.1636606029, 0.0231099687],
+                                    [0.0202996664, -0.0188233869, 0.9996167284],
+                                    [-0.1640328843, -0.9863371063, -0.0152422341]],
+         'focal_px': 1598.11111111, 'principal_px': [900, 603]}
+
 # Hand picks in HABS 15's committed 1800 x 1275 pixels, read at 3-5x with the contrast
 # stretched (about +/-2 px; the soffit is the lintel's shadow line, the threshold the
 # sidewalk's bright edge between the cars, which hide the east jamb's foot).
@@ -96,7 +106,7 @@ def model():
 
 
 def h15_cameras():
-    d = json.loads(H15.read_text())
+    d = T2200
     committed = Cam.committed(d)
     c = tuple(d['principal_px'])
     e = d['eye']

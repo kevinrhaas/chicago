@@ -70,6 +70,13 @@
       "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-cupola.json, byte for byte and moved nothing else, and a perturbed report failed --check. Its fits are well posed (five cupola numbers over 19 residuals from two prints, every one-sigma under 0.3 ft), and every fit starts from the fixed pre-T-3031 numbers, never from the record, so a record edit cannot move where the solver lands (T-3031).",
       "placed": "not yet — measured to reproduce. It reads T-2758's re-solved cameras (tools/glessner_stable_roof_read.py), data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side (T-3031)."
     },
+    "glessner_stable_end_read.py": {
+      "placement": "pending",
+      "write_mode": "--write; --camera",
+      "measured": "2026-10-25",
+      "finding": "Reproduces: two --write and --camera passes on a clean tree rewrote its two outputs, data/comparisons/glessner/stable-end.json and data/reference_views/glessner_house/habs-15-stable-detail.json, byte for byte and moved nothing else; a perturbed report (habs15.stable_level.rms_px 9.99) failed --check and --write restored it byte for byte. Before the fix in this measurement's commit it read its own output: the 'committed' row and every fit's start came from HABS 15's camera file, which --camera rewrites with the stable_level fit, so the report showed the refit under T-2200's name (3.26 px, where T-2200's camera reads 17.87). T-2200's frozen camera is now pinned in the tool, so no fit starts from the record (T-3147).",
+      "placed": "not yet — measured to reproduce. It reads T-2758's cameras and projection (tools/glessner_stable_roof_read.py), data/reference_views/glessner_house/habs-01-northwest.json and data/structures/glessner_house.json, which no reconstruction stage writes; nothing in the manifest reads its report, and its --camera output is HABS 15's reference camera, which only the photo-match render reads, so it has no ordering hazard against the manifest's stages; the manifest's order is its own measured pass, so it is not appended blind (T-3147)."
+    },
     "check_stone_occlusion_atlas.py": {
       "placement": "not_a_writer",
       "write_mode": null,
