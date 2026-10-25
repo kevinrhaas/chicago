@@ -235,9 +235,9 @@
     "coleman_ames_house_1811_prairie_coach_house__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 51420,
+      "bytes": 93576,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "482912063decbf44ea8fdc052ee08fd406aaf9125e085481aa8bf2126eecfbe4",
+      "inputs_sha256": "58df169e96a9722db9a97c5ac9e12c38b34ea442568f9daf7decc6290a041667",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "coleman_ames_house_1811_prairie_coach_house"

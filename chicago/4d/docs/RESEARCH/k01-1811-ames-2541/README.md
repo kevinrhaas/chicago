@@ -173,3 +173,50 @@ Piece 2 of T-2984. Read at 7x on the plate (x 465-510, y 620-745 px), through th
 - **Left open.** The plate's arcade steps down to the south (bases 0/4/9 px, crowns 0/6/12 px). Going round the
   curve accounts for under 1 px through this camera. The build is level, and the step is an open item on the match
   record for T-3079's camera re-solve. Every other K01, K12, K13 and K16 asset re-emits byte-identical.
+
+## T-3099 — the rear on 1 July 1904: the sheet stands, and the pavilion is the stable
+
+T-3079 left the question open: the plate and the Chicagology photograph (both about 1888) seem to show a short
+lower range ending about 6 m behind the front block, and a separate pavilion with an arched door. The 1911 sheet
+draws one straight-walled 3B/2B building 26 m deep and a 1½-storey garage on the alley. The ticket asked for a
+dated source from between 1888 and 1904.
+
+**The source.** The Greeley-Carlson *Atlas of the City of Chicago* of 1891, the plate covering Prairie Avenue
+(`carlson_greeley_1891_prairie_environs`; the image store's copy `st-greeley-carlson-1891-prairie-environs.jpg`,
+2400 x 1370 px, north to the right). Crop of 1811 and its lot, 4x: `greeley-carlson-1891-1811-crop.jpg`. The
+scale along the lot is the lot's own: the street line at y 517 px and the alley at y 646 px are 150 ft apart (the
+1907 sale's '46x150'), so 0.86 px a foot, 2.8 px a metre. The plate's widths do not hold to that scale (the house
+is drawn as wide as its lot), so only depths are read from it.
+
+| | 1891 plate (m from the street line) | 1911 sheet, as built (m) |
+|---|---|---|
+| house front (bay included) | 5.7 | 7.6 (stone face), 6.6 (bay) |
+| front block's north wall steps in | 14-16 | 15.2 |
+| house rear | 32.8 | 33.6 |
+| house depth | 27.1 | 26.0 |
+| the stable on the alley | 38.3 - 45.7, crossed, '25' | 36.8 - 45.8, '1½-storey brick GARAGE' |
+
+One pixel is 0.35 m; the plate is a compiled atlas (tier 2), not a survey.
+
+**The ruling: the sheet stands for 1904.** Three years after the plate, and thirteen before 1904, the house was
+already one continuous body about 27 m deep with its front block stepping in on the north about 9 m back, as the
+1911 sheet draws it. The house is unchanged. The plate also draws the rear 6 m narrower on the south side (by
+about 2 m), where the 1911 sheet draws it full width. That is within the plate's drawing tolerance and is left on
+the south flank's match record for T-3129, not built.
+
+**The pavilion is the stable, and it had two storeys.** The building with the arched door past the flank on the
+Chicagology photograph stands where the plate puts the stable, about 5.5 m behind the house at the alley. The
+'short lower range' was the house's rear seen end-on through a camera standing too close (T-3079's camera
+re-solve). The Tribune of 16 April 1904 offers the empty house to rent with a '2 story stable'
+(`chicago_tribune_1904_04_16_1811_prairie_to_rent`), and the same agents repeat it on 1 September 1905. So the
+coach house goes up from one storey to two for 1904. It is still the draft's 9.0 x 9.75 m body under the draft's
+gable, through a dated count the frontage row now carries (`services.s28-1811-rear.storeys_1904` in the draft
+rules, read by `tools/draft_prairie_1904.py`). Why the 1911 sheet counts 1½ storeys, no source says.
+
+**Read and found silent:** Rand McNally's 1893 street strip (`st-randmcnally-1893-p233-east-1700-1800`) draws
+1811's front only, and 1815 overlaps its south side. No Rascher plan, building permit or Sanborn sheet between
+1888 and 1904 was found in the library or the image store.
+
+**Left open:** the stable's own picture. Its arched door, steep roof and front gable on the Chicagology
+photograph are not built. That needs the photograph's camera re-solved deep enough to reach it (T-3079's camera
+work).
