@@ -321,7 +321,13 @@ def house_entrances(data):
             if ek.get("terrace") or ek.get("balustrade") or ek.get("side_stoop"):
                 a = k01_frontage.Assembly(st["id"], k01_frontage_params.from_phase(ph, st))
                 v = a.door_variant()
-                out.append((f"{st['id']}.{ph['id']}", v, K.Entrance(v, data).build()))
+                # T-3144: a house the kit cannot build under a broken kit is a finding, not a crash
+                # (1812's pierced cheek refuses a sweep too short for its openings)
+                try:
+                    o = K.Entrance(v, data).build()
+                except ValueError as e:
+                    o = e
+                out.append((f"{st['id']}.{ph['id']}", v, o))
     return out
 
 
@@ -329,6 +335,9 @@ def check(data, glb_check=True):
     fails = list(rule_data(data))
     mats = K.materials(data)
     for name, v, o in house_entrances(data):
+        if isinstance(o, Exception):
+            fails.append(f"{name} (its house's entrance): does not build ({o})")
+            continue
         rules = (rule_floor_and_grade(o, v, data) + rule_risers(o, v, data) + rule_closed(o, v, data)
                  + rule_walk(o, v, data) + rule_one_layer(o, v, mats) + W.rule_doubled(o, data))
         fails += [f"{name} (its house's entrance): {f}" for f in rules]
