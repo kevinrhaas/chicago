@@ -82,10 +82,24 @@ def main():
              'sun_dial', 'lantern', 'confidence')
     p = FortStructureParams(*args)
     p.validate()
+    # Bare stone may share its identical material; painted opt-ins may not.
+    for paint in ('stone', 'unpainted', 'white', 'whitewash'):
+        stone = replace(p, kind='tower', construction='stone', paint=paint)
+        palette = MeshBuilder('stone-palette-'+paint)
+        indices = fort._tower_stone_palette(palette, stone)
+        if paint in ('stone', 'unpainted'):
+            assert indices[2] == fort.M_WALL and 'tower_stone_2' not in palette.named
+        else:
+            assert indices[2] >= palette.NAMED_BASE
+            assert palette.named['tower_stone_2'][1:] == (fort.WALL_RGBA['stone'], .93)
+
     assert p.__match_args__ == names
     assert all(getattr(p, name) == value for name, value in zip(names, args))
     signature = inspect.signature(FortStructureParams)
-    for name in ('gallery_storeys', 'face_openings'):
+    for name in ('gallery_storeys', 'face_openings', 'lantern_profile',
+                 'tower_diameter_m', 'footprint_min_u_m', 'footprint_min_v_m',
+                 'tower_openings', 'tower_profile', 'tower_lantern_detail',
+                 'tower_masonry'):
         assert signature.parameters[name].kind == inspect.Parameter.KEYWORD_ONLY
     assert p.gallery_storeys == 1 and p.face_openings is None
 
@@ -103,6 +117,24 @@ def main():
                  (24.0, 15.0, 4.0), (24.0, 0.0, 4.0)]]
             assert cover.mat_index == [fort.M_ROOF]
 
+    # A tower outline can move inside its unchanged local origin only when its
+    # declared physical diameter agrees with the polygon used by other readers.
+    tower_record = json.loads((ROOT/'data/structures/chicago_lighthouse_1832.json').read_text())
+    tower_phase = next(x for x in tower_record['phases'] if x['id'] == 'tower_1832')
+    tower = from_phase(tower_phase, tower_record)
+    tower.validate()
+    assert tower.footprint_min_u_m + tower.width_m/2 == 2.8
+    assert tower.footprint_min_v_m + tower.depth_m/2 == 2.8
+    for invalid in (replace(tower, width_m=tower.width_m+.1),
+                    replace(tower, tower_diameter_m=None),
+                    replace(p, tower_diameter_m=3.04),
+                    replace(p, footprint_min_u_m=.1)):
+        try:
+            invalid.validate()
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('inconsistent/non-tower physical outline was accepted')
 
     # A five-bay front put the old centre support directly through the centre sash.
     holes = []
@@ -151,7 +183,7 @@ def main():
         raise AssertionError('an impossible end support was silently placed across a hole')
     assert asdict(p)['face_openings'] is None
     check_canopy_contact()
-    print('PASS fort fronts: legacy16 positionals/two keyword-only opt-ins; '
+    print('PASS fort fronts: legacy16 positionals/keyword-only opt-ins and tower outline; '
           'support clearance, deterministic count, empty-front/default fallback and refusal; '
           'all five canopy joints, unchanged roofs/posts/decks and Float32 contact')
 

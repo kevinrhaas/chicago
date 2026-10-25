@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -21,7 +21,7 @@
     "chappel_infant_school__log_1833.glb": "fe73a03a135811179b47ac603bf4169b35d1b0cc8b8d595d144885053189a8d8",
     "chicago_american_office__frame_1835.glb": "cac3cd0dfccd884af0dff49c773d3433d9c16edbc0722a8ee1c1afce7d714829",
     "chicago_democrat_office__frame_1833.glb": "00591813b3c5ef290d842e836f3a3f424c8414260c055a422037dd736402a992",
-    "chicago_lighthouse_1832__tower_1832.glb": "128dbdaabdd06d7a44b4145d5784a2385c2305075db3b518f94fa8ffc9cb7cfe",
+    "chicago_lighthouse_1832__tower_1832.glb": "ae855793a983ff884b2653479c74fe517d3f8f2f14b6eae606f972a68373224d",
     "chicago_lighthouse_keepers_quarters__quarters_1832.glb": "335e57c6899225c4f3860c29752cd85ebc0eb557ab99c22e37007002d814f7bb",
     "clybourn_cabins__log_1824.glb": "632ca246177bc698933dcccf6fe842f51c1e2fced197cee8b03b88f460e6a5d8",
     "clybourn_slaughterhouse__log_1827.glb": "05a699db19949887193567bbecc6573f2f1ede228eba4995a001e816ed5cfbbc",

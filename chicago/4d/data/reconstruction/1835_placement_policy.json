@@ -1389,7 +1389,7 @@
         "fronting_no_street": 1,
         "on_the_street_line": 6,
         "setback_m_min": -8.4,
-        "setback_m_max": 317.96
+        "setback_m_max": 319.7
       }
     },
     {
@@ -1635,9 +1635,9 @@
       "family": "I3",
       "street": null,
       "class": null,
-      "setback_m": 317.96,
+      "setback_m": 319.7,
       "measured": [
-        "fronts no street (its nearest corridor is 317.96 m away, beyond the frontage reach), and institutions_stand_where_named seats it by a `street_line` setback, which is measured from one"
+        "fronts no street (its nearest corridor is 319.70 m away, beyond the frontage reach), and institutions_stand_where_named seats it by a `street_line` setback, which is measured from one"
       ],
       "reason": "at the river mouth on the federal reserve — a lighthouse is seated by the harbour and not by a street."
     },
