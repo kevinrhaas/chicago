@@ -2600,6 +2600,16 @@
       "phase_id": "draft_1904",
       "structure_id": "ic_16th_street_station_1605_prairie"
     },
+    "ice_cream_works_1605_indiana__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 245340,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "96e4367fcc9b29fd62772b5f6c61ca40182737c52a899e6e87db9995f1838f67",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "ice_cream_works_1605_indiana"
+    },
     "inf_artisan_dwelling_west_a__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,

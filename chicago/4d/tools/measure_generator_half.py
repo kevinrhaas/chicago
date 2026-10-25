@@ -652,8 +652,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that archetype's
 # own rows and on none of the shared ones above.
 #
+# 988 -> 989 on 2026-10-25 (T-3130): the ice-cream works rising on 1605-1613 Indiana, one
+# draft on `prairie_draft` in its works shell, emitted through generators/draft_emit.py, so
+# restaling on that archetype's own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 988,
+    "assets": 989,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
