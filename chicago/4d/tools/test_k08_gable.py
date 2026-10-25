@@ -183,7 +183,12 @@ def main() -> int:
 
     # T-3073: 1801's gable stops short of the chamfer on the Taylor photograph: its corners
     # stand inset_m in from the front's, its middle, rakes and pinnacles with them, and its
-    # kneelers still run out over the front's corners
+    # kneelers still run out over the front's corners. T-3108 set 1801's own gable back on its
+    # whole (narrowed) face, so the inset is held here at T-3073's 0.41 m on a copy of it
+    shallow = copy.deepcopy(shallow)
+    shallow["roof"]["gable"]["inset_m"] = [0.0, 0.41]
+    sb = K8.build_variant(shallow, board=False)
+    sband = sb.prims["band"].pos
     il, ir = shallow["roof"]["gable"]["inset_m"]
     sxl, sxr = shallow["plan"]["points"][1][0], shallow["plan"]["points"][2][0]
     gl, gr = sxl + il, sxr - ir
