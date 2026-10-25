@@ -187,6 +187,37 @@ refused(variant(lambda f: f["round_corner"]["value"].update(radius_m=1.2)),
 refused(variant(lambda f: oriel_plan(f, [[-1.08, 0.0], [-1.08, 0.6], [1.79, 0.6], [2.2, 0.0]], asym=False)),
         "an asymmetric oriel plan that does not say so", "sizes its oriel's plan")
 
+# T-3133: the south flank (K01's 'north') as the Chicagology print draws it — each wing's
+# flank lights round-headed in the wall's brick, and a round-headed basement light under each
+for w in p.rear_wings:
+    flank = [o for o in w["openings"] if o.wall == f"k01.wall.wing.{w['id']}.north"]
+    lights = [o for o in flank if o.component == KP.ROUND_HOODED]
+    under = [o for o in flank if o.component == KP.ROUND_PLAIN]
+    check(lights and not [o for o in flank if o.component not in KP.ROUND_CUT],
+          f"{w['id']}'s flank lights are all round-headed ({len(lights)})")
+    check(sorted(o.s_m for o in under) == sorted({o.s_m for o in lights})
+          and all(o.plain and o.sill_m == 0.3 and abs(o.head_m - 1.35) < 1e-9 for o in under),
+          f"{w['id']} stands a plain round-headed basement light, 0.30-1.35 m, under each flank light")
+    check(all(o.component == "k01.opening.sash_flat" for o in w["openings"] if not o.wall.endswith(".north")),
+          f"{w['id']}'s unseen sides keep the brick wall's own heads")
+bay0 = next(b for b in st["phases"][0]["form"]["bays"]["value"] if b["id"] == "north_bay")["storeys"][0]["windows"]
+check(all(abs(x["sill_m"] - 0.17) < 1e-9 and abs(x["sill_m"] + x["clear_height_m"] - 1.22) < 1e-9 for x in bay0),
+      "the bay's basement lights stand on its halved plinth, their heads kept at 1.22 m (T-3133)")
+
+
+def wing(f, j=0):
+    return f["rear_wings"]["value"][j]
+
+
+refused(variant(lambda f: wing(f).update(round_heads=["east"])), "round heads on a side with no windows (T-3133)",
+        "round_heads and basement_lights name a side")
+refused(variant(lambda f: wing(f)["basement_lights"]["north"].update(height_m=1.4)),
+        "a basement light whose crown runs up to the first floor's sills (T-3133)", "0.45 m under the first floor")
+refused(variant(lambda f: wing(f)["basement_lights"]["north"].update(sill_m=0.05)),
+        "a basement light on the ground (T-3133)", "at least 0.15 m up")
+refused(variant(lambda f: wing(f)["basement_lights"]["north"].update(well=True)),
+        "an unknown basement light key (T-3133)", "takes sill_m, width_m and height_m")
+
 if failures:
     print(f"test_k01_round_corner: {len(failures)} failure(s)")
     sys.exit(1)

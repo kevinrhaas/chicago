@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2286, ts: '2026-10-25T17:59:56.014Z', date: 'Oct 25, 2026, 12:59 PM CT', title: 'Dearborn drawbridge gains boarded parapets', kind: 'improvement',
+    items: [
+      'Horizontal boards fill the drawbridge\'s side parapets, following the credited historical engraving. Their dimensions are reconstructed; the deck stays flat while the pictured central rise and other differences await further work.',
+    ] },
+  { v: 2285, ts: '2026-10-25T16:43:49.172Z', date: 'Oct 25, 2026, 11:43 AM CT', title: 'Glessner\'s 18th Street eave runs level past the stable gable', kind: 'fix',
+    items: [
+      'West of the stable\'s street gable, the eave came down 2.1 ft to the range\'s own 23.1 ft. Three photographs from 1887 to 1965 draw one level eave there, not the step the house had.',
+    ] },
+  { v: 2284, ts: '2026-10-25T16:43:49.172Z', date: 'Oct 25, 2026, 11:43 AM CT', title: '1811 Prairie\'s south side gets its round-headed windows', kind: 'change',
+    items: [
+      'Down 1811 Prairie\'s long brick south side, every window now has a rounded top, and a small round-topped basement window sits under each of the rear ones, as the c. 1888 photograph shows them. The basement windows under the front bay now come down to the stone ledge, where the photograph puts their foot.',
+    ] },
   { v: 2283, ts: '2026-10-25T15:42:58.521Z', date: 'Oct 25, 2026, 10:42 AM CT', title: 'Rounder carriage lamps and clearer horse eyes', kind: 'change',
     items: [
       'Rounder coach-lamp heads replace the earlier tall angular ones on the parked 1904 Brougham.',

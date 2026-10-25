@@ -53,9 +53,14 @@ if g.get('level_courtyard_gable'):
     # S14.6 line; the cupola stays on that line (T-2228) and the lowered ridge still
     # runs into the cupola's west face rather than past its north side.
     assert abs(g['cross_y']-(74-12.31)*.3048)<1e-4
-    assert abs(g['cross_z']-zng(36.5))<1e-4
+    assert abs(g['cross_z']-zng(36.17))<1e-4
+    # T-3148: its north foot is the 18th Street eave, level either side of the stable's
+    # gable (HABS 01's tiles draw one straight line from W 60 to W 160), so with the
+    # plane kept on the alley gable's north rake the cross ridge stands at S12.31 at 36.17 ft
+    # (0.10 m under T-3096's, inside its cameras' 0.3 m) and the plane at 46.7 degrees, not 42.5.
+    assert abs(g['north_west_eave']-g['north_eave'])<1e-6
     pitch=math.degrees(math.atan2(g['cross_z']-g['north_west_eave'],r['y1']-g['cross_y']))
-    assert abs(pitch-42.5)<.2,pitch
+    assert abs(pitch-46.7)<.2,pitch
     t=p.turrets[0]
     assert abs((t['y0']+t['y1'])/2-n['ridge_at'])<1e-4
     assert t['y0']<g['cross_y']<t['y1']
@@ -106,8 +111,8 @@ if g.get('level_courtyard_gable'):
     # The 2026-10-15 owner aerial priority supersedes the west-study peak
     # at S18.4. Preserve end eaves and the full-height north-south ridge.
     # T-3096 lowers the cross ridge at the alley to S12.31/36.5 ft on its own
-    # north plane; the eaves at both ends of the alley face are unchanged.
-    for station,roof_z in ((0,25.2),(12.31,36.5),(35,16.5),(59.75,16.5)):
+    # north plane; T-3148 brings its north end down to the 18th Street eave.
+    for station,roof_z in ((0,23.1),(12.31,36.17),(35,16.5),(59.75,16.5)):
         assert abs(height(r,r['x0'],(74-station)*.3048)-zng(roof_z))<1e-4
     for _,pts in patches(r,False):
         for a,b in zip(pts,pts[1:]+pts[:1]):
