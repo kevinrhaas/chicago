@@ -1,0 +1,24 @@
+{
+ "id": "abendpost_1905_08_09_building_permits",
+ "type": "newspaper",
+ "citation": "Abendpost (Chicago), 9 August 1905, vol. 17, no. 187: 'Bau-Erlaubnisscheine wurden ausgestellt an ...' (building permits issued), including Taprell, Loomis & Co., a four-storey brick building, 1727 to 1737 Indiana Ave.",
+ "author": "Abendpost",
+ "date": "1905-08-09",
+ "describes_date": "1905-08-08",
+ "repository": "Internet Archive, item sim_abendpost-sonntagpost_1905-08-09_17_187.",
+ "url": "https://archive.org/details/sim_abendpost-sonntagpost_1905-08-09_17_187",
+ "locator": "The building-permit list: 'Taprell, Loomis & Co., vierstöckiges Brick-[gebäude], 1727 bis 1737 Indiana Ave.'",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "rights_note": "A US newspaper published in 1905, in the public domain. Read for a permit.",
+ "access_notes": "Found 2026-10-24 (T-3068) through the Internet Archive's full-text search for \"1737 Indiana\"; German-language OCR. Eastman Kodak's 'Kodak Properties' (Rochester, 1906; item kodakproperties00east) pictures the finished building at 18th Street and Indiana Avenue, and the 1906 Directory of Directors still gives the firm's Dearborn Street address.",
+ "note": "Dates the photographic-supply factory the 1911 sheet draws on 1727-1737 to after August 1905, a year after the scene.",
+ "what_it_supplies": [
+  "the 1727-1737 factory was permitted in August 1905, so it did not stand on 1 July 1904"
+ ],
+ "what_it_does_not_supply": [
+  "what stood on the lots before it"
+ ]
+}

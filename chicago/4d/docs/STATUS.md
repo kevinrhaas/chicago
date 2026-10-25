@@ -1,3 +1,15 @@
+## T-3123 — Lake House roof-cap semantics (2026-10-25)
+
+The July 1835 Lake House worksite now omits its roof cap: `roof_type: none` no
+longer draws the same horizontal lid as `flat`, which keeps its cover exactly.
+Roof absence is graded reconstructed, not inferred: unfinished work in 1836 does
+not establish the July 1835 stage, and the 10 June 1835 Chicago Democrat notice
+establishes an active named project without a roof observation. Dimensions,
+placement, dates and whole-building grade are unchanged. Only `_building` draws a
+roof, and the Lake House is the one fort-family phase that reaches it with
+`none`, so it is the one mesh rebaked. Original T-2379 stays open with its
+picture-match scope.
+
 ## T-2800 — planted standing horse integration (2026-10-23)
 
 One reconstructed horse is placed in the 1835 Western Hotel yard with a

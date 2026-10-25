@@ -1,0 +1,25 @@
+{
+ "id": "chicago_tribune_1904_09_11_thompson_reid_lease",
+ "type": "newspaper",
+ "citation": "Real-estate column, Chicago Daily Tribune, 11 September 1904: the week's leases, among them one 'for Thompson-Reid Ice Cream Co.' of a second floor at the north-west corner of Wabash Avenue and Peck Court from 1 September 1904.",
+ "author": "Chicago Daily Tribune",
+ "date": "1904-09-11",
+ "describes_date": "1904-09-01",
+ "repository": "Internet Archive, item per_chicago-daily-tribune_1904-09-11_63_37.",
+ "url": "https://archive.org/details/per_chicago-daily-tribune_1904-09-11_63_37",
+ "locator": "The leases list: 'For Thompson-Reid Ice Cream Co., to Western ..., second floor, N. W. corner Wabash-av. and Peck-ct., for term of years from Sept. 1, 1904; rental 3,000.' The tenant's name is broken in the OCR. The firm's own address in 1901 was 'Peck court and Wabash avenue' (Tribune, 24 January 1901).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "text_only",
+ "verified": true,
+ "rights_note": "A US newspaper published in 1904, in the public domain. Read for a date.",
+ "access_notes": "Found 2026-10-25 (T-3130) through the Internet Archive's full-text search of the Tribune for \"Thompson-Reid\"; read from the item's OCR text.",
+ "note": "The firm let a floor of its old premises from 1 September 1904, which reads as the move to the new plant on Indiana Avenue being near by then. It is a lease, not a report of the new building, so the plant's state on 1 July 1904 is inferred from it and not read.",
+ "what_it_supplies": [
+  "that Thompson-Reid let a floor of its Wabash and Peck Court premises from 1 September 1904"
+ ],
+ "what_it_does_not_supply": [
+  "how far the new plant's walls had risen by 1 July 1904",
+  "the day the firm moved"
+ ]
+}

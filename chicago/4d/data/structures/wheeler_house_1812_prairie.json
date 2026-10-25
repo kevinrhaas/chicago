@@ -114,7 +114,7 @@
           "sources": [
             "levy_1812_prairie_photo"
           ],
-          "note": "Floor to floor at the front's plane, through the photograph's camera: the belt over the first storey stands at about 5.6 m over the walk, the projection's top (the balcony's floor) at 9.45 m, and the third storey's two arched windows rise to crowns at about 12.2 m, over the gable's kneelers (11.6 m): the wall head is set just over them, at 12.45 m. The third storey's wall head is K01's eave; the gable stands on it (shaped_gable)."
+          "note": "Floor to floor at the front's plane, through the photograph's camera: the belt over the first storey stands at about 5.6 m over the walk, the projection's top (the balcony's floor) at 9.45 m, and the third storey's two arched windows rise to crowns at about 12.2 m, over the gable's kneelers (11.6 m): the wall head is set just over them, at 12.45 m. The third storey's wall head is K01's eave; the gable stands on it (shaped_gable). T-3113: the south projection's top is the print's cornice, its foot at 9.25 m and its top at 9.40 m, a little under the third floor's 9.45 m (L-k08-1812-balcony-panel-3113)."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -238,6 +238,7 @@
               "wall": "k01.wall.street_front",
               "s_m": 2.525,
               "flush_corner": "left",
+              "cut_by_entrance": true,
               "fabric": "front_stone",
               "brick_above_m": 1.65,
               "plinth_m": 0.1,
@@ -282,7 +283,7 @@
                   ]
                 },
                 {
-                  "height_m": 3.85,
+                  "height_m": 3.65,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_paired_transom_squared",
@@ -319,7 +320,30 @@
                   0.06,
                   0.05
                 ],
-                "foot_rail_m": 0.08
+                "foot_rail_m": 0.08,
+                "panel": {
+                  "run": 1,
+                  "width_m": 3.14,
+                  "end_m": 0.09,
+                  "sweep_m": 0.8,
+                  "shoulder_m": 0.42,
+                  "thickness_m": 0.14,
+                  "pedestal_m": [
+                    0.32,
+                    0.52
+                  ],
+                  "scroll_m": 0.11,
+                  "boss_m": 0.06
+                },
+                "roundel": {
+                  "radius_m": 0.045,
+                  "width_m": 0.012,
+                  "drop_m": 0.0
+                }
+              },
+              "eaves": {
+                "overhang_m": 0.2,
+                "fascia_m": 0.15
               },
               "dress": {
                 "quoins": [
@@ -364,6 +388,10 @@
                       [
                         1.618,
                         3.432
+                      ],
+                      [
+                        4.74,
+                        5.05
                       ]
                     ]
                   }
@@ -440,7 +468,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "levy_1812_prairie_photo"
           ],
-          "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against the sheet's 8.5 m front (T-2953: built 5.05 m across, flush with the south corner, so its north face stays where the photograph has it, x 767-778 px at its upper storeys) (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, flush with the south corner as the photograph has it (flush_corner; T-2953, where T-2543 had stood it 0.3 m in), its south cheek running on in the side wall's plane. Its basement light comes down to the walk on a 0.1 m plinth (plinth_m; L-k01-1812-wheeler-porch-2952). Its openings are the photograph's. On its flat top stands the photograph's balcony (T-2888): an iron rail on the eaves, 0.1 m in from their edge, round the cheeks and the front from the wall to the wall, 0.55 m high, its balusters 0.24 m apart. Through the camera the print's rail rises about 47 px (0.51 m at the projection's 92.4 px a metre) over the cornice's top edge, which hides its foot, and its balusters stand about 22 px apart; the posts', rails' and balusters' sections and the inset are K08's to choose, and the print's solid stone panel in the middle of the front run, rising to a central pedestal, is built as more of the iron rail (L-k08-1812-projection-balcony-2888). T-2914: its wall is brick over the basement (brick_above_m 1.65 m, the principal floor), as the print's first and second storeys are, the brick showing round the arched window and either side of the paired one; its plinth, its bands at the two floors, its sills, heads and reveals stay stone. The print's quoined jambs and the band at the arched window's spring are not laid on it (L-k01-1812-wheeler-fabric-2914). T-2915: its dressings are laid as the print's (dress), read at 2x crops of x 280-770, y 780-1380 px at the projection's 92.4 px a metre (the horizon at y 1408, 1.6 m): the paired window's jambs in dressed stones about 37 and 50 px (0.40 and 0.55 m) out from its frame in turn, in courses about 20 px (0.22 m), from its sill to its head, built as ten courses from 6.24 to 8.43 m; the arched window's in taller stones about 40 px (0.43 m), returning about 35-45 and 55-65 px (0.40 and 0.62 m built), four courses from its sill to the band; that band, at y 1140-1175 px (4.12-4.5 m), a long stone running from each corner of the projection to the arch, built at 3.9-4.28 m so its bed stands about 0.1 m under the kit's spring (4.0 m) as the print's under its arch's, 0.04 m proud and stopping at the arch ring's extrados; and under the second storey's jambs, in the band over the second floor's belt, two carved shields about 42-45 px across and 37 px high (0.47 by 0.40 m) centred at y 1012 (5.89 m) and 132 and 139 px (about 1.46 m) either side of the window's axis, built as oval bosses standing for the carving, 0.05 m proud in a moulded ring. The courses' joints, the quoins' 0.02 m and the bosses' carving are the kit's, and the cheeks, which the print does not see, are left plain (L-k01-1812-wheeler-carved-2915). T-3091: the paired window to the print at 3x (x 370-780, y 690-900 px, 92.4 px a metre at the projection's face, the horizon y 1408 at 1.6 m): its sashes' heads at y 810 (8.04 m), a heavy stone bar over them to the transom lights' sills at y 793 (8.23 m) and a low light in each bay to y 755 (8.64 m) glazed in a row of small squares, so the hole runs 2.41 m from its sill (tiers, the bar 0.19 m and the light 0.41 m); its mullion about 22 px (0.24 m) across, carried up past the head as a pier to the caps' top (dress.blocks, 0.04 m proud); a moulded hood over the sashes' heads, x 425-655 (8.04-8.14 m, 0.07 m proud); and the jambs' quoins carried up past the head, eleven courses to 8.53 m, to a carved cap each side at y 740-765 (8.53-8.80 m, x 385-425 and 655-695), built as a dressed block 0.05 m proud with a raised oval boss standing for the carving, a swag the print draws (L-k01-1812-wheeler-windows-3091)."
+          "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against the sheet's 8.5 m front (T-2953: built 5.05 m across, flush with the south corner, so its north face stays where the photograph has it, x 767-778 px at its upper storeys) (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, flush with the south corner as the photograph has it (flush_corner; T-2953, where T-2543 had stood it 0.3 m in), its south cheek running on in the side wall's plane. Its basement light comes down to the walk on a 0.1 m plinth (plinth_m; L-k01-1812-wheeler-porch-2952). Its openings are the photograph's. On its flat top stands the photograph's balcony (T-2888): an iron rail on the eaves, 0.1 m in from their edge, round the cheeks and the front from the wall to the wall, 0.55 m high, its balusters 0.24 m apart. Through the camera the print's rail rises about 47 px (0.51 m at the projection's 92.4 px a metre) over the cornice's top edge, which hides its foot, and its balusters stand about 22 px apart; the posts', rails' and balusters' sections and the inset are K08's to choose, and the print's solid stone panel in the middle of the front run, rising to a central pedestal, is built as more of the iron rail (L-k08-1812-projection-balcony-2888). T-2914: its wall is brick over the basement (brick_above_m 1.65 m, the principal floor), as the print's first and second storeys are, the brick showing round the arched window and either side of the paired one; its plinth, its bands at the two floors, its sills, heads and reveals stay stone. The print's quoined jambs and the band at the arched window's spring are not laid on it (L-k01-1812-wheeler-fabric-2914). T-2915: its dressings are laid as the print's (dress), read at 2x crops of x 280-770, y 780-1380 px at the projection's 92.4 px a metre (the horizon at y 1408, 1.6 m): the paired window's jambs in dressed stones about 37 and 50 px (0.40 and 0.55 m) out from its frame in turn, in courses about 20 px (0.22 m), from its sill to its head, built as ten courses from 6.24 to 8.43 m; the arched window's in taller stones about 40 px (0.43 m), returning about 35-45 and 55-65 px (0.40 and 0.62 m built), four courses from its sill to the band; that band, at y 1140-1175 px (4.12-4.5 m), a long stone running from each corner of the projection to the arch, built at 3.9-4.28 m so its bed stands about 0.1 m under the kit's spring (4.0 m) as the print's under its arch's, 0.04 m proud and stopping at the arch ring's extrados; and under the second storey's jambs, in the band over the second floor's belt, two carved shields about 42-45 px across and 37 px high (0.47 by 0.40 m) centred at y 1012 (5.89 m) and 132 and 139 px (about 1.46 m) either side of the window's axis, built as oval bosses standing for the carving, 0.05 m proud in a moulded ring. The courses' joints, the quoins' 0.02 m and the bosses' carving are the kit's, and the cheeks, which the print does not see, are left plain (L-k01-1812-wheeler-carved-2915). T-3091: the paired window to the print at 3x (x 370-780, y 690-900 px, 92.4 px a metre at the projection's face, the horizon y 1408 at 1.6 m): its sashes' heads at y 810 (8.04 m), a heavy stone bar over them to the transom lights' sills at y 793 (8.23 m) and a low light in each bay to y 755 (8.64 m) glazed in a row of small squares, so the hole runs 2.41 m from its sill (tiers, the bar 0.19 m and the light 0.41 m); its mullion about 22 px (0.24 m) across, carried up past the head as a pier to the caps' top (dress.blocks, 0.04 m proud); a moulded hood over the sashes' heads, x 425-655 (8.04-8.14 m, 0.07 m proud); and the jambs' quoins carried up past the head, eleven courses to 8.53 m, to a carved cap each side at y 740-765 (8.53-8.80 m, x 385-425 and 655-695), built as a dressed block 0.05 m proud with a raised oval boss standing for the carving, a swag the print draws (L-k01-1812-wheeler-windows-3091). T-3113: the balcony's front run to the print (3x crops of x 280-780, y 600-720 px at 92.4 px a metre): the stone panel from x 390 to 680 px (3.14 m) built in the projection's dressing, its ends 0.09 m over the deck and its top rising in a straight sweep over 0.8 m to shoulders 0.42 m up, level to a pedestal 0.32 m across and 0.52 m high under a cap at about the rail's top (x 527-557 px); an iron scroll hung from the top rail over each sweep and a carved scroll on the panel beside the pedestal each side; the top rail run into the pedestal and the foot rail stopped at the panel's ends; and a roundel under the rail on every baluster (balcony.panel, balcony.roundel). The projection's top brought down to the print's cornice, its foot at about y 700 px and its top at y 677-693 (the print is warped): the last storey 3.65 m, so the wall head stands at 9.25 m, under an eave 0.2 m out and 0.15 m deep (eaves), its top at 9.40 m where K08's 0.35 m eave and 0.28 m fascia had stood it at 9.73 m (L-k08-1812-balcony-panel-3113). The porch arch is cut into the projection's north corner (cut_by_entrance) under its head from the door's floor, 0.2 m in, through its whole depth, and the springing band stops at the arch's moulding (gaps_m to 5.05 m) (L-k07-1812-porch-arch-jamb-3135)."
         },
         "side_bays": {
           "value": [],
@@ -644,9 +672,10 @@
               "front_yard_m": 6.0,
               "reveal_depth_m": 0.32,
               "opening_m": [
-                2.7,
+                3.05,
                 3.42
               ],
+              "axis_s_m": 6.375,
               "arch": {
                 "ring_m": 0.15,
                 "keystone_top_m": 5.22,
@@ -654,7 +683,33 @@
                   0.2,
                   0.22
                 ],
-                "rise_over_span": 0.293
+                "rise_over_span": 0.259,
+                "head": "elliptical",
+                "moulding": {
+                  "steps_m": [
+                    0.06,
+                    0.05
+                  ],
+                  "proud_m": [
+                    0.05,
+                    0.025
+                  ]
+                }
+              },
+              "transom_beam": {
+                "depth_m": 0.25,
+                "cap_m": [
+                  0.06,
+                  0.04
+                ],
+                "bead_m": [
+                  0.04,
+                  0.02
+                ]
+              },
+              "fanlight_columns": {
+                "width_m": 0.27,
+                "rows": 3
               },
               "side_light": {
                 "width_m": 1.04,
@@ -682,7 +737,34 @@
                 "kind": "swept",
                 "head_m": 0.5,
                 "foot_m": 1.1,
-                "block_m": 0.45
+                "block_m": 0.45,
+                "flare": [
+                  {
+                    "side": "right",
+                    "out_m": 0.55
+                  },
+                  {
+                    "side": "left",
+                    "out_m": -0.2
+                  }
+                ],
+                "pierced": {
+                  "side": "right",
+                  "count": 10,
+                  "hole_m": [
+                    0.11,
+                    0.08
+                  ],
+                  "under_m": 0.35
+                },
+                "newel": {
+                  "width_m": 0.45,
+                  "cap_m": [
+                    0.1,
+                    0.04
+                  ],
+                  "knob_m": 0.2
+                }
               }
             }
           },
@@ -690,7 +772,7 @@
           "sources": [
             "levy_1812_prairie_photo"
           ],
-          "note": "The photograph's entrance (T-2952): a broad porch arch on the north bay, its head a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk, 2.63 m over the 1.65 m floor) to its crown (5.07 m), under a 0.15 m ring to 5.22 m (opening_m, arch.rise_over_span 0.293); the transom at the spring and the segment over it glazed; under it the double door, a 0.29 m stone pier and the side light, 1.04 m across from a sill 0.56 m over the floor (side_light). The print's north jamb is at x 1020 px (7.9 m); its south jamb runs down the projection's corner, and the mouth is built clear of the projection from 5.2 m. The stair (stoop_v_m 6.1, 2.05 m wide) runs straight to the walk between solid cheeks level 0.5 m over the landing and swept down to a 0.45 m block 1.1 m high at the foot (cheek_form), its left cheek against the projection; the landing runs on north to 8.2 m as a terrace behind a 0.5 m stone parapet pierced in two rows of 0.08 m square holes, the print's pierced panel (L-k01-1812-wheeler-porch-2952)."
+          "note": "The photograph's entrance (T-2952): a broad porch arch on the north bay, its head a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk, 2.63 m over the 1.65 m floor) to its crown (5.07 m), under a 0.15 m ring to 5.22 m (opening_m, arch.rise_over_span 0.293); the transom at the spring and the segment over it glazed; under it the double door, a 0.29 m stone pier and the side light, 1.04 m across from a sill 0.56 m over the floor (side_light). The print's north jamb is at x 1020 px (7.9 m); its south jamb runs down the projection's corner, and the mouth is built clear of the projection from 5.2 m. The stair (stoop_v_m 6.1, 2.05 m wide) runs straight to the walk between solid cheeks level 0.5 m over the landing and swept down to a 0.45 m block 1.1 m high at the foot (cheek_form), its left cheek against the projection; the landing runs on north to 8.2 m as a terrace behind a 0.5 m stone parapet pierced in two rows of 0.08 m square holes, the print's pierced panel (L-k01-1812-wheeler-porch-2952). T-3134, read through the camera on 2-4x crops of x 700-1120, y 1000-1560 px: the arch's head a half ellipse (arch.head), steep at the jambs and flat over the crown, its intrados crown at about 5.09 m and its sides upright from about 4.35 m (built on the same 0.79 m rise); a narrow moulded ring of light stone about 0.11 m broad round it and down both jambs to the landing (arch.moulding, two steps 0.06 and 0.05 m), the print showing no keystone; the transom a beam from about 4.05 to 4.30 m (transom_beam, 0.25 m deep under a moulded cap and over a bead); the fanlight's lights parted by two narrow columns of small panes about 0.27 m across, over the leaves' meeting and the pier (fanlight_columns, three panes up); the north cheek's inner face carried out about 0.55 m as it sweeps down (cheek_form.flare, the treads widening under it) and each cheek ending in a newel about 0.45 m across under a cap at the 1.1 m foot line with a knob over it and a carved panel (cheek_form.newel). The sections, the knob and the panels are invented; the stair's place and its pierced north cheek are T-3144's (L-k07-1812-porch-arch-3134). T-3135: the arch is cut into the south projection's corner, as both photographs draw it: Levy's print puts its south moulding at x 740-755 px and the opening's edge near x 755, south of the projection's corner (x 770-777 above the arch), where nothing behind the projection's face can draw from that camera, and the c. 1955 photograph puts the edge at x about 328 on the projection's face (about 4.8 m along the front); its north jamb draws on the main front in both (x 1029 and 444, where the projection's plane would put it at 1048 and 471-475), so the arch is not stood forward as a whole. The mouth is therefore 3.05 m from 4.85 to 7.9 m (opening_m, its axis at 6.375 m, axis_s_m), on the same 0.79 m rise (rise_over_span 0.259), and the moulding's south leg stands on the projection's face; the cut's inside, which neither picture sees, is invented (L-k07-1812-porch-arch-jamb-3135). T-3144, read through the same camera on 2-4x crops of x 650-1200, y 1150-1600 px: the south newel at x 768-808 px, about 0.2 m north of the build's 744-790 where the north newel (1050-1100) and both cheeks at the landing land within 5 px, so the south cheek is drawn in toward the stair's axis as it sweeps down (cheek_form.flare, left, -0.2 m, the treads narrowing over it; the foot about 2.4 m between the newels, the print's 2.37); and the north cheek's inner face pierced by a row of about ten small openings under its deep coping, slanting with it, each about 4-5 px by 7-9 px (cheek_form.pierced: ten 0.11 m along the run, 0.08 m high, 0.35 m under the top). The c. 1955 photograph's parked car hides the stair, so Levy's print is the one reading (L-k07-1812-stair-foot-3144)."
         },
         "shaped_gable": {
           "value": {

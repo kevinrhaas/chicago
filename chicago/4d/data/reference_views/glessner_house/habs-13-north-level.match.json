@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "22360520275c7f4ac40e1369fc67b6107ccf74db95ed37318033d9f6d37d9f7a",
+  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
   "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
   "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
@@ -39,6 +39,10 @@
     {
       "what": "T-3115: the crosses are draped on the stack's rock (they stood 2-4 cm proud of it); at this camera's scale they read as before.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3136, read on this side-by-side at 2x (GLB 6ba8c9f7): the two gable pairs' lights do not read as built. The east wing's pair (W 7.2-14.7, built 3.35 and 2.85 ft) shows two equal lights, 65 px each either side of a 27.5 px colonnette (about 3.1 ft each at the pair's 21 px a foot), where the render draws 72.5 and 59 px. The tower shoulder's pair (W 25.8-32.9, built 2.65 and 3.1 ft) shows 65 and 67.5 px (about 2.9-3.0 ft each) where the render draws 52.5 and 60, and the print's eastern jamb stands 27 px and its western 15 px east of the render's. T-3045 re-solved this camera on heights, so camera and plan are not separated here; T-3142 reads the pairs with HABS 14 and rules them.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

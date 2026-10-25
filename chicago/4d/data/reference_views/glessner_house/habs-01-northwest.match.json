@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "22360520275c7f4ac40e1369fc67b6107ccf74db95ed37318033d9f6d37d9f7a",
+  "glb_sha256": "6f6a789f7197663ed69bb1aded50e5d28186d491812877d39ed27bc31788bb64",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "photo_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
@@ -17,7 +17,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758).",
+      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758). T-3136: the cupola's corners carry no strip on the current render (T-3036 fixed it), so what stays open here is the stable end's place through this camera, about 17-35 px right and 30-40 px high at the gable and cupola: T-3139's. T-3147 (piece of T-3139) reads the stable end through T-2758's doorway re-solve instead, which fits this print's own controls and the doorway's four corners at 3.1 px (the doorway at 2.8): the hoist stone's nose top lands within 0.0 px across and 4.1 px of its lit end face, so the 4.0 ft cantilever stands. This camera is left as it is, because the stable fit costs the north tower's finial (1.5 px to 8.7) the whole-house view is judged on. What stays open is the stable end's height through it: the gable's coping apex reads 38.1-38.6 ft through every doorway fit against the built 39.6 (T-2758), with HABS 15's eaves either side of the gable (T-3148).",
       "status": "open"
     },
     {
@@ -74,6 +74,22 @@
     },
     {
       "what": "T-3115: the crosses are draped on the stack's rock (they stood 2-4 cm proud of it); this print does not resolve them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3116: the crest against the fan, ruled. This camera is level, so the stack's vertical is linear in height; scaled by sheet 6's crest and the north pairs' head, the fan's crown reads 1.0 ft, the light's head 1.0 and its sill 0.5 over the build (the same scale on the render returns the built fan within 0.3 ft), and the fan's crown stood within 3 px of its height over the light's head. The light and fan are rebuilt 1.0 ft higher with HABS 14's readings (fan crown 40.15 ft ng). The coping's junction reads 0.8 ft under the built one here, inside T-3024's spread. docs/RESEARCH/glessner-gable-fan-T-3116/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3127 (found by T-3116): the gable light reads 1.9-2.1 ft wide through this camera, less the method's own error on the render (which returns the built 1.5 ft as 1.61), and the fan's ring 10.0 ft across against the built 9.4. Rebuilt 2.1 ft wide with the fan's radius 5.0 ft (HABS 14 is the finer print, 2.08-2.12). Re-rendered: the light reads 11 px across against the photograph's 10.5 (8 before). docs/RESEARCH/glessner-gable-light-T-3127/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3136, read at 3x: the stable's north-gable pigeon holes stand about a course tall in this print, where the render draws small slits (built 0.45-0.65 ft), and the print sets the ledge higher under the apex: apex to ledge about 2.7 times ledge to the loft arch's crown, against the render's 3.7, a ratio this camera's offset at the stable does not move. The Cornell print shows the same holes. T-3143 owns them.",
+      "status": "open"
+    },
+    {
+      "what": "T-3137: the gable fan's stones. At about 5 px to the foot this print cannot count them, but a polar profile across the fan finds 7-8 joints where the same profile on the render of the 11 built voussoirs found 10-13, which agrees with HABS 14's count of seven; the fan is rebuilt with seven, keyed at the crown, and the transom 0.4 ft lower (this print does not resolve the transom). docs/RESEARCH/glessner-gable-transom-T-3137/.",
       "status": "fixed"
     }
   ],

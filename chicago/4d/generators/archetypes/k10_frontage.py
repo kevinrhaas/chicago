@@ -659,6 +659,9 @@ def _stone_cornice(a, K, data, bays, conf):
     # the corner pier's carved boss); capped there as at a corner
     stops = p.wall_head.get("stops_m") or {}
     lo, hi = float(stops.get("south", 0.0)), front.L - float(stops.get("north", 0.0))
+    # T-3112: and the pier at the low-s end, capped under it (`front_pier`), takes none
+    if getattr(p, "front_pier", None):
+        lo = max(lo, p.front_pier["to_m"])
     spans = [(max(s0, lo), min(s1, hi)) for s0, s1 in spans if min(s1, hi) > max(s0, lo)]
     info = {"projection_m": pj, "height_m": ch, "profile": v["profile"], "soffit_m": y_s,
             "bays_carrying_it": len(cut)}
