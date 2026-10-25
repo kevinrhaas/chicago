@@ -55719,13 +55719,7 @@
           "domain": "structure",
           "structure": "pullman_house_1729_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.mansard"
-        },
-        {
-          "domain": "structure",
-          "structure": "pullman_house_1729_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.street_front_windows"
+          "aspect": "form.basement_lights"
         }
       ],
       "recorded": "2026-10-25",
@@ -55741,7 +55735,7 @@
         },
         {
           "label": "Covers",
-          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.street_front_windows`, `pullman_house_1729_prairie.as_mapped_1904.form.mansard`"
+          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`"
         },
         {
           "label": "Review",

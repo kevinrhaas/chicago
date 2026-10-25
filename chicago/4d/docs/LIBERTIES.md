@@ -33469,7 +33469,7 @@ none, the street wall and the ivy standing in front of the raised basement.
 **How to resolve:** T-3158 lays the pavilions' quoined piers, their own mansard sections, the dormers'
 hoods and the north-west pavilion's dormer; T-3160 arches the 18th Street flank's windows; a picture
 closer to the front than this one (T-3161) replaces the rings with the mouldings it shows.
-**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.street_front_windows`, `pullman_house_1729_prairie.as_mapped_1904.form.mansard`
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`
 **Ticket:** T-3157.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3157).
