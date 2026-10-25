@@ -25,6 +25,22 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "coleman_ames_house_1811_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1811_ames_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "coleman_ames_house_1811_prairie/as_mapped_1904/form.front_pier": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1811_ames_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
       "kind": "structure",
       "blocked_sources": [
@@ -737,7 +753,7 @@
       "blocked_sources": [
         "glessner_blog_1736_mcbirney_c1890_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "house_1736_prairie/as_mapped_1904/form.principal_floor_m": {
@@ -761,7 +777,7 @@
       "blocked_sources": [
         "glessner_blog_1736_mcbirney_c1890_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "house_1736_prairie/as_mapped_1904/form.sash_by_storey": {
@@ -908,14 +924,6 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_prefire273"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
-    "sauganash_hotel/frame_1831/form.shutter_type": {
-      "kind": "structure",
-      "blocked_sources": [
-        "trowbridge_sauganash_hotel"
       ],
       "sole_support": true,
       "confidence": "inferred"
@@ -1381,6 +1389,14 @@
         "chicagology_prefire278"
       ],
       "sole_support": true,
+      "confidence": "inferred"
+    },
+    "wheeler_house_1812_prairie/as_built_1884/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1812_wheeler_c1955_photo"
+      ],
+      "sole_support": false,
       "confidence": "inferred"
     },
     "wolf_point_tavern/log_frame_1828/form.construction": {

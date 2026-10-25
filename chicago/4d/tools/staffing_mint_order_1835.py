@@ -377,6 +377,11 @@ def outstanding_family_trade_slots(book: dict) -> int:
     return left
 
 
+def lodging_mint_ceiling(beds: dict) -> int:
+    """Physical room alone does not enlarge the carried permission to mint."""
+    return min(beds["ordinary_night_beds_still_empty"], beds["allocation_authorized_empty_beds"])
+
+
 def the_bed_bound(lodgers: dict) -> dict:
     """The boarders stage's own bed accounting, quoted. A `lodging/trade` slot is a
     quota; a bed is somewhere to sleep. Nothing here is computed — every figure and the
@@ -387,12 +392,19 @@ def the_bed_bound(lodgers: dict) -> dict:
     if "ordinary_night_beds_still_empty" not in measurement:
         raise Fault("the committed lodging accounting no longer states how many "
                     "ordinary-night beds stand empty")
+    for field in ("ordinary_night_beds_slept_in", "allocation_authorized_empty_beds"):
+        if field not in measurement:
+            raise Fault("lodging accounting lacks current occupancy and carried authorization")
     return {
         "read_from": "data/reconstruction/1835_lodgers_seated.json",
         "ticket": lodgers.get("ticket"),
         "built_lodging_places": measurement.get("built_lodging_places"),
         "ordinary_night_beds": measurement.get("ordinary_night_beds"),
-        "ordinary_night_beds_slept_in": measurement.get("occupied_after_this_stage"),
+        "ordinary_night_beds_slept_in": measurement["ordinary_night_beds_slept_in"],
+        "occupied_after_this_stage": measurement.get("occupied_after_this_stage"),
+        "occupants_above_ordinary_night_figure": measurement.get("occupants_above_ordinary_night_figure"),
+        "ordinary_night_net_balance": measurement.get("ordinary_night_net_balance"),
+        "allocation_authorized_empty_beds": int(measurement["allocation_authorized_empty_beds"]),
         "ordinary_night_beds_still_empty":
             int(measurement.get("ordinary_night_beds_still_empty") or 0),
         "lodging_places_unbuilt": reconciled.get("lodging_places_unbuilt"),
@@ -472,7 +484,7 @@ def order(data: dict) -> dict:
     family_trade_left = outstanding_family_trade_slots(data["book"])
     beds = the_bed_bound(data["lodgers"])
     needing_a_bed = low_payable - certainly_housed
-    mintable_today = min(needing_a_bed, beds["ordinary_night_beds_still_empty"])
+    mintable_today = min(needing_a_bed, lodging_mint_ceiling(beds))
     by_premises_share: dict = {}
     for row in ruled:
         share = float(row["lives_on_premises"] or 0)
@@ -712,7 +724,8 @@ def order(data: dict) -> dict:
                     f"{needing_a_bed} of the {low_payable} hands the ruling buys would "
                     f"have to be seated as lodgers, and "
                     f"{beds['ordinary_night_beds_still_empty']} ordinary-night bed(s) "
-                    f"stand empty in the "
+                    f"stand physically empty, with {beds['allocation_authorized_empty_beds']} "
+                    f"remaining under the carried allocation authorization, in the "
                     f"{beds['built_lodging_places']} built lodging places. The "
                     f"{beds['lodging_places_unbuilt']} lodging roofs the model "
                     f"schedules and nothing has raised are where the rest of the beds "
@@ -725,7 +738,8 @@ def order(data: dict) -> dict:
                 f"payable in slots. What the town cannot do today is SEAT them. "
                 f"{certainly_housed} are household members the lodging purse is the "
                 f"wrong household type for, and the {needing_a_bed} left need a bed "
-                f"against {beds['ordinary_night_beds_still_empty']} empty. So "
+                f"against {beds['ordinary_night_beds_still_empty']} physically empty and "
+                f"{beds['allocation_authorized_empty_beds']} still authorized under the carried allocation. So "
                 f"{mintable_today} of them can be minted on the files as committed. "
                 f"This is a bed bound and a household-type bound, not a ruling that "
                 f"has been refused, and neither can be lifted by re-cutting the book."
@@ -979,6 +993,17 @@ def cmd_self_test() -> int:
                         "mint — the bed bound is not being read")
     fires("the bed bound survived a lodging file that states no bed count",
           lambda: the_bed_bound({"measurement": {}}))
+
+    # Physical vacancies may rise after a weight recut, but permission must not.
+    if not (lodging_mint_ceiling({"ordinary_night_beds_still_empty": 37,
+                                 "allocation_authorized_empty_beds": 32}) == 32
+            and lodging_mint_ceiling({"ordinary_night_beds_still_empty": 99,
+                                      "allocation_authorized_empty_beds": 32}) == 32
+            and lodging_mint_ceiling({"ordinary_night_beds_still_empty": 0,
+                                      "allocation_authorized_empty_beds": 32}) == 0
+            and lodging_mint_ceiling({"ordinary_night_beds_still_empty": 37,
+                                      "allocation_authorized_empty_beds": 0}) == 0):
+        failures.append("physical vacancy recut changed carried mint authorization")
 
     # 12. THE HOUSEHOLD AXIS IS THE STAFFING MODEL'S OWN RULE. Empty `who_lives_in` on a
     #     copy and the count of hands it houses with the employer must fall to nought.

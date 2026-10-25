@@ -43,12 +43,12 @@
     "faces_laid": 99,
     "walk_m": 9067.7,
     "crossing_m": 2430.7,
-    "fence_m": 1953.5,
+    "fence_m": 1929.1,
     "walking_decks": 856,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
-      "stoop": 37,
+      "stoop": 38,
       "tie_rail": 1,
       "wagon_apron": 7
     },
@@ -78,7 +78,7 @@
         "note": "111 run(s) of sidewalk on 99 platted block face(s), plus 2430.7 m of board crossing at 103 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1953.5,
+        "value": 1929.1,
         "confidence": "reconstructed",
         "sources": [],
         "note": "39 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
@@ -90,10 +90,10 @@
         "note": "51 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 51,
+        "value": 52,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 38 stoop(s), 1 tie rail(s), 7 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -27844,8 +27844,8 @@
           -99.47
         ],
         [
-          293.28,
-          -99.87
+          268.88,
+          -99.67
         ]
       ],
       "height_m": 1.37,
@@ -27855,10 +27855,9 @@
       "post_square_m": 0.12,
       "rail_courses": 2,
       "lots": [
-        3,
-        5
+        3
       ],
-      "least_setback_m": 5.5,
+      "least_setback_m": 5.99,
       "openings": [
         {
           "id": "blk_south_water_franklin_south_fence_2_gate_1",
@@ -27882,32 +27881,9 @@
           ],
           "confidence": "reconstructed",
           "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_franklin_d2_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
-        },
-        {
-          "id": "blk_south_water_franklin_south_fence_2_gate_2",
-          "on": "street",
-          "serves": "recon_1835_blk_south_water_franklin_d3_03",
-          "at_local_enu_m": [
-            282.56,
-            -99.78
-          ],
-          "width_m": 1.067,
-          "gate": {
-            "kind": "foot_gate",
-            "leaves": 1,
-            "leaf_stock": "board",
-            "hinge": "a",
-            "swing_deg": 0.0
-          },
-          "opens_into_local_enu_m": [
-            282.59,
-            -95.78
-          ],
-          "confidence": "reconstructed",
-          "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_franklin_d3_03, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         }
       ],
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_franklin's own platted frontage line from 24.3 m to 73.2 m along the south face, covering lot(s) 3, 5 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_franklin's own platted frontage line from 24.3 m to 48.8 m along the south face, covering lot(s) 3 — every one of them improved by a committed building whose nearest wall stands 5.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_lasalle_south_fence_4",
@@ -29832,8 +29808,8 @@
       "trade": "tavern_inn",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        302.77,
-        -102.93
+        294.77,
+        -102.86
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -29843,8 +29819,8 @@
       "along_frontage_frac": 0.28,
       "business_class": "inn",
       "clear_of_track_m": 3.88,
-      "stands_on_m": 0.8,
-      "note": "A POST AT THE ROAD EDGE OUTSIDE New York House, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `tavern_inn`, which the street edge's table of businesses reads as an inn (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands 2 posts, at the thirds of the front as the Sauganash's own two do, and this is post 1. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.80 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
+      "stands_on_m": 0.79,
+      "note": "A POST AT THE ROAD EDGE OUTSIDE New York House, for a rider to tie to. WHY HERE is a rule and not a placement: this frontage's trade is `tavern_inn`, which the street edge's table of businesses reads as an inn (FRONTAGE_BY_BUSINESS — a trade that takes its custom from a stranger off the street, PUBLIC_TRADES in tools/generate_business_signboards.py, the same clause that decides which frontage hangs a board), so it stands 2 posts, at the thirds of the front as the Sauganash's own two do, and this is post 1. The trade is held `attested` — on evidence. WHERE is derived: the footprint is projected onto its own platted face, the post stands at 0.28 of that frontage and 2.98 m out from the lot line — 0.90 m clear of the walk's outer edge, the same verge the Sauganash's own posts stand in — on committed ground at +0.79 m with 3.88 m still between it and the Lake Street track. WHAT IS INVENTED: that a post stood on this ground at noon on 1 July 1835, and its height, its section and its capped head, which are the Sauganash's numbers carried across (docs/LIBERTIES.md L136). docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_franklin_south_hitching_new_york_house_2",
@@ -29858,8 +29834,8 @@
       "trade": "tavern_inn",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        308.14,
-        -102.97
+        300.14,
+        -102.91
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -32262,8 +32238,8 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        305.46,
-        -102.95
+        297.46,
+        -102.88
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.5,
@@ -32271,8 +32247,8 @@
         {
           "part": "low_step",
           "at_local_enu_m": [
-            305.46,
-            -102.8
+            297.46,
+            -102.73
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -32281,8 +32257,8 @@
         {
           "part": "high_step",
           "at_local_enu_m": [
-            305.45,
-            -103.1
+            297.46,
+            -103.04
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -32333,6 +32309,59 @@
         }
       ],
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Exchange Coffee House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — at the door its front elevation states (T-1984) — its front wall stands 0.36 m back of the lot line at the door, so the stoop spans 0.61 m to the walk: a 0.31 m landing 0.38 m up, a 0.30 m step, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
+      "id": "blk_south_water_franklin_south_stoop_new_york_house",
+      "belongs_to": "town_street_edge",
+      "kind": "stoop",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_south_water_franklin_south_1",
+      "serves": "new_york_house",
+      "serves_name": "New York House",
+      "trade": "tavern_inn",
+      "trade_confidence": "attested",
+      "business_class": "inn",
+      "at_local_enu_m": [
+        297.48,
+        -99.56
+      ],
+      "facade_bearing_deg": 180.5,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "landing",
+          "at_local_enu_m": [
+            297.49,
+            -99.0
+          ],
+          "len_m": 1.52,
+          "depth_m": 1.07,
+          "top_m": 0.38
+        },
+        {
+          "part": "step",
+          "at_local_enu_m": [
+            297.48,
+            -99.69
+          ],
+          "len_m": 1.52,
+          "depth_m": 0.3,
+          "top_m": 0.22
+        },
+        {
+          "part": "boards",
+          "at_local_enu_m": [
+            297.48,
+            -100.0
+          ],
+          "len_m": 1.216,
+          "depth_m": 0.315,
+          "top_m": 0.11
+        }
+      ],
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at New York House. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_franklin's south face — at the door its front elevation states (T-1984) — its front wall stands 1.43 m back of the lot line at the door, so the stoop spans 1.68 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.31 m of boards, on committed ground at +0.80 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_lasalle_north_stoop_chicago_democrat_office",
@@ -33433,23 +33462,23 @@
       "business_class": "works",
       "pts_local_enu_m": [
         [
-          -146.79,
-          -120.69
-        ],
-        [
           -136.52,
           -120.77
         ],
         [
-          -136.49,
-          -117.49
+          -126.24,
+          -120.86
         ],
         [
-          -146.77,
-          -117.41
+          -126.21,
+          -117.58
+        ],
+        [
+          -136.49,
+          -117.49
         ]
       ],
-      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 5.1 m to 15.4 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 15.4 m to 25.7 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_west_randolph_des_plaines_north_bare_ground_recon_1835_blk_west_randolph_des_plaines_w2_01",
@@ -33924,6 +33953,11 @@
       "why": "recon_1835_blk_south_water_franklin_d3_13 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
+      "structure_id": "blk_south_water_franklin_lot5",
+      "wall": "blk_south_water_franklin south face, lot 5",
+      "why": "new_york_house stands 1.43 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
       "structure_id": "blk_south_water_franklin_lot6",
       "wall": "blk_south_water_franklin north face, lot 6",
       "why": "recon_1835_blk_south_water_franklin_d4_02 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
@@ -34189,11 +34223,6 @@
       "why": "no plank walk in front of mason_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_lake_dearborn's north face stops either side of it, from 20.7 m to 25.9 m along the face (5.2 m, the march steps whose middle lies in front of its 6.2 m frontage)."
     },
     {
-      "structure_id": "new_york_house",
-      "wall": "blk_south_water_franklin south face, lot 7",
-      "why": "no stoop at new_york_house: exchange_coffee_house stands on the ground it would occupy."
-    },
-    {
       "structure_id": "newberry_dole_warehouse",
       "wall": "blk_south_water_market north face, lot 3",
       "why": "newberry_dole_warehouse is a forwarding_commission_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
@@ -34206,7 +34235,7 @@
     {
       "structure_id": "pierce_blacksmith_shop_walk",
       "wall": "blk_west_lake_canal north face, at its door",
-      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 5.1 m to 15.4 m along the face (10.3 m, the march steps whose middle lies in front of its 9.1 m frontage)."
+      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 15.4 m to 25.7 m along the face (10.3 m, the march steps whose middle lies in front of its 9.1 m frontage)."
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_w1_10",

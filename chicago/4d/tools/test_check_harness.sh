@@ -85,10 +85,11 @@ esac
 # command out of whichever one it is looking at.
 scan_check() { # <file> -> offending "line: reason" rows on stdout
   awk '
+    BEGIN { selftest_commands["  node tools/test_batch_shadow_cull.mjs"] = 1 }
     /^step "/ || /^selftest "/ {
       n = NR; kind = ($0 ~ /^selftest "/) ? "selftest" : "step"
       if ($0 ~ /\\$/) { getline cmd } else { cmd = $0 }
-      looks = (cmd ~ /self-?test/)
+      looks = (cmd ~ /self-?test/ || cmd in selftest_commands)
       if (kind == "step" && looks)
         printf "%d: a self-test runs through step(), so its fired assertions print untagged:%s\n", n, cmd
       if (kind == "selftest" && !looks)
@@ -343,13 +344,13 @@ fi
 
 # THE DEFAULT ITSELF. T-1289 built the pool and left it off, and for three months the
 # only caller that turned it on was CI — so the sandbox that could not afford a serial
-# gate was the one running one. A default back at 1 is that regression, silently.
-default_jobs="$(bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')"
-if [ "$default_jobs" -gt 1 ] 2>/dev/null; then
-  ok "the pool is on by default ($default_jobs jobs on $(nproc 2>/dev/null || echo '?') cores)"
-else
-  bad "CHECK_JOBS defaults to [$default_jobs] — a serial gate does not fit a 600 s run (T-1578)"
-fi
+# gate was the one running one. Returning 1 on four available cores is that regression.
+# Child-local CPU fixtures isolate policy from outer CHECK_JOBS/math-thread limits;
+# one actual available core legitimately defaults to 1.
+default_jobs="$(bash -c 'unset CHECK_JOBS; nproc() { printf "4\n"; }; source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')"
+want "$default_jobs" "4" "the default uses all four available fixture cores"
+one_core_jobs="$(bash -c 'unset CHECK_JOBS; nproc() { printf "1\n"; }; source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')"
+want "$one_core_jobs" "1" "a single available fixture core legitimately defaults to one job"
 want "$(CHECK_JOBS=1 bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')" "1" \
      "…and an explicit CHECK_JOBS still wins, which is the escape hatch"
 

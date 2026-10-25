@@ -1,0 +1,89 @@
+{
+  "_doc": "A PLANTING RECORD for the 1812 scene (T-2486): the currant bushes of Antoine Ouilmette's garden behind his house (ouilmette_house_1812), read by renderers/web/js/trees.js through data/flora/index.json and scoped there to scene 1812, so they stand in no other year. Zone z10_settled_town is named because it is the record that describes currants as planted garden stock. Hand-written, like kinzie_house_1812_trees: six stems, no rule.",
+  "id": "ouilmette_garden_1812",
+  "name": "Antoine Ouilmette's garden: the currant bushes behind his house",
+  "kind": "planting",
+  "scene": "1812",
+  "target_date": "1812-08-14",
+  "belongs_to": [
+    "ouilmette_house_1812"
+  ],
+  "zone": "z10_settled_town",
+  "existence": {
+    "value": true,
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Wau-Bun ch. XIX, of the afternoon of 17 August 1812, three days after this scene's date: a sergeant who had hidden in the woods 'ventured to steal cautiously into the garden of Ouilmette, where he concealed himself for a time behind some currant-bushes. At length he determined to enter the house, and accordingly climbed up through a small back window into the room where the family were.' Currant bushes big enough to hide a man stood in mid-August of a season's growth, so they stood on the 14th. The garden is behind the house because the window he climbed through was its back one. Every position, the number of bushes and their heights are reconstructed (L-1812-ouilmette-2486)."
+  },
+  "research_note": "WHAT WOULD MOVE THESE. A plan or a picture of Ouilmette's lot, or any account giving the garden's size or fence. Wau-Bun names no fence, so none is built; Kinzie's garden next door is a separate record (kinzie_garden_1812). T-3106: the two reconstructed rows now stand at N +353.3 and +355.1, respectively 5.016 and 6.816 m behind the unchanged house's back wall at N +348.284. The former N +350.2/+352.0 rows were inside the renderer's unchanged 4.5 m footprint clearance and all six bushes were refused. Keep the same six currants, eastings, heights and 1.8 m spacing; no footprint exemption is used. These garden coordinates are reconstructed, not measured from Wau-Bun (docs/LIBERTIES.md L-1812-flora-3106).",
+  "stems": [
+    {
+      "id": "ouilmette_currant_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1116.9,
+        353.3
+      ],
+      "height_m": 1.1,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 1 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    },
+    {
+      "id": "ouilmette_currant_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1118.7,
+        353.3
+      ],
+      "height_m": 1.3,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 2 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    },
+    {
+      "id": "ouilmette_currant_3",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1120.5,
+        353.3
+      ],
+      "height_m": 1.0,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 3 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    },
+    {
+      "id": "ouilmette_currant_4",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1116.9,
+        355.1
+      ],
+      "height_m": 1.2,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 4 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    },
+    {
+      "id": "ouilmette_currant_5",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1118.7,
+        355.1
+      ],
+      "height_m": 0.9,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 5 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    },
+    {
+      "id": "ouilmette_currant_6",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        1120.5,
+        355.1
+      ],
+      "height_m": 1.4,
+      "confidence": "reconstructed",
+      "note": "CURRANT BUSH 6 OF 6, in two short rows 1.8 m apart behind the house's back wall (local N +348.284); the reconstructed first row is 5.016 m from it so its bushes clear the unchanged footprint guard. Wau-Bun's 'currant-bushes' in 'the garden of Ouilmette' are attested; the rows, the number and the places are this record's."
+    }
+  ]
+}

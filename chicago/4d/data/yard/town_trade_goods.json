@@ -9,13 +9,13 @@
   "counts": {
     "frontages": 29,
     "objects": 160,
-    "wagons": 80,
+    "wagons": 81,
     "wagons_by_kind": {
-      "farm_box": 25,
+      "farm_box": 26,
       "covered": 17,
       "cart": 38
     },
-    "wagons_at_street_verges": 71,
+    "wagons_at_street_verges": 72,
     "wagons_in_yards": 6,
     "wagon_stands_refused": 67,
     "benches": 1,
@@ -2411,28 +2411,108 @@
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
-          311.65,
+          303.65,
           -90.9
         ],
         [
-          299.46,
+          291.46,
           -90.8
         ],
         [
-          299.4,
+          291.4,
           -98.42
         ],
         [
-          311.59,
+          303.59,
           -98.52
         ]
       ],
       "items": [
         {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            302.77,
+            -99.06
+          ],
+          "bearing_deg": 180.5,
+          "mark": {
+            "lines": [
+              "FLOUR"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            302.15,
+            -99.06
+          ],
+          "bearing_deg": 180.5,
+          "mark": {
+            "lines": [
+              "PORK"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            301.53,
+            -99.05
+          ],
+          "bearing_deg": 180.5,
+          "mark": {
+            "lines": [
+              "NEW YORK HOUSE"
+            ],
+            "letterform": "brand",
+            "says": "house"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "upright",
+          "at_local_enu_m": [
+            300.91,
+            -99.05
+          ],
+          "bearing_deg": 180.5,
+          "mark": {
+            "lines": [
+              "WHISKEY"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
+          "kind": "barrel",
+          "pose": "laid",
+          "at_local_enu_m": [
+            299.94,
+            -99.04
+          ],
+          "bearing_deg": 180.5,
+          "mark": {
+            "lines": [
+              "CIDER"
+            ],
+            "letterform": "stencil",
+            "says": "commodity"
+          }
+        },
+        {
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            303.91,
+            295.91,
             -99.01
           ],
           "bearing_deg": 180.5,
@@ -2449,7 +2529,7 @@
           "kind": "crate",
           "tier": 1,
           "at_local_enu_m": [
-            303.91,
+            295.91,
             -99.01
           ],
           "bearing_deg": 180.5,
@@ -3617,25 +3697,25 @@
       "why_goods": "a public house takes its provisions in by the barrel and puts the empties back out",
       "confidence": "reconstructed",
       "facade_bearing_deg": 90.0,
-      "frontage_m": 12.0,
-      "usable_frontage_m": 11.0,
+      "frontage_m": 5.0,
+      "usable_frontage_m": 4.0,
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
-          -77.3,
-          -45.1
+          -78.85,
+          -47.5
         ],
         [
-          -77.3,
-          -57.1
+          -78.85,
+          -54.7
         ],
         [
-          -70.3,
-          -57.1
+          -68.75,
+          -54.7
         ],
         [
-          -70.3,
-          -45.1
+          -68.75,
+          -47.5
         ]
       ],
       "items": [
@@ -3643,8 +3723,8 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -69.75,
-            -45.91
+            -68.2,
+            -48.31
           ],
           "bearing_deg": 90.0,
           "mark": {
@@ -3656,75 +3736,11 @@
           }
         },
         {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -46.53
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "CIDER"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -47.15
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "WOLF POINT TAVERN"
-            ],
-            "letterform": "brand",
-            "says": "house"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "upright",
-          "at_local_enu_m": [
-            -69.75,
-            -47.77
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "FLOUR"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
-          "kind": "barrel",
-          "pose": "laid",
-          "at_local_enu_m": [
-            -69.75,
-            -50.57
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "PORK"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            -69.75,
-            -51.9
+            -68.2,
+            -49.6
           ],
           "bearing_deg": 90.0,
           "mark": {
@@ -3734,22 +3750,6 @@
             ],
             "letterform": "shipping",
             "says": "shipping"
-          }
-        },
-        {
-          "kind": "crate",
-          "tier": 1,
-          "at_local_enu_m": [
-            -69.75,
-            -51.9
-          ],
-          "bearing_deg": 90.0,
-          "mark": {
-            "lines": [
-              "TEA"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
           }
         }
       ]
@@ -4364,6 +4364,26 @@
         -100.83
       ],
       "bearing_deg": 92.0,
+      "drawn_up": "along the road",
+      "slew_deg": 1.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_9",
+      "kind": "farm_box",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -114.1,
+        -115.92
+      ],
+      "bearing_deg": 272.0,
       "drawn_up": "along the road",
       "slew_deg": 1.5,
       "slew_envelope_deg": 6.0,
@@ -5382,11 +5402,6 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
     },
     {
-      "structure_id": "new_york_house",
-      "trade": "tavern_inn",
-      "why": "5 object(s) fell inside exchange_coffee_house's committed footprint, which stands over this frontage's own strip; they are dropped rather than nudged, because a nudged coordinate is a placed one."
-    },
-    {
       "structure_id": "recon_1835_blk_lake_clark_c2_02",
       "trade": "store_residence",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
@@ -5777,7 +5792,7 @@
     },
     {
       "stand": "*",
-      "why": "965 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
+      "why": "964 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
     }
   ],
   "research_note": "WHAT WOULD MOVE ANY OF THIS OFF RECONSTRUCTION: the missing fourth page of the Democrat's first issue, which would carry more of the ordinances and may carry Ordinance 9's own text and its penalty; any later Chicago corporation order about obstructions, which would say what was being obstructed with; an insurance or tax description of a South Water Street lot; a traveller's account of walking the street; or the pre-fire photographs of surviving 1830s frontages actually opened at their holding institutions. WHAT THIS RECORD IS STILL SHORT OF, stated rather than left to be noticed: Ordinance 9's timber, stone and brick are not drawn at all; and nothing stands in a roadway though the ordinance is about roadways. WHAT IS NO LONGER SHORT, and it is worth being exact about what changed: this note used to end 'the wagons in this town still stand at two addresses out of hundreds', and T-0064 answered it on the owner's instruction rather than on a source. The town's wagons are spread now, and NOT ONE OF THEM IS BETTER EVIDENCED THAN IT WAS — the two the evidence reaches are still the wagon-yard's and the Green Tree's, everything else is `reconstructed` on a rule, and the rule is on this record under `town_wagon_rule` so it can be argued with. WHAT WOULD MOVE THE REST: a teamster's or a forwarding house's day-book naming what stood in the street; a Chicago corporation order about vehicles left standing, which would put a number on the thing Ordinance 9 only implies; or any dated view of a Chicago street before 1840. THE SHED IS THE FIRST ROOF THIS LAYER HAS EVER DRAWN, and it is worth saying what that does not mean: it is not a structure record, it has no archetype and it is not baked, because it is derived from a committed footprint the way a fence and a signboard are. If a second yard building is ever wanted the question to ask first is whether it belongs here or in data/structures/."

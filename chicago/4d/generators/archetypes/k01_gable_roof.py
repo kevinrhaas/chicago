@@ -26,6 +26,10 @@ parts.coping), and docs/LIBERTIES.md L-k01-1619-gable-roof-2459 says which.
 T-3050: `hip_mass` adds a K05 hip over the low-v end of the block (1811 Prairie's tall hipped
 roof over its bay, the 1888 plate), its street face in the attic's street plane; the attic
 then starts inside it and only the high-v wall is a parapet.
+
+T-3063: `rear_fall` drops the rear slope steeply from the ridge to a flat DECK running to the
+rear wall, and the coped parapet over it falls with it to a level wall head (1811 Prairie's
+south wall behind its tall stack, level in the 1888 plate and the Chicagology print).
 """
 
 from __future__ import annotations
@@ -38,15 +42,24 @@ TOP_HALF_M = 0.45          # the parapet's level top either side of the ridge (K
 # along the parapet's edges into a zero-area sliver (check_roof_kit's degenerate rule): 5 mm
 # behind it, nothing is coplanar and nothing a visitor can see has moved.
 FRONT_SET_M = 0.005
+# T-3063: a rear fall's deck falls to the rear wall a quarter inch to the foot, a tin deck's
+# usual fall, so it sheds water and its covering has an up-slope to course along
+DECK_FALL = 1.0 / 48.0
 
 
 def line(style: str, steps: int, D: float, xr: float, E: float, tf: float, tb: float,
-         up: float, top: float, th: float = TOP_HALF_M) -> list:
+         up: float, top: float, th: float = TOP_HALF_M, fall: dict | None = None) -> list:
     """The parapet's top line in (u, y) from the rear wall's plane (u 0) to the front's (u D):
     every point clears the covering under it by `up`; its head, about the ridge at u `xr`,
-    stands level at `top`."""
+    stands level at `top`. T-3063: over a rear fall's deck (`fall`, coped only) the line runs
+    level at the deck + `up` from the rear wall to where the fall meets the deck, and climbs
+    from there to the head's rear end, `head_back_m` behind the ridge: steeper than the fall,
+    so it clears it all the way."""
     def roof(x):
         return E + min((D - x) * tf, x * tb)
+    if style == "coped" and fall:
+        y0 = fall["deck_m"] + up
+        return [(0.0, y0), (fall["deck_from_m"], y0), (xr - fall["head_back_m"], top), (xr + th, top), (D, E + up)]
     if style == "coped":
         return [(0.0, E + up), (xr - th, top), (xr + th, top), (D, E + up)]
     pts = []
@@ -90,7 +103,12 @@ def elements(p, k5, E: float, o: float, f: float):
     # T-3050: under a hipped mass the attic starts inside the hip, at `attic_from_m`
     hm = g.get("hip_mass")
     z1 = -hm["attic_from_m"] if hm else 0.0
-    attic = k5.extrude([(-o, hs), (D + o, hs), (D + o, hef), (xr, yr), (-o, her)], -W, z1, P,
+    rf = g.get("rear_fall")
+    # T-3063: behind a rear fall the attic's back is the fall down to the deck, level to the
+    # rear wall's plane, where the deck stops: no eave overhangs it
+    outline = ([(0.0, hs), (D + o, hs), (D + o, hef), (xr, yr), (rf["deck_from_m"], rf["deck_m"]),
+                (0.0, rf["deck_m"] - rf["deck_from_m"] * DECK_FALL)] if rf else [(-o, hs), (D + o, hs), (D + o, hef), (xr, yr), (-o, her)])
+    attic = k5.extrude(outline, -W, z1, P,
                        k5.by_edge("covering", "soffit", "fascia"), "fascia", "fascia")
     tw, up = g["parapet_m"], g["upstand_m"]
     top = yr + g["top_above_ridge_m"]
@@ -99,7 +117,8 @@ def elements(p, k5, E: float, o: float, f: float):
         if side not in g["ends"]:
             continue
         e = g["ends"][side]
-        ln = [(min(x, D - FRONT_SET_M), y) for x, y in line(e["style"], e.get("steps", 0), D, xr, E, tf, tb, up, top)]
+        ln = [(min(x, D - FRONT_SET_M), y)
+              for x, y in line(e["style"], e.get("steps", 0), D, xr, E, tf, tb, up, top, fall=rf)]
         # each parapet stands on its wall from the soffit up, the wall's top under the eave
         solids += k5.parapet_element({}, ln, (c0, c1), "z", tw, hs, g["coping_m"], g["drip_m"], 0.0, 0.0)
         lines[side] = [[round(a, 4), round(b, 4)] for a, b in ln]

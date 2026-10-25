@@ -67,6 +67,7 @@ import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { createParkedTransport } from './parked-transport.js';
+import { createStandingHorses } from './standing-horses.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
@@ -2096,7 +2097,8 @@ async function boot() {
   // T-2529: one switch for every structure batch, old and rebuilt alike; the
   // detail tier sets it (applyShadowTier) and the sun is read when the shadow
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
-  const shadowCasters = { on: false, culled: 0, sun: () => world.direction };
+  const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
+    light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -2374,6 +2376,7 @@ async function boot() {
   const yards = await createFencedGround({
     records: enclosures.records, terrain, confidence, problems,
     prebuilt: yardsPrebuilt, recordHashes: enclosureHashes,
+    supportRegions: draws('standing_horses') ? (loaded.scene.static_support_regions ?? []) : [],
   });
   performance.measure('yards', 'yards:start');
   scene3d.add(yards.group);
@@ -2409,6 +2412,14 @@ async function boot() {
   });
   scene3d.add(parkedTransport.group);
   api.parkedTransport = parkedTransport;
+  const standingHorses = await createStandingHorses({
+    dataBase: layerBase('standing_horses'), sceneId: YEAR, confidence, detail: detailLevel,
+    problems: layerProblems('standing_horses'), hostMissing,
+    groundHeight: (e, n, recordId, regionId) => yards.drawnBaseHeightAt(e, n, recordId, regionId),
+  });
+  scene3d.add(standingHorses.group); settleOnGpu(standingHorses.group);
+  api.standingHorses = standingHorses;
+  standingHorses.update(camera);
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
     lowSpec: coarse,
@@ -3043,6 +3054,7 @@ async function boot() {
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
       void parkedTransport.setTier(level);
+      void standingHorses.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -3098,6 +3110,7 @@ async function boot() {
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
     void parkedTransport.setTier(level);
+    void standingHorses.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -3971,6 +3984,8 @@ async function boot() {
     }
     const vehicle = parkedTransport.pickAt(ndc, camera);
     if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
+    const horse = standingHorses.pickAt(ndc, camera);
+    if (horse?.record && (!hit || horse.distance < hit.distance)) hit = horse;
     /**
      * And so can the fort's well, which is the second thing here belonging to no
      * structure at all: a curb answers with its OWN card record, built by the
@@ -5026,6 +5041,7 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
+    standingHorses.update(camera, frameDt, { paused: animationHold || gateOpen });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);

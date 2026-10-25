@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
+  "glb_sha256": "62d7f5257f1106ed6d75a4a9ff3e748758433ddaaa865574c5803a3bb232c167",
   "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
+  "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,8 +13,12 @@
       "status": "fixed"
     },
     {
-      "what": "Still open at the stable end: the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, T-3025). The camera's roll (about 1.2 degrees) and its 13-20 px offset at the loft still shift the hoist about 15 px west of the print's.",
+      "what": "Still open at the stable end: the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The camera's roll (about 1.2 degrees) and its 13-20 px offset at the loft still shift the hoist about 15 px west of the print's.",
       "status": "open"
+    },
+    {
+      "what": "T-3025, ruled: the roof covering reads slate-grey here because this 1965 print shows the tar HABS recorded over the tiles in 1963 (data p. 21). The roofs were red baked, unglazed terracotta tile, house-wide (Glessner 1923, HABS data p. 13; the 1963 survey finds terracotta under the tar, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. docs/RESEARCH/glessner-roof-covering-T-3025/README.md.",
+      "status": "not shown"
     },
     {
       "what": "The overhead garage leaf and closed loft opening are later alterations; original1904 opening treatments are tested against earlier evidence, not copied from this1965 plate. Cars/signs/street fabric are outside this house-only comparison.",

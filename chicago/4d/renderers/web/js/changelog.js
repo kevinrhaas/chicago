@@ -1,4 +1,227 @@
 export const CHANGELOG = [ // newest first
+  { v: 2261, ts: '2026-10-25T00:44:22.289Z', date: 'Oct 24, 2026, 7:44 PM CT', title: 'Six more 1904 buildings on Indiana Avenue between 16th and 18th', kind: 'improvement',
+    items: [
+      'Four houses the 1911 atlas no longer shows now stand as they did in 1904, taken from the 1886 atlas: 1637, which the Army Corps of Engineers used as its Chicago office, 1641, and two frame houses at 1727 and 1735. A brick row\'s west end also stands at the 16th Street corner.',
+      '1619\'s brick house stands too, with its stable on the alley. The same family lived there from 1888 to 1908.',
+      '1605-1613 is left as a building site. Its old houses were gone, and the ice-cream factory there was still going up in 1904.',
+      'The dates come from 1902-1905 directories, newspaper notices and building permits. Each house\'s card says what is known and what is inferred.',
+    ] },
+  { v: 2260, ts: '2026-10-24T21:45:38.622Z', date: 'Oct 24, 2026, 4:45 PM CT', title: '1811 Prairie\'s north pier capped below the bay, sky above it', kind: 'improvement',
+    items: [
+      'The narrow stone pier at the front\'s north end now stops below the bay\'s cornice. It has a moulded cap, a band under the cap, and a small slate top, as in the 1888 plate and the photographs.',
+      'The main roof\'s eave no longer runs out over the pier, so there is sky above the cap.',
+      'The pier is rock-faced all the way up. The pale string course no longer crosses it.',
+      'A downpipe now runs down the corner where the pier meets the bay.',
+    ] },
+  { v: 2259, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'First Presbyterian Church\'s roof and cross, checked against a 1912 photograph', kind: 'improvement',
+    items: [
+      'The church at Indiana Avenue and 21st Street now has two small gabled vents on the south side of its roof, and a short chimney on top of its east gable. A 1912 photograph of the church shows both.',
+      'The cross on the west gable is taller, with wider arms and a ring around the centre. The 1912 photograph and the 1887 one agree on its size.',
+      'The 1912 photograph is now a second reference picture for the church, and the model matches it. It was taken from down Indiana Avenue, looking up at the tower.',
+      'The church\'s 21st Street side is still unchanged. The 1912 photograph doesn\'t show it: buildings across the street and a streetcar block the view.',
+    ] },
+  { v: 2258, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'Glessner\'s 18th Street gable window and its stone fan raised a foot', kind: 'fix',
+    items: [
+      'The tall arched window high in the Glessner house\'s 18th Street gable, with the fan of radiating stones over it, now stands a foot higher, closer under the chimney, as three survey photographs from 1963 and 1965 show it. Before, the chimney seemed to rise too far above the fan.',
+    ] },
+  { v: 2257, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: '1811 Prairie\'s north corner stands as a rock-faced stone pier', kind: 'improvement',
+    items: [
+      'The north end of 1811 Prairie\'s front is now a narrow pier of rough-faced brownstone, almost a metre wide. Before, the bay\'s slanted side ran nearly to the corner and left a strip of plain pale stone there. The 1888 plate, a later photograph and a 1965 survey photograph all show the pier.',
+      'The 1965 Historic American Buildings Survey photograph of the Kimball house next door is now a reference picture for 1811. It catches the corner of 1811 across the side yard.',
+      'An 1887 sketch said to show 1811\'s entrance is still not used. Its stair and arches do not match the house\'s own pictures.',
+    ] },
+  { v: 2256, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: 'First Fort Dearborn gains galleries and detailed barrack fronts', kind: 'change',
+    items: [
+      'Five first-fort barrack ranges gain two-storey galleries, Whistler’s opening patterns and source-counted stacks; two blockhouses lose invented chimneys. Picture matches remain unresolved.',
+      'Four declared Kinzie poplars and six Ouilmette currants render with the existing collision clearance; their source counts remain unchanged.',
+      'Light and Full detail reach the northern 1812 woodland below the existing tree caps without thinning declared plants.',
+    ] },
+  { v: 2255, ts: '2026-10-24T16:11:44.890Z', date: 'Oct 24, 2026, 11:11 AM CT', title: 'Hogan’s doorway and gable follow the Cameron drawing', kind: 'change',
+    items: [
+      'Hogan’s store gains a dark recessed doorway, a reconstructed boarded gable opening and a shorter chimney. The drawing leaves their construction and dimensions uncertain; its picture comparison remains open.',
+    ] },
+  { v: 2254, ts: '2026-10-24T12:51:18.692Z', date: 'Oct 24, 2026, 7:51 AM CT', title: 'More pictured details on six early Chicago buildings', kind: 'change',
+    items: [
+      'The infant school has larger openings and a log gable; Cobweb Castle has a reconstructed compound; Miller House has boarded upper walls; Carpenter’s shop has taller sash and a chimney; Wolf Point has rounded logs, recessed entries and a sign pole. Sources distinguish pictured details from reconstructed dimensions, and the image comparisons remain open.',
+      'The first Tremont House has a darker reconstructed roof following the Gifford drawing. Cards explain historical review context while retaining the recorded flags, reasons and sources.',
+    ] },
+  { v: 2253, ts: '2026-10-24T11:20:44.016Z', date: 'Oct 24, 2026, 6:20 AM CT', title: 'Glessner\'s two carved crosses now cut into the chimney stone', kind: 'fix',
+    items: [
+      'The two small crosses beside the 1886 date stone on the Glessner house\'s 18th Street chimney are now cut into the rough stone, as the 1965 survey photograph shows them. Before, they were drawn flat at the stone\'s highest point, so they hovered an inch or two in front of it, and from the north-east one hung in the sky past the chimney\'s edge.',
+    ] },
+  { v: 2252, ts: '2026-10-24T10:33:25.924Z', date: 'Oct 24, 2026, 5:33 AM CT', title: '1736 Prairie: mansard where the 1911 map draws it; coach house built', kind: 'improvement',
+    items: [
+      '1736 Prairie\'s mansard now stands only where the 1911 fire-insurance map draws its curb: along the street front, and along 18th Street as far as the brick bay. The north side and the rear rise as a straight brick third storey under a coped parapet, which the map\'s wall figures call for.',
+      'The house\'s coach house on the alley at 18th Street is now built on the coach-house kit at the size the map gives it: two storeys of brick, 15.3 m deep, its gable to 18th Street and a carriage door on the alley.',
+    ] },
+  { v: 2251, ts: '2026-10-24T09:46:09.529Z', date: 'Oct 24, 2026, 4:46 AM CT', title: 'Glessner\'s stable roof brought down to the old pictures', kind: 'fix',
+    items: [
+      'The roof over the Glessner stable\'s alley end is lower: its ridge sits about two feet lower and two feet further north, on the same pitch, so the slope carries the 42 or 43 rows of tiles that the 1887 print and the 1963 survey photograph both show, where it had about 51. The alley gable now stands up past the roof as a stone parapet with a coping, as both pictures draw it.',
+    ] },
+  { v: 2250, ts: '2026-10-24T09:39:17.174Z', date: 'Oct 24, 2026, 4:39 AM CT', title: 'Glessner\'s stable roof: which 1887 camera solution to trust', kind: 'change',
+    items: [
+      'Nothing you can see changes. The 1887 photograph of the Glessner stable had two camera solutions that disagreed by half a metre on its roof. The downpipes in the picture, which should stand upright, show the camera was tipped up only slightly, and the 1963 photograph sees the gable at the height that slight tip gives. Through that camera the rebuilt ridge matches the photograph, so it stays as built.',
+    ] },
+  { v: 2249, ts: '2026-10-24T08:52:33.572Z', date: 'Oct 24, 2026, 3:52 AM CT', title: '1812 Prairie\'s front windows match their photographs', kind: 'improvement',
+    items: [
+      'The large third-storey window has a wide middle light under its own low arch, and its fanlight is crossed by a curved bar, as in Levy\'s photograph.',
+      'The small arched window beside it is now a patterned leaded light. The pattern itself is a liberty.',
+      'The stones round both arches alternate long and short into the brick.',
+      'The transom lights over the second-storey windows are glazed in small squares.',
+      'The bay\'s paired window has a heavy stone mullion and a moulded hood, and its jambs rise to carved caps under the cornice.',
+    ] },
+  { v: 2248, ts: '2026-10-24T07:59:40.223Z', date: 'Oct 24, 2026, 2:59 AM CT', title: '1811 Prairie\'s bay balcony pierced, as a second photograph shows it', kind: 'improvement',
+    items: [
+      'The stone balustrade on 1811 Prairie\'s bay is now cut through in a lattice of openings, where it stood solid bars. A sharper photograph of the house shows a pierced fretwork panel there.',
+      'That photograph is now a reference picture for the house, with its camera solved, beside a second print that turned out to be the 1888 plate itself.',
+      'The house\'s long brick south side does not match the photographs, which show a shorter wing and a separate building behind it. It is left as the 1911 map draws it until a source dated nearer 1904 settles it.',
+    ] },
+  { v: 2247, ts: '2026-10-24T07:56:01.769Z', date: 'Oct 24, 2026, 2:56 AM CT', title: 'First Presbyterian Church gets its Gothic front, tower and spire', kind: 'improvement',
+    items: [
+      'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now looks like its 1887 photograph. The front has its rose windows, pointed lancets and a gabled stone porch. A stone coping with a cross runs up the gable, and the tower has its pointed door, a louvred belfry, stepped buttresses with pinnacles, and four gablets. The broad slate spire has its band of small dormers and a finial with a vane.',
+      'Each window, course and height is measured off the photograph. The 21st Street side is still plain; a second photograph in the same 1913 book shows it, and that side is next.',
+    ] },
+  { v: 2246, ts: '2026-10-24T06:59:39.767Z', date: 'Oct 24, 2026, 1:59 AM CT', title: '1801 Prairie\'s upper windows raised and its 18th Street arched pair', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: the upper-floor windows now stand taller, their heads raised about 0.3 m under the stone cornice, each with a transom light across its top, as J. W. Taylor\'s c. 1895 photograph shows them.',
+      'On the 18th Street side, between the round tower and the corner, the single window on each floor is now a pair of round-headed lights upstairs over plain stone below, as in the photograph; the corner window over the arch moves a little east to where the photograph has it.',
+    ] },
+  { v: 2245, ts: '2026-10-24T05:49:33.660Z', date: 'Oct 24, 2026, 12:49 AM CT', title: '1801 Prairie gains its carved stone cornice, frieze and gable', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: a heavy moulded stone cornice now runs under the steep slate roof along Prairie Avenue and 18th Street, as J. W. Taylor\'s c. 1895 photograph shows. It stands level with the curved bay\'s cornice, as one course round both, so the main walls rise about 0.8 m higher to meet it.',
+      'On the south pavilion, a carved band with a round medallion now sits over the top windows, and the tall stone gable is filled with a carved leafy panel. Their exact carving is a reconstruction; the photograph is too small to read it.',
+    ] },
+  { v: 2244, ts: '2026-10-24T04:58:39.090Z', date: 'Oct 23, 2026, 11:58 PM CT', title: 'Glessner\'s 18th Street chimney slimmed to its drawn depth', kind: 'fix',
+    items: [
+      'The chimney stack on the Glessner House\'s 18th Street gable is half a foot shallower, 2.6 ft deep where it was 3.1, as the 1965 survey\'s east elevation draws it. Seen from Prairie and 18th, it now stands as slim as it does in the 1887 photograph.',
+    ] },
+  { v: 2243, ts: '2026-10-24T04:48:06.241Z', date: 'Oct 23, 2026, 11:48 PM CT', title: '1811 Prairie\'s porch arcade turns its rounded corner', kind: 'improvement',
+    items: [
+      'Beside the arched porch at 1811 Prairie, three slim round-headed lights now open in the curved corner, each standing on a carved stone colonnette, as the 1888 Inland Architect plate shows them.',
+    ] },
+  { v: 2242, ts: '2026-10-24T04:44:50.894Z', date: 'Oct 23, 2026, 11:44 PM CT', title: 'Glessner\'s stable roof: its ridge stands too high, its slope is right', kind: 'change',
+    items: [
+      'Nothing in the 3-D scene changes yet. The stable roof\'s alley end shows about eight more rows of tiles than the 1887 and 1963 photographs do. Three ways to remove them were tested against both photographs: lowering the ridge down the same slope, flattening the slope under the same ridge line, or steepening it under the same ridge height. Only the first fits both pictures. The ridge stands about two feet too high and should sit a little further from 18th Street. The Evidence panel now says so, and the rebuild is the next ticket.',
+    ] },
+  { v: 2241, ts: '2026-10-24T03:54:42.842Z', date: 'Oct 23, 2026, 10:54 PM CT', title: '1812 Prairie\'s gable finished to its photographs', kind: 'improvement',
+    items: [
+      'The Wheeler house\'s gable window now reads as nine dark openings between stone quoins, under a moulded hood with a waved top and over a deep stone shelf.',
+      'A carved urn now crowns the gable, and each shoulder stone carries a sunk panel.',
+      'Each scroll under the gable\'s corners has a carved rosette, and the gable\'s base now narrows above the scrolls as the photograph shows.',
+    ] },
+  { v: 2240, ts: '2026-10-24T03:19:13.646Z', date: 'Oct 23, 2026, 10:19 PM CT', title: 'First Presbyterian Church\'s spire rises to its 1887 photograph\'s height', kind: 'improvement',
+    items: [
+      'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now has a steep gable facing the avenue, replacing the low hipped roof. Its corner tower is brick to about 40 m, and a slender slated spire rises to about 75 m. Before, the whole tower stopped at 27 m.',
+      'The heights come from a photograph of the church taken in 1887 and printed in the congregation\'s 1913 history. The same book dates the building to 1870-1873 and records its last service on 29 December 1912, so the church\'s card now cites it.',
+      'The front\'s rose window, porch and buttresses, and the spire\'s lucarnes, are still plain. They are listed as open differences for the next pass.',
+    ] },
+  { v: 2239, ts: '2026-10-24T03:15:39.407Z', date: 'Oct 23, 2026, 10:15 PM CT', title: '1811 Prairie\'s north pinnacle stops under its block', kind: 'improvement',
+    items: [
+      'The north pinnacle on 1811 Prairie\'s stone gable now stops at a carved band level with the gable\'s cornice, as the 1888 Inland Architect plate draws it, about half a metre lower than before; over the band a scaled stone leans in to the moulded block, and the gable\'s eave dies into it instead of showing beside the shaft.',
+    ] },
+  { v: 2238, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: 'Glessner\'s stable roof: the 1887 photograph\'s camera was wrong, not the roof', kind: 'change',
+    items: [
+      'Nothing you can see changes. An 1887 photograph seemed to show the stable\'s roof a third longer than a 1963 one, because it was being read through a camera fitted to the alley wall. Read through the camera fitted at the stable, its tiles come out at the 5 inches the 1963 surveyors measured.',
+      'Both photographs show the alley end of that roof a few feet shorter from eave to ridge than the model draws it. That is now its own ticket, to rebuild the roof or explain the difference.',
+    ] },
+  { v: 2237, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: '1801 Prairie\'s 18th Street side gains its gabled balcony', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: on its 18th Street side, the tall section behind the main house now has the steep stone gable and balcony that J. W. Taylor\'s c. 1895 photograph shows, instead of a plain hipped roof. The section is narrower too, about 4.6 m instead of 8.5 m, and the low service range now runs up to it, as the photograph shows. Its round-arched windows, oriel and open loggia are still to come.',
+    ] },
+  { v: 2236, ts: '2026-10-24T01:17:18.677Z', date: 'Oct 23, 2026, 8:17 PM CT', title: 'Early Chicago buildings gain closer forms and clearer picture evidence', kind: 'change',
+    items: [
+      'Green Tree gains seven upper windows and clapboard gables; Sauganash gains a lower reconstructed roof and its pictured end sash.',
+      'The first Tremont gains three shuttered storeys, raised entries, an opaque panel with reconstructed TREMONT lettering, a darker reconstructed roof tone and a roof flag with its own confidence grade.',
+      'St Mary\'s engraving is credited to its verified 1884 publication. Its card and loading fact now explain that the steeple\'s addition year is uncertain.',
+      'Beaubien\'s card distinguishes the homestead from the older Factory House and keeps the panorama identification unresolved.',
+      'The jail and two hotel drawings are credited to W. E. S. Trowbridge in Gale\'s verified 1902 book; retrospective captions and the separately catalogued UCR copy keep their date and rights limits.',
+      'Revised hotel capacity estimates preserve existing reconstructed residents and report empty beds separately from crowding. Picture comparisons still differ; dimensions, hidden details, chronology and flag pose remain disclosed, and the original picture-match cases stay open.',
+    ] },
+  { v: 2235, ts: '2026-10-24T00:17:08.828Z', date: 'Oct 23, 2026, 7:17 PM CT', title: 'Glessner House\'s roof tiles checked against an 1887 photograph', kind: 'change',
+    items: [
+      'Glessner House\'s Evidence panel now says what the earliest pictures show about its roof tiles. An 1887 photograph of the stable and a 1963 survey photograph count the same rows of tile up the same roof, about 42. So the 5-inch course the 1963 surveyors measured was already there when the house was new, and the roof keeps it. An earlier reading of about 6.4 inches came from that photograph\'s camera, not from the roof. The house itself looks the same.',
+    ] },
+  { v: 2234, ts: '2026-10-24T00:17:08.828Z', date: 'Oct 23, 2026, 7:17 PM CT', title: '1811 Prairie\'s back wing now meets the top of its south wall', kind: 'improvement',
+    items: [
+      'The three-storey brick wing behind 1811 Prairie\'s stone front no longer stands taller than the house. Its roof now lines up with the top of the south wall, and its windows sit at the heights the 1888 engraving shows them.',
+    ] },
+  { v: 2233, ts: '2026-10-23T23:57:31.459Z', date: 'Oct 23, 2026, 6:57 PM CT', title: '1801 Prairie\'s east range and turret stand at the photograph\'s height', kind: 'improvement',
+    items: [
+      'W. W. Kimball\'s house at 1801 Prairie: the low service range at the far end of its 18th Street side, and the small round turret on its corner, now stand about 1.8 m lower, as J. W. Taylor\'s c. 1895 photograph shows them. The eaves are at about 6.35 m instead of 8.1, and the turret\'s cone tops out at about 10.2 m. The ground along 18th Street falls about 0.3 m toward the lake, which the photograph and today\'s elevation survey both show.',
+    ] },
+  { v: 2232, ts: '2026-10-23T23:07:01.094Z', date: 'Oct 23, 2026, 6:07 PM CT', title: 'Glessner\'s 18th Street chimney: date stone, crosses and coping re-set', kind: 'improvement',
+    items: [
+      'On the Glessner house\'s 18th Street gable, the 1886 date stone is now the height HABS sheet 6 draws it, a little shorter, with a course of stone between it and the monogram above, as every photograph shows.',
+      'The two crosses beside the date now stand level at its middle, as the 1965 survey photograph shows them.',
+      'The gable\'s stone coping is 0.7 ft lower, so it meets the chimney just under the date stone instead of beside it.',
+    ] },
+  { v: 2231, ts: '2026-10-23T22:12:58.771Z', date: 'Oct 23, 2026, 5:12 PM CT', title: '1801 Prairie\'s south gable narrowed and raised to Taylor\'s photograph', kind: 'fix',
+    items: [
+      'The stone gable over the Kimball house\'s south pavilion at 1801 Prairie Avenue now matches J. W. Taylor\'s photograph of about 1895. It stands about 0.4 m higher and is narrower than before, stopping short of the pavilion\'s cut corner. Its peak, sloping edges and corner spire now sit on the photograph\'s.',
+      'The camera we use to compare the house with the photograph has been corrected again, and that change is not visible in the town. It now takes the horizon from the line of Lake Michigan visible at the photograph\'s left edge. Through it, the round tower and the small corner turret at the far end of 18th Street both line up with the photograph where the model already had them. The far end of that side now reads lower than the model, and that is written down for a later fix.',
+    ] },
+  { v: 2230, ts: '2026-10-23T21:51:40.395Z', date: 'Oct 23, 2026, 4:51 PM CT', title: 'Hogan\'s store gains its pictured openings', kind: 'improvement',
+    items: [
+      'The first post office now has one front sash, an off-centre doorway, a small gable opening and a roof stack placed from Cameron\'s retrospective painting.',
+      'Its picture entry credits Cameron and the Chicago Historical Society. Exact dimensions remain reconstructed, and the building\'s full picture match is still in progress.',
+    ] },
+  { v: 2229, ts: '2026-10-23T21:35:53.377Z', date: 'Oct 23, 2026, 4:35 PM CT', title: 'Buildings no longer stand inside each other, or fences through them', kind: 'fix',
+    items: [
+      'Lake and Canal, 1835: Pierce\'s blacksmith shop now stands next door to Goss & Cobb\'s saddlery instead of inside it.',
+      'The New York House moved off the Exchange Coffee House at Lake and Wells, and the agency striker\'s cabin out of a riverbank shed.',
+      'Yard fences and garden pickets on houses turned to face a side street now stop at the wall instead of running through the house.',
+      'Woodpiles, sheds and outbuildings keep out of houses and their back wings.',
+      'A new check refuses any building, fence, walk or yard prop standing inside a building, in 1812, 1835 and 1904.',
+    ] },
+  { v: 2228, ts: '2026-10-23T21:35:53.377Z', date: 'Oct 23, 2026, 4:35 PM CT', title: '1812 Prairie\'s south wall rises past its roof as a coped parapet', kind: 'fix',
+    items: [
+      'The south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now rises past the edge of its slate roof to a heavy stone-capped top, as both photographs of the house show it. The slate roof used to slope away from the wall there. The tall south chimney now stands against the outside of that wall, in the gap to the house next door, and runs down to the ground. It used to sit on the wall\'s top edge. With no gutter along the raised wall, its two drainpipes are gone; one pipe now runs down the back wall instead.',
+    ] },
+  { v: 2227, ts: '2026-10-23T20:54:35.362Z', date: 'Oct 23, 2026, 3:54 PM CT', title: 'Antoine Ouilmette\'s house joins the 1812 north bank', kind: 'feature',
+    items: [
+      'In 1812, a third small log house now stands on the north bank, a little behind the Kinzie house and to its west. It is Antoine Ouilmette\'s, the house his Métis household never left in August 1812, where Mrs. Helm was hidden the day after the battle. Whistler\'s 1808 plan draws it with one window, a door and a chimney on its west end, and it is built that way.',
+      'Behind it grow the currant bushes of Ouilmette\'s garden, where a soldier hid before climbing in at the back window (Wau-Bun). The number and placing of the bushes are ours.',
+      'Pettell\'s cabin, which a later history puts near the Kinzie house, is not built as a separate house: both 1808 counts of the bank find only four houses, so it is most likely one of them under a later name. The house card and the exclusions list give the reasoning.',
+    ] },
+  { v: 2226, ts: '2026-10-23T19:04:18.788Z', date: 'Oct 23, 2026, 2:04 PM CT', title: 'A horse shifts its weight in the wagon yard', kind: 'feature',
+    items: [
+      'A reconstructed horse in the 1835 Western Hotel wagon yard shifts gently while standing. It remains unhitched and unmounted.',
+    ] },
+  { v: 2225, ts: '2026-10-23T18:28:23.022Z', date: 'Oct 23, 2026, 1:28 PM CT', title: '1811 Prairie\'s south wall now runs level behind its tall chimney', kind: 'improvement',
+    items: [
+      'Behind the tall chimney, the top of 1811 Prairie\'s brick south wall no longer slopes down toward the back. It now runs level back to the end of the front block, as both old photographs show it, with the second chimney standing up from it.',
+    ] },
+  { v: 2224, ts: '2026-10-23T18:28:23.022Z', date: 'Oct 23, 2026, 1:28 PM CT', title: 'Glessner\'s roofs ruled red tile, though every old print shows grey', kind: 'change',
+    items: [
+      'Glessner House keeps its red, unglazed clay tile roofs, the stable cupola\'s included. Glessner\'s own account of the house names them, and the 1963 survey found clay tile under a later coat of tar. Old photographs show the roofs grey because they are black and white, and the 1960s ones show the tar.',
+    ] },
+  { v: 2223, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Indiana Avenue fills in from 16th to 18th Street', kind: 'feature',
+    items: [
+      'Look west between the houses on Prairie\'s west side from 16th to 18th Street: Indiana Avenue\'s east side is no longer bare ground behind them. Five brick houses stand at 1615-1617, 1623, 1703 and 1713, and a row of five more at 209-217 East 16th Street, with six stables on the alley.',
+      'Each is drawn from the 1911 fire-insurance map, and only where Robinson\'s 1886 atlas draws the same building on the lot, so it stood on both sides of 1904. Where the two maps disagree (the corner office, two factories, and three houses that changed or went), the lot stays open until it is read.',
+    ] },
+  { v: 2222, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Taylor\'s Glessner photograph gets a better-fitting camera', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town. The camera that lines our model of the Glessner house up with J. W. Taylor\'s photograph from the late 1880s has been re-solved. It now fits all three chimneys as well as the windows, and the leaning edges in the photograph set its tilt. Through it, the south and middle chimneys match the photograph\'s widths. The chimney over the 18th Street gable reads wider than the photograph, and that is the next thing to look at.',
+    ] },
+  { v: 2221, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: '1801 Prairie\'s photograph camera re-solved on the corner it sees', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The camera we use to compare the Kimball house at 1801 Prairie Avenue with J. W. Taylor\'s photograph of about 1895 was fitted to a corner of the house the photograph cannot see; it is now fitted to the one it does, and the side-by-side lines up better: the front\'s corners, the south pavilion and both entrance arches now fall within a few pixels of the photograph.',
+      'Seen through the corrected camera, the round tower, the far end of the 18th Street side and the south gable\'s top still differ from the photograph by small amounts, and each of those is now written down for a later fix.',
+    ] },
+  { v: 2220, ts: '2026-10-23T15:10:20.031Z', date: 'Oct 23, 2026, 10:10 AM CT', title: 'Glessner House\'s tall stone courses stand deeper', kind: 'improvement',
+    items: [
+      'The tall granite courses on the Glessner house now throw a deeper shadow under their lower edges than the short ones, as a photograph from about 1888 shows. Through that photograph\'s own camera the tall-to-short ratio was 0.86 and is now 1.33, against the photograph\'s 1.32.',
+      'The stable\'s stone cupola is now laid in rough-faced courses, where it had smooth plates. Its shaft has four courses and each row of pigeon holes is one course between its ledges, as an 1887 print shows it.',
+    ] },
+  { v: 2219, ts: '2026-10-23T14:24:33.243Z', date: 'Oct 23, 2026, 9:24 AM CT', title: '1812 Prairie\'s tall south chimney stands near the front', kind: 'fix',
+    items: [
+      'The tall chimney on the south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now stands near the front, about 2 m behind it, and rises to 16.8 m. It used to stand 6 m back and 0.8 m higher. A second photograph, taken about 1955 from a little south of the house, saw the chimney from a new angle. Comparing it with Albert Levy\'s photograph from the 1880s or 1890s fixed where the chimney stands. The 1955 photograph also shows a second tall chimney behind the gable\'s north side. Levy\'s photograph shows only open sky there, so that chimney is not built for 1904.',
+    ] },
+  { v: 2218, ts: '2026-10-23T12:27:58.344Z', date: 'Oct 23, 2026, 7:27 AM CT', title: '1801 Prairie\'s south pavilion has its cut-back corner', kind: 'fix',
+    items: [
+      'The south-west corner of the Kimball house\'s south pavilion on Prairie Avenue is now cut back at an angle, as the 1911 fire insurance map draws it: the front stops about 45 cm short of the corner and a slanted stone face runs back from there to the side wall, from the ground up to the gable. The house\'s own corner is cut away behind it, and the gable now sits on the narrower front with its peak at the same height. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s front is now as wide as his photograph shows it. The whole pavilion still sits a little south of where the photograph puts it, because the camera position fitted to that photograph took the wrong point for this corner; fixing that is next.',
+    ] },
   { v: 2217, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: 'Glessner\'s south chimney checked against the HABS drawings', kind: 'chore',
     items: [
       'Nothing you can see changed. In J. W. Taylor\'s photograph of the Glessner house the south chimney stands about a foot and a half north of where the model draws it. The 1960s survey drawings were checked to see whether the model had the chimney in the wrong place. Both drawings put the chimney where the model already has it, so it stays. The mismatch comes from how the photograph\'s camera has been reconstructed, and fixing that is the next task.',

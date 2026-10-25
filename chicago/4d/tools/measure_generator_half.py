@@ -638,13 +638,27 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # stables and two sheds) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling
 # on that archetype's own rows and on none of the shared ones above.
 #
+# 968 -> 979 on 2026-10-23 (T-3019): the background carried north, eleven drafts on Indiana
+# Avenue's east frontage from 16th to 18th Street and the row at 209-217 East Sixteenth Street
+# (five houses and six stables) on `prairie_draft`, emitted through generators/draft_emit.py, so
+# restaling on that archetype's own rows and on none of the shared ones above.
+#
+# 979 -> 980, 743 -> 744 and 737 -> 738 on 2026-10-23 (T-2486): Antoine Ouilmette's house,
+# the draught's third no. 31 house on the 1812 north bank, one `log_dwelling` emitted
+# through generators/emit.py like La Lime's and Le Mai's beside it.
+#
+# 980 -> 987 on 2026-10-24 (T-3068): the seven Indiana lots read against dated sources, seven
+# drafts on Indiana Avenue's east frontage from 16th to 18th Street (six houses and 1619's stable)
+# on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that archetype's
+# own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 969,
+    "assets": 988,
     "restales": {
-        "generators/common/*.py": 743,
+        "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 737,
+        "generators/emit.py": 738,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

@@ -120,6 +120,21 @@ SHEETS = {
         "ticket": "T-3008",
         "census_ticket": "T-3008",
     },
+    # The background behind Prairie Avenue (T-3019, piece 2 of T-3010): the same scan and fit
+    # as "20", read on Indiana Avenue's east frontage from 16th to 18th Street and East
+    # Sixteenth Street's row at 209-217; the unnumbered strips, open on the sheet and on
+    # Robinson 1886, are not traced.
+    "20w": {
+        "gcp": "sanborn_1911_v3_sheet_20",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s20w.json",
+        "blocks": ("blk_indiana_prairie_16_18",),
+        "parcels": ("indiana_1601", "e16th_209", "indiana_1605", "indiana_1615", "indiana_1619",
+                    "indiana_1623", "indiana_1623_1637_c", "indiana_1637", "indiana_1641",
+                    "indiana_1703", "indiana_1713", "indiana_1727"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s20w.json",
+        "ticket": "T-3019",
+        "census_ticket": "T-3019",
+    },
     # The background behind Prairie Avenue (T-3018, piece 1 of T-3010): the same scan and fit
     # as "35", read on Calumet Avenue's west frontage from 20th to 22nd Street (2008 and 2018
     # are the named Hanford and Wheeler-Kohn houses, "35x"'s).

@@ -14,13 +14,16 @@ name: Chicago 4D — full smoke
 # It is dispatch-plus-one-path on purpose. The dev gate (chicago-4d-check.yml)
 # stays ~90 s and advisory speed matters there; a ~25-minute-per-viewport
 # Playwright crawl on every push would be a queue, not a gate (one path is not
-# a queue). The nightly bake already smokes the mirror it publishes. The single push path makes the
-# workflow self-testing — an edit to it runs the full unfiltered gate from the
-# pushed ref — and is also the only way to run it on a branch at all, because
-# workflow_dispatch resolves filenames on the default branch only.
+# a queue). The nightly bake already smokes the mirror it publishes.
+# The single push path self-tests workflow edits once they land on dev (T-3121).
+# Merging that edit into a PR branch must not launch another full measurement on
+# its head and leave its normal gate waiting for the 150-minute timeout.
+# Explicit dispatch is unchanged; GitHub requires the workflow to be registered
+# on the default branch. Empty inputs still run both viewports and every part.
 
 on:
   push:
+    branches: [dev]
     paths:
       - '.github/workflows/chicago-4d-smoke.yml'
   workflow_dispatch:
@@ -36,7 +39,7 @@ on:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Both viewports, unfiltered, measured ~26 min in 2026-08-14 and the suite
     # has grown since; leave room rather than killing the measurement run.
     # 2026-10-19: desktop part 13 alone ran 85 min (#1054) and three runs were cut off

@@ -1,0 +1,53 @@
+{
+  "structure_id": "sauganash_hotel",
+  "view": "andreas-main-gable.provisional",
+  "glb": "assets/gltf/sauganash_hotel__frame_1831.proposal.glb",
+  "glb_sha256": "287c31dda7f00f78c26dc056d1029e6294dfb12313df897bec5502aef7fcb42b",
+  "camera_sha256": "99e2a5f9655402af4307d1616c01874f17b8f48a3fea1ab504e9f60d9f001cac",
+  "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+  "side_by_side": "review/sauganash/andreas-main-gable.provisional-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Visible main-gable triangle now continues the existing wall finish and horizontal clapboard courses instead of using roof covering material. Roof planes/dimensions/pitch remain unchanged; concealed opposite-end treatment is reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Previously blank pictured main +x gable now has two upper sash and one upright attic sash. The attic sash renders outside the overhanging gable plane instead of disappearing behind it.",
+      "status": "fixed"
+    },
+    {
+      "what": "Exact sash widths/heights/stations and pane divisions remain reconstructed; count/occurrence improvement is not detailed alignment or full-image acceptance.",
+      "status": "open"
+    },
+    {
+      "what": "Roof/main-gable silhouette is substantially too high in this framing: withheld near apex projects about(636,231) against approximate source(648,350). Current38-degree roof, envelope/cross-wing and camera need further work.",
+      "status": "open"
+    },
+    {
+      "what": "The current cross-wing roof/massing at the left differs substantially from the source composition; this proposal deliberately leaves those existing forms unchanged.",
+      "status": "open"
+    },
+    {
+      "what": "This preview contains the main hotel GLB only. The separately modelled log annex that occupies the source foreground is omitted context, not historically absent or unbuilt in the app. Full grouped comparison remains required.",
+      "status": "open"
+    },
+    {
+      "what": "Main-front window/door proportions, surround, stack profiles, siding/roof treatment and detail still differ from the source. Blue shutters rest on separate written/coloured evidence and must be reconciled with derivative depictions rather than silently removed.",
+      "status": "open"
+    },
+    {
+      "what": "Five-corner camera remains provisional (16.28px point RMS,30.15max), principal x about4129px outside image. Grade picks beside figures/walk are approximate and the obscured far lower end corner was excluded.",
+      "status": "open"
+    },
+    {
+      "what": "Source street, people and ground are omitted from this bare review. All three local source pictures/date limits still require review before closing the ticket.",
+      "status": "open"
+    },
+    {
+      "what": "Monochrome engraving cannot establish original wall/shutter/roof colours or hidden elevations. Existing separate evidence/provenance remains controlling for those choices.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

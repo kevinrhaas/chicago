@@ -433,9 +433,9 @@ export async function loadScene(year, bases = resolveBases(), {
       problems.push(`sidecar ${id}: declares id '${sidecar.id}' — index and file disagree`);
     }
     if (sidecar.review_required) {
-      // AGENTS.md: review_required blocks a scene from being released. It does
-      // not block development, but it must never pass unremarked.
-      problems.push(`${id}: review_required is set — this scene cannot be released`);
+      // AGENTS.md, owner ruling 2026-10-16: retain the review annotation;
+      // it does not block scene release and must not pass unremarked.
+      problems.push(`${id}: review_required is set — review annotation retained; this flag does not block scene release`);
     }
 
     /**

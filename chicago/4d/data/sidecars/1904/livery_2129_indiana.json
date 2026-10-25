@@ -202,19 +202,21 @@
   "citations": [
     {
       "source_id": "chicago_blue_book_1904",
-      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company.",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company, 1903.",
       "url": "https://archive.org/details/chicagobluebooko1904chic",
       "archived_url": "",
-      "tier": 2,
-      "tier_label": "near-primary recollection",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
       "what_it_supplies": [
+        "a household at 1619 Indiana in the 1904 edition, the same Dudley household the series lists there from 1890 to 1908",
+        "a household at 1641 Indiana in the 1904 edition, the Cummings and Robinson household the series lists there from 1890 to 1908",
         "that 2001 Indiana Avenue was a private residence for 1904 (two households of the selected list)",
         "that 2129 Indiana Avenue was part of Bane Brothers' livery and boarding stables, 2125 to 2129, for 1904"
       ],
       "what_it_does_not_supply": [
-        "the building's form, storeys, material or outline",
-        "a construction or demolition date",
-        "anything about the lots its selected list does not name: absence from a Blue Book proves nothing"
+        "any building's form, material or date",
+        "anything about numbers it does not list",
+        "a construction or demolition date"
       ]
     },
     {

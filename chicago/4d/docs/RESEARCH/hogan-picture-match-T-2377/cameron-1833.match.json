@@ -1,0 +1,53 @@
+{
+  "structure_id": "hogan_store",
+  "view": "cameron-1833",
+  "glb": "assets/gltf/hogan_store__log_1831.glb",
+  "glb_sha256": "c196950ac57ec0e76d78698de43b956188eeb0ea2403264700991c9587bd5fe2",
+  "camera_sha256": "e4a0a576d3ad33314623d75244d75d07cc3dcbc089935bcc5572e81b13bfa7e4",
+  "photo_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "side_by_side": "docs/RESEARCH/hogan-picture-match-T-2377/cameron-1833-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The generic front pair is replaced by the pictured one-sash/off-centre-door arrangement. Actual paired renders corrected the initial lateral misplacement; exact stations remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The formerly blank visible gable now has a small framed opening.",
+      "status": "fixed"
+    },
+    {
+      "what": "The visible stack now rises through the roof rather than against the remote end.",
+      "status": "fixed"
+    },
+    {
+      "what": "The model doorway is closed; the drawing shows a dark open doorway with a person.",
+      "status": "open"
+    },
+    {
+      "what": "The gable rectangle is represented by the generic glazed light. Glazing, shutter/hatch treatment and its exact size remain unresolved.",
+      "status": "open"
+    },
+    {
+      "what": "The ridge-stack section is reconstructed at 0.65 m square, reduced from the generic 0.96 m after rendering. Its 0.95 m head, cap/masonry and exact silhouette remain unmatched.",
+      "status": "open"
+    },
+    {
+      "what": "The drawing camera is provisional: six manually selected wall points yield point RMS 16.099 px and maximum residual 26.809 px on the retained documented footprint/reconstructed eave. Roof/wall proportions and opening heads remain coupled to the inconsistent drawing perspective; no accepted camera is claimed.",
+      "status": "open"
+    },
+    {
+      "what": "Log/chink course treatment, roof/shake texture and material tone still differ from the halftone.",
+      "status": "open"
+    },
+    {
+      "what": "The neutral single-building plane omits riverbank/road/trees/vehicles/people and neighbouring context; this is not an in-app whole-scene comparison.",
+      "status": "open"
+    },
+    {
+      "what": "Original colours and hidden elevations are not established by the monochrome retrospective view.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -74,9 +74,18 @@ def spec(params) -> dict | None:
         return None
     if t.get("cornice") not in (None, CORNICE, STONE):
         raise ValueError(f"wall_head.cornice builds {CORNICE!r} or {STONE!r} alone")
-    if t.get("cornice") == STONE and (getattr(params, "roof_form", "hip") not in ("flat", "gable") or t.get("pairs")):
+    # T-3002: under a mansard the moulded stone cornice runs round the walls the record names
+    # (1801's, under the Taylor photograph's slate faces), one run turned at every corner
+    mw = t.get("walls")
+    if t.get("cornice") == STONE and getattr(params, "roof_form", "hip") == "mansard":
+        if t.get("pairs") or not mw or not _chain(mw):
+            raise ValueError(f"{STONE} under a mansard names the walls it runs round (`walls`), each next to "
+                             f"the last round the house, and has no brackets to pair")
+    elif t.get("cornice") == STONE and (getattr(params, "roof_form", "hip") not in ("flat", "gable") or t.get("pairs")):
         raise ValueError(f"{STONE} runs along the street front between the side walls' parapets, under a "
                          f"flat or gable roof, and has no brackets to pair")
+    elif mw is not None:
+        raise ValueError(f"wall_head.walls names the walls {STONE!r} runs round under a mansard")
     if t.get("cresting") not in (None, CRESTING):
         raise ValueError(f"wall_head.cresting builds {CRESTING!r} alone")
     if t.get("dormer") not in (None, DORMER):
@@ -122,6 +131,24 @@ def spec(params) -> dict | None:
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
     return t
+
+
+#: T-3002: the K01 walls in the order runs() goes round the house
+LOOP = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
+
+
+def _chain(walls):
+    """T-3002: `walls` in the order a run round the house meets them, starting where the
+    wall before the first is not named; None unless each names a K01 wall once and they are
+    one unbroken stretch round the house (all four are the whole ring, opened at the front)."""
+    if not walls or len(set(walls)) != len(walls) or set(walls) - set(LOOP):
+        return None
+    if len(walls) == 4:
+        return list(LOOP)
+    first = next((w for w in LOOP if w in walls and LOOP[LOOP.index(w) - 1] not in walls), None)
+    i = LOOP.index(first)
+    out = [LOOP[(i + k) % 4] for k in range(len(walls))]
+    return out if set(out) == set(walls) else None
 
 
 def runs(params):
@@ -246,7 +273,9 @@ def dress(a, bays):
     K = _kit()
     data = K.load()
     conf = max(p.conf("wall_head"), p.conf("roof_form"), p.conf("eave_overhang_m"))
-    if t.get("cornice") == STONE:
+    if t.get("cornice") == STONE and p.roof_form == "mansard":
+        _mansard_cornice(a, K, data, bays, conf)
+    elif t.get("cornice") == STONE:
         _stone_cornice(a, K, data, bays, conf)
     elif t.get("cornice"):
         _cornice(a, K, data, bays, conf)
@@ -400,6 +429,12 @@ def _cornice(a, K, data, bays, conf):
             continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
+    # T-2995: a mansard on some walls only: the straight walls' head carries no eave box, so no
+    # bracket and no bed moulding (k01_mansard_straight.perimeter_span)
+    straight = (getattr(p, "mansard", None) or {}).get("straight")
+    if straight:
+        from .k01_mansard_straight import perimeter_span
+        cut.append(perimeter_span(p))
     w, h = B["width_m"], B["height_m"]
     y_low = y_s - h
     # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
@@ -415,6 +450,9 @@ def _cornice(a, K, data, bays, conf):
             stations.append((start + s, i, s))
         start += r.L
     perim = start
+    if straight:
+        c0, c1 = perimeter_span(p)
+        stations = [st for st in stations if not c0 - w / 2 - 0.05 <= st[0] <= c1 + w / 2 + 0.05]
     crown = _crown_stations(p, B, cr, spec(p).get("crown"))
     seed = a.instance(CORNICE, "cornice",
                       {"brackets": len(stations) * (2 if spec(p).get("pairs") else 1),
@@ -621,6 +659,9 @@ def _stone_cornice(a, K, data, bays, conf):
     # the corner pier's carved boss); capped there as at a corner
     stops = p.wall_head.get("stops_m") or {}
     lo, hi = float(stops.get("south", 0.0)), front.L - float(stops.get("north", 0.0))
+    # T-3112: and the pier at the low-s end, capped under it (`front_pier`), takes none
+    if getattr(p, "front_pier", None):
+        lo = max(lo, p.front_pier["to_m"])
     spans = [(max(s0, lo), min(s1, hi)) for s0, s1 in spans if min(s1, hi) > max(s0, lo)]
     info = {"projection_m": pj, "height_m": ch, "profile": v["profile"], "soffit_m": y_s,
             "bays_carrying_it": len(cut)}
@@ -638,6 +679,70 @@ def _stone_cornice(a, K, data, bays, conf):
         ends = (s0 < lo + 1e-9, s1 > hi - 1e-9)       # capped at a corner or a stop; dying into a bay
         K.sweep(pc.mesh, [front.at(s0, y_c), front.at(s1, y_c)], K.Y, prof, side=1.0, sgn=1.0, caps=ends)
     a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
+                   "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
+    _lay(a, var.pieces, conf, STONE)
+
+
+def _mansard_cornice(a, K, data, bays, conf):
+    """T-3002: the kit's moulded stone cornice under a mansard's eave (1801 Prairie's heavy
+    cornice under the slate faces, the Taylor photograph): its top the K05 soffit, as under a
+    flat roof, but run round the walls the record names in one section, mitred at every
+    corner it turns and capped where the named walls end. A K08 bay on those walls that
+    stands up to it — a pavilion, a tower, a bow under its own cornice — takes it into its
+    side, so the course stops on the bay's junctions; nothing else interrupts it, and a head
+    that would reach it is refused, as on the street front."""
+    p = a.p
+    v = next(x for x in data["variants"] if x["id"] == STONE)
+    prof = [tuple(q) for q in data["parts"]["profiles"][v["profile"]]["points"]]
+    pj, ch = max(n for n, _ in prof), max(u for _, u in prof)
+    if p.wall_head.get("depth_m"):
+        k = float(p.wall_head["depth_m"]) / ch
+        prof, ch = [(n, u * k) for n, u in prof], ch * k
+    y_s = a.soffit_m
+    y_c = y_s - ch
+    if pj > p.eave_overhang_m - 0.02:
+        raise ValueError("the stone cornice would reach the eave's fascia")
+    by = {r.name: r for r in runs(p)}
+    chain = [by[w] for w in _chain(p.wall_head["walls"])]
+    cum = [0.0]
+    for r in chain:
+        cum.append(cum[-1] + r.L)
+    names = [r.name for r in chain]
+    for o in p.openings:
+        if o.wall in names and o.head_m + HEAD_RISE_M > y_c - 0.005:
+            raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the stone cornice at {y_c:.3f} m")
+    cut, into = [], []
+    for b, (wall, s0, s1, top) in zip(p.bays, bays):
+        if wall in names and top > y_c - 0.005:
+            i = names.index(wall)
+            cut.append((cum[i] + s0, cum[i] + s1))
+            into.append(b["id"])
+    spans, at = [], 0.0
+    for c0, c1 in sorted(cut):
+        if c0 > at:
+            spans.append((at, c0))
+        at = max(at, c1)
+    if cum[-1] > at:
+        spans.append((at, cum[-1]))
+
+    def point(ps):
+        i = max(j for j in range(len(chain)) if cum[j] <= ps + 1e-9)
+        return chain[i].at(ps - cum[i], y_c)
+
+    info = {"projection_m": pj, "height_m": ch, "profile": v["profile"], "soffit_m": y_s,
+            "walls": names, "bays_carrying_it": len(cut)}
+    if p.wall_head.get("depth_m"):
+        info["depth_m"] = float(p.wall_head["depth_m"])
+    seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
+    var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
+    var.seed, var.rng = seed, random.Random(seed)
+    for k, (s0, s1) in enumerate(spans):
+        path = [point(s0)] + [point(c) for c in cum[1:-1] if s0 + 1e-6 < c < s1 - 1e-6] + [point(s1)]
+        pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=names)
+        ends = (s0 < 1e-9, s1 > cum[-1] - 1e-9)       # capped where the named walls end; dying into a bay
+        K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=ends)
+    a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
+                   "walls": names, "dies_into": into,
                    "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
     _lay(a, var.pieces, conf, STONE)
 

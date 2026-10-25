@@ -1,0 +1,311 @@
+{
+ "ticket": "T-3072",
+ "glb": "assets/gltf/glessner_house__as_built_1887.glb",
+ "step_in": 0.25,
+ "band_in": [
+  4.0,
+  9.0
+ ],
+ "views": {
+  "cornell-northwest-west-windows": [
+   {
+    "field": "stable west slope, T-3025's band 1",
+    "columns_rows": [
+     1000,
+     1030,
+     300,
+     450
+    ],
+    "plane_pitch_deg": 42.5,
+    "five_in_course_px": 3.28,
+    "at_sampling_limit": false,
+    "plane_vertices": 1039,
+    "print_px_per_in": 0.655,
+    "print_course_in": 6.66,
+    "print_peak_snr": 262.6,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 64010.5
+   },
+   {
+    "field": "stable west slope, T-3025's band 2",
+    "columns_rows": [
+     1040,
+     1080,
+     300,
+     450
+    ],
+    "plane_pitch_deg": 42.5,
+    "five_in_course_px": 3.43,
+    "at_sampling_limit": false,
+    "plane_vertices": 1427,
+    "print_px_per_in": 0.686,
+    "print_course_in": 6.56,
+    "print_peak_snr": 201.8,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 150000.0
+   },
+   {
+    "field": "stable west slope, T-3025's band 3",
+    "columns_rows": [
+     1090,
+     1120,
+     300,
+     450
+    ],
+    "plane_pitch_deg": 42.6,
+    "five_in_course_px": 3.59,
+    "at_sampling_limit": false,
+    "plane_vertices": 1007,
+    "print_px_per_in": 0.717,
+    "print_course_in": 6.55,
+    "print_peak_snr": 196.0,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 7938.5
+   }
+  ],
+  "habs-01-northwest": [
+   {
+    "field": "stable west slope (the Cornell plane), band 1",
+    "columns_rows": [
+     1440,
+     1480,
+     405,
+     520
+    ],
+    "plane_pitch_deg": 42.5,
+    "five_in_course_px": 3.31,
+    "at_sampling_limit": false,
+    "plane_vertices": 1484,
+    "print_px_per_in": 0.662,
+    "print_course_in": 4.85,
+    "print_peak_snr": 58.9,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 9758.2
+   },
+   {
+    "field": "stable west slope (the Cornell plane), band 2",
+    "columns_rows": [
+     1490,
+     1530,
+     395,
+     520
+    ],
+    "plane_pitch_deg": 42.5,
+    "five_in_course_px": 3.38,
+    "at_sampling_limit": false,
+    "plane_vertices": 1458,
+    "print_px_per_in": 0.675,
+    "print_course_in": 4.94,
+    "print_peak_snr": 39.9,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 9379.7
+   },
+   {
+    "field": "stable west slope (the Cornell plane), band 3",
+    "columns_rows": [
+     1540,
+     1570,
+     385,
+     515
+    ],
+    "plane_pitch_deg": 42.5,
+    "five_in_course_px": 3.42,
+    "at_sampling_limit": false,
+    "plane_vertices": 1038,
+    "print_px_per_in": 0.684,
+    "print_course_in": 5.0,
+    "print_peak_snr": 42.3,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 8635.8
+   },
+   {
+    "field": "long west roof, band 1",
+    "columns_rows": [
+     800,
+     850,
+     505,
+     580
+    ],
+    "plane_pitch_deg": 37.5,
+    "five_in_course_px": 2.06,
+    "at_sampling_limit": true,
+    "plane_vertices": 3396,
+    "print_px_per_in": 0.411,
+    "print_course_in": 5.98,
+    "print_peak_snr": 31.3,
+    "glb_course_in": 4.98,
+    "glb_peak_snr": 6472.4
+   },
+   {
+    "field": "long west roof, band 2",
+    "columns_rows": [
+     880,
+     940,
+     500,
+     578
+    ],
+    "plane_pitch_deg": 36.9,
+    "five_in_course_px": 2.14,
+    "at_sampling_limit": true,
+    "plane_vertices": 3586,
+    "print_px_per_in": 0.429,
+    "print_course_in": 6.08,
+    "print_peak_snr": 34.1,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 13313.7
+   },
+   {
+    "field": "long west roof, band 3",
+    "columns_rows": [
+     1000,
+     1060,
+     470,
+     570
+    ],
+    "plane_pitch_deg": 37.0,
+    "five_in_course_px": 2.23,
+    "at_sampling_limit": true,
+    "plane_vertices": 3463,
+    "print_px_per_in": 0.446,
+    "print_course_in": 6.09,
+    "print_peak_snr": 109.6,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 17586.3
+   }
+  ],
+  "taylor-2135-ne": [
+   {
+    "field": "18th Street roof, band 1",
+    "columns_rows": [
+     420,
+     480,
+     330,
+     450
+    ],
+    "plane_pitch_deg": 44.7,
+    "five_in_course_px": 2.94,
+    "at_sampling_limit": true,
+    "plane_vertices": 3695,
+    "print_px_per_in": 0.589,
+    "print_course_in": 4.82,
+    "print_peak_snr": 7.4,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 38470.3
+   },
+   {
+    "field": "18th Street roof, band 2",
+    "columns_rows": [
+     520,
+     580,
+     320,
+     450
+    ],
+    "plane_pitch_deg": 44.7,
+    "five_in_course_px": 3.06,
+    "at_sampling_limit": false,
+    "plane_vertices": 3465,
+    "print_px_per_in": 0.612,
+    "print_course_in": 4.78,
+    "print_peak_snr": 14.3,
+    "glb_course_in": 4.99,
+    "glb_peak_snr": 10736.9
+   },
+   {
+    "field": "18th Street roof, band 3",
+    "columns_rows": [
+     600,
+     660,
+     315,
+     450
+    ],
+    "plane_pitch_deg": 44.7,
+    "five_in_course_px": 3.16,
+    "at_sampling_limit": false,
+    "plane_vertices": 3207,
+    "print_px_per_in": 0.632,
+    "print_course_in": 4.77,
+    "print_peak_snr": 24.3,
+    "glb_course_in": 4.99,
+    "glb_peak_snr": 6012.6
+   },
+   {
+    "field": "18th Street roof, band 4",
+    "columns_rows": [
+     760,
+     800,
+     300,
+     440
+    ],
+    "plane_pitch_deg": 44.7,
+    "five_in_course_px": 3.31,
+    "at_sampling_limit": false,
+    "plane_vertices": 2025,
+    "print_px_per_in": 0.662,
+    "print_course_in": 4.75,
+    "print_peak_snr": 38.4,
+    "glb_course_in": 5.0,
+    "glb_peak_snr": 6172.3
+   }
+  ]
+ },
+ "ridge_to_eave_counts": {
+  "cornell-northwest-west-windows": [
+   {
+    "column": 1040,
+    "ridge_row": 290,
+    "eave_row": 472,
+    "courses": 41.7,
+    "courses_sd": 0.0,
+    "camera_slope_ft": 21.89,
+    "camera_course_in": 6.31
+   },
+   {
+    "column": 1060,
+    "ridge_row": 280,
+    "eave_row": 470,
+    "courses": 43.7,
+    "courses_sd": 0.0,
+    "camera_slope_ft": 22.81,
+    "camera_course_in": 6.27
+   },
+   {
+    "column": 1080,
+    "ridge_row": 272,
+    "eave_row": 467,
+    "courses": 43.9,
+    "courses_sd": 0.5,
+    "camera_slope_ft": 23.32,
+    "camera_course_in": 6.37
+   }
+  ],
+  "habs-01-northwest": [
+   {
+    "column": 1480,
+    "ridge_row": 390,
+    "eave_row": 528,
+    "courses": 40.6,
+    "courses_sd": 0.7,
+    "camera_slope_ft": 16.91,
+    "camera_course_in": 5.0
+   },
+   {
+    "column": 1500,
+    "ridge_row": 385,
+    "eave_row": 527,
+    "courses": 41.6,
+    "courses_sd": 0.7,
+    "camera_slope_ft": 17.31,
+    "camera_course_in": 4.99
+   },
+   {
+    "column": 1520,
+    "ridge_row": 380,
+    "eave_row": 525,
+    "courses": 42.7,
+    "courses_sd": 0.8,
+    "camera_slope_ft": 17.58,
+    "camera_course_in": 4.94
+   }
+  ]
+ }
+}

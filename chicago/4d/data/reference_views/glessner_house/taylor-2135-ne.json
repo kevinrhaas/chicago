@@ -7,31 +7,31 @@
     1502
   ],
   "principal_px": [
-    415.50272048928315,
-    815.5140668074222
+    564.47,
+    696.935
   ],
-  "focal_px": 2330.9736,
+  "focal_px": 2256.2729,
   "eye": [
-    89.845097,
-    40.367211,
-    1.702588
+    87.401166,
+    40.089291,
+    1.793294
   ],
-  "yaw_deg": 234.033818,
+  "yaw_deg": 236.281071,
   "basis_right_up_forward": [
     [
-      -0.5871363184,
-      0.809126825,
-      0.0241810795
+      -0.5539724009,
+      0.8322175134,
+      0.0229910725
     ],
     [
-      0.0141849137,
-      -0.0195834946,
-      0.9997075947
+      0.0561920186,
+      0.0098233842,
+      0.9983716533
     ],
     [
-      -0.8093637821,
-      -0.5873076432,
-      -2.07867e-05
+      -0.8306365246,
+      -0.5543622566,
+      0.0522058657
     ]
   ],
   "sky": "overcast",
@@ -41,7 +41,7 @@
     1
   ],
   "solve": {
-    "method": "T-2858: refitted on the ten first-floor jambs of T-2857 (x only; each jamb whose reveal faces the camera at the sash, 0.6 ft behind the arris) with the five earlier controls, the two Prairie-corner x picks put on sheet 6's downspouts (0.90 ft in from the north corner, 0.82 from the south). Level camera with a small fitted roll, height bounded 1.0-2.5 m, principal point held. The three stacks are withheld checks (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json).",
+    "method": "T-3058: fitted on the ten first-floor jambs of T-2857 (x only; each jamb whose reveal faces the camera at the sash, 0.6 ft behind the arris), the five earlier controls (the two Prairie-corner x picks put on sheet 6's downspouts, so they control height only), the three stacks' centres and tops (their record boxes against T-2857's picks; the built caps read within about 1 px of the boxes) and the photograph's plumb edges (docs/RESEARCH/glessner-taylor-camera-T-3058/verticals.json, each lean weighted by its length). Principal point, pitch and roll free; height bounded 1.0-2.5 m; every start ends at this camera. The stacks' widths are not fitted and are the check (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json).",
     "controls_xyz_px": [
       [
         49.149,
@@ -82,54 +82,60 @@
     "residual_px": [
       [
         null,
-        1.78
+        3.33
       ],
       [
         null,
-        -0.8
+        1.04
       ],
       [
         null,
-        -1.3
+        -3.86
       ],
       [
         null,
-        0.57
+        -1.15
       ],
       [
-        -0.09,
-        -0.25
+        -0.26,
+        0.73
       ]
     ],
-    "rms_px": 1.36,
+    "rms_px": 2.08,
     "light": "T-2848, read off the photograph: hazy, diffuse light. The lamp post at the corner, the two street trees and the window heads throw no shadow, and the rustication is shaded softly along each block's lower edge; the Prairie (east) front reads a little brighter than the 18th Street (north) flank. So the sky is brightest to the east and somewhat high: the overcast sky with its soft key at sun_uvy [0.8, -0.2, 1] (east, a little south, about 45 degrees up). This replaces [55, 20, 40], which T-2221 carried over with the camera and no reading behind it.",
     "jamb_residual_px": [
-      1.81,
-      -0.29,
-      -0.24,
-      -0.35,
-      -1.12,
-      -3.61,
-      2.05,
-      0.91,
-      0.99,
-      -0.04
+      0.06,
+      -1.36,
+      -1.04,
+      -0.55,
+      -0.83,
+      -3.17,
+      3.19,
+      2.49,
+      2.49,
+      1.87
     ],
-    "stack_checks_px": {
+    "stacks_px": {
       "south": {
-        "right_x": -14.6,
-        "top_y": -0.5
+        "centre_x": -2.9,
+        "top_y": -0.7,
+        "width": -0.0
       },
       "middle": {
-        "left_x": -7.8,
-        "right_x": -6.6,
-        "top_y": -2.1
+        "centre_x": -2.2,
+        "top_y": -0.6,
+        "width": -0.6
       },
       "north": {
-        "left_x": 3.8,
-        "right_x": 0.5,
-        "top_y": 1.7
+        "centre_x": 2.2,
+        "top_y": 1.2,
+        "width": 1.5
       }
+    },
+    "stack_fit_rms_px": 1.9,
+    "verticals": {
+      "edges": 43,
+      "lean_rms": 0.0104
     }
   },
   "source_id": "taylor_2135_glessner_exterior_1887_1889"

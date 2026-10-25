@@ -145,3 +145,31 @@ Read through the T-2541 camera (x = 689 + 659 (v − 14.45) / (22.5 − u), leve
 - **Spire.** Over the front's middle (v 8.26), the plate's finial at x 416; the render's at 414.
 
 What is invented is L-k01-1811-oriel-3007.
+
+## T-2991 — the porch arcade round the rounded corner
+
+Piece 2 of T-2984. Read at 7x on the plate (x 465-510, y 620-745 px), through the T-2541 camera.
+
+- **Where the lights stand.** Three colonnettes like the mouth's carry on round the curve at x 477, 490 and 500 px,
+  which on the 0.9 m round (centre u 6.67, v 9.5) is about 8, 27 and 44 degrees from the front's tangent. Their
+  capitals are at y 678-697 px, the line of the mouth's capitals, and their bases sit on a ledge at y 722-733 px,
+  the top of the mouth's plinth. The three dark round-headed lights (x 473-480, 485-492 and 497-503 px, crowns y 646,
+  652 and 658) stand OVER the capitals, not between them, so the arcade is three lights each on its own colonnette.
+  At these angles the round faces the camera within about 10-25 degrees, so depth cannot shift a light off its
+  colonnette by a pixel.
+- **The record.** `entrance_kit.loggia.round_arcade`:
+  `{"angles_deg": [8, 27, 44], "clear_width_m": 0.18, "crown_m": 0.79, "reveal_m": 0.3, "band_m": 0.55}`. The sill
+  is the mouth's springing (3.15 m, a bed of the front's courses). K01 refuses a sill that is not a bed, an arcade
+  with no round or no mouth's columns, lights crowding each other or the front's tangent, a frame running onto the
+  side wall, and a loggia whose end stands more than 0.6 m from the round's tangent or past it.
+- **The build.** The round's two courses from 3.15 to 4.05 m are laid in dressed stones, one a light, from the
+  tangent to 0.12 m past the last light. Each stone is cut through by its light 0.3 m deep: a soffit, jambs, a
+  sill and a dark back. The rest of those courses is laid as before. Each colonnette stands in the round's own frame
+  at its angle. Under them a dressed plinth band 0.55 m deep is carried round from the mouth's plinth, as proud of
+  the round as the plinth is of the front (the plate's smooth band, y 727-748 px).
+- **What the camera reads now:** lights at x 472-479, 485-492 and 497-503 px (the plate's 473-480, 485-492 and
+  497-503), the first crown at y 646 with the plate's, colonnettes at about 475, 487 and 499 against 477, 490 and
+  500, capitals at y 681-690, and the band at y 720-745 against 727-748.
+- **Left open.** The plate's arcade steps down to the south (bases 0/4/9 px, crowns 0/6/12 px). Going round the
+  curve accounts for under 1 px through this camera. The build is level, and the step is an open item on the match
+  record for T-3079's camera re-solve. Every other K01, K12, K13 and K16 asset re-emits byte-identical.

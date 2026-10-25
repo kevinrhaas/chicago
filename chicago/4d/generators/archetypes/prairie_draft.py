@@ -368,6 +368,8 @@ def build(params, structure_id: str):
     mu0, mv0, mu1, mv1 = main["rect"]
     main_eave = eave_of(main)
     is_house = params.kind == "house"
+    # a church's own dressing (T-3103) replaces the house front's sash, door and courses
+    gothic = next((f for f in e.get("features", []) if f["kind"] == "gothic_church"), None)
     if is_house and e.get("works"):
         return works_shell(m, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, rnd)
 
@@ -411,7 +413,7 @@ def build(params, structure_id: str):
                   0.0, max(0.3, pf - 0.15))
         n_st = int(p.get("storeys", params.stories))
         # string courses on the street faces of the body
-        if is_house and role in ("main", "wing", "bay", "stone_front"):
+        if is_house and role in ("main", "wing", "bay", "stone_front") and not (gothic and role == "main"):
             y = pf
             for k in range(1, n_st):
                 y += hs[min(k - 1, len(hs) - 1)]
@@ -435,7 +437,13 @@ def build(params, structure_id: str):
             top = hip(m, "roof", u0, u1, v0, v1, eave, pitch)
         elif roof == "gable":
             along = "u" if (u1 - u0) >= (v1 - v0) else "v"
-            top = gable(m, "roof", u0, u1, v0, v1, eave, pitch, along=along, end_mat=mat)
+            inset = float(gothic.get("gable_inset_v0_m", 0.0)) if gothic and role == "main" else 0.0
+            if inset:
+                # the gable springs `inset` in from the north wall, over a narrow bay with its own
+                # flat roof behind a cornice (the 1887 plate's north foot, T-3103)
+                m.box("cornice", u0 - 0.2, u1 + 0.2, v0 - 0.2, v0 + inset, eave - 0.4, eave)
+                m.box("roof", u0, u1, v0, v0 + inset, eave, eave + 0.06)
+            top = gable(m, "roof", u0, u1, v0 + inset, v1, eave, pitch, along=along, end_mat=mat)
         elif roof == "mansard":
             m.box("cornice", u0 - 0.35, u1 + 0.35, v0 - 0.35, v1 + 0.35, eave - 0.45, eave)
             lower = float(e.get("mansard_lower_m", 3.0))
@@ -492,6 +500,8 @@ def build(params, structure_id: str):
             if side == "v1" and lot_v1 - at < party:
                 continue
             if _covered(side, at, a, b, rects, i):
+                continue
+            if gothic and role == "main" and side == "u1":
                 continue
             front = side == "u1" and role in ("main", "wing", "bay") and is_house
             if front and role == "main":
@@ -596,6 +606,20 @@ def build(params, structure_id: str):
             if feat.get("cap", "cone") == "flat_crested":
                 # a flat lead top inside a low iron cresting, the towers' other roof state (T-2351)
                 tower_top = crested_cap(m, cap_ring, cu, cv, y1)
+            elif feat.get("cap_top_r_m") is not None:
+                # a spire that stops short of its point under a finial: a frustum to a small
+                # flat top, the taper read off a photograph (T-3103)
+                y2, rt = y1 + float(feat["cap_m"]), float(feat["cap_top_r_m"])
+                k_ = rt / (r + 0.3)
+                top_ring = [(cu + (p[0] - cu) * k_, cv + (p[1] - cv) * k_) for p in cap_ring]
+                cen = (cu, cv, (y1 + y2) / 2)
+                for i in range(len(cap_ring)):
+                    a_, b_ = cap_ring[i], cap_ring[(i + 1) % len(cap_ring)]
+                    c_, d_ = top_ring[(i + 1) % len(cap_ring)], top_ring[i]
+                    m.face("roof", [(a_[0], a_[1], y1), (b_[0], b_[1], y1), (c_[0], c_[1], y2), (d_[0], d_[1], y2)], cen)
+                m.face("cornice", [(p[0], p[1], y1) for p in cap_ring], cen)
+                m.face("roof", [(p[0], p[1], y2) for p in top_ring], cen)
+                tower_top = y2
             else:
                 cone(m, "roof", cap_ring, y1, y1 + float(feat.get("cap_m", 5.5)))
                 m.box("cornice", cu - 0.06, cu + 0.06, cv - 0.06, cv + 0.06, y1 + float(feat.get("cap_m", 5.5)) - 0.2,
@@ -623,6 +647,10 @@ def build(params, structure_id: str):
                     m.face("glass", pts, (cu, cv, base + 1.5))
                     windows += 1
             facts["tower_top_m"] = round(tower_top, 3)
+        elif kind == "gothic_church":
+            w_, d_ = gothic_church(m, feat, facts)
+            windows += w_
+            doors += d_
         elif kind == "party_wall":
             facts["party_wall_top_m"] = party_wall(m, parts, float(feat["v"]), eave_of, e)
     if e.get("station"):
@@ -698,6 +726,246 @@ def _quad_solid(m: Mesh, mat, P, corners, z0, z1):
 def obox(m: Mesh, mat, P, x0, x1, y0, y1, z0, z1):
     """A box in a board's own frame (a board standing at any bearing)."""
     _quad_solid(m, mat, P, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], z0, z1)
+
+
+# ---------------------------------------------------------------- a Gothic church's dressing (T-3103)
+
+def slab(m: Mesh, mat, P, outline, z0, z1):
+    """Any flat convex outline in board (x, y), extruded from z0 to z1 out of the board."""
+    back = [P(x, y, z0) for x, y in outline]
+    front = [P(x, y, z1) for x, y in outline]
+    n = len(outline)
+    m.solid([back, front] + [[back[i], back[(i + 1) % n], front[(i + 1) % n], front[i]] for i in range(n)], mat=mat)
+
+
+def pointed(s, w, sill, head, seg=6):
+    """A pointed opening's outline: jambs from `sill`, a two-centred arch to `head`.
+
+    The arch rises 0.866 w (equilateral) when the opening is tall enough, else what it
+    has, never less than half the span (a pointed, not a segmental, head)."""
+    rise = max(w / 2, min(0.866 * w, (head - sill) * 0.5))
+    ys = head - rise
+    d = (rise * rise - w * w / 4) / w     # each arc's centre, inward of the far jamb
+    r = w / 2 + d
+    a_top = math.atan2(rise, d)
+    right = [(s - d + r * math.cos(a_top * k / seg), ys + r * math.sin(a_top * k / seg)) for k in range(seg + 1)]
+    left = [(s + d - r * math.cos(a_top * k / seg), ys + r * math.sin(a_top * k / seg)) for k in range(seg, -1, -1)]
+    return [(s - w / 2, sill), (s + w / 2, sill)] + right + left[1:], ys
+
+
+def disc(cx, cy, r, n=16):
+    return [(cx + r * math.cos(2 * math.pi * k / n), cy + r * math.sin(2 * math.pi * k / n)) for k in range(n)]
+
+
+def rose(m: Mesh, P, cx, cy, r, z, spokes=8):
+    """A rose: a stone ring, glass inside it, a boss and spokes of tracery."""
+    slab(m, "trim", P, disc(cx, cy, r), z, z + 0.04)
+    slab(m, "glass", P, disc(cx, cy, r * 0.78), z + 0.04, z + 0.06)
+    slab(m, "trim", P, disc(cx, cy, r * 0.22, 8), z + 0.06, z + 0.09)
+    for k in range(spokes):
+        a = 2 * math.pi * (k + 0.5) / spokes
+        c, s_ = math.cos(a), math.sin(a)
+        t = max(0.04, r * 0.06)
+        p0, p1 = (cx + c * r * 0.2, cy + s_ * r * 0.2), (cx + c * r * 0.8, cy + s_ * r * 0.8)
+        slab(m, "trim", P, [(p0[0] - s_ * t, p0[1] + c * t), (p0[0] + s_ * t, p0[1] - c * t),
+                            (p1[0] + s_ * t, p1[1] - c * t), (p1[0] - s_ * t, p1[1] + c * t)], z + 0.06, z + 0.08)
+
+
+def gothic_opening(m: Mesh, P, o):
+    """One pointed opening on a board: a stone surround, its fill, mullions and a rose head.
+
+    `o`: s (centre along the board), w, sill, head, lights, rose (bool), fill ('glass',
+    'door' or 'louvre'), door_to (a door leaf to this height, glass above it)."""
+    s, w, sill, head = float(o["s"]), float(o["w"]), float(o["sill"]), float(o["head"])
+    fr = float(o.get("frame", 0.22))
+    # the surround and fill reach `seat` back into the wall, so a board laid on a gable
+    # end that stands a verge proud of the wall below it still meets the wall
+    seat = -float(o.get("seat", 0.15))
+    outer, _ = pointed(s, w + 2 * fr, sill - 0.12, head + fr)
+    slab(m, "trim", P, outer, seat, 0.06)
+    inner, ys = pointed(s, w, sill, head)
+    fill = o.get("fill", "glass")
+    slab(m, {"glass": "glass", "door": "door", "louvre": "cornice"}[fill], P, inner, seat, 0.08)
+    if o.get("door_to") is not None:
+        dt = float(o["door_to"])
+        slab(m, "door", P, [(s - w / 2, sill), (s + w / 2, sill), (s + w / 2, dt), (s - w / 2, dt)], 0.0, 0.1)
+        slab(m, "trim", P, [(s - w / 2, dt), (s + w / 2, dt), (s + w / 2, dt + 0.18), (s - w / 2, dt + 0.18)], 0.0, 0.12)
+    n = int(o.get("lights", 1))
+    low = float(o["door_to"]) + 0.18 if o.get("door_to") is not None else sill
+    for k in range(1, n):
+        x = s - w / 2 + w * k / n
+        slab(m, "trim", P, [(x - 0.06, low), (x + 0.06, low), (x + 0.06, ys), (x - 0.06, ys)], 0.08, 0.12)
+    if fill == "louvre":
+        y = sill + 0.25
+        while y < ys - 0.1:
+            slab(m, "trim", P, [(s - w / 2, y), (s + w / 2, y), (s + w / 2, y + 0.07), (s - w / 2, y + 0.07)],
+                 0.08, 0.13)
+            y += 0.45
+    if o.get("rose"):
+        rise = head - ys
+        r = min(w * 0.36, rise * 0.42)
+        rose(m, P, s, ys + rise * 0.38, r, 0.08)
+    return 1
+
+
+def gothic_church(m: Mesh, feat: dict, facts: dict) -> tuple[int, int]:
+    """The church's Gothic dressing, every place read off its photograph (T-3103).
+
+    Board planes are named in the feature: `planes` maps a name to [axis, offset, out]
+    with the offset from the feature's `at` (u from the front, v from the north face),
+    `out` the side the face looks out of. Each item names its plane."""
+    au, av = feat["at"]
+    boards = {}
+    for name, (axis, off, out) in feat["planes"].items():
+        sgn = 1.0 if out > 0 else -1.0
+        if axis == "u":
+            boards[name] = _onto((au + off, av), (0.0, 1.0), (sgn, 0.0))
+        else:
+            boards[name] = _onto((au, av + off), (1.0, 0.0), (0.0, sgn))
+    windows = doors = 0
+    for o in feat.get("openings", []):
+        gothic_opening(m, boards[o["plane"]], o)
+        if o.get("fill") == "door" or o.get("door_to") is not None:
+            doors += 1
+        else:
+            windows += 1
+    for r_ in feat.get("roses", []):
+        P = boards[r_["plane"]]
+        cx, cy, r = (float(x) for x in r_["c_r"])
+        slab(m, "trim", P, disc(cx, cy, r + 0.18), -0.15, 0.05)
+        rose(m, P, cx, cy, r, 0.05)
+        windows += 1
+    for c in feat.get("courses", []):
+        # a string course: [plane, s0, s1, y, depth]
+        P = boards[c[0]]
+        obox(m, "trim", P, float(c[1]), float(c[2]), float(c[3]) - 0.1, float(c[3]) + 0.1, 0.0, float(c[4]))
+    for p in feat.get("panels", []):
+        P = boards[p["plane"]]
+        obox(m, "trim", P, p["s"][0], p["s"][1], p["h"][0], p["h"][1], 0.0, float(p.get("proud", 0.08)))
+    # the gabled stone porch
+    pc = feat.get("porch")
+    if pc:
+        u0, u1 = au + pc["u"][0], au + pc["u"][1]
+        v0, v1 = av + pc["v"][0], av + pc["v"][1]
+        sh, apex = float(pc["shoulder_m"]), float(pc["apex_m"])
+        m.box("stone", u0, u1, v0, v1, 0.0, sh)
+        pitch = math.degrees(math.atan2(apex - sh, (v1 - v0) / 2))
+        gable(m, "roof", u0, u1, v0, v1, sh, pitch, along="u", o=0.15, end_mat="stone", verge=0.05)
+        vm = (v0 + v1) / 2
+        for sgn in (-1, 1):
+            beam(m, "trim", (u1 + 0.12, vm + sgn * ((v1 - v0) / 2 + 0.2), sh - 0.1), (u1 + 0.12, vm, apex + 0.15), 0.32)
+        m.box("trim", u1 - 0.1, u1 + 0.25, vm - 0.12, vm + 0.12, apex, apex + float(pc.get("finial_m", 0.8)))
+    # the main gable's verge: coping on a corbel table, a kneeler at each foot, the cross
+    vg = feat.get("verge")
+    if vg:
+        uf = au + float(vg["u"])
+        va, vb, ve, ya = (av + float(vg["v"][0]), av + float(vg["v"][1]), float(vg["eave_m"]), float(vg["apex_m"]))
+        vm = (va + vb) / 2
+        for sgn in (-1, 1):
+            foot = (uf + 0.2, vm + sgn * (vb - va) / 2, ve)
+            top = (uf + 0.2, vm, ya)
+            beam(m, "trim", foot, top, 0.45)
+            # the corbel table: a block every `corbel_step_m` under the coping
+            run = math.hypot((vb - va) / 2, ya - ve)
+            n = int(run // float(vg.get("corbel_step_m", 0.7)))
+            for k in range(1, n):
+                t = k / n
+                pv, py = foot[1] + (top[1] - foot[1]) * t, foot[2] + (top[2] - foot[2]) * t
+                m.box("trim", uf, uf + 0.18, pv - 0.12, pv + 0.12, py - 0.62, py - 0.3)
+            kv = foot[1]
+            m.box("trim", uf - 0.05, uf + 0.45, kv - 0.65, kv + 0.65, ve - 1.1, ve + 0.6)
+        cr = vg.get("cross_m")
+        if cr:
+            m.box("trim", uf + 0.05, uf + 0.35, vm - 0.14, vm + 0.14, ya, ya + float(cr))
+            yc = ya + float(cr) * 0.62
+            arm = float(vg.get("cross_span_m", 1.2)) / 2
+            m.box("trim", uf + 0.05, uf + 0.35, vm - arm, vm + arm, yc - 0.13, yc + 0.13)
+            P = _onto((uf + 0.15, vm), (0.0, 1.0), (1.0, 0.0))
+            ring = vg.get("cross_ring_m")
+            if ring is None:
+                slab(m, "trim", P, disc(0.0, yc, 0.42, 12), 0.0, 0.12)
+            else:
+                # an open ring round the crossing, its outer radius read off a photograph
+                # (T-3104), a band 0.14 m wide in sixteen pieces
+                r1 = float(ring)
+                r0 = r1 - 0.14
+                for k in range(16):
+                    a0, a1 = 2 * math.pi * k / 16, 2 * math.pi * (k + 1) / 16
+                    slab(m, "trim", P, [(r0 * math.cos(a0), yc + r0 * math.sin(a0)),
+                                        (r1 * math.cos(a0), yc + r1 * math.sin(a0)),
+                                        (r1 * math.cos(a1), yc + r1 * math.sin(a1)),
+                                        (r0 * math.cos(a1), yc + r0 * math.sin(a1))], 0.0, 0.12)
+    # stepped buttresses, each a run of [u0, u1, v0, v1, y0, y1] stages under a sloped
+    # offset, and an optional pinnacle: [u0, u1, v0, v1, y0, shaft_top, apex]
+    for b in feat.get("buttresses", []):
+        for st in b["stages"]:
+            u0, u1, v0, v1, y0, y1 = st
+            m.box("brick", au + u0, au + u1, av + v0, av + v1, y0, y1)
+            along = "u" if (u1 - u0) < (v1 - v0) else "v"
+            gable(m, "trim", au + u0, au + u1, av + v0, av + v1, y1, 50.0, along=along, o=0.05,
+                  end_mat="trim", verge=0.02)
+        pn = b.get("pinnacle")
+        if pn:
+            u0, u1, v0, v1, y0, y1, ap = pn
+            m.box("trim", au + u0, au + u1, av + v0, av + v1, y0, y1)
+            ring = [(au + u0 - 0.05, av + v0 - 0.05), (au + u1 + 0.05, av + v0 - 0.05),
+                    (au + u1 + 0.05, av + v1 + 0.05), (au + u0 - 0.05, av + v1 + 0.05)]
+            cone(m, "roof", ring, y1, ap)
+    # gablets: a steep gable standing out of each face of the tower's head
+    for g in feat.get("gablets", []):
+        u0, u1, v0, v1 = au + g["rect"][0], au + g["rect"][1], av + g["rect"][2], av + g["rect"][3]
+        y0, ap = float(g["spring_m"]), float(g["apex_m"])
+        along = g["along"]
+        half = ((v1 - v0) if along == "u" else (u1 - u0)) / 2
+        gable(m, "roof", u0, u1, v0, v1, y0, math.degrees(math.atan2(ap - y0, half)), along=along, o=0.12,
+              end_mat="brick", verge=0.1)
+        if g.get("rose"):
+            P = boards[g["rose"][0]]
+            cx, cy, r = (float(x) for x in g["rose"][1:])
+            rose(m, P, cx, cy, r, 0.0)
+    # the north bay's stack
+    for c in feat.get("stacks", []):
+        u0, u1, v0, v1, y0, y1 = c
+        m.box("brick", au + u0, au + u1, av + v0, av + v1, y0, y1)
+        m.box("cornice", au + u0 - 0.1, au + u1 + 0.1, av + v0 - 0.1, av + v1 + 0.1, y1, y1 + 0.18)
+    # the spire's band of lucarnes and its finial
+    sp = feat.get("spire")
+    if sp:
+        cu, cv = au + sp["at"][0], av + sp["at"][1]
+        y0, y1 = sp["band_m"]
+        rb = float(sp["band_r_m"])
+        prism(m, "cornice", [(cu + rb * math.cos(math.radians(22.5 + 45 * k)),
+                              cv + rb * math.sin(math.radians(22.5 + 45 * k))) for k in range(8)], y0 - 0.3, y0)
+        lw, lr, lh = float(sp["lucarne_w_m"]), float(sp["lucarne_out_m"]), float(sp["lucarne_h_m"])
+        for k in range(4):
+            if k % 2 == 0:
+                sg = 1 if k == 0 else -1
+                ua, ub = sorted((cu, cu + sg * lr))
+                m.box("roof", ua, ub, cv - lw / 2, cv + lw / 2, y0, y0 + lh)
+                gable(m, "roof", ua, ub, cv - lw / 2, cv + lw / 2, y0 + lh, 60.0, along="u", o=0.05,
+                      end_mat="roof", verge=0.03)
+                m.box("glass", ub if sg > 0 else ua - 0.02, (ub + 0.02) if sg > 0 else ua,
+                      cv - lw * 0.3, cv + lw * 0.3, y0 + 0.2, y0 + lh - 0.1)
+            else:
+                sg = 1 if k == 1 else -1
+                va_, vb_ = sorted((cv, cv + sg * lr))
+                m.box("roof", cu - lw / 2, cu + lw / 2, va_, vb_, y0, y0 + lh)
+                gable(m, "roof", cu - lw / 2, cu + lw / 2, va_, vb_, y0 + lh, 60.0, along="v", o=0.05,
+                      end_mat="roof", verge=0.03)
+                m.box("glass", cu - lw * 0.3, cu + lw * 0.3, vb_ if sg > 0 else va_ - 0.02,
+                      (vb_ + 0.02) if sg > 0 else va_, y0 + 0.2, y0 + lh - 0.1)
+        # the finial: a knob on the spire's flat top, a rod through a fleur's arms to the vane
+        f0, f1 = sp["finial_m"]
+        kw, kh = sp.get("knob_m", [0.36, 0.35])
+        prism(m, "trim", [(cu + kw / 2 * math.cos(math.radians(22.5 + 45 * k)),
+                           cv + kw / 2 * math.sin(math.radians(22.5 + 45 * k))) for k in range(8)], f0, f0 + kh)
+        m.box("trim", cu - 0.05, cu + 0.05, cv - 0.05, cv + 0.05, f0 + kh, f1)
+        yb = float(sp.get("fleur_m", f0 + (f1 - f0) * 0.6))
+        fw = float(sp.get("fleur_w_m", 0.76)) / 2
+        m.box("trim", cu - 0.06, cu + 0.06, cv - fw, cv + fw, yb - 0.08, yb + 0.08)
+        m.box("trim", cu - fw, cu + fw, cv - 0.06, cv + 0.06, yb - 0.08, yb + 0.08)
+        facts["finial_top_m"] = round(f1, 3)
+    return windows, doors
 
 
 def beam(m: Mesh, mat, p0, p1, w):

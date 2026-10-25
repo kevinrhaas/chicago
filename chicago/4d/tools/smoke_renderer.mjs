@@ -1846,8 +1846,8 @@ for (const [label, viewport, touch] of [
     }
     const problems = await page.evaluate(() => window.__chicago4d.problems);
     // Provisional placement and placeholder-asset notes are expected findings,
-    // not defects. `review_required` is also a deliberate release blocker, but
-    // pin its exact records before excluding it so a new blocker cannot hide in
+    // not defects. `review_required` is a retained review annotation, so
+    // pin its exact records before excluding it so a new annotation cannot hide in
     // the general integration-problem list.
     const reviews = problems.filter((p) => /review_required is set/.test(p));
     const expectedReviews = await page.evaluate(() => [...window.__chicago4d.registry.values()]
@@ -1855,7 +1855,7 @@ for (const [label, viewport, touch] of [
       .map((r) => r.sidecar.id)
       .sort());
     const reportedReviews = reviews.map((p) => p.split(':', 1)[0]).sort();
-    check(`${label}: the scene declares its exact consultation blockers`,
+    check(`${label}: the scene declares its exact review annotations`,
       expectedReviews.length > 0
       && JSON.stringify(reportedReviews) === JSON.stringify(expectedReviews),
       `reported ${JSON.stringify(reportedReviews)}, expected ${JSON.stringify(expectedReviews)}`);
@@ -6376,9 +6376,12 @@ for (const [label, viewport, touch] of [
     // T-2195 — dev already carried 50 (T-2174's drawbridge warehouse is a forwarding house, so a
     // sixth wagon apron), and the Market wedge's Dole warehouse fronts South Water with the
     // seventh: 51, seven aprons.
-    check(`${label}: the fifty-one business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 51 && (frontage.fittings ?? []).length === 51
-        && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
+    // T-3078 — the New York House moved 8 m west off the Exchange Coffee House's
+    // lot and fronts Lake Street on its own, so an inn's stoop at its door: 52,
+    // thirty-eight stoops.
+    check(`${label}: the fifty-two business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 52 && (frontage.fittings ?? []).length === 52
+        && fitKinds.stoop === 38 && fitKinds.mounting_block === 6
         && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
@@ -9227,8 +9230,8 @@ for (const [label, viewport, touch] of [
       JSON.stringify(placeholder));
 
     // --- the standing constraint, on the card ------------------------------
-    // T-0268. Nine records are held under AGENTS.md's standing constraint, and the
-    // flag used to reach a browser exactly once, as a console line about the scene.
+    // T-0268. Retained review annotations remain visible under AGENTS.md's
+    // 2026-10-16 ruling; they do not impose a consultation prerequisite.
     //
     // This is asserted over EVERY flagged record rather than one sampled id, because
     // the set is the thing: `measure_review_constraint.py` decides which buildings
@@ -9238,7 +9241,7 @@ for (const [label, viewport, touch] of [
     // asks the rendered DOM whether a visitor is actually handed it.
     //
     // The control is the other half. A held notice on a building that is not held
-    // would be a worse fault than a missing one: it would put a consultation claim
+    // would be a worse fault than a missing one: it would put a review annotation
     // on a record nobody made it for.
     const held = await page.evaluate(async () => {
       // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
@@ -9253,7 +9256,7 @@ for (const [label, viewport, touch] of [
         const flag = document.querySelector('#popup .pop-flag-held');
         return {
           id,
-          notice: !!flag && /held pending consultation/i.test(flag.textContent),
+          notice: !!flag && /Historical review context\./i.test(flag.textContent),
           why: flag?.querySelector('.pop-held-why')?.textContent?.trim() ?? '',
           recorded: said(window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '', 'review_reason').trim(),
           overlay: !!overlay?.edits,
@@ -9922,7 +9925,7 @@ for (const [label, viewport, touch] of [
       out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text);
       await open('mckee_log_house');
       const held = await tab('people');
-      out.held = /Held pending consultation/.test(held.text);
+      out.held = /Historical review context\./.test(held.text);
       await open('hogan_store');
       out.reopened = current();
       // T-3022: Expert research (Settings) shows a Research tab carrying the card's Sources,
@@ -10436,6 +10439,8 @@ for (const [label, viewport, touch] of [
           id,
           size: box.size,
           wallHeight: attrs.wall_height_m?.value ?? null,
+          body: box.body ?? null,
+          declaredAppendage: attrs.sign_pole_set_out?.value != null,
           footprint: [attrs.footprint_w_m?.value ?? null, attrs.footprint_d_m?.value ?? null],
         });
       }
@@ -10572,11 +10577,13 @@ for (const [label, viewport, touch] of [
     // Where a record states a wall height, the render has to honour it. This is
     // the provenance check hiding inside the scale check: a documented number
     // that the geometry ignores is a claim the walkthrough cannot support.
-    const claimed = scale.perStructure.filter((s) => typeof s.wallHeight === 'number');
+    const claimed = scale.perStructure.filter((s) => typeof s.wallHeight === 'number' || s.declaredAppendage);
     const offClaim = claimed.filter((s) => {
-      // The box includes the roof, so height must be at least the walls and at
-      // most the walls plus a steep roof and a chimney.
-      const h = s.size[1];
+      // Full bounds still drive every size/clamp/placement guard above. A declared
+      // exterior sign needs a valid stored-position body readback, including its
+      // roof and chimney; its tall pole does not state a wall height.
+      if (s.declaredAppendage && !s.body?.valid) return true;
+      const h = s.declaredAppendage ? s.body.size[1] : s.size[1];
       return h < s.wallHeight * 0.9 || h > s.wallHeight * 2.6 + 3;
     });
     check(`${label}: rendered height matches the documented wall height`,
@@ -10584,8 +10591,9 @@ for (const [label, viewport, touch] of [
       claimed.length === 0
         ? 'no structure carried a wall_height_m to check against'
         : offClaim.length
-          ? offClaim.slice(0, 5).map((s) => `${s.id} rendered ${s.size[1].toFixed(1)} m `
-            + `against a documented ${s.wallHeight} m wall`).join('; ')
+          ? offClaim.slice(0, 5).map((s) => `${s.id} rendered ${(s.declaredAppendage ? s.body?.size?.[1] : s.size[1])?.toFixed(1)} m `
+            + `against a documented ${s.wallHeight} m wall`
+            + (s.declaredAppendage && !s.body?.valid ? ` (${s.body?.errors?.join('; ') ?? 'missing body readback'})` : '')).join('; ')
           : `${claimed.length} structures agree with their documented wall height`);
 
     inStageWork = false;
@@ -20109,6 +20117,26 @@ for (const [label, viewport, touch] of [
           'house_2115_indiana',
           'house_2119_indiana',
           'livery_2123_indiana',
+          // T-3019: Indiana Avenue's east frontage 16th-18th and the row at 209-217 E. 16th.
+          'house_209_e16th',
+          'house_1615_indiana',
+          'house_1615_indiana_coach_house',
+          'house_1623_indiana',
+          'house_1623_indiana_coach_house',
+          'house_1637_indiana_coach_house',
+          'house_1641_indiana_coach_house',
+          'house_1703_indiana',
+          'house_1703_indiana_coach_house',
+          'house_1713_indiana',
+          'house_1713_indiana_coach_house',
+          // T-3068: the seven lots the two plans disagree on, read against dated sources.
+          'house_1601_indiana',
+          'house_1619_indiana',
+          'house_1619_indiana_coach_house',
+          'house_1637_indiana',
+          'house_1641_indiana',
+          'house_1727_indiana',
+          'house_1735_indiana',
           // T-3013: Bane Brothers' livery on 2129-2131, read off the 1904 Blue Book
           'livery_2129_indiana'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,

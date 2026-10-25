@@ -503,6 +503,421 @@
         "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
         "close_cells": 2
       }
+    },
+    "20w": {
+      "where": "the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10)",
+      "sides": [
+        "east",
+        "south"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_20",
+      "census_file": "data/components/prairie_1904/edges_census_s20w.json",
+      "census_ticket": "T-3019",
+      "pass": "T-3019",
+      "liberty": "L-draft-district-background-3019",
+      "fit_note": "the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed",
+      "rear_ticket": {
+        "east": "T-1946",
+        "south": "T-1946"
+      },
+      "plates": [
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are. It is drawn filling the corner lot from 16th Street to the lot's south line, as a row along the cross street does, so it stands between the 1904 grid's own lot lines (`fills_lot`, as 1635 does) rather than wherever the plate's 4.5 m fit carries it, which is about 4 m south.",
+          "id": "r1886-1601-f",
+          "frontage_id": "frontage-20w-1601–1603",
+          "parcel_id": "indiana_1601",
+          "lot_parcels": [
+            "indiana_1601"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              173.75,
+              1006.25
+            ],
+            [
+              238.0,
+              1006.25
+            ],
+            [
+              238.0,
+              1035.5
+            ],
+            [
+              191.25,
+              1035.5
+            ],
+            [
+              191.25,
+              1045.5
+            ],
+            [
+              173.75,
+              1045.5
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1601-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 draws a pink (brick) row along 16th Street across lot 2, its houses numbered 21-37 on the old 16th Street numbering; its west end stands on the Indiana corner, the corner house about 13.5 m deep and the rest about 10 m, its Indiana face about 3.5 m back from the avenue's line. Read here to the line where the 1904 grid's corner lot meets the 209-217 lot, which the 1911 outline already stands on.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws the ice-cream works' five-storey office and tin shop at 1601-1603. The T-3019 census, as T-3068 rules it (frontage-20w-1601–1603, backcast_1886), stands the corner of the 1886 brick row for 1904, because the corner was not in the ground the ice-cream firms bought in September 1903 and is first in their hands in December 1906. Residence is inferred from the row's 1886 form; no household at the corner is in the 1902 directory or the 1904 Blue Book.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the row and T-3068 carries its corner to 1904 because the ice-cream works reached the corner only after the scene. When the corner houses came down is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the row. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1601",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The west end of the 1886 brick row on 16th Street, at the Indiana corner: the brick family's hip over three storeys, until T-1946 parts it into its houses."
+          },
+          "fills_lot": true
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1637-f",
+          "frontage_id": "frontage-20w-1637",
+          "parcel_id": "indiana_1637",
+          "lot_parcels": [
+            "indiana_1623_1637_c",
+            "indiana_1637"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              204.5,
+              1289.25
+            ],
+            [
+              268.0,
+              1289.25
+            ],
+            [
+              268.0,
+              1302.5
+            ],
+            [
+              257.5,
+              1302.5
+            ],
+            [
+              257.5,
+              1312.5
+            ],
+            [
+              245.0,
+              1312.5
+            ],
+            [
+              245.0,
+              1324.25
+            ],
+            [
+              204.5,
+              1324.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1637-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1637 against a pink (brick) house across lots 27 and 28: about 22 m deep at its north side and 14 m at its south, stepped back twice along its south side, about 12 m along the street, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1637. T-3068 stands the 1886 brick house for 1904 because the U.S. Engineer Office, the Corps of Engineers' Chicago district, dated its contract notices from 1637 Indiana Avenue on 20 and 25 June 1904 and had been there since 1896; the Blue Book lists households at 1637 in 1890 and 1894 and none after. Its 1904 use is therefore an office in a former house, inferred; the draft builds it as the house it was built as.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house, and the Engineer Office's notices put a building in use at the address in June 1904. When it was built and when it went are not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick",
+          "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow).",
+          "frontage": {
+            "register": {
+              "address": "1637",
+              "family": "Brick dwelling",
+              "map_material": "brick",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 brick house at 1637, the Corps of Engineers' Chicago office in 1904: the brick family's hip over three storeys, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1641-f",
+          "frontage_id": "frontage-20w-1641",
+          "parcel_id": "indiana_1641",
+          "lot_parcels": [
+            "indiana_1641"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "brick",
+          "polygon_px": [
+            [
+              205.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1338.25
+            ],
+            [
+              247.5,
+              1353.0
+            ],
+            [
+              266.25,
+              1353.0
+            ],
+            [
+              266.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1372.0
+            ],
+            [
+              249.25,
+              1382.5
+            ],
+            [
+              219.5,
+              1382.5
+            ],
+            [
+              219.5,
+              1376.25
+            ],
+            [
+              205.5,
+              1376.25
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1641-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1641 against a pink (brick) house across lots 29 and 30 with a darker (stone) strip along its whole Indiana face: about 15 m along the street, its front body about 15 m deep and a rear range to about 21 m, its front about 13 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws no house at 1641. T-3068 stands the 1886 house for 1904 because the Blue Book lists the Cummings household at 1641 in every edition from 1890 to 1908, the 1904 edition included; residence is attested by that listing and the house's form is the plate's.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the 1904 Blue Book lists its household. The 1911 sheet shows it gone; when it went is not read."
+          },
+          "stories": 3,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
+          "construction": "brick_with_stone_front",
+          "construction_note": "Robinson 1886 colours the house pink, the plate's brick, with a darker strip along its Indiana face, the plate's mark for a stone front, as on 1615 and 1703.",
+          "frontage": {
+            "register": {
+              "address": "1641",
+              "family": "Stone-front brick dwelling",
+              "map_material": "brick, stone front",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 stone-front brick house at 1641: the brick family's hip over three storeys behind a stone face, every face closed; its stable on the alley is the T-3019 draft's."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1727-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1600.5
+            ],
+            [
+              213.75,
+              1600.5
+            ],
+            [
+              213.75,
+              1595.0
+            ],
+            [
+              231.25,
+              1595.0
+            ],
+            [
+              231.25,
+              1600.5
+            ],
+            [
+              265.0,
+              1600.5
+            ],
+            [
+              265.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1613.75
+            ],
+            [
+              250.0,
+              1618.75
+            ],
+            [
+              211.25,
+              1618.75
+            ],
+            [
+              211.25,
+              1613.75
+            ],
+            [
+              198.0,
+              1613.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1727-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1727 against a yellow (frame) house across lots 41 and 42: about 23 m deep, its body about 4.6 m along the street with wider middle parts, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let it in 1883 as '1729 and 1731 Indiana-av., 2-story, basement, and mansard-roof frame', so it was a house let as two. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED on a reading: the Chicago Tribune's 1883 notice lets the house as '2-story, basement, and mansard-roof frame' (chicago_tribune_1883_04_15_indiana_1729_1731), three years before the plate, so the draft builds two storeys under the mansard; it keeps the draft's word for a plate house's storeys because the notice is twenty-one years before the scene.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1727",
+              "family": "Frame house, mansard roof",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house at 1727-1731, let in 1883 as two storeys over a basement under a mansard: the mansard family's roof over two storeys, every face closed."
+          }
+        },
+        {
+          "_doc": "T-3068: a house the 1911 sheet does not draw, stood for 1904 from Robinson 1886 on dated evidence the census records on its frontage. The outline is read in the plate's own pixels (4x enlargement, a 10-px grid, about +/- 1 px) and carried to local metres by the plate's T-1250 similarity, as sheet 20's 1620 and 1609 are.",
+          "id": "r1886-1735-f",
+          "frontage_id": "frontage-20w-1727–1737",
+          "parcel_id": "indiana_1727",
+          "lot_parcels": [
+            "indiana_1727"
+          ],
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "material": "frame",
+          "polygon_px": [
+            [
+              198.0,
+              1642.5
+            ],
+            [
+              216.25,
+              1642.5
+            ],
+            [
+              216.25,
+              1636.25
+            ],
+            [
+              261.75,
+              1636.25
+            ],
+            [
+              261.75,
+              1656.25
+            ],
+            [
+              252.5,
+              1656.25
+            ],
+            [
+              252.5,
+              1668.0
+            ],
+            [
+              226.25,
+              1668.0
+            ],
+            [
+              226.25,
+              1663.75
+            ],
+            [
+              198.0,
+              1663.75
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1735-f: the outline in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1735 against a yellow (frame) house on lot 43, the 65 ft corner of 18th Street: about 22 m deep, about 7 m along the street at its front and widening behind, its front about 9 m back from the avenue's line.",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "function_note": "The 1911 sheet draws a photographic-supply factory at 1727-1737, permitted in August 1905. T-3068 stands the plate's corner frame house for 1904 (frontage-20w-1727–1737, backcast_1886); the Tribune let rooms in it, '1735 Indiana-av., corner Eighteenth-st.', from 1888 to 1893. Its survival to 1904 is inferred: no dated sign of it after 1893 is in hand, and none of its removal before the 1905 permit.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more, on the plate and the 1905 permit; the house's survival to 1904 is inferred, not attested."
+          },
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count and no source describes the corner house; two storeys is its neighbour's, the frame house at 1727 that the Tribune let in 1883 as two storeys over a basement.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the building yellow, the plate's frame (its brick buildings are pink).",
+          "frontage": {
+            "register": {
+              "address": "1735",
+              "family": "Frame house",
+              "map_material": "frame",
+              "front_tickets": "T-1946"
+            },
+            "pass": "T-3068",
+            "liberty": "L-draft-indiana-1904-lots-3068",
+            "why": "The 1886 frame house on the 18th Street corner: the house family's hip over two storeys, every face closed."
+          }
+        }
+      ]
     }
   },
   "skip": {
@@ -531,6 +946,7 @@
     "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it.",
     "s28-1816-front": "1816 Prairie now stands as the K01 brick frontage `henderson_house_1816_prairie` (T-2963, piece 1 of T-1886), read off the Chicagology photograph of the Henderson house against this sheet, which refines this draft in place under the draft's own id: the front block on K01 under its mansard, with the sheet's canted front bay and south flank bay on K08, its frame porch as the photograph's columned porch, and its rear range on K01's rear wings; the draft stands no second building beside it.",
     "s20-1736-f": "1736 Prairie now stands as the K01 brick frontage house_1736_prairie (T-2933, piece 1 of T-1874), read off the c. 1890 photograph of the Ingraham/McBirney house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 under its mansard, with the sheet's frame porch built as the photograph's veranda on K07; the draft stands no second building beside it.",
+    "s20-1736-r1": "1736's coach house now stands as the K12 coach house house_1736_prairie_coach_house (T-2995, piece 2 of T-2962), refining this draft in place under the draft's own id on the outline, storeys and brick the sheet draws, with its window mark; the draft stands no second building in its place.",
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s20-1625-f": "1625 Prairie's main body now stands as the K01 stone-front frontage house_1625_prairie (T-2432, piece 1 of T-1869), read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's four-storey rear section (s20-1625-a1) waits on T-2435.",
     "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
@@ -542,7 +958,10 @@
     "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and T-3013 read two houses on the lots in 1904 (2001 a residence in the 1904 Blue Book and still in 1909, 2003 a twelve-room stone-front house in 1902), so the census rules the frontage replaced_after_1904: the works is not the 1904 building and no outline of the houses is in hand, so the draft stands nothing rather than invent them.",
     "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and T-3013 read other uses on the lots in 1904 (an agent's office at 2105 from January 1904, rooms let at 2101 in 1905-1907, the Stanley Motor Carriage Co. only by 1909), so the census rules it replaced_after_1904: the garage is not the 1904 building and no outline of what stood is in hand, so the draft stands nothing.",
     "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and T-3013 read a dwelling letting a room at 215 in July 1904, so the census rules it replaced_after_1904: the shop is not the 1904 building and no outline of the dwelling is in hand, so the draft stands nothing.",
-    "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace."
+    "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
+    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws the ice-cream works' five-storey office and tin shop at the 16th Street corner, which T-3068 dates after 1904 (the corner was not in the works' 1903 purchase); the 1904 building is the plate's corner of the 1886 brick row (r1886-1601-f), so the 1911 outline is not drafted.",
+    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory, whose foundation was being dug in March 1904 on ground bought in September 1903 (T-3068): on 1 July 1904 the lots were its building site, the 1886 houses gone and the factory not finished, so neither is drafted (census ruling phase_unresolved).",
+    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. factory, permitted in August 1905 (T-3068), so the 1911 outline is not drafted; the 1904 houses are the plate's (r1886-1727-f, r1886-1735-f)."
   },
   "frontages": {
     "frontage-28-038": {
@@ -2000,6 +2419,104 @@
         }
       },
       "why": "The church itself stands as the site record first_presbyterian_church_2029_indiana (`sites`); its census front is skipped here, and the dwelling and stable behind it are drafted from the trace under its id."
+    },
+    "frontage-20w-209–217": {
+      "slug": "house",
+      "register": {
+        "address": "209–217",
+        "raw_story_notation": "3½B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. A row of five 3½B houses on East Sixteenth Street, its party walls carried to the rear wall, read as one ground (the 1904 grid gives the row one lot): one record under the brick family's hip, its half storey in the roof, until T-1946 parts them. Robinson 1886 draws the row. The sheet prints 3½B on every house of the row; the trace parts the row at its party walls into one body and four ranges, so 'rear3B' holds the other four at the row's full storeys."
+    },
+    "frontage-20w-1615–1617": {
+      "slug": "house",
+      "register": {
+        "address": "1615–1617",
+        "raw_story_notation": "3B; rear3B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Two 3B houses on a party wall behind the stone strip the sheet runs along their Indiana front, read as one ground (the 1904 grid gives 1615 and 1617 one lot): one record until T-1946 parts them; the small frame pieces at their rear are not drafted. Robinson 1886 draws a brick house with a stone front here. The sheet prints 3B on both houses; the trace reads 1617 as a range of 1615's body, so 'rear3B' holds it at the pair's full storeys."
+    },
+    "frontage-20w-1623": {
+      "slug": "house",
+      "register": {
+        "address": "1623",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on a cross plan, the plan Robinson 1886 draws on the same lot: the main body under the hip, the cross's arms as the fitted plan's wings; the sheet's dashed inner line is not read as a material, and the small frame porch is the refining ticket's."
+    },
+    "frontage-20w-1637": {
+      "slug": "house",
+      "house_id": "house_1637_indiana",
+      "house_address": "1637",
+      "rear_ticket": "T-1946",
+      "why": "A stable on the alley with no house drafted before it: the 1911 sheet draws none on 1637, and the brick house Robinson 1886 draws at the street is T-3068's to read. The stable takes the id of the lot's house (house_1637_indiana_coach_house), so a house drafted there later is its owner; it stands astride the line between 1637 and the unnumbered strip north of it, as the sheet draws it."
+    },
+    "frontage-20w-1641": {
+      "slug": "house",
+      "house_id": "house_1641_indiana",
+      "house_address": "1641",
+      "rear_ticket": "T-1946",
+      "why": "A stable on the alley with no house drafted before it: the 1911 sheet draws none on 1641, and the stone-front brick house Robinson 1886 draws at the street is T-3068's to read. The stable takes the id of the lot's house (house_1641_indiana_coach_house), so a house drafted there later is its owner."
+    },
+    "frontage-20w-1703": {
+      "slug": "house",
+      "register": {
+        "address": "1703",
+        "raw_story_notation": "2½B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B behind the stone strip along its Indiana front; the trace reads the 3B part at its rear into the main body, so it stands at the body's storeys until T-1946 reads it apart, and the one-storey frame piece at its south-west corner stands one storey, as the sheet prints it. Robinson 1886 draws a stone-front brick house here."
+    },
+    "frontage-20w-1713": {
+      "slug": "house",
+      "register": {
+        "address": "1713",
+        "raw_story_notation": "2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B with shallow bays on both side walls, which the fitted plan does not carry: they are the refining ticket's. Robinson 1886 draws a brick house here."
+    },
+    "frontage-20w-1619": {
+      "slug": "house",
+      "register": {
+        "address": "1619",
+        "raw_story_notation": "2½B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "pass": "T-3068",
+      "liberty": "L-draft-indiana-1904-lots-3068",
+      "why": "A background house with no named record: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B with canted front corners, a 1B brick rear piece and a one-storey frame piece behind; the corners and the frame piece are the refining ticket's. Carried to 1904 on T-3068's reading of the Dudley household, at 1619 from 1888 to 1908."
+    },
+    "frontage-20w-1601–1603": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 office at the corner is skipped; the 1904 building is the plate's (block 20w's `plates`, r1886-1601-f)."
+    },
+    "frontage-20w-1727–1737": {
+      "slug": "house",
+      "rear_ticket": "T-1946",
+      "why": "The 1911 factory is skipped; the 1904 houses are the plate's two frame houses (block 20w's `plates`, r1886-1727-f and r1886-1735-f), each with its own overlay there."
     }
   },
   "sites": [
@@ -2171,14 +2688,18 @@
       "pass": "T-3009",
       "liberty": "L-draft-district-background-3009",
       "refined_by": [
-        "T-3014"
+        "T-3014",
+        "T-3103",
+        "T-3104"
       ],
       "register_row": null,
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "otis_1913_first_presbyterian_21st_indiana_1887",
+        "otis_1913_first_presbyterian_21st_indiana_1912"
       ],
       "function": "church",
-      "function_confidence": "inferred",
+      "function_confidence": "attested",
       "construction": "brick",
       "place": {
         "along_face": "indiana__indiana_prairie_20_21",
@@ -2196,15 +2717,15 @@
         {
           "role": "main",
           "storeys": 3,
-          "roof": "hip",
-          "pitch_deg": 40,
+          "roof": "gable",
+          "pitch_deg": 56.5,
           "rect_m": [
             -43.7,
             4.78,
             0.0,
             27.89
           ],
-          "from": "the church's body, buttresses included, as sheet 35 draws it under its dashed hips (the T-3009 trace of sheet 35 (s35wfp-indiana_2029-b1), read in metres from Indiana Avenue's east line and East 21st Street's north line)"
+          "from": "the church's body, buttresses included, under one gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips; the T-3009 trace of sheet 35 (s35wfp-indiana_2029-b1), read in metres from Indiana Avenue's east line and East 21st Street's north line)"
         }
       ],
       "elevation": {
@@ -2215,7 +2736,7 @@
           4.6,
           4.6
         ],
-        "roof_pitch_deg": 40,
+        "roof_pitch_deg": 56.5,
         "front_bays": 3,
         "entrance": "centre",
         "side_spacing_m": 4.0,
@@ -2224,26 +2745,786 @@
           {
             "kind": "corner_tower",
             "sides": 4,
-            "radius_m": 3.89,
+            "radius_m": 4.24,
             "at_m": [
-              -3.53,
-              3.6
+              -3.54,
+              3.75
             ],
-            "above_eave_m": 1.8,
-            "cap_m": 10.9
+            "above_eave_m": 24.8,
+            "cap_m": 3.8,
+            "window_rows_m": []
+          },
+          {
+            "kind": "corner_tower",
+            "sides": 8,
+            "radius_m": 2.45,
+            "at_m": [
+              -3.54,
+              3.75
+            ],
+            "above_eave_m": 27.3,
+            "cap_m": 29.8,
+            "window_rows_m": [],
+            "cap_top_r_m": 0.55
+          },
+          {
+            "kind": "gothic_church",
+            "at_m": [
+              0.0,
+              27.89
+            ],
+            "_doc": "T-3103: the church's Gothic dressing, every place read off the Otis 1887 plate through T-3066's camera (18.7 px/m on the front, grade at y 1478). Offsets from `at` (the front's plane, the body's north face): u from the front (negative behind it), v southward from the north face; heights over grade. A plane is [axis, offset, out]; the front's board lies on the gable end, a verge (0.12 m) proud of the wall, and every opening seats 0.15 m back into the wall.",
+            "planes": {
+              "front": [
+                "u",
+                0.13,
+                1
+              ],
+              "porch": [
+                "u",
+                2.06,
+                1
+              ],
+              "tower_w": [
+                "u",
+                -0.54,
+                1
+              ],
+              "tower_e": [
+                "u",
+                -6.54,
+                -1
+              ],
+              "tower_s": [
+                "v",
+                27.14,
+                1
+              ],
+              "tower_n": [
+                "v",
+                21.14,
+                -1
+              ],
+              "gablet_w": [
+                "u",
+                -0.28,
+                1
+              ],
+              "gablet_s": [
+                "v",
+                27.4,
+                1
+              ]
+            },
+            "gable_inset_v0_m": 2.0,
+            "openings": [
+              {
+                "plane": "front",
+                "s": 13.1,
+                "w": 3.3,
+                "sill": 11.5,
+                "head": 22.2,
+                "lights": 2,
+                "rose": true
+              },
+              {
+                "plane": "front",
+                "s": 10.2,
+                "w": 1.4,
+                "sill": 11.1,
+                "head": 18.2
+              },
+              {
+                "plane": "front",
+                "s": 16.25,
+                "w": 1.4,
+                "sill": 11.1,
+                "head": 18.2
+              },
+              {
+                "plane": "front",
+                "s": 5.95,
+                "w": 2.0,
+                "sill": 5.8,
+                "head": 12.7,
+                "lights": 2,
+                "rose": true
+              },
+              {
+                "plane": "front",
+                "s": 5.2,
+                "w": 0.8,
+                "sill": 2.2,
+                "head": 3.6
+              },
+              {
+                "plane": "front",
+                "s": 6.8,
+                "w": 0.8,
+                "sill": 2.2,
+                "head": 3.6
+              },
+              {
+                "plane": "porch",
+                "s": 13.2,
+                "w": 3.2,
+                "sill": 0.0,
+                "head": 8.0,
+                "lights": 2,
+                "rose": true,
+                "door_to": 5.2,
+                "frame": 0.5
+              },
+              {
+                "plane": "tower_w",
+                "s": 24.14,
+                "w": 2.2,
+                "sill": 0.0,
+                "head": 7.2,
+                "fill": "door",
+                "frame": 0.3
+              },
+              {
+                "plane": "tower_w",
+                "s": 24.14,
+                "w": 2.9,
+                "sill": 12.2,
+                "head": 20.8,
+                "lights": 2,
+                "rose": true
+              },
+              {
+                "plane": "tower_s",
+                "s": -3.54,
+                "w": 2.9,
+                "sill": 12.2,
+                "head": 20.8,
+                "lights": 2,
+                "rose": true
+              },
+              {
+                "plane": "tower_w",
+                "s": 24.14,
+                "w": 2.9,
+                "sill": 27.7,
+                "head": 36.8,
+                "lights": 2,
+                "rose": true,
+                "fill": "louvre"
+              },
+              {
+                "plane": "tower_s",
+                "s": -3.54,
+                "w": 2.9,
+                "sill": 27.7,
+                "head": 36.8,
+                "lights": 2,
+                "rose": true,
+                "fill": "louvre"
+              },
+              {
+                "plane": "tower_n",
+                "s": -3.54,
+                "w": 2.9,
+                "sill": 27.7,
+                "head": 36.8,
+                "lights": 2,
+                "rose": true,
+                "fill": "louvre"
+              },
+              {
+                "plane": "tower_e",
+                "s": 24.14,
+                "w": 2.9,
+                "sill": 27.7,
+                "head": 36.8,
+                "lights": 2,
+                "rose": true,
+                "fill": "louvre"
+              }
+            ],
+            "roses": [
+              {
+                "plane": "front",
+                "c_r": [
+                  12.96,
+                  25.0,
+                  1.07
+                ]
+              }
+            ],
+            "courses": [
+              [
+                "front",
+                1.0,
+                9.3,
+                4.2,
+                0.1
+              ],
+              [
+                "front",
+                17.1,
+                20.0,
+                4.2,
+                0.1
+              ],
+              [
+                "front",
+                8.4,
+                18.0,
+                10.9,
+                0.12
+              ],
+              [
+                "tower_w",
+                21.14,
+                27.14,
+                10.7,
+                0.15
+              ],
+              [
+                "tower_w",
+                21.14,
+                27.14,
+                23.4,
+                0.25
+              ],
+              [
+                "tower_w",
+                21.14,
+                27.14,
+                25.4,
+                0.15
+              ],
+              [
+                "tower_e",
+                21.14,
+                27.14,
+                10.7,
+                0.15
+              ],
+              [
+                "tower_e",
+                21.14,
+                27.14,
+                23.4,
+                0.25
+              ],
+              [
+                "tower_e",
+                21.14,
+                27.14,
+                25.4,
+                0.15
+              ],
+              [
+                "tower_s",
+                -6.54,
+                -0.54,
+                10.7,
+                0.15
+              ],
+              [
+                "tower_s",
+                -6.54,
+                -0.54,
+                23.4,
+                0.25
+              ],
+              [
+                "tower_s",
+                -6.54,
+                -0.54,
+                25.4,
+                0.15
+              ],
+              [
+                "tower_n",
+                -6.54,
+                -0.54,
+                10.7,
+                0.15
+              ],
+              [
+                "tower_n",
+                -6.54,
+                -0.54,
+                23.4,
+                0.25
+              ],
+              [
+                "tower_n",
+                -6.54,
+                -0.54,
+                25.4,
+                0.15
+              ]
+            ],
+            "panels": [
+              {
+                "plane": "tower_w",
+                "s": [
+                  22.9,
+                  25.4
+                ],
+                "h": [
+                  8.4,
+                  9.6
+                ]
+              }
+            ],
+            "porch": {
+              "u": [
+                0.0,
+                2.0
+              ],
+              "v": [
+                9.4,
+                17.0
+              ],
+              "shoulder_m": 7.0,
+              "apex_m": 12.4,
+              "finial_m": 0.8
+            },
+            "verge": {
+              "u": 0.0,
+              "v": [
+                2.0,
+                23.11
+              ],
+              "eave_m": 14.9,
+              "apex_m": 30.85,
+              "cross_m": 3.8,
+              "cross_span_m": 2.8,
+              "cross_ring_m": 0.75,
+              "corbel_step_m": 0.7
+            },
+            "buttresses": [
+              {
+                "stages": [
+                  [
+                    -0.54,
+                    0.66,
+                    21.14,
+                    22.34,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -0.54,
+                    0.36,
+                    21.14,
+                    22.34,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -0.54,
+                    0.06,
+                    21.14,
+                    22.34,
+                    25.4,
+                    37.5
+                  ]
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -1.0,
+                    0.9,
+                    19.5,
+                    21.14,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -1.0,
+                    0.6,
+                    19.8,
+                    21.14,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -1.0,
+                    0.3,
+                    20.1,
+                    21.14,
+                    25.4,
+                    37.5
+                  ]
+                ],
+                "pinnacle": [
+                  -1.04,
+                  -0.04,
+                  20.64,
+                  21.64,
+                  37.5,
+                  41.0,
+                  44.0
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -0.54,
+                    0.66,
+                    25.94,
+                    27.14,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -0.54,
+                    0.36,
+                    25.94,
+                    27.14,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -0.54,
+                    0.06,
+                    25.94,
+                    27.14,
+                    25.4,
+                    37.5
+                  ]
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -1.74,
+                    -0.54,
+                    27.14,
+                    28.34,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -1.74,
+                    -0.54,
+                    27.14,
+                    28.04,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -1.74,
+                    -0.54,
+                    27.14,
+                    27.74,
+                    25.4,
+                    37.5
+                  ]
+                ],
+                "pinnacle": [
+                  -1.04,
+                  -0.04,
+                  26.64,
+                  27.64,
+                  37.5,
+                  41.0,
+                  44.0
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -7.74,
+                    -6.54,
+                    21.14,
+                    22.34,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -7.44,
+                    -6.54,
+                    21.14,
+                    22.34,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -7.14,
+                    -6.54,
+                    21.14,
+                    22.34,
+                    25.4,
+                    37.5
+                  ]
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -6.54,
+                    -5.34,
+                    19.94,
+                    21.14,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -6.54,
+                    -5.34,
+                    20.24,
+                    21.14,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -6.54,
+                    -5.34,
+                    20.54,
+                    21.14,
+                    25.4,
+                    37.5
+                  ]
+                ],
+                "pinnacle": [
+                  -7.04,
+                  -6.04,
+                  20.64,
+                  21.64,
+                  37.5,
+                  41.0,
+                  44.0
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -7.74,
+                    -6.54,
+                    25.94,
+                    27.14,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -7.44,
+                    -6.54,
+                    25.94,
+                    27.14,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -7.14,
+                    -6.54,
+                    25.94,
+                    27.14,
+                    25.4,
+                    37.5
+                  ]
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    -6.54,
+                    -5.34,
+                    27.14,
+                    28.34,
+                    0.0,
+                    10.7
+                  ],
+                  [
+                    -6.54,
+                    -5.34,
+                    27.14,
+                    28.04,
+                    10.7,
+                    25.4
+                  ],
+                  [
+                    -6.54,
+                    -5.34,
+                    27.14,
+                    27.74,
+                    25.4,
+                    37.5
+                  ]
+                ],
+                "pinnacle": [
+                  -7.04,
+                  -6.04,
+                  26.64,
+                  27.64,
+                  37.5,
+                  41.0,
+                  44.0
+                ]
+              },
+              {
+                "stages": [
+                  [
+                    0.0,
+                    0.7,
+                    1.6,
+                    2.9,
+                    0.0,
+                    8.3
+                  ],
+                  [
+                    0.0,
+                    0.5,
+                    1.6,
+                    2.9,
+                    8.3,
+                    12.7
+                  ]
+                ],
+                "pinnacle": [
+                  0.0,
+                  0.45,
+                  1.75,
+                  2.75,
+                  12.7,
+                  15.0,
+                  16.6
+                ]
+              }
+            ],
+            "gablets": [
+              {
+                "rect": [
+                  -3.54,
+                  -0.39,
+                  21.54,
+                  26.74
+                ],
+                "along": "u",
+                "spring_m": 39.5,
+                "apex_m": 43.3,
+                "rose": [
+                  "gablet_w",
+                  24.14,
+                  41.0,
+                  0.6
+                ]
+              },
+              {
+                "rect": [
+                  -6.69,
+                  -3.54,
+                  21.54,
+                  26.74
+                ],
+                "along": "u",
+                "spring_m": 39.5,
+                "apex_m": 43.3
+              },
+              {
+                "rect": [
+                  -6.14,
+                  -0.94,
+                  24.14,
+                  27.29
+                ],
+                "along": "v",
+                "spring_m": 39.5,
+                "apex_m": 43.3,
+                "rose": [
+                  "gablet_s",
+                  -3.54,
+                  41.0,
+                  0.6
+                ]
+              },
+              {
+                "rect": [
+                  -6.14,
+                  -0.94,
+                  20.99,
+                  24.14
+                ],
+                "along": "v",
+                "spring_m": 39.5,
+                "apex_m": 43.3
+              },
+              {
+                "rect": [
+                  -23.26,
+                  -19.66,
+                  14.5,
+                  17.65
+                ],
+                "along": "v",
+                "spring_m": 23.15,
+                "apex_m": 26.3
+              },
+              {
+                "rect": [
+                  -34.03,
+                  -30.43,
+                  14.5,
+                  17.65
+                ],
+                "along": "v",
+                "spring_m": 23.15,
+                "apex_m": 26.3
+              }
+            ],
+            "stacks": [
+              [
+                -3.2,
+                -2.2,
+                0.45,
+                1.35,
+                12.0,
+                18.1
+              ],
+              [
+                -44.15,
+                -43.25,
+                12.05,
+                13.05,
+                29.0,
+                32.2
+              ]
+            ],
+            "spire": {
+              "at": [
+                -3.54,
+                24.14
+              ],
+              "band_m": [
+                57.4,
+                59.5
+              ],
+              "band_r_m": 1.75,
+              "lucarne_w_m": 0.8,
+              "lucarne_out_m": 1.85,
+              "lucarne_h_m": 1.4,
+              "finial_m": [
+                71.8,
+                78.1
+              ],
+              "knob_m": [
+                0.9,
+                2.0
+              ],
+              "fleur_m": 74.7,
+              "fleur_w_m": 1.3
+            }
           }
         ]
       },
       "notes": {
-        "function": "The 1911 sheet letters the building '1st PRESBYN. CHURCH'. No 1904 source for it is in hand, so the 1904 function is inferred from the 1911 label: a masonry church of this size, with a 90 ft spire, is not one put up in the seven years to 1911 without a trace in the study (T-3014 sources it).",
-        "research": "The church fills the 2029-2035 lot on Indiana Avenue at 21st Street, 48 ft to its eaves with a slated spire 90 ft high on its south-west tower, as Sanborn 1911 vol. 3 sheet 35 prints it; no photograph, drawing or 1904 record of it is in the repository yet. It is drafted from the T-3009 trace's measures, as a site so that its storeys, roof and tower are the sheet's printed heights and not a house's.",
-        "range": "No source dates the building; the draft claims the 1904 target on the 1911 sheet alone (study ruling 11).",
+        "function": "The Otis history of 1913 dates the building and its use: Calvary Presbyterian Church laid its corner stone in November 1870, the united First Presbyterian Church finished it after October 1871, and the final service in it was held on 29 December 1912 (otis_1913_first_presbyterian_21st_indiana_1887, pp. 52-56 and 291-292); the 1911 sheet letters it '1st PRESBYN. CHURCH'. So it was the First Presbyterian Church on 1 July 1904.",
+        "research": "The church fills the 2029-2035 lot on Indiana Avenue at 21st Street: J. C. Cochrane's building for Calvary Church, begun in 1870 and finished by the united First Church about 1872-1873, used until December 1912 (Otis 1913). Sanborn 1911 vol. 3 sheet 35 prints it 48 ft to its eaves with a slated spire marked 90 ft on its south-west tower. The Otis plate of 1887 (otis_1913_first_presbyterian_21st_indiana_1887) shows the west front and the tower whole, and its camera is solved in data/reference_views/first_presbyterian_church_2029_indiana/ (T-3066): the gable, the tower's stages and the spire stand to its heights. It is drafted as a site so that its walls, roof and tower are the church's heights and not a house's; T-3103 dresses the front, the tower and the spire to the plate until it matches; T-3104 reads the book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912), whose second camera adds the roof's ventilators, the east gable's stack and the cross's height, and which shows the tower and roof but not the 21st Street flank.",
+        "range": "Otis 1913 dates the building 1870-1873 and its last service 29 December 1912, so it stands across the 1904 target; the draft's phase keeps the study's 1904-1911 window (study ruling 11).",
         "position": "Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit.",
         "footprint": "The building's whole plan as the trace outlines it: the body with its buttresses, and the tower and porch block that steps south of it at the 21st Street corner; the main body (43.7 x 23.1 m) is draft_plan's first rectangle.",
         "stories": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to 14.7 m, the sheet's printed 48 ft to the eaves; a church has no storeys, and the count only sets the wall height and the rows of openings.",
         "construction": "Brick: the sheet colours it pink.",
         "plan": "One rectangle, the body read off the trace in metres from Indiana's line and 21st Street's; the buttresses fold into it and the tower stands as a feature.",
-        "elevation": "A hip at 40 degrees over the body, which the sheet draws with dashed hips. The tower is the sheet's three-storey square at the south-west corner, about 5.5 m across on the trace, its masonry to about 16.5 m and its slated spire to the printed 90 ft (27.4 m). Openings are the draft's sash in rows, not the church's, which are T-3014's."
+        "elevation": "One gable over the body, ridge east-west with its gable to Indiana Avenue, as the Otis 1887 plate shows it (sheet 35 draws dashed hips, which the photograph does not bear out). Through T-3066's camera the gable springs at the north kneeler, 2.0 m in from the body's north wall over a narrow bay with its own flat roof and stack (T-3103), and rises 16.0 m over its 10.6 m half-width to its coping's apex at about 30.9 m, so it stands at 56.5 degrees. The tower is the trace's square at the south-west corner, 6.0 m across its faces, its brick to 39.5 m where the photograph's gablets spring, with the slated octagonal spire out of them. The sheet's printed 90 ft (27.4 m) cannot be the spire's height over grade: the photograph puts the tip at five times the eave's height, the sheet's own 48 ft. T-3103 dresses the front and the tower to the plate (the gothic_church feature; every place, width and height is read off the photograph at 18.7 px/m on the front and 18.2 on the tower, and the match record names each): the coping on its corbel table with kneelers and the cross; the gable's rose, the centre window under a rose head, the two side lancets, the north window and the two small lancets at the north foot, the sill and base courses; the gabled stone porch and its pointed doorway; the tower's pointed door and panel, its two-light window with a rose head, its louvred belfry, its courses, its angle buttresses with their gabled offsets and corner pinnacles, and four gablets; and the spire's taper (5.5 m across at its foot, 3.0 m at the band, 1.1 m at its flat top at 71.8 m), its band of lucarnes at 57.4-59.5 m and the finial's knob, fleur and rod to 78.1 m. What the frontal plate cannot give is reconstructed: the porch's 2.0 m depth, the buttresses' projections, the openings and gablets on the tower's east and north faces (the belfry on all four, the second stage's window on the west and south only, as seen), and the north-west buttress's depth, set 1.5 m proud of the front because its shadow falls on the front wall. The book's 1912 plate (otis_1913_first_presbyterian_21st_indiana_1912; T-3104), taken from Indiana Avenue's roadway about 66 m south of 21st Street looking north-north-east with the camera tilted up, shows the tower's south and west faces, the west gable edge-on with its cross, and the nave's south roof slope to the east gable; it does not show the 21st Street flank, which the low buildings across 21st Street and a streetcar screen below the eaves. Read through its camera it adds: two gabled ventilators on the south slope, about 3.6 m wide, their faces standing on the slope at 23.15 m and rising to about 26.3 m, centred 21.5 m and 32.2 m behind the front; a short stack on the east gable's apex to about 32.4 m; and the cross over the west gable to 34.65 m, where both plates put its top (the 1887 plate's crossbar is the 33.0 m first read as its top). The ventilators' depth into the roof and their faces' material are reconstructed, and the north slope, which neither plate sees, is given none. The 21st Street flank and the rear keep the draft's sash: no picture read so far shows them."
       },
       "outline_m": [
         [

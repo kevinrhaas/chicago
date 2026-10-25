@@ -65,6 +65,8 @@ def main() -> int:
     # the wall plane, below); the deep gable is held on the same pavilion stood 0.6 m proud
     v = copy.deepcopy(shallow)
     v.pop("shallow", None)
+    # T-3073: the deep gable is held square on the front; 1801's own inset is held below
+    v["roof"]["gable"].pop("inset_m", None)
     for q in v["plan"]["points"][1:3]:
         q[1] = 0.6
     rf = v["roof"]
@@ -165,7 +167,9 @@ def main() -> int:
     zb = sp + g["coping"]["proud_m"] - g["coping"]["width_m"]
     sband = sb.prims["band"].pos
     check("roof" not in sb.prims and sb.meta["roof"]["planes"] == 0, "a shallow gable has no roof in front of the plane")
-    check(abs(min(q[2] for q in sband) - zb) < 1e-9, f"its parapet carried back to the copings' back ({zb:.2f} m)")
+    # (over the wall top: under it a chamfer's bands run on behind the plane, T-3048)
+    over = [q for q in sband if q[1] > sb.meta["wall_top_m"] + 0.005]
+    check(abs(min(q[2] for q in over) - zb) < 1e-9, f"its parapet carried back to the copings' back ({zb:.2f} m)")
     sy = sb.meta["wall_top_m"]
     under_top = [q for q in sband if abs(q[1] - sy) < 1e-9]
     check(any(abs(q[0] - pts[1][0]) < 1e-9 and abs(q[2] - zb) < 1e-9 for q in under_top)
@@ -176,6 +180,36 @@ def main() -> int:
     bad = copy.deepcopy(shallow)
     bad["roof"]["gable"]["coping"]["width_m"] = 0.15
     refused(bad, "a shallow gable whose copings stop short of the plane", "on a shallow projection")
+
+    # T-3073: 1801's gable stops short of the chamfer on the Taylor photograph: its corners
+    # stand inset_m in from the front's, its middle, rakes and pinnacles with them, and its
+    # kneelers still run out over the front's corners
+    il, ir = shallow["roof"]["gable"]["inset_m"]
+    sxl, sxr = shallow["plan"]["points"][1][0], shallow["plan"]["points"][2][0]
+    gl, gr = sxl + il, sxr - ir
+    sm = sb.meta["roof"]
+    check(ir > 0 and abs(sm["apex"][0] - (gl + gr) / 2) < 1e-4,
+          f"1801's gable stands {ir} m in from the chamfer, its middle at {sm['apex'][0]:.3f} m")
+    kw = g["kneeler"]["width_m"]
+    pw = g["pinnacle"]["width_m"]
+    tops = [q for q in sband if abs(q[1] - sm["pinnacle_top_m"]) < 1e-6]
+    check(tops and all(min(abs(q[0] - (gl + kw / 2)), abs(q[0] - (gr - kw / 2))) < pw / 2 + 1e-6 for q in tops),
+          "its pinnacles stand over its own corners' kneelers")
+    ov, ko = sb.meta["overhang_m"], g["kneeler"]["out_m"]
+    knees = [q[0] for q in sband if abs(q[1] - sm["kneeler_m"]) < 1e-6]
+    check(knees and abs(max(knees) - (sxr + ov + ko)) < 1e-6 and abs(min(knees) - (sxl - ov - ko)) < 1e-6
+          and any(abs(x - (gr - kw)) < 1e-6 for x in knees),
+          "and its kneelers still run out over the front's corners")
+    square = copy.deepcopy(shallow)
+    square["roof"]["gable"]["inset_m"] = [0.0, 0.0]
+    bare = copy.deepcopy(shallow)
+    bare["roof"]["gable"].pop("inset_m")
+    a, b = K8.build_variant(square, board=False), K8.build_variant(bare, board=False)
+    check(all(a.prims[k].pos == b.prims[k].pos for k in b.prims) and a.prims.keys() == b.prims.keys(),
+          "an inset of nothing builds the square gable exactly")
+    bad = copy.deepcopy(shallow)
+    bad["roof"]["gable"]["inset_m"] = [0.0, 1.5]
+    refused(bad, "a gable inset past a metre", "stands its corners 0-1 m in")
 
     print(f"\n{'FAIL' if failures else 'ok'}: {len(failures)} failure(s)")
     return 1 if failures else 0

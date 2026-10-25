@@ -1,0 +1,26 @@
+{
+  "structure_id": "tremont_house_1",
+  "source_id": "gifford_tremont_house_no_1",
+  "photo": "/workspace/chicago/chicago/reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+  "image_px": [
+    1637,
+    796
+  ],
+  "principal_px": [
+    468.2747693455644,
+    460.63883228759966
+  ],
+  "focal_px": 1320.031937501163,
+  "eye": [
+    -47.51829894710495,
+    -37.89004630139154,
+    2.4453554996967415
+  ],
+  "yaw_deg": 28.15896409466343,
+  "sun_uvy": [
+    -1,
+    -0.4,
+    1.4
+  ],
+  "solve": "PROVISIONAL BASELINE FRAMING ONLY, NOT A SOLVED CAMERA. Six manually selected proposed wall-envelope corners (15.24 x 9.14 m, 7.8 m wall height) fitted by bounded least squares with level, vertical-preserving pinhole projection. Envelope dimensions are reconstructed, not picture-derived measurements. Point RMS 3.546 px, maximum point residual 6.866 px. Exact picks and residuals are camera-fit.json in the T-2385 handoff. Proposal has three storeys. Its metric envelope remains reconstructed and inconsistent retrospective perspective prevents calibrated inference. Camera must be re-examined in the actual proposal render and against all source views; no metric, geographic or date claim follows. Left gable is lighter than right eaves wall in monochrome drawing; sun direction is provisional for comparison, not surveyed lighting. Uses owner-approved attributed project reference source; no public-domain finding."
+}

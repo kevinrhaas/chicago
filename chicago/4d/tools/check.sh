@@ -180,6 +180,8 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
+  node tools/test_batch_shadow_cull.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -360,6 +362,9 @@ step "Catalogue Brougham preserves exact V17 near and genuine11706mid, contacts 
 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
+
+step "Canonical planted-standing horse preserves metre scale, allowed clip, clocks, modern credit and bounded drawn-yard support (T-2800/T-2803)" \
+  node tools/test_planted_standing_horse_contract.mjs
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
@@ -1020,6 +1025,14 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
 
+# T-3063. ...and a K01 gable roof's rear slope falls steeply to a flat deck under a level
+# coped wall head (1811 Prairie's south wall behind its tall stack, level in both its
+# pictures): the deck under the coping, the line level to the fall's foot and clear of the
+# covering everywhere, 1811 built so, the plain coped line unchanged, and a fall over
+# stepped ends, out of its pitch range, over the ridge or with too long a head refused.
+step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
+  python3 tools/test_k01_rear_fall.py
+
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
 # brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
@@ -1038,6 +1051,18 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
   python3 tools/test_k01_pavilion_past_eave.py
 
+# T-3002. ...and 1801 Prairie's carved stone: K10's moulded stone cornice under a mansard, run
+# round the walls the record names and dying into the bays on them; a K08 storey's head
+# frieze with its roundel; and a K08 gable's carved panel, its relief dropped on the light tier.
+step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T-3002)" \
+  python3 tools/test_k10_mansard_cornice.py
+
+# T-3097. ...and its second-storey lights: K01's side_bays take windows read off a picture, as
+# north_bays do, each laid once at its own sill; a read round head on an all-stone side face
+# stands in the coursing under no flat arch, its spandrels in the wall's stone.
+step "side_bays take read windows; a read round head on a stone side face has no flat arch (T-3097)" \
+  python3 tools/test_k01_side_read_windows.py
+
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
 # with a front wall of its own drawn only past the host and its roof cut only along it; and a
@@ -1053,6 +1078,12 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 # stand behind the front's plane only on the round, clear of it. Each refusal says why.
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
+
+# T-3064. A wall gable's pinnacle shaft may stop under its block (1811's north pinnacle off the
+# 1888 plate): a band below the face's eave, a scaled stone leaning in from it to the block's
+# plinth, and the eave's end dying into that stone. Each refusal says why.
+step "a K01 wall gable's pinnacle stops under its block in scaled stone (T-3064)" \
+  python3 tools/test_k01_pinnacle_under_block.py
 
 # T-2998. ...and 1801 Prairie's south pavilion's coped stone gable, from the Taylor photograph:
 # a K08 projection's roof may be a `gable`, its front carried up between kneelers under raking
@@ -2352,6 +2383,18 @@ step "the woodpiles re-derive from the yard-by-household rule" \
 selftest "…and the yard-by-household rule's guarantees fire when broken" \
   python3 tools/yard_rule_1835.py --self-test
 
+# Nothing stands inside a building (T-3078). The owner, 2026-10-23, of two shops grown
+# into one another at Lake and Canal with a rail fence running into them: "make sure this
+# does not happen again". Every tool above tests what it places against what IT knows
+# about; this asks once, across layers and scenes, of the shapes the renderer draws — no
+# building inside another past a party wall, no fence, walk or palisade through a
+# building, no yard prop with its middle in a room, in 1812, 1835 and 1904. The four
+# ways it was found broken are its self-test, the counter-clockwise footprint included.
+step "no building, fence, walk or yard prop stands inside a building, in any scene (T-3078)" \
+  python3 tools/check_structure_clearance.py
+selftest "…and two shops on one corner, a fence through a turned house, a woodpile in a room and a stale ruling are each refused" \
+  python3 tools/check_structure_clearance.py --self-test
+
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
 # trodden earth, no source states a foot of it, and the render grew prairie to the pickets.
@@ -2485,6 +2528,22 @@ step "the freight shed's cargo openings set out once and are read three times" \
 
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
+
+# T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
+step "pictured frame taverns preserve defaults and build their opt-in details" \
+  python3 tools/test_frame_tavern_picture_features.py
+
+# T-3105: gallery supports must clear the declared pictured front.
+step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \
+  python3 tools/test_fort_picture_fronts.py
+
+# Roof cloth uses a phase-local staff, never an entire building box.
+step "explicit flag anchors preserve fort defaults and reject stale roof mounts" \
+  node tools/test_flag_anchors.mjs
+
+# Compiler/validator recognize real runtime consumption and honest card labels.
+step "flag form values have an actual renderer and honest geometry labels" \
+  python3 tools/test_flag_form_contract.py
 
 # W1's forge stack, and the reason it is gated here rather than only on the baked
 # master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so

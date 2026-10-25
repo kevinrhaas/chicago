@@ -1,0 +1,29 @@
+{
+  "id": "cameron_c1900_first_post_office",
+  "type": "illustration",
+  "citation": "Edgar S. Cameron. Chicago's First Postoffice in 1833. Halftone reproduction after an oil painting, credited on the reproduced sheet to the Chicago Historical Society.",
+  "author": "Edgar S. Cameron (painter); halftone publisher not established",
+  "date": "undated on the reproduction; catalogued circa 1900 in the project image inventory",
+  "describes_date": "1833",
+  "repository": "Chicago Historical Society, via Wikimedia Commons; local surrogate in chicago/reference/images/chicago/",
+  "url": "https://commons.wikimedia.org/wiki/File:Chicago%27s_first_post_office,_1833.jpg",
+  "locator": "Local surrogate chicago/reference/images/chicago/chicago_first_post_office_1833.jpg, 2062 by 1507 pixels; caption below the picture names the post office, 1833, Cameron and the Chicago Historical Society.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "chicago/reference/images/IMAGE_SOURCES.md lists this halftone as public domain by pre-1930 publication. This describes the existing local surrogate, not the separately advertised Alamy licensed copy. The original painting's holding and the reproduction's publication have not been independently established here.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "The committed local picture and its printed caption were opened and read. The Commons landing page returned HTTP 403 during this review; circa 1900 and the public-domain attribution are the committed image inventory's metadata, not a successful fresh remote catalogue check.",
+  "note": "A retrospective painting of a scene labelled 1833, not a photograph or an eyewitness record. The building at left has a gable roof over horizontal log courses, a single visible sash and an off-centre doorway in the long elevation, a small framed opening in the visible gable, and one chimney rising through the roof. The caption places it near the east end of the later Lake Street bridge. This picture informs an inferred elevation for Hogan's store; it supplies neither a surveyed location nor a dimension and cannot establish the building's survival or use on 1 July 1835.",
+  "what_it_supplies": [
+    "the pictured log cabin's visible opening arrangement and gable roof",
+    "one framed opening in the visible gable and one visible chimney",
+    "a depiction explicitly labelled Chicago's First Postoffice in 1833"
+  ],
+  "what_it_does_not_supply": [
+    "coordinates, dimensions or an independent scale",
+    "the hidden elevations, exact sash pattern or material colours",
+    "the building's state, continued existence or use on 1 July 1835",
+    "a creation or publication date printed on the reproduced sheet"
+  ]
+}

@@ -1619,6 +1619,21 @@ GEOMETRY_OWES_LIBERTY = ("absent", "simplified")
 GROUND_GEOMETRY_STATES = GEOMETRY_STATES + ("restated_in_code",)
 
 
+# The app's real flag reads are checked separately from master CONSUMED fields.
+# Keep fort record_only master declarations compatible; never use them to excuse
+# a missing renderer or a silently unbuilt roof anchor.
+from flag_form_contract import flag_form_fields  # noqa: E402
+
+
+def renderer_form_consumed(rep: Report | None = None) -> frozenset[str]:
+    try:
+        return flag_form_fields(ROOT)
+    except ValueError as error:
+        if rep is not None:
+            rep.error("renderer form contract", str(error))
+        return frozenset()
+
+
 def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tuple]:
     """Every form attribute whose archetype does not read it.
 
@@ -1633,6 +1648,7 @@ def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tup
     and the mesh cannot show.
     """
     found: list[tuple] = []
+    app_known = renderer_form_consumed()
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         known = consumed.get(st.get("archetype"))
@@ -1641,7 +1657,7 @@ def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tup
         for ph in st.get("phases", []):
             pid = ph.get("id", "?")
             for attr, a in sorted((ph.get("form") or {}).items()):
-                if attr in known or not isinstance(a, dict):
+                if attr in known or attr in app_known or not isinstance(a, dict):
                     continue
                 found.append((sid, pid, f"form.{attr}", f"structure {sid}/{pid}", a))
     return found
@@ -1674,6 +1690,7 @@ def check_geometry_declarations(structures: dict, consumed: dict[str, frozenset]
         rep.note("geometry check: no archetype params modules to compare against")
         return
     declared = 0
+    app_known = renderer_form_consumed(rep)
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         known = consumed.get(st.get("archetype"))
@@ -1693,6 +1710,11 @@ def check_geometry_declarations(structures: dict, consumed: dict[str, frozenset]
                                          f"— it is built from the value, so there is nothing to "
                                          f"declare. Drop the field, or remove the attribute from "
                                          f"CONSUMED if the generator stopped using it")
+                    continue
+                if attr in app_known:
+                    if state not in (None, "record_only"):
+                        rep.error(where, f"form.{attr} is consumed by a registered app renderer, "
+                                         f"so geometry: '{state}' is a false omission admission")
                     continue
                 if state is None:
                     rep.error(where, f"form.{attr} is stated by the record and the "

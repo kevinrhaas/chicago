@@ -1,0 +1,30 @@
+{
+  "id": "currey_1912_first_fort_birdseye",
+  "type": "illustration",
+  "citation": "'Bird’s-Eye View of Old Fort Dearborn.' Illustration at p. 27 of J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912). Numbered reconstruction of the first fort, not a contemporary view.",
+  "author": "Illustrator uncredited in the consulted caption; J. Seymour Currey is the book author",
+  "date": "1912",
+  "describes_date": "the first Fort Dearborn, 1803–1812, reconstructed retrospectively",
+  "repository": "Wikimedia Commons, File:Birds_eye_view_of_first_Fort_Dearborn.jpg; also reproduced in Project Gutenberg eBook 52346, images/old_fort_dearborn.png",
+  "url": "https://commons.wikimedia.org/wiki/File:Birds_eye_view_of_first_Fort_Dearborn.jpg",
+  "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346-images.html#Page_27",
+  "locator": "Printed page 27, numbered bird’s-eye reconstruction; caption and list of illustrations in the inspected Gutenberg edition.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "asset_use": "cross_check",
+  "verified": true,
+  "rights_note": "Published in the United States in 1912, now out of copyright there; Commons explicitly marks this picture Public domain due to date of publication (1912).",
+  "access_notes": "Inspected the actual local 889 x 588 image and consulted the Commons description plus Gutenberg illustrated HTML on 2026-10-23. The Gutenberg list of illustrations and caption confirm The Story of Old Fort Dearborn, p. 27; the local IMAGE_SOURCES.md instead names Chicago: Its History and Its Builders, which is not followed here. Commons says the picture follows a drawing of Albert L. Van den Berghen’s 1898 model published by the Chicago Daily Tribune on 5 March 1899; that newspaper and model were not independently inspected.",
+  "what_it_supplies": [
+    "Two-storey courtyard gallery treatment on the visible inner barracks/quarters ranges: an upper walk with close vertical rail pales over the open lower level, under a roof near the main eave.",
+    "The numbered caption identifies the main entrance (1), sally-port (2), western gateway (3), NW and SE blockhouses (4,5), officers quarters (6), barracks (7), and magazine (8).",
+    "The roofed blockhouse lanterns as a retrospective representation, without a construction date."
+  ],
+  "what_it_does_not_supply": [
+    "An eyewitness, independent testimony from 1803–1812, or a dated record of when the upper walks or blockhouse lanterns were built.",
+    "Any dimension, coordinate, bearing, measured roof slope, gallery depth, post section, rail height, baluster spacing or floor thickness.",
+    "Independent identification of every existing named range’s interior facade: the near faces are concealed, and the reconstruction’s main entrance and magazine arrangement must not displace Whistler’s contemporary measured plan.",
+    "Colour, material tone, or agreement between all pictorial reconstructions."
+  ],
+  "note": "Use for visible form only. Whistler’s 1808 note directly attests two-storey barracks with galleries fronting the parade; this retrospective plate supports an inferred two-level interpretation, not an attested level count. Applying that treatment to all five first-fort ranges is stated in each gallery_storeys note. Metric details remain reconstructed. The book’s main-entrance building and magazine composition do not overrule the contemporary measured footprint register."
+}

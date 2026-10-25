@@ -193,6 +193,45 @@ def footprint_world(sidecar):
     return [(e0 + u * c + v * s, n0 - u * s + v * c) for u, v in fp]
 
 
+def rear_ell_world(sidecar, structure=None):
+    """The rear ell a frame tavern record builds OUTSIDE its footprint polygon, in local
+    ENU, or [] (T-3078). `frame_tavern._rear_ell` stands it centred on the rear wall
+    (the footprint's least v), the archetype's own width wide and depth deep, so a wing
+    the walls are built for is ground a pile or a stem cannot stand on either.
+    `structure` is the record, read from data/structures when not given."""
+    if sidecar.get("archetype") != "frame_tavern":
+        return []
+    fp = (sidecar.get("footprint") or {}).get("polygon") or []
+    pl = sidecar.get("placement") or {}
+    if len(fp) < 3 or pl.get("local_e") is None:
+        return []
+    if structure is None:
+        path = STRUCTURES / f"{sidecar.get('id')}.json"
+        if not path.exists():
+            return []
+        structure = load(path)
+    phases = structure.get("phases") or []
+    phase = next((ph for ph in phases if ph.get("id") == sidecar.get("phase")),
+                 phases[0] if phases else None)
+    if phase is None:
+        return []
+    root = str(ROOT / "generators")
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    from archetypes.frame_tavern_params import from_phase  # noqa: E402
+    params = from_phase(phase)
+    if not params.rear_ell:
+        return []
+    u0, u1 = min(p[0] for p in fp), max(p[0] for p in fp)
+    v0 = min(p[1] for p in fp)
+    cu, hw, d = (u0 + u1) / 2, params.rear_ell_width_m / 2, params.rear_ell_depth_m
+    th = math.radians(pl.get("rotation_deg") or 0.0)
+    c, s = math.cos(th), math.sin(th)
+    e0, n0 = pl["local_e"], pl["local_n"]
+    return [(e0 + u * c + v * s, n0 - u * s + v * c)
+            for u, v in ((cu - hw, v0 - d), (cu + hw, v0 - d), (cu + hw, v0), (cu - hw, v0))]
+
+
 def poly_contains(pt, poly) -> bool:
     x, y = pt
     inside = False
@@ -368,6 +407,11 @@ def world():
         fp = footprint_world(sc)
         if len(fp) >= 3:
             obstructions.append(fp)
+            # …and the wing a frame tavern builds behind it, which is wall too (T-3078:
+            # eleven woodpiles stood inside boarding houses' kitchen wings).
+            ell = rear_ell_world(sc)
+            if ell:
+                obstructions.append(ell)
     hf = Heightfield.load(EPOCH)
     if hf is None:
         raise SystemExit("no heightfield at " + str(EPOCH))

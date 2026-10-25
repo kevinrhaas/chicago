@@ -80,22 +80,22 @@
         "corner_pick_ft_from_N": 1.55
       },
       "0.49": {
-        "record_before_rms_px": 1.93,
-        "sheet6_rms_px": 1.23,
+        "record_before_rms_px": 2.0,
+        "sheet6_rms_px": 1.16,
         "corner": "N_corner",
-        "corner_pick_ft_from_N": 1.38
+        "corner_pick_ft_from_N": 1.37
       },
       "0.60": {
-        "record_before_rms_px": 2.24,
-        "sheet6_rms_px": 0.98,
+        "record_before_rms_px": 2.34,
+        "sheet6_rms_px": 0.92,
         "corner": "N_corner",
-        "corner_pick_ft_from_N": 1.34
+        "corner_pick_ft_from_N": 1.32
       },
       "0.95": {
-        "record_before_rms_px": 3.4,
-        "sheet6_rms_px": 1.22,
+        "record_before_rms_px": 3.58,
+        "sheet6_rms_px": 1.36,
         "corner": "N_corner",
-        "corner_pick_ft_from_N": 1.21
+        "corner_pick_ft_from_N": 1.19
       }
     },
     "habs-17-habs-ne": {
@@ -169,32 +169,34 @@
   },
   "taylor_2135": {
     "eye": [
-      89.845097,
-      40.367211,
-      1.702588
+      87.401166,
+      40.089291,
+      1.793294
     ],
-    "yaw_deg": 234.033818,
+    "yaw_deg": 236.281071,
+    "pitch_deg": 2.993,
+    "roll_deg": 1.319,
     "basis_right_up_forward": [
       [
-        -0.5871363184,
-        0.809126825,
-        0.0241810795
+        -0.5539724009,
+        0.8322175134,
+        0.0229910725
       ],
       [
-        0.0141849137,
-        -0.0195834946,
-        0.9997075947
+        0.0561920186,
+        0.0098233842,
+        0.9983716533
       ],
       [
-        -0.8093637821,
-        -0.5873076432,
-        -2.07867e-05
+        -0.8306365246,
+        -0.5543622566,
+        0.0522058657
       ]
     ],
-    "focal_px": 2330.9736,
+    "focal_px": 2256.2729,
     "principal_px": [
-      415.50272048928315,
-      815.5140668074222
+      564.47,
+      696.935
     ],
     "controls_xyz_px": [
       [
@@ -236,61 +238,66 @@
     "control_residual_px": [
       [
         null,
-        1.78
+        3.33
       ],
       [
         null,
-        -0.8
+        1.04
       ],
       [
         null,
-        -1.3
+        -3.86
       ],
       [
         null,
-        0.57
+        -1.15
       ],
       [
-        -0.09,
-        -0.25
+        -0.26,
+        0.73
       ]
     ],
     "jamb_residual_px": [
-      1.81,
-      -0.29,
-      -0.24,
-      -0.35,
-      -1.12,
-      -3.61,
-      2.05,
-      0.91,
-      0.99,
-      -0.04
+      0.06,
+      -1.36,
+      -1.04,
+      -0.55,
+      -0.83,
+      -3.17,
+      3.19,
+      2.49,
+      2.49,
+      1.87
     ],
-    "rms_px": 1.36,
-    "stack_checks_px": {
+    "rms_px": 2.08,
+    "stacks_px": {
       "south": {
-        "right_x": -14.6,
-        "top_y": -0.5
+        "centre_x": -2.9,
+        "top_y": -0.7,
+        "width": -0.0
       },
       "middle": {
-        "left_x": -7.8,
-        "right_x": -6.6,
-        "top_y": -2.1
+        "centre_x": -2.2,
+        "top_y": -0.6,
+        "width": -0.6
       },
       "north": {
-        "left_x": 3.8,
-        "right_x": 0.5,
-        "top_y": 1.7
+        "centre_x": 2.2,
+        "top_y": 1.2,
+        "width": 1.5
       }
     },
-    "stack_check_rms_px": 6.5
+    "stack_fit_rms_px": 1.9,
+    "verticals": {
+      "edges": 43,
+      "lean_rms": 0.0104
+    }
   },
-  "taylor_2135_stack_check_rms_by_reveal_px": {
-    "0.00": 5.5,
-    "0.49": 6.3,
-    "0.60": 6.5,
-    "0.95": 7.3
+  "taylor_2135_stack_fit_rms_by_reveal_px": {
+    "0.00": 1.8,
+    "0.49": 1.8,
+    "0.60": 1.9,
+    "0.95": 2.0
   },
   "rulings": {
     "widths": "sheet 6's outer lines: with any reveal 0.49-0.95 ft every photograph fits them at least as well as the record's 3.9 ft, and the frontal HABS 16 much better",
