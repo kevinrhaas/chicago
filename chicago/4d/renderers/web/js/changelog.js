@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2287, ts: '2026-10-25T18:34:58.890Z', date: 'Oct 25, 2026, 1:34 PM CT', title: 'Glessner\'s stable dovecote set higher, with proper pigeon holes', kind: 'fix',
+    items: [
+      'The nine pigeon holes in the stable\'s north gable on 18th Street are now round-headed and a stone course tall, as two photographs and an 1887 print show them. They had been narrow slits.',
+      'The holes and the ledge under them are about 10 inches higher, where the 1965 survey photograph, taken square to the gable, places them.',
+    ] },
   { v: 2286, ts: '2026-10-25T17:59:56.014Z', date: 'Oct 25, 2026, 12:59 PM CT', title: 'Dearborn drawbridge gains boarded parapets', kind: 'improvement',
     items: [
       'Horizontal boards fill the drawbridge\'s side parapets, following the credited historical engraving. Their dimensions are reconstructed; the deck stays flat while the pictured central rise and other differences await further work.',
