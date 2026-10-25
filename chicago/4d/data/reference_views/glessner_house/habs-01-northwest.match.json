@@ -91,6 +91,10 @@
     {
       "what": "T-3137: the gable fan's stones. At about 5 px to the foot this print cannot count them, but a polar profile across the fan finds 7-8 joints where the same profile on the render of the 11 built voussoirs found 10-13, which agrees with HABS 14's count of seven; the fan is rebuilt with seven, keyed at the crown, and the transom 0.4 ft lower (this print does not resolve the transom). docs/RESEARCH/glessner-gable-transom-T-3137/.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3148, reviewed from the rebaked master: the tiles' edge on the 18th Street front, read in this print at eight stations, draws one straight line from W 60 to W 160: west of the stable gable it lies within 1 px of the line fitted east of it, where the build's step (23.1 ft east, 25.2 ft west) would stand 32-33 px off. The eave west of the gable is rebuilt at 23.1 ft, and the gable's west foot, the alley parapet's north foot and the cross roof's north foot come down with it; the cross ridge comes down 0.10 m to 36.17 ft at S 12.31 to stay on the alley gable's rake. Through T-2758's stable-fitted camera the edge reads 24.0-24.2 ft on the face on both sides, about 1 ft over sheet 4's 23.1 ft line where the roof meets the wall (within tolerance: HABS 15's refit reads that one level line 1.2 ft apart across the gable, so the cameras do not measure a foot at eave height). The slope above is now about three 5 in courses longer than the 41-44 T-3095 counted (within tolerance). docs/RESEARCH/glessner-north-eave-T-3148/.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

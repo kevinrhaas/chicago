@@ -255,8 +255,8 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.95,
-                      "clear_height_m": 1.0,
-                      "sill_m": 0.22,
+                      "clear_height_m": 1.05,
+                      "sill_m": 0.17,
                       "at": [
                         0.427,
                         0.7229
@@ -270,7 +270,7 @@
                         "set_back_m": 0.04,
                         "ring_radius_m": 0.22
                       },
-                      "why_not_ordinary": "a basement light under each of the bay's windows, read off the 1888 plate: about 0.95 m across and 1.0 m high, its head at the plate's 1.2 m, flat-headed under a rock-faced course and filled with a scrolled iron grille (T-2916). T-3129: the grille as the c. 1888 Chicagology photograph shows it (chicagology_photo, x 278-362 px, y 1175-1276 px): a flat-bar frame round the light with a border about 0.12 m wide of short bars about 0.06 m apart (uprights across the head and foot, rungs up the sides), and inside it a square panel with a small rosette at its centre, eight spokes out to a ring about 0.44 m across, a volute curling in each corner and a smaller one on the middle of each side. The pattern is read off the photograph; its sizes are scaled from it against the light's 0.95 m, and the leaves on the scrolls are below what the bar can carry. The photograph also takes the light lower than the plate's reading: through its camera the head lands on the plate's line (y 1176 px against the render's 1178) but the foot sits 14 px lower (y 1277 against 1263) over a plinth half as deep. The light is not lowered here: the bay's basement storey keeps its clear wall from 0.10 m, over its plinth, so a lower light means a lower plinth, which is T-3133's"
+                      "why_not_ordinary": "a basement light under each of the bay's windows, read off the 1888 plate: about 0.95 m across and 1.0 m high, its head at the plate's 1.2 m, flat-headed under a rock-faced course and filled with a scrolled iron grille (T-2916). T-3129: the grille as the c. 1888 Chicagology photograph shows it (chicagology_photo, x 278-362 px, y 1175-1276 px): a flat-bar frame round the light with a border about 0.12 m wide of short bars about 0.06 m apart (uprights across the head and foot, rungs up the sides), and inside it a square panel with a small rosette at its centre, eight spokes out to a ring about 0.44 m across, a volute curling in each corner and a smaller one on the middle of each side. The pattern is read off the photograph; its sizes are scaled from it against the light's 0.95 m, and the leaves on the scrolls are below what the bar can carry. The photograph also takes the light lower than the plate's reading: through its camera the head lands on the plate's line (y 1176 px against the render's 1178) but the foot sits 14 px lower (y 1277 against 1263) over a plinth half as deep. T-3133 lowers it towards the photograph's foot: its head kept at 1.22 m and its sill brought down from 0.22 to 0.17 m, the light 1.05 m, by halving the bay's plinth to 0.05 m (the bay's `plinth_m`) and keeping the 0.02 m of wall the kit leaves between the plinth and the K06 sill laid under the light, so the plinth and sill together make the photograph's pale ledge under the grille, which reads about 0.15 m (y 1276-1290 px at the bay's 89.2 px a metre). The photograph's foot (y 1276 px) stands about 0.10 m over the bay's foot (1285): the build's stands 0.07 m higher, the sill's 0.10 m less the plinth's 0.05 m given up, which no lower plinth recovers while the kit lays a sill under every light"
                     }
                   ]
                 },
@@ -333,7 +333,7 @@
               "eaves": {
                 "cornice": "k10.cornice.moulded_stone"
               },
-              "plinth_m": 0.1,
+              "plinth_m": 0.05,
               "balcony": {
                 "fabric": "stone",
                 "height_m": 0.7,
@@ -531,6 +531,16 @@
                 "overhang_m": 0.15,
                 "fascia_m": 0.3,
                 "covering": "painted_tin_sheet"
+              },
+              "round_heads": [
+                "north"
+              ],
+              "basement_lights": {
+                "north": {
+                  "sill_m": 0.3,
+                  "width_m": 1.0,
+                  "height_m": 1.05
+                }
               }
             },
             {
@@ -572,15 +582,26 @@
                 "overhang_m": 0.15,
                 "fascia_m": 0.3,
                 "covering": "painted_tin_sheet"
+              },
+              "round_heads": [
+                "north"
+              ],
+              "basement_lights": {
+                "north": {
+                  "sill_m": 0.3,
+                  "width_m": 1.0,
+                  "height_m": 1.05
+                }
               }
             }
           ],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28",
-            "inland_architect_1888_10_ames_residence"
+            "inland_architect_1888_10_ames_residence",
+            "chicagology_1811_ames_photo"
           ],
-          "note": "The sheet's main part behind the front block, 8.4 m wide on the south wall's straight line (trace s28fp-1811-b1 p2, v 2.0-10.4 here), drawn as one part to its rear wall 18.4 m back with a drawn division about 4.3 m from the rear: the three-storey range ('3B') and the two-storey rear section ('section 2B'). The plate and the Chicagology print show the range's south flank in brick, three rows of windows over a basement, evenly spaced, and a flat-topped wall head; the spacing here is reconstructed at about 2.6 m. The sheet's small projection on the range's north wall (about 1.6 m out, 4.5 m long) is not built: no picture shows that side. T-3077: the range is three storeys, as the sheet's '3B' says, and its deck stands level with the front block's coping. Through the T-2541 camera on the 1888 plate (heights on the flank's plane do not depend on the camera's distance, only on the flank's 4.05 m offset from the eye and the eye's 1.05 m height): the coping runs level at 10.98 m back to x 572 px, a level line at about 8.65 m runs the whole flank from x 520 to 584 px, and past x 572 that line is the wall head of a lower part, two rows of windows over arched basement lights, which the Chicagology print (cgn-1811-coleman-ames-photo, rights unknown, read in the image store's display copy and not committed) draws the same at x 1167-1200 px. That lower part is the sheet's two-storey 'section 2B', not the range: between the stone face and x 578 px the plate draws six windows a storey (centres about x 525, 541, 553, 564, 571 and 576 px), the build's six bays along the flank (the block's one and the range's five at 2.6 m), which a camera standing about 32 m from the front instead of 15 m puts at x 529-574 px and T-2541's at x 555-611 px, where the plate shows sky; the same farther camera puts x 573 px about 19-21.6 m behind the face, the sheet's solid wall between '3B' and '2B' (21.6 m). The range's rows read off the flank: ground-floor heads about 4.1-4.3 m, first-floor lights about 5.1-7.2 m, second-floor lights about 8.0-9.7 m. So the range's storeys are 3.25, 3.0 and 3.08 m from the 1.35 m principal floor (floors at 4.6 and 7.6 m, wall top 10.68 m, its deck's fascia top 10.98 m, the plate's coping), its lights 1.95-4.15, 5.1-7.2 and 8.0-9.7 m; the rear section's upper floor stands on the range's 4.6 m, its storeys 3.25 and 3.8 m to the same 8.4 m wall top and 8.7 m deck (the plate's 8.65 m), its first-floor lights 5.1-7.2 m (the plate's at x 576 px read 5.1-7.21 m). The range's floors are about 0.4 m under the front block's: the sheet gives no floor levels, and the plate's rows are read to about +-0.3 m. The camera's distance itself is T-3079's (L-k01-1811-range-3077)."
+          "note": "The sheet's main part behind the front block, 8.4 m wide on the south wall's straight line (trace s28fp-1811-b1 p2, v 2.0-10.4 here), drawn as one part to its rear wall 18.4 m back with a drawn division about 4.3 m from the rear: the three-storey range ('3B') and the two-storey rear section ('section 2B'). The plate and the Chicagology print show the range's south flank in brick, three rows of windows over a basement, evenly spaced, and a flat-topped wall head; the spacing here is reconstructed at about 2.6 m. The sheet's small projection on the range's north wall (about 1.6 m out, 4.5 m long) is not built: no picture shows that side. T-3077: the range is three storeys, as the sheet's '3B' says, and its deck stands level with the front block's coping. Through the T-2541 camera on the 1888 plate (heights on the flank's plane do not depend on the camera's distance, only on the flank's 4.05 m offset from the eye and the eye's 1.05 m height): the coping runs level at 10.98 m back to x 572 px, a level line at about 8.65 m runs the whole flank from x 520 to 584 px, and past x 572 that line is the wall head of a lower part, two rows of windows over arched basement lights, which the Chicagology print (cgn-1811-coleman-ames-photo, rights unknown, read in the image store's display copy and not committed) draws the same at x 1167-1200 px. That lower part is the sheet's two-storey 'section 2B', not the range: between the stone face and x 578 px the plate draws six windows a storey (centres about x 525, 541, 553, 564, 571 and 576 px), the build's six bays along the flank (the block's one and the range's five at 2.6 m), which a camera standing about 32 m from the front instead of 15 m puts at x 529-574 px and T-2541's at x 555-611 px, where the plate shows sky; the same farther camera puts x 573 px about 19-21.6 m behind the face, the sheet's solid wall between '3B' and '2B' (21.6 m). The range's rows read off the flank: ground-floor heads about 4.1-4.3 m, first-floor lights about 5.1-7.2 m, second-floor lights about 8.0-9.7 m. So the range's storeys are 3.25, 3.0 and 3.08 m from the 1.35 m principal floor (floors at 4.6 and 7.6 m, wall top 10.68 m, its deck's fascia top 10.98 m, the plate's coping), its lights 1.95-4.15, 5.1-7.2 and 8.0-9.7 m; the rear section's upper floor stands on the range's 4.6 m, its storeys 3.25 and 3.8 m to the same 8.4 m wall top and 8.7 m deck (the plate's 8.65 m), its first-floor lights 5.1-7.2 m (the plate's at x 576 px read 5.1-7.21 m). The range's floors are about 0.4 m under the front block's: the sheet gives no floor levels, and the plate's rows are read to about +-0.3 m. The camera's distance itself is T-3079's (L-k01-1811-range-3077). T-3133: the c. 1888 Chicagology photograph (chicagology_1811_ames_photo) draws every light along the brick flank (K01's 'north') round-headed, and under each of the rear lights a round-headed basement light (x 1084, 1107, 1148, 1167, 1185 and 1197 px), its crown on the horizon (y 1165-1168 px), so about 1.35 m over grade at the camera's 1.35 m eye, whatever the flank's depth, and its foot at y 1228-1245 px, a few tenths over the walk; each about as wide as the light over it (1.0-1.2 times its width in the print). So both wings' flank lights are cut round-headed (`round_heads`) and each takes a basement light under it (`basement_lights`): 1.0 m across, 0.30-1.35 m, which keeps the K01 sash's least sill and clears the principal floor's 1.95 m sills by 0.6 m. Their places along the flank are the lights' own over them, as the print sets each under one, not read off the camera, whose depth along the flank T-3079 and T-3099 ruled is the camera's and not the building's. Whether the heads carry a brick ring is below the print's grain: they take K06's arch band, reconstructed."
         },
         "sash_by_storey": {
           "value": [
@@ -713,10 +734,15 @@
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false
+            },
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+            "k01.opening.sash_round_plain": {
+              "variant": "k06.opening.basement_round",
+              "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "The district's two-over-two sash; the plate's sash is too small to count lights."
+          "note": "The district's two-over-two sash; the plate's sash is too small to count lights. T-3133: the south flank's round-headed lights (the c. 1888 Chicagology photograph) take K06's single round-headed sash, a one-over-one to the spring under a fixed fan; the photograph is too small to count their lights, so the fan is the kit's, reconstructed. The round-headed basement lights under them take K06's fixed round-headed basement light."
         },
         "entrance_kit": {
           "value": {

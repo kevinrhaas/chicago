@@ -71,6 +71,10 @@
     {
       "what": "T-3143: this print's rows read about 1.75 ft apart (70 px against 58 on T-3136's 2x crop), wider than the 1.44-1.52 ft HABS 15 measures square-on through a camera fitted at the stable and the about 1.5 ft HABS 01 shows; this camera is a west-wall homography that stands off at the gable (the render frames the stable about 75 px off the print), so the build keeps HABS 15's pitch. A gap two pictures disagree about (T-3153).",
       "status": "within tolerance"
+    },
+    {
+      "what": "T-3148, reviewed from the rebaked master: in this print the tiles' edge on the 18th Street front west of the stable gable lies 3-5 px off the straight line the same edge draws east of it (u 230-450), where the build's old step at the gable (23.1 ft east, 25.2 west) would draw about 50 px. The eave west of the gable is rebuilt at the range's 23.1 ft and the cross ridge comes down 0.10 m to stay on the alley gable's rake. T-2758's two roof fits of this print had put the alley-end eave on the old model's (0.0-0.3 m); they now read it about 0.4-0.7 m over the lowered one (T-3096 measured +0.01 to +0.08 and -0.25 to -0.19 m against the old), which is those fits' (T-3102), not the eave's: the camera-free line rules it. docs/RESEARCH/glessner-north-eave-T-3148/.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

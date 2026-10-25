@@ -220,3 +220,43 @@ rules, read by `tools/draft_prairie_1904.py`). Why the 1911 sheet counts 1½ sto
 **Left open:** the stable's own picture. Its arched door, steep roof and front gable on the Chicagology
 photograph are not built. That needs the photograph's camera re-solved deep enough to reach it (T-3079's camera
 work).
+
+## T-3133 — the south flank on the c. 1888 pictures: built, ruled and closed
+
+**Read.** The Chicagology print (`ames_1811_chicagology_photo.jpg`, 1303 x 1598 px) between x 1060 and 1220,
+at four times. Along the brick flank every light is round-headed, and under each of the rear lights stands a
+round-headed basement light: x 1084, 1107, 1148, 1167, 1185 and 1197 px, crowns at y 1165-1168 and feet at
+y 1228-1245, each 1.0-1.2 times as wide in the print as the light over it. The crowns stand on the horizon
+(y 1165), so about 1.35 m over grade at the camera's 1.35 m eye, whatever their depth along the flank. The
+lights over them are the build's principal-floor lights (sills about 1.9 m, heads about 4.4 m through the
+same camera, against the build's 1.95-4.15 m).
+
+**Built.** Both wings' flank lights cut round-headed (`rear_wings[].round_heads`, new in K01), turned in the
+flank's own brick; a round-headed basement light 1.0 m across, 0.30-1.35 m, under each of them
+(`rear_wings[].basement_lights`, new), placed under the light over it as the print sets each, not off the
+camera (L-k01-1811-flank-round-heads-3133). The bay's two basement lights lowered towards the print's foot:
+sill 0.22 to 0.17 m, head kept at 1.22 m, by halving the bay's plinth to 0.05 m (K08's `plinth_m` now reads
+down to 0.05 m) while keeping the kit's 0.02 m of wall over it and the K06 sill under the light. Through the
+camera the render's light runs y 1178-1270 px against the print's 1176-1277: the foot 7 px (about
+0.08 m) short, the depth of the K06 sill the kit keeps under every light.
+
+**Ruled: the coping stands at the plate's 10.98 m.** Compared in the image through the same camera, the
+render's wall head lands on the print's where the print's high coping runs: y 587 against 583 px at x 1150
+and 602 against 604 at x 1165, on the same slope (about 1.4 px a pixel), within about 0.07 m at the flank's
+56 px a metre there. One ray meets the flank's plane at one height, so the build's coping is the print's. The
+"about 0.6 m higher" of the match record was read off the vanishing point, not against the render. What
+differs is where the high coping ends (the print's 3B/2B step at x 1167, the build's at about 1295): the
+flank's depth through this camera.
+
+**Ruled: the 1891 atlas's narrower rear is not built.** The Greeley-Carlson plate draws the rear 6 m about
+2 m narrower on the south. That is six of the plate's pixels, and its widths do not hold to scale (the house
+is drawn as wide as its lot, above); the 1911 sheet draws the rear full width on the south wall's straight
+line, and no picture shows the rear's south face. The sheet's full width stands, as T-3099 left it.
+
+**Closed against T-3099, and what each camera still shows.** The three flank-depth items are closed on
+T-3099's ruling that the 26 m house stands for 1904. Each camera still draws the flank short: the print's
+step at x 1167 against the build's about 1295 and its end at about 1205 with the stable past it; the plate's
+end at about x 585 against the build's 626; the Glessner print's at about 547, with sky, where the build runs
+past the print's edge. Both cameras fit the front within a few pixels and meet the flank's end at the same
+place. Either a camera that reaches the flank's rear without losing the front, or an extension of the rear
+between 1888 and 1891, would explain it, and 1904 stands as built either way. That is T-3149.
