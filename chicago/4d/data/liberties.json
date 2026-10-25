@@ -1218,10 +1218,6 @@
       "name": "1605–1613 Indiana Avenue — the Thompson-Reid and Collins Bros. ice-cream works, building"
     },
     {
-      "id": "indiana_east_frontage_18th_20th_background_row",
-      "name": "indiana east frontage 18th 20th background row"
-    },
-    {
       "id": "inf_*",
       "name": "every inf building"
     },
@@ -56560,56 +56556,13 @@
       "title": "Indiana Avenue's east frontage, 18th to 20th Street, stood up as one reconstructed background row where the sheet that draws it is not in hand",
       "section": "resolved",
       "subjects": [],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "form.draft_plan"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "form.stories"
-        },
-        {
-          "domain": "structure",
-          "structure": "indiana_east_frontage_18th_20th_background_row",
-          "phase": "draft_1904",
-          "aspect": "position"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-10-25",
       "revised": null,
       "fields": [
         {
-          "label": "Covers",
-          "text": "`indiana_east_frontage_18th_20th_background_row.draft_1904.position`, `indiana_east_frontage_18th_20th_background_row.draft_1904.footprint`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.stories`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.construction`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_plan`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft_elevation`, `indiana_east_frontage_18th_20th_background_row.draft_1904.form.draft`"
+          "label": "Covered until later work retired the record",
+          "text": "indiana east frontage 18th 20th background row draft 1904 position, indiana east frontage 18th 20th background row draft 1904 footprint, indiana east frontage 18th 20th background row draft 1904 stories, indiana east frontage 18th 20th background row draft 1904 construction, indiana east frontage 18th 20th background row draft 1904 draft plan, indiana east frontage 18th 20th background row draft 1904 draft elevation, indiana east frontage 18th 20th background row draft 1904 draft"
         },
         {
           "label": "Decision",
@@ -56641,11 +56594,11 @@
         }
       ],
       "work_refs": [
+        "T-3151",
         "T-3011",
         "T-2983",
         "T-3145",
-        "T-3150",
-        "T-3151"
+        "T-3150"
       ]
     }
   ]
