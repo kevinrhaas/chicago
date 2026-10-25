@@ -1249,15 +1249,21 @@
     },
     {
       "id": "pullman_house_1729_prairie",
-      "name": "1729 Prairie Avenue — Pullman Second Empire estate (district draft; refined by T-1880, T-1881)",
+      "name": "1729 Prairie Avenue — the George M. Pullman house (K01; refined by T-1881)",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie.json",
-      "asset": "gltf/pullman_house_1729_prairie__draft_1904.glb"
+      "asset": "gltf/pullman_house_1729_prairie__as_mapped_1904.glb"
     },
     {
       "id": "pullman_house_1729_prairie_conservatory",
       "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing, K13",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie_conservatory.json",
       "asset": "gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb"
+    },
+    {
+      "id": "pullman_house_1729_prairie_ranges",
+      "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; refined by T-1934)",
+      "sidecar": "sidecars/1904/pullman_house_1729_prairie_ranges.json",
+      "asset": "gltf/pullman_house_1729_prairie_ranges__draft_1904.glb"
     },
     {
       "id": "ream_house_1901_prairie",

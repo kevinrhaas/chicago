@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 773,
+  "count": 774,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1571,11 +1571,15 @@
     },
     {
       "id": "pullman_house_1729_prairie",
-      "name": "1729 Prairie Avenue — Pullman Second Empire estate"
+      "name": "1729 Prairie Avenue — the George M. Pullman house"
     },
     {
       "id": "pullman_house_1729_prairie_conservatory",
       "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing"
+    },
+    {
+      "id": "pullman_house_1729_prairie_ranges",
+      "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges"
     },
     {
       "id": "ream_house_1901_prairie",
@@ -35605,6 +35609,7 @@
         "kellogg_house_1709_prairie_coach_house",
         "pullman_house_1729_prairie",
         "pullman_house_1729_prairie_conservatory",
+        "pullman_house_1729_prairie_ranges",
         "spalding_house_1637_prairie",
         "spalding_house_1637_prairie_coach_house"
       ],
@@ -35695,13 +35700,7 @@
         },
         {
           "domain": "structure",
-          "structure": "pullman_house_1729_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "pullman_house_1729_prairie",
+          "structure": "pullman_house_1729_prairie_ranges",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -35723,7 +35722,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35735,7 +35734,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1609 and 1611, the lost lot-6 frame pair, by earlier work, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `“1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's”`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by later work (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `“1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1615 retired from this liberty by later work (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `“1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1619 retired from this liberty by later work (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `“1619 Prairie refined from the district draft to a K01 stone-front house with the full-height swell bay of its 1886 drawing, two storeys over a raised basement and a roof storey, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1623 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `“1623 Prairie, Granger Farwell's house, refined from the district draft to a K01 stone-front house with the corbelled oriel of its 1886 drawing over a round-arched window, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1621 retired from this liberty, and 1619 returned to it, by later work (2026-10-15):** the drawing's build moved to 1621, John H. Hamline's house by later work's ruling, which now stands as the K01 stone-front frontage with its swell bay under `“1621 Prairie built to Treat & Foltz's drawing of John H. Hamline's house, moved from 1619 and re-fitted to 1621's narrower front”`, under the same id; its draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under the draft's rules exactly as it first did, until later work builds it a bounded front. **1619 retired from this liberty again by later work (2026-10-15):** with no picture of its own, it now stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it, under `“1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'”`, under the same id; its draft attributes are gone. **1625 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `“1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one”`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until later work. **1637 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `“1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it”`, under the same id; its draft attributes are gone. Its coach house stays a draft here. **1635 added to this liberty by later work (2026-10-13):** \"1635, nothing\" above no longer holds. Later work rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stands it as 1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) from Robinson 1886's outline on lot 6, the plate's third house after 1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate draws it filling lot 6; fills lot). The ruling itself is `“1635 Prairie ruled standing on 1 July 1904, and empty: the Forsyth house stood up from its 1886 outline although no 1904 source names it”`'s."
+          "text": "1609 and 1611, the lost lot-6 frame pair, by earlier work, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `“1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's”`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by later work (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `“1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1615 retired from this liberty by later work (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `“1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1619 retired from this liberty by later work (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `“1619 Prairie refined from the district draft to a K01 stone-front house with the full-height swell bay of its 1886 drawing, two storeys over a raised basement and a roof storey, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1623 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `“1623 Prairie, Granger Farwell's house, refined from the district draft to a K01 stone-front house with the corbelled oriel of its 1886 drawing over a round-arched window, everything the drawing and the sheet do not show the kits'”`, under the same id; its draft attributes are gone. **1621 retired from this liberty, and 1619 returned to it, by later work (2026-10-15):** the drawing's build moved to 1621, John H. Hamline's house by later work's ruling, which now stands as the K01 stone-front frontage with its swell bay under `“1621 Prairie built to Treat & Foltz's drawing of John H. Hamline's house, moved from 1619 and re-fitted to 1621's narrower front”`, under the same id; its draft attributes are gone. 1619, whose own front no picture shows, stands as this draft again, under the draft's rules exactly as it first did, until later work builds it a bounded front. **1619 retired from this liberty again by later work (2026-10-15):** with no picture of its own, it now stands as the K01 stone-front frontage the 1911 sheet bounds: four storeys, its curved bay on K08's bow at the sheet's chord and rise, the brick rear block and the two-storey frame piece behind it, under `“1619 Prairie refined from the district draft to a four-storey K01 stone-front house bounded by the 1911 sheet, with no picture of its own: its plan, storeys, curved bay and rear pieces read, everything else the kits'”`, under the same id; its draft attributes are gone. **1625 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `“1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one”`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until later work. **1637 retired from this liberty by later work (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `“1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it”`, under the same id; its draft attributes are gone. Its coach house stays a draft here. **1635 added to this liberty by later work (2026-10-13):** \"1635, nothing\" above no longer holds. Later work rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stands it as 1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) from Robinson 1886's outline on lot 6, the plate's third house after 1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate draws it filling lot 6; fills lot). The ruling itself is `“1635 Prairie ruled standing on 1 July 1904, and empty: the Forsyth house stood up from its 1886 outline although no 1904 source names it”`'s. **1729 retired in part from this liberty by earlier work (2026-10-25):** the Pullman house's main block now stands as the K01 stone house read off the Detroit Publishing photograph, under `“1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph”`, under the same id; its draft attributes are gone. The sheet's stable and garage at the lot's east end, the 1B range north of the house's rear and the one-storey porte-cochere on 18th Street stay this draft's, at the massing it stood them, as 1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, written by earlier work from the draft's own rectangles on the draft builder (the rules' skip names it) until earlier work; the stable keeps its two storeys and mansard, and the range and the porte-cochere stand at one storey under flat roofs, as the sheet letters them."
         },
         {
           "label": "Review",
@@ -35771,7 +35770,8 @@
         "T-2432",
         "T-2435",
         "T-2441",
-        "T-2443"
+        "T-2443",
+        "T-1880"
       ]
     },
     {
@@ -54947,6 +54947,130 @@
       ],
       "work_refs": [
         "T-3140"
+      ]
+    },
+    {
+      "id": "L-k01-1729-pullman-1880",
+      "title": "1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the George M. Pullman house at 1729 Prairie Avenue is no longer a district draft. It stands, under the draft's own id 1729 Prairie Avenue — the George M. Pullman house, as a k01 frontage record built by the k01 emit generator, against the Detroit Publishing Co. photograph of between 1890 and 1901 (Detroit Publishing Co. The Pullman residence, Chicago, Library of Congress LC-D4-12551; no known restrictions): brownstone walls two storeys over a raised basement, a deep stone cornice, a slated mansard with hooded dormers and iron cresting, the north-west block and the 18th Street pavilion carried full height, a portico on columns carrying a balcony across the Prairie front's north part, the one-storey brick block at the south-east corner, and a low stone wall on the Prairie line. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1729-b1, census s20-1729-f): the main block's place and plan (27.75 by 17.93 m, stopped at the conservatory's south wall), the north-west block, the 18th Street pavilion, the portico's place and depth, the south-east block, stone. From the photograph, through its solved camera (the detroit det 4a08065 data): the principal floor, the storey heights, the cornice's and the curb's heights, the cresting, the windows' heights and the Prairie front's three bays, the portico's balcony, two dormers' places, the wall on the street line. Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row pa-1729-5); the print is monochrome. **What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang; the treads; the north flank's, the 18th Street flank's and the rear's windows (no picture read here places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m out (the sheet draws it 10.25 m wide and 2.0 m out): a K08 pavilion's most. **What is not built.** The rusticated piers and quoins, the arched and hooded window heads, the pedimented dormers and the flank's dormers, the modillions, the portico's further columns and stone balustrade, the stoop at the portico's north end (a broad flight stands across its width), the arcade on the 18th Street flank, the round bay on the north flank and the wall's 18th Street run: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds those and brings the match record to `matches`; later work refines the stable, ranges and porte-cochere in 1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.north_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1729 pullman."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-1880)."
+        }
+      ],
+      "work_refs": [
+        "T-1880",
+        "T-1881",
+        "T-1934"
       ]
     },
     {
