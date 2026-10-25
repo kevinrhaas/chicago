@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2276, ts: '2026-10-25T12:53:49.519Z', date: 'Oct 25, 2026, 7:53 AM CT', title: 'Indiana Avenue between 18th and 20th Street is no longer empty', kind: 'change',
+    items: [
+      'From Prairie Avenue\'s walks by Glessner and Kimball you used to look west, past the stables, onto bare ground where Indiana Avenue\'s east side should be. It now holds a row of 22 houses, the last stretch of the background behind the avenue. The 1904 Blue Book lists households at ten numbers along it. The houses themselves are reconstructed from the neighbouring Indiana blocks, because the 1911 map sheet that draws this block is not in hand yet. The card says so, and a later ticket replaces them house by house.',
+    ] },
   { v: 2275, ts: '2026-10-25T12:07:27.151Z', date: 'Oct 25, 2026, 7:07 AM CT', title: 'Fort Dearborn\'s officers\' quarters get their upper piazza', kind: 'feature',
     items: [
       'The log officers\' quarters on the fort\'s west side now have a covered walk along their parade front at second-floor height, on open posts with a railing. Gurdon Hubbard, recalling the fort as he saw it in 1818, describes this piazza running along the whole front at the level of the upper floor, reached by stairs outside. The building itself is unchanged.',
