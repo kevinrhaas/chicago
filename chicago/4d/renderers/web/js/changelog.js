@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2296, ts: '2026-10-25T23:15:40.775Z', date: 'Oct 25, 2026, 6:15 PM CT', title: 'The 1832 lighthouse takes its shape from Castelnau\'s harbour view', kind: 'feature',
+    items: [
+      'The lighthouse gains a narrower reconstructed stone shaft, small recesses, a railed gallery and an open lantern cage under a rounded crown and finial, after Castelnau\'s harbour view. Its measurements, its 1835 fittings and its remaining picture differences stay marked as reconstructed.',
+    ] },
+  { v: 2295, ts: '2026-10-25T22:52:20.647Z', date: 'Oct 25, 2026, 5:52 PM CT', title: 'The Pullman house, from its 1890s photograph', kind: 'improvement',
+    items: [
+      'George M. Pullman\'s house at Prairie Avenue and 18th Street is no longer a plain draft block: it stands in brownstone, two tall storeys under a slate mansard with dormers and iron cresting, at the heights a Detroit Publishing photograph of the 1890s shows.',
+      'A columned portico with a balcony over it fronts Prairie Avenue, a low stone wall runs along the street, and the stable and ranges behind the house still stand.',
+    ] },
   { v: 2294, ts: '2026-10-25T21:51:22.496Z', date: 'Oct 25, 2026, 4:51 PM CT', title: '1812 Prairie\'s package closed: last pictures read, house measured', kind: 'chore',
     items: [
       'The pictures listed for 1812 Prairie that no one had read are now read. The 1915 Tribune item is a portrait. The 1892 view south from 18th Street cannot see the house\'s front, because 1808 and Glessner stand in front of it from that walk. It is written up with a figure rather than solved into a camera that would prove nothing.',
