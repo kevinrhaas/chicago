@@ -1,0 +1,30 @@
+{
+  "id": "sanborn_1911_chicago_v3_sheet_27",
+  "type": "map",
+  "author": "Sanborn Map Company",
+  "date": "1911",
+  "describes_date": "1911",
+  "repository": "Library of Congress, Geography and Map Division, Fire Insurance Map Collection (stamped on the sheet)",
+  "url": "https://www.loc.gov/resource/g4104cm.g01790191103/?sp=27",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1911; public domain. The LOC credit stamp is retained on the sheet.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Fetched by T-3150 on 2026-10-25 from the Library of Congress's IIIF image service, https://tile.loc.gov/image-services/iiif/service:gmd:gmd410m:g4104m:g4104cm:g01790191103:01790_03_1911-0027/full/pct:100/0/default.jpg (answered 200; info.json gives 5873 x 7323, the size fetched), and committed at chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_27.jpg; its sha256 is checked by tools/georef_prairie_1904.py. The resource g4104cm.g01790191103 is the same bound volume (\"Sanborn Fire Insurance Map from Chicago, Cook County, Illinois\", Vol. 3, 1911, 143 images) the sheet 20, 28 and 35 records cite at https://www.loc.gov/item/sanborn01790_020/. Unlike those three, the image matched here is the sheet itself: image 0027 prints '27' and '(245-252)' in its corner, the 1911 sheet number and the 1891 sheets it replaces, and the image 0027 thumbnail was read to confirm it before the full size was fetched. Not supplied by Glessner House, so their reading of what changed between 1904 and 1911 does not cover this sheet.",
+  "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 27.",
+  "locator": "Sheet 27 (1891 edition sheets 245-252): E. 18th to E. 20th St., S. Michigan Av. to the 24-ft alley behind Indiana Av.'s east-face lots. 5873 x 7323 px, 0.0505 m to the pixel at the printed Scale of Feet, as sheets 20 and 28.",
+  "note": "Spent first by T-3150: georeferenced by tools/georef_prairie_1904.py, TIED to sheets 20 and 28 at the three crossings it shares with them (data/traces/gcp/sanborn_1911_v3_sheet_27_gcps.json), and Indiana Avenue's east-face lots from 18th to 20th read off it into the 1904 street grid by tools/trace_prairie_1904_grid.py. Its buildings are T-3151's.",
+  "what_it_supplies": [
+    "Lots, lot lines and the 1911 street numbers of Indiana Avenue's east face from 18th to 20th Street, and the corner lots' East 18th and East 20th Street numbers",
+    "Indiana Avenue's two property lines, 18th to 20th, drawn rather than interpolated between sheets 20 and 35",
+    "Footprints, material colour, storeys and use of the buildings on those lots as of 1911 (read by T-3151, not here)"
+  ],
+  "what_it_does_not_supply": [
+    "Anything as of 1904 on its own authority. It is a 1911 survey, and Glessner House's reading that sheets 20, 28 and 35 changed little between 1904 and 1911 was not made of this sheet",
+    "A construction date for any building it draws",
+    "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+    "Architecture above the footprint beyond its story count, material colour and roof symbol",
+    "Michigan Avenue and its lots, which it draws but nothing here reads yet"
+  ]
+}

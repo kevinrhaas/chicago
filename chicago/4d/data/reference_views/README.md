@@ -34,9 +34,11 @@ the same way with one length.
 
 **The match record** (`<view>.match.json`): the GLB and camera it was rendered from (sha256), the
 side-by-side, a `verdict` (`unreviewed` | `differs` | `matches`) and `differences`, each
-`{what, status}` with status `open` (visible in the picture, not yet built as it shows),
-`fixed`, or `not shown` (the picture cannot say: colour in a monochrome print, a face it does
-not see). `photo_match.mjs` keeps the verdict while the GLB and camera are unchanged, and sets it
+`{what, status}` with status `open` (visible in the picture, not yet built as it shows, and a
+visitor on the street would notice it), `fixed`, `not shown` (the picture cannot say: colour in
+a monochrome print, a face it does not see), or `within tolerance` (T-3153: under about 1 ft /
+0.3 m, a pixel offset, or a gap two pictures or two camera fits disagree about; say what was
+read). Only `open` blocks `matches`. `photo_match.mjs` keeps the verdict while the GLB and camera are unchanged, and sets it
 back to `unreviewed` when either changes — a building only matches a picture someone has looked
 at.
 
@@ -53,6 +55,12 @@ at.
   retouched print), with the reason written in the ticket.
 - Nothing refuses an edit: `check.sh` runs `image_gate.mjs --check`, which fails only a malformed
   file and otherwise prints where each building stands.
+- **Where it stops** (owner, 2026-10-25, T-3153; AGENTS.md rule 11). A difference is `open`
+  only if a street visitor would notice it: over about 1 ft (0.3 m) in size or place, an
+  element missing or mis-shaped, a wrong count of bays, openings or stacks, or a wrong
+  material or colour. Everything else is `within tolerance`. A run that finds a gap writes it
+  here and files no ticket (`ticket.mjs new` refuses one on a photo-gated house unless the
+  owner asked); a house's sign-off finishes in its own run and is never split.
 - What a picture does not show is still built, at the reconstructed tier, and recorded in
   `docs/LIBERTIES.md` — the gate is about what it does show.
 
