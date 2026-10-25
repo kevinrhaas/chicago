@@ -1897,12 +1897,26 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 g = w.get("grille")
                 if g is None:
                     continue
-                if set(g) != {"bars", "set_back_m", "ring_radius_m"} or not 2 <= int(g["bars"]) <= 16 \
-                        or not 0.0 < float(g["set_back_m"]) <= 0.08:
-                    raise ParamError(f"bays: {e['id']}'s grille takes bars (2-16), set_back_m (at most "
-                                     f"0.08 m) and ring_radius_m, not {g}")
-                w["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
-                               "ring_radius_m": float(g["ring_radius_m"])}
+                # T-3129: or, for `bars`, a rosette `panel` (1811's basement lights, from the
+                # c. 1888 photograph): border_m, pitch_m and rosette_m, all in metres
+                pn = g.get("panel")
+                if pn is not None:
+                    ok = set(g) == {"panel", "set_back_m", "ring_radius_m"} and isinstance(pn, dict) \
+                        and set(pn) == {"border_m", "pitch_m", "rosette_m"} \
+                        and 0.04 <= float(pn["border_m"]) <= 0.2 and 0.03 <= float(pn["pitch_m"]) <= 0.15 \
+                        and 0.04 <= float(pn["rosette_m"]) <= 0.15
+                else:
+                    ok = set(g) == {"bars", "set_back_m", "ring_radius_m"} and 2 <= int(g["bars"]) <= 16
+                if not ok or not 0.0 < float(g["set_back_m"]) <= 0.08:
+                    raise ParamError(f"bays: {e['id']}'s grille takes bars (2-16) or a panel (border_m "
+                                     f"0.04-0.2, pitch_m 0.03-0.15, rosette_m 0.04-0.15), set_back_m (at "
+                                     f"most 0.08 m) and ring_radius_m, not {g}")
+                if pn is not None:
+                    w["grille"] = {"panel": {k: float(pn[k]) for k in ("border_m", "pitch_m", "rosette_m")},
+                                   "set_back_m": float(g["set_back_m"]), "ring_radius_m": float(g["ring_radius_m"])}
+                else:
+                    w["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
+                                   "ring_radius_m": float(g["ring_radius_m"])}
         # T-2931: a light's moulded surround, jambs on its sill's horns under its lintel as a
         # hood (1801's bow and pavilion, from the Taylor photograph): on a flat-headed stone
         # light, never beside voussoirs, the jambs less proud than the sill and under the hood
@@ -2933,8 +2947,8 @@ def _round_arcade(ra, floor, spring, v0, v1, plinth) -> dict:
     The plinth band under the colonnettes is `band_m` deep down from the mouth's plinth top. The
     corner and the loggia's end it stands beside are checked in from_phase."""
     need = {"angles_deg", "clear_width_m", "crown_m", "reveal_m", "band_m"}
-    if not isinstance(ra, dict) or set(ra) != need:
-        raise ParamError(f"entrance_kit.loggia.round_arcade takes {sorted(need)}")
+    if not isinstance(ra, dict) or set(ra) - {"drops_m"} != need:
+        raise ParamError(f"entrance_kit.loggia.round_arcade takes {sorted(need)} (and drops_m)")
     ang = ra["angles_deg"]
     if not isinstance(ang, list) or not 1 <= len(ang) <= 6 or any(not isinstance(x, (int, float)) for x in ang):
         raise ParamError("entrance_kit.loggia.round_arcade.angles_deg: one to six angles round the curve")
@@ -2950,8 +2964,18 @@ def _round_arcade(ra, floor, spring, v0, v1, plinth) -> dict:
     if not 0.1 <= b <= plinth:
         raise ParamError(f"entrance_kit.loggia.round_arcade.band_m {b}: the plinth band 0.1 m deep at least, and "
                          f"no deeper than the mouth's {plinth} m plinth over the floor")
-    return {"angles_deg": ang, "clear_width_m": w, "crown_m": c, "reveal_m": r, "band_m": b,
-            "floor_m": round(floor, 5), "sill_m": round(spring, 5), "v_m": [v0, v1]}
+    out = {"angles_deg": ang, "clear_width_m": w, "crown_m": c, "reveal_m": r, "band_m": b,
+           "floor_m": round(floor, 5), "sill_m": round(spring, 5), "v_m": [v0, v1]}
+    # T-3129: each light and its colonnette stepped down by its own drop (1811's, as the 1888 plate
+    # and the Chicagology photograph step them), never rising round the curve and at most 0.4 m
+    if "drops_m" in ra:
+        dr = ra["drops_m"]
+        if not isinstance(dr, list) or len(dr) != len(ang) or any(not isinstance(x, (int, float)) for x in dr) \
+                or any(not 0.0 <= x <= 0.4 for x in dr) or any(y < x for x, y in zip(dr, dr[1:])):
+            raise ParamError(f"entrance_kit.loggia.round_arcade.drops_m {dr}: one drop a light (0-0.4 m), never "
+                             f"rising round the curve")
+        out["drops_m"] = [float(x) for x in dr]
+    return out
 
 
 def round_arcade_check(ra, rc, cl, width) -> None:

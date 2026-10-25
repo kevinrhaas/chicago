@@ -654,9 +654,12 @@ def grille(o, g: dict):
     s0, s1 = min(q[0] for q in out), max(q[0] for q in out)
     hd = o.meta["heads"][0]
     spring = hd.get("spring_m", hd.get("top_m", max(q[1] for q in out)))
-    b, d, n = IRON_BAR_M, g["set_back_m"], g["bars"]
+    b, d = IRON_BAR_M, g["set_back_m"]
     if not (0.0 < d and d + 2 * b + 0.002 <= o.meta["reveal_depth_m"]):
         raise ValueError(f"a grille {d} m back does not stand in a {o.meta['reveal_depth_m']} m reveal")
+    if "panel" in g:
+        return grille_panel(o, g, s0, s1, spring)
+    n = g["bars"]
     for i in range(1, n + 1):
         x = s0 + (s1 - s0) * i / (n + 1)
         prism(o, "iron", rect(x - b / 2, x + b / 2, 0.003, head_y(out, x) - 0.003), d + b + 0.002, d + 2 * b + 0.002)
@@ -684,6 +687,106 @@ def grille(o, g: dict):
 
 
 IRON_BAR_M = 0.018        # T-2525: K01's guard and grille bar (k01_arched_front.IRON_BAR_M)
+VOLUTE_SEGMENTS = 14      # T-3129: one panel volute, in straight runs of bar
+
+
+def _rod(o, p0, p1, d, b):
+    """T-3129: a flat bar `b` square from (s, y) p0 to p1, its face `d` behind the wall's:
+    the front and the two long sides."""
+    _run(o, [p0, p1], d, b)
+
+
+def _run(o, pts, d, b, closed=False):
+    """T-3129: a bar `b` square along the (s, y) polyline `pts` (`closed`: round to its
+    first point), its face `d` behind the wall's. Mitred at every bend, so its runs share
+    their edges and no two faces of one bar lie over each other."""
+    if closed and math.dist(pts[0], pts[-1]) < 1e-9:
+        pts = pts[:-1]
+    n = len(pts)
+    segs = [(pts[i], pts[(i + 1) % n]) for i in range(n if closed else n - 1)]
+    nrm = []
+    for a, c in segs:
+        L = math.dist(a, c)
+        nrm.append((-(c[1] - a[1]) / L, (c[0] - a[0]) / L))
+    off = []
+    for i in range(n):
+        ks = ((i - 1) % n, i) if closed else [k for k in (i - 1, i) if 0 <= k < len(segs)]
+        ins = [nrm[k] for k in ks]
+        mx, my = sum(q[0] for q in ins), sum(q[1] for q in ins)
+        m = math.hypot(mx, my)
+        mx, my = mx / m, my / m
+        k = b / 2 / max(0.3, mx * ins[0][0] + my * ins[0][1])
+        off.append((mx * k, my * k))
+    L_ = [(pts[i][0] + off[i][0], pts[i][1] + off[i][1]) for i in range(n)]
+    R_ = [(pts[i][0] - off[i][0], pts[i][1] - off[i][1]) for i in range(n)]
+    for i in range(len(segs)):
+        j = (i + 1) % n
+        nx, ny = nrm[i]
+        o.plane("iron", [R_[i], R_[j], L_[j], L_[i]], d)
+        o.face("iron", [o.P(*L_[i], d), o.P(*L_[j], d), o.P(*L_[j], d + b), o.P(*L_[i], d + b)], (nx, ny, 0.0))
+        o.face("iron", [o.P(*R_[i], d), o.P(*R_[j], d), o.P(*R_[j], d + b), o.P(*R_[i], d + b)], (-nx, -ny, 0.0))
+
+
+def _circle(c, r, segs):
+    return [(c[0] + r * math.cos(2 * math.pi * j / segs), c[1] + r * math.sin(2 * math.pi * j / segs))
+            for j in range(segs + 1)]
+
+
+def _volute(c, r, start, hand, turns=1.25):
+    """A bar curled `turns` times from radius r at angle `start` into a third of it at c."""
+    return [(c[0] + r * (1 - 0.68 * t) * math.cos(start + hand * 2 * math.pi * turns * t),
+             c[1] + r * (1 - 0.68 * t) * math.sin(start + hand * 2 * math.pi * turns * t))
+            for t in (j / VOLUTE_SEGMENTS for j in range(VOLUTE_SEGMENTS + 1))]
+
+
+def grille_panel(o, g, s0, s1, top):
+    """T-3129: a basement light's grille as 1811 Prairie's c. 1888 photograph shows it
+    (chicagology_photo): a flat-bar frame round the light, a border `border_m` wide of short
+    bars at `pitch_m` (uprights across the head and foot, rungs up the sides), and inside it a
+    square panel: a rosette `rosette_m` across at the centre with eight spokes out to a ring
+    of `ring_radius_m`, a volute in each corner curling toward the ring, and a smaller one on
+    the middle of each side. The frames, the ring and the rosette stand at the set-back; the
+    spokes, the volutes and the border's bars just behind them, as the bar grille's uprights
+    do, so no two bars in one plane lie over each other."""
+    b, d, P = IRON_BAR_M, g["set_back_m"], g["panel"]
+    back = d + b + 0.002
+    bd, pitch, r0, R = P["border_m"], P["pitch_m"], P["rosette_m"] / 2, g["ring_radius_m"]
+    x0, x1, y0, y1 = s0 + 0.012, s1 - 0.012, 0.012, top - 0.012
+    xi0, xi1, yi0, yi1 = x0 + bd, x1 - bd, y0 + bd, y1 - bd
+    cx, cy = (xi0 + xi1) / 2, (yi0 + yi1) / 2
+    hx, hy = (xi1 - xi0) / 2, (yi1 - yi0) / 2
+    h = min(hx, hy)
+    if not (0.04 <= bd and xi1 - xi0 > 0.3 and yi1 - yi0 > 0.3 and 0.02 <= r0 < R <= 0.7 * h):
+        raise ValueError(f"a grille panel with a {bd} m border and a {R} m ring does not stand in a "
+                         f"{s1 - s0:.3f} x {top:.3f} m light")
+    for (u0, u1, v0, v1) in ((x0, x1, y0, y1), (xi0, xi1, yi0, yi1)):   # the frame and the panel's
+        _run(o, [(u0, v0), (u1, v0), (u1, v1), (u0, v1)], d, b, closed=True)
+    n = max(2, round((x1 - x0) / pitch))
+    for i in range(1, n):                   # the head's and foot's uprights
+        x = x0 + (x1 - x0) * i / n
+        for (ya, yb) in ((y0, yi0), (yi1, y1)):
+            _rod(o, (x, ya), (x, yb), back, b)
+    m = max(2, round((yi1 - yi0) / pitch))
+    for i in range(1, m):                   # the sides' rungs
+        y = yi0 + (yi1 - yi0) * i / m
+        for (xa, xb) in ((x0, xi0), (xi1, x1)):
+            _rod(o, (xa, y), (xb, y), back, b)
+    _run(o, _circle((cx, cy), r0, 10), d, b, closed=True)
+    _run(o, _circle((cx, cy), R, 24), d, b, closed=True)
+    re = R - 0.012                          # the spokes stop behind the ring
+    for k in range(8):                      # the rosette's spokes
+        a = math.pi * k / 4
+        _rod(o, (cx + r0 * math.cos(a), cy + r0 * math.sin(a)), (cx + re * math.cos(a), cy + re * math.sin(a)), back, b)
+    # the volutes stand behind the frames with the spokes, clear of the spokes' ends: in the
+    # corners, and smaller on the middle of each side
+    rc = 0.3 * h
+    for sx, sy in ((1, 1), (-1, 1), (-1, -1), (1, -1)):
+        c = (cx + sx * (hx - rc - 0.012), cy + sy * (hy - rc - 0.012))
+        _run(o, _volute(c, rc, math.atan2(-sy, -sx), sx * sy), back, b)
+    rm = 0.15 * h
+    for k, (ux, uy) in enumerate(((1, 0), (0, 1), (-1, 0), (0, -1))):
+        c = (cx + ux * (hx - rm - 0.012), cy + uy * (hy - rm - 0.012))
+        _run(o, _volute(c, rm, math.atan2(-uy, -ux), 1 if k % 2 == 0 else -1), back, b)
 
 
 def _check_balcony_scroll_geometry(iron, panel, top_rails, clearance=0.01):
