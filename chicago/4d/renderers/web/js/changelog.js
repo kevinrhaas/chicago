@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2292, ts: '2026-10-25T21:12:04.484Z', date: 'Oct 25, 2026, 4:12 PM CT', title: 'Indiana Avenue\'s 18th-20th block, house by house', kind: 'feature',
+    items: [
+      'Look west from Glessner\'s and Kimball\'s walks: the row of stand-in houses on Indiana Avenue between 18th and 20th Street is replaced by the houses the 1911 fire-insurance map draws there, each on its own lot. That is 22 houses, among them a stone-fronted row at 1801-1807 and three pairs of twin houses, plus three frame flats on 18th Street and 13 stables and sheds on the alley.',
+      'The ten addresses where the 1904 Blue Book lists households now each stand on their own lots. The post-office sub-station and the corner store at 20th Street are left open until someone finds what stood there in 1904.',
+    ] },
   { v: 2291, ts: '2026-10-25T20:39:44.660Z', date: 'Oct 25, 2026, 3:39 PM CT', title: '1801 Prairie\'s round corner bay, from its 1965 photograph', kind: 'improvement',
     items: [
       'The W. W. Kimball house at 1801 Prairie now turns its south-west corner in a two-storey round bay, one window a storey under a pierced stone balcony, as Harold Allen\'s 1965 HABS photograph shows it.',
