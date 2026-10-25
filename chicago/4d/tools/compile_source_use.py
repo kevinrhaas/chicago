@@ -16,8 +16,8 @@ STEP = ['python3', 'tools/compile_source_use.py']
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
-# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056 — see outputs().
-INDEX_BUDGET = 176_000
+# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013 — see outputs().
+INDEX_BUDGET = 184_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -429,6 +429,12 @@ class Compiler:
         # Gifford's first Tremont) merged onto dev's own additions took the index to
         # 168 716 raw bytes with every citation kept whole. Same bargain: about twenty
         # sources of room, the gzipped first open still held at 120 KB by measure_sources.mjs.
+        # 184 000 SINCE 2026-10-25 (T-3013): twelve dated records (four Blue Books, the 1902
+        # Lakeside directory and seven Tribune advertisements) that rule what stood on five
+        # Indiana Avenue lots on 1 July 1904, merged onto dev's T-3055/T-3056 additions, took
+        # the index to 177 692 raw bytes with every citation whole. Same bargain as before:
+        # about twenty sources of room, and the 120 KB compressed first-open allowance,
+        # measured by measure_sources.mjs, unchanged.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

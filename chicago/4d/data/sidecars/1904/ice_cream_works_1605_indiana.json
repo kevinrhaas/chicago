@@ -1,0 +1,270 @@
+{
+  "id": "ice_cream_works_1605_indiana",
+  "phase": "draft_1904",
+  "name": "1605–1613 Indiana Avenue — the Thompson-Reid and Collins Bros. ice-cream works, building (district draft; refined by T-1946)",
+  "aka": [
+    "1605 S. Indiana Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/ice_cream_works_1605_indiana__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3019 census rules it present in 1904 (phase_unresolved). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1326.112,
+    "local_n": -2967.072,
+    "rotation_deg": 179.497,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.250, v -14.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.497 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1605 S. Indiana Avenue, parcel indiana_1605 (data/street_grid/1904.json), east side of Indiana Avenue, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        52.75,
+        0.0
+      ],
+      [
+        52.75,
+        29.0
+      ],
+      [
+        0.0,
+        29.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 4,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "'4' printed on the 1911 sheet: 4 full storeys."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The register reads the map's colours as 'brick'."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 4,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              52.75,
+              29.0
+            ],
+            "from": "s20wfp-indiana_1605-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill"
+          }
+        ],
+        "lot_v": [
+          -1.626,
+          29.626
+        ],
+        "street_u": 52.91
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20wfp-indiana_1605-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 3679707877,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 38,
+        "mansard_lower_m": 3.0,
+        "front_bays": 8,
+        "entrance": "centre",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-3130",
+          "refined_by": [
+            "T-1946"
+          ]
+        },
+        "works": {
+          "raised_storeys": 3,
+          "course_m": 1.6,
+          "wall_m": 0.55
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Thompson-Reid and Collins Bros. ice-cream works RISING on 1 July 1904 (T-3130), in the working phase the census leaves open (phase_unresolved) and the draft declares, as 2126's Robbins house is declared. It stands on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. The brick shell is three storeys up over its stone foundation, the street wall and its front returns 1.6 m into the fourth. The openings are empty, and there is no roof. A deck is laid at the first floor, with a pole scaffold along the street. The eight bays and the central opening are the draft's: no picture of the building is known. The 1886 houses are not stood, and the finished 1911 factory is not carried back. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3679707877 only tints the fabric inside +-6 %. Liberty L-draft-indiana-1605-works-3130."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3130",
+        "liberty": "L-draft-indiana-1605-works-3130",
+        "register_row": "frontage-20w-1605–1613",
+        "census_ids": [
+          "s20w-1605-front"
+        ],
+        "trace_building": "s20wfp-indiana_1605-b1",
+        "seed": 3679707877,
+        "replaceable_by": [
+          "T-1946"
+        ],
+        "card": "District draft — refined by T-1946."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "large_workshop",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicago_tribune_1903_09_04_ice_cream_plant",
+        "chicago_tribune_1903_11_08_ice_cream_works_begun",
+        "abendpost_1904_03_22_indiana_1605_foundation",
+        "chicago_tribune_1904_09_11_thompson_reid_lease"
+      ],
+      "note": "The 1911 sheet reads '4-storey brick factory from Indiana Avenue to the alley, lettered THOMPSON-REID & COLLINS BROS. ICE CREAM CO., 'STABLE 2nd', an engine and a generator at its alley end'. On the target date the works are being built (T-3130). Collins Bros. and the Thompson-Reid company bought 1605-1613 in September 1903 for a plant covering the whole ground (chicago_tribune_1903_09_04_ice_cream_plant). In November 1903 the Tribune describes it as a four-storey brick building with a barn, 100 by 177 feet, from A. R. Buckley's plans (chicago_tribune_1903_11_08_ice_cream_works_begun). Its foundation was still being dug on 22 March 1904 (abendpost_1904_03_22_indiana_1605_foundation). From 1 September 1904 Thompson-Reid let a floor of its old Wabash Avenue premises (chicago_tribune_1904_09_11_thompson_reid_lease). So on 1 July 1904 the works were a building rising on the 1911 footprint, not yet the factory the sheet letters. The function is the plant the walls were for; 'large_workshop' is the closed vocabulary's nearest term for a manufactory. Carried to 1904 on the T-3019 census ruling (phase_unresolved). How high the walls stood is RECONSTRUCTED (liberty L-draft-indiana-1605-works-3130): three of the four storeys, and part of the fourth along the street. No dated source gives the walls' height. The dates either side frame it: a foundation was being dug on 22 March 1904, and the firm let a floor of its old premises from 1 September 1904. Three storeys is the draft's reading of a brick shell about fourteen weeks after its excavation, with the move about two months off."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "abendpost_1904_03_22_indiana_1605_foundation",
+      "citation": "Abendpost (Chicago), 22 March 1904, vol. 16, no. 69, 'Gewaltsames Ende': the report of a labourer buried and killed by falling earth that day while digging a foundation at No. 1605-1613 Indiana Ave.",
+      "url": "https://archive.org/details/sim_abendpost-sonntagpost_1904-03-22_16_69",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "1605-1613 Indiana was an excavation for a foundation in March 1904"
+      ],
+      "what_it_does_not_supply": [
+        "how far the building had risen by 1 July 1904"
+      ]
+    },
+    {
+      "source_id": "chicago_tribune_1903_09_04_ice_cream_plant",
+      "citation": "'Two ice cream concerns to erect plant jointly. Collins Bros. and Thompson-Reid companies buy land and will construct a $40,000 establishment.' Chicago Daily Tribune, 4 September 1903.",
+      "url": "https://archive.org/details/per_chicago-daily-tribune_1903-09-04_62_212",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the sale of 1605-1613 Indiana for the ice-cream plant, September 1903",
+        "that the corner, 1601-1603, was not in the sale"
+      ],
+      "what_it_does_not_supply": [
+        "when the plant was finished"
+      ]
+    },
+    {
+      "source_id": "chicago_tribune_1903_11_08_ice_cream_works_begun",
+      "citation": "Real-estate column, Chicago Daily Tribune, 8 November 1903: the building news that Thompson-Reid and Collins Bros. 'have begun the construction of a four story building ... and a barn, at 1605 to 1618 [1613] Indiana avenue'.",
+      "url": "https://archive.org/details/per_chicago-daily-tribune_1903-11-08_62_45",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the plant's planned form: a four-storey brick building 100 by 177 feet, with a barn",
+        "its architect, A. R. Buckley, and its cost, $50,000"
+      ],
+      "what_it_does_not_supply": [
+        "how far the walls had risen by 1 July 1904",
+        "when the plant was finished"
+      ]
+    },
+    {
+      "source_id": "chicago_tribune_1904_09_11_thompson_reid_lease",
+      "citation": "Real-estate column, Chicago Daily Tribune, 11 September 1904: the week's leases, among them one 'for Thompson-Reid Ice Cream Co.' of a second floor at the north-west corner of Wabash Avenue and Peck Court from 1 September 1904.",
+      "url": "https://archive.org/details/per_chicago-daily-tribune_1904-09-11_63_37",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that Thompson-Reid let a floor of its Wabash and Peck Court premises from 1 September 1904"
+      ],
+      "what_it_does_not_supply": [
+        "how far the new plant's walls had risen by 1 July 1904",
+        "the day the firm moved"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_20",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+        "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+        "Its own printed Scale of Feet, which the georeference uses as its scale"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3130, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20w trace (s20wfp-indiana_1605-b1), the T-3019 census (s20w-1605-front) and the T-1837 register row frontage-20w-1605–1613 (Brick factory); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-indiana-1605-works-3130).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "1605–1613 Indiana Avenue — the Thompson-Reid and Collins Bros. ice-cream works, building"
+}
