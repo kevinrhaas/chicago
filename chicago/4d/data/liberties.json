@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 776,
+  "count": 777,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -55705,6 +55705,86 @@
         "T-1880",
         "T-1881",
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-lighthouse-visible-prototype-2373",
+      "title": "Picture-bounded lighthouse form",
+      "section": "per_subject",
+      "subjects": [
+        "chicago_lighthouse_1832"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "chicago_lighthouse_1832",
+          "phase": "tower_1832",
+          "aspect": "form.tower_diameter_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "chicago_lighthouse_1832",
+          "phase": "tower_1832",
+          "aspect": "form.tower_lantern_detail"
+        },
+        {
+          "domain": "structure",
+          "structure": "chicago_lighthouse_1832",
+          "phase": "tower_1832",
+          "aspect": "form.tower_masonry"
+        },
+        {
+          "domain": "structure",
+          "structure": "chicago_lighthouse_1832",
+          "phase": "tower_1832",
+          "aspect": "form.tower_openings"
+        },
+        {
+          "domain": "structure",
+          "structure": "chicago_lighthouse_1832",
+          "phase": "tower_1832",
+          "aspect": "form.tower_profile"
+        }
+      ],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`chicago_lighthouse_1832.tower_1832.form.tower_diameter_m`, `chicago_lighthouse_1832.tower_1832.form.tower_openings`, `chicago_lighthouse_1832.tower_1832.form.tower_profile`, `chicago_lighthouse_1832.tower_1832.form.tower_lantern_detail`, `chicago_lighthouse_1832.tower_1832.form.tower_masonry`."
+        },
+        {
+          "label": "Decision",
+          "text": "Select the already rendered irregular-stone prototype for a visible progress increment: reconstructed 3.04 m diameter about the unchanged centre, three plain recessed shaft apertures, a gallery and open framed lantern with rounded crown/finial, and irregular procedural stone courses. Geometry is regenerated through the current native producer; no research GLB is copied into canonical assets."
+        },
+        {
+          "label": "Reconstructed dimensions",
+          "text": "Gallery underside 8.719767307 m, crown base 11.0 m, 1.0 m rail, maximum 12.84968 m; cage pane opacity 0.18, sill 0.16 m, dome rise 0.72 m, 12 uprights at 45 mm, 16 gallery posts at 35 mm, 18 mm finial radius. Aperture widths 0.34/0.42/0.54 m, tangent offsets−0.055/−0.03/0 m and their fractional heights/facets remain reconstructed set-out. Masonry uses nominal 0.30 m courses, 0.50 m bond, 25 mm joints, 12 mm inward relief, 60 mm reveals, seed 2373, varied beds/chips and five neutral local tones. No source texture/geometry/colour is sampled."
+        },
+        {
+          "label": "Uncertainty",
+          "text": "Castelnau's actual 1842 published harbour plate is interpreted as circa 1838; applying those visible details to July 1835 is inferred continuity. Graphic hatch is not a measured masonry schedule, stone type, finish or paint. The upper-right aperture is uncertain and no proven ground door is added. Andreas's 40 ft remains the unchanged rounded 12.19 m literal, with its historical datum unresolved; decimal profile controls are diagnostic precision, not historic measurement. The provisional camera and weak/occluded toe do not alter surveyed placement, foundation, dates or bearing. All seven original source views remain different or unresolved; the native-app and original image gates remain owed."
+        },
+        {
+          "label": "Source",
+          "text": "Francis de Castelnau, Vues et souvenirs de l'Amérique du Nord (Paris: Arthus… (identified 1842 plate 18, Chicago panel 4/prose Fig 1 discrepancy retained), with Anderson, Kraig. \"Chicago Harbor Lighthouse, Illinois.\" Lighthousefriends.com for the written bird-cage type. The school drawing's project-use approval does not clear Baker/auction-image rights; no geometry from those uncleared reproductions enters this increment."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Compare actual native exports against every independently credited dated view, retain source-specific camera/date uncertainty and seek contemporary construction specifications. The actual fixed-geometry light-direction A/B changes shaft shading only and still differs; it is not a solved sun angle, camera or match."
+        },
+        {
+          "label": "Subjects",
+          "text": "Chicago Lighthouse (1832 tower). The reconstructed footprint remains covered by existing “The 1832 lighthouse: one documented number and an invented tower”; this paragraph records the narrower centre-preserving choice and new picture evidence without duplicating that coverage."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24; adopted 2026-10-25 (T-3122). Freshly baked with the pinned Blender through the current producer: the lighthouse master carries 8,021 triangles and the other 24 fort-family masters and web derivatives come out byte-identical. The overall height the profile reaches is 12.84968 m against the unchanged 12.19 m (40 ft) wall-height literal, whose datum stays unresolved."
+        }
+      ],
+      "work_refs": [
+        "T-3122",
+        "T-2373"
       ]
     },
     {
