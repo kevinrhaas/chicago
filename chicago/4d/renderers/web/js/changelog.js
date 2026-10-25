@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2272, ts: '2026-10-25T11:30:49.834Z', date: 'Oct 25, 2026, 6:30 AM CT', title: '1812 Prairie\'s porch arch cut into the projection\'s corner', kind: 'change',
+    items: [
+      'The porch arch of 1812 Prairie is now cut into the corner of the projection beside it, as both photographs of the house show: its south jamb and light moulding run down the projection\'s own face, about 0.3 m further south than before, so the arch is broader and the double doors under it wider. Albert Levy\'s print and the c. 1955 photograph both draw that jamb south of the projection\'s corner, and the north jamb on the main front, so the arch is cut into the corner rather than standing forward. The inside of the cut, which neither picture shows, is reconstructed.',
+    ] },
   { v: 2271, ts: '2026-10-25T10:44:45.895Z', date: 'Oct 25, 2026, 5:44 AM CT', title: '1811 Prairie\'s scrolled basement grilles and stepped porch arcade', kind: 'change',
     items: [
       'The two basement windows under 1811 Prairie\'s bay now carry the scrolled iron grilles the c. 1888 photograph shows: a rosette, eight spokes and a ring, with a curled scroll in each corner, inside a border of short bars. The windows reach lower, to where the photograph puts their foot.',
