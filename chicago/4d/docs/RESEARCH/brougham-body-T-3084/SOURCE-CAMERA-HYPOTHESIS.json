@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "source_id": "studebaker_1893_illustrated_souvenir",
+  "scan_leaf": "0095",
+  "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+  "reference_image_px": [
+    1556,
+    1145
+  ],
+  "source_master_sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45",
+  "camera_kind": "provisional_orthographic_comparison",
+  "eye_m": [
+    188.18663838812304,
+    1.7353414634146342,
+    27.401942122796115
+  ],
+  "target_m": [
+    0,
+    1.7353414634146342,
+    1.214366210203227
+  ],
+  "up": [
+    0,
+    1,
+    0
+  ],
+  "frustum_m": {
+    "left": -3.795121951219512,
+    "right": 3.795121951219512,
+    "top": 2.792682926829268,
+    "bottom": -2.792682926829268,
+    "near": 100,
+    "far": 1000
+  },
+  "solve": {
+    "method": "Original fixed orthographic hypothesis fitted to two previously recorded near-wheel centres, with205px/m chosen within the informal vertical-radius intervals. No camera/render/source edits used to erase body differences.",
+    "controls": [
+      {
+        "id": "front-near-wheel",
+        "original_informal_plate_center_px": [
+          810,
+          820
+        ],
+        "producer_root_point_m": [
+          0.67,
+          0.528,
+          1.15
+        ],
+        "predicted_px": [
+          810.0,
+          820.005
+        ],
+        "residual_px": [
+          0.0,
+          0.0049999999999954525
+        ],
+        "original_informal_radius_px": 106,
+        "predicted_vertical_radius_px": 108.24000000000001,
+        "radius_residual_px": 2.240000000000009,
+        "source_control_uncertainty_note": "Previously recorded informal +/-3-4px centres and +/-5px radii; not a surveyed camera or historic metres"
+      },
+      {
+        "id": "rear-near-wheel",
+        "original_informal_plate_center_px": [
+          1277,
+          795
+        ],
+        "producer_root_point_m": [
+          0.67,
+          0.65,
+          -1.15
+        ],
+        "predicted_px": [
+          1277.0,
+          794.995
+        ],
+        "residual_px": [
+          0.0,
+          -0.0049999999999954525
+        ],
+        "original_informal_radius_px": 137,
+        "predicted_vertical_radius_px": 133.25,
+        "radius_residual_px": -3.75,
+        "source_control_uncertainty_note": "Previously recorded informal +/-3-4px centres and +/-5px radii; not a surveyed camera or historic metres"
+      }
+    ],
+    "not_a_historical_calibration": true,
+    "limits": [
+      "A lithograph is not a calibrated photograph; camera/scale and reconstructed absolute dimensions are nonunique.",
+      "Two centre controls and approximate radii do not constrain every wheel ellipse, width, roof or coach contour. Record remaining residuals after actual source-bound rendering.",
+      "Source is occupied and team-drawn; master remains empty/static/parked-down. No copied people, posed pole or owner identity is inferred.",
+      "Other side/front/rear study cameras show original hidden reconstruction, not separately attested catalogue elevations."
+    ]
+  },
+  "actual_render_executed": true,
+  "photographic_accepted": false,
+  "actual_result_binding": "FINAL-NATIVE-STUDY-BINDING.json"
+}

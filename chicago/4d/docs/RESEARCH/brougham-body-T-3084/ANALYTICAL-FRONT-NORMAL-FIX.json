@@ -1,0 +1,136 @@
+{
+  "scope": "Current206 analytical-front-normal ONLY source close-up; exact same original shadow-enabled settings",
+  "original_result_sha256": "4e266961ac02fd2fc9750093fe3ad25c27cf82ab9f423541dde4ae55019703f1",
+  "actual_source_assets": {
+    "baseline": {
+      "file": "/tmp/T3084-V19-C1-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635"
+    },
+    "candidate": {
+      "file": "/tmp/T3084-V19-C1N-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4"
+    },
+    "reference": {
+      "file": "/workspace/chicago-evidence/evidence/transport-refinement-resume-2026-10-23/THIRD-CHECKPOINT/LAMP-CPU-GEOMETRY-COMPARISON/ACTUAL/plate0095-untouched.jpg",
+      "sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe"
+    }
+  },
+  "actual_outer_result": {
+    "returncode": 0,
+    "seconds": 10.393314905988518,
+    "command_seconds": 10.39324350899551,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "node",
+      "/tmp/T3084-C1N-analytical-normal-close1/render-native.cjs"
+    ],
+    "cwd": "/tmp/chicago-photo-worker-t3084-20261026/chicago/4d",
+    "main_child_pid": 348744,
+    "timed_out": false,
+    "requested_timeout_seconds": 60.0,
+    "effective_timeout_seconds": 60.0,
+    "timeout_override_reason": null
+  },
+  "actual_cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 348770,
+        "status": 256
+      },
+      {
+        "pid": 348772,
+        "status": 0
+      },
+      {
+        "pid": 348773,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "actual_errors": [],
+  "actual_browser_closed": true,
+  "actual_image_rows": [
+    {
+      "view": "body_detail",
+      "filename": "candidate-body_detail.png",
+      "sha256": "bf5332f8454065b8b739b34f8285fd80feb263932c71286d73607407ac48e7a0",
+      "which": "candidate"
+    }
+  ],
+  "photographic_accepted": false,
+  "published_phone_world_budget_accepted": false,
+  "actual_position_preservation": {
+    "pass": true,
+    "prior_C1_sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635",
+    "analytical_front_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+    "all481triangle_position_streams_exact": true,
+    "normal_changed_parts": [
+      [
+        "cabin_front_lower",
+        "vehicle_body",
+        0
+      ]
+    ],
+    "all_other_normals_materials_nodes_extras_exact": true,
+    "geometry_or_control_deformation": false
+  },
+  "actual_normal_readback": {
+    "scope": "Read-only numeric shading diagnosis; no source mutation/render",
+    "actual_source_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+    "actual_unique_interior_front_vertices_compared": 1410,
+    "angular_error_degrees": {
+      "max": 0.0005318495882642297,
+      "median": 2.091309789151873e-06,
+      "p95": 5.573775443235988e-05
+    },
+    "all_current_curve_height_knots": 56,
+    "real_front_boundary_vertex_knots": 31,
+    "extra_rear_vertex_heights_inserted_as_front_constraints": 25,
+    "worst_actual_samples": [
+      {
+        "y": 1.0125400492575316,
+        "fraction": 0.0,
+        "angle_deg": 0.0005318495882642297
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": -0.09999999980745511,
+        "angle_deg": 0.0005318345119387907
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": 0.09999999980745511,
+        "angle_deg": 0.0005318345119387907
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": -0.19999999961491022,
+        "angle_deg": 0.0005317920218129932
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": 0.19999999961491022,
+        "angle_deg": 0.0005317920218129932
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": -0.3000000063718612,
+        "angle_deg": 0.0005317159423002258
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": 0.3000000063718612,
+        "angle_deg": 0.0005317159423002258
+      },
+      {
+        "y": 1.0125400492575316,
+        "fraction": -0.39999999922982044,
+        "angle_deg": 0.0005316151715937737
+      }
+    ],
+    "not_a_visual_verdict": true
+  },
+  "visual_observation": "Front highlight flow improves; faint broad shade variation remains. It is not a whole-model photographic or published rendering verdict."
+}

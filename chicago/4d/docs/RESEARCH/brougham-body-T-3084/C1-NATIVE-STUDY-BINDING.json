@@ -1,0 +1,160 @@
+{
+  "scope": "Historical C1 source50f;17native rows, before analytical normal fix",
+  "original_result_sha256": "dded11fc2b3ec99833127d2873f1b967dfe75484107e264e9cbb14e80939739d",
+  "actual_source_assets": {
+    "baseline": {
+      "file": "/tmp/T3084-V19-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45"
+    },
+    "candidate": {
+      "file": "/tmp/T3084-V19-C1-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635"
+    },
+    "reference": {
+      "file": "/workspace/chicago-evidence/evidence/transport-refinement-resume-2026-10-23/THIRD-CHECKPOINT/LAMP-CPU-GEOMETRY-COMPARISON/ACTUAL/plate0095-untouched.jpg",
+      "sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe"
+    }
+  },
+  "actual_outer_result": {
+    "returncode": 0,
+    "seconds": 65.67343385500135,
+    "command_seconds": 65.67334537199349,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "node",
+      "/tmp/T3084-native-v19-C1-final-visual1/render-native.cjs"
+    ],
+    "cwd": "/tmp/chicago-photo-worker-t3084-20261026/chicago/4d",
+    "main_child_pid": 346794,
+    "timed_out": false,
+    "requested_timeout_seconds": 180.0,
+    "effective_timeout_seconds": 180.0,
+    "timeout_override_reason": null
+  },
+  "actual_cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 346820,
+        "status": 256
+      },
+      {
+        "pid": 346822,
+        "status": 0
+      },
+      {
+        "pid": 346823,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "actual_errors": [],
+  "actual_browser_closed": true,
+  "actual_image_rows": [
+    {
+      "view": "quarter",
+      "filename": "baseline-quarter.png",
+      "sha256": "c90926f92d7f32b5f9d00acdd09b486a516953e4d80c34189c37f1a8074cd3d2",
+      "which": "baseline"
+    },
+    {
+      "view": "quarter",
+      "filename": "candidate-quarter.png",
+      "sha256": "c11c200cd4c95f86b4907101d802db28289f9c1c2c883da5a2ae70b8a6cb56eb",
+      "which": "candidate"
+    },
+    {
+      "view": "side",
+      "filename": "baseline-side.png",
+      "sha256": "13f0bd5d57aa7ba3f33b9074094293c420ed492ccff5cdc70fe1164fd05dfdb9",
+      "which": "baseline"
+    },
+    {
+      "view": "side",
+      "filename": "candidate-side.png",
+      "sha256": "afd35665bf3e27ff0b70d112383007d8778435635f135806e1bf5e3121ea4718",
+      "which": "candidate"
+    },
+    {
+      "view": "front",
+      "filename": "baseline-front.png",
+      "sha256": "df167eb04781d821382f1e89ec430183072cf7a84a0e5acf551e62714ed76e7f",
+      "which": "baseline"
+    },
+    {
+      "view": "front",
+      "filename": "candidate-front.png",
+      "sha256": "7e424078caa344bb5ebcd094f43ce4413028aece9b3969073ba2f12ade8bbbda",
+      "which": "candidate"
+    },
+    {
+      "view": "rear",
+      "filename": "baseline-rear.png",
+      "sha256": "5f27632beb8cf5bb00109233fc628fc7419f4464e64bf1f5cdfbec405e0b5d41",
+      "which": "baseline"
+    },
+    {
+      "view": "rear",
+      "filename": "candidate-rear.png",
+      "sha256": "995ce5b94046ae664a30105af11ea193d64d644cd2d167dccdb7da114229f972",
+      "which": "candidate"
+    },
+    {
+      "view": "body_detail",
+      "filename": "baseline-body_detail.png",
+      "sha256": "96ad9ed3892eac0ddfcaf6f393b139567155ac7e1d16d0cd450b47f49eab4caf",
+      "which": "baseline"
+    },
+    {
+      "view": "body_detail",
+      "filename": "candidate-body_detail.png",
+      "sha256": "fe4e235e50b59fa547176a70bfce42ef7f1b8e6407c96f0da4f3d8ad4cb36b16",
+      "which": "candidate"
+    },
+    {
+      "view": "seat_detail",
+      "filename": "baseline-seat_detail.png",
+      "sha256": "fb1cfd4aa8e4370318ccc79959e2e949af5be021ff8dacde41b5291467de5a7f",
+      "which": "baseline"
+    },
+    {
+      "view": "seat_detail",
+      "filename": "candidate-seat_detail.png",
+      "sha256": "58dd6f86195de9611c3f0f493ed34ede09425642ddded2bee865b4c8702b4a33",
+      "which": "candidate"
+    },
+    {
+      "view": "source-quarter",
+      "filename": "baseline-source-quarter.png",
+      "sha256": "f3915e450df290e396608bc6977750ef531013ec43658571cc8e7cd7b1f3b693",
+      "which": "baseline"
+    },
+    {
+      "view": "source-quarter",
+      "filename": "candidate-source-quarter.png",
+      "sha256": "c7e9f44959549ed04cc1cf7734bcc9b1a480c0b37e0935c3c1aa334371b08b22",
+      "which": "candidate"
+    },
+    {
+      "view": "source-and-final-native-pair",
+      "filename": "untouched-source-and-final-candidate.png",
+      "sha256": "89f773b0dd426b9f1b764733babadeb8b4e0582649b63d1f512756ec113ceb55",
+      "which": null
+    },
+    {
+      "view": "native-phone-study-ONLY",
+      "filename": "baseline-native-phone-study.png",
+      "sha256": "03225a7c47883c10740735db2400ed890fec5a7c3a9c5775488d089e5b4263f4",
+      "which": "baseline"
+    },
+    {
+      "view": "native-phone-study-ONLY",
+      "filename": "candidate-native-phone-study.png",
+      "sha256": "6d00f97b322c1b9993eee1c787a1b43be6bcbe968f75f28094d0f41db037b2ad",
+      "which": "candidate"
+    }
+  ],
+  "photographic_accepted": false,
+  "published_phone_world_budget_accepted": false
+}

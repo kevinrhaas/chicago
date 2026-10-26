@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""V18 exact NEAR delivery gate with independent additive MID gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
+"""V19 exact body/finish delivery and independent V18 physical protection. No terrain/photo/LOD appearance acceptance."""
 from pathlib import Path
 import argparse,hashlib,json,math,struct
-EXPECTED_CONTRACT='0601f79860e09d615a197431ce680333ffba6a422ad7793e003665ab4af993bf'
 
 def read(path):
     b=path.read_bytes();assert struct.unpack_from('<III',b)==(0x46546c67,2,len(b)), 'Invalid GLB envelope'
@@ -91,61 +90,71 @@ def native_contacts(j,b):
     pole=next(i for i,n in enumerate(j['nodes']) if n['name']=='vehicle_team_pole');hitch=next(i for i,n in enumerate(j['nodes']) if n['name']=='vehicle_hitch_team')
     shoe=next(p for p in j['extras']['parts'] if p['name']=='parked_pole_ground_shoe');ps=list(struct.iter_unpack('<fff',component(j,b,shoe,'POSITION')))
     return {'wheels':wheels,'full_fixed_pole_bounds_root_m':bounds(points(j,b,world,pole)),'shoe_bounds_root_m':bounds(ps),'shoe_bottom_corners_root_m':[list(q) for q in sorted(set(p for p in ps if abs(p[1])<1e-7))],'parked_hitch_root_m':world[hitch],'has_tongue_hinge':any(n['name']=='vehicle_tongue' for n in j['nodes'])}
+EXPECTED_DETAIL_CONTRACTS = {'near': 'c7550592fdb8ee11d44ea1d1f223752555cb8a84007984033c638c8c5fcfb64b', 'mid': '926f8cc8d7b2a53679f40822f8afe691824655a7bb3eade9cf29939e4c3be0b0'}
+
+
+def check_detail(mode, directory, source_directory):
+    from body_geometry import check_preservation, mutation_controls, check_front_curve
+    from lamp_geometry import keyed, lamp_surfaces
+    from static_master import static_master_contract
+    here=Path(__file__).resolve().parent
+    contract_path=here/(mode+'-contract.json')
+    sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+    assert sha(contract_path)==EXPECTED_DETAIL_CONTRACTS[mode], 'Exact reviewed V19 '+mode+' contract'
+    c=json.loads(contract_path.read_text())
+    raw=directory/c['raw_file'];indexed=directory/c['indexed_file']
+    assert sha(raw)==c['raw_sha256'] and raw.stat().st_size==c['raw_bytes'], 'Exact V19 raw '+mode
+    assert sha(indexed)==c['indexed_sha256'] and indexed.stat().st_size==c['indexed_bytes'], 'Exact V19 indexed '+mode
+    for name,digest in c['source_files'].items():assert sha(source_directory/name)==digest, 'Exact producer/source/license '+name
+    for name,digest in c['delivery_metadata_files'].items():assert sha(directory/name)==digest, 'Exact delivered metadata '+name
+    j,b=read(raw);d,db=read(indexed)
+    signature,triangles=expanded(j,b);isig,it=expanded(d,db)
+    assert triangles==it==c['triangles'] and signature==isig==c['expanded_PN_sha256'], 'Lossless actual indexed triangle/P-N stream'
+    for key in ['nodes','materials','scenes','scene','extras','extensionsUsed']:
+        assert j.get(key)==d.get(key), 'Raw/indexed semantic preservation '+key
+    assert (len(j['nodes']),len(j['meshes']),len(j['materials']),len(j['extras']['parts']))==(c['nodes'],c['meshes'],c['materials'],c['parts'])
+    for doc,bin in [(j,b),(d,db)]:
+        assert not any(doc.get(k)for k in ['images','textures','skins','animations'])
+        assert all('uri'not in q for q in doc['buffers'])
+        assert decoded_bounds(doc,bin,world_nodes(doc))==c['bounds_m']
+    baseline=json.loads((here/'v18-protected-body-baseline.json').read_text())['details'][mode]
+    protected=check_preservation(j,b,baseline)
+    assert protected==c['protected']
+    assert lamp_surfaces(keyed(j,b),j['extras']['parameters'])==(456 if mode=='near'else 424), 'Actual accepted rounded-lamp apertures/winding/seams'
+    assert native_contacts(j,b)==native_contacts(d,db)==c['native_contacts']
+    assert j['extras']['parameters']==json.loads((source_directory/'parameters.json').read_text())
+    e=j['extras'];assert e['license']=='GPL-3.0-or-later' and e['units']=='m' and e['up_axis']=='+Y' and e['forward_axis']=='+Z'
+    assert e['root_datum']=='ground midpoint between axles' and e['scene_year']==1904
+    assert e['source_id']=='studebaker_1893_illustrated_souvenir' and e['source_reference']['scan_leaf']=='0095' and e['source_reference']['sha256']==c['reference_sha256']
+    assert all(e[k]is False for k in ['door_interaction_enabled','boarding_enabled','traffic_enabled','occupants'])
+    actual_static=static_master_contract(j,b,world_nodes(j),c['raw_sha256'])
+    assert actual_static==c['static_master'], 'Actual exact current inert interfaces'
+    side=json.loads((directory/'brougham.json').read_text())
+    assert side['revision']=='v19_catalogue_body_and_finish_near_mid_study'
+    assert side['grade']=='reconstructed' and side['license']=='GPL-3.0-or-later'
+    assert side['parameters_sha256']==c['source_files']['parameters.json']
+    row=side['lods'][0 if mode=='near'else 1]
+    assert row['detail']==mode and row['triangles']==triangles and row['source_sha256']==c['raw_sha256'] and row['indexed_sha256']==c['indexed_sha256']
+    assert side['lod_runtime_selection_enabled']is True and all(v is False for v in side['lod_appearance_accepted'].values())
+    assert side['mid_provenance']['photographic_accepted']is False and side['mid_provenance']['world_budget_accepted']is False
+    for anchor in side['anchors']:
+        assert anchor['node']==j['nodes'][anchor['node_index']]['name'] and anchor['translation_root_m']==world_nodes(j)[anchor['node_index']]
+        assert anchor['rotation_xyzw']==[0,0,0,1] and anchor['scale']==[1,1,1] and anchor['dynamic_binding_supported']is False
+    assert len(side['anchors'])==13 and len(actual_static['named_targets'])==8 and all(v is False for v in actual_static['capabilities'].values())
+    for report in c['validator_reports']:
+        rp=here/'archived-khronos'/report['report'];assert sha(rp)==report['report_sha256']
+        r=json.loads(rp.read_text());assert r['validatorVersion']=='2.0.0-dev.3.10'
+        assert r['issues']['numErrors']==r['issues']['numWarnings']==0 and r['issues']['truncated']is False
+        assert r['info']['totalTriangleCount']==triangles and r['info']['drawCallCount']==c['meshes']
+        assert report['actual_input_sha256'] in [c['raw_sha256'],c['indexed_sha256']]
+    controls=mutation_controls(j,b,baseline)
+    front_curve=check_front_curve(j['extras']['parameters'])
+    return {'pass':True,'detail':mode,'triangles':triangles,'raw_sha256':c['raw_sha256'],'indexed_sha256':c['indexed_sha256'],'protected':protected,'negative_controls':controls,'front_curve':front_curve,'photographic_accepted':False,'world_budget_accepted':False}
+
+
 def check_near(directory,source_directory):
-    here=Path(__file__).resolve().parent;contract_path=here/'near-contract.json'
-    assert hashlib.sha256(contract_path.read_bytes()).hexdigest()==EXPECTED_CONTRACT,'Exact reviewed near contract changed'
-    c=json.loads(contract_path.read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-    master=directory/'brougham-source.glb';near=directory/'brougham-near.glb'
-    assert sha(master)==c['raw_sha256'] and master.stat().st_size==c['raw_bytes'],'Exact V18 rawmaster'
-    assert sha(near)==c['near_sha256'] and near.stat().st_size==c['near_bytes'],'Exact V18 indexednear'
-    for name,digest in c['source_files'].items():assert sha(source_directory/name)==digest,'Exact reviewed producer/source/recipe/license '+name
-    for name,digest in c['delivery_metadata_files'].items():assert sha(directory/name)==digest,'Exact delivery metadata/license '+name
-    j,b=read(master);d,db=read(near);signature,tri=expanded(j,b);near_signature,near_tri=expanded(d,db)
-    assert tri==near_tri==c['triangles']==33374 and signature==near_signature==c['expanded_PN_sha256'],'Actual near expanded triangles/P-N'
-    for key in ['nodes','materials','scenes','scene','extras','extensionsUsed']:assert j.get(key)==d.get(key),'Preserved raw/near '+key
-    assert len(j['nodes'])==42 and len(j['meshes'])==25 and len(j['materials'])==7 and len(j['extras']['parts'])==480
-    assert not any(j.get(k) or d.get(k) for k in ['images','textures','skins','animations']) and all('uri' not in q for doc in [j,d] for q in doc['buffers'])
-    for doc,bin in [(j,b),(d,db)]:assert decoded_bounds(doc,bin,world_nodes(doc))==c['bounds_m'],'Actual full native envelope'
-    assert protected_signatures(j,b)==c['protected_V17_streams'],'450part/44stream exact V17 non-lamp baseline'
-    params=json.loads((source_directory/'parameters.json').read_text());extra=j['extras'];assert extra['parameters']==params
-    from lamp_geometry import keyed,lamp_surfaces
-    assert lamp_surfaces(keyed(j,b),params)==456, 'Actual rounded-lamp winding/recessed aperture seams'
-    assert extra['license']=='GPL-3.0-or-later' and extra['units']=='m' and extra['up_axis']=='+Y' and extra['forward_axis']=='+Z' and extra['root_datum']=='ground midpoint between axles'
-    assert extra['source_id']=='studebaker_1893_illustrated_souvenir' and extra['source_reference']['scan_leaf']=='0095' and extra['source_reference']['sha256']==c['reference_sha256']
-    assert all(extra[k] is False for k in ['door_interaction_enabled','boarding_enabled','traffic_enabled','occupants'])
-    side=json.loads((directory/'brougham.json').read_text());assert side['source_master_sha256']==c['raw_sha256'] and side['parameters_sha256']==c['source_files']['parameters.json']
-    assert sha(here/'mid-contract.json')==c['mid_contract_sha256'], 'Exact current mid-contract binding'
-    from check_mid import check_mid_provenance
-    check_mid_provenance(side,c,json.loads((here/'mid-contract.json').read_text()))
-    assert side['grade']=='reconstructed' and side['license']=='GPL-3.0-or-later' and side['scene_eligibility']==c['scene_eligibility'] and extra['scene_year']==1904
-    assert len(side['lods'])==2 and [r['detail'] for r in side['lods']]==['near','mid'] and side['lods'][0]['indexed_sha256']==c['near_sha256'] and side['lod_runtime_selection_enabled'] is True
-    world=world_nodes(j);assert len(side['anchors'])==13
-    for anchor in side['anchors']:assert anchor['node']==j['nodes'][anchor['node_index']]['name'] and anchor['translation_root_m']==world[anchor['node_index']] and anchor['rotation_xyzw']==[0,0,0,1] and anchor['scale']==[1,1,1] and anchor['dynamic_binding_supported'] is False
-    assert side['static_master']['frame']=={'units':'m','up':'+Y','forward':'+Z','root':'vehicle_root'} and all(x is False for x in side['static_master']['capabilities'].values())
-    assert len(side['static_master']['named_targets'])==8 and len(side['static_master']['collision_proxy']['components'])==9 and side['static_master']['collision_proxy']['runtime_enabled'] is False
-    assert side['static_master']==c['static_master'], 'Exact inert V18 interfaces'
-    for entry in side['static_master']['entries']:
-        for role,index_key,bounds_key in [('deep_U_closed_door','door_part_index','closed_door_bounds_root_m'),('door_step','step_part_index','step_bounds_root_m')]:
-            part=j['extras']['parts'][entry[index_key]]
-            assert part['name']==role and part['frame']=='vehicle_body', 'Actual source part-index role'
-            ps=list(struct.iter_unpack('<fff',component(j,b,part,'POSITION')))
-            assert bounds(ps)==entry[bounds_key], 'Actual static source part-index bounds'
-    measured=native_contacts(j,b);assert measured==native_contacts(d,db)==c['native_contacts'],'Actual complete wheel/shoe/pole/hitch readback'
-    assert len(measured['wheels'])==4 and measured['has_tongue_hinge'] is False
-    for wheel in measured['wheels']:
-        center=wheel['center_root_m'];assert len(wheel['lowest_points_root_m'])==1 and abs(wheel['lowest_points_root_m'][0][1])<1e-6
-        assert abs(wheel['lowest_points_root_m'][0][0]-center[0])<1e-6 and abs(wheel['lowest_points_root_m'][0][2]-center[2])<1e-6
-    assert side['wheel_contacts_root_m']==[[-.67,0,-1.15],[.67,0,-1.15],[-.67,0,1.15],[.67,0,1.15]]
-    assert len(measured['shoe_bottom_corners_root_m'])==4
-    for point in side['static_pole_ground_shoe_contact_root_m']:assert any(max(abs(a-b) for a,b in zip(point,q))<1e-6 for q in measured['shoe_bottom_corners_root_m'])
-    conformance=[]
-    for row in c['archived_khronos']:
-        report=here/'archived-khronos'/row['report'];assert sha(report)==row['report_sha256'] and sha(directory/row['bound_file'])==row['actual_input_sha256']
-        report=json.loads(report.read_text());issues=report['issues'];assert report['validatorVersion']=='2.0.0-dev.3.10' and issues['numErrors']==issues['numWarnings']==0 and issues['numInfos']==4 and not issues['truncated']
-        assert sorted((x['code'],x['pointer']) for x in issues['messages'])==[('NODE_EMPTY','/nodes/'+str(i)) for i in [13,14,15,16]]
-        assert report['info']['totalTriangleCount']==33374 and report['info']['drawCallCount']==25 and report['info']['hasSkins'] is False and report['info']['hasTextures'] is False
-        conformance.append({'file':row['bound_file'],'archived_conformance':'PASS','fresh_execution':False})
-    return {'pass':True,'scope':c['scope'],'raw_sha256':c['raw_sha256'],'near_sha256':c['near_sha256'],'triangles':tri,'protected_baseline_streams':c['protected_V17_streams'],'native_contacts':measured,'archived_khronos':conformance,'terrain_world_clearance_verified':False,'visual_or_photographic_acceptance':False}
+    return check_detail('near',directory,source_directory)
+
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--directory',type=Path,required=True);ap.add_argument('--source-directory',type=Path,default=Path(__file__).resolve().parent);a=ap.parse_args();print(json.dumps(check_near(a.directory,a.source_directory)))

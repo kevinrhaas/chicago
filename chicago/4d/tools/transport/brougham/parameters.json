@@ -195,9 +195,10 @@
     "Closed original trim paths remove duplicate coincident end caps; one stable reference axis per path avoids frame flips. Tiny tube surfaces use geometric face normals rather than averaging sharp caps into the barrel. Door depth offset increases6mm to remove sampled internal body overlap; this is a construction repair, not a measured historical dimension.",
     "V10 bounded UNRENDERED roof proposal: retain front/back ends, roof width/cross-crown and maximum profile height, move the front longitudinal crown peak rearward0.16m and ease its approach to reduce the exaggerated leading curl; reduce original roof sheet35to25mm, drip radius15to10mm, end lip12to9mm. Numerical dimensions are original reconstruction guided by the broad plate contour; source camera is nonunique and coachmen obscure the far front. All other parts/materials/guards retained. No actual render/source-match/photo acceptance.",
     "V11 source-visible near-side latch/central fitting proposal UNGENERATED/UNRENDERED; metric size, attachment depth and exact outline reconstructed. Extra bead deferred pending owned door/waist contour correction. Ambiguous lower mark and opposite-side fittings unmodeled; step count unchanged.",
-    "V12 UNGENERATED source-guided lower-door waist/roundedU and lowerbody-front contour proposal. Only six named panel/lining instances may change P/N; all other component P/N inclnineV11fittings remain protected. Door operation, opposite-side exactness and hidden rearwing remain unqualified."
+    "V12 UNGENERATED source-guided lower-door waist/roundedU and lowerbody-front contour proposal. Only six named panel/lining instances may change P/N; all other component P/N inclnineV11fittings remain protected. Door operation, opposite-side exactness and hidden rearwing remain unqualified.",
+    "V19 T-3084: source-colour dark green lacquer and black coachwork, separately clear cabin glass, bounded rounded empty passenger pads and fine sewn-edge piping. Historical pigments, varnish optics, hidden upholstery and exact seams remain reconstructed. Existing V18 lamp geometry/materials, wheel/spring/step silhouette, pole, contacts and anchors preserved; source comparison pending actual native views."
   ],
-  "revision": 12,
+  "revision": 19,
   "hub_core_profile_axial_radial_m": [
     [
       -0.064,
@@ -367,5 +368,96 @@
     "source_edge_landmarks": "witnesses/SOURCE-EDGE-LANDMARKS.json",
     "preserved": "V11fittings9/componentP-N,glass/frame,roof/runninggear/pole/steps/anchors/materials/camera/fullbounds",
     "source_limits": "Multiple bright edges/door operation/hidden rear/opposite side remain partly inferred. These contours guide appearance rather than measured historic metres or construction."
+  },
+  "photo_finish_v19": {
+    "schema": 1,
+    "grade": "reconstructed",
+    "source_id": "studebaker_1893_illustrated_souvenir",
+    "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+    "green_coachwork": {
+      "name": "catalogue_dark_green_lacquer_reconstruction",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.008,
+          0.02,
+          0.015,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.24
+      },
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.7,
+          "clearcoatRoughnessFactor": 0.16
+        }
+      }
+    },
+    "black_coachwork": {
+      "name": "black_painted_coach_timber_reconstruction",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.006,
+          0.008,
+          0.007,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.3
+      },
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.38,
+          "clearcoatRoughnessFactor": 0.23
+        }
+      }
+    },
+    "dark_upholstery": {
+      "name": "unattested_dark_leather_upholstery_reconstruction",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.017,
+          0.01,
+          0.007,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.61
+      },
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.1,
+          "clearcoatRoughnessFactor": 0.42
+        }
+      }
+    },
+    "cabin_glass": {
+      "name": "thin_physical_cabin_glass_reconstruction",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.96,
+          0.99,
+          0.98,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.055
+      },
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_transmission": {
+          "transmissionFactor": 0.98
+        },
+        "KHR_materials_ior": {
+          "ior": 1.5
+        }
+      }
+    },
+    "limits": [
+      "Dark green/black and narrow light lining are visible plate colour families, not measured sRGB, paint pigments or historical varnish coefficients.",
+      "The catalogue occupants hide seat upholstery. Dark warm leather, smooth cushions, edge piping and hidden interior finish are explicit reconstruction, not passenger clothing copied as upholstery.",
+      "Cabin glazing is separate from accepted V18 lamp glass. Thin physical transmission0.98/IOR1.5 is reconstructed portable optics, not a measured material or catalogue value.",
+      "No painted-on source image, copied lithograph highlight, invented ownership, mechanical operation or occupied-fit acceptance."
+    ]
   }
 }

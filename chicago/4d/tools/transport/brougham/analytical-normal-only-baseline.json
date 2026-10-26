@@ -1,0 +1,26 @@
+{
+  "scope": "Immutable last C1 POSITION/material/frame baseline before analytical-front-normal fix",
+  "changed_normal_family_only": "cabin_front_lower",
+  "details": {
+    "near": {
+      "source_before_sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635",
+      "signatures": {
+        "all_position_streams_sha256": "61ca7fdde22698a21a6354458cc8de3c9b9416d1aa0183d8d1d0ab2ba35cb8bf",
+        "other_normal_streams_sha256": "72d7fb6742d6ed5f58e4e8a2678fd0cc1bd8db92c7410c4a3c598cb17d303b68",
+        "materials_sha256": "f6803d17ee502d77dcf2687353d75cdff677053dac5633e7c8fd9365e240ea18",
+        "nodes_sha256": "2e58b5ac139a3fc15046e5ff46c50432e5e7913bea94d2d523d35cb3f3a18235",
+        "source_occurrences": 481
+      }
+    },
+    "mid": {
+      "source_before_sha256": "d2e2452b04f63c366a8debac88833d7ca21ef9f6a8031d57c240b600e3740b0a",
+      "signatures": {
+        "all_position_streams_sha256": "5e5f7994c3034a64b12e91484c71a46499971be46c7b557adcecfcebbff8b290",
+        "other_normal_streams_sha256": "34dbfd0510ad621e6334939e1764becb4dee1ea1c0a6a11c86855f17a556babf",
+        "materials_sha256": "f6803d17ee502d77dcf2687353d75cdff677053dac5633e7c8fd9365e240ea18",
+        "nodes_sha256": "2e58b5ac139a3fc15046e5ff46c50432e5e7913bea94d2d523d35cb3f3a18235",
+        "source_occurrences": 315
+      }
+    }
+  }
+}

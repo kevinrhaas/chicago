@@ -1,17 +1,18 @@
 {
-  "variant": "V18_rounded_coach_lamps",
+  "variant": "V19_catalogue_body_and_finish",
   "source_generated_twice_deterministic": true,
   "generation_invocations": 4,
-  "near_lossless_PN_exact": true,
-  "mid_lossless_PN_exact": true,
-  "actual_native_unit_seconds": 5.068084230006207,
+  "native_build_seconds": 4.239501462012413,
   "rows": [
     {
       "detail": "near",
-      "triangles": 33374,
-      "parts": 480,
-      "protected_parts": 450,
-      "unchanged_raw_mesh_batches": 22,
+      "raw_file": "brougham-source.glb",
+      "indexed_file": "brougham-near.glb",
+      "triangles": 45338,
+      "parts": 481,
+      "meshes": 26,
+      "nodes": 43,
+      "materials": 8,
       "bounds_m": {
         "min": [
           -0.8600000143051147,
@@ -24,20 +25,30 @@
           3.825000047683716
         ]
       },
-      "source_bytes": 2487440,
-      "indexed_bytes": 1244652,
-      "expanded_triangle_PN_sha256": "770b959e0e418669c52655186a64f056638607e1360fb6599ff685aae32c100d",
-      "source_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
-      "indexed_sha256": "bce1ecc757a7175cb193b1263fc8dbcdf1ce76a263916d3cff5e41dc4a835938",
+      "protected": {
+        "protected_occurrences": 475,
+        "changed_body_occurrences": 5,
+        "added_piping_occurrences": 1,
+        "accepted_V18_lamps_exact": true,
+        "contacts_frames_proxy_exact": true
+      },
+      "source_bytes": 3353000,
+      "indexed_bytes": 1474296,
+      "expanded_triangle_PN_sha256": "50933aaa12d6536477eb178da48a2d2b21977f62aa91b5c5aff3df646f9950fd",
+      "source_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+      "indexed_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
       "lossless_indexing": true,
       "meshopt_or_quantization": false
     },
     {
       "detail": "mid",
-      "triangles": 11706,
-      "parts": 314,
-      "protected_parts": 284,
-      "unchanged_raw_mesh_batches": 22,
+      "raw_file": "brougham-mid-source.glb",
+      "indexed_file": "brougham-mid.glb",
+      "triangles": 23062,
+      "parts": 315,
+      "meshes": 26,
+      "nodes": 43,
+      "materials": 8,
       "bounds_m": {
         "min": [
           -0.8600000143051147,
@@ -50,29 +61,23 @@
           3.825000047683716
         ]
       },
-      "source_bytes": 909556,
-      "indexed_bytes": 642428,
-      "expanded_triangle_PN_sha256": "eccfc45c413f84145d873d9c73b929d04c166db7ba991852c63afddcac56ce34",
-      "source_sha256": "f184d0fc96ecca92ae4ed51a57c468e9cf7e689264865ae45b23ccb007236f0d",
-      "indexed_sha256": "65eec8b7e04e636c90e2d797f5e7e8c1d2695f0f45c6fb5c7f340f73e5616fa1",
+      "protected": {
+        "protected_occurrences": 309,
+        "changed_body_occurrences": 5,
+        "added_piping_occurrences": 1,
+        "accepted_V18_lamps_exact": true,
+        "contacts_frames_proxy_exact": true
+      },
+      "source_bytes": 1731404,
+      "indexed_bytes": 845700,
+      "expanded_triangle_PN_sha256": "3644ca1f10e2e5ebdf278fd70905de66ab9fd65961d813add5f4cffeff21e33d",
+      "source_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+      "indexed_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d",
       "lossless_indexing": true,
       "meshopt_or_quantization": false
     }
   ],
-  "material_definitions_exact": 7,
-  "nodes_exact": 42,
-  "raw_mesh_batches_exact": 25,
-  "source8_or_world_or_photo_accepted": false,
-  "native_differential_checker_sha256": "7bae1c192bbb3e622a65fdf24ac638f0268dcc832c399685c24f030a551b5d76",
-  "native_terminal_sha256": "c52e0e6b5ab1bdc5d79297b73bff4167ff07689179ecd12e15bac54ad8af5f18",
-  "negative_controls": {
-    "actual_repeated_hub_button_1mm": true,
-    "actual_anchor_1mm": true,
-    "actual_shared_material_changed": true,
-    "actual_proxy_1mm_growth": true,
-    "V17_relabelled_as_V18": true,
-    "new_near_copy_as_mid": true,
-    "actual_aperture_winding_and_normals_reversed": true,
-    "actual_tiny_finial_cap_zero_area_original_guard": true
-  }
+  "photographic_accepted": false,
+  "world_budget_accepted": false,
+  "prior_V18_lamp_protection": true
 }

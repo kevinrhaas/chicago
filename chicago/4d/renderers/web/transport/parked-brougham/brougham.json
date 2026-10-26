@@ -17,17 +17,17 @@
     "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
     "note": "Attested catalogue maker/type availability before1904;not household ownership or actual1904specimen evidence."
   },
-  "source_master_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
-  "parameters_sha256": "e0cd31a992a466e0367625021f29aeee6e0a38bd7f252daa60d2caaa35173782",
-  "near_actual_visual_evidence": "Current V18 default source8 attempt failed before page due Chromium thread exhaustion; no visual acceptance. Earlier V17 images retained as baseline only.",
+  "source_master_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+  "parameters_sha256": "5a97df41beb93f6f3a543242074adde2cdeb7940402f27c0900885382b001b59",
+  "near_actual_visual_evidence": "Actual neutral native GLTFLoader studies exist for predecessor/C1 geometry. Current analytical-front-normal exact source visual review remains pending; no occupied/world/published-phone photographic acceptance.",
   "lods": [
     {
       "detail": "near",
       "file": "brougham-near.glb",
-      "triangles": 33374,
-      "raw_mesh_batches": 25,
-      "parked_material_groups": 7,
-      "nodes": 42,
+      "triangles": 45338,
+      "raw_mesh_batches": 26,
+      "parked_material_groups": 8,
+      "nodes": 43,
       "bounds_m": {
         "min": [
           -0.8600000143051147,
@@ -40,21 +40,33 @@
           3.825000047683716
         ]
       },
-      "source_bytes": 2487440,
-      "indexed_bytes": 1244652,
-      "expanded_triangle_PN_sha256": "770b959e0e418669c52655186a64f056638607e1360fb6599ff685aae32c100d",
-      "source_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
-      "indexed_sha256": "bce1ecc757a7175cb193b1263fc8dbcdf1ce76a263916d3cff5e41dc4a835938",
+      "source_bytes": 3353000,
+      "indexed_bytes": 1474296,
+      "expanded_triangle_PN_sha256": "50933aaa12d6536477eb178da48a2d2b21977f62aa91b5c5aff3df646f9950fd",
+      "source_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+      "indexed_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
       "lossless_indexing": true,
-      "meshopt_or_quantization": false
+      "meshopt_or_quantization": false,
+      "raw_file": "brougham-source.glb",
+      "indexed_file": "brougham-near.glb",
+      "parts": 481,
+      "meshes": 26,
+      "materials": 8,
+      "protected": {
+        "protected_occurrences": 475,
+        "changed_body_occurrences": 5,
+        "added_piping_occurrences": 1,
+        "accepted_V18_lamps_exact": true,
+        "contacts_frames_proxy_exact": true
+      }
     },
     {
       "detail": "mid",
       "file": "brougham-mid.glb",
-      "triangles": 11706,
-      "raw_mesh_batches": 25,
-      "parked_material_groups": 7,
-      "nodes": 42,
+      "triangles": 23062,
+      "raw_mesh_batches": 26,
+      "parked_material_groups": 8,
+      "nodes": 43,
       "bounds_m": {
         "min": [
           -0.8600000143051147,
@@ -67,24 +79,34 @@
           3.825000047683716
         ]
       },
-      "source_bytes": 909556,
-      "indexed_bytes": 642428,
-      "expanded_triangle_PN_sha256": "eccfc45c413f84145d873d9c73b929d04c166db7ba991852c63afddcac56ce34",
-      "source_sha256": "f184d0fc96ecca92ae4ed51a57c468e9cf7e689264865ae45b23ccb007236f0d",
-      "indexed_sha256": "65eec8b7e04e636c90e2d797f5e7e8c1d2695f0f45c6fb5c7f340f73e5616fa1",
+      "source_bytes": 1731404,
+      "indexed_bytes": 845700,
+      "expanded_triangle_PN_sha256": "3644ca1f10e2e5ebdf278fd70905de66ab9fd65961d813add5f4cffeff21e33d",
+      "source_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+      "indexed_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d",
       "lossless_indexing": true,
-      "meshopt_or_quantization": false
+      "meshopt_or_quantization": false,
+      "raw_file": "brougham-mid-source.glb",
+      "indexed_file": "brougham-mid.glb",
+      "parts": 315,
+      "meshes": 26,
+      "materials": 8,
+      "protected": {
+        "protected_occurrences": 309,
+        "changed_body_occurrences": 5,
+        "added_piping_occurrences": 1,
+        "accepted_V18_lamps_exact": true,
+        "contacts_frames_proxy_exact": true
+      }
     }
   ],
   "lod_runtime_selection_enabled": true,
   "lod_appearance_accepted": {
-    "near_original_master_only": false,
-    "indexed_near": false,
-    "mid": false,
-    "far": false
+    "near": false,
+    "mid": false
   },
   "authored_texture_bytes": 0,
-  "rendering": "Original PBR factors; no image textures. Native lossless indexing only. Both near and mid merge into seven active material batches. Brougham-only distance/screen-size selection remains subject to actual world and photographic review.",
+  "rendering": "Original portable PBR factors; no image textures. Lossless near/mid indexing; eight merged material batches, including separate physical cabin glass. Material count is not render-pass or whole-world budget acceptance.",
   "wheel_contacts_root_m": [
     [
       -0.67,
@@ -480,12 +502,12 @@
     "collision/rider/camera",
     "horse/tack binding"
   ],
-  "status": "Rounded coach-lamp native geometry validated; source-matched browser comparison and world/photographic qualification pending",
-  "source_history_note": "Historical V10/V11/V12 notes remain lineage. Historical V17 changed only two quarter panels, with464 other parts exact; it retained six original materials and added one explicitly unidentified dark opaque material. Current V18 replaces the coach-lamp families;450 near and284 mid non-lamp occurrences retain exact V17 P/N streams. Current V18 visual/world/photographic acceptance remains pending.",
-  "revision": "v18_rounded_coach_lamps_near_mid_study",
+  "status": "V19 original source-bounded body/finish refinement; static empty reconstruction; photographic and production qualification pending",
+  "source_history_note": "Current V19 refines five body/pad occurrences and adds one driver piping occurrence.475near/309mid V18 unaffected geometry occurrences, accepted lamps/materials, contacts, frames and conservative proxy remain exact; hidden construction and optics reconstructed.",
+  "revision": "v19_catalogue_body_and_finish_near_mid_study",
   "static_master": {
     "revision": "static_master_interfaces_v1",
-    "source_master_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
+    "source_master_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
     "frame": {
       "units": "m",
       "up": "+Y",
@@ -1018,34 +1040,34 @@
     ]
   },
   "pending_deliverables": [
-    "material and source-image refinement",
-    "normal published-world qualification",
-    "normal main/phone/published qualification",
-    "actual world terrain and full pole/body obstacle clearance",
-    "photographic review",
-    "fit/doors/hitch/boarding/collision"
+    "Final exact-source catalogue comparison and discrepancy review",
+    "T3085 physical-interface, portable LOD and published phone/desktop qualification"
   ],
   "mid_provenance": {
     "recipe": "tools/transport/brougham/ring16-mid-lods.json",
     "recipe_sha256": "89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159",
-    "source_master_near_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
-    "change": "Current V18 ring16 source tessellation: 11706 triangles and314 subdivision records versus33374 triangles and480 near records. Rounded coach-lamp geometry replaces the V17 straight cages in both levels. All physical feature names,64spokes,16leaves, seven materials,42nodes,13runtime anchors and8static targets remain. The current V18 near conservative collision proxy remains authoritative; native source8 appearance and world/photographic acceptance remain unpassed.",
+    "source_master_near_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+    "change": "Current V19 source-tessellated near/mid body-and-finish specimen: 45338/23062 triangles, 481/315 subdivision records, eight materials and43nodes. All physical families,64spokes,16spring leaves,13runtime anchors and8static targets retained. Original conservative near proxy remains; photographic/world/published qualification pending.",
     "license": "GPL-3.0-or-later",
     "distance_lod_native_appearance_accepted": false,
     "photographic_accepted": false,
     "world_budget_accepted": false,
     "build_receipt": "MID-BUILD-RECEIPT.json",
-    "build_receipt_sha256": "aefaacaba01b0475ef2e9b519a174abfcbf67cbcbf004c3a44231bf2ce9ff670",
+    "build_receipt_sha256": "2a9f61783772e2b5f89a54ac3e3c55f86366fef91609fff6486649089daf95c8",
     "subdivision_records": {
-      "near": 480,
-      "mid": 314
+      "near": 481,
+      "mid": 315
     },
     "triangles": {
-      "near": 33374,
-      "mid": 11706
+      "near": 45338,
+      "mid": 23062
     },
-    "appearance_history_note": "Previous V17 distance-LOD appearance acceptance is historical only and is not carried into V18. Original V17 metadata remains byte-exact in tools/transport/brougham/archive-v17/brougham.json."
+    "appearance_history_note": "V17 native appearance evidence and V18 lamp-only evidence are historical; neither supplies current V19 photographic or published LOD acceptance. Both original metadata files remain in their named archive directories.",
+    "current_near_triangles": 45338,
+    "current_mid_triangles": 23062
   },
   "previous_V17_visual_evidence": "Actual V15/V17 matched catalogue source8 passed on 2026-10-22: eight desktop/mobile detail/full-quarter images, unchanged camera and light, zero runtime errors and clean disposal. V17 dark inset preferred for development; image differences, actual world placement and photographic completion remain open.",
-  "native_variant": "V18_rounded_coach_lamps"
+  "native_variant": "V19_catalogue_body_and_finish",
+  "previous_V18_visual_evidence": "Current V18 default source8 attempt failed before page due Chromium thread exhaustion; no visual acceptance. Earlier V17 images retained as baseline only.",
+  "previous_V18_source_history_note": "Historical V10/V11/V12 notes remain lineage. Historical V17 changed only two quarter panels, with464 other parts exact; it retained six original materials and added one explicitly unidentified dark opaque material. Current V18 replaces the coach-lamp families;450 near and284 mid non-lamp occurrences retain exact V17 P/N streams. Current V18 visual/world/photographic acceptance remains pending."
 }

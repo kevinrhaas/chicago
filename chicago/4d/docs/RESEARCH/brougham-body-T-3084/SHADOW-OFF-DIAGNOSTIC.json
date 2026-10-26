@@ -1,0 +1,66 @@
+{
+  "scope": "ONE same-close SHADOW-OFF diagnostic only; not acceptance",
+  "original_result_sha256": "9a92126affb5701b7b1519874261819784b93677ea6fde43ee2b0bed0353fd8d",
+  "actual_source_assets": {
+    "baseline": {
+      "file": "/tmp/T3084-V19-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45"
+    },
+    "candidate": {
+      "file": "/tmp/T3084-V19-C1-CANONICAL-BUILD2/brougham-source.glb",
+      "sha256": "50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635"
+    },
+    "reference": {
+      "file": "/workspace/chicago-evidence/evidence/transport-refinement-resume-2026-10-23/THIRD-CHECKPOINT/LAMP-CPU-GEOMETRY-COMPARISON/ACTUAL/plate0095-untouched.jpg",
+      "sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe"
+    }
+  },
+  "actual_outer_result": {
+    "returncode": 0,
+    "seconds": 11.719213484000647,
+    "command_seconds": 11.71915034900303,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "node",
+      "/tmp/T3084-C1-shadow-disabled-DIAGNOSTIC1/render-native.cjs"
+    ],
+    "cwd": "/tmp/chicago-photo-worker-t3084-20261026/chicago/4d",
+    "main_child_pid": 347230,
+    "timed_out": false,
+    "requested_timeout_seconds": 120.0,
+    "effective_timeout_seconds": 120.0,
+    "timeout_override_reason": null
+  },
+  "actual_cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 347256,
+        "status": 256
+      },
+      {
+        "pid": 347258,
+        "status": 0
+      },
+      {
+        "pid": 347259,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "actual_errors": [],
+  "actual_browser_closed": true,
+  "actual_image_rows": [
+    {
+      "view": "body_detail",
+      "filename": "candidate-body_detail.png",
+      "sha256": "07bc2bce30d4369921ae178970cbc2b65c3be170d5fe9a6397f5a81e3d811cb8",
+      "which": "candidate"
+    }
+  ],
+  "photographic_accepted": false,
+  "published_phone_world_budget_accepted": false,
+  "only_changed_setting": "renderer.shadowMap.enabled: true -> false",
+  "observation": "Contact shadows vanish, broad belly bands persist; no production shadow patch justified."
+}
