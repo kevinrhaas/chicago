@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ef35c7c34b8f9e2fc80e3ea83728c650d019a2dce945f145b8239cb5bf7ab0bb",
+  "glb_sha256": "798821bac81d445f923c7d70f33ca898ae2fe7a5d104dabe0559c6eca6803ec2",
   "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
@@ -41,12 +41,24 @@
       "status": "open"
     },
     {
-      "what": "the windows' round-arched heads under moulded hoods on both storeys of both faces, where the build cuts flat heads under plain lintels",
-      "status": "open"
+      "what": "the Prairie front's windows round-arched under moulded rings: three on the second storey (x 390-402, 452-472 and 519-528 px, crowns at y 339) and the two the ivy leaves on the principal storey (heads at y 411 and 418)",
+      "status": "fixed",
+      "how": "T-3157: named off the print (street_front_windows) as K06 round fanlight sashes, the second storey's under 0.25 m rings of K02 voussoirs; the render's lights at x 393-400, 455-470 and 519-526 with crowns at y 340 and sills at y 377 (the print's 380), the principal storey's crowns at y 414 and 420"
     },
     {
-      "what": "the dormers: arched and pedimented on the Prairie face at about x 330, 464 and 510, and two on the flank at x 593-613 and 633-640; the build stands two hooded dormers on the Prairie face and none on the flank or the north-west block",
-      "status": "open"
+      "what": "the 18th Street flank's windows round-arched under hoods, as the Prairie front's; the build cuts them flat under plain lintels",
+      "status": "open",
+      "how": "T-3160"
+    },
+    {
+      "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630",
+      "status": "fixed",
+      "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
+    },
+    {
+      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters, and the north-west pavilion's own dormer at x 330 on its own mansard section; the build lays a plain surround round each arch and no dormer on the north-west block",
+      "status": "open",
+      "how": "T-3158, with the pavilions' own mansard sections"
     },
     {
       "what": "the cornice's modillions and the deep frieze's panels",
