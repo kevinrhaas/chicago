@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 778,
+  "count": 780,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -55832,6 +55832,136 @@
         "T-3161",
         "T-3158",
         "T-3160"
+      ]
+    },
+    {
+      "id": "L-green-tree-right-front-entry",
+      "title": "Green Tree front-ground opening order",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "green_tree_tavern",
+          "phase": "frame_1833",
+          "aspect": "form.front_ground_layout"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`green_tree_tavern.frame_1833.form.front_ground_layout`."
+        },
+        {
+          "label": "Decision",
+          "text": "Render two lower sash to the viewer's left of a rightmost entrance on the main +y front gable only. This revises the archetype's centre-door/flanking-sash assumption. The actual whole Andreas1884 p634/n1301, Trowbridge/Gale1902 facing printedp35/n55 and Kurz1893 panel11 agree about relative opening order, not exact July1835 state or dimensions. Kurz may derive from Andreas and Trowbridge may rely on later material. An exterior +y view reverses the local-u axis: the declared ascending LOCAL fractions [.20.50.78] mean door,sash,sash and project to viewer-left sash,sash,door. The unchanged bearing and provisional camera are not flipped to fit a picture. Exact fractions, retained.85×1.35m sash and1.20×2.10m door stock, vertical bands, casing, joinery and hidden treatment are **reconstructed**, not measured. The attribute remains reconstructed; stronger metrics grades are refused."
+        },
+        {
+          "label": "Source",
+          "text": "\"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, The Green Tree Tavern in 1835 (published 1902), Kurz & Allison. Chicago In Early Days, 1779-1857; retain their existing publication credits/locators and qualified chronology/dependence notes. Existing public-domain underlying artwork status is unchanged. Exclude \"Green Tree Tavern, Chicago, 1859.\" Photograph of the Green Tree Tavern at the… (check required/unverified) and the engraving distributed as the site1859 image from governing geometry; that filename does not verify CHM photographic identity or license later shopfront fittings in1835."
+        },
+        {
+          "label": "Native access",
+          "text": "The pure engine-neutral resolved front ground stations dataclass property supplies the same actual local door centre to the mesh and to generate entrances front doors after exact sidecar-selected SOURCE-phase resolution. The builder and native front reader both consume the actual property directly; its numeric value is already included by the unchanged native recipe, so there is no unhashed geometry helper or hash-only proxy. Preserve primary front-wall semantics and the generic facade API's frame tavern UNREAD state. New threshold, trodden approach and doorway-clearance zone must follow the moved door. Absent control retains centred defaults and native metadata exactly. No new side door, renderer API or wider façade inventory is inferred."
+        },
+        {
+          "label": "Limits",
+          "text": "Upper two-versus-three sash, attic, text-attested south-side entrance, ell/other additions, roof, finish, geographic placement, camera and all previous uncertainties remain unchanged. No historical date, dimension, hidden feature, rights or grade promotion. Preserve historical ledger entries; this paragraph revises only the front-ground opening assumption. The earlier externalV1 mirrored the source and left native access centred; externalV2 corrected those but its plain geometry helper escaped recipe freshness: it is blocked/unadopted and remains immutable, not silently overwritten."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Genuine current-source23family exports/default parity, source-specific cameras and actual app/native/source-card side-by-sides. CPU projection/layout agreement is not a render, dated1835 attestation or `matches` verdict. All original image comparisons remain DIFFERS."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-2376"
+      ]
+    },
+    {
+      "id": "L-st-mary-chapel-front-2384",
+      "title": "A pictured chapel form for St Mary's",
+      "section": "per_subject",
+      "subjects": [
+        "st_marys_church"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.chimney_placement"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.tower"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Building",
+          "text": "St. Mary's Catholic Church."
+        },
+        {
+          "label": "Decision",
+          "text": "transfer the undated Moss engraving's five long-wall sash, end door, blank gable and open belfry/cross into the original 1835 range as **reconstructed** appearance (Saint Mary's Church — wood engraving in Andreas's History of Chicago, volume 1…, Andreas 1884 vol.1 p.291). Andreas p.290 says the church had no tower when built in 1833 and received a low open tower and bell \"some time afterwards\". That interval does not establish presence or absence in July 1835. This reconstruction chooses presence; it does not claim a dated installation, a date for the engraving or proof that its later appearance stood at the original site."
+        },
+        {
+          "label": "What is chosen",
+          "text": "five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71 of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the existing stud module. The six-opening count and transfer to 1835 are reconstructed. Existing sash size, glazing, casing, sill and threshold are retained. Both gables are blank: the near one is pictured; the unseen far one is reconstructed. The one existing stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged."
+        },
+        {
+          "label": "Belfry scantlings",
+          "text": "a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end straddles the body ridge. Its lower edge follows the roof slopes with 30 mm penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach 2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm high, hangs within the open frame. These sections, profiles, material assignments and placements are reconstructed, not measured schedules; the bell's dark appearance does not establish an alloy or a paint colour from a monochrome engraving."
+        },
+        {
+          "label": "What is retained",
+          "text": "the original 25 by 35 ft footprint, location, dates, storey, wall height, gabled body type and unpainted body finish. The reconstructed 30 degree body pitch replaces the older typological 38 degrees after the first actual comparison showed a conspicuously high ridge. It is a selected shape, not a measured roof angle. No later enlargement or relocation is adopted. This supersedes “The town's three worship buildings wear a dwelling's facade”'s generic house-front placeholder and the 2026-10-23 conservative tower omission for St Mary's only."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated original-site elevation or alteration account could replace the temporal reconstruction. The actual source comparison records remaining visible differences under the owner's stopping rule; no complete picture match is claimed by a field value or this entry alone."
+        },
+        {
+          "label": "Covers",
+          "text": "`st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-2384"
       ]
     },
     {

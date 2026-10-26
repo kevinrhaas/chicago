@@ -5896,3 +5896,20 @@ Adopt only the reviewed board-parapet selector and credited Andreas correction, 
 ### T-3125 — keep complete release notes inside the Navigator
 
 The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.
+
+
+### T-2376 front-ground picture increment - 2026-10-25
+
+Adopted the reviewed V3 front-ground layout with its consumed/hash-covered
+parameter property and matching native primary entrance, without changing the
+legacy40 positional API or22 default physical assets. Genuine23 master/web
+refresh and source comparison are complete. Keep the visibly different annex
+and long-wall reading in the same match record; the T-3153 stopping rule treats
+camera/drawing disagreements within tolerance and creates no follow-up tickets.
+The original remains open while those larger discrepancies remain. App/current-
+base full qualification and actual merge are recorded separately when complete.
+
+
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original25 by35ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. Genuine271 masters/web, current native derived fixed point, source/app/grounded review and full gates remain owed. OriginalT2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
