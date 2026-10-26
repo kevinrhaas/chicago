@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 780,
+  "count": 781,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -55867,6 +55867,53 @@
       "work_refs": [
         "T-3122",
         "T-2373"
+      ]
+    },
+    {
+      "id": "L-k01-1729-pullman-heads-3157",
+      "title": "1729 Prairie's arched windows and dormers read off the Detroit print, their mouldings laid as K02 voussoir rings and plain surrounds",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house's Prairie front now lays the Detroit Publishing photograph's round-arched windows (Detroit Publishing Co. The Pullman residence, Chicago, through its solved camera the detroit det 4a08065 data): three on the second storey and the two the ivy leaves readable on the principal storey, each named with its centre, width, sill and height (street front windows); and its mansard carries four round-arched dormers, two on the Prairie face and two on the 18th Street face, where it had two hooded ones. **What is read, not invented.** Each light's place along the front, its width between the jambs' dark edges, and the second storey's sills and crowns; the principal storey's crowns; the dormers' places, widths and crowns on the Prairie face; the flank dormers' places, to within about 2 m (the view is oblique to that face). The print gives 14-16 px a metre on the front. **What is invented.** The arches' moulded rings are laid as 0.25 m rings of thirteen K02 voussoirs, 0.05 m proud, the keystone barely larger: the print does not part a moulding from a ring of stones at that scale. The principal storey's lights carry no ring (the ivy hides their surrounds) and stand on sills the ivy also hides (2.5 m over grade); the centre one is held 1.2 m wide so its head stays clear of the portico's south end. The sash is K06's round fanlight sash. The flank dormers' heads are taken arched like the Prairie face's, the print drawing them too small to read; every dormer's surround is plain where the print's Prairie dormers carry pilasters and an eared hood. The front's basement lights are gone with the named windows (street front windows names every street opening); the print shows none, the street wall and the ivy standing in front of the raised basement."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work lays the pavilions' quoined piers, their own mansard sections, the dormers' hoods and the north-west pavilion's dormer; later work arches the 18th Street flank's windows; a picture closer to the front than this one replaces the rings with the mouldings it shows."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25 (T-3157)."
+        }
+      ],
+      "work_refs": [
+        "T-3157",
+        "T-1881",
+        "T-3161",
+        "T-3158",
+        "T-3160"
       ]
     },
     {
