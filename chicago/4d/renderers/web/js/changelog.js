@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2303, ts: '2026-10-26T06:34:03.026Z', date: 'Oct 26, 2026, 1:34 AM CT', title: 'Pullman\'s glasshouses rise across 18th Street', kind: 'feature',
+    items: [
+      'The open lawn east of Prairie at 18th Street now holds the Pullman estate\'s glasshouses, placed as the 1911 fire-insurance map draws them: a tall pavilion with a raised lantern, a long range running south from it, and a second range running east to a rounded glass end.',
+      'A two-storey brick lodge stands where the two ranges meet.',
+      'Every height, roof and pane is a reconstruction from the project\'s conservatory kit, and the cards say so. Matching them to the 1890s photographs comes next.',
+    ] },
   { v: 2302, ts: '2026-10-26T05:13:16.206Z', date: 'Oct 26, 2026, 12:13 AM CT', title: 'Green Tree\'s entrance moves beside its paired front sash', kind: 'improvement',
     items: [
       'The Green Tree Tavern now has two front sash to the left of its entrance, following the historical drawings. Its cleared approach follows the moved doorway. The opening spacing is reconstructed; larger annex and long-wall differences remain under review.',
