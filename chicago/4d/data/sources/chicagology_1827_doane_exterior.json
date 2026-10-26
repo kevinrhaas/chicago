@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1827_doane_exterior",
+ "type": "photograph",
+ "citation": "1827 S. Prairie [John W. Doane residence]. Unknown photographer, undated (after the house's completion in late 1882). Reproduced on chicagology.com, Prairie Avenue, 1827 S. Prairie; the Glessner House Museum's blog reproduces the same photograph ('Electricity comes to Prairie Avenue, 1882', August 2013).",
+ "author": "unknown photographer",
+ "date": "undated (after the house's completion in late 1882)",
+ "describes_date": "after 1882",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library images cgn-1827-doane-exterior (this copy, 1444 x 1770 px) and a18-gh-doane-exterior (the Glessner House Museum blog's smaller copy of the same photograph), both recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/cgn-1827-doane-exterior.jpg), committed since T-3171 at data/sources/assets/doane_1827_photo_t3171/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1827prairie/",
+ "locator": "The whole print: the Prairie front on the left, from the porch behind the street tree at its north end (1823's porch beyond it at the left edge) to the south-west corner and its square tower; the south flank on the right, running back past its chimney stacks to the coach house; the iron fence on its stone curb and the public walk across the foot.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3171) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3171, piece 1 of T-1895) from the image store's reference copy, 1444 x 1770 px greyscale, sha256 64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13. The library's camera position ('north-west of the house, facing south-east') is not the print's: it looks north-east from the south-west (the folder's README says why).",
+ "note": "The one photograph of the Doane house this project builds from. It shows a stone house of two storeys over a raised basement under a slated mansard: the front in coursed ashlar, light and darker courses in turn, with a shallow pavilion carrying three lights a storey under carved hoods and, over the cornice, a steep pyramidal roof with a finial; a window bay south of it under segmental hoods with a pedimented dormer over it; at the south-west corner a block with a narrow cant, carried up a storey past the cornice as a square tower under a tall slated hip with a crested top and two finials; at the front's north end, behind the street tree, a porch on columns with a balustraded balcony and steps; barred basement lights; a moulded stone cornice; two tall stone stacks over the south flank; and along the walk an iron fence of scrolled bars on a stone curb, ending at a stone pier.",
+ "what_it_supplies": [
+  "the front's composition: the pavilion and its lights, the window bay, the porch at the north end, the dormers",
+  "the heights of the basement, the storeys, the windows, the cornice and the mansard through the photograph's camera",
+  "the corner block, its tower and the pavilion's pyramidal roof (T-3172), and the south flank's stacks"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "the north flank, the rear and the brick rear range",
+  "the porch's detail and the door, behind the street tree"
+ ]
+}

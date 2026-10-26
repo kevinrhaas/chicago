@@ -3206,7 +3206,8 @@ class Assembly:
         O, R, N = frame
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         conf = p.conf("entrance_kit")
-        mat = "fascia"
+        # T-3159: a portico in the front's stone (1729's), laid in its bays' walling slot
+        mat = "bay_stone" if h.get("fabric") == "stone" else "fascia"
         pr = self.prim(mat)
         tri0 = len(pr.idx) // 3
         c, W, out = op.s_m, h["width_m"], h["out_m"]
@@ -3331,18 +3332,24 @@ class Assembly:
             tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") == "iron" else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
         self.hood_meta = {"modillions": n, "consoles": 2, "balusters": nb, "top_m": round(y3, 4),
-                          **({"columns": 2} if cols else {})}
+                          **({"columns": len(cols.get("at_s_m", (0, 0)))} if cols else {}),
+                          **({"fabric": "stone"} if mat == "bay_stone" else {}),
+                          **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
     def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0):
         """T-2963: two turned columns carrying a door hood as a porch (1816's): each a square
         plinth on the stoop's landing, a twelve-sided shaft and a square capital block under
         the soffit, at the deck's front corners, and a flat respond against the wall behind
-        it. In the hood's own painted joinery."""
+        it. In the hood's own painted joinery. T-3159: or a row of them where a picture puts
+        them (`at_s_m`, from the door's axis), on the landing and the terraces beside it."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
         yl = op.sill_m                                   # the landing, the door's own sill
         r, seg = dia / 2, 12
         cd = out - pw / 2 - 0.05
-        for cs in (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05):
+        at = [op.s_m + a for a in co["at_s_m"]] if co.get("at_s_m") else (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05)
+        for cs in at:
+            if not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
+                raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
             cw = min(pw, dia + 0.14) / 2
             box(cs - cw, cs + cw, y0 - cap, y0, cd - cw, cd + cw, skip=("top",))
@@ -5056,6 +5063,10 @@ def build(params, structure_id: str):
         # just laid, and the mansard's ribs over the piers (1729's, the Detroit print)
         from . import k01_pavilions
         k01_pavilions.dress(a)
+    if p.porte_cochere:
+        # T-3160: the side wall's arcaded porte-cochere under its balustraded deck (1729's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck
