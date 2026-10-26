@@ -2,6 +2,12 @@
 import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import zlib from 'node:zlib';import assert from 'node:assert/strict';import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../site/4d');
 const out=process.env.SOURCES_EVIDENCE || '/tmp/sources-evidence';fs.mkdirSync(out,{recursive:true});
+// The raw-source capacity policy belongs to the compiler. The old 168000 literal
+// missed its accepted 176000/184000 increments; T-2793's measured 458-source
+// index needs the documented 192000 increment. The 120000 gzip wire cap stays below.
+const rawBudgetDefinition=fs.readFileSync(new URL('./compile_source_use.py',import.meta.url),'utf8').match(/^INDEX_BUDGET = ([\d_]+)$/m);
+assert.ok(rawBudgetDefinition,'source compiler declares its raw index budget');
+const rawIndexBudget=Number(rawBudgetDefinition[1].replaceAll('_',''));assert.ok(Number.isSafeInteger(rawIndexBudget)&&rawIndexBudget>0);
 const {chromium}=await import(path.join(process.env.NODE_PATH,'playwright/index.mjs'));
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.wasm':'application/wasm'};
 const server=http.createServer((req,res)=>{let name=decodeURIComponent(req.url.split('?')[0]);if(name.endsWith('/'))name+='index.html';const file=path.resolve(root,'.'+name);if(!file.startsWith(root+'/')){res.writeHead(403).end();return;}try{res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Content-Encoding':'gzip'});res.end(zlib.gzipSync(fs.readFileSync(file)));}catch{res.writeHead(404).end();}});
@@ -20,7 +26,7 @@ try{for(const width of [390,1280]){
  await page.locator('.src-all input').check();assert.ok((await page.locator('.src-status').textContent()).startsWith(String(stats.rows)));
  await page.locator('.src-filters>summary').click();await page.locator('.src-search').fill('Andreas');await page.locator('[data-filter="type"][data-value="book"]').click();await page.locator('[data-filter="tier"][data-value="3"]').click();
  await page.locator('.src-sort').selectOption('title');assert.ok(await page.locator('[data-source-id="andreas_1884_v1"]').count());
- const index=fs.readFileSync(path.join(root,'data/sidecars/1835/sources/index.json'));assert.ok(index.length<=168000,'raw index inside compile_source_use.py INDEX_BUDGET (T-2792/T-2799 measured re-budget)');
+ const index=fs.readFileSync(path.join(root,'data/sidecars/1835/sources/index.json'));assert.ok(index.length<=rawIndexBudget,'raw index inside compile_source_use.py INDEX_BUDGET');
  const firstWire=['data/sidecars/1835/sources/index.json','walk/js/sources.js','walk/css/sources.css'].reduce((n,p)=>n+zlib.gzipSync(fs.readFileSync(path.join(root,p))).length,0);assert.ok(firstWire<=120000);
  await page.locator('.src-filters>summary').click();await page.locator('[data-source-id="andreas_1884_v1"]').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,`${width}-catalog.png`)});
  await page.locator('.src-filters>summary').click();

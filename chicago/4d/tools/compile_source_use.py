@@ -16,8 +16,9 @@ STEP = ['python3', 'tools/compile_source_use.py']
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
-# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013 — see outputs().
-INDEX_BUDGET = 184_000
+# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013;
+# 192 000 from T-2793's two necessary provenance records — see outputs().
+INDEX_BUDGET = 192_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -435,6 +436,14 @@ class Compiler:
         # the index to 177 692 raw bytes with every citation whole. Same bargain as before:
         # about twenty sources of room, and the 120 KB compressed first-open allowance,
         # measured by measure_sources.mjs, unchanged.
+        # 192 000 SINCE 2026-10-26 (T-2793): accepted 1e289896 held 456 sources in
+        # 183 931 bytes, leaving 69 bytes. The licensed Old Cart development base and
+        # Wild's dated 1835 Cincinnati cross-check are two distinct, necessary records;
+        # their unabridged citations take the combined 458-source index to 184 510 bytes.
+        # This follows the existing 8 KB/about twenty-source capacity policy. Links,
+        # limits and citations stay whole; the 120 000-byte combined gzip first-open
+        # allowance stays unchanged. measure_sources.mjs also now reads this raw ceiling:
+        # its old 168 000 literal had missed the accepted 176 000/184 000 increments.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs
