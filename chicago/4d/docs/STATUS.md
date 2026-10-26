@@ -24978,3 +24978,52 @@ preintegration c6 published tree; the incoming9f7 change preserves all operative
 1835 geometry, terrain and entrance inputs exactly. Final current-base full
 preflight and CI results are recorded in the PR when actually complete. Original2376 is not closed
 by this bounded correction.
+
+
+## T-2386 — Wolf Point roof tone, 2026-10-26
+
+The first genuine stock-darkened roof/mobile comparison passed technical native checks but remained visibly pale; desktop was canceled before launch, not reported as passed. Replace only that provisional new condition field with explicit reconstructed `roof_colour=deep_brown`, a keyword-only LogDwelling opt-in using one quarter of existing darkened stock linear RGB. All default outputs/common finishes remain unchanged; its uncertainty reaches every roof face. Native 82-master/82-WEB refresh, default/nonfamily protection, final candidate mobile/desktop and all-picture source acceptance are pending. No geometry change, source-rights upgrade, new ticket or matches claim. Original T-2386 remains open.
+
+T-2386 native production: exactly82 genuine canonical masters and82 real pinned WEB outputs completed; all81 default master/WEB pairs are individually byte-identical, all nonfamily/source/people controls exact, and Wolf changes only roof basecolour with its roofconfidence1.0 preserved. Final native metadata closure, source comparison and actual candidate app remain pending; no matches or commit claimed.
+
+
+### T-2376 — the full-scene batch census retains the lighthouse glass
+
+The immutable checked 132 renderer matrix on `0c78d17b` exposed a real stage 8
+regression oracle mismatch at both viewports: six structure batches, four mapped,
+against the older five/four expectation. The active 1835 GLB census finds exactly
+one BLEND material, the existing T-3122 lighthouse's `lantern_cage_glass` at
+alpha 0.18. Green Tree's material records and primitive material indices are exact
+base 132 values; its opening positions did not create the extra material class.
+
+The scoped smoke repair retains six total and four mapped groups and additionally
+requires five opaque groups plus exactly one unmapped translucent batch owned
+only by the lighthouse, retaining its declared 0.18 uniform opacity within 1e-6.
+The renderer, assets, roughness assertions and reach assertions are unchanged.
+This new opacity predicate is UNVERIFIED at authoring; actual terminal native stage 8
+results on the new checked head belong in PR #1328 and its evidence checkpoint.
+The local one-context readiness timeout is not runtime opacity evidence. The
+original Green Tree image gate remains DIFFERS with its two visitor-visible gaps.
+
+
+The same immutable matrix exposed two further baseline-oracle mismatches. The
+lighthouse's recorded local origin is outside its explicitly offset 3.04 m
+footprint; GLB-CONTRACT fixes the origin at polygon coordinate(0,0), not an
+occupied corner. The shared drawn-placement census now compares the committed
+polygon's area centroid, independently transformed from its placement, with the
+GPU-read plan bounds. The original survey origin, vertex-by-vertex 1 mm transform
+bar, mirror checks, one-metre occupancy bar and sparse-camp treatment remain.
+No geometry, position, footprint or tolerance changes. Hand-authored offset-plan
+fixtures pass; translated, rotated, mirrored and wrong-record-footprint controls
+fail. The actual published reruns remain owed.
+
+The strict 1904 placed-record set also adds only
+`pullman_house_1729_prairie_ranges`: the T-1880/T-1934 separately retained stable
+and rear ranges, explicitly dated 1904-07-01 through 1911 and present in the
+1904 compiled sidecar, with no exclusion or suppressed-render ruling. It was the
+sole extra placed ID in both published viewport failures. Exact placed-set and
+registry equality and zero 1835-town-layer assertions remain. This is a corrected
+closed set, not permission for arbitrary new records; actual new-head stage 14
+results are still required.
+
+T-2386 integration: the genuine deep-brown82 source/assets were preserved before normal fast-forward to dev a575. Exact checked shared strict smoke/drawn-placement repairs from 6a61 are included; incoming source, records, changelog and registry entries are retained. Native closure, final app checks and full preflight on this combined tree remain pending.

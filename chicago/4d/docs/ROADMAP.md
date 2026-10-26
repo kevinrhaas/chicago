@@ -5908,3 +5908,6 @@ and long-wall reading in the same match record; the T-3153 stopping rule treats
 camera/drawing disagreements within tolerance and creates no follow-up tickets.
 The original remains open while those larger discrepancies remain. App/current-
 base full qualification and actual merge are recorded separately when complete.
+
+
+T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
