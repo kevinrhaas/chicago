@@ -14549,7 +14549,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 194 structures (174 until T-3151, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while T-3011's background row, which they replace, leaves it; 173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 195 structures (194 until T-3164, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: `generators/archetypes/prairie_draft.py` draws it in a flat colour; 174 until T-3151, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while T-3011's background row, which they replace, leaves it; 173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -33576,7 +33576,6 @@ closer to the front than this one (T-3161) replaces the rings with the mouldings
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3157).
 
-
 ### L-green-tree-right-front-entry — Green Tree front-ground opening order
 
 **Covers:** `green_tree_tavern.frame_1833.form.front_ground_layout`.
@@ -33630,6 +33629,106 @@ records to `matches`.
 **Ticket:** T-3166 (piece 1 of T-1887).
 **Review:** `docs/RESEARCH/k01-1828-shipman-1887/README.md`.
 **Recorded:** 2026-10-26 (T-3166).
+
+### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
+
+**Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
+across 18th Street from the house (T-3164, piece 1 of T-1934), which the district draft left as open
+grass because the sheet-28 trace never drew it (`L-draft-prairie-16-18-east-2335`; this entry
+supersedes that paragraph's note that the ground is left to T-1934). Five records: the cross-shaped
+pavilion at the head of the north range (`pullman_glasshouse_1800_calumet_pavilion`), the north-south
+range (`_north`), the east-west range (`_east`) and its narrower rounded end (`_east_end`), all built
+by `generators/k13_emit.py` from the K13 kit (`L-k13-conservatory-kit-2305`), and the two-storey brick
+lodge at the angle (`pullman_lodge_1800_calumet`) on the district draft's builder. **What is read.**
+Each outline, between the drawn lines' centres on the committed sheet 28 raster, carried by the sheet's
+fitted similarity (1.47 m RMS on independent houses): the pavilion's long arm 8.34 by 12.59 m, the north
+range 8.90 by 23.71 m, the east range 7.13 by 16.83 m, the end 5.56 m wide ending in a semicircle, the
+lodge 8.95 by 11.58 m; one storey on every glasshouse and two on the lodge, as printed; 'GREEN HO.' and
+'GLASS ROOF' as lettered. Inferred for 1904 on the sheet-28 census's allocation
+(`s28-pullman-service-garden`), which rests on the image research placing Beman's conservatory across
+18th Street, toward Calumet. **What is invented.** Every size above the plan: the eaves (3.4 m on the
+pavilion, 2.6 m on the north range, 2.4 m on the east range and its end), the 30 degree glass roofs, the
+pavilion's lantern, the bay counts, the ridge ventilators, the plinths, gutters and staging of the kit,
+and the pavilion's door in its north end. The rounded end is the kit's new `span_apse` form: seven planar
+facets under a half-cone of glass, its apex carried 0.7 m past the springing. The lodge is a hipped two-storey brick block with three bays on its
+alley front, a door at its south end and one stack, the draft rules' brick-family values; nothing
+describes it beyond the sheet's '2' and 'D', and the census itself grades it reconstructed.
+**What is not built.** The pavilion's middle arms (the cross is built as its long arm alone, 1.3 m and
+1.4 m short of the drawn width over 7 m of its length), the quarter-round one-storey piece in the angle
+north of the east range, and the dashed partition across the east range. Where two houses meet, one end
+wall stands for both (the kit's `abuts`), so no line of sight crosses a second glass envelope; the
+pavilion stops 5 cm short of the north range's end for the same reason. **Two readings of the sheet.**
+This copy washes the lodge pink in a triangle that runs diagonally into the east range; the lodge is read
+as the rectangle its lines and the dashed east line bound, and the wash as the colourist's. That is also
+why the outlines are read by hand at named pixels (as `L-k13-pullman-bay-2306` read the house's bay off
+sheet 20) and not by `tools/trace_prairie_1904_footprints.py`, whose colour rule would follow the wash.
+**How to resolve:** T-3165 solves the 1894 plates and the conservatory and palm-house photographs and
+works every one of these to them: the pavilion's true form and height, the ranges' sections, the lodge's
+face, and the building date the census reads off the 1894 plate.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.construction`, `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.stories`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.construction`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.stories`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.construction`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.stories`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.construction`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.stories`, `pullman_lodge_1800_calumet.as_standing_1904.form.draft_elevation`.
+**Ticket:** T-3164.
+**Recorded:** 2026-10-26 (T-3164).
+
+### L-pullman-1729-pavilions-3158 — 1729 Prairie's front divided into pavilions off the Detroit print: piers, frieze, modillions and mansard ribs, their places read and their sections reconstructed
+
+**Decision:** the Pullman house's Prairie front (T-3158, a piece of T-1881) is divided into pavilions as
+the Detroit Publishing photograph (`loc_det_4a08065_pullman_residence`) shows it, through its solved
+camera `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`: three rusticated
+piers in the front's brownstone and a fourth turning the south-west corner onto 18th Street, from the
+base's coping to the cornice's bed; the moulded stone cornice broken forward over each; a deep frieze
+between the second storey's heads and the cornice, with a bed course and framed panels between the
+piers; a row of modillions under the cornice's corona all round; raised ribs on the mansard's Prairie
+face over the first two piers; and the north-west pavilion's own dormer (`street_front_pavilions`, built
+by `generators/archetypes/k01_pavilions.py`, and a fifth entry in `mansard.dormers`).
+**What is read, not invented.** Each pier's place and width along the front (x 363-380, 412-428 and
+497-515 px, about 1.2 m each), the corner's banded return, the ribs' places (x 369-379 and 413-423), the
+frieze's depth between the window heads (about 10.6 m) and the cornice (about 12.0 m), the modillions'
+existence as a dotted band under the corona, and the north-west dormer's place and size. The print gives
+14-16 px a metre on the front.
+**What is invented.** The banding's rhythm and depth (0.4 m courses, 0.1 m channels, a 0.15 m step in
+and out, 0.15 m proud): the print shows long-and-short banded courses but not their joints to a
+centimetre. The third pier is held to v 14.74, 0.15 m short of its reading, so it stands clear of the
+south windows' voussoir rings. The frieze's bed course (10.70-10.86 m) and its panels' number and
+framing (one panel up to 2.6 m long between each pair of piers, framed in 0.1 m strips 0.08 m proud):
+the print reads the frieze as a band of shadowed panels. The modillions' size and pitch (0.15 m wide,
+0.25 m out, every 0.5 m) and their run round the walls the print does not see. The ribs' 0.6 m section
+and their brownstone (the print, monochrome, gives them the walls' tone). The north-west dormer stands
+at v 1.5, 0.1 m off the print's centre, the nearest the mansard's hip lets its face stand. The curb's
+step between the sections (about 0.15 m) is not built.
+**How to resolve:** a picture closer to the front (T-3161: the Albertype plate, the CHM and Taylor
+views) replaces the banding's rhythm, the panels and the modillions with what it shows.
+**Ticket:** T-3158.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3158).
+
+### L-k01-1816-henderson-crowns-2964 — 1816 Prairie's two canted bays carried up into crowned mansards of their own, under iron cresting, read off its photograph
+
+**Decision:** 1816 Prairie's photograph (`chicagology_1816_henderson_photo`) shows both canted bays
+carried up past the cornice into mansards of their own — the front's a raised crown over the corner,
+the flank's lower — each under iron cresting, with cresting along the main deck's street curb,
+square-headed dormers under pediments, and a fence of cast-iron scrollwork. T-2964 (piece 2 of T-1886)
+builds them: K08 learns a mansard bay roof (`roof.mansard`: a lower face at one pitch to a curb, then
+a deck), K10's bracketed cornice may run round a bay on any wall, the bays' crowns carry K10's iron
+cresting round their curbs, and the main deck's cresting may stand on the sides a picture shows
+(`mansard.deck.cresting.sides`). Every other K01, K12, K13 and K16 asset rebuilt byte-identical.
+**What is read, not invented.** Through the photograph's solved camera: that both bays rise through
+the cornice under their own mansards and cresting; their rises as fractions of the wall under them
+(the front's crown about a third of the corner's height, its deck 0.4 m over the main curb; the
+flank's about two-fifths), good to about half a metre; the cresting on the main deck's street curb;
+the dormers' pediments; the stack's place behind the front's south end.
+**What is invented.** Both crowns' lower faces at 76 degrees and their decks at a tenth; the
+cresting's pattern and its 0.6 m height (K10's iron ridge cresting, as 1801's deck carries it — the
+print's panels read only as a dense pierced band); the dormers' pediments at 40 degrees; the fence's
+pattern (K11's scroll band, the nearest the kit has to the print's full-height scrollwork). The main
+deck's south, north and rear curbs carry no cresting: the south shows none behind the flank's crown,
+the other two are out of the camera's sight.
+**What is not built.** The dormers in the crowns' own faces, the window hoods' carved crests, the
+balcony's metre-high pierced railing with the window over the door opened onto it, and the brick's
+dark tone: open on the match record. The 1874 Land Owner engraving is not read.
+**How to resolve:** a K08 crown dormer, a door-height opening over a K01 door hood, a crested K09
+hood, and a brick tone a picture can carry on a house with no stone front.
+**Ticket:** T-2964 (piece 2 of T-1886).
+**Recorded:** 2026-10-25 (T-2964).
 
 
 ### L-jail-palisade-2380 — The jail's high plank enclosure
