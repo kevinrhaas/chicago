@@ -33943,3 +33943,29 @@ the house and brings the match record to `matches`.
 **Ticket:** T-3171 (piece 1 of T-1895).
 **Review:** `docs/RESEARCH/k01-1827-doane-3171/README.md`.
 **Recorded:** 2026-10-26 (T-3171).
+
+
+
+
+### L-jail-palisade-2380 — The jail's high plank enclosure
+
+**Building:** `log_jail`.
+**Decision:** Add a high, closed plank palisade around the jail. Gale's 1902 memoir, p. 51, remembers the small jail "concealed within a high plank palisade" during a town walk framed in 1835. The independently verified Trowbridge plate facing p. 53 is captioned 1836. The fence's existence and kind are inferred from that retrospective source, rather than from a contemporary contract or a dated description of 1 July.
+**What is reconstructed:** the compact outline 0.70 m beyond the unchanged side and rear walls and 0.748 m in front; the 3.05 m overall height, including 127 mm symmetrical pointed heads; 180 mm backing posts at approximately 2.44 m bays; three backing rails; 254 mm boards with 6 mm gaps; July continuity; and a 2.20 m open passage aligned with the existing doorway. The chosen 10 ft height conceals the 2.66 m walls; it is not a measurement from the drawing. The physical fence run stops at both gateway jambs. The soil, population, building footprint, placement and phase dates are unchanged.
+**Visible limits:** the pointed pale form follows the plate, while its cut and stock dimensions remain chosen. The keeper's house partly within the compound, a hung gate, and the original-cell/later-cell roof identity remain unresolved. This increment does not claim that the jail compound matches its pictures.
+**How to resolve:** dated county specifications or a resolved jail and keeper-house sequence could replace the dimensions and continuity choice. Application review must verify that the fence meets the ground and the passage remains usable.
+**Source:** `trowbridge_first_jail_gale_1902`, actual p. 51 (scan n76) and plate n79. The independently verified 1902 artwork is public domain by publication age; no UCR copy-specific rights or added newspaper layout is used.
+**Ticket:** T-2380.
+**Recorded:** 2026-10-25.
+
+**Application review (2026-10-26):** Checked in the actual published phone and desktop views. The enclosure meets the ground, its pointed tops remain visible, and the open passage is walkable on the tested approach. The keeper-house and full-compound limits above remain unresolved.
+
+
+### L-light-glb-device-profile-2380 — Smaller house maps on Light
+
+**Decision:** The Light device texture profile omits the highest-resolution mip from compressed house maps before upload, as it already does library sheets. Width and height halve once, including when a source leaves and returns to residency. The same encoded asset is kept. This device profile is independent of the scene-detail control.
+**Visible limits:** Close-up map detail is reduced on Light; this is a texture-quality tradeoff, not a lossless image copy or a historical material ruling. Building shapes, placements and source provenance are unchanged. Full device texture profiles retain every mip.
+**Review:** Actual phone views of Glessner's street faces and courtyard and 1827 Prairie retained their masonry, openings and material colours. Both viewports and an explicit eviction/reload completed without page or network errors. All 432 Full and Balanced device-Full texture bindings retained exact mip dimensions and samplers; all 432 phone bindings dropped once. The 1904 phone measured 455.4 MiB before the repair, 399.0 after the mip fix, and 395.8 after also separating transient scalar-reader closure scopes, under the unchanged 400 MiB Light ceiling. These are measured spawn readings, not all-camera invariants.
+**How to resolve:** A future texture/device policy may choose a different tradeoff with measured memory and same-camera review; the full source maps remain available in the same native assets.
+**Ticket:** T-2380, required to clear the current integration memory failure for the visible jail enclosure.
+**Recorded:** 2026-10-26.
