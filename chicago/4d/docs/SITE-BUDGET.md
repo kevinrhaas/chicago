@@ -702,7 +702,7 @@ partition, not the float32 vertices) before another re-set.
 
 ## 5. What the gate does now
 
-- **Refuses** over 384 MiB (T-2958/T-2959; measured re-budgets in §8, §9 and §11) — the repository-hygiene guard, not the visitor-cost
+- **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
   budget; the visitor-cost budget is the 36.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
@@ -710,7 +710,7 @@ partition, not the float32 vertices) before another re-set.
 - **Warns at 90 %**, with the headroom in MB. Until T-0722 nothing said a word until the
   tree was already a wall, and the run that discovered it was a run whose finished work
   could not merge. The warning is advisory by design: it is meant to reach the queue while
-  there is still room to answer it. At 384 MiB it is quiet until 345.6 MiB; on 2026-10-20 the tree reads 83.3 % (§11).
+  there is still room to answer it. At 416 MiB it is quiet until 374.4 MiB; on 2026-10-26 the tree reads 91.6 % (§13), so the warning is already speaking.
 - **Refuses any two files in the mirror with identical content over 64 KB.** A duplicate is
   not a judgement call the way a large file is — one of the two is the file and the other
   is waste, and the answer is always a re-export, a redirect or a deletion. This class of
@@ -969,3 +969,52 @@ across houses (one copy of each sheet, the GLBs referring to it) is the durable 
 would hand back far more than any one house costs. It is not yet a ticket: the queue stood at
 its ceiling when this landed (`ticket.mjs new` refused), so the next run that frees a line
 should file it from here.
+
+## 13. Where the 61 MiB since T-2958 went — measured storage allowance, T-3170
+
+On 2026-10-26 `dev` (`a9c5bd4a9`) published **380.885 MiB** (399,386,526 B, 5,521 files)
+of the 384 MiB allowance. #1331 (T-3162, 1823 Prairie onto K01) adds a 3.43 MB textured
+web GLB in place of a 47 KB draft, read **384.058 MiB** and failed the dataset step,
+green on everything else. Every next textured Prairie house would fail the same way.
+
+T-2958's `dev` (`5f787d3a7`) and today's were each published with `tools/publish.sh` in
+one checkout and compared file by file. The older tree reads 320.221 MiB here (CI read
+319.988; this checkout's ticket mirror is the difference). **+60.664 MiB in six days:**
+
+| where | grew | what it is |
+|---|---:|---|
+| `walk/transport/` | 24.566 MiB | the standing horse (two 3.78 MB GLBs), the Brougham (near, mid and both masters), parked, fine-wood and covered wagons (two 2.97 MB liveries), the parked carriage |
+| `data/gltf/` | 23.774 MiB | 21.231 new: 1729 Pullman 4.50, 1815 Sears-Meeker 3.65, 1828 3.62, 1816 Henderson 2.06, 1730 1.91, 1726 1.83 and drafts; 2.824 grown (Glessner +1.55, 1801 +0.68) |
+| `data/humans/` | 6.688 MiB | the portable humans' poses, recipes and web assets |
+| `data/sidecars/` | 3.463 MiB | the records of all of the above |
+| everything else | 2.173 MiB | liberties 0.540, Prairie research 0.505, `walk/js` 0.297, the rest under 0.21 each |
+
+`site_budget.py --dupes` still finds no identical file over 64 KiB. What grew is the town:
+textured houses (§11's "1.5-3.5 MiB each", now 3.6-4.5 for the big ones) and transport.
+
+**Two levers, measured but not pulled here.**
+
+- **The same texture sheets, embedded again and again.** The 1,062 published GLBs carry
+  98.410 MiB of embedded images, and only 32.102 MiB of them are distinct: **66.309 MiB
+  are copies**, mostly the kit sheets §12 named (one 625 KiB K01 sheet sits in 28 GLBs,
+  a 423 KiB one in 14, a 948 KiB one in 6). One copy per sheet, which the GLBs refer to
+  by URI, is the durable fix, and it is worth more than every raise since §9 together.
+  It changes the kit emitters, the bake and the publish checks (K36-K39), so it is its
+  own piece of work.
+- **Transport masters nothing at runtime reads: 7.18 MB.**
+  `walk/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb` (3.78 MB;
+  `standing-horses.json` names the eye-UV-v1 file), and `parked-brougham/brougham-source.glb`
+  (2.49) and `brougham-mid-source.glb` (0.91), which only
+  `tools/transport/brougham/check_*.py` reads, from the source tree. Leaving them out
+  of the mirror is a `publish.sh` change, but the Brougham is in flight on #1335 and the
+  published `LICENSES.md` names the horse master, so this PR does not do it.
+
+**The allowance is now 416 MiB**, 35.115 MiB of headroom on this tree, about 31.7 once
+#1331 lands. Two 416 MiB allowances (production and the `/4d/dev/` preview) plus the
+**129.136 MiB** of other site content, re-measured in this checkout, total **961.136 MiB**,
+under the 1 GiB Pages limit by 62.864 MiB. The largest allowance that arithmetic leaves
+is about 447 MiB. At six days' rate (about 10 MiB a day), this allowance lasts about
+three days, and the next raise would take nearly all of what is left. **The next answer is
+the shared sheets, not a bigger number.** Storage hygiene only, as in §11: the boot
+payload budget, frame and Light limits, the 90 % warning and the duplicate guard are
+unchanged. Byte counts: `docs/RESEARCH/site-budget-T-3170/growth.json`.
