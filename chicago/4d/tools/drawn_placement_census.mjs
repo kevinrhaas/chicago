@@ -55,7 +55,7 @@ export const BREAK_IT = () => {
 export const CENSUS = () => {
   const a = window.__chicago4d;
 
-  // ---- buildings: the drawn body against the sidecar's own anchor ----
+  // ---- buildings: the drawn body against the recorded footprint ----
   //
   // UNION ACROSS MATERIALS, and it is not a detail. A structure is added to one
   // batch per material it uses, so it holds several instances and any one of
@@ -70,6 +70,27 @@ export const CENSUS = () => {
     mirrorCloser: 0, worstMirrorId: null, strays: [], corners: [], worstCorner: 0,
   };
   const plan = new Map();
+  // GLB-CONTRACT: position names the polygon's coordinate origin, which need
+  // not be occupied (the lighthouse's narrower shaft retains its old origin).
+  // Ask the DATA polygon for an occupied-plan reference, not the drawn bounds.
+  // Keep the original origin for every independent vertex/mirror comparison.
+  const footprintReference = (rec, p) => {
+    const polygon = rec.sidecar.footprint?.polygon;
+    if (!Array.isArray(polygon) || polygon.length < 3
+      || !polygon.every(v => Array.isArray(v) && v.length >= 2
+        && Number.isFinite(v[0]) && Number.isFinite(v[1]))) return [p.local_e, p.local_n];
+    let area2 = 0; let ce = 0; let cn = 0;
+    for (let i = 0; i < polygon.length; i++) {
+      const [x, y] = polygon[i]; const [u, v] = polygon[(i + 1) % polygon.length];
+      const cross = x * v - u * y;
+      area2 += cross; ce += (x + u) * cross; cn += (y + v) * cross;
+    }
+    if (Math.abs(area2) < 1e-9) return [p.local_e, p.local_n];
+    ce /= 3 * area2; cn /= 3 * area2;
+    const yaw = -(p.rotation_deg ?? 0) * Math.PI / 180;
+    return [p.local_e + ce * Math.cos(yaw) - cn * Math.sin(yaw),
+      p.local_n + ce * Math.sin(yaw) + cn * Math.cos(yaw)];
+  };
   for (const batch of a.buildings.batches ?? []) {
     B.batches++;
     const pos = batch.geometry.getAttribute('position');
@@ -143,33 +164,9 @@ export const CENSUS = () => {
         box.parts++;
         box.transformError = Math.max(box.transformError, transformError);
       } else {
-        // T-3174: THE ANCHOR THE RECORD GIVES IT is the point of its recorded
-        // footprint nearest the surveyed origin. For every other structure in
-        // 1835 the footprint grows from the origin (K30(b)) and that point IS
-        // the origin, so nothing about them moves. The 1832 lighthouse is the
-        // exception the bare origin could not survive: T-3122 drew its 3.04 m
-        // shaft inside local 1.28-4.32 m on both axes and kept the old centre
-        // and origin, so the origin is 1.81 m off the drawn tower by design.
-        // The footprint is in E/N at rotation 0, i.e. GLB (x, -z), and goes
-        // through the same bearing as the transform check above.
-        let fe = 0; let fn = 0;
-        const fp = rec.sidecar.footprint?.polygon;
-        if (Array.isArray(fp) && fp.length) {
-          let x0 = Infinity; let x1 = -Infinity; let y0 = Infinity; let y1 = -Infinity;
-          for (const q of fp) {
-            if (q[0] < x0) x0 = q[0];
-            if (q[0] > x1) x1 = q[0];
-            if (q[1] < y0) y0 = q[1];
-            if (q[1] > y1) y1 = q[1];
-          }
-          if (Number.isFinite(x0 + x1 + y0 + y1)) {
-            fe = Math.min(Math.max(0, x0), x1);
-            fn = Math.min(Math.max(0, y0), y1);
-          }
-        }
+        const [occupiedE, occupiedN] = footprintReference(rec, p);
         plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n,
-          ae: p.local_e + fe * cos - fn * sin, an: p.local_n + fe * sin + fn * cos,
-          compound: rec.sidecar.archetype === 'camp', transformError });
+          occupiedE, occupiedN, compound: rec.sidecar.archetype === 'camp', transformError });
       }
     }
   }
@@ -180,10 +177,10 @@ export const CENSUS = () => {
     if (!Number.isFinite(box.transformError) || box.transformError > 0.001) B.misplaced++;
     B.worstTransform = Math.max(B.worstTransform, box.transformError);
     if (box.compound) B.compounds++;
-    // How far outside its own drawn plan footprint the record's anchor falls.
-    // Zero for every building whose body was drawn where it was placed.
-    const outE = Math.max(box.e0 - box.ae, box.ae - box.e1, 0);
-    const outN = Math.max(box.n0 - box.an, box.an - box.n1, 0);
+    // The committed polygon's centroid must lie in the drawn plan bounds.
+    // Its transformed origin remains independently checked vertex by vertex.
+    const outE = Math.max(box.e0 - box.occupiedE, box.occupiedE - box.e1, 0);
+    const outN = Math.max(box.n0 - box.occupiedN, box.occupiedN - box.n1, 0);
     const out = Math.hypot(outE, outN);
     const span = Math.hypot(box.e1 - box.e0, box.n1 - box.n0);
     // And how far the anchor is from the NEAREST CORNER of that footprint,
@@ -196,16 +193,16 @@ export const CENSUS = () => {
       }
     }
     if (corner > B.worstCorner) B.worstCorner = corner;
-    // A camp's anchor names its ground's corner, not an occupied building
-    // corner (landing_camp_east leaves 3.87 m open there). Its actual vertices
-    // owe the independent millimetre transform check above. Buildings retain
-    // the original one-metre occupied-footprint assertion as well.
+    // Sparse camp ground need not have an occupied body at its reference. Its
+    // actual vertices still owe the independent millimetre transform check.
+    // Buildings retain the same one-metre bar against their DATA footprint.
     if (!box.compound && out > 1) {
       B.outside++;
       if (B.strays.length < 12) {
         B.strays.push({ id, out: +out.toFixed(2), span: +span.toFixed(1),
           parts: box.parts,
           anchor: [+box.e.toFixed(1), +box.n.toFixed(1)],
+          footprintReference: [+box.occupiedE.toFixed(1), +box.occupiedN.toFixed(1)],
           drawn: [+((box.e0 + box.e1) / 2).toFixed(1), +((box.n0 + box.n1) / 2).toFixed(1)] });
       }
     }

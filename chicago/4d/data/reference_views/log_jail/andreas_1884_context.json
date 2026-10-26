@@ -1,0 +1,27 @@
+{
+  "structure_id": "log_jail",
+  "scene": "1835",
+  "enclosures": [
+    "log_jail_palisade"
+  ],
+  "source_id": "andreas_1884_v1",
+  "photo": "../../../../reference/images/chicago/chicago_first_courthouse_1835.jpg",
+  "image_px": [
+    2048,
+    1113
+  ],
+  "principal_px": [
+    1800,
+    740
+  ],
+  "focal_px": 1800,
+  "eye": [
+    -50,
+    90,
+    1.7
+  ],
+  "yaw_deg": 149.0,
+  "sky": "overcast",
+  "solve": "PROVISIONAL DISTANT CONTEXT DIAGNOSTIC, not a solved source camera. Entire5303x2883 project plate is displayed at2048x1113 without cropping. The image labels the first courthouse and includes a small partly-concealed jail compound at right. The courthouse was not built by1July1835 and is deliberately absent from this scene; no later court building is backdated to reproduce the picture. The chosen distant camera frames only the existing jail and native palisade on a common review plane. The hip/pyramidal rear cap conflicts with the taller gable in the1902depiction; the original-cell/later-cell identity and numeric camera remain unresolved. Neither this position nor the palisade dimensions are measured from the engraving.",
+  "diagnostic_only": true
+}
