@@ -25031,3 +25031,14 @@ sole extra placed ID in both published viewport failures. Exact placed-set and
 registry equality and zero 1835-town-layer assertions remain. This is a corrected
 closed set, not permission for arbitrary new records; actual new-head stage 14
 results are still required.
+
+
+### T-2380 — Current dev integration and phone texture residency (2026-10-26)
+
+The jail palisade is integrated with actual dev `ecfff9f56ce359b70aa520e97d1923c12a6dafb2`, retaining the incoming 283 unique 1904 structure ids, current runner checks and all active 1835 geometry. Native full202, seven feedback steps, the settled 57-step tail, package export and publish passed; all 44 workbook/gzip artifacts were audited against the incoming tree, with raw regenerated serialization-only variants preserved. All 5,362 protected inputs remained exact.
+
+The current phone memory failure was real: 455.4 MiB against the unchanged 400 MiB Light ceiling. The existing Light texture policy had reached library sheets but not embedded GLB textures. It now reaches both initial decode and residency reload, once per texture. An actual regression fixture failed before the fix and passes 43 cases after it. Separating transient scalar/confidence readers also avoids retaining their source context. Mip-only measured 399.0 MiB; both fixes measured 395.8 MiB. Actual phone street/courtyard/1827 views, desktop Full/Balanced inventories and explicit eviction/reload passed without page or network errors; Full/Balanced mip dimensions and samplers stayed exact. Light deliberately shows less fine map detail; native assets are unchanged.
+
+The 1904 Full desktop measured 1168.7 MiB and failed its former1125 MiB ceiling. Its conscious Full-only re-budget follows the declared reading-plus10%, rounded to25MiB rule:1300MiB. The exact reading and staged-input binding are committed under docs/measurements. The full previous row is preserved at the definition, all five other viewport/year rows remain unchanged, and the phone400MiB floor is preserved. This is a measured point reading, not an all-camera guarantee or a passed old1125 gate.
+
+Native integration/ending gates and the current published both-viewport validation are reported on PR#1333. The selected published parts are1–2,3–4,12,13,14,15, with explicit unchanged active1835 inputs/semantic impact proof supporting dated actual8cd parts5–11; this is not a current whole18 or global-hash-equality claim. All685 active1835 WEB headers have no embedded images or textures. Original T-2380 remains DIFFERS: keeper-house/full-compound and conflicting roof readings remain open; no new photo follow-up is filed.

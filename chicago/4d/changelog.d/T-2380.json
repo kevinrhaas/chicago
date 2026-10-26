@@ -2,6 +2,7 @@
   "title": "Log jail gains a high palisade",
   "kind": "improvement",
   "items": [
-    "A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review."
+    "A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review.",
+    "Light uses smaller house texture maps to reduce phone memory use."
   ]
 }

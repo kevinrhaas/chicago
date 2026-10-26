@@ -1,0 +1,27 @@
+{
+ "structure_id": "doane_house_1827_prairie",
+ "source_id": "chicagology_1827_doane_exterior",
+ "library_image": "cgn-1827-doane-exterior",
+ "photo": "../../sources/assets/doane_1827_photo_t3171/doane_1827_exterior.jpg",
+ "image_px": [
+  1444,
+  1770
+ ],
+ "principal_px": [
+  722.0,
+  1263.0
+ ],
+ "focal_px": 2376.0,
+ "eye": [
+  58.5,
+  38.18,
+  5.23
+ ],
+ "yaw_deg": 233.99,
+ "sun_uvy": [
+  1.0,
+  0.6,
+  1.0
+ ],
+ "solve": "Fitted by T-3171 (piece 1 of T-1895) to the photograph alone, the image store's 1444 x 1770 px copy, against the 1911 sheet's plan (trace s28fp-1827-b1). The footprint frame's u runs toward Prairie Avenue (west) and v runs SOUTH from the main block's north wall; the main block is u 0-24.4, v 0-15.5, the porch's front at u 27.1 and the sheet's corner feature reaching u 25.6 and v 17.0. WHICH WAY IT LOOKS: north-east, from the west side of Prairie a little south of the house, not north-west as the Prairie library records (the folder's README says why: the walk and fence run along the left-hand face, the right-hand face has an open lawn and the coach house beyond it, and 1823 stands 3 m north of the house). It is LEVEL: the house's verticals stand vertical in the print, so the principal point is set on the horizon, which the front's cornice and base lines put at about y 1250 px. FIT: a least-squares fit of eye, heading, focal length and horizon to six readings: the south-west corner at the sheet's corner feature (u 25.5, v 16.9) at grade and at the cornice's top (x 848, y 1582 and 832 px), the pavilion's south corner at grade and at the cornice (x 600, y 1565 and 845), the porch's balcony rail at its south end (x 275, y 1126, 7.3 m) and the south flank's far end at the cornice (x 1380, y 982); with the cornice at the record's 12.6 m it puts the eye at u 58.5, v 38.2 (across the avenue, about 22 m south of the corner), 5.2 m over the house's grade (the photographer looks down on the fence's curb and the lawn: an upper window or a stoop across the street), heading 234 degrees, f 2376 px. RESIDUALS: within about 15 px, the balcony rail 28 px. UNCERTAINTY: the corner feature the fit stands on is the sheet's extent of it, not built yet (T-3172), and the distance trades against every height and width at once; nothing outside the house fixes it, so it is held by the cornice's height and the plan's widths. LIGHT: the front and the corner's south face lit alike by a high sun in the south-west, the street tree's shadow falling across the fence (sun_uvy)."
+}

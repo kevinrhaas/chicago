@@ -5578,6 +5578,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_dev_smoke_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5851,6 +5855,10 @@
       "wrote_ignored": []
     },
     "tools/test_k10_mansard_cornice.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_ktx2_texture_policy.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

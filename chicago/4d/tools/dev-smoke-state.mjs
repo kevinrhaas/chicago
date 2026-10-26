@@ -147,6 +147,11 @@ const CHANGELOG_PARTS = [13];
  */
 const STAMPED_INPUTS = ['site/4d/walk/index.html'];
 const STAMP_PATTERN = /build\s+[0-9a-f]{6,}\s+·[^<\n]*/g;
+// T-2380: publish writes these release numbers from the changelog. They feed
+// only whatsnew.js, so keep their actual values in the notes partition below.
+// Preserve the tag itself: a missing, duplicate or structurally changed tag is
+// still a different global page, as is every other byte outside the build stamp.
+const RELEASE_META_PATTERN = /(<meta name="c4d-releases" content=")([^"]*)(">)/g;
 
 const git = (args, cwd = REPO) =>
   execFileSync('git', args, { cwd, encoding: 'utf8', maxBuffer: 1 << 28 });
@@ -164,7 +169,7 @@ const git = (args, cwd = REPO) =>
  * a hash that quietly missed a working-tree edit would license exactly the wrong
  * skip, which is the one failure this tool must not have.
  */
-function digest(paths, extra = []) {
+function digest(paths, extra = [], metadata = []) {
   const listing = git(['ls-files', '-s', '--', ...paths]);
   const dirty = git(['status', '--porcelain', '--', ...paths, ...extra]).trim();
   const h = crypto.createHash('sha256');
@@ -173,16 +178,27 @@ function digest(paths, extra = []) {
     const file = path.join(REPO, rel);
     const body = fs.existsSync(file)
       ? fs.readFileSync(file, 'utf8').replace(STAMP_PATTERN, 'build <stamp>')
+        .replace(RELEASE_META_PATTERN, '$1<releases>$3')
       : '';
     h.update(`\n${rel}\n${body}`);
   }
+  for (const [rel, value] of metadata) h.update(`\n${rel}\n${JSON.stringify(value)}`);
   return { hash: `sha256:${h.digest('hex').slice(0, 16)}`, dirty: dirty.length > 0 };
 }
 
 function treeHash() {
   try {
     const tree = digest(SMOKE_INPUTS, STAMPED_INPUTS);
-    const notes = digest(CHANGELOG_INPUTS);
+    const metadata = STAMPED_INPUTS.map((rel) => {
+      const file = path.join(REPO, rel);
+      const exists = fs.existsSync(file);
+      const body = exists ? fs.readFileSync(file, 'utf8') : '';
+      const releases = [...body.matchAll(RELEASE_META_PATTERN)].map((m) => m[2]);
+      return [rel, { exists, count: releases.length, releases }];
+    });
+    // Hash the published values too. Incorrect or malformed release metadata
+    // with an unchanged canonical changelog must never disappear from both hashes.
+    const notes = digest(CHANGELOG_INPUTS, [], metadata);
     return { hash: tree.hash, dirty: tree.dirty, changelogHash: notes.hash };
   } catch {
     return { hash: null, dirty: null, changelogHash: null };
@@ -596,7 +612,8 @@ switch (cmd) {
   case 'ci': ci(rest); break;
   case 'hash': {
     const th = treeHash();
-    console.log(`${th.hash}${th.dirty ? '  (working tree dirty)' : ''}`);
+    console.log(rest.includes('--json') ? JSON.stringify(th)
+      : `${th.hash}${th.dirty ? '  (working tree dirty)' : ''}`);
     break;
   }
   case 'ask': case undefined: ask(rest); break;

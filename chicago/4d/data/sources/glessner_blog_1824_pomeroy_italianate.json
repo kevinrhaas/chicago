@@ -1,0 +1,30 @@
+{
+ "id": "glessner_blog_1824_pomeroy_italianate",
+ "type": "photograph",
+ "citation": "[Pomeroy house, 1824 S. Prairie Avenue, in its original Italianate form.] Unknown photographer, undated (before the stone front of about 1880). Reproduced on the Glessner House Museum's blog 'The Story of a House' ('The early history of Prairie Avenue', June 2020); chicagology.com's 1824 Prairie page reproduces the same photograph, slightly wider.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library: 1857 to about 1880)",
+ "describes_date": "between 1857, when the house was built, and the stone front George B. Marsh gave it soon after buying it in 1880",
+ "repository": "Glessner House Museum (reproduced on its blog without a rights statement; the original holder is not named). Prairie library images a18-gh-pomeroy-house-italianate (the blog's copy) and cgn-1824-pomeroy-italianate-copy (Chicagology's, the same photograph), both 'link only'; the project reads the image store's copies (kevinrhaas/chicago-images, prairie-1904/files/<id>.jpg). No copy is committed here: no camera is solved from it yet.",
+ "url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue_23.html",
+ "locator": "The house from the east side of Prairie Avenue, obliquely: the main block's two tall storeys over a raised basement under a bracketed cornice and a low hip with a square cupola; an arcaded porch with a balustraded deck; the entrance up a curved stoop at the right; a lower two-storey block with its own bracketed hip and two stacks at the left; an ornamental iron fence along the walk. The blog's text beside it: 'featuring an elaborate bracketed cornice, front and side porches, and a large cupola ... In 1880, it was purchased by George B. Marsh and soon after received an entirely new stone façade.'",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts and proportions are read from it; nothing is derived from the image as an asset, and no copy is committed.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3167, piece 2 of T-1887) from the image store's copies: a18-gh-pomeroy-house-italianate.jpg, 900 x 663 px greyscale, sha256 0a6122dee9f6819794bee44a913ed869876a67a4e8020b1c1de38e22cb31b8bc, and cgn-1824-pomeroy-italianate-copy.jpg, 1351 x 997 px, sha256 097a56371def139180db93bcb92a78e83f3cac5b2140ed363bd293289c56098f. The blog post's text read the same day.",
+ "note": "The one picture of the 1857 villa. It is a picture of the house BEFORE its 1880s stone front, so it is read only for what that front did not change: the storeys and the raised basement, the bracketed cornice and its deep eave, the low hip, the lower block beside the main one, the stacks and the flanks' round-headed windows under hoods. Its front, its arcaded porch and its cupola are evidence of the 1860s and 1870s, not of 1904 (the register's phase guard).",
+ "what_it_supplies": [
+  "the villa's storeys over a raised basement, its bracketed cornice and deep eave, its low hip roof",
+  "the lower two-storey block beside the main one, under its own bracketed hip",
+  "the cupola it carried before 1880",
+  "with the blog's text: the stone front of about 1880"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date closer than 1857-1880",
+  "the 1904 street front, which the stone front replaced",
+  "whether the cupola survived the 1880s work"
+ ]
+}

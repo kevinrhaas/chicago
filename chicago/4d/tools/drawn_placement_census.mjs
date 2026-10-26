@@ -66,7 +66,7 @@ export const CENSUS = () => {
   const B = {
     batches: 0, instances: 0, compared: 0, unrecorded: 0, verts: 0,
     outside: 0, worst: 0, worstId: null, worstSpan: 0,
-    misplaced: 0, worstTransform: 0, compounds: 0,
+    misplaced: 0, worstTransform: 0, compounds: 0, campWorst: 0, campWorstId: null,
     mirrorCloser: 0, worstMirrorId: null, strays: [], corners: [], worstCorner: 0,
   };
   const plan = new Map();
@@ -206,7 +206,14 @@ export const CENSUS = () => {
           drawn: [+((box.e0 + box.e1) / 2).toFixed(1), +((box.n0 + box.n1) / 2).toFixed(1)] });
       }
     }
-    if (out > B.worst) {
+    // The worst is the worst GATED structure. T-3174 was filed against
+    // land_sale_camp_shore because this line used to rank the exempt camps
+    // too, so the message named a camp's empty plot corner (9.82 m) while the
+    // one structure actually failing was the lighthouse at 1.81 m. Camps keep
+    // their own figure, which gates nothing.
+    if (box.compound) {
+      if (out > B.campWorst) { B.campWorst = out; B.campWorstId = id; }
+    } else if (out > B.worst) {
       B.worst = out;
       B.worstId = id;
       B.worstSpan = +span.toFixed(1);

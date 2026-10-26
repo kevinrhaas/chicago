@@ -56,6 +56,12 @@ step "Native palisade heads retain total height, outward normals, open gates and
 step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
   node tools/test_photo_match_enclosures.mjs
 
+selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
+  node tools/test_dev_smoke_state.mjs --self-test
+
+selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
+  node tools/test_ktx2_texture_policy.mjs --self-test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
