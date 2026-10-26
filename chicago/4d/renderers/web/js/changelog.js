@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2298, ts: '2026-10-26T00:33:30.322Z', date: 'Oct 25, 2026, 7:33 PM CT', title: '1815 Prairie\'s pavilion rises an attic storey under its own roof', kind: 'improvement',
+    items: [
+      'The pavilion at the north end of 1815 Prairie Avenue now rises a full attic storey past the main cornice, with a pair of tall mullioned windows in it, and its steep hipped roof sits on top of that storey, as both old photographs show.',
+      'The house now has a second photograph to match against: the view from the south-west, showing the front and the south side together.',
+      'Old newspaper notices show the Meekers bought the house in 1902 and remodelled it soon after. The model still follows the photographs, which show the house before that remodel.',
+    ] },
+  { v: 2297, ts: '2026-10-26T00:33:30.322Z', date: 'Oct 25, 2026, 7:33 PM CT', title: 'Nothing you can see: two Indiana Avenue lots looked up for 1904', kind: 'chore',
+    items: [
+      'Nothing you can see changes. The 1911 atlas shows a one-storey post office at 1925-1929 Indiana Avenue, but the 1902 and 1911 city directories both list people living at 1927, so a house let in rooms stood there in 1904 and the post office came later. The lots stay empty until a plan or picture of that house turns up.',
+      'The corner store at 1935-1937 and the flats behind it on 20th Street are not found in any directory before 1910, which suggests they were built around 1909. That is not proof, so the corner stays empty for now.',
+    ] },
+  { v: 2296, ts: '2026-10-25T23:15:40.775Z', date: 'Oct 25, 2026, 6:15 PM CT', title: 'The 1832 lighthouse takes its shape from Castelnau\'s harbour view', kind: 'feature',
+    items: [
+      'The lighthouse gains a narrower reconstructed stone shaft, small recesses, a railed gallery and an open lantern cage under a rounded crown and finial, after Castelnau\'s harbour view. Its measurements, its 1835 fittings and its remaining picture differences stay marked as reconstructed.',
+    ] },
   { v: 2295, ts: '2026-10-25T22:52:20.647Z', date: 'Oct 25, 2026, 5:52 PM CT', title: 'The Pullman house, from its 1890s photograph', kind: 'improvement',
     items: [
       'George M. Pullman\'s house at Prairie Avenue and 18th Street is no longer a plain draft block: it stands in brownstone, two tall storeys under a slate mansard with dormers and iron cresting, at the heights a Detroit Publishing photograph of the 1890s shows.',

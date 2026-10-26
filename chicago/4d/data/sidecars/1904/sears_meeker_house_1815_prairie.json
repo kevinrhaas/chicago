@@ -390,12 +390,11 @@
           "id": "north_pavilion",
           "variant": "k08.projection.full_height",
           "wall": "k01.wall.street_front",
-          "s_m": 1.225,
+          "s_m": 1.4,
           "plan": {
-            "width_m": 2.45,
+            "width_m": 2.2,
             "proud_m": 0.45
           },
-          "flush_corner": "left",
           "fabric": "front_stone",
           "storeys": [
             {
@@ -407,7 +406,7 @@
                   "clear_height_m": 0.9,
                   "sill_m": 0.25,
                   "at": [
-                    0.522
+                    0.445
                   ],
                   "recess_m": 0.35,
                   "why_not_ordinary": "the pavilion's basement light under the principal window, x 175-235 px and y 1030-960 px on the square-on photograph, partly behind the stoop's north newel"
@@ -423,7 +422,7 @@
                   "clear_height_m": 2.3,
                   "sill_m": 0.35,
                   "at": [
-                    0.552
+                    0.4782
                   ],
                   "recess_m": 0.35
                 }
@@ -438,9 +437,25 @@
                   "clear_height_m": 2.15,
                   "sill_m": 0.3,
                   "at": [
-                    0.612
+                    0.545
                   ],
                   "recess_m": 0.35
+                }
+              ]
+            },
+            {
+              "height_m": 2.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 1.5,
+                  "clear_height_m": 1.75,
+                  "sill_m": 0.2,
+                  "at": [
+                    0.5136
+                  ],
+                  "recess_m": 0.35,
+                  "why_not_ordinary": "the attic storey's paired lights, read off the square-on photograph (T-3156): two lights on a stone mullion, each under a leaded transom light, x 200-325 px (1.75 m over the mullion; built 1.5 m clear, the most the pavilion's 2.45 m face holds with its piers) and y 390-250 px (9.15-11.0 m over grade; built 9.25-11.0 m over the storey's band), centred at x 262 px, 1.43 m from the front's north corner (built at 1.43 m); the oblique shows the same pair"
                 }
               ]
             }
@@ -665,7 +680,7 @@
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up under its own steep hipped roof: the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half, and K01 cannot cut a door through a projection, so it is built 2.45 m wide north of the door, its steep roof centred 0.75 m north of the photograph's (x 148-340 px), open in the match record; the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902)."
+      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up an attic storey past the main cornice under its own steep hipped roof (T-3156: its paired lights x 200-325 px and y 390-250 px, its eave at y 210 px, 11.6 m; the main eave stopping square at its cheeks, 0.3 m in from the north corner, K08's least pier to a corner, 2.2 m wide to stand clear of the entrance, which puts the attic over the print's within about 0.5 m): the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half, and K01 cannot cut a door through a projection, so it is built 2.45 m wide north of the door, its steep roof centred 0.75 m north of the photograph's (x 148-340 px), open in the match record; the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902)."
     },
     "mansard": {
       "value": {
@@ -707,16 +722,17 @@
           "form": "hip",
           "over_bay": "north_pavilion",
           "depth_m": 5.0,
-          "overhang_m": 0.95,
-          "pitch_deg": 65,
-          "end_pitch_deg": 65
+          "overhang_m": 0.5,
+          "pitch_deg": 52,
+          "end_pitch_deg": 52,
+          "attic_m": 2.35
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it; the photograph's attic storey of paired lights under that roof is not in the crown and is open in the match record."
+      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back)."
     },
     "rear_wings": {
       "value": [
