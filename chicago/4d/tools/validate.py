@@ -247,7 +247,18 @@ WIDE_RANGE_YEARS = 12
 # guard are unchanged. What exhausts it next: a prebuilt layer set for a second year
 # (1835's is 28.7 MiB), each new textured Prairie house (1.5-3.5 MiB web GLB), and more
 # transport. docs/SITE-BUDGET.md section 11 has the table.
-SITE_BUDGET_MB = 384
+# T-3170, 2026-10-26: measured whole-tree re-budget, 384 -> 416 MiB. dev (a9c5bd4a9)
+# read 380.885 MiB, so #1331 (T-3162, 1823 Prairie's textured web GLB, +3.43 MB) read
+# 384.058 and was green on all else. T-2958's dev (5f787d3a7) republished in the same
+# checkout reads 320.221; the 60.664 MiB since: walk/transport 24.566 (the standing
+# horse, Brougham, parked and covered wagons), data/gltf 23.774 (21.231 of it new
+# textured Prairie houses: 1729, 1815, 1828, 1816, 1730, 1726), data/humans 6.688,
+# sidecars 3.463, rest 2.173. No identical files over 64 KiB. Two 416 MiB allowances
+# plus 129.136 MiB of other site content total 961.136 MiB, under the 1 GiB Pages
+# ceiling by 62.864. Levers measured, not pulled: 66.309 MiB of KTX2 sheets embedded
+# again and again across the houses' GLBs, and 7.18 MB of transport masters no runtime
+# fetch reads. docs/SITE-BUDGET.md section 13 has the numbers.
+SITE_BUDGET_MB = 416
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
