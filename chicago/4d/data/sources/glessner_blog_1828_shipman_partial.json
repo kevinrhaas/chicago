@@ -1,0 +1,27 @@
+{
+ "id": "glessner_blog_1828_shipman_partial",
+ "type": "photograph",
+ "citation": "[Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer, undated; a damaged print. Reproduced on the Glessner House Museum's blog 'The Story of a House' ('Prairie Avenue in 1874', June 2014).",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library: 1874-1950)",
+ "describes_date": "undated, after the house was built (1876-1877)",
+ "repository": "Glessner House Museum (reproduced on its blog without a rights statement; the original holder is not named). Prairie library image a18-gh-shipman-1828-partial, 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-gh-shipman-1828-partial.jpg), committed since T-1887 at data/sources/assets/shipman_1828_photos_t1887/ with its attribution.",
+ "url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+ "locator": "The north part of 1828's street front from the north cheek of its canted bay to its north corner, porch, stoop and mansard; the right half shows the next house north, set back, its south flank and front; the print is torn on the right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset, and the copy committed for the image gate (T-1887) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3166, piece 1 of T-1887) from the image store's reference copy, 387 x 675 px greyscale, sha256 c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334.",
+ "note": "A view of 1828 from the north-east, nearer square-on to the porch than the automobile photograph: the canted bay's north cheek and front with one window per storey, carried up past the main cornice into the mansard, where it has its own dormer; the recessed north part of the front with one second-storey window over the porch; the porch's front arch on columns, its entablature and the balustrade on its top; the stoop between solid stone cheeks; a heavy cornice on brackets; the slated mansard with a dormer over the north part under a curved hood, and iron cresting on its curb. The stone of the front reads mottled in this print and smooth in the automobile photograph.",
+ "what_it_supplies": [
+  "the second storey and the roof the automobile photograph cuts off: the mansard, its dormers, the cornice, the cresting",
+  "the bay carried up into the mansard"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date",
+  "the south part of the front, the flanks and the rear"
+ ]
+}

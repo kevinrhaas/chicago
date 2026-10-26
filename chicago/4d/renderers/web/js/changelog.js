@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2301, ts: '2026-10-26T03:42:20.702Z', date: 'Oct 25, 2026, 10:42 PM CT', title: '1828 Prairie, the Shipman house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1828 Prairie Avenue is no longer a plain draft block. It now stands as Daniel B. Shipman\'s light stone house: two tall storeys over a raised basement, under a slated mansard with dormers.',
+      'A canted bay rises through both storeys on the front, and a porch on columns with a deep entablature and a balustrade stands at the head of the stoop.',
+      'The porch\'s round arches, its carving and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
+  { v: 2300, ts: '2026-10-26T02:24:06.618Z', date: 'Oct 25, 2026, 9:24 PM CT', title: '1801 Prairie\'s south side, from its 1965 photograph', kind: 'improvement',
+    items: [
+      'The two tall stone chimneys over the W. W. Kimball house\'s south wall now carry their carved heads, a collar under a diamond-latticed stage and a heavy cap, on broader bases rising from the cornice, as Harold Allen\'s 1965 HABS photograph shows them.',
+      'The south wall breaks out in a two-storey canted bay with a column of transomed windows, drawn where the 1911 fire-insurance map puts it, and a tall hooded dormer stands on the slate roof between the chimneys.',
+    ] },
   { v: 2299, ts: '2026-10-26T01:38:01.134Z', date: 'Oct 25, 2026, 8:38 PM CT', title: 'The Pullman house\'s arched windows and dormers', kind: 'feature',
     items: [
       '1729 Prairie\'s street front now has its round-arched windows, read off the Detroit Publishing photograph: three on the upper storey under stone arch rings, two on the ground storey beside the portico.',
