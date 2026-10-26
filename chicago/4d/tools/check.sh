@@ -62,6 +62,9 @@ selftest "Smoke input hashes retain page changes and hash published release meta
 selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
   node tools/test_ktx2_texture_policy.mjs --self-test
 
+selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
+  node tools/test_rail_geometry_lifecycle.mjs --self-test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 

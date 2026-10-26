@@ -5926,3 +5926,8 @@ Combined cf25+88 native validation completed on 26 October: the owning 61-step t
 ### T-2380 current-dev integration checkpoint — 2026-10-26
 
 Normal integration of foreign6b with actual dev ecfff retains the native palisade and strict independent placement/declared lighthouse-glass checks. Current native generation and all44 artifact audits passed. A real1904 phone overrun was repaired by applying the existing Light mip policy to initial/reloaded GLB textures and separating transient scalar-reader scopes:455.4→395.8MiB with the400MiB floor unchanged. Full desktop1168.7MiB is consciously re-budgeted1125→1300MiB by the existing measured+10%/25MiB rule; all other rows remain exact. Same-camera phone and desktop texture/reload reviews passed. Final checks and source-bound published coverage are on PR#1333. The original pictured jail compound remains DIFFERS; ship the useful enclosure without claiming that the keeper house or roof conflict is solved.
+
+
+T-2380 current ending: hosted1904 phone403.3/400 failure is retained. Deferred existing far-rail buffers recover exactly12,183,792 retained CPU bytes at spawn with identical measured GPU buffers/textures; actual local phone384.0/400. Native geometry/lifecycle regression coverage is added; final actual walk/picture, preflight and hosted qualification are still pending. Original jail compound image mismatch remains open.
+
+T-2380 rail headroom review is now complete: actual normal walk/upload/drop/rebuild/pick and Full→Light passed; five same-frame baseline/candidate pictures and visible rail geometry are exact. Baseline/current first-pose GL1281 remains explicitly qualified; page/network/console errors are zero. Final preflight and current hosted ending remain pending.
