@@ -4293,6 +4293,16 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
 
+# T-3169. `ubuntu-latest` moved to 26.04 on 2026-10-26 and playwright@1.56.1 refuses
+# to install chromium there, so all eighteen content-build smoke legs died in
+# `Install Playwright` and no bake could open its PR. A job that installs Playwright
+# names an exact image — the one its timings and ceilings were measured on.
+step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+  python3 tools/check_runner_images.py --gate
+
+selftest "…and a job on a moving label is refused, read per job and not from prose" \
+  python3 tools/check_runner_images.py --self-test
+
 # T-2314. A whole-town bake derives only the masters the record says moved; deriving
 # all ~714 pushed the content-build job past its thirty-minute ceiling.
 selftest "a whole-town bake derives exactly the masters whose bytes moved (T-2314)" \
