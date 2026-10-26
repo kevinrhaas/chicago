@@ -777,8 +777,16 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     w = b - a
     if cd <= w:
         raise ParamError(f"mansard.crown.depth_m {cd}: a hipped crown runs its ridge back, deeper than its {w} m")
+    # T-3156: the pavilion may be carried up an ATTIC storey past the main eave (1815's, its
+    # paired lights in the wall between the main cornice and its own eave), the crown's fascia
+    # then standing `attic_m` over the main eave's; the main eave box stops square at the
+    # pavilion's cheeks under the crown, as at a shallow pavilion's (k01_frontage.shallow_bay_cutters)
+    attic = float(c.get("attic_m", 0.0))
+    if attic and not 1.0 <= attic <= 3.0:
+        raise ParamError(f"mansard.crown.attic_m {attic}: 1-3 m")
+    E = eave + attic
     # the pavilion is carried up to the crown's soffit, its own eaves and deck inside the crown
-    soffit = eave - float(k5["parts"]["eave"]["fascia_depth_m"])
+    soffit = E - float(k5["parts"]["eave"]["fascia_depth_m"])
     top = sum(float(st["height_m"]) for st in bay["variant"]["storeys"])
     if not soffit <= top <= soffit + 0.1:
         raise ParamError(f"mansard.crown: {bay['id']} stops at {top:.3f} m; under a hipped crown it rises "
@@ -787,12 +795,12 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     rise = half * math.tan(math.radians(side))
     x1 = depth + proud
     apex = x1 + co - rise / math.tan(math.radians(end))
-    if rise < m["lower_rise_m"] + 0.3:
-        raise ParamError(f"mansard.crown: its ridge {rise:.2f} m over the eave is not 0.3 m over the main "
+    if attic + rise < m["lower_rise_m"] + 0.3:
+        raise ParamError(f"mansard.crown: its ridge {attic + rise:.2f} m over the eave is not 0.3 m over the main "
                          f"curb's {m['lower_rise_m']} m")
     # where the end reaches the main curb's height it stands in front of that curb
     curb = depth + overhang - m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
-    at_curb = x1 + co - m["lower_rise_m"] / math.tan(math.radians(end))
+    at_curb = x1 + co - max(m["lower_rise_m"] - attic, 0.0) / math.tan(math.radians(end))
     if at_curb < curb + 0.2:
         raise ParamError(f"mansard.crown: its end meets the main curb's height at x {at_curb:.2f}, not 0.2 m "
                          f"in front of the curb at {curb:.2f}; steepen end_pitch_deg")
@@ -801,8 +809,9 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
         raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
-            "overhang_m": co, "ridge_m": round(eave + rise, 4),
-            "ridge_x_m": (round(back, 4), round(apex, 4))}
+            "overhang_m": co, "ridge_m": round(E + rise, 4),
+            "ridge_x_m": (round(back, 4), round(apex, 4)),
+            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {})}
 
 
 def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float):
@@ -824,7 +833,7 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
             X0, X1, Z0, Z1 = cr["x0"] - co, cr["x1"] + co, cr["z0"] - co, cr["z1"] + co
             if X0 <= u <= X1 and Z0 <= z <= Z1:
                 ts, te = math.tan(math.radians(cr["pitch_deg"])), math.tan(math.radians(cr["end_pitch_deg"]))
-                y = max(y, eave + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
+                y = max(y, cr.get("eave_m", eave) + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
         return y
     return cover
 

@@ -1,5 +1,5 @@
 {
- "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 27 for the background behind Prairie Avenue: Indiana Avenue's east frontage, 18th to 20th Street, and the row at 213-217 East Eighteenth Street (T-3151, piece 2 of T-3145; T-3150, piece 1, ingested the sheet and read its 26 lots into the 1904 grid). It replaces T-3011's reconstructed background row, which stood 22 houses re-stood from the neighbouring Indiana faces while the sheet was not in hand. The rows are read in the same frontage contract as sheets 20w and 35w, for tools/trace_prairie_1904_footprints.py (sheet '27w') and tools/draft_prairie_1904.py. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face: the sheet is the only plan, as on 35w. The 1904 Blue Book's households on the face (T-3011's reading: 1813 (three), 1815, 1819, 1821, 1825, 1829, 1833 (two), 1901, 1921 and 1933) each fall on a lot whose 1911 front is a dwelling, and each is named in its row. Two frontages carry 1911 commercial uses whose 1904 state nothing in hand attests: the P.O. sub-station at 1925-1929 and the corner store at 1935-1937 with the 216-216a E. 20th flats behind it; they are traced, ruled phase_unresolved and not drafted (T-3154 reads them). The 1-storey stores built forward of 1801 and 1807 and the stores at 205-207 E. 18th are 1911 shops on house lots; the houses are drafted and the shops are not. The two unnumbered lots between 1839 and 1901 are open on the sheet and kept open.",
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 27 for the background behind Prairie Avenue: Indiana Avenue's east frontage, 18th to 20th Street, and the row at 213-217 East Eighteenth Street (T-3151, piece 2 of T-3145; T-3150, piece 1, ingested the sheet and read its 26 lots into the 1904 grid). It replaces T-3011's reconstructed background row, which stood 22 houses re-stood from the neighbouring Indiana faces while the sheet was not in hand. The rows are read in the same frontage contract as sheets 20w and 35w, for tools/trace_prairie_1904_footprints.py (sheet '27w') and tools/draft_prairie_1904.py. Robinson 1886 plate 10's page ends at 18th Street, so no earlier plan checks this face: the sheet is the only plan, as on 35w. The 1904 Blue Book's households on the face (T-3011's reading: 1813 (three), 1815, 1819, 1821, 1825, 1829, 1833 (two), 1901, 1921 and 1933) each fall on a lot whose 1911 front is a dwelling, and each is named in its row. Two frontages carry 1911 commercial uses whose 1904 state nothing in hand attests: the P.O. sub-station at 1925-1929 and the corner store at 1935-1937 with the 216-216a E. 20th flats behind it; they are traced and not drafted, and T-3154 read their 1904 state from the 1902 and 1911 Lakeside directories and the Blue Books of 1902-1911: households lived at 1927 in 1902 and again in 1911, so 1925-1929 is ruled replaced_after_1904 (the sub-station is not the 1904 building, and nothing stands until the house's form is found); nothing in hand puts anyone at 1935-1937 or 216-216a E. 20th before 1910, so that corner stays phase_unresolved. The 1-storey stores built forward of 1801 and 1807 and the stores at 205-207 E. 18th are 1911 shops on house lots; the houses are drafted and the shops are not. The two unnumbered lots between 1839 and 1901 are open on the sheet and kept open.",
  "ticket": "T-3151",
  "sheet": "27w",
  "target_date": "1904-07-01",
@@ -494,10 +494,20 @@
      "reading_1911": "A 1-storey brick building, 17 ft, across both numbers to the stone (blue) strip at the street line, lettered P.O. SUB-STATION"
     }
    ],
-   "decision_1904": "phase_unresolved",
-   "why": "A post-office sub-station in 1911, a 1-storey brick building filling the lot to the street line, so not a house of the face's kind. The 1904 Blue Book lists nobody at 1925-1929, and no dated source between 1904 and 1911 is in hand for the lots, so their 1904 state is not read: the frontage is ruled phase_unresolved, the outline is traced and not drafted, and nothing stands on the lots until their 1904 form is found (T-3154 reads it). Robinson 1886 plate 10's page ends at 18th Street.",
+   "decision_1904": "replaced_after_1904",
+   "why": "A dwelling stood here on 1 July 1904, and the one-storey P.O. sub-station the 1911 sheet draws across 1925-1929 is a later building: the 1902 Lakeside directory gives two households their homes at 1927 Indiana (Joseph Schnable and Anton Yensch, the OCR's 'Ycnseh'), and the 1911 Lakeside directory still gives six people their homes at 1927 and lists Ira S. Weidner's furnished rooms there, so a house let in rooms stood on the lots on both sides of the scene date, and the sub-station came after the 1911 directory's canvass (or the sheet carries a later correction). The street numbers run unchanged across the 1909 renumbering on this face (the Blue Books seat Sprague at 1933 in 1902-1904 and Bourchier at 1933 in 1905-1911, both on the 1931-1933 pair). The 1911 outline is not the 1904 building, and no plan, view or description of the house is in hand (Robinson 1886 plate 10's page ends at 18th Street), so the draft stands nothing here rather than invent it; the ground is NOT open, and drafting the house waits on an outline. The Blue Books list nobody at 1925-1929 in any year from 1902 to 1911, which says only that no household of theirs lived there.",
    "named_record_ids": [],
-   "front_package": "T-1946"
+   "front_package": "T-1946",
+   "reading_1904": {
+    "by": "T-3154",
+    "text": "1927 Indiana: a dwelling. Lakeside 1902: 'Schnable ... Joseph ... h 1927 Indiana av' and 'Yensch [OCR Ycnseh] Anton h 1927 Indiana av', with Sophia M. Schnable at 1927 Indiana in a second list. Lakeside 1911: homes at 1927 Indiana for Miss Ester Garten (model), Emmet (engineer), Christ (foreman), C. and Harry (labourers) and Miss Hettie (nurse), and 'Weidner Ira S furn rooms 1927 Indiana av'. Nothing legible at 1925 or 1929 in either edition.",
+    "sources": [
+     "lakeside_city_directory_1902",
+     "lakeside_annual_directory_1911",
+     "chicago_blue_book_1904",
+     "chicago_blue_book_1911"
+    ]
+   }
   },
   {
    "frontage_id": "frontage-27w-1931–1933",
@@ -544,9 +554,20 @@
     }
    ],
    "decision_1904": "phase_unresolved",
-   "why": "A corner store in 1911, a 1-storey brick building against the street lines, with four-storey frame flats behind it on 20th Street. The 1904 Blue Book lists nobody at 1935-1937, and no dated source for the corner between 1904 and 1911 is in hand, so its 1904 state is not read: the frontage is ruled phase_unresolved, both outlines are traced and neither is drafted (T-3154 reads it). Robinson 1886 plate 10's page ends at 18th Street.",
+   "why": "A corner store in 1911, a 1-storey brick building against the street lines, with four-storey frame flats behind it on 20th Street, and nothing in hand dates either before 1910. The 1911 Lakeside directory has the corner as the Health Food Company's western agency (J. G. Moore & Co., 1935 Indiana), a firm the 1902 edition puts at 1601 Wabash; the 1902 edition has nobody legible at 1935, 1937 or 216 E. 20th; and the Blue Books first seat households at 216 E. 20th in 1910 (Regnar Kidde, Miss E. A. Willing) and 1911 (Judge Marcus Kavanagh, who lived on Michigan Avenue through 1908, Murray P. Kellar), none there from 1902 to 1909. That points to flats built about 1909, but an absence from the Blue Book and from a rough OCR (1933's Sprague household is missing from the same 1902 text) is not a date, so the frontage stays phase_unresolved: both outlines are traced and neither is drafted. A permit for the flats, a dated advertisement for the corner, or a pre-1909 plan of the block would settle it. Robinson 1886 plate 10's page ends at 18th Street.",
    "named_record_ids": [],
-   "front_package": "T-1946"
+   "front_package": "T-1946",
+   "reading_1904": {
+    "by": "T-3154",
+    "text": "1935-1937 Indiana: in 1911 'HEALTH FOOD COMPANY Western agency 1935 Indiana av' and 'Moore J G & Co 1935 Indiana av', the firm at '1601 Wabash av' in 1902; nobody legible at 1935 or 1937 in 1902. 216 E. 20th: households in the 1911 Lakeside directory (among them 'Kavanagh Marcus judge superior ct ... h 216 E 20th'), in the Blue Book from 1910 and in none of 1902-1909.",
+    "sources": [
+     "lakeside_city_directory_1902",
+     "lakeside_annual_directory_1911",
+     "chicago_blue_book_1904",
+     "chicago_blue_book_1910",
+     "chicago_blue_book_1911"
+    ]
+   }
   }
  ],
  "vacant_ground": [
