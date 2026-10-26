@@ -1,0 +1,98 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "view": "detroit_det_4a08065",
+  "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+  "glb_sha256": "798821bac81d445f923c7d70f33ca898ae2fe7a5d104dabe0559c6eca6803ec2",
+  "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
+  "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the main block two storeys over a raised basement under a mansard, the Prairie front and the 18th Street flank both seen, the front from x 293 to its south-west corner at x 557-560 and the flank's far end at x 683-690",
+      "status": "fixed",
+      "how": "T-1880: the 1911 sheet's main block, 27.75 x 17.93 m, on K01 in brownstone (4.6 and 6.0 m storeys over a 2.0 m basement); the render's front runs x 297-560 and the flank ends at x 688-703"
+    },
+    {
+      "what": "the cornice's top at about y 300-310 px and the mansard's curb under the cresting at about y 235-245",
+      "status": "fixed",
+      "how": "T-1880: the 6.0 m second storey carries the frieze over the windows' heads, the mansard rises 4.0 m; the render's cornice at y 307 and curb at y 245"
+    },
+    {
+      "what": "iron cresting round the mansard's deck",
+      "status": "fixed",
+      "how": "T-1880: mansard.deck.cresting, 0.8 m"
+    },
+    {
+      "what": "the columned portico across the Prairie front's north part carrying a balustraded balcony at the second floor",
+      "status": "fixed",
+      "how": "T-1880: the door's hood on two columns with a railing, 8.0 x 3.0 m, soffit 6.0 m"
+    },
+    {
+      "what": "the portico's four or more columns and its stone balustrade, where the build stands two turned columns and an iron railing",
+      "status": "open"
+    },
+    {
+      "what": "the stoop: the print's flight rises at the portico's north end (the sheet's p1-p2), where the build lays a broad flight across the portico's whole width",
+      "status": "open"
+    },
+    {
+      "what": "the rusticated quoined piers that divide the Prairie front into pavilions (x 362-380, 413-428, 497-515 and the corners) and the pavilions' own mansard sections and stepped roof line",
+      "status": "open"
+    },
+    {
+      "what": "the Prairie front's windows round-arched under moulded rings: three on the second storey (x 390-402, 452-472 and 519-528 px, crowns at y 339) and the two the ivy leaves on the principal storey (heads at y 411 and 418)",
+      "status": "fixed",
+      "how": "T-3157: named off the print (street_front_windows) as K06 round fanlight sashes, the second storey's under 0.25 m rings of K02 voussoirs; the render's lights at x 393-400, 455-470 and 519-526 with crowns at y 340 and sills at y 377 (the print's 380), the principal storey's crowns at y 414 and 420"
+    },
+    {
+      "what": "the 18th Street flank's windows round-arched under hoods, as the Prairie front's; the build cuts them flat under plain lintels",
+      "status": "open",
+      "how": "T-3160"
+    },
+    {
+      "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630",
+      "status": "fixed",
+      "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
+    },
+    {
+      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters, and the north-west pavilion's own dormer at x 330 on its own mansard section; the build lays a plain surround round each arch and no dormer on the north-west block",
+      "status": "open",
+      "how": "T-3158, with the pavilions' own mansard sections"
+    },
+    {
+      "what": "the cornice's modillions and the deep frieze's panels",
+      "status": "open"
+    },
+    {
+      "what": "the arcade on the 18th Street flank (x 598-683): two round arches on piers under a balustrade at about y 385-395, the porte-cochere; the build stands a plain pavilion 6.0 m wide and 1.2 m out there, and the sheet's one-storey porte-cochere (p4) at the draft's massing in pullman_house_1729_prairie_ranges, which this camera puts behind the flank at x 690-710",
+      "status": "open"
+    },
+    {
+      "what": "the north-west block flush with the Prairie front: the sheet draws it 3.96 m north of the main block's line at the draft's v 0, 1.53 m past the built block's north wall; built 1.2 m out",
+      "status": "within tolerance",
+      "how": "0.33 m short of the sheet, the photograph seeing the block edge-on"
+    },
+    {
+      "what": "the low stone wall on piers along the Prairie Avenue line and on round the corner along 18th Street",
+      "status": "open",
+      "how": "T-1880 lays the Prairie run; the 18th Street run is not built"
+    },
+    {
+      "what": "the ivy over the principal storey, the street trees, the lamp post and the hydrant",
+      "status": "not shown",
+      "how": "planting and street furniture are not this building's"
+    },
+    {
+      "what": "the walls' colour: the brownstone reads mid-grey in the monochrome print; the build's sandstone_brown is a warm red-brown",
+      "status": "not shown",
+      "how": "a monochrome print cannot say the stone's colour; the register's word (brownstone) decides it"
+    },
+    {
+      "what": "the low hip-roofed building beyond the flank's east end (x 687-753) and the glass house behind it",
+      "status": "not shown",
+      "how": "the conservatory and the sheet's south-east block; not compared here"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

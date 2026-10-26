@@ -1,4 +1,67 @@
 export const CHANGELOG = [ // newest first
+  { v: 2303, ts: '2026-10-26T06:34:03.026Z', date: 'Oct 26, 2026, 1:34 AM CT', title: 'Pullman\'s glasshouses rise across 18th Street', kind: 'feature',
+    items: [
+      'The open lawn east of Prairie at 18th Street now holds the Pullman estate\'s glasshouses, placed as the 1911 fire-insurance map draws them: a tall pavilion with a raised lantern, a long range running south from it, and a second range running east to a rounded glass end.',
+      'A two-storey brick lodge stands where the two ranges meet.',
+      'Every height, roof and pane is a reconstruction from the project\'s conservatory kit, and the cards say so. Matching them to the 1890s photographs comes next.',
+    ] },
+  { v: 2302, ts: '2026-10-26T05:13:16.206Z', date: 'Oct 26, 2026, 12:13 AM CT', title: 'Green Tree\'s entrance moves beside its paired front sash', kind: 'improvement',
+    items: [
+      'The Green Tree Tavern now has two front sash to the left of its entrance, following the historical drawings. Its cleared approach follows the moved doorway. The opening spacing is reconstructed; larger annex and long-wall differences remain under review.',
+    ] },
+  { v: 2301, ts: '2026-10-26T03:42:20.702Z', date: 'Oct 25, 2026, 10:42 PM CT', title: '1828 Prairie, the Shipman house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1828 Prairie Avenue is no longer a plain draft block. It now stands as Daniel B. Shipman\'s light stone house: two tall storeys over a raised basement, under a slated mansard with dormers.',
+      'A canted bay rises through both storeys on the front, and a porch on columns with a deep entablature and a balustrade stands at the head of the stoop.',
+      'The porch\'s round arches, its carving and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
+  { v: 2300, ts: '2026-10-26T02:24:06.618Z', date: 'Oct 25, 2026, 9:24 PM CT', title: '1801 Prairie\'s south side, from its 1965 photograph', kind: 'improvement',
+    items: [
+      'The two tall stone chimneys over the W. W. Kimball house\'s south wall now carry their carved heads, a collar under a diamond-latticed stage and a heavy cap, on broader bases rising from the cornice, as Harold Allen\'s 1965 HABS photograph shows them.',
+      'The south wall breaks out in a two-storey canted bay with a column of transomed windows, drawn where the 1911 fire-insurance map puts it, and a tall hooded dormer stands on the slate roof between the chimneys.',
+    ] },
+  { v: 2299, ts: '2026-10-26T01:38:01.134Z', date: 'Oct 25, 2026, 8:38 PM CT', title: 'The Pullman house\'s arched windows and dormers', kind: 'feature',
+    items: [
+      '1729 Prairie\'s street front now has its round-arched windows, read off the Detroit Publishing photograph: three on the upper storey under stone arch rings, two on the ground storey beside the portico.',
+      'Its mansard has four arched dormers in place of two hooded ones: two over Prairie Avenue and two over 18th Street.',
+    ] },
+  { v: 2298, ts: '2026-10-26T00:33:30.322Z', date: 'Oct 25, 2026, 7:33 PM CT', title: '1815 Prairie\'s pavilion rises an attic storey under its own roof', kind: 'improvement',
+    items: [
+      'The pavilion at the north end of 1815 Prairie Avenue now rises a full attic storey past the main cornice, with a pair of tall mullioned windows in it, and its steep hipped roof sits on top of that storey, as both old photographs show.',
+      'The house now has a second photograph to match against: the view from the south-west, showing the front and the south side together.',
+      'Old newspaper notices show the Meekers bought the house in 1902 and remodelled it soon after. The model still follows the photographs, which show the house before that remodel.',
+    ] },
+  { v: 2297, ts: '2026-10-26T00:33:30.322Z', date: 'Oct 25, 2026, 7:33 PM CT', title: 'Nothing you can see: two Indiana Avenue lots looked up for 1904', kind: 'chore',
+    items: [
+      'Nothing you can see changes. The 1911 atlas shows a one-storey post office at 1925-1929 Indiana Avenue, but the 1902 and 1911 city directories both list people living at 1927, so a house let in rooms stood there in 1904 and the post office came later. The lots stay empty until a plan or picture of that house turns up.',
+      'The corner store at 1935-1937 and the flats behind it on 20th Street are not found in any directory before 1910, which suggests they were built around 1909. That is not proof, so the corner stays empty for now.',
+    ] },
+  { v: 2296, ts: '2026-10-25T23:15:40.775Z', date: 'Oct 25, 2026, 6:15 PM CT', title: 'The 1832 lighthouse takes its shape from Castelnau\'s harbour view', kind: 'feature',
+    items: [
+      'The lighthouse gains a narrower reconstructed stone shaft, small recesses, a railed gallery and an open lantern cage under a rounded crown and finial, after Castelnau\'s harbour view. Its measurements, its 1835 fittings and its remaining picture differences stay marked as reconstructed.',
+    ] },
+  { v: 2295, ts: '2026-10-25T22:52:20.647Z', date: 'Oct 25, 2026, 5:52 PM CT', title: 'The Pullman house, from its 1890s photograph', kind: 'improvement',
+    items: [
+      'George M. Pullman\'s house at Prairie Avenue and 18th Street is no longer a plain draft block: it stands in brownstone, two tall storeys under a slate mansard with dormers and iron cresting, at the heights a Detroit Publishing photograph of the 1890s shows.',
+      'A columned portico with a balcony over it fronts Prairie Avenue, a low stone wall runs along the street, and the stable and ranges behind the house still stand.',
+    ] },
+  { v: 2294, ts: '2026-10-25T21:51:22.496Z', date: 'Oct 25, 2026, 4:51 PM CT', title: '1812 Prairie\'s package closed: last pictures read, house measured', kind: 'chore',
+    items: [
+      'The pictures listed for 1812 Prairie that no one had read are now read. The 1915 Tribune item is a portrait. The 1892 view south from 18th Street cannot see the house\'s front, because 1808 and Glessner stand in front of it from that walk. It is written up with a figure rather than solved into a camera that would prove nothing.',
+      'The house is measured in the published app: front, both obliques, rear and roof, on desktop and phone, with load, memory and frame time.',
+    ] },
+  { v: 2293, ts: '2026-10-25T21:38:45.234Z', date: 'Oct 25, 2026, 4:38 PM CT', title: '1815 Prairie, the Sears house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1815 Prairie Avenue is no longer a plain draft block. It now stands as Joseph Sears\'s stone house: a light ashlar front, two storeys over a raised basement, under a slated mansard with a gabled dormer.',
+      'A pavilion at the front\'s north end rises under a steep hipped roof, beside the door at the top of its stoop.',
+      'At the south-west corner a one-storey bay with a canted cheek carries a stone balcony of pierced panels, as the photograph shows it.',
+      'The pavilion\'s attic windows, the carved door hood and the rock-faced south wall are not built yet; they are next.',
+    ] },
+  { v: 2292, ts: '2026-10-25T21:12:04.484Z', date: 'Oct 25, 2026, 4:12 PM CT', title: 'Indiana Avenue\'s 18th-20th block, house by house', kind: 'feature',
+    items: [
+      'Look west from Glessner\'s and Kimball\'s walks: the row of stand-in houses on Indiana Avenue between 18th and 20th Street is replaced by the houses the 1911 fire-insurance map draws there, each on its own lot. That is 22 houses, among them a stone-fronted row at 1801-1807 and three pairs of twin houses, plus three frame flats on 18th Street and 13 stables and sheds on the alley.',
+      'The ten addresses where the 1904 Blue Book lists households now each stand on their own lots. The post-office sub-station and the corner store at 20th Street are left open until someone finds what stood there in 1904.',
+    ] },
   { v: 2291, ts: '2026-10-25T20:39:44.660Z', date: 'Oct 25, 2026, 3:39 PM CT', title: '1801 Prairie\'s round corner bay, from its 1965 photograph', kind: 'improvement',
     items: [
       'The W. W. Kimball house at 1801 Prairie now turns its south-west corner in a two-storey round bay, one window a storey under a pierced stone balcony, as Harold Allen\'s 1965 HABS photograph shows it.',

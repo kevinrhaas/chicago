@@ -90,6 +90,7 @@ STREETS = {
     "indiana": ("S. Indiana Avenue", "Indiana Avenue", "indiana"),
     "e21st": ("E. Twenty-first Street", "East Twenty-first Street", "e21st"),
     "e16th": ("E. Sixteenth Street", "East Sixteenth Street", "e16th"),
+    "e18th": ("E. Eighteenth Street", "East Eighteenth Street", "e18th"),
 }
 
 
@@ -682,7 +683,12 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     pieces = []
     order = {"main": 0, "stone_front": 1, "range": 2, "porch": 3}
     # a record already standing on part of the traced fabric (1729's K13 conservatory wing) is kept out of the fill
-    keep = [footprint_uv(k, frame, datum) for k in frow.get("keep_out", [])]
+    # T-3151: or a band of the lot by its depth from the street line, {"from_street_m": [a, b]}, for
+    # fabric the sheet draws joined to a house but rules out of 1904 (1801's and 1807's 1911 shops)
+    keep = [footprint_uv(k, frame, datum) if isinstance(k, str) else
+            [(street_u - k["from_street_m"][1], -500.0), (street_u - k["from_street_m"][0], -500.0),
+             (street_u - k["from_street_m"][0], 500.0), (street_u - k["from_street_m"][1], 500.0)]
+            for k in frow.get("keep_out", [])]
     tparts = b["parts"]
     if kind == "house" and frow.get("main_part"):
         # the house's body is the part the row names, not the trace's largest (217 East

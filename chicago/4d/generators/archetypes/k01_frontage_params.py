@@ -777,8 +777,16 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     w = b - a
     if cd <= w:
         raise ParamError(f"mansard.crown.depth_m {cd}: a hipped crown runs its ridge back, deeper than its {w} m")
+    # T-3156: the pavilion may be carried up an ATTIC storey past the main eave (1815's, its
+    # paired lights in the wall between the main cornice and its own eave), the crown's fascia
+    # then standing `attic_m` over the main eave's; the main eave box stops square at the
+    # pavilion's cheeks under the crown, as at a shallow pavilion's (k01_frontage.shallow_bay_cutters)
+    attic = float(c.get("attic_m", 0.0))
+    if attic and not 1.0 <= attic <= 3.0:
+        raise ParamError(f"mansard.crown.attic_m {attic}: 1-3 m")
+    E = eave + attic
     # the pavilion is carried up to the crown's soffit, its own eaves and deck inside the crown
-    soffit = eave - float(k5["parts"]["eave"]["fascia_depth_m"])
+    soffit = E - float(k5["parts"]["eave"]["fascia_depth_m"])
     top = sum(float(st["height_m"]) for st in bay["variant"]["storeys"])
     if not soffit <= top <= soffit + 0.1:
         raise ParamError(f"mansard.crown: {bay['id']} stops at {top:.3f} m; under a hipped crown it rises "
@@ -787,12 +795,12 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     rise = half * math.tan(math.radians(side))
     x1 = depth + proud
     apex = x1 + co - rise / math.tan(math.radians(end))
-    if rise < m["lower_rise_m"] + 0.3:
-        raise ParamError(f"mansard.crown: its ridge {rise:.2f} m over the eave is not 0.3 m over the main "
+    if attic + rise < m["lower_rise_m"] + 0.3:
+        raise ParamError(f"mansard.crown: its ridge {attic + rise:.2f} m over the eave is not 0.3 m over the main "
                          f"curb's {m['lower_rise_m']} m")
     # where the end reaches the main curb's height it stands in front of that curb
     curb = depth + overhang - m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
-    at_curb = x1 + co - m["lower_rise_m"] / math.tan(math.radians(end))
+    at_curb = x1 + co - max(m["lower_rise_m"] - attic, 0.0) / math.tan(math.radians(end))
     if at_curb < curb + 0.2:
         raise ParamError(f"mansard.crown: its end meets the main curb's height at x {at_curb:.2f}, not 0.2 m "
                          f"in front of the curb at {curb:.2f}; steepen end_pitch_deg")
@@ -801,8 +809,9 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
         raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
-            "overhang_m": co, "ridge_m": round(eave + rise, 4),
-            "ridge_x_m": (round(back, 4), round(apex, 4))}
+            "overhang_m": co, "ridge_m": round(E + rise, 4),
+            "ridge_x_m": (round(back, 4), round(apex, 4)),
+            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {})}
 
 
 def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float):
@@ -824,7 +833,7 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
             X0, X1, Z0, Z1 = cr["x0"] - co, cr["x1"] + co, cr["z0"] - co, cr["z1"] + co
             if X0 <= u <= X1 and Z0 <= z <= Z1:
                 ts, te = math.tan(math.radians(cr["pitch_deg"])), math.tan(math.radians(cr["end_pitch_deg"]))
-                y = max(y, eave + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
+                y = max(y, cr.get("eave_m", eave) + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
         return y
     return cover
 
@@ -4784,8 +4793,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError(f"chimney at ({u}, {v}): fabric is 'brick' or 'stone', not {fab!r}")
             if fab == "stone" and not val("stone_front"):
                 raise ParamError(f"chimney at ({u}, {v}): a stone stack stands on a house with a stone front")
+            # T-3109: a stone stack may carry a dressed head and base, as 1801's two south stacks
+            # do in HABS photograph 1: a broader base from the cornice weathered back to the
+            # shaft, a moulded collar, a stage of diamond lattice and the moulded cap over it
+            head = st_.get("head")
+            if head is not None:
+                if fab != "stone" or not mansard or base is None:
+                    raise ParamError(f"chimney at ({u}, {v}): a dressed head is a stone stack's on a mansard's cornice")
+                bs, cl, sg = head["base"], head["collar"], head["stage"]
+                bp, bt, bw = float(bs["proud_m"]), float(bs["top_m"]), float(bs["weathering_m"])
+                cp_, cdp = float(cl["proud_m"]), float(cl["depth_m"])
+                gp, gd = float(sg["proud_m"]), float(sg["depth_m"])
+                lat = sg.get("lattice") or {}
+                n_d, rw, rp = int(lat.get("diamonds", 0)), float(lat.get("rib_m", 0.06)), float(lat.get("proud_m", 0.03))
+                if not (0.0 < bp <= 0.3 and 0.05 <= bw <= 0.6 and base + 0.5 <= bt - bw):
+                    raise ParamError(f"chimney at ({u}, {v}): its base stands 0-0.3 m proud, weathered over "
+                                     "0.05-0.6 m, at least 0.5 m over the cornice")
+                if max(sz / 2 + bp - v, v + sz / 2 + bp - width) > float(val("eave_overhang_m")) + 1e-9:
+                    raise ParamError(f"chimney at ({u}, {v}): its base runs past the cornice's edge")
+                if not (0.0 < cp_ <= 0.3 and 0.1 <= cdp <= 0.6 and 0.0 < gp <= cp_ and 0.4 <= gd <= 2.0):
+                    raise ParamError(f"chimney at ({u}, {v}): its collar stands 0-0.3 m proud and 0.1-0.6 m deep, "
+                                     "its stage 0.4-2.0 m deep and no prouder than the collar")
+                if sp_ < cp_ or bt + 0.6 > top - sd_ - gd - cdp:
+                    raise ParamError(f"chimney at ({u}, {v}): its cap stands no prouder than its collar, or its "
+                                     "shaft shows under 0.6 m between the base and the collar")
+                if n_d and not (1 <= n_d <= 4 and 0.03 <= rw <= 0.12 and 0.01 <= rp <= gp + 0.02):
+                    raise ParamError(f"chimney at ({u}, {v}): a lattice of 1-4 diamonds a face, ribs 0.03-0.12 m "
+                                     "wide and no prouder than the stage's face")
+                head = {"base_proud_m": bp, "base_top_m": bt, "weathering_m": bw, "collar_proud_m": cp_,
+                        "collar_depth_m": cdp, "stage_proud_m": gp, "stage_depth_m": gd,
+                        "diamonds": n_d, "rib_m": rw, "rib_proud_m": rp}
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
-                             "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone"})
+                             "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone",
+                             **({"head": head} if head else {})})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")

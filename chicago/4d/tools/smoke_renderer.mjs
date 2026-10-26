@@ -20141,8 +20141,53 @@ for (const [label, viewport, touch] of [
           'livery_2129_indiana',
           // T-3130: the ice-cream works rising on 1605-1613 Indiana.
           'ice_cream_works_1605_indiana',
-          // T-3011: Indiana Avenue's east frontage 18th-20th, one reconstructed background row
-          'indiana_east_frontage_18th_20th_background_row'].sort();
+          // T-3151: Indiana Avenue's east frontage 18th-20th and the row at 213-217 E. 18th, off sheet 27
+          // (T-3011's background row, which they replace, is gone).
+          'house_1801_indiana',
+          'house_1803_indiana',
+          'house_1803_indiana_shed',
+          'house_1805_indiana',
+          'house_1805_indiana_shed',
+          'house_1807_indiana',
+          'house_1807_indiana_shed',
+          'house_1809_indiana',
+          'house_1809_indiana_coach_house',
+          'house_1813_indiana',
+          'house_1813_indiana_coach_house',
+          'house_1815_indiana',
+          'house_1815_indiana_coach_house',
+          'house_1819_indiana',
+          'house_1821_indiana',
+          'house_1825_indiana',
+          'house_1829_indiana',
+          'house_1829_indiana_coach_house',
+          'house_1833_indiana',
+          'house_1833_indiana_coach_house',
+          'house_1837_indiana',
+          'house_1839_indiana',
+          'house_1901_indiana',
+          'house_1901_indiana_shed',
+          'house_1909_indiana',
+          'house_1909_indiana_shed',
+          'house_1913_indiana',
+          'house_1913_indiana_shed',
+          'house_1915_indiana',
+          'house_1917_indiana',
+          'house_1921_indiana',
+          'house_1921_indiana_coach_house',
+          'house_1931_indiana',
+          'house_1931_indiana_rear_dwelling',
+          'house_213_e18th',
+          // T-1880 kept the Pullman house's stable, range and porte-cochere as a record of their own
+          // and left it off this list; T-3164 found it there and added it.
+          'pullman_house_1729_prairie_ranges',
+          // T-3164 stood Pullman's glasshouse ground across 18th Street at 1800 Calumet: four
+          // K13 glasshouses and the lodge between them.
+          'pullman_glasshouse_1800_calumet_pavilion',
+          'pullman_glasshouse_1800_calumet_north',
+          'pullman_glasshouse_1800_calumet_east',
+          'pullman_glasshouse_1800_calumet_east_end',
+          'pullman_lodge_1800_calumet'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
