@@ -1,0 +1,160 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-10-26T18:14:53.624Z",
+    "build": "6b72454ea",
+    "machine": "AMD EPYC 9V74 80-Core Processor ×5",
+    "seconds": 65,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 116290436,
+        "arrayBuffers": 96567455,
+        "gpuBuffers": 143358180,
+        "gpuTextures": 58766513,
+        "gpuRenderbuffers": 3145728,
+        "total": 414982584
+      },
+      "gl": {
+        "gpuBuffers": 143358180,
+        "gpuTextures": 55620785,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 1663,
+        "liveTextures": 996,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 5,
+        "livePrograms": 40
+      },
+      "heapTotal": 119107584,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 482,
+        "images": 112
+      },
+      "layers": [
+        {
+          "name": "structures",
+          "cpuKept": 0,
+          "gpuGeometry": 86733140,
+          "textureBytes": 127937792,
+          "textures": 432,
+          "geometries": 274,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "railway",
+          "cpuKept": 28108420,
+          "gpuGeometry": 36225836,
+          "textureBytes": 8912888,
+          "textures": 26,
+          "geometries": 69,
+          "cpuNeverUploaded": 12183792
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 5255496,
+          "gpuGeometry": 5255496,
+          "textureBytes": 1835568,
+          "textures": 21,
+          "geometries": 17,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 8892948,
+          "gpuGeometry": 1775716,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 8892948
+        },
+        {
+          "name": "context",
+          "cpuKept": 3683292,
+          "gpuGeometry": 3683292,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 426498,
+          "gpuGeometry": 426498,
+          "textureBytes": 0,
+          "textures": 2,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 46367494,
+        "gpuGeometry": 134100818,
+        "textureBytes": 138773629,
+        "cpuNeverUploaded": 21076740
+      },
+      "uploadRelease": {
+        "geometries": 448,
+        "attributes": 2142,
+        "bytes": 154717942,
+        "keptForHarness": false,
+        "sources": 283,
+        "sourceBytes": 84962962,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 63,
+        "compressedBytes": 19400336
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 101,
+        "resident": 63,
+        "sources": 63,
+        "residentBytes": 19400336,
+        "budgetBytes": 268435456,
+        "wantedBytes": 19400336,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 0,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 31,
+          "fallback": 0,
+          "gpuBytes": 7078752,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 65
+      }
+    }
+  ]
+}

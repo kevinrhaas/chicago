@@ -602,6 +602,7 @@ function capMesh(crest, faces, cap, terrain, lib, confidence) {
  */
 export async function createRailway({
   dataBase, assetBase = null, sceneId, terrain, confidence = null, problems = [], detail = 'full',
+  onGeometry = () => {},
 } = {}) {
   const group = new THREE.Group();
   group.name = 'railway';
@@ -748,7 +749,7 @@ export async function createRailway({
   const zoneCount = Math.max(1, Math.ceil((nTop - nBot) / ZONE_M));
   const zones = Array.from({ length: zoneCount }, (_, z) => ({
     nHi: nTop - z * ZONE_M, nLo: nTop - (z + 1) * ZONE_M,
-    sections: [], railFar: { pos: [], nrm: [], col: [], idx: [] },
+    sections: [],
     ties: [], tufts: [], rocks: [], eSum: 0, eCount: 0, rockE: 0,
   }));
   const zoneOf = (n) => zones[Math.max(0, Math.min(zoneCount - 1, Math.floor((nTop - n) / ZONE_M)))];
@@ -769,7 +770,6 @@ export async function createRailway({
       if (z !== z0 || sc >= p.length) {
         // T-2775: the full section is laid only when its zone comes near (below)
         z0.sections.push([i, s0, sc]);
-        laySection(p, s0, sc, profFar, spec, z0.railFar);
         z0.level = Math.max(z0.level ?? 0, trackLevel[i]);
         s0 = sc; z0 = z;
       }
@@ -942,11 +942,6 @@ export async function createRailway({
     }
     z.centre = new THREE.Vector3(z.eCount ? z.eSum / z.eCount : (f0[0] + f1[0]) / 2, 0, wz((z.nHi + z.nLo) / 2));
     z.index = zi;
-    if (z.railFar.pos.length) {
-      z.railsFar = railMesh(`railway-rails-far-z${zi}`, z.railFar, z.level ?? 1, railMat, false);
-      group.add(z.railsFar); meshes.push(z.railsFar); geometries.push(z.railsFar.geometry);
-    }
-    z.railFar = null;
     if (z.ties.length) {
       const near = new THREE.InstancedMesh(tieGeoNear, tieMat, z.ties.length);
       const far = new THREE.InstancedMesh(tieGeoFar, tieMat, z.ties.length);
@@ -1079,6 +1074,7 @@ export async function createRailway({
     for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profNear, spec, buf);
     z.railsNear = railMesh(`railway-rails-z${z.index}`, buf, z.level ?? 1, railMat, true);
     group.add(z.railsNear);
+    onGeometry(group);
     out.census.nearZones += 1;
   };
   const dropNearRails = (z) => {
@@ -1087,6 +1083,24 @@ export async function createRailway({
     z.railsNear.geometry.dispose();
     z.railsNear = null;
     out.census.nearZones -= 1;
+  };
+
+  // The same three-face sections, in the same order as the former eager
+  // buffers. Only allocate them inside their EXISTING tie reach; all other
+  // zones used to keep page arrays that had never been uploaded or drawn.
+  const farRails = (z) => {
+    if (z.railsFar || !z.sections.length) return;
+    const buf = { pos: [], nrm: [], col: [], idx: [] };
+    for (const [i, s0, s1] of z.sections) laySection(paths[i], s0, s1, profFar, spec, buf);
+    z.railsFar = railMesh(`railway-rails-far-z${z.index}`, buf, z.level ?? 1, railMat, false);
+    group.add(z.railsFar);
+    onGeometry(group);
+  };
+  const dropFarRails = (z) => {
+    if (!z.railsFar) return;
+    group.remove(z.railsFar);
+    z.railsFar.geometry.dispose();
+    z.railsFar = null;
   };
 
   /* ---- level and reach ---- */
@@ -1135,7 +1149,10 @@ export async function createRailway({
       // The three-face strips drew to the far end of the yard at every tier: from the
       // air over the district at `light` that was 61,000 triangles of rail 600 m and
       // more away, a fifteenth of a pixel wide, and it put the phone over its ceiling.
-      if (z.railsFar) z.railsFar.visible = !(near && z.railsNear) && d < r.ties;
+      const far = !(near && z.railsNear) && d < r.ties;
+      if (far) farRails(z);
+      else if (z.railsFar && d > r.ties + ZONE_M) dropFarRails(z);
+      if (z.railsFar) z.railsFar.visible = far;
       if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
       if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
       if (z.rockMeshes) {
@@ -1213,7 +1230,8 @@ export async function createRailway({
     for (const g of geometries) g.dispose();
     for (const m of materials) m.dispose();
     for (const z of zones) {
-      z.railsNear?.geometry.dispose();
+      dropNearRails(z);
+      dropFarRails(z);
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
       for (const m of z.rockMeshes ?? []) m.dispose();
     }
