@@ -42,10 +42,10 @@
         25.190899205620163
       ],
       "rotation_y": -0.0001745329251997703,
-      "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e"
+      "glb_sha256": "1d9e6c4f855fb23c48af92c2cc6538aa8f2faf8fe9a47bc427d16b96ba9d3665"
     }
   ],
-  "group_sha256": "2cee4b08df6372c4f42bce2333c4eef62972d1e2a53b26a6abd63fc41a8805ca",
+  "group_sha256": "2593b64845fb8bf5a40b8d562c0cfe32bfab76f6c177f168dbfafc0891dee785",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -80,7 +80,11 @@
     {
       "what": "T-3132 re-rendered after the basement grilles and the porch arcade's step: both are on the bay's front and the entrance block's south corner, which this view from the south-west of the Kimball house does not see (1811 stands at the frame's right edge, its north side only); nothing in the frame moved.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3109 re-rendered after 1801's south stacks were dressed (the rear one lowered to 18.5 m), its south bay and its south dormer built: all on 1801's south wall and roof, left of 1811's north side at the frame's right edge; nothing of 1811 in the frame moved",
+      "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

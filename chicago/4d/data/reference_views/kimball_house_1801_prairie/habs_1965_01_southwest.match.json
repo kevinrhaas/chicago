@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5891f094859ef0d81f1115fc79d727179a647950c27d1e26d1112a4e2b577765",
+  "glb_sha256": "1d9e6c4f855fb23c48af92c2cc6538aa8f2faf8fe9a47bc427d16b96ba9d3665",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -13,16 +13,16 @@
       "status": "fixed"
     },
     {
-      "what": "the front stack's height: the print's cap stands about 167 px (about 3.5 m) over the cresting beside it, its top at y 128 px; the build holds it to 18.0 m, the most the c. 1895 Taylor print allows (it shows nothing over the deck there), so its cap renders well under the print's (L-kimball-1801-south-stacks-3107)",
-      "status": "open"
+      "what": "the stacks' heights, re-read through T-3108's re-solved camera (T-3109): the front one's cap top at y 125 px reads about 17.8 m, so its 18.0 m, the most the c. 1895 Taylor print allows, now fits this picture within about 0.2 m; the rear one's (y 225) reads about 18.5 m, where T-3107 read 20.1 m through the earlier camera, and it is lowered to 18.5 m (L-kimball-1801-stack-heads-3109)",
+      "status": "within tolerance"
     },
     {
-      "what": "the stacks' heads: a moulded collar (about y 200-220 px on the front one) under a stage of diamond-latticed panels about 1.5 m deep and a moulded cap, the stage about 0.15 m proud of the shaft each side; the build lays one plain cap 0.8 m deep (T-3109)",
-      "status": "open"
+      "what": "the stacks' heads: a moulded collar under a stage of diamond lattice and a moulded cap with a dentil course. T-3109 dresses both (a new `head` on a stone mansard stack): the collar 0.1 m proud, 0.35 and 0.45 m deep; the stage 0.06 m proud, 1.0 and 1.2 m deep, two whole diamonds of crossed raised ribs a face; the cap 0.2 m proud, 0.5 and 0.55 m deep. The dentils and the moulding's round profile are not modelled (under the bar)",
+      "status": "fixed"
     },
     {
-      "what": "the stacks' lower stages: each shaft widens below about the curb into a broader base carried down the steep lower face to the cornice (the front one x 860-965 px below y 350); the build's shafts run straight (T-3109)",
-      "status": "open"
+      "what": "the stacks' lower stages: each shaft stands on a broader base carried down to the cornice (the front one's splay at y 450 px, the rear one's at about 505, both about 11.8 m). T-3109 builds it 0.08 m proud each side, from the cornice to 11.85 m and weathered back to the shaft over 0.25 m",
+      "status": "fixed"
     },
     {
       "what": "the south-west corner: a two-storey round bay (x 620-757 px) between the gabled face and the south wall, a single window a storey, under a pierced lattice balcony at the cornice (y 510-550) with a light in the roof behind it. T-3108 builds it: the pavilion's chamfer now cuts the corner 1.3 m along the front and 1.4 m behind it, and a K08 bow stands on the cut (`on_chamfer`), chord 1.68 m, rising 0.5 m, two storeys to 8.7 m under the moulded stone cornice, one transomed sash a storey and a stone balustrade of pierced lattice panels on its top. Through the re-solved camera its junction with the south wall renders at x 737 against the print's 757 and its second-storey light at x 684 against 686",
@@ -49,27 +49,39 @@
       "status": "open"
     },
     {
-      "what": "the south bay: the print's bay toward the east end (its front x about 1000-1150 px, its canted east side x 1150-1222 in shade) stands proud of the wall, the 1911 sheet's 0.8 m projection over u 12.1-6.7 with canted sides; the build's south wall is flat (T-3109)",
-      "status": "open"
+      "what": "the south bay: the print's lit face with its column of lights (x 1037-1150 px) stands proud of the wall with a shaded face beyond it to x 1222; the build's south wall was flat. T-3109 builds it on K08 to the 1911 sheet's trace: a canted bay from u 13.15 to 6.87, 0.85 m proud with cants 0.87 m along the wall, two storeys to 8.7 m, one transomed light a storey on its front (L-kimball-1801-south-bay-3109)",
+      "status": "fixed"
     },
     {
-      "what": "the south wall's openings: the print shows one column at x 850-905 px near the round bay and one on the bay's front at x 1060-1125 (second-storey sill about y 835, transom at y 755), with the tree hiding the wall between; the build's three reconstructed columns at u 6.5, 11.5 and 16.5, two of which fall on the print's two (T-3109)",
-      "status": "open"
+      "what": "the south wall's openings: the print shows one column at x 850-905 px near the round bay and one on the bay's front (x 1060-1125, second-storey transom at y 750), the tree hiding the wall between and nothing in the shaded face east of the bay. T-3109 keeps the wall's column at u 16.5, builds the bay's own, and takes out the reconstructed columns at u 11.5 (behind the bay) and u 6.5",
+      "status": "fixed"
     },
     {
-      "what": "the south mansard's dormers: a hooded dormer between the stacks (x 1040-1130 px, its light y 430-490, a tall slated hood over it) and a small light behind the corner balcony (x 640-680); the build has none on this face (T-3109)",
-      "status": "open"
+      "what": "the south mansard's hooded dormer between the stacks: its light at x 1072-1120 px, sill y 587 and head y 532, under a tall slated hood to y 420. T-3109 builds a hooded dormer on the south face at u 5.4, its face at the eave, a 0.75 by 1.2 m light and a 2.2 m hood (L-kimball-1801-south-dormer-3109). The small light behind the corner balcony is the item above",
+      "status": "fixed"
     },
     {
       "what": "the roof's south-east corner: a tall slender pinnacle or gablet (x 1200-1245 px, y 380-600) where the south slope meets the rear; the build has none (T-3109)",
       "status": "open"
     },
     {
-      "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109)",
+      "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109). The 1911 sheet steps the wall back to about v 9.8 east of u 6.87 (the bay's east end), where the build's rectangle holds v 11.0 to the corner",
       "status": "open"
     },
     {
       "what": "the rear range beyond the court: a lower two-storey white range with a gable and a hooded dormer facing the court (x 1300-1640 px); the build's wings stand there with hipped roofs (T-3110)",
+      "status": "open"
+    },
+    {
+      "what": "the south bay through this camera: its front renders about three times as foreshortened as the print's (its light about 20 px across against 65), and about 95 px west of the print's, and the print's courses fall more steeply on the shaded face beyond than on the lit one, as if the lit face were turned toward the camera. The camera is fitted to the front and the two south corners and foreshortens the whole south wall harder than the print does, so the bay's plan stands on the 1911 sheet; a camera re-solved on the south wall's own courses decides the cants (T-3109)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the bay's top: the print carries the main cornice round the bay and the mansard's slate down over it; the build stands a low slated hip on the bay under the cornice's line, with no cornice of its own (T-3109)",
+      "status": "open"
+    },
+    {
+      "what": "the south dormer's face: the print's is slated with a pale frame round the light and its hood wider than the face, the build's face stone (as the 18th Street dormers' in the Taylor record)",
       "status": "open"
     },
     {
