@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -34,7 +34,7 @@
     "dent_house_1823_prairie__as_mapped_1904.glb": "bc92b0b969080d39623439960600a3d43902b4be15395b940d42ff027fb947f0",
     "dexter_house_1721_prairie__draft_1904.glb": "cf1afecd831a17cacd5d53055cdebea5ff2bd0bf0158cd418747a5243da9c451",
     "dexter_house_1721_prairie_coach_house__draft_1904.glb": "6b3a7ac06f42270fd88118e887dc85e32bce98ee3ddf8adf29b21731c720c4d2",
-    "doane_house_1827_prairie__as_mapped_1904.glb": "3f0c05ba67605453ae1ce0036fab9141d7b87b059164ff47840978d2388b93da",
+    "doane_house_1827_prairie__as_mapped_1904.glb": "9bae6e7d20664dafdd0ee6c3f28a26c8e95eafce0574bc11dee4476aa362e040",
     "doane_house_1827_prairie_coach_house__draft_1904.glb": "452f1f9270bd06835be9ae0503a03511e1beb3e2bf3eca39912cc0498e0ef5e9",
     "dole_warehouse_south__frame_1832.glb": "7b1ead2b9d0ace1b13f4a6339dc76413ec65141bd19452e0dd581c23288439c7",
     "edson_keith_house_1906_prairie__draft_1904.glb": "3dc0aa8946cca4a52fa6b09b169946ebcbf0a4f886de385beeb148a51bbe5e2e",

@@ -489,7 +489,9 @@
                   "at": [
                     0.17,
                     0.83
-                  ]
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the principal floor's tall lights: the photograph shows the pavilion's three lights a storey (x 330-530 px) running nearly the storey's height, taller than the rules' ordinary sash"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -498,7 +500,9 @@
                   "sill_m": 2.8,
                   "at": [
                     0.5
-                  ]
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the principal floor's tall lights: the photograph shows the pavilion's three lights a storey (x 330-530 px) running nearly the storey's height, taller than the rules' ordinary sash"
                 }
               ]
             },
@@ -513,7 +517,9 @@
                   "at": [
                     0.17,
                     0.83
-                  ]
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the upper storey's lights, read off the photograph (x 330-530 px) as nearly as tall as the principal floor's, taller than the rules' ordinary sash"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -522,7 +528,9 @@
                   "sill_m": 0.8,
                   "at": [
                     0.5
-                  ]
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the upper storey's lights, read off the photograph (x 330-530 px) as nearly as tall as the principal floor's, taller than the rules' ordinary sash"
                 }
               ]
             }
