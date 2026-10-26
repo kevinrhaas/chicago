@@ -369,6 +369,10 @@ step "Canonical planted-standing horse preserves metre scale, allowed clip, cloc
 step "Horse eye-UV derivative preserves original geometry, rig, clip, materials and image bytes (T-3086)" \
   python3 tools/test_standing_horse_eye_uv_boundary.py
 
+# Local derivation/boundary checks take under one second; no browser/bake.
+step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
+  python3 tools/test_standing_horse_anatomy_v2.py
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.

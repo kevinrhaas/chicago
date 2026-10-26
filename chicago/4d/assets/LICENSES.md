@@ -1456,3 +1456,37 @@ The historical b479 entry above describes the preserved previous stage. The curr
 |`authored/transport/horse_standing/eye-uv-v1-derivation-receipt.json`|Project-authored UV recipe/source-aperture evidence/protection receipt; source mesh/image rights and author credit remain CC-BY-4.0.|
 
 Byte-identical current runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb`. Protected b479 authored/runtime files and original receipts remain unchanged.
+
+## T-3088 source-bounded horse anatomy authoring
+
+The anatomy recipes derive from the preserved selected d454 standing horse above,
+under the same sevketkabatas **CC-BY-4.0** credit, source URL and change-notice
+requirements. Existing source images, repaired eye UVs, acquired original,
+b479 and d454 parent files remain preserved. The project-authored recipe code
+and bounds are **GPL-3.0-or-later**; no claim is made that a software licence
+replaces the model's attribution licence.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/generate_anatomy_v1.py`|Project-authored GPL-3.0-or-later source-only smooth rest-surface recipe; parent mesh rights remain CC-BY-4.0.|
+|`authored/transport/horse_standing/anatomy-v1-recipe.json`|Project-authored reconstructed source bounds and exact reference-image bindings; no reference pixels copied into the model.|
+|`authored/transport/horse_standing/generate_anatomy_v2.py`|Project-authored GPL-3.0-or-later canonical authored-mesh derivation with immutable-parent and live-field lineage.|
+|`authored/transport/horse_standing/anatomy_topology_v2.py`|Project-authored GPL-3.0-or-later adaptive hoof-wall/coronet/toe subdivision and bounded fairing; generated geometry remains an attributed CC-BY-4.0 model derivative.|
+|`authored/transport/horse_standing/anatomy-v2-recipe.json`|Project-authored reconstructed anatomy/topology choices, per-feature source IDs, confidence and immutable reference hashes.|
+|`authored/transport/horse_standing/ANATOMY.md`|Project-authored source, reconstruction, authoring and acceptance boundary notice; original model attribution remains separate.|
+|`authored/transport/horse_standing/horse-sevket-anatomy-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse; reconstructed eyelid and hoof topology changes declared in ANATOMY.md and the versioned recipe. Repaired eye UVs and original six image payloads retain the source rights and credit.|
+
+The anatomy runtime copy is byte-identical at
+`renderers/web/transport/standing-horse/horse-sevket-anatomy-v2.glb`.
+The original acquired model and b479/d454 authored parents and their old receipts
+remain unchanged. Fresh selected-body Mixer129 physical proof is separate from
+surface, LOD, world, device performance and photographic qualification.
+
+The input plates by Ellenberger/Baum/Dittrich and Seton are recorded public-domain
+anatomical works. The Vassil and Joselodos living-animal photographs are cleared
+CC0 references. These supply anatomical relationships and visible continuity;
+neither the modern animals' breeds/markings nor their dimensions become evidence
+for an 1835 Chicago animal. Their pixels are not sampled into output textures.
+The unchanged six model texture payloads retain the source model's CC-BY-4.0
+provenance. Source recipes and uninstalled candidate generation do not constitute
+native, physical, historical or photographic acceptance.

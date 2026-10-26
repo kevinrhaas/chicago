@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Play one explicit glTF planted-standing clip; no procedural bone motion/blend.
-export const PLANTED_SHA = 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914';
+export const PLANTED_SHA = '925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48';
+export const PLANTED_BYTES = 4158016;
+export const PLANTED_TRIANGLES = 17390;
 export const PLANTED_CLIP = 'sevket_reconstructed_planted_posture_v1';
 const ROTATIONS = [7, 8, 9, 12, 13, 14, 17, 18, 19, 22, 23, 24];
 const NAMES = { 1: 'horse_body', 7: 'fore_l_elbow', 8: 'fore_l_carpus', 9: 'fore_l_fetlock',
@@ -12,11 +14,11 @@ const hash = text => { let h = 2166136261; for (const c of text) { h ^= c.charCo
 
 /** Bytes are SHA-verified by caller before this metadata/inventory guard. */
 export function validatePlantedStandingHeader(bytes, spec) {
-  check(spec.runtime_asset?.sha256 === PLANTED_SHA && spec.runtime_asset.bytes === 3784176,
+  check(spec.runtime_asset?.sha256 === PLANTED_SHA && spec.runtime_asset.bytes === PLANTED_BYTES,
     'explicit standing asset identity required');
   check(spec.runtime_scale_m_per_unit === 1 && spec.runtime_origin_m?.length === 3
     && spec.runtime_origin_m.every(v => v === 0), 'canonical metres require unit scale and zero origin');
-  check(bytes.byteLength === 3784176 && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
+  check(bytes.byteLength === PLANTED_BYTES && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
   const view = new DataView(bytes);
   check(view.getUint32(0, true) === 0x46546c67 && view.getUint32(4, true) === 2
     && view.getUint32(8, true) === bytes.byteLength && view.getUint32(16, true) === 0x4e4f534a,
@@ -24,6 +26,9 @@ export function validatePlantedStandingHeader(bytes, spec) {
   const length = view.getUint32(12, true);
   check(length > 0 && length <= bytes.byteLength - 20, 'invalid JSON chunk');
   const json = JSON.parse(new TextDecoder().decode(new Uint8Array(bytes, 20, length)));
+  check(json.asset?.extras?.chicago4d_anatomy_master_v2?.parent_sha256
+    === 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914',
+  'source-bound anatomy parent required');
   check(!json.extensionsRequired?.length && json.buffers.length === 1 && !json.buffers[0].uri,
     'embedded reviewed standing buffer required');
   check(json.images.length === 6 && json.images.every(i => Number.isInteger(i.bufferView) && !i.uri)
@@ -51,7 +56,7 @@ export function validatePlantedStandingHeader(bytes, spec) {
     check((p.mode ?? 4) === 4 && p.indices !== undefined, 'indexed standing triangles required');
     triangles += json.accessors[p.indices].count / 3;
   }
-  check(json.meshes.length === 3 && triangles === 14986, 'standing mesh/triangle budget changed');
+  check(json.meshes.length === 3 && triangles === PLANTED_TRIANGLES, 'standing mesh/triangle budget changed');
   return json;
 }
 

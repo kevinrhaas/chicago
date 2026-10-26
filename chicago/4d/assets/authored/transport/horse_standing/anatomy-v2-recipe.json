@@ -1,0 +1,34 @@
+{
+  "schema": "standing-horse-source-bounded-anatomy-recipe-v2",
+  "ticket": "T-3088",
+  "candidate_revision": "r3_original_cage_and_thinner_upper_margin",
+  "status": "Anatomy source candidate; full reference/deformation/native acceptance pending",
+  "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "parent_sidecar_sha256": "4ec44024d4fbefae88b8f0a1deb3be92503768b65dba590c5762691ce3b9c924",
+  "frame": {"units": "metres", "up": "+Y", "forward": "+Z", "anatomical_left": "+X"},
+  "maximum_body_displacement_m": 0.02,
+  "minimum_local_jacobian": 0.25,
+  "reference_bindings": [
+    {"source_id": "ellenberger_baum_dittrich_equine_plates", "file": "Horse anatomy head.jpg", "sha256": "f3d694329c0a91275a244dda190f5ce81588bdecde561a95389613b8716712e3", "observation": "Tafel6 Fig36: continuous thin almond eyelid. An anatomical relationship, not a calibrated individual measurement."},
+    {"source_id": "ellenberger_baum_dittrich_equine_plates", "file": "Horse anatomy hooves.jpg", "sha256": "8cdfd8db33cd644c574bab61c83247456ad5d3e4ef8e56b3ceade2862879ab6c", "observation": "Tafel15 Fig75/78/79: rounded flared hoof wall, toe and heel below a distinct coronary/pastern transition; not an eight-sided fused block."},
+    {"source_id": "joselodos_2025_horse_anatomy", "file": "reference-view-164516842.jpg", "sha256": "85a741dffd00e17e9508a33da276da76e35dbaf8a32dda69d04917cb45ed87cc", "observation": "CC0 near living head, shoulder/neck and front-limb continuity. Open-eye expression is a bounded reconstructed choice; no modern markings or identity transferred."},
+    {"source_id": "vassil_2014_konik_horse_anatomy", "file": "Konik Polski Solutré 26102014 4 (cropped).jpg", "sha256": "fbb3de1407c268d8d631b1f1775cdba1911e1caa0f18b8229c97617c5be36dac", "observation": "CC0 near-lateral living exterior, rounded hoof walls and limb transitions. Supports continuity, not copying stocky breed proportions, coat or absolute dimensions."}
+  ],
+  "controls": [
+    {"id": "left_upper_eyelid", "centre_m": [0.112, 1.521, 1.342], "radii_m": [0.055, 0.031, 0.075], "delta_m": [-0.006, 0.009, 0.0], "lower_y_gate_m": [1.507, 1.515], "source_ids": ["ellenberger_baum_dittrich_equine_plates", "joselodos_2025_horse_anatomy"], "confidence": "reconstructed", "reason": "Lift and recess the lower margin of the heavy upper fold while tapering to zero over its brow, so the fold thins rather than translating the entire brow upward. Lower lid is retained by the explicit gate. Maximum control dimensions are authored bounds, not source measurements. Eye globe/UV pixels remain unchanged. Actual finite triangle and native-image review remain required."},
+    {"id": "right_upper_eyelid", "centre_m": [-0.1127, 1.521, 1.342], "radii_m": [0.055, 0.031, 0.075], "delta_m": [0.006, 0.009, 0.0], "lower_y_gate_m": [1.507, 1.515], "source_ids": ["ellenberger_baum_dittrich_equine_plates", "joselodos_2025_horse_anatomy"], "confidence": "reconstructed", "reason": "Apply the same bounded upper-margin thinning around the existing asymmetric opposite eye. No source pupil repaint, breed identification or inherited photo acceptance."}
+  ],
+  "hoof_refinement": {
+    "source_ids": ["ellenberger_baum_dittrich_equine_plates", "vassil_2014_konik_horse_anatomy"],
+    "confidence": "reconstructed",
+    "reason": "One local adaptive subdivision and bounded horizontal fairing replace visibly polygonal wall/coronet/toe facets with a rounded near silhouette. Retain named support anchors and canonical ground datum; the old contact outline may move and must receive fresh full contact/standing proof. Original skin rows remain exact in this first geometry candidate and new UV/skin rows are explicit edge interpolations; no old body qualification is inherited. Does not certify shoeing, wall thickness, sole anatomy, pressure, gait or historical dimensions.",
+    "ground_anchor_band_m": 0.001,
+    "region_top_m": 0.30,
+    "full_fairing_below_m": 0.20,
+    "region_radius_m": 0.20,
+    "original_vertex_fairing": 0.60,
+    "edge_fairing": 0.60,
+    "maximum_old_vertex_shift_m": 0.012,
+    "maximum_edge_curvature_m": 0.008
+  }
+}

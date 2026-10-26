@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 781,
+  "count": 782,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -55914,6 +55914,45 @@
         "T-3161",
         "T-3158",
         "T-3160"
+      ]
+    },
+    {
+      "id": "L-horse-anatomy-master-3088",
+      "title": "source-bounded canonical horse anatomy and local hoof refinement",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-26."
+        },
+        {
+          "label": "Sources",
+          "text": "Wilhelm Ellenberger and Hermann Baum, anatomical plates illustrated by Hermann…, Ernest Thompson Seton, Studies in the Art Anatomy of Animals (1892), The…, Vassil, Konik Polski horses at Solutre,26October2014, Joselodos, Horse posing in the grass,1May2025, Wikimedia Commons, CC0-1.0.; original licensed model sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via…."
+        },
+        {
+          "label": "Decision",
+          "text": "refine the licensed sevketkabatas standing horse's near anatomical surface rather than replacing it with the rejected procedural regression horse. The canonical metre frame, reconstructed 26-joint rig, original source credit and the completed eye-UV repair remain the starting point. This is one generic working animal; no Chicago individual, owner, breed, sex, coat or absolute historical dimension is established by the modern model or the anatomical reference plates."
+        },
+        {
+          "label": "What bounds the changes",
+          "text": "actual pixels of Ellenberger/Baum/Dittrich Tafel6 (external head/eyelid and jaw-to-muzzle relationships), Tafel15 (rounded hoof wall, toe, coronet and pastern), Tafel12 (posterior muscle/limb relationships), Seton's skeletal plate, and the cleared Vassil/Joselodos CC0 living-animal views. The source records retain their dates, rights and limits. None is a calibrated surface of an 1835 Chicago horse. Modern markings and breed proportions are not copied as history."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "a more open, continuous upper eyelid margin; the compact control centres/radii and millimetre displacements; and one local hoof-wall/coronet/ toe subdivision with bounded horizontal fairing. The first 5mm-control trial moved the actual surface by only 1.686mm and remained visibly heavy-lidded in native close views; it is not treated as a completed master. V2 retains the lower eyelid and separately bounds the upper fold. Its hoof fairing replaces visible coarse facets, without arbitrary torso inflation or a claim that source hair conceals the hoof. The named support anchors and canonical ground datum are preserved. The old toe outline and contact patch may change; old whole-body/standing results therefore do not qualify the new mesh. New vertices carry explicit source-edge UV/skin interpolation, and all original rig/clip/image/eye-UV provenance remains explicit. Fresh loaded deformation/contact/negative-control and native whole-master views must qualify the actual selected bytes before this work is accepted. The recipes' source-only boundary checks are not substitutes for those gates."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a calibrated original animal/master survey and corresponding multi-view anatomical study would tighten the dimensions and unseen geometry. Surface/PBR/portable LOD qualification remains the existing sequential later work; gaits, tack, riders, teams and interactions retain their existing pieces of work."
+        }
+      ],
+      "work_refs": [
+        "T-3088",
+        "T-3089"
       ]
     },
     {

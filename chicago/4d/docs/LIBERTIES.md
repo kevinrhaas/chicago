@@ -33577,3 +33577,46 @@ closer to the front than this one (T-3161) replaces the rings with the mouldings
 **Ticket:** T-3157.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3157).
+### L-horse-anatomy-master-3088 — source-bounded canonical horse anatomy and local hoof refinement
+
+**Recorded:** 2026-10-26. **Ticket:** T-3088.
+
+**Sources:** `ellenberger_baum_dittrich_equine_plates`,
+`seton_1892_equine_skeleton`, `vassil_2014_konik_horse_anatomy`,
+`joselodos_2025_horse_anatomy`; original licensed model
+`sevketkabatas_2021_horse_model`.
+
+**Decision:** refine the licensed sevketkabatas standing horse's near anatomical
+surface rather than replacing it with the rejected procedural regression horse.
+The canonical metre frame, reconstructed 26-joint rig, original source credit and
+the completed eye-UV repair remain the starting point. This is one generic working
+animal; no Chicago individual, owner, breed, sex, coat or absolute historical
+dimension is established by the modern model or the anatomical reference plates.
+
+**What bounds the changes:** actual pixels of Ellenberger/Baum/Dittrich Tafel6
+(external head/eyelid and jaw-to-muzzle relationships), Tafel15 (rounded hoof wall,
+toe, coronet and pastern), Tafel12 (posterior muscle/limb relationships), Seton's
+skeletal plate, and the cleared Vassil/Joselodos CC0 living-animal views. The source
+records retain their dates, rights and limits. None is a calibrated surface of an
+1835 Chicago horse. Modern markings and breed proportions are not copied as history.
+
+**What is reconstructed:** a more open, continuous upper eyelid margin; the compact
+control centres/radii and millimetre displacements; and one local hoof-wall/coronet/
+toe subdivision with bounded horizontal fairing. The first 5mm-control trial moved
+the actual surface by only 1.686mm and remained visibly heavy-lidded in native close
+views; it is not treated as a completed master. V2 retains the lower eyelid and
+separately bounds the upper fold. Its hoof fairing replaces visible coarse facets,
+without arbitrary torso inflation or a claim that source hair conceals the hoof.
+
+The named support anchors and canonical ground datum are preserved. The old toe
+outline and contact patch may change; old whole-body/standing results therefore
+do not qualify the new mesh. New vertices carry explicit source-edge UV/skin
+interpolation, and all original rig/clip/image/eye-UV provenance remains explicit.
+Fresh loaded deformation/contact/negative-control and native whole-master views
+must qualify the actual selected bytes before this work is accepted. The recipes'
+source-only boundary checks are not substitutes for those gates.
+
+**How to resolve:** a calibrated original animal/master survey and corresponding
+multi-view anatomical study would tighten the dimensions and unseen geometry.
+Surface/PBR/portable LOD qualification remains the existing sequential T-3089;
+gaits, tack, riders, teams and interactions retain their existing tickets.

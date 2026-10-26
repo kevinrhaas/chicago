@@ -1,0 +1,326 @@
+{
+  "schema": "horse-anatomical-near-master-review-v1",
+  "ticket": "T-3088",
+  "not_a_reading": "Re-reading already registered cleared anatomical/living-animal inputs and comparing the selected licensed derivative; no new historical named-unit research claim.",
+  "candidate_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "status": "Source anatomy and fresh canonical physical proof reviewed; full source/published scene qualification pending.",
+  "full_photographic_acceptance": false,
+  "source_bindings": [
+    {
+      "source_id": "ellenberger_baum_dittrich_equine_plates",
+      "file": "Horse anatomy head.jpg",
+      "sha256": "f3d694329c0a91275a244dda190f5ce81588bdecde561a95389613b8716712e3",
+      "observation": "Tafel6 Fig36: continuous thin almond eyelid. An anatomical relationship, not a calibrated individual measurement."
+    },
+    {
+      "source_id": "ellenberger_baum_dittrich_equine_plates",
+      "file": "Horse anatomy hooves.jpg",
+      "sha256": "8cdfd8db33cd644c574bab61c83247456ad5d3e4ef8e56b3ceade2862879ab6c",
+      "observation": "Tafel15 Fig75/78/79: rounded flared hoof wall, toe and heel below a distinct coronary/pastern transition; not an eight-sided fused block."
+    },
+    {
+      "source_id": "joselodos_2025_horse_anatomy",
+      "file": "reference-view-164516842.jpg",
+      "sha256": "85a741dffd00e17e9508a33da276da76e35dbaf8a32dda69d04917cb45ed87cc",
+      "observation": "CC0 near living head, shoulder/neck and front-limb continuity. Open-eye expression is a bounded reconstructed choice; no modern markings or identity transferred."
+    },
+    {
+      "source_id": "vassil_2014_konik_horse_anatomy",
+      "file": "Konik Polski Solutr\u00e9 26102014 4 (cropped).jpg",
+      "sha256": "fbb3de1407c268d8d631b1f1775cdba1911e1caa0f18b8229c97617c5be36dac",
+      "observation": "CC0 near-lateral living exterior, rounded hoof walls and limb transitions. Supports continuity, not copying stocky breed proportions, coat or absolute dimensions."
+    }
+  ],
+  "additional_anatomical_plates": [
+    {
+      "source_id": "seton_1892_equine_skeleton",
+      "file": "Horse anatomy Seton.png",
+      "sha256": "adeac2435dae8c9ddcbb4a9aecbcf6916b2906385916c298587c6d33c4d620df"
+    },
+    {
+      "source_id": "ellenberger_baum_dittrich_equine_plates",
+      "file": "Horse anatomy posterior view.jpg",
+      "sha256": "f69d54cbf8c620fdbc687a0cfb02a2a6eb95a9b2e9a2b39f91fa54d0c3f398f3"
+    }
+  ],
+  "source_use_limits": "Later scholarly anatomy and modern CC0 photos bound biological shape. No historical breed, individual, ownership, coat, calibrated dimensions or early tack is attested.",
+  "native_view_manifest_sha256": "dc8c801ba5d0bff1a984a38362316ece2b7d32ad3a2366b460f8fd33e57c3161",
+  "native_physical_result_sha256": "e4b72eae4ab9a1035ce0e086dc82704ddf21e307b946e61ba34a2fb2c0202e59",
+  "native_view_scope": "Actual vendored Three185/WebGL PBR static canonical rest and production skeleton clone/material policy, at fixed parent/candidate cameras; no actual town/phone/performance or complete photographic verdict.",
+  "captures": [
+    {
+      "asset": "parent",
+      "view": "front",
+      "sha256": "97c7fbbd73536952a15f74c55b14f0155ded092ec897484538ce167be118ec90"
+    },
+    {
+      "asset": "candidate",
+      "view": "front",
+      "sha256": "20bc10f53dbf1ca7ac93a1c80390d73e872c6150953fc34d74ab51430ae8cb7b"
+    },
+    {
+      "asset": "parent",
+      "view": "profile",
+      "sha256": "01b2e508a4882b88a41c425247db381f07329dc4f957c9ad90461297547c9179"
+    },
+    {
+      "asset": "candidate",
+      "view": "profile",
+      "sha256": "2fc5731dd07400a8521999cdfa357876c71cd6f5e29569df76e3cfc093bd901e"
+    },
+    {
+      "asset": "parent",
+      "view": "profile-negative-X",
+      "sha256": "f61323f984ab24a49f891a20d8fce9c7819fb86f44d31ea14e0508ce2c6a5d9a"
+    },
+    {
+      "asset": "candidate",
+      "view": "profile-negative-X",
+      "sha256": "df85b8f0a0a0a6b95abfa98216a52e82f1fd329942d3321be933475883a0ac15"
+    },
+    {
+      "asset": "parent",
+      "view": "rear",
+      "sha256": "3474c5739f1aed75570d68daf7794eb4094a4d21c87d55c125c2d55b65341214"
+    },
+    {
+      "asset": "candidate",
+      "view": "rear",
+      "sha256": "6a5b597ab9ee8206f2f90f6e7586609e323c3f5db875579c6d70a827d6dd73a2"
+    },
+    {
+      "asset": "parent",
+      "view": "quarter",
+      "sha256": "7a46d45d733c8e62a4ad3ac12a1cec933ff1502a6b4a5ba62726e1b564e7d939"
+    },
+    {
+      "asset": "candidate",
+      "view": "quarter",
+      "sha256": "539cb9c567738a76c2fce34b0fb90098a470a97b7030b601869f36949406c029"
+    },
+    {
+      "asset": "parent",
+      "view": "head-front",
+      "sha256": "3fe3070d2fd041ed173c2cf5b9e3d4fa26e470df1d8890b74f82b3199626779f"
+    },
+    {
+      "asset": "candidate",
+      "view": "head-front",
+      "sha256": "befd5e2014715e31a0a8a1b77d4e0e17f7a4ff87d24aa451091baa7b3ffeedbc"
+    },
+    {
+      "asset": "parent",
+      "view": "head-positive-X",
+      "sha256": "e207a71ceaa2bb2002c6baabff03da924a11fe878e84a535489e2e0c33e9311d"
+    },
+    {
+      "asset": "candidate",
+      "view": "head-positive-X",
+      "sha256": "8129b50db86dda1f72473c58b4868199e32798aad2eb463c1ccfd640b75ed0e2"
+    },
+    {
+      "asset": "parent",
+      "view": "head-negative-X",
+      "sha256": "deaac348b5eea5e19514919e330135aaa4bd2497f80be94b14e69e0637e12107"
+    },
+    {
+      "asset": "candidate",
+      "view": "head-negative-X",
+      "sha256": "2f9be5302f46a6ccade5d794ab16984ef151474c3257f6eef5c3da545e3c100d"
+    },
+    {
+      "asset": "parent",
+      "view": "head-quarter",
+      "sha256": "a92244d3c3b7fbb56e96f281389200f41cd6f4326a812e3a6b9ac9fa2fe33896"
+    },
+    {
+      "asset": "candidate",
+      "view": "head-quarter",
+      "sha256": "57d6ed18d846a52ed4f39753f74ed7298bb53022126c160d62fce5d4a426b937"
+    },
+    {
+      "asset": "parent",
+      "view": "fore-hoof-quarter",
+      "sha256": "ba7b9f94977ee855711f48e134e8fbf8f85ecfd5d6f8b13745e0a5d01687eafb"
+    },
+    {
+      "asset": "candidate",
+      "view": "fore-hoof-quarter",
+      "sha256": "b8f9442229d5eb021027525dd5948a8853f017c1f16cd9f8539ebdc08936ce90"
+    },
+    {
+      "asset": "parent",
+      "view": "hind-hoof-quarter",
+      "sha256": "276d2ac5a2fcae65fcbc5c0af5e18ca9cdaefbde741df5901b771228c719696c"
+    },
+    {
+      "asset": "candidate",
+      "view": "hind-hoof-quarter",
+      "sha256": "cf0c64e8bb1f3f513c6a56d1b9766c2ec07efd18a55cc3d2d5f43e023a760d18"
+    },
+    {
+      "asset": "parent",
+      "view": "hock-rear",
+      "sha256": "0e9de21cb0f7ca6af8f6714c6657e5302055df4664a4262bbc68e93bbd12147d"
+    },
+    {
+      "asset": "candidate",
+      "view": "hock-rear",
+      "sha256": "1b34bbce5dfa6d9a39fe9eacd0af0c8a9d3238074188dd99cdf7df461407297b"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "frame_scale",
+      "views": [
+        "front",
+        "profile",
+        "quarter"
+      ],
+      "status": "retained_reconstructed_frame",
+      "source_ids": [
+        "seton_1892_equine_skeleton",
+        "vassil_2014_konik_horse_anatomy"
+      ],
+      "observation": "Original canonical metre/+Yup/+Zforward/+Xleft frame and1.55m withers-proxy choice retained. The old proposal and source-derived dimensions are engineering bounds, not historical measurements. Native loaded neutral/bind equivalence and unchanged rig parent/segment proof passed."
+    },
+    {
+      "id": "head_jaw_muzzle",
+      "views": [
+        "head-front",
+        "head-positive-X",
+        "head-negative-X",
+        "head-quarter"
+      ],
+      "status": "retained_source_anatomy",
+      "source_ids": [
+        "ellenberger_baum_dittrich_equine_plates",
+        "joselodos_2025_horse_anatomy"
+      ],
+      "observation": "Actual Tafel6 and living-head pixels show masseter/jaw volume narrowing into nasal bridge and fleshy nostril/muzzle. Those visible transitions, lips and two nostrils are retained in the licensed source rather than replaced by primitives. Resting lip/face expression and unseen internal anatomy remain reconstructed."
+    },
+    {
+      "id": "eyelid_aperture",
+      "views": [
+        "head-front",
+        "head-positive-X",
+        "head-negative-X",
+        "head-quarter"
+      ],
+      "status": "geometry_improved_residual_under_review",
+      "source_ids": [
+        "ellenberger_baum_dittrich_equine_plates",
+        "joselodos_2025_horse_anatomy"
+      ],
+      "observation": "Upper margin lifted/recessed with a compact gated field that retains the lower lid and tapers over the brow. Source globe geometry, repaired eye UVs and six image payloads remain exact. The resting fold still reads heavy; assess anatomy/expression range separately from source texture/normal-map appearance. No complete photographic eye acceptance is asserted."
+    },
+    {
+      "id": "ears",
+      "views": [
+        "head-front",
+        "head-positive-X",
+        "head-negative-X",
+        "head-quarter"
+      ],
+      "status": "retained_source_anatomy",
+      "source_ids": [
+        "ellenberger_baum_dittrich_equine_plates",
+        "joselodos_2025_horse_anatomy"
+      ],
+      "observation": "Two separately tapered ears, pinna recesses and attached roots remain visible. Existing asymmetric resting orientation is retained; no breed or alertness classification follows."
+    },
+    {
+      "id": "neck_withers_shoulder_barrel",
+      "views": [
+        "front",
+        "profile",
+        "profile-negative-X",
+        "quarter"
+      ],
+      "status": "retained_source_anatomy",
+      "source_ids": [
+        "seton_1892_equine_skeleton",
+        "vassil_2014_konik_horse_anatomy",
+        "joselodos_2025_horse_anatomy"
+      ],
+      "observation": "Actual profile/quarter views preserve continuous neck-to-withers/scapular shoulder, breast and barrel/croup volumes. Root review found the whole animal coherent; no arbitrary torso inflation or forced modern-breed proportions were introduced. Photos are uncalibrated and not of the reconstructed individual."
+    },
+    {
+      "id": "limbs_joints_croup",
+      "views": [
+        "front",
+        "profile",
+        "profile-negative-X",
+        "rear",
+        "quarter",
+        "hock-rear"
+      ],
+      "status": "retained_source_anatomy_and_fresh_rig_proof",
+      "source_ids": [
+        "seton_1892_equine_skeleton",
+        "ellenberger_baum_dittrich_equine_plates"
+      ],
+      "observation": "Fore and hind chains remain anatomically distinct, including carpus/hock and pastern transition. Tafel12/Seton support relationships rather than surface measurements. All26 shared bones/inverse binds, parent chains and original weights retained; fresh selected-body129 physical proof passed. This does not qualify walk/trot or tack."
+    },
+    {
+      "id": "hoof_wall_toe_coronet",
+      "views": [
+        "fore-hoof-quarter",
+        "hind-hoof-quarter",
+        "hock-rear"
+      ],
+      "status": "geometry_improved_fresh_physics_pass_world_pending",
+      "source_ids": [
+        "ellenberger_baum_dittrich_equine_plates",
+        "vassil_2014_konik_horse_anatomy"
+      ],
+      "observation": "The earlier near views exposed polygonal toe/wall corners. Original-cage adaptive subdivision plus bounded horizontal fairing now produces a substantially smoother contour; all original faces have explicit children, without deleting the difficult sole/wall. Named anchors and canonical datum retained; the old outline moved and received fresh all-face/contact-child proof. Actual yard support is still pending."
+    },
+    {
+      "id": "mane_tail",
+      "views": [
+        "front",
+        "profile",
+        "profile-negative-X",
+        "quarter",
+        "rear"
+      ],
+      "status": "anatomical_attachment_retained_surface_child_pending",
+      "source_ids": [
+        "vassil_2014_konik_horse_anatomy",
+        "joselodos_2025_horse_anatomy"
+      ],
+      "observation": "Crest/forelock and dock-to-hanging-tail mass remain attached in the source silhouette. Solid/opaque sheet clumps, pointy tips and coat appearance remain visible; the existing T-3089 specifically owns browser-suitable mane/tail geometry/material and portable-LOD surface qualification. No new follow-up is filed or photographic surface completion claimed."
+    },
+    {
+      "id": "unseen_soles",
+      "views": [
+        "fore-hoof-quarter",
+        "hind-hoof-quarter"
+      ],
+      "status": "not_fully_shown_bounded_reconstruction",
+      "source_ids": [
+        "ellenberger_baum_dittrich_equine_plates"
+      ],
+      "observation": "Ground-level views do not expose a complete frog/sole/shoe construction. Unpictured underside details and shoeing remain reconstructed; no anatomical sole, continuous collision or load/pressure certification follows from sampled contact."
+    }
+  ],
+  "remaining_release_requirements": [
+    "Source full preflight and current-SHA changelog checks",
+    "Actual selected source/published desktop+phone scene support, lifecycle and error checks",
+    "Final owner anatomy review and sequential T-3089 surface/LOD qualification; no walking/riding promotion"
+  ],
+  "existing_next_ticket": "T-3089",
+  "liberty": "L-horse-anatomy-master-3088",
+  "static_body_crossings": {
+    "summary_file": "data/transport/parked/standing-horse-planted/anatomy-r3-static-crossings-summary.json",
+    "raw_result_sha256": "c23d46bc7430a059caca290a09610d78d80c3b15edf3c42596e92daadb2a6da6",
+    "parent_existing_proper_crossings": 373,
+    "candidate_proper_crossings": 373,
+    "new_parent_pair_crossings": 0,
+    "scope": "Canonical static body primitive only; triangle-plane interval overlap with open-interior midpoint tests and coplanar positive-area overlaps at 1nm tolerance. Boundary contact, watertightness, eye/hair interfaces, continuous motion and full photographic acceptance are not certified.",
+    "qualification": "No new strict static body crossings; existing source intersections remain declared and are not a clean-surface or photographic certificate.",
+    "superseded_limited_diagnostic": "Original a892 edge-hit checker and receipt retained separately. Independent boundary-endpoint counterexample repaired with actual plane-interval/midpoint test and included in native units; current v2 result supersedes original narrower diagnostic."
+  }
+}

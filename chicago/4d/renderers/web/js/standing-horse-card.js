@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Modern asset credit is separate from historically graded animal claims.
 export function standingHorseCard(row, spec) {
-  const citations = [...new Set([...row.source_ids, spec.source.id])].map(source_id => {
+  const citations = [...new Set([...row.source_ids, spec.source.id, ...(spec.anatomy?.source_ids ?? [])])].map(source_id => {
     const source = spec.citation_records?.[source_id];
     if (!source?.citation || !source.url) throw Error('Standing horse citation does not resolve: ' + source_id);
     return { ...source, source_id };
@@ -20,9 +20,13 @@ export function standingHorseCard(row, spec) {
         note: row.animation?.enabled
           ? 'Gentle body weight shifts are reconstructed; hooves stay planted. This horse is unhitched and unmounted; walking and riding are not available.'
           : 'Idle activation awaits qualification; no halter, tie rope, harness, rider, driver, boarding, route or physical coupling is enabled.' },
+      anatomy: { value: 'Reconstructed working horse', confidence: 'reconstructed',
+        sources: spec.anatomy?.source_ids ?? [],
+        note: 'Cleared anatomical studies and living-animal references guide the head and hoof surfaces. They do not identify an 1835 individual, breed, coat or owner.' },
     },
     citations,
-    research_note: `${row.note} Modern model credit (${spec.source.publication_date.slice(0, 4)}): ${spec.source.credit} Model adaptations: canonical metre-space derivative at unit scale,
-      declared whole-root support rotation, yard placement and reconstructed planted body shifts. Original head/tail and walking clips are not composed. ${spec.material_variants[row.material_variant].change_notice}`,
+    research_note: `${row.note} Modern model credit (${spec.source.publication_date.slice(0, 4)}): ${spec.source.credit}
+      Proportions, coat, markings, grooming and resting pose are reconstructed. Anatomical references guide the refined eyelid and rounded hoof surfaces.
+      ${spec.material_variants[row.material_variant].change_notice}`,
   } };
 }

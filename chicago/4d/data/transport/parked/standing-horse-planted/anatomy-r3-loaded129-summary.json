@@ -1,0 +1,82 @@
+{
+  "status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+  "key_count": 65,
+  "midpoint_count": 64,
+  "positions": {
+    "tolerance_m": 1e-05,
+    "maximum_delta_m": 1.3646619141056235e-07,
+    "evaluations": 834470
+  },
+  "normals": {
+    "tolerance_degrees": 0.01,
+    "maximum_angle_degrees": 1.639496572068655e-06,
+    "evaluations": 834470
+  },
+  "joint_world": {
+    "maximum_translation_error_m": 5.6459639084447026e-08,
+    "maximum_matrix_component_error": 5.645758471839457e-08
+  },
+  "physical": {
+    "maximum_segment_length_error_m": 1.6653345369377348e-16,
+    "maximum_parent_residual_m": 0,
+    "maximum_seam_gap_m": 0,
+    "maximum_contact_error_m": 8.649781714186193e-06
+  },
+  "loop": {
+    "loopP": 0,
+    "loopR": 0,
+    "loopSkin": 0
+  },
+  "negative_controls": {
+    "wrong_world_as_local_contact_error_m": 0.0463537192109398,
+    "three_mm_hoof_contact_error_m": 0.0030000064336239396,
+    "three_mm_segment_error_m": 0.0029031427887960537
+  },
+  "neutral_residual_m": 1.173776959548432e-07,
+  "original_patch_counts": {
+    "fore_l": 59,
+    "fore_r": 59,
+    "hind_l": 13,
+    "hind_r": 10
+  },
+  "new_patch_counts": {
+    "fore_l": 179,
+    "fore_r": 179,
+    "hind_l": 30,
+    "hind_r": 24
+  },
+  "original_physical_limits": {
+    "stance_patch_drift_m": 1e-05,
+    "segment_length_error_m": 1e-09,
+    "loop_position_m": 1e-09,
+    "loop_rotation_matrix_abs": 1e-09,
+    "negative_control_min_detected_m": 0.001,
+    "minimum_triangle_edge_ratio": 0.9,
+    "maximum_triangle_edge_ratio": 1.1,
+    "minimum_triangle_area_ratio": 0.8,
+    "maximum_triangle_area_ratio": 1.2,
+    "allowed_rest_relative_triangle_normal_dot_negative": 0,
+    "minimum_all_surface_y_m": -1e-05,
+    "minimum_seam_gap_tolerance_m": 1e-06
+  },
+  "schema": "standing-horse-anatomy-r3-loaded129-summary-v1",
+  "selected_asset_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "selected_asset_bytes": 4158016,
+  "raw_result_sha256": "e4b72eae4ab9a1035ce0e086dc82704ddf21e307b946e61ba34a2fb2c0202e59",
+  "failures": [],
+  "triangle_edge_ratio_range": [
+    0.9309143207288171,
+    1.0660237487189395
+  ],
+  "triangle_area_ratio_range": [
+    0.9284820194777152,
+    1.0877681659802323
+  ],
+  "reversed_triangles": 0,
+  "minimum_surface_y_m": -4.845475748783343e-07,
+  "owned_resources_closed": true,
+  "inputs_unchanged": true,
+  "old_body_pass_inherited": false,
+  "world_or_photographic_acceptance": false,
+  "scope": "Actual native GLTFLoader/SkeletonUtils clone/Mixer65keys+64midpoints, all selected faces and original/refined contact witnesses under unchanged limits. No world/phone/performance/photographic or gait approval."
+}

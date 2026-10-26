@@ -7,7 +7,7 @@ import { standingHorseCard } from '../renderers/web/js/standing-horse-card.js';
 import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP }
   from '../renderers/web/js/standing-horse-planted-idle.js';
 const spec = JSON.parse(readFileSync(new URL('../data/transport/parked/horse-sevket-sidecar.json', import.meta.url)));
-const buffer = readFileSync(new URL('../renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb', import.meta.url));
+const buffer = readFileSync(new URL('../renderers/web/' + spec.runtime_asset.file, import.meta.url));
 assert.equal(createHash('sha256').update(buffer).digest('hex'), PLANTED_SHA);
 const bytes = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
 const header = validatePlantedStandingHeader(bytes, spec);
@@ -28,6 +28,7 @@ assert.throws(() => validatePlantedStandingHeader(altered(j => { j.animations[0]
 assert.throws(() => validatePlantedStandingHeader(altered(j => { j.animations[0].channels[1].target.node = 3; }), spec), /unapproved/);
 assert.throws(() => validatePlantedStandingHeader(altered(j => { j.animations[0].samplers[0].interpolation = 'STEP'; }), spec), /key\/time/);
 assert.throws(() => validatePlantedStandingHeader(altered(j => { j.buffers[0].uri = 'unreviewed.bin'; }), spec), /embedded/);
+assert.throws(() => validatePlantedStandingHeader(altered(j => { delete j.asset.extras.chicago4d_anatomy_master_v2; }), spec), /anatomy parent/);
 
 // Exact target identities with a deliberately tiny mixer mock test host-clock
 // ownership, hold and disposal; physical pose qualification uses real THREE.
