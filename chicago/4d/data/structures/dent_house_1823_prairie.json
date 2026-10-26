@@ -564,11 +564,11 @@
                   ],
                   [
                     -1.18,
-                    0.3
+                    0.5
                   ],
                   [
                     1.18,
-                    0.3
+                    0.5
                   ],
                   [
                     1.2,
@@ -583,12 +583,13 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.8,
-                      "clear_height_m": 0.9,
-                      "sill_m": 0.6,
+                      "clear_height_m": 0.8,
+                      "sill_m": 0.75,
                       "at": [
                         0.5
                       ],
-                      "why_not_ordinary": "the basement light under the box bay, x 404-438 px and y 915-965 px on the engraving"
+                      "why_not_ordinary": "the basement light under the box bay, x 404-438 px and y 915-965 px on the engraving",
+                      "recess_m": 0.33
                     }
                   ]
                 },
@@ -603,7 +604,8 @@
                       "at": [
                         0.5
                       ],
-                      "why_not_ordinary": "the box bay's one broad light, x 390-440 px and y 690-855 px on the engraving (2.6-5.7 m over grade), a pair under one head as the 1883 vignette draws it"
+                      "why_not_ordinary": "the box bay's one broad light, x 390-440 px and y 690-855 px on the engraving (2.6-5.7 m over grade), a pair under one head as the 1883 vignette draws it",
+                      "recess_m": 0.33
                     }
                   ]
                 }
@@ -625,7 +627,7 @@
             "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The south pavilion: the 1911 sheet's front projection (lot v 0.43-6.15, 1.12 m forward of the front's main plane at u 32.85) on K08, 5.74 m wide and flush with the south wall, in the front's stone; one broad window to a storey under a stone surround and two grilled basement lights, read off the engraving (x 1035-1233 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json)) and drawn the same in the 1883 vignette. T-3163: carried up past the main cornice as an attic storey 2.4 m high with its paired lights (two lights on a mullion, 1.1 m clear), under a coped stone gable rising 1.0 m a metre in to a finial, as the vignette draws the pavilion's pedimented attic with its finial (the engraving's is behind the trees); the gable's pitch and the attic's height are reconstruction, read to put the finial near the engraving's pavilion top (y 150 px, about 18 m). The north flank's one-storey box bay on the principal storey, the engraving's x 377-455 px (its front x 385-445 px, its street-side cheek beyond): 2.4 m wide and 0.3 m out at u 5.5-7.9 m, its broad light 2.6-5.5 m over grade and its hood's top about 6.3 m (y 645 px); the vignette draws the same hooded window. Built as K08's rectangular bay with its basement light (x 404-438 px) in its foot under a low hipped hood: K08's corbelled oriel stands only on an upper floor, so the foot is carried to grade 0.3 m proud where the print corbels it out at about 1.8 m. Its stone and depth are reconstruction."
+          "note": "The south pavilion: the 1911 sheet's front projection (lot v 0.43-6.15, 1.12 m forward of the front's main plane at u 32.85) on K08, 5.74 m wide and flush with the south wall, in the front's stone; one broad window to a storey under a stone surround and two grilled basement lights, read off the engraving (x 1035-1233 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json)) and drawn the same in the 1883 vignette. T-3163: carried up past the main cornice as an attic storey 2.4 m high with its paired lights (two lights on a mullion, 1.1 m clear), under a coped stone gable rising 1.0 m a metre in to a finial, as the vignette draws the pavilion's pedimented attic with its finial (the engraving's is behind the trees); the gable's pitch and the attic's height are reconstruction, read to put the finial near the engraving's pavilion top (y 150 px, about 18 m). The north flank's one-storey box bay on the principal storey, the engraving's x 377-455 px (its front x 385-445 px, its street-side cheek beyond): 2.4 m wide and 0.5 m out at u 5.5-7.9 m (its depth reconstruction, enough for K08's window recesses), its broad light 2.6-5.5 m over grade and its hood's top about 6.3 m (y 645 px); the vignette draws the same hooded window. Built as K08's rectangular bay with its basement light (x 404-438 px) in its foot under a low hipped hood: K08's corbelled oriel stands only on an upper floor, so the foot is carried to grade 0.5 m proud where the print corbels it out at about 1.8 m. Its stone and depth are reconstruction."
         },
         "mansard": {
           "value": {

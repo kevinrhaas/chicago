@@ -80,7 +80,7 @@ about 13 px a metre, so a cross-check rather than a measurement. It agrees with 
 places within about 5 px, and with the curb's height where the engraving draws it higher.
 
 **Built from the pictures:** the north flank's box bay under its hood (K08's rectangular bay; its foot
-carried to grade 0.3 m proud, since K08's corbelled oriel stands only on an upper floor); the
+carried to grade 0.5 m proud, since K08's corbelled oriel stands only on an upper floor: open); the
 pavilion carried up an attic with paired lights under a coped stone gable and finial (K08's gable,
 1801's), replacing the hipped crown, which is what lets the deck carry its iron cresting (K10's);
 paired-light gabled dormers on the street face and the north flank; K09 cornice hoods over the front's
@@ -90,7 +90,7 @@ street-front bay read a bow's `chord_m` and failed on a projection sized by `wid
 
 **Still open** (the match records): the triple group's broad dormer, whose pediment rises over the
 curb in both pictures; the stack over the rear range; the grilled arched doorway under the landing;
-the narrow light beside the door on the principal storey; and, on the vignette, the slated cheeks
+the narrow light beside the door on the principal storey; the box bay's corbelled foot; and, on the vignette, the slated cheeks
 either side of the pavilion's pedimented attic. Each needs K01 to do something it does not, so the
 ticket is released with the records saying so (T-3153: no photo follow-up tickets from a run).
 

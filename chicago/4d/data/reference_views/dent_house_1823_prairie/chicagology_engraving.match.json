@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9bff97fb22f2d5a0176f886b4d38361eea2ffb12a99efbba8d3d77e31a76d40c",
+  "glb_sha256": "2635e3a1de3f46d0e6231977996dda055eb5ac79f1115bbab3a36cd71e660ce4",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
@@ -31,12 +31,11 @@
     {
       "what": "the north flank's one-storey box bay under a hood at x 377-455 px on the principal storey, a basement light under it",
       "status": "fixed",
-      "how": "T-3163: K08's rectangular bay, 2.4 m wide and 0.3 m out at u 5.5-7.9 m, its broad light 2.6-5.5 m over grade, its hood's top about 6.3 m"
+      "how": "T-3163: K08's rectangular bay, 2.4 m wide and 0.5 m out at u 5.5-7.9 m, its broad light 2.6-5.5 m over grade, its hood's top about 6.3 m"
     },
     {
-      "what": "the box bay's foot: the print corbels it out at about 1.8 m (y 895 px); the build carries it to grade 0.3 m proud",
-      "status": "within tolerance",
-      "how": "0.3 m of depth over the basement, about a foot: K08's corbelled oriel stands only on an upper floor"
+      "what": "the box bay's foot: the print corbels it out at about 1.8 m (y 895 px); the build carries it to grade 0.5 m proud: K08's corbelled oriel stands only on an upper floor, and the bay's 0.5 m is the least K08's window recesses fit in",
+      "status": "open"
     },
     {
       "what": "the mansard's lower faces, the curb and the cresting on it (y 60-170 px)",
