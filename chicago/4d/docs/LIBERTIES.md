@@ -33700,3 +33700,32 @@ views) replaces the banding's rhythm, the panels and the modillions with what it
 **Ticket:** T-3158.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3158).
+
+### L-k01-1816-henderson-crowns-2964 — 1816 Prairie's two canted bays carried up into crowned mansards of their own, under iron cresting, read off its photograph
+
+**Decision:** 1816 Prairie's photograph (`chicagology_1816_henderson_photo`) shows both canted bays
+carried up past the cornice into mansards of their own — the front's a raised crown over the corner,
+the flank's lower — each under iron cresting, with cresting along the main deck's street curb,
+square-headed dormers under pediments, and a fence of cast-iron scrollwork. T-2964 (piece 2 of T-1886)
+builds them: K08 learns a mansard bay roof (`roof.mansard`: a lower face at one pitch to a curb, then
+a deck), K10's bracketed cornice may run round a bay on any wall, the bays' crowns carry K10's iron
+cresting round their curbs, and the main deck's cresting may stand on the sides a picture shows
+(`mansard.deck.cresting.sides`). Every other K01, K12, K13 and K16 asset rebuilt byte-identical.
+**What is read, not invented.** Through the photograph's solved camera: that both bays rise through
+the cornice under their own mansards and cresting; their rises as fractions of the wall under them
+(the front's crown about a third of the corner's height, its deck 0.4 m over the main curb; the
+flank's about two-fifths), good to about half a metre; the cresting on the main deck's street curb;
+the dormers' pediments; the stack's place behind the front's south end.
+**What is invented.** Both crowns' lower faces at 76 degrees and their decks at a tenth; the
+cresting's pattern and its 0.6 m height (K10's iron ridge cresting, as 1801's deck carries it — the
+print's panels read only as a dense pierced band); the dormers' pediments at 40 degrees; the fence's
+pattern (K11's scroll band, the nearest the kit has to the print's full-height scrollwork). The main
+deck's south, north and rear curbs carry no cresting: the south shows none behind the flank's crown,
+the other two are out of the camera's sight.
+**What is not built.** The dormers in the crowns' own faces, the window hoods' carved crests, the
+balcony's metre-high pierced railing with the window over the door opened onto it, and the brick's
+dark tone: open on the match record. The 1874 Land Owner engraving is not read.
+**How to resolve:** a K08 crown dormer, a door-height opening over a K01 door hood, a crested K09
+hood, and a brick tone a picture can carry on a house with no stone front.
+**Ticket:** T-2964 (piece 2 of T-1886).
+**Recorded:** 2026-10-25 (T-2964).
