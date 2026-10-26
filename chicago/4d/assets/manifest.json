@@ -3671,14 +3671,14 @@
       "phase_id": "draft_1904",
       "structure_id": "mark_kimball_house_2108_prairie_coach_house"
     },
-    "marsh_house_1824_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "marsh_house_1824_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 177596,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "acd4a0f12953206d9bb40f9643aa3748f84bd7fba09af2a4fe459ea3732a6962",
+      "bytes": 4745100,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "48a45ac4388455ca7bd6342ee971deaf856c0517953933a3fa59b47e7560f2f1",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "marsh_house_1824_prairie"
     },
     "marsh_house_1824_prairie_coach_house__draft_1904.glb": {

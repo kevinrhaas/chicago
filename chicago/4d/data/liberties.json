@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 786,
+  "count": 787,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1531,7 +1531,7 @@
     },
     {
       "id": "marsh_house_1824_prairie",
-      "name": "1824 Prairie Avenue — Pomeroy/Marsh altered stone-front villa"
+      "name": "1824 Prairie Avenue — Pomeroy/Marsh house (the 1857 villa refaced in stone after 1880)"
     },
     {
       "id": "marsh_house_1824_prairie_coach_house",
@@ -35095,18 +35095,6 @@
         },
         {
           "domain": "structure",
-          "structure": "marsh_house_1824_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "marsh_house_1824_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "marsh_house_1824_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35159,7 +35147,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35180,6 +35168,10 @@
         {
           "label": "Retired in part",
           "text": "1828 Shipman's house by later work, which refined it in place on the K01 frontage kit under `“1828 Prairie refined from the district draft to a K01 stone-front house under a mansard, its canted bay and arched porch read off its photographs”`; its stable is still this draft's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "1824 Pomeroy/Marsh's house by later work, which refined it in place on the K01 frontage kit under `“1824 Prairie refined from the district draft to a K01 house: the 1857 Pomeroy villa's flanks and bracketed eaves behind the stone front of about 1880, its cupola ruled out of 1904”`; its stable is still this draft's."
         },
         {
           "label": "Review",
@@ -35203,6 +35195,7 @@
         "T-2963",
         "T-1887",
         "T-3166",
+        "T-3167",
         "T-2329",
         "T-2159"
       ]
@@ -56263,6 +56256,105 @@
       "work_refs": [
         "T-1886",
         "T-2964"
+      ]
+    },
+    {
+      "id": "L-k01-1824-marsh-1887",
+      "title": "1824 Prairie refined from the district draft to a K01 house: the 1857 Pomeroy villa's flanks and bracketed eaves behind the stone front of about 1880, its cupola ruled out of 1904",
+      "section": "per_subject",
+      "subjects": [
+        "marsh_house_1824_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marsh_house_1824_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1824 Prairie Avenue, Samuel B. Pomeroy's villa of 1857 refaced in stone for George B. Marsh after he bought it in 1880, is no longer a district draft. It stands, under the draft's own id 1824 Prairie Avenue — Pomeroy/Marsh house (the 1857 villa refaced in stone after 1880), as a k01 frontage record built by the k01 emit generator: brick flanks two tall storeys over a raised basement under a deep bracketed cornice and a low hip, behind a stone front with a canted bay through both storeys at its south end and a porch on columns under a balustraded balcony at its north end; the rear range; an iron fence on a curb. The pictures, all rights check required and read for forms and proportions only: the Pomeroy photograph ([Pomeroy house, 1824 S. Prairie Avenue, in its original Italianate form.]…, before about 1880), read only for what the stone front did not change; the right side of the automobile photograph of 1828 (1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric…, about 1897-1906) and of the partial view of 1828 ([Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer…), which show 1824's stone front and south flank. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1824-b1, census s28-1824-front and s28-1824-wing): the main block's place and plan (12.1 by 9.1 m), the stone strip of the new front, the canted bay's width and projection, the stone piece before the north part that the porch stands on, the rear range ('rear2B') and its run past the south flank, brick with a stone front. From the automobile photograph: the front's composition (bay at the south, entrance porch with balcony at the north, stone cheeks, the bay's windows one to a face, its belt and cornice under the frieze, the fence). From the Pomeroy photograph: the storeys over a raised basement, the bracketed cornice and its eave, the low hip, the lower block beside the main one, the stacks on the flanks. From the Glessner House Museum's blog: the stone front of about 1880. **What is invented.** Every size the sheet does not give: the floor, storey and window heights (read in proportion off unscaled prints; no camera is solved for 1824 yet), the walls' thickness and the flanks' brick and its tone, the front stone's quarry, the hip's pitch and covering, the treads, the flank windows' number and places, the stacks' places, the rainwater, the sash pattern, the rear range's storeys, windows and flat deck, the gates. **Ruled.** The cupola the Pomeroy photograph shows before 1880 is not built in 1904: no picture after the stone front shows the roof, the sheet prints no lantern, and its '½' storey is met by the attic behind the frieze. Recorded as uncertain; a picture of the roof after 1880 overturns it. **What is not built.** The flank windows' round heads under hoods (K01 cuts a flank's windows flat); the frieze's panels between the brackets; the flanks' light painted or stuccoed finish; the bay's pilasters and their incised blocks; the rear range's low hip (a pitched K01 wing is slated, from 45 degrees) and the bay the sheet draws on its south wall (a K01 wing carries no bay); the one-storey projection low on the south flank in the partial view."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves 1824's cameras on the automobile photograph and the partial view, builds what is open, and brings the match records to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`marsh_house_1824_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marsh_house_1824_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marsh_house_1824_prairie.as_mapped_1904.form.service_wall_brick`, `marsh_house_1824_prairie.as_mapped_1904.form.roof_pitch_deg`, `marsh_house_1824_prairie.as_mapped_1904.form.roof_covering`, `marsh_house_1824_prairie.as_mapped_1904.form.stair_tread_m`, `marsh_house_1824_prairie.as_mapped_1904.form.side_bays`, `marsh_house_1824_prairie.as_mapped_1904.form.north_bays`, `marsh_house_1824_prairie.as_mapped_1904.form.rainwater`, `marsh_house_1824_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1824 marsh."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3167)."
+        }
+      ],
+      "work_refs": [
+        "T-3167",
+        "T-1887",
+        "T-3168"
       ]
     },
     {
