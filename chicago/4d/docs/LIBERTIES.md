@@ -33515,3 +33515,35 @@ closer to the front than this one (T-3161) replaces the rings with the mouldings
 **Ticket:** T-3157.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3157).
+
+### L-pullman-1729-pavilions-3158 — 1729 Prairie's front divided into pavilions off the Detroit print: piers, frieze, modillions and mansard ribs, their places read and their sections reconstructed
+
+**Decision:** the Pullman house's Prairie front (T-3158, a piece of T-1881) is divided into pavilions as
+the Detroit Publishing photograph (`loc_det_4a08065_pullman_residence`) shows it, through its solved
+camera `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`: three rusticated
+piers in the front's brownstone and a fourth turning the south-west corner onto 18th Street, from the
+base's coping to the cornice's bed; the moulded stone cornice broken forward over each; a deep frieze
+between the second storey's heads and the cornice, with a bed course and framed panels between the
+piers; a row of modillions under the cornice's corona all round; raised ribs on the mansard's Prairie
+face over the first two piers; and the north-west pavilion's own dormer (`street_front_pavilions`, built
+by `generators/archetypes/k01_pavilions.py`, and a fifth entry in `mansard.dormers`).
+**What is read, not invented.** Each pier's place and width along the front (x 363-380, 412-428 and
+497-515 px, about 1.2 m each), the corner's banded return, the ribs' places (x 369-379 and 413-423), the
+frieze's depth between the window heads (about 10.6 m) and the cornice (about 12.0 m), the modillions'
+existence as a dotted band under the corona, and the north-west dormer's place and size. The print gives
+14-16 px a metre on the front.
+**What is invented.** The banding's rhythm and depth (0.4 m courses, 0.1 m channels, a 0.15 m step in
+and out, 0.15 m proud): the print shows long-and-short banded courses but not their joints to a
+centimetre. The third pier is held to v 14.74, 0.15 m short of its reading, so it stands clear of the
+south windows' voussoir rings. The frieze's bed course (10.70-10.86 m) and its panels' number and
+framing (one panel up to 2.6 m long between each pair of piers, framed in 0.1 m strips 0.08 m proud):
+the print reads the frieze as a band of shadowed panels. The modillions' size and pitch (0.15 m wide,
+0.25 m out, every 0.5 m) and their run round the walls the print does not see. The ribs' 0.6 m section
+and their brownstone (the print, monochrome, gives them the walls' tone). The north-west dormer stands
+at v 1.5, 0.1 m off the print's centre, the nearest the mansard's hip lets its face stand. The curb's
+step between the sections (about 0.15 m) is not built.
+**How to resolve:** a picture closer to the front (T-3161: the Albertype plate, the CHM and Taylor
+views) replaces the banding's rhythm, the panels and the modillions with what it shows.
+**Ticket:** T-3158.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3158).

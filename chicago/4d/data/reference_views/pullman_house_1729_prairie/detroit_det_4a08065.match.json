@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "798821bac81d445f923c7d70f33ca898ae2fe7a5d104dabe0559c6eca6803ec2",
+  "glb_sha256": "deac4059175ff529fce9fa28c8966bbbec1408b61dae2d8c1c19968dbea5e3ae",
   "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
@@ -38,7 +38,18 @@
     },
     {
       "what": "the rusticated quoined piers that divide the Prairie front into pavilions (x 362-380, 413-428, 497-515 and the corners) and the pavilions' own mansard sections and stepped roof line",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3158: four piers in the front's brownstone (street_front_pavilions), banded in channelled courses that step in and out, from the base's coping to the cornice's bed, the corner one returned 1.1 m onto 18th Street; the render's at x 363-380, 412-428, 495-512 and the corner from x 545. The mansard is read in sections over the bays by raised ribs over the first two piers, the render's at x 362-378 and 412-427 against the print's 368-382 and 413-427"
+    },
+    {
+      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m",
+      "status": "within tolerance",
+      "how": "T-3158: under the good-enough bar; the curb runs level"
+    },
+    {
+      "what": "the cornice broken forward over each pier, the piers' heads breaking the deep frieze under it",
+      "status": "fixed",
+      "how": "T-3158: the K10 section swept again along each pier's face 0.15 m out and capped, over a plain head through the frieze"
     },
     {
       "what": "the Prairie front's windows round-arched under moulded rings: three on the second storey (x 390-402, 452-472 and 519-528 px, crowns at y 339) and the two the ivy leaves on the principal storey (heads at y 411 and 418)",
@@ -56,13 +67,19 @@
       "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
     },
     {
-      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters, and the north-west pavilion's own dormer at x 330 on its own mansard section; the build lays a plain surround round each arch and no dormer on the north-west block",
+      "what": "the north-west pavilion's own dormer at x 330 on its section of the mansard",
+      "status": "fixed",
+      "how": "T-3158: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5, the render's surround at x 318-337 against the print's 322-338"
+    },
+    {
+      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters; the build lays a plain surround round each arch",
       "status": "open",
-      "how": "T-3158, with the pavilions' own mansard sections"
+      "how": "T-3161"
     },
     {
       "what": "the cornice's modillions and the deep frieze's panels",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3158: a modillion every 0.5 m under the corona all round the cornice, stopped at the breaks; the frieze's bed course at 10.70-10.86 m and a framed panel between each pair of piers (two in the centre bay), the render's frieze at y 311-333 against the print's 310-330"
     },
     {
       "what": "the arcade on the 18th Street flank (x 598-683): two round arches on piers under a balustrade at about y 385-395, the porte-cochere; the build stands a plain pavilion 6.0 m wide and 1.2 m out there, and the sheet's one-storey porte-cochere (p4) at the draft's massing in pullman_house_1729_prairie_ranges, which this camera puts behind the flank at x 690-710",
