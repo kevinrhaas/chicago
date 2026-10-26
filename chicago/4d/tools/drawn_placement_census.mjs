@@ -66,7 +66,7 @@ export const CENSUS = () => {
   const B = {
     batches: 0, instances: 0, compared: 0, unrecorded: 0, verts: 0,
     outside: 0, worst: 0, worstId: null, worstSpan: 0,
-    misplaced: 0, worstTransform: 0, compounds: 0,
+    misplaced: 0, worstTransform: 0, compounds: 0, campWorst: 0, campWorstId: null,
     mirrorCloser: 0, worstMirrorId: null, strays: [], corners: [], worstCorner: 0,
   };
   const plan = new Map();
@@ -143,7 +143,32 @@ export const CENSUS = () => {
         box.parts++;
         box.transformError = Math.max(box.transformError, transformError);
       } else {
+        // T-3174: THE ANCHOR THE RECORD GIVES IT is the point of its recorded
+        // footprint nearest the surveyed origin. For every other structure in
+        // 1835 the footprint grows from the origin (K30(b)) and that point IS
+        // the origin, so nothing about them moves. The 1832 lighthouse is the
+        // exception the bare origin could not survive: T-3122 drew its 3.04 m
+        // shaft inside local 1.28-4.32 m on both axes and kept the old centre
+        // and origin, so the origin is 1.81 m off the drawn tower by design.
+        // The footprint is in E/N at rotation 0, i.e. GLB (x, -z), and goes
+        // through the same bearing as the transform check above.
+        let fe = 0; let fn = 0;
+        const fp = rec.sidecar.footprint?.polygon;
+        if (Array.isArray(fp) && fp.length) {
+          let x0 = Infinity; let x1 = -Infinity; let y0 = Infinity; let y1 = -Infinity;
+          for (const q of fp) {
+            if (q[0] < x0) x0 = q[0];
+            if (q[0] > x1) x1 = q[0];
+            if (q[1] < y0) y0 = q[1];
+            if (q[1] > y1) y1 = q[1];
+          }
+          if (Number.isFinite(x0 + x1 + y0 + y1)) {
+            fe = Math.min(Math.max(0, x0), x1);
+            fn = Math.min(Math.max(0, y0), y1);
+          }
+        }
         plan.set(id, { e0, e1, n0, n1, parts: 1, e: p.local_e, n: p.local_n,
+          ae: p.local_e + fe * cos - fn * sin, an: p.local_n + fe * sin + fn * cos,
           compound: rec.sidecar.archetype === 'camp', transformError });
       }
     }
@@ -157,8 +182,8 @@ export const CENSUS = () => {
     if (box.compound) B.compounds++;
     // How far outside its own drawn plan footprint the record's anchor falls.
     // Zero for every building whose body was drawn where it was placed.
-    const outE = Math.max(box.e0 - box.e, box.e - box.e1, 0);
-    const outN = Math.max(box.n0 - box.n, box.n - box.n1, 0);
+    const outE = Math.max(box.e0 - box.ae, box.ae - box.e1, 0);
+    const outN = Math.max(box.n0 - box.an, box.an - box.n1, 0);
     const out = Math.hypot(outE, outN);
     const span = Math.hypot(box.e1 - box.e0, box.n1 - box.n0);
     // And how far the anchor is from the NEAREST CORNER of that footprint,
@@ -184,7 +209,14 @@ export const CENSUS = () => {
           drawn: [+((box.e0 + box.e1) / 2).toFixed(1), +((box.n0 + box.n1) / 2).toFixed(1)] });
       }
     }
-    if (out > B.worst) {
+    // The worst is the worst GATED structure. T-3174 was filed against
+    // land_sale_camp_shore because this line used to rank the exempt camps
+    // too, so the message named a camp's empty plot corner (9.82 m) while the
+    // one structure actually failing was the lighthouse at 1.81 m. Camps keep
+    // their own figure, which gates nothing.
+    if (box.compound) {
+      if (out > B.campWorst) { B.campWorst = out; B.campWorstId = id; }
+    } else if (out > B.worst) {
       B.worst = out;
       B.worstId = id;
       B.worstSpan = +span.toFixed(1);
