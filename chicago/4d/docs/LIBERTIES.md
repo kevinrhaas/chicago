@@ -33755,3 +33755,37 @@ views) places the southern columns and gives the balusters' profile.
 **Ticket:** T-3159.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3159).
+
+### L-pullman-1729-porte-cochere-3160 — 1729 Prairie's 18th Street flank off the Detroit print: the porte-cochere's west end and south front read, its east end and the flank's windows' places reconstructed
+
+**Decision:** the Pullman house's 18th Street flank (T-3160, a piece of T-1881) is rebuilt as the
+Detroit Publishing photograph (`loc_det_4a08065_pullman_residence`) shows it, through its solved camera
+`data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`: a one-storey porte-cochere
+of brownstone piers and round arches standing 4.27 m out from the flank at s 6.35-11.48 under an
+entablature and a balustrade at the second floor (`porte_cochere`, built by
+`generators/archetypes/k01_porte_cochere.py`); the flank's windows round-headed (`north_bays`, each
+storey's laid once under K06's round fanlight sash); the 18th Street pavilion moved 1.375 m east,
+clear of it; and the Prairie line's low stone wall carried round the corner along 18th Street
+(`boundary.side_return`, K11).
+**What is read, not invented.** The arcade is a block standing out from the wall, not arches in it:
+its west arch reads as wide as it is high (about 15 px a metre either way) where the flank's face gives
+about 5 px a metre along it. Its west face's meeting with the flank (x 598 px), the west arch's jambs
+(x 610 and 645: 0.81-3.18 m out, 2.37 m) and its crown and springing (y 410 and 428: 6.0 and 4.85 m),
+the corner pier (x 645-668) and the south front's arch (x 668-678: s 7.78-10.05, 2.27 m), the
+entablature's soffit (y 402, 6.5 m) and the balustrade (y 389-397, to about 7.4 m). The flank's
+windows' round heads (y 355-365 over the balustrade). The 18th Street wall at x 640-685 to the
+print's x 693 (x 35.0 in the house's frame), 0.9 m as the Prairie run.
+**What is invented.** The block's east end, which the tree and the building beyond hide: closed at s
+11.48 by a corner pier the size of the west one (the print's last pier ends at about s 11.7) with an
+arch mirroring the west end's, so a carriage passes through. The walls' 0.6 m thickness, the
+entablature's 0.35 m depth and 0.15 m projection, the balustrade's section (0.55 m, 0.3 m posts, 0.1 m
+square balusters every 0.2 m); the piers are plain coursed stone where the print's are banded. The
+flank's windows' places (s 3.0, 5.0, 21.5 and 24.5, the one at 6.0 moved to 5.0 clear of the block)
+and the pavilion's place (centred at s 14.5, inside the sheet's u 9.5-19.75). The 1911 sheet's
+'porte-cochere' (s20fp-1729-b1 p4, s 7.75-12.75, 2-5.4 m out) stands 1.4 m east of and 1.1 m further
+out than the print's; the print governs. The run of posts on a lower curb east of x 693 is not built.
+**How to resolve:** a picture nearer the flank (T-3161: the CHM 1905 side view, the Inland plates)
+places its east end, its windows and the pavilion, and the piers' banding.
+**Ticket:** T-3160.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3160).

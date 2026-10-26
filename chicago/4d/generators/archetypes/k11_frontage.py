@@ -502,6 +502,15 @@ def coping_spec(params, t):
                or not 0.8 <= sp.get("height_m", 0) <= 2.0 or not 0.0 <= sp.get("cap_m", -1) <= 0.1):
         raise ValueError("stone_coping_wall.stair_pier: side left|right, section_m 0.3-0.9, height_m 0.8-2.0, "
                          "cap_m 0-0.1")
+    # T-3160: a return along the side street on the lot's north line, from the street run's
+    # back face to `to_x_m` (the house's x, its rear at 0), `height_m` high
+    sr = t.get("side_return")
+    if sr is not None:
+        line = params.depth_m + t["street_line_m"]
+        if set(sr) != {"to_x_m", "height_m"} or not 0.0 <= sr["to_x_m"] <= line - t["thickness_m"] - 0.3 \
+                or not t["chamfer_m"] + 0.2 <= sr["height_m"] <= 1.2:
+            raise ValueError(f"stone_coping_wall.side_return {sr}: to_x_m from the house's rear to 0.3 m short "
+                             f"of the street run's back ({line - t['thickness_m']:.2f}), 0.2-1.2 m high")
     return t
 
 
@@ -509,7 +518,9 @@ def coping_wall(a, t):
     """Lay `layout: stone_coping_wall` (coping_spec). Where a run steps up from the one
     before it, the taller run's end is faced down to the lower's chamfer foot, so no seam
     opens over it; the lot's two ends are faced whole. Nothing turns a corner: a return
-    along a side street is not read, so none is built."""
+    along a side street is built only where the record reads one (`side_return`, T-3160:
+    1729's along 18th Street in the Detroit print), on the lot's north line, its street face
+    on the line and its end at the corner against the street run's back."""
     from .k01_stone_finish import box_faces
     p = a.p
     D = p.depth_m
@@ -554,6 +565,19 @@ def coping_wall(a, t):
             else:                              # down to the lower run's chamfer foot
                 cap = [(-T, lo), (-T, h), (-c, h), (0.0, h - c), (0.0, lo - c)]
             face([(s_end, y, z) for z, y in cap], (k, 0.0, 0.0))
+    sr = t.get("side_return")
+    if sr:
+        def side_face(pts, hint):
+            """A face given in (x, y, out of the north line); world Z is -(north + out)."""
+            world = [(x, y, -(north + z)) for x, y, z in pts]
+            a._sface("stoop_stone", world, (hint[0], hint[1], -hint[2]), world[0], (-1, 0, 0), seed + 1, False, conf)
+        xa, xb, h = sr["to_x_m"], line - T, sr["height_m"]
+        prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
+        zc, yc = -T / 2, h / 2
+        for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
+            side_face([(xb, y0, z0), (xa, y0, z0), (xa, y1, z1), (xb, y1, z1)],
+                      (0.0, (y0 + y1) / 2 - yc, (z0 + z1) / 2 - zc))
+        side_face([(xa, y, z) for z, y in prof], (-1.0, 0.0, 0.0))   # its east end; the west one meets the street run
     piers = []
     if sp:
         # its foot, and the cheek's outer face
@@ -573,4 +597,5 @@ def coping_wall(a, t):
         piers.append([round(cheek, 4), round(foot - e / 2, 4)])
     a.boundary = {"line_x_m": line, "stoop_foot_x_m": None, "leaf_reach_m": 0, "entrance_s_m": [],
                   "side_gate_s_m": [], "fence_posts_s_m": [], "wall_piers_x_m": [],
-                  "coping_runs": [[round(x, 4) for x in r] for r in runs], "stair_piers": piers}
+                  "coping_runs": [[round(x, 4) for x in r] for r in runs], "stair_piers": piers,
+                  **({"side_return": [round(sr["to_x_m"], 4), round(line - T, 4), sr["height_m"]]} if sr else {})}

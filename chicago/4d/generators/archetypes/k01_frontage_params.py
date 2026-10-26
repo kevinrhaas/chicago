@@ -207,6 +207,9 @@ class K01FrontageParams:
     # frieze's bed and panels between them, the cornice's modillions and the mansard's ribs over
     # the piers (`street_front_pavilions`, k01_pavilions; 1729's, off the Detroit print)
     pavilions: dict = field(default_factory=dict)
+    # T-3160: a one-storey arcaded porte-cochere on a side wall under a balustraded deck
+    # (`porte_cochere`, k01_porte_cochere; 1729's on 18th Street, off the Detroit print)
+    porte_cochere: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -267,7 +270,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers", "round_corner", "front_pier", "street_front_pavilions",
+    "slope_dormers", "round_corner", "front_pier", "street_front_pavilions", "porte_cochere",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -4120,6 +4123,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if v.get("well") and kit[comp]["well"] and comp == "k01.opening.area_light" and bsill > 0:
             raise ParamError(f"window_kit: {vid} sits in an area well, but these basement "
                              f"lights' sills stand {bsill} m above grade; set \"well\": false")
+        if comp == ROUND_PLAIN and v["operation"].startswith("double_hung"):
+            # T-3160: a round-headed light read off a picture, hung as a sash under its fanlight
+            # (1729's 18th Street flank) where the kit names one, not a fixed basement light
+            openings = [dataclasses.replace(o, meeting_rail=True) if o.component == comp else o for o in openings]
         if v["operation"].startswith("double_hung") != any(
                 o.meeting_rail for o in openings if o.component == comp):
             raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
@@ -5083,6 +5090,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                       wall_head=dict(val("wall_head", {}) or {}))
     except PavilionError as e:
         raise ParamError(str(e)) from None
+    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte
+    try:
+        porte_cochere = resolve_porte(val("porte_cochere"), depth=depth, width=width, stone=stone, openings=openings)
+    except PorteError as e:
+        raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -5140,7 +5152,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
-        round_corner=round_corner, front_pier=front_pier, pavilions=pavilions,
+        round_corner=round_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

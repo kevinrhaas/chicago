@@ -5063,6 +5063,10 @@ def build(params, structure_id: str):
         # just laid, and the mansard's ribs over the piers (1729's, the Detroit print)
         from . import k01_pavilions
         k01_pavilions.dress(a)
+    if p.porte_cochere:
+        # T-3160: the side wall's arcaded porte-cochere under its balustraded deck (1729's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck
