@@ -1564,6 +1564,30 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "pullman_house_1729_prairie_conservatory/as_standing_1904/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "pullman_house_1729_prairie_conservatory/as_standing_1904/form.conservatory": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "pullman_house_1729_prairie_conservatory/as_standing_1904/form.host_wall": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "robert_kinzie_store/store_1830/form.construction": {
       "kind": "structure",
       "blocked_sources": [
