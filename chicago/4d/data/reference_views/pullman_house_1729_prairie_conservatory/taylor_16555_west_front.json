@@ -1,0 +1,32 @@
+{
+ "structure_id": "pullman_house_1729_prairie_conservatory",
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie",
+  "pullman_house_1729_prairie_ranges"
+ ],
+ "library_image": "a16-aic-taylor-pullman-west-front-palm-house",
+ "photo": "../../sources/assets/pullman_1729_palm_house_t3165/aic_taylor_16555_pullman_west_front.jpg",
+ "image_px": [
+  1200,
+  1107
+ ],
+ "principal_px": [
+  600,
+  628
+ ],
+ "focal_px": 1980,
+ "eye": [
+  8.84,
+  -100.0,
+  1.6
+ ],
+ "yaw_deg": 0.0,
+ "solve": "Fitted by T-3165 to the photograph alone (the image store's 1200 x 1107 px copy of AIC 16555, J. W. Taylor; the print with its border and grey scale) against the 1911 sheet 20's plan, in this record's frame: u east along the wing's south face, v north, the origin the palm house's centre on that face. The camera looks due NORTH, level (the wing's verticals stand vertical; its parapet and the stable's eaves run level across the print), so the yaw is 0 and the principal point stands on the horizon. SCALE AND PLACE ALONG THE WING from the wing's own two ends, which stand in the same plane as the drum, so the ratio is free of perspective: the house's east wall (u -12.12) at x 180 and the wing's east end under the belvedere (u 9.70, the sheet's step at the garage) at x 612, 19.8 px/m at v 0. Through that scale the drum's entablature spans x 350-500 (7.6 m, so the glass drum is 3.35 m in radius under a 0.45 m entablature) and its centre falls 12.1 m east of the house wall, which is where this record now stands it (3.0 m east of the 1911 sheet's semicircle; the record's position note weighs the two). DISTANCE AND FOCAL LENGTH: 19.8 px/m at v 0 with f 1980 px puts the eye 100 m south of the wing, in the park across 18th Street; the eye's u 8.84 puts the drum at x 425. The 18th Street porch on the house's east side (left edge x 225-230) and the stable's south-west corner (x 610-625) then fall within 15 px of the print; a nearer eye with a shorter lens fits the wing but spreads the porch and stable too far apart, so the distance rests on that compromise and the court's 17 m depth on the sheet is not independently checked by this view (about a 10% scale uncertainty at the stable, none at the wing). HEIGHTS through it at the drum (about 18.5 px/m): the column bases about y 605, the capitals y 540, the entablature's top y 515, the balustrade's top y 500 and the dome's top y 457; the man at the left edge stands on the walk with his eyes at about y 525, which puts the horizon (principal y 628 is the fit's, 1.6 m eye) within the uncertainty of the walk's own height. LIGHT: the stable's south face and the porch are lit and the trees' shadows lie on the lawn before the camera, so the sun stands high in the south; the wing's face is darker in the print, in the trees' shade (sun_uvy). CONTEXT: the main house and the stable range (pullman_house_1729_prairie, pullman_house_1729_prairie_ranges) are rendered for placement only; the belvedere tower and the stable's hipped roof, arcade and polygonal bay are theirs, not this record's, and the 18th Street wall, gate piers, lamps and planting belong to the lot's grounds.",
+ "source_id": "aic_taylor_16555_pullman_west_front",
+ "sun_uvy": [
+  0.5,
+  -1.0,
+  1.3
+ ]
+}
