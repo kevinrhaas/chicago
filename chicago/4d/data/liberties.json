@@ -56733,13 +56733,19 @@
           "domain": "structure",
           "structure": "walker_house_1720_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.frame_house"
+          "aspect": "form.construction"
         },
         {
           "domain": "structure",
           "structure": "walker_house_1720_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stories"
         }
       ],
       "recorded": "2026-10-26",
@@ -56755,7 +56761,7 @@
         },
         {
           "label": "Covers",
-          "text": "`walker_house_1720_prairie.as_mapped_1904.form.frame_house`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`"
+          "text": "`walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`"
         },
         {
           "label": "Review",

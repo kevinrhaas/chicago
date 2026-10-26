@@ -34009,7 +34009,7 @@ carved brackets, the wider eave and the central front gable (T-3182). The photog
 and iron fence along the street line are not this record's.
 **How to resolve:** T-3181 and T-3182 replace the kit's stand-ins in place from the same
 photograph; a plan, a second photograph or a description of the flanks replaces their openings.
-**Covers:** `walker_house_1720_prairie.as_mapped_1904.form.frame_house`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
+**Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
 **Ticket:** T-3180 (piece 1 of T-1873).
 **Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
 **Recorded:** 2026-10-26 (T-3180).
