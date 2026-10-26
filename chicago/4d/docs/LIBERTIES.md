@@ -33577,3 +33577,15 @@ closer to the front than this one (T-3161) replaces the rings with the mouldings
 **Ticket:** T-3157.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-25 (T-3157).
+
+
+## Per-subject liberties
+
+### L-human-modular-workwear-1789 — Reconstructed modular workwear for three existing residents
+
+**Decision:** Original source construction adds 1.5mm garment edge returns, closed surface-fitted horn-like buttons, optional short round jackets with folded front edges and uncreased felt-hat crown/brim variants for the existing reconstructed Otis Bardwell, Joseph Dufresne and Martin Flynn study assignments. Cut, ease, thickness, lapel/brim/crown dimensions, button counts, colors and roughness are reconstructed choices, not measured patterns, depicted possessions, fibers or recovered material scans. The connected waistcoat construction admitted by L418 is reused on the unchanged adult35 base, with continuous vertical ease near cut planes to avoid folded hem fans. Existing body anatomy, rig and cleared skin/hair inputs are unchanged. Cloth returns and lapels intentionally reuse adjacent cloth texels through nonzero corner UV strips; no exclusive atlas or baked surface-texture claim is made.
+**Basis:** L418 remains the umbrella for the cleared base and resident workwear studies. The registered Mount1835 genre paintings remain qualitative comparisons only: their year-only dates do not establish pre-July1Chicago wardrobes, patterns, named outfits or likenesses. These additions are independently constructed geometry and restrained original material choices, without image tracing or rights-pending asset derivation.
+**Applies to:** The original modular wardrobe recipe and canonical builder, and the `bardwell_otis_1835`, `dufresne_joseph_1835` and `flynn_martin_1835` study assemblies. The canonical workflow still supplies L418 as the master umbrella; the recipe and assembly metadata separately name this component liberty. Existing exported models are not relabeled as the new output.
+**How to resolve:** Build new canonical masters and inspect the actual source and published outputs, continuous posed fit, all distance levels, period/material comparisons and desktop/mobile images. Full T-1789 library acceptance remains open, including the remaining garment/base/head/hair families, three qualified resident demonstrations and the Mark Beaubien assembly stop. The same-ticket plan is in `docs/RESEARCH/portable-human-library-T-1789/README.md`.
+**Ticket:** T-1789.
+**Recorded:** 2026-10-26.

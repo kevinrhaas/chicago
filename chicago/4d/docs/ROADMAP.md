@@ -5896,3 +5896,8 @@ Adopt only the reviewed board-parapet selector and credited Andreas correction, 
 ### T-3125 — keep complete release notes inside the Navigator
 
 The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.
+
+
+### T-1789 source checkpoint — 26 October2026
+
+Reusable workwear construction and three explicit resident assemblies are authored; CPU source controls cover real geometry, UV surfaces, portable weights, unchanged bodies and meaningful negatives. No new canonical person or photographic-library acceptance is claimed. The full library, including the remaining garment families/base/head/hair options, canonical three-resident exports, posed/LOD/mobile inspection and Mark Beaubien assembly stop, remains T1789 and is tracked in docs/RESEARCH/portable-human-library-T-1789/README.md. Existing reasoning and all original bytes above are retained.
