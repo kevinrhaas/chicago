@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2307, ts: '2026-10-26T14:36:25.035Z', date: 'Oct 26, 2026, 9:36 AM CT', title: '1823 Prairie, the Dent house, rebuilt from its engraving', kind: 'feature',
+    items: [
+      '1823 Prairie Avenue is no longer a plain draft block. It now stands as Thomas Dent\'s house: a light stone front on brick sides, two storeys over a raised basement, under a tall slated mansard with dormers.',
+      'At the front\'s south end a pavilion steps forward under its own steep roof, with one broad window on each floor.',
+      'North of it the door sits at the top of its stoop, beside groups of three tall windows on both floors. A tall chimney rises over the north wall, where the engraving shows it.',
+      'The pavilion\'s pediment and paired attic windows, the side bay on the north wall and the curving stoop are not built yet. They come next.',
+    ] },
+  { v: 2306, ts: '2026-10-26T13:35:50.913Z', date: 'Oct 26, 2026, 8:35 AM CT', title: 'Nothing you can see changed: room for finished houses again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance again, which held back a finished Prairie Avenue house. The growth since 20 October is measured: mostly the period carriages and horses, and the houses rebuilt from their photographs.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit, and the two biggest ways to hand bytes back are measured for later.',
+    ] },
   { v: 2305, ts: '2026-10-26T09:28:31.179Z', date: 'Oct 26, 2026, 4:28 AM CT', title: '1816 Prairie\'s bays rise into crowned mansards under iron cresting', kind: 'improvement',
     items: [
       'Charles M. Henderson\'s house at 1816 Prairie Avenue (1904) now matches more of its photograph: both canted bays are carried up through the cornice into mansards of their own, the corner\'s a raised crown standing over the main roof, the south flank\'s lower, each ringed with iron cresting.',

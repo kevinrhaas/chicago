@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1823_dent_engraving",
+ "type": "illustration",
+ "citation": "[1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a photograph, the house from the north-west across Prairie Avenue, printed beside an engraved portrait of Thomas Dent with his signature (the portrait's imprint: 'American Biog. Pub. Co. Chicago'). Undated. Reproduced on chicagology.com, Prairie Avenue, 1823 S. Prairie.",
+ "author": "unknown engraver, after an unknown photographer",
+ "date": "undated (the Prairie library's dating: 1880s-1890s engraving)",
+ "describes_date": "undated, after the house was built (1881, the register's reported chronology)",
+ "repository": "chicagology.com (secondary reproduction; the original publication is not named beyond the portrait's imprint). Prairie library image a18-cgy-1823-dent-engraving, '1823 Prairie, Thomas Dent (engraving with portrait)', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-cgy-1823-dent-engraving.jpg), committed since T-1894 at data/sources/assets/dent_1823_engraving_t1894/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1823prairie/",
+ "locator": "The left two-thirds of the print (x 0-1410 px of the store's 2000 x 1076 px copy): the house's street front and its whole north flank from the north-west, the mansard and stacks over them, the stoop and the area; 1815's south wall at the far left and 1827's north flank at the right edge. The right third is the portrait.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original publication and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1894) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3162, piece 1 of T-1894) from the image store's reference copy, 2000 x 1076 px greyscale, sha256 ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e.",
+ "note": "The one picture of the Dent house that shows its north flank and its whole street front at once, in the tones of a photograph: a stone street front on brick flanks, two storeys over a raised basement under a slated mansard with a cornice of blocks and dentils; at the front's south end a pavilion carried up into the roof under a steep crown, one broad window to a storey in it and two grilled basement lights; north of it the door and a narrow light up a stoop that climbs from the north, a grilled round-arched basement doorway under its landing; a group of three windows to a storey in the north part of the front, under a pedimented dormer; on the north flank windows in four columns, a one-storey box bay under a hood near its middle, dormers in the mansard over it, and two tall stacks, one at the flank's rear and one behind its front half. The flank's cornice drops a little about two-thirds of the way back, where the 1911 sheet narrows the house to its rear range.",
+ "what_it_supplies": [
+  "the street front's composition: the south pavilion, the door and narrow light, the triple window groups, the dormers, the stoop",
+  "the north flank's window columns, its box bay and its two stacks",
+  "the heights: basement, principal floor, two storeys, cornice, mansard, through the camera solved against the 1911 sheet's plan",
+  "the materials' tones: a stone street front beside brick flanks"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated",
+  "the south flank and the rear"
+ ]
+}
