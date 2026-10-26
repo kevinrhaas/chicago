@@ -3466,6 +3466,11 @@ class Assembly:
             # the stack stops inside its cap, so the two never share a face; one on a
             # mansard's cornice (T-2406) rises from the cornice's top, not under the soffit
             y0 = hs - 0.5 if c.get("base_m") is None else c["base_m"]
+            if c.get("head"):   # T-3109: the dressed base, collar, latticed stage and cap
+                more = self.dressed_stack(k5, c, y0)
+                solids += more
+                plain_stacks += more
+                continue
             solids.append(k5.extrude([(u - sx / 2, y0), (u + sx / 2, y0), (u + sx / 2, top - cd / 2),
                                       (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
@@ -3525,7 +3530,8 @@ class Assembly:
         self.roof_shell = (pts, tris)
         # the graph reads a stack's every part as `chimney`, which K05 already classes as
         # an abutment: the K15 flashing and cricket ARE what dresses the covering there
-        self.roof_graph = k5.graph(pts, tris if not (k15s or heads) else
+        dressed = any(c.get("head") for c in p.chimneys)
+        self.roof_graph = k5.graph(pts, tris if not (k15s or heads or dressed) else
                                    [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
                                    kit)
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
@@ -3789,6 +3795,64 @@ class Assembly:
              "flashing": None, "cricket": None}
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
+
+    def dressed_stack(self, k5, c, y0):
+        """T-3109: a stone stack with a dressed base and head (1801's two south stacks, HABS
+        photograph 1): one solid of plan rings from the cornice up, the base `base_proud_m`
+        proud to `base_top_m` and weathered back to the shaft, a moulded collar, the stage
+        over it and the moulded cap, each step splayed a few centimetres rather than
+        stepped flat; then the stage's diamond lattice, two crossed zigzags of raised ribs
+        on each face, `diamonds` whole diamonds across it."""
+        h = c["head"]
+        sx, sz = c["plan_m"]
+        u, z, top = c["u_m"], -c["v_m"], c["top_m"]
+        cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+
+        def ring(d):
+            return [(u - sx / 2 - d, z - sz / 2 - d), (u + sx / 2 + d, z - sz / 2 - d),
+                    (u + sx / 2 + d, z + sz / 2 + d), (u - sx / 2 - d, z + sz / 2 + d)]
+        sp = 0.03                                    # a moulding's splay
+        ys1 = top - cd                               # the stage's top, under the cap
+        yc1 = ys1 - h["stage_depth_m"]               # the collar's top
+        yc0 = yc1 - h["collar_depth_m"]
+        bp, cl, st = h["base_proud_m"], h["collar_proud_m"], h["stage_proud_m"]
+        rings = [(y0, ring(bp)), (h["base_top_m"] - h["weathering_m"], ring(bp)), (h["base_top_m"], ring(0.0)),
+                 (yc0, ring(0.0)), (yc0 + sp, ring(cl)), (yc1 - sp, ring(cl)), (yc1, ring(st)),
+                 (ys1, ring(st)), (ys1 + min(0.08, cd / 3), ring(cp)), (top, ring(cp))]
+        roles = ["shaft_stone", "corbel_stone", "shaft_stone", "band", "band", "band", "shaft_stone",
+                 "cap_stone", "cap_stone"]
+        solids = [k5.ring_stack(rings, roles, "shaft_stone", "cap_stone")]
+        n = h["diamonds"]
+        if not n:
+            return solids
+        ya, yb, rw, rp = yc1, ys1, h["rib_m"], h["rib_proud_m"]
+
+        def clip(poly, lo, hi):   # Sutherland-Hodgman against lo <= a <= hi
+            for keep, edge in ((lambda q: q[0] >= lo, lo), (lambda q: q[0] <= hi, hi)):
+                out = []
+                for i, q in enumerate(poly):
+                    p_ = poly[i - 1]
+                    if keep(q) != keep(p_):
+                        t = (edge - p_[0]) / (q[0] - p_[0])
+                        out.append((edge, p_[1] + t * (q[1] - p_[1])))
+                    if keep(q):
+                        out.append(q)
+                poly = out
+            return poly
+        # each face: (frame, the face's own across-centre, its half width, its plane, outward sign)
+        faces = [(k5.frame("z"), u, sx / 2 + st, z + sz / 2 + st, 1.0), (k5.frame("z"), u, sx / 2 + st, z - sz / 2 - st, -1.0),
+                 (k5.frame("x"), z, sz / 2 + st, u + sx / 2 + st, 1.0), (k5.frame("x"), z, sz / 2 + st, u - sx / 2 - st, -1.0)]
+        for P, mid, half, plane, sgn in faces:
+            step = 2 * half / n
+            for i in range(n):
+                a0 = mid - half + i * step
+                for (pa, pb) in (((a0, ya), (a0 + step / 2, yb)), ((a0 + step / 2, yb), (a0 + step, ya)),
+                                 ((a0, yb), (a0 + step / 2, ya)), ((a0 + step / 2, ya), (a0 + step, yb))):
+                    poly = clip([(pa[0] - rw / 2, pa[1]), (pa[0] + rw / 2, pa[1]),
+                                 (pb[0] + rw / 2, pb[1]), (pb[0] - rw / 2, pb[1])], mid - half, mid + half)
+                    c0, c1 = sorted((plane - sgn * 0.01, plane + sgn * rp))
+                    solids.append(k5.extrude(poly, c0, c1, P, "band", "band", "band"))
+        return solids
 
     def _in_stone_stack(self, tri):
         """T-3003: whether a stack face's centroid lies in a stone stack's plan box."""
