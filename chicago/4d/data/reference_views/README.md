@@ -94,3 +94,17 @@ Changing any member invalidates the review, including a moved barracks whose GLB
 are unchanged. New reviews also hash the reference picture. The group is context, not
 an assertion that every member is visible or attested in that picture: document hidden
 and unpictured members explicitly. Existing single-building cameras retain their format.
+
+An optional `enclosures: ["record_id", ...]` adds selected native enclosure records to
+the same review. An explicit `scene` is required, even for a single anchor. Each record
+must be in the actual enclosure index, name the same scene/date and belong to the anchor.
+The review calls the app's `createEnclosures` renderer on those records, on the common
+flat review plane, and transforms its world coordinates into the anchor frame. It does
+not reproduce the app terrain or invent a second fence generator. The match binds every
+selected record, native geometry dependency and anchor placement; changing one invalidates
+the review. Published application grounding, clearance and walking access remain separate
+checks.
+
+Provisional compound cameras must set `diagnostic_only: true`. They remain valid review
+inputs and credited picture links, but the picture compiler does not offer their invented
+pose as a historical “From this spot” location. Existing cameras default to the prior behavior.

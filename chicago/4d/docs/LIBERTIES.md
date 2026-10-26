@@ -26343,19 +26343,35 @@ street front only); the stair projection's 1.2 m (the sheet's 1.55, past K08's d
 the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no
 picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks'
 plans; the rainwater; the sash pattern.
-**What is not built.** The pavilion's attic storey with its paired lights under its steep roof (K01's
-hipped crown starts at the main eave), the pavilion's full 4 m width (K01 cannot cut a door through a
+**The attic storey (T-3156, piece 2 of T-1893).** The pavilion is carried up an attic storey past
+the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its
+wall head (`mansard.crown.attic_m`, a K01 option this ticket added): read off the square-on print,
+the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m).
+Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its
+depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about
+0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the
+north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about
+0.5-0.7 m north of the print's, which is centred over the door's north jamb.
+**What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved
 brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's
 sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
-flank: open on the match record. Whether the photographs show the house before or after Arthur
-Heun's 1902 remodel is open too: the 1911 sheet draws a one-storey projection north of the front's
-centre and no corner bay.
-**How to resolve:** T-3156 (piece 2 of T-1893) builds those, solves the oblique's camera (and the Glessner
-House Museum's photograph of the same view), and brings the match records to `matches`; a dated
-picture of the house after 1902 would settle which front stood in 1904.
+flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
+south of the main front's south corner, as the square-on does, where the build sets it flush.
+**Which front stood in 1904 (T-3156).** The house was SOLD by Joseph Sears to Mrs. Grace Murray
+Meeker in March 1902, a "three-story stone building of fifteen rooms" (Inter Ocean, 28 March 1902),
+not owned by the Meekers from 1893 as this record's name says; in May 1915 it had "twenty-one rooms"
+and had "about ten years ago" been "purchased by Mr. Meeker and extensively remodeled by him"
+(Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur
+Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and
+whether it came before 1 July 1904 is not known. The photographs show the Sears house (the
+interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey
+projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase
+is built to the photographs, which is a choice, not a finding.
+**How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
+the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 ### L-k01-1625-mcbirney-tudor-2432 — 1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one
@@ -33397,13 +33413,18 @@ at r > 150 on this scan alone (`frame_r_min`); every other sheet re-derives byte
 **What is kept out.** 1911 shops whose 1904 state is not read: the one-storey stores built forward
 of 1801 and 1807 to the street line and the two stores at 205-207 East Eighteenth Street against
 1801's rear wall are kept out of those houses' drafts by depth (`keep_out`, `from_street_m`), and the
-basement cigar factory at 1921-1923 is not carried back. Two frontages are ruled `phase_unresolved`,
-traced and not drafted: the one-storey P.O. sub-station across 1925-1929 and the one-storey corner
-store at 1935-1937 with the 4B frame flats at 216-216a East Twentieth Street behind it. The two
+basement cigar factory at 1921-1923 is not carried back. Two frontages are traced and not drafted:
+the one-storey P.O. sub-station across 1925-1929, ruled `replaced_after_1904` by T-3154 (the 1902
+and 1911 Lakeside directories both put households at 1927, so a house stood there in 1904 and the
+sub-station came later; no outline of the house is in hand, so nothing stands on the lots), and the
+one-storey corner store at 1935-1937 with the 4B frame flats at 216-216a East Twentieth Street
+behind it, still `phase_unresolved` (nothing in hand puts anyone there before 1910). The two
 unnumbered lots between 1839 and 1901, open on the sheet, stay open ground.
 **How to resolve:** T-1946 (the side-street and rail-side background) refines each record in place
-under the same id; T-3154 reads 1925-1929 and 1935-1937 for 1904.
-**Ticket:** T-3151 (piece 2 of T-3145).
+under the same id; an outline of the 1904 house at 1927 Indiana (a pre-1909 plan of the block, a
+photograph or a permit) lets it be drafted, and a permit for the 216-216a flats or a dated record of
+the 1935-1937 corner settles that frontage's phase (T-3154 read the directories).
+**Ticket:** T-3151 (piece 2 of T-3145); T-3154 (the 1904 state of 1925-1929 and 1935-1937).
 **Review:** `data/components/prairie_1904/edges_census_s27w.json`,
 `data/traces/prairie_1904_footprints_s27w.json`, `docs/RESEARCH/sheet-27-footprints-3151/README.md`.
 **Recorded:** 2026-10-25 (T-3151).
@@ -33446,6 +33467,56 @@ the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
 **Recorded:** 2026-10-25 (T-1880).
 
 
+
+### L-lighthouse-visible-prototype-2373 — Picture-bounded lighthouse form
+
+**Covers:** `chicago_lighthouse_1832.tower_1832.form.tower_diameter_m`, `chicago_lighthouse_1832.tower_1832.form.tower_openings`, `chicago_lighthouse_1832.tower_1832.form.tower_profile`, `chicago_lighthouse_1832.tower_1832.form.tower_lantern_detail`, `chicago_lighthouse_1832.tower_1832.form.tower_masonry`.
+
+**Decision:** Select the already rendered irregular-stone prototype for a visible progress increment: reconstructed 3.04 m diameter about the unchanged centre, three plain recessed shaft apertures, a gallery and open framed lantern with rounded crown/finial, and irregular procedural stone courses. Geometry is regenerated through the current native producer; no research GLB is copied into canonical assets.
+
+**Reconstructed dimensions:** Gallery underside 8.719767307 m, crown base 11.0 m, 1.0 m rail, maximum 12.84968 m; cage pane opacity 0.18, sill 0.16 m, dome rise 0.72 m, 12 uprights at 45 mm, 16 gallery posts at 35 mm, 18 mm finial radius. Aperture widths 0.34/0.42/0.54 m, tangent offsets−0.055/−0.03/0 m and their fractional heights/facets remain reconstructed set-out. Masonry uses nominal 0.30 m courses, 0.50 m bond, 25 mm joints, 12 mm inward relief, 60 mm reveals, seed 2373, varied beds/chips and five neutral local tones. No source texture/geometry/colour is sampled.
+
+**Uncertainty:** Castelnau's actual 1842 published harbour plate is interpreted as circa 1838; applying those visible details to July 1835 is inferred continuity. Graphic hatch is not a measured masonry schedule, stone type, finish or paint. The upper-right aperture is uncertain and no proven ground door is added. Andreas's 40 ft remains the unchanged rounded 12.19 m literal, with its historical datum unresolved; decimal profile controls are diagnostic precision, not historic measurement. The provisional camera and weak/occluded toe do not alter surveyed placement, foundation, dates or bearing. All seven original source views remain different or unresolved; the native-app and original image gates remain owed.
+
+**Source:** `castelnau_1842_chicago_harbor` (identified 1842 plate 18, Chicago panel 4/prose Fig 1 discrepancy retained), with `lighthousefriends_chicago` for the written bird-cage type. The school drawing's project-use approval does not clear Baker/auction-image rights; no geometry from those uncleared reproductions enters this increment.
+
+**How to resolve:** Compare actual native exports against every independently credited dated view, retain source-specific camera/date uncertainty and seek contemporary construction specifications. The actual fixed-geometry light-direction A/B changes shaft shading only and still differs; it is not a solved sun angle, camera or match.
+
+**Subjects:** `chicago_lighthouse_1832`. The reconstructed footprint remains covered by existing L44; this paragraph records the narrower centre-preserving choice and new picture evidence without duplicating that coverage.
+
+**Ticket:** T-3122, a bounded visible increment; original T-2373 remains open.
+
+**Recorded:** 2026-10-24; adopted 2026-10-25 (T-3122). Freshly baked with the pinned Blender through the current producer: the lighthouse master carries 8,021 triangles and the other 24 fort-family masters and web derivatives come out byte-identical. The overall height the profile reaches is 12.84968 m against the unchanged 12.19 m (40 ft) wall-height literal, whose datum stays unresolved.
+### L-k01-1729-pullman-heads-3157 — 1729 Prairie's arched windows and dormers read off the Detroit print, their mouldings laid as K02 voussoir rings and plain surrounds
+
+**Decision:** the Pullman house's Prairie front (T-3157, a piece of T-1881) now lays the Detroit
+Publishing photograph's round-arched windows (`loc_det_4a08065_pullman_residence`, through its solved
+camera `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`): three on the
+second storey and the two the ivy leaves readable on the principal storey, each named with its centre,
+width, sill and height (`street_front_windows`); and its mansard carries four round-arched dormers, two
+on the Prairie face and two on the 18th Street face, where it had two hooded ones.
+**What is read, not invented.** Each light's place along the front, its width between the jambs' dark
+edges, and the second storey's sills and crowns; the principal storey's crowns; the dormers' places,
+widths and crowns on the Prairie face; the flank dormers' places, to within about 2 m (the view is
+oblique to that face). The print gives 14-16 px a metre on the front.
+**What is invented.** The arches' moulded rings are laid as 0.25 m rings of thirteen K02 voussoirs,
+0.05 m proud, the keystone barely larger: the print does not part a moulding from a ring of stones at
+that scale. The principal storey's lights carry no ring (the ivy hides their surrounds) and stand on
+sills the ivy also hides (2.5 m over grade); the centre one is held 1.2 m wide so its head stays clear
+of the portico's south end. The sash is K06's round fanlight sash. The flank dormers' heads are taken
+arched like the Prairie face's, the print drawing them too small to read; every dormer's surround is
+plain where the print's Prairie dormers carry pilasters and an eared hood. The front's basement lights
+are gone with the named windows (`street_front_windows` names every street opening); the print shows
+none, the street wall and the ivy standing in front of the raised basement.
+**How to resolve:** T-3158 lays the pavilions' quoined piers, their own mansard sections, the dormers'
+hoods and the north-west pavilion's dormer; T-3160 arches the 18th Street flank's windows; a picture
+closer to the front than this one (T-3161) replaces the rings with the mouldings it shows.
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`
+**Ticket:** T-3157.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3157).
+
+
 ### L-green-tree-right-front-entry — Green Tree front-ground opening order
 
 **Covers:** `green_tree_tavern.frame_1833.form.front_ground_layout`.
@@ -33463,3 +33534,17 @@ the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
 **Ticket:** T-2376; the original image-match ticket remains open until its visible discrepancies are resolved. No follow-up ticket is filed.
 
 **Recorded:** 2026-10-25.
+
+
+### L-jail-palisade-2380 — The jail's high plank enclosure
+
+**Building:** `log_jail`.
+**Decision:** Add a high, closed plank palisade around the jail. Gale's 1902 memoir, p. 51, remembers the small jail "concealed within a high plank palisade" during a town walk framed in 1835. The independently verified Trowbridge plate facing p. 53 is captioned 1836. The fence's existence and kind are inferred from that retrospective source, rather than from a contemporary contract or a dated description of 1 July.
+**What is reconstructed:** the compact outline 0.70 m beyond the unchanged side and rear walls and 0.748 m in front; the 3.05 m overall height, including 127 mm symmetrical pointed heads; 180 mm backing posts at approximately 2.44 m bays; three backing rails; 254 mm boards with 6 mm gaps; July continuity; and a 2.20 m open passage aligned with the existing doorway. The chosen 10 ft height conceals the 2.66 m walls; it is not a measurement from the drawing. The physical fence run stops at both gateway jambs. The soil, population, building footprint, placement and phase dates are unchanged.
+**Visible limits:** the pointed pale form follows the plate, while its cut and stock dimensions remain chosen. The keeper's house partly within the compound, a hung gate, and the original-cell/later-cell roof identity remain unresolved. This increment does not claim that the jail compound matches its pictures.
+**How to resolve:** dated county specifications or a resolved jail and keeper-house sequence could replace the dimensions and continuity choice. Application review must verify that the fence meets the ground and the passage remains usable.
+**Source:** `trowbridge_first_jail_gale_1902`, actual p. 51 (scan n76) and plate n79. The independently verified 1902 artwork is public domain by publication age; no UCR copy-specific rights or added newspaper layout is used.
+**Ticket:** T-2380.
+**Recorded:** 2026-10-25.
+
+**Application review (2026-10-26):** Checked in the actual published phone and desktop views. The enclosure meets the ground, its pointed tops remain visible, and the open passage is walkable on the tested approach. The keeper-house and full-compound limits above remain unresolved.
