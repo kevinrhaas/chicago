@@ -4080,6 +4080,46 @@
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
     },
+    "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": {
+      "archetype": "k13_conservatories",
+      "baked_ao": false,
+      "bytes": 321180,
+      "generator": "generators/k13_emit.py",
+      "inputs_sha256": "3c942fd89690f9a7967f4695c550dba71220ec3d6b422a82b5af136715405bda",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_glasshouse_1800_calumet_east"
+    },
+    "pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb": {
+      "archetype": "k13_conservatories",
+      "baked_ao": false,
+      "bytes": 144412,
+      "generator": "generators/k13_emit.py",
+      "inputs_sha256": "9560ec3a8e2cf8a16fe5480186ce3ba6d6d50a99e5361fa38c767884c13f4268",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_glasshouse_1800_calumet_east_end"
+    },
+    "pullman_glasshouse_1800_calumet_north__as_standing_1904.glb": {
+      "archetype": "k13_conservatories",
+      "baked_ao": false,
+      "bytes": 419036,
+      "generator": "generators/k13_emit.py",
+      "inputs_sha256": "ba98c88845d84cf332765974084af04efd417f91034aab899495ebf4efd52c76",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_glasshouse_1800_calumet_north"
+    },
+    "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
+      "archetype": "k13_conservatories",
+      "baked_ao": false,
+      "bytes": 386608,
+      "generator": "generators/k13_emit.py",
+      "inputs_sha256": "4da8ae892c6e7a4c59af3df40837038c23e25f1bc91f3323e43a784b523c9e83",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
+    },
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -4095,7 +4135,7 @@
       "baked_ao": false,
       "bytes": 84172,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "336a445f44bfcc9692ec79a2537d1bc4199a1a3f1ed1d573a6ce1c882d57e227",
+      "inputs_sha256": "09442d0bbb0ea31d018964b113ec4f47e7962b056505efd586f0ffce09cc18b8",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
@@ -4109,6 +4149,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "pullman_house_1729_prairie_ranges"
+    },
+    "pullman_lodge_1800_calumet__as_standing_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 69288,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "01c8ae7136fe0166e9732963b734af1ce38acfe324fa9dc92834acde5c12e9b4",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_lodge_1800_calumet"
     },
     "ream_house_1901_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
