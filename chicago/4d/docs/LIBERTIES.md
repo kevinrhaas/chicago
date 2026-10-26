@@ -33879,6 +33879,32 @@ places its east end, its windows and the pavilion, and the piers' banding.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3160).
 
+### L-pullman-1729-flank-stack-3161 — 1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed
+
+**Decision:** the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows
+standing on the 18th Street flank's cornice just east of the south-west corner pier and carried up
+in front of the mansard's face to a moulded cap well over the deck (`chimneys.stacks[2]`,
+`on_cornice`). The camera is solved in
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md` (the album print
+`a16-aic-taylor-album-pullman-p69`; the print `a16-aic-taylor-pullman-from-nw` is the same negative).
+**What is read, not invented.** The stack's place on the flank, its base on the cornice at x 487-522
+px (y 272-292) against the corner pier at x 447, so its 1.1 m face at u 24.25-25.35 with its west side
+seen beside it; its cap at y 160, 18.7 m through the camera, against the curb's 16.9 m. The 1890
+Albertype plate (`albertype_1890` camera) shows a tall stack rising behind the tree just east of the
+corner pier, where this one falls through that camera.
+**What is invented.** Its depth across the wall line (0.8 m, its outer face 0.47 m out inside the
+0.6 m cornice, its inner face clear of the deck's curb so the cresting runs behind it), its cap's
+projection and depth (0.15 and 0.4 m), and its stone, laid in the walls' own. The photograph shows a
+band under the cap and a sunk panel on the shaft that are not built. The two deck stacks at (10, 5.5)
+and (18, 12.5) stay reconstructed: the Detroit print shows a stack near where the second falls, and
+Taylor's does not show it, and the two are left to a picture that settles it.
+**How to resolve:** a larger copy of either Taylor print, or the CHM 1905 views, reads the stack's depth
+and its cap; the rights question on T-3161 decides whether the Taylor prints can be committed as
+reference copies, so the camera can join the image gate.
+**Ticket:** T-3161.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3161).
+
 ### L-kimball-1801-east-frontispiece-3110 — 1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows
 
 **Decision:** HABS photograph 2 (Harold Allen, June 1965, from the north-west;
