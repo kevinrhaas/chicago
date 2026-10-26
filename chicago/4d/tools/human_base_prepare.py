@@ -116,9 +116,11 @@ def verify_source_row(source_dir,row):
  if hashlib.sha256(payload).hexdigest()!=row['sha256']:raise ValueError('source checksum mismatch: '+row['path'])
  return payload
 
-def prepare(source_dir,height,target_recipe=None):
+def prepare(source_dir,height,target_recipe=None,source_manifest='SOURCE.json'):
  if not math.isfinite(height) or not .9<=height<=2.3:raise ValueError('chosen adult height must be finite, .9–2.3m')
- provenance=json.loads((source_dir/'SOURCE.json').read_text())
+ manifest_name=pathlib.PurePosixPath(source_manifest)
+ if manifest_name.is_absolute() or len(manifest_name.parts)!=1 or manifest_name.suffix!='.json' or not (source_dir/manifest_name).resolve().is_relative_to(source_dir.resolve()):raise ValueError('source manifest must be one local JSON filename')
+ provenance=json.loads((source_dir/manifest_name).read_text())
  for row in provenance['files']:
   verify_source_row(source_dir,row)
  raw,uvs,faces,groups=read_obj(source_dir/'makehuman/data/3dobjs/base.obj')
@@ -213,5 +215,5 @@ def prepare(source_dir,height,target_recipe=None):
  return {'license':'CC0-1.0','format':'chicago4d_human_base_preparation_v1','units':'m','up_axis':'+Y','forward_axis':'+Z','rest_pose':'engineering T-pose candidate; roll/deformation review pending','meshes':[{'name':'body','material':'skin','positions_m':vertices,'triangles':triangles,'uvs':texcoords,'weights':out_weights,'source_vertex_indices':source_vertex,'morphs':{}}],'skeleton':[{'name':n,'parent':parent,'head_m':target[n][0],'tail_m':target[n][1],'source_anchor_basis':source_anchors[n],'source_head_m':finish(source[n][0]),'source_tail_m':finish(source[n][1])} for n,parent in contract],'source_bone_map':{n:{'target':mapping[n],'reason':reasons[n]} for n in sorted(mapping)},'source':provenance,'target_blend':target_blend,'liberties':['Chosen adult height and skeletal chain collapse are reconstructed engineering choices','Arm/leg straightening, finger flattening and skinning transfer are original provisional adaptations, not anatomical source measurements'],'report':report}
 
 def main():
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--source-dir',type=pathlib.Path,default=DEFAULT);ap.add_argument('--height-m',type=float,default=1.75);ap.add_argument('--target-recipe',type=pathlib.Path);ap.add_argument('--output',type=pathlib.Path,default=DEFAULT/'prepared.json');args=ap.parse_args();data=prepare(args.source_dir,args.height_m,args.target_recipe);args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(data,separators=(',',':'))+'\n');args.output.with_suffix('.report.json').write_text(json.dumps(data['report'],indent=2)+'\n');print(json.dumps(data['report'],indent=2))
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--source-dir',type=pathlib.Path,default=DEFAULT);ap.add_argument('--source-manifest',default='SOURCE.json',help='Explicit local alternative source manifest; default preserves original source provenance');ap.add_argument('--height-m',type=float,default=1.75);ap.add_argument('--target-recipe',type=pathlib.Path);ap.add_argument('--output',type=pathlib.Path,default=DEFAULT/'prepared.json');args=ap.parse_args();data=prepare(args.source_dir,args.height_m,args.target_recipe,args.source_manifest);args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(data,separators=(',',':'))+'\n');args.output.with_suffix('.report.json').write_text(json.dumps(data['report'],indent=2)+'\n');print(json.dumps(data['report'],indent=2))
 if __name__=='__main__':main()

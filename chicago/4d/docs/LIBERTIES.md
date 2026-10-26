@@ -33589,3 +33589,15 @@ closer to the front than this one (T-3161) replaces the rings with the mouldings
 **How to resolve:** Build new canonical masters and inspect the actual source and published outputs, continuous posed fit, all distance levels, period/material comparisons and desktop/mobile images. Full T-1789 library acceptance remains open, including the remaining garment/base/head/hair families, three qualified resident demonstrations and the Mark Beaubien assembly stop. The same-ticket plan is in `docs/RESEARCH/portable-human-library-T-1789/README.md`.
 **Ticket:** T-1789.
 **Recorded:** 2026-10-26.
+
+
+### L-human-modular-dress-1789 - Original modular adult dress study (T-1789)
+
+**Decision:** The existing reconstructed Mary Flynn (rc_flynn_mary, adult20-29, domestic, present1835) is an optional reference for a reusable original bodice, skirt, apron and low-shoe assembly on the shared portable rig. This does not attest her personal outfit, appearance, ancestry, height or exact age. The cleared MakeHuman female-young graphical blend is an engineering base, not an archival portrait. The source body, source UVs and56-joint skeleton remain complete beneath clothing.
+
+**Basis:** Actually viewed John Caspar Wild, Third and Vine Northside (1835), source `wild_1835_third_vine`, supplies only tiny female full-skirt/bodice/head-covering silhouettes as a same-year Cincinnati regional analogue. Its completion before1July is unknown. It does not attest Chicago clothing, the named resident, measurements, garment cuts, closures, colors, materials, undergarments or seams. No painting pixels or traced garment contours enter the mesh. All numerical cuts, drape, layers, folds, thickness, colors, material roughness and outfit combinations are reconstructed choices.
+
+**How to resolve:** The skirt/apron are pelvis-bound standing source constructions; walking, sitting and driving cloth fit are unqualified. Source-array support calculations are not Blender readback, all-pose clipping, LOD, texture, photographic or world-placement acceptance. Opt-in canonical authoring uses the existing human builder and exporter with their unchanged body normals, skeleton, facial morph, source-foot, hierarchy, material and actual loaded-browser gates. No scene instance or production eligibility is supplied by this source assembly.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-10-26.
