@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7d1d96ab8f82a17b2e6fa8e900aabbd81da5afc4c511810b5db0b1eab9f84156",
+  "glb_sha256": "fd1cbb0f256d452bf79ed932d075cd04cf044dd3086bc757900da7add71bd7a5",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -41,7 +41,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the north-east turret: the print's cone stops in a truncated neck at about 9.6 m with no finial (y 843), the build's runs to a point about 10.1 m and a finial to 11 m; the Taylor print of c. 1895 shows the finial, so the 1965 top is a later loss",
+      "what": "the north-east turret: the print's cone stops in a truncated neck at about 9.6 m with no finial (y 843), the build's runs to a point about 10.1 m and a finial to 11 m; the Taylor print of c. 1895 shows the finial, so the 1965 top is a later loss T-1890 sizes the turret's finial to the Taylor print's, 2.5 m over its cone, as the earlier evidence for 1904; this 1965 photograph's truncated neck is the later fabric",
       "status": "within tolerance"
     },
     {
@@ -57,8 +57,8 @@
       "status": "open"
     },
     {
-      "what": "the round tower: the print's cone is broader and lower than the build's (its eave about y 520 across x 765-1005, its finial's tip at y 183), where the build's narrow cone rises far over it; and its axis renders about 37 px west of the print's (the Taylor print holds it within 16 px). The Taylor match record's open 'tower's form' item",
-      "status": "open"
+      "what": "the round tower: the print's cone is broader and lower than the build's (its eave about y 520 across x 765-1005, its finial's tip at y 183), where the build's narrow cone rises far over it; and its axis renders about 37 px west of the print's (the Taylor print holds it within 16 px). The Taylor match record's open 'tower's form' item T-1890 rebuilds it to this photograph and the Taylor print: a shaft 2.2 m across (this print's about 110 px at about 54 px a metre) blank over its principal storey, five corbel courses from 7.9 to 8.9 m (this print's 8.03-8.89 m), a stage 3.7 m across (about 200-210 px here) with its two lights where this print has them (x 835-860 and 920-945; rendered within about 5 px), its cornice to 11.26 m and its cone to 16.69 m (this print's eave about 11.1 m and apex about 16.4 m); its axis renders within about 2 px of the print's",
+      "status": "fixed"
     },
     {
       "what": "the loggia's carving, the front's bow and pavilion, the mansard's faces, hooded dormers and cresting, and the corner's arches: read here at the angle the Taylor print reads them, and no difference beyond its match record's",
@@ -75,6 +75,10 @@
     {
       "what": "1965 fabric: the window air-conditioners, the iron fence, the pole, the hydrant and the lamp; not 1904 and not built",
       "status": "not shown"
+    },
+    {
+      "what": "the tower's finial: this print's stands about 1.6 m over a crocketed collar at the cone's apex (its tip y 183, about 17.95 m), shorter than the Taylor print's c. 1895 one (about 19.6 m), which the build follows at 19.29 m as the earlier evidence for 1904; the two pictures disagree by about 1.6 m (T-1890)",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
