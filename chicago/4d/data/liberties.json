@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 782,
+  "count": 783,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -763,7 +763,7 @@
     },
     {
       "id": "house_1828_prairie",
-      "name": "1828 Prairie Avenue — Stone-front masonry"
+      "name": "1828 Prairie Avenue — Daniel B. Shipman house"
     },
     {
       "id": "house_1828_prairie_coach_house",
@@ -35014,18 +35014,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_1828_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1828_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_1828_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35150,7 +35138,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35167,6 +35155,10 @@
         {
           "label": "Retired in part",
           "text": "1816 Henderson's house by later work, which refined it in place on the K01 frontage kit under `“1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph”`; its stable is still this draft's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "1828 Shipman's house by later work, which refined it in place on the K01 frontage kit under `“1828 Prairie refined from the district draft to a K01 stone-front house under a mansard, its canted bay and arched porch read off its photographs”`; its stable is still this draft's."
         },
         {
           "label": "Review",
@@ -35188,6 +35180,8 @@
         "T-1935",
         "T-1886",
         "T-2963",
+        "T-1887",
+        "T-3166",
         "T-2329",
         "T-2159"
       ]
@@ -55914,6 +55908,111 @@
         "T-3161",
         "T-3158",
         "T-3160"
+      ]
+    },
+    {
+      "id": "L-k01-1828-shipman-1887",
+      "title": "1828 Prairie refined from the district draft to a K01 stone-front house under a mansard, its canted bay and arched porch read off its photographs",
+      "section": "per_subject",
+      "subjects": [
+        "house_1828_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1828_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1828 Prairie Avenue, Daniel B. Shipman's, is no longer a district draft. It stands, under the draft's own id 1828 Prairie Avenue — Daniel B. Shipman house, as a k01 frontage record built by the k01 emit generator, against the automobile photograph (1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric…, about 1897-1906) and the Glessner House Museum's partial view ([Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer…, undated), both rights check required (forms and proportions only): a light ashlar front two tall storeys over a raised basement, a canted bay through both storeys on the front's south part, a porch on columns with a deep entablature and a balustrade at the stoop's head on its recessed north part, a moulded stone cornice and a slated mansard with dormers, a round bay and a canted bay on the south flank, the rear range, and an iron fence on a stone curb. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1828-b1, census s28-1828-front): the front block's place and plan (19.4 by 8.2 m), the front bay's width and projection, the south flank's round and canted bays, the rear range ('rear2B'), brick with a stone front. From the automobile photograph, through its solved camera (the chicagology automobile data): the principal floor, the principal storey and its windows' heights, the bay's windows, the porch's place, height, entablature and balustrade, the basement windows, the fence. From the partial view: the second storey's height in proportion, the cornice, the mansard and its two street dormers. Every height rests on the camera's distance (its `solve`). **What is invented.** The walls' thickness and the flanks' brick and its tone (the prints are monochrome); the mansard's deck and its pitch; the treads; the flank, north and rear walls' windows, and the flank bays' storeys, windows and roofs (no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys, windows and flat deck; the side gate. **What is not built.** The porch's round arches and its third column, its carving and its stone balustrade; the stoop's balustered cheeks; the bay's panelled pilasters; the basement windows' full height; the bay carried up into the mansard with its own dormer; and the print's stretch of front wall south of the bay, which the sheet does not draw: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds those, solves the partial view's camera, and brings both match records to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1828_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1828_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1828_prairie.as_mapped_1904.form.service_wall_brick`, `house_1828_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1828_prairie.as_mapped_1904.form.stair_tread_m`, `house_1828_prairie.as_mapped_1904.form.side_bays`, `house_1828_prairie.as_mapped_1904.form.north_bays`, `house_1828_prairie.as_mapped_1904.form.rear_bays`, `house_1828_prairie.as_mapped_1904.form.chimneys`, `house_1828_prairie.as_mapped_1904.form.rainwater`, `house_1828_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1828 shipman."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3166)."
+        }
+      ],
+      "work_refs": [
+        "T-3166",
+        "T-1887",
+        "T-3168"
       ]
     },
     {
