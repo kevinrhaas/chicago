@@ -24200,7 +24200,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24233,9 +24233,11 @@ gone, and its stable keeps `coleman_ames_house_1811_prairie_coach_house` here.
 **1815 retired from this liberty by T-3155 (2026-10-25):** the house now stands as the K01
 stone-front house under `L-k01-1815-sears-1893`, under the same id; its draft attributes are gone,
 and its coach house keeps `sears_meeker_house_1815_prairie_coach_house` here.
-
 **1823 retired from this liberty by T-3162 (2026-10-26):** the house now stands as the K01
 stone-front house under `L-k01-1823-dent-1894`, under the same id; its draft attributes are gone.
+**1827 retired from this liberty by T-3171 (2026-10-26):** the Doane house's main block now stands as the K01 stone house
+read off the Chicagology photograph, under `L-k01-1827-doane-3171`, under the same id; its draft attributes are gone. Its coach
+house stays this draft's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
 **Recorded:** 2026-10-11 (T-2330).
@@ -33904,3 +33906,40 @@ not built (a K01 wing's roof takes neither). All open in the match record.
 kit; a measured plan of the east range, or a reading that moves the sheet's junction.
 **Ticket:** T-3110 (piece 4 of T-3003).
 **Recorded:** 2026-10-26 (T-3110).
+
+### L-k01-1827-doane-3171 — 1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph
+
+**Decision:** the John W. Doane house at 1827 Prairie Avenue (T-3171, piece 1 of T-1895) is no longer
+a district draft. It stands, under the draft's own id `doane_house_1827_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py`, against the undated photograph of the house (after 1882)
+reproduced on chicagology.com (`chicagology_1827_doane_exterior`; rights check_required, read for
+forms and proportions only): stone walls two storeys over a raised basement, a deep moulded stone
+cornice, a slated mansard with pedimented dormers, a shallow pavilion on the front with three lights a
+storey, a porch on columns carrying a balcony at the front's north end, a brick rear range, and an iron
+scroll fence on a stone curb along the Prairie line.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1827-b1, census
+s28-1827-front): the main block's place and plan (24.4 by 15.5 m), the pavilion (5.46 m wide, 0.47 m
+out), the stone range at the front's north end (2.7 by 5.0 m), read as the photograph's porch, the
+brick rear range, stone with a brick rear. From the photograph, through its solved camera
+(`data/reference_views/doane_house_1827_prairie/chicagology_doane_exterior.json`): the principal
+floor, the storey heights, the cornice's and the curb's heights, the windows' heights and widths, the
+pavilion's three lights, the window bay south of it, the porch's balcony height, the two dormers'
+places, the two stacks over the south flank, the fence. Every height rests on the camera's fit (its
+`solve`). The print is monochrome.
+**What is invented.** The stone (Lemont limestone stands for the print's light ashlar); the walls'
+thickness; the mansard's deck and its pitch; the eave's overhang; the treads; the north flank's, the
+south flank's and the rear's windows (no picture read here places them); the rainwater; the sash
+pattern; the plain lintels in place of the photograph's hoods; the rear range's storeys, windows and
+flat deck; the side gate at the lot's north end.
+**What is not built.** The corner block at the south-west corner, which the sheet draws as a feature
+standing 1.1 m out of the front and 1.5 m out of the south flank, and the square tower the photograph
+shows over it; the pavilion's steep pyramidal roof with its finial (T-3172 builds them); the rear
+part's steps out on both flanks (u 0-14.6: 1.2 m north, 1.6 m south); the carved and segmental hoods;
+the alternating stone courses; the porch's arches and its steps along the front; the basement lights'
+full height: open on the match record.
+**How to resolve:** T-3172 builds the corner block, its tower and the pavilion's roof; T-1896 finishes
+the house and brings the match record to `matches`.
+**Covers:** `doane_house_1827_prairie.as_mapped_1904.form.stone_front`, `doane_house_1827_prairie.as_mapped_1904.form.wall_thickness_front_m`, `doane_house_1827_prairie.as_mapped_1904.form.wall_thickness_side_m`, `doane_house_1827_prairie.as_mapped_1904.form.service_wall_brick`, `doane_house_1827_prairie.as_mapped_1904.form.street_front_trim`, `doane_house_1827_prairie.as_mapped_1904.form.roof_pitch_deg`, `doane_house_1827_prairie.as_mapped_1904.form.eave_overhang_m`, `doane_house_1827_prairie.as_mapped_1904.form.stair_tread_m`, `doane_house_1827_prairie.as_mapped_1904.form.side_bays`, `doane_house_1827_prairie.as_mapped_1904.form.north_bays`, `doane_house_1827_prairie.as_mapped_1904.form.rear_bays`, `doane_house_1827_prairie.as_mapped_1904.form.rainwater`, `doane_house_1827_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3171 (piece 1 of T-1895).
+**Review:** `docs/RESEARCH/k01-1827-doane-3171/README.md`.
+**Recorded:** 2026-10-26 (T-3171).

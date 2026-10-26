@@ -440,6 +440,7 @@ class Compiler:
         # bytes with every citation whole. Same bargain: about twenty sources of room; the
         # index gzips to 43.8 KB (gzip -9), far inside the 120 KB compressed first-open allowance.
         # T-3110 (HABS photograph 2 of 1801 Prairie) landed in the same room, alongside T-3167.
+        # T-3171 (the Doane photograph's record, 1827 Prairie) landed in the same room too.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

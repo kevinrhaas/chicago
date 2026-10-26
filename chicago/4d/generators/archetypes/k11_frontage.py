@@ -214,7 +214,10 @@ def dress(a):
 
     # the stoop, as built: how far its foot reaches, read off K07's mesh in front of the door
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
-    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < 2.0]
+    # T-3171: within the stoop's own half-width of its centre, and never under 2 m: a porch's
+    # landing as wide as its hood (1827's, 5 m under its columns) puts every tread's ends past 2 m
+    reach = max(2.0, p.stoop_width_m / 2 + 0.1)
+    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < reach]
     foot = max(q[0] for q in stoop)
 
     fence, style = t["fence"], FENCES[t["fence"]]
@@ -410,7 +413,10 @@ def garden(a, t):
     D = p.depth_m
     line = D + t["line_m"]
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
-    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < 2.0]
+    # T-3171: within the stoop's own half-width of its centre, and never under 2 m: a porch's
+    # landing as wide as its hood (1827's, 5 m under its columns) puts every tread's ends past 2 m
+    reach = max(2.0, p.stoop_width_m / 2 + 0.1)
+    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < reach]
     foot = max(q[0] for q in stoop)
     cheeks = (min(-q[2] for q in stoop), max(-q[2] for q in stoop))
     W, F = t["wall"], t["fence_run"]
