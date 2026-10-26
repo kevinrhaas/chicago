@@ -272,9 +272,9 @@
     "dent_house_1823_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4255744,
+      "bytes": 6537952,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "e0999babc9eb4807ad0fc0fe6296a726a846355ca370aa26b1a32948a9cee053",
+      "inputs_sha256": "0510f12c6aeae79f3608c8054284c2da6d306f8d3ef30fddb84ba48df011bd40",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "dent_house_1823_prairie"
