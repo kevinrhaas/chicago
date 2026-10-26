@@ -299,14 +299,14 @@
       "phase_id": "draft_1904",
       "structure_id": "dexter_house_1721_prairie_coach_house"
     },
-    "doane_house_1827_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "doane_house_1827_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 431960,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "81a4933e8a9c3b567e41d2cca0772ac37c57f6a636ca31413ad40254f21d558a",
+      "bytes": 8099044,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "c69e8dce44bb6b4f07a396d881e1ab8b0e3000c19ce5970e57cd80e37edc79a0",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "doane_house_1827_prairie"
     },
     "doane_house_1827_prairie_coach_house__draft_1904.glb": {

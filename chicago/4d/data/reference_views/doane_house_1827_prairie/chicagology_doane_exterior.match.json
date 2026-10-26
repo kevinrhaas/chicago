@@ -1,0 +1,12 @@
+{
+  "structure_id": "doane_house_1827_prairie",
+  "view": "chicagology_doane_exterior",
+  "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
+  "glb_sha256": "3f0c05ba67605453ae1ce0036fab9141d7b87b059164ff47840978d2388b93da",
+  "camera_sha256": "f3b653e96ff02a983e1779b9b0ef6576e93cdb97be9e753647feb7b149a3d7c6",
+  "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
+  "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
