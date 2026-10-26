@@ -33969,3 +33969,73 @@ the house and brings the match record to `matches`.
 **How to resolve:** A future texture/device policy may choose a different tradeoff with measured memory and same-camera review; the full source maps remain available in the same native assets.
 **Ticket:** T-2380, required to clear the current integration memory failure for the visible jail enclosure.
 **Recorded:** 2026-10-26.
+
+
+### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
+
+**Building:** `st_marys_church`.
+**Decision:** transfer the undated Moss engraving's five long-wall sash, end door,
+blank gable and open belfry/cross into the original 1835 range as **reconstructed**
+appearance (`andreas_1884_st_marys_engraving`, Andreas 1884 vol.1 p.291). Andreas p.290
+says the church had no tower when built in 1833 and received a low open tower and bell
+"some time afterwards". That interval does not establish presence or absence in July
+1835. This reconstruction chooses presence; it does not claim a dated installation,
+a date for the engraving or proof that its later appearance stood at the original site.
+**What is chosen:** five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71
+of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the
+existing stud module. The six-opening count and transfer to 1835 are reconstructed.
+Existing sash size, glazing, casing, sill and threshold are retained. Both gables are
+blank: the near one is pictured; the unseen far one is reconstructed. The one existing
+stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged.
+**Belfry scantlings:** a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end
+straddles the body ridge. Its lower edge follows the roof slopes with 30 mm
+penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach
+2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved
+brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave
+square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish
+it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm
+high, hangs within the open frame. These sections, profiles, material assignments and
+placements are reconstructed, not measured schedules; the bell's dark appearance does
+not establish an alloy or a paint colour from a monochrome engraving.
+**What is retained:** the original 25 by 35 ft footprint, location, dates, storey,
+wall height, gabled body type and unpainted body finish. The reconstructed 30 degree
+body pitch replaces the older typological 38 degrees after the first actual comparison
+showed a conspicuously high ridge. It is a selected shape, not a measured roof angle.
+No later enlargement or
+relocation is adopted. This supersedes L55's generic house-front placeholder and the
+2026-10-23 conservative tower omission for St Mary's only.
+**How to resolve:** a dated original-site elevation or alteration account could replace
+the temporal reconstruction. The actual source comparison records remaining visible
+differences under the owner's stopping rule; no complete picture match is claimed by
+a field value or this entry alone.
+**Covers:** `st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`.
+**Ticket:** T-2384.
+**Recorded:** 2026-10-25.
+
+
+### L-wolf-point-roof-tone-2386 — A picture-bounded roof tone
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.roof_colour`.
+
+**Decision:** Explicitly select the optional `deep_brown` roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening.
+
+**Production:** The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0.
+
+**Verification owed:** The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and T-3153's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here.
+
+**Recorded:** 2026-10-26 (T-2386).
+
+**Ticket:** T-2386.
+
+
+### L-carpenter-blind-doorway-2382 — A pictured dark doorway
+
+**Decision:** the log annex uses the existing `front_door_state: recess` instead of the generic closed board leaf. Its 0.30m depth, returned casing and dark back are reconstructed exterior geometry; the picture does not measure them or establish an interior, leaf angle, hinge position or passable portal. The original doorway station and dimensions remain unchanged.
+**Source:** `andreas_1884_sauganash_hotel_plate`, printed p632 / scan n1297: the directly inspected public-domain1884 plate shows a dark occupied opening in the log wing. Petford and the dependent Trowbridge1902 depiction share this silhouette, but are cross-checks, not independent evidence of the door state on1July1835. No rights finding is changed.
+**Limits:** retain the disputed annex identification, former uses, unattested current function and date qualifications. The paired neutral render retains the original provisional framing and the unmodified hotel context; it does not settle their massing or source-camera differences.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.front_door_state`.
+**How to resolve:** a separately dated original-site view or account could establish a leaf/state; no complete image match is claimed by this selected shadow.
+**Ticket:** T-2382.
+**Recorded:** 2026-10-26.
