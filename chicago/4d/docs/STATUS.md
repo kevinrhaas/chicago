@@ -24993,3 +24993,46 @@ keeps that OPEN; date/identity and camera/source disagreements are disclosed lim
 or within tolerance, not additional automatic geometry blockers. No new geometry
 variant or follow-up ticket is added. After the bounded PR passes its actual app/code
 gates and merges, original T-2384 is to be released for that remaining setout.
+
+
+### T-2376 — the full-scene batch census retains the lighthouse glass
+
+The immutable checked 132 renderer matrix on `0c78d17b` exposed a real stage 8
+regression oracle mismatch at both viewports: six structure batches, four mapped,
+against the older five/four expectation. The active 1835 GLB census finds exactly
+one BLEND material, the existing T-3122 lighthouse's `lantern_cage_glass` at
+alpha 0.18. Green Tree's material records and primitive material indices are exact
+base 132 values; its opening positions did not create the extra material class.
+
+The scoped smoke repair retains six total and four mapped groups and additionally
+requires five opaque groups plus exactly one unmapped translucent batch owned
+only by the lighthouse, retaining its declared 0.18 uniform opacity within 1e-6.
+The renderer, assets, roughness assertions and reach assertions are unchanged.
+This new opacity predicate is UNVERIFIED at authoring; actual terminal native stage 8
+results on the new checked head belong in PR #1328 and its evidence checkpoint.
+The local one-context readiness timeout is not runtime opacity evidence. The
+original Green Tree image gate remains DIFFERS with its two visitor-visible gaps.
+
+
+The same immutable matrix exposed two further baseline-oracle mismatches. The
+lighthouse's recorded local origin is outside its explicitly offset 3.04 m
+footprint; GLB-CONTRACT fixes the origin at polygon coordinate(0,0), not an
+occupied corner. The shared drawn-placement census now compares the committed
+polygon's area centroid, independently transformed from its placement, with the
+GPU-read plan bounds. The original survey origin, vertex-by-vertex 1 mm transform
+bar, mirror checks, one-metre occupancy bar and sparse-camp treatment remain.
+No geometry, position, footprint or tolerance changes. Hand-authored offset-plan
+fixtures pass; translated, rotated, mirrored and wrong-record-footprint controls
+fail. The actual published reruns remain owed.
+
+The strict 1904 placed-record set also adds only
+`pullman_house_1729_prairie_ranges`: the T-1880/T-1934 separately retained stable
+and rear ranges, explicitly dated 1904-07-01 through 1911 and present in the
+1904 compiled sidecar, with no exclusion or suppressed-render ruling. It was the
+sole extra placed ID in both published viewport failures. Exact placed-set and
+registry equality and zero 1835-town-layer assertions remain. This is a corrected
+closed set, not permission for arbitrary new records; actual new-head stage 14
+results are still required.
+
+
+T-2384 carrier update (2026-10-26): PR #1334 also carries the four checked strict smoke-oracle repairs from 6a61ab6e after actual merged/folded dev a575ddde. The five opaque plus one source-bound lighthouse glass batches, independently transformed data-footprint reference, and exact 1904 rear-range set require fresh terminal full eighteen-part coverage on this combined head. The donor opacity runtime predicate is not accepted from old scoped passes. No new model geometry, placement, bake or source-date claim is introduced by these gate repairs. The Moss vertical sash setout remains OPEN.
