@@ -1357,6 +1357,9 @@ class Bay:
         flare = self.v["roof"].get("flare")
         if flare and (tower or pitch == 0):
             raise ValueError(f"{self.v['id']}: only a bay's pitched hip flares")
+        mn = self.v["roof"].get("mansard")
+        if mn and (tower or flare or pitch == 0 or self.plan["kind"] != "polyline"):
+            raise ValueError(f"{self.v['id']}: a mansard is a polyline bay's pitched hip, unflared")
         if tower:
             ring = self.plan["ring"]
             k = len(ring)
@@ -1385,6 +1388,8 @@ class Bay:
                 if len(reg) >= 3 and abs(area(reg)) > 1e-8:
                     if flare:
                         faces += self._flare_bands(reg, Li, d, y_e, pitch, flare)
+                    elif mn:
+                        faces += self._mansard_bands(reg, Li, d, y_e, pitch, mn)
                     else:
                         faces.append((reg, lambda p, Li=Li: y_e + pitch * d(Li, p)))
         apex = (0.0, y_e, 0.0)
@@ -1394,7 +1399,7 @@ class Bay:
             for q in pts:
                 if q[1] > apex[1]:
                     apex = q
-            if tower:
+            if tower or mn:
                 for a, b in zip(reg, reg[1:] + reg[:1]):
                     if abs(a[1]) < 1e-9 and abs(b[1]) < 1e-9:
                         world.face("roof_back", [(a[0], y_e, 0.0), (b[0], y_e, 0.0), (b[0], hgt(b), 0.0),
@@ -1403,6 +1408,18 @@ class Bay:
                              "apex": [round(c, 4) for c in apex]}
         if flare:
             self.meta["roof"]["flare"] = dict(flare)
+        if mn:
+            # the curb: the eaves lines offset in by the lower faces' run, met pairwise and at
+            # the wall plane, so a host can stand cresting on it (k01_frontage.bay)
+            run = float(mn["rise_m"]) / math.tan(math.radians(float(mn["lower_pitch_deg"])))
+            inner = [((a[0] + run * n[0], a[1] + run * n[1]), n) for a, n in lines]   # n points inward
+            curb = [self._offset_corner(None, inner[0], 0.0)]
+            for i in range(len(inner) - 1):
+                curb.append(self._offset_corner(inner[i], inner[i + 1], 0.0))
+            curb.append(self._offset_corner(inner[-1], None, 0.0))
+            self.meta["roof"]["mansard"] = {"rise_m": float(mn["rise_m"]), "lower_pitch_deg": float(mn["lower_pitch_deg"]),
+                                            "curb_m": round(y_e + float(mn["rise_m"]), 4),
+                                            "curb": [[round(c, 4) for c in q] for q in curb]}
 
     def _gable(self, world, y_top, y_e, ov):
         """T-2998: a coped stone gable (1801 Prairie's south pavilion, the Taylor photograph).
@@ -1825,6 +1842,25 @@ class Bay:
                 continue
             g0, g1 = g(lo), g(hi)
             out.append((piece, lambda p, lo=lo, hi=hi, g0=g0, g1=g1: y_e + g0 + (g1 - g0) * (d(Li, p) - lo) / (hi - lo)))
+        return out
+
+    def _mansard_bands(self, reg, Li, d, y_e, pitch, mn):
+        """T-2964: one plane of a bay's mansard (1816 Prairie's two canted bays carried up through
+        the cornice under their own crowns, the Chicagology photograph). From the eaves the
+        lower face rises `rise_m` at `lower_pitch_deg` to the curb, and over the curb the deck
+        runs on at the roof's `pitch`. Every plane is cut at the same distance in from the
+        eaves, so the cuts meet on the hips and the planes share them vertex for vertex; the
+        back is closed on the wall plane (`_hip`), where the house's own roof stands behind."""
+        r, deg = float(mn["rise_m"]), float(mn["lower_pitch_deg"])
+        if not 1.0 <= r <= 6.0 or not 60.0 <= deg <= 85.0 or not 0.0 <= pitch <= 0.4:
+            raise ValueError(f"{self.v['id']}: a mansard rises 1.0-6.0 m at 60-85 deg to a deck pitched 0-0.4")
+        run = r / math.tan(math.radians(deg))
+        out = []
+        for lo, hi, g0, k in ((0.0, run, 0.0, r / run), (run, 1e6, r, pitch)):
+            piece = clip_half(clip_half(reg, lambda p: d(Li, p) - lo), lambda p: hi - d(Li, p))
+            if len(piece) < 3 or abs(area(piece)) < 1e-8:
+                continue
+            out.append((piece, lambda p, lo=lo, g0=g0, k=k: y_e + g0 + k * (d(Li, p) - lo)))
         return out
 
     @staticmethod

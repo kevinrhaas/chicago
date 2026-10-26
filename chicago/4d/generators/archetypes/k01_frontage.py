@@ -300,6 +300,8 @@ MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
 MATERIALS["shutter"] = {"color": (0.045, 0.08, 0.05), "roughness": 0.7}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
 # its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
+#: T-2964: a mansard bay's cresting stops this far short of each corner of its curb
+CREST_STOP_M = 0.2
 K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
              "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone", "apron": "bay_apron",
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
@@ -2594,6 +2596,10 @@ class Assembly:
                     if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
                            math.dist(world[i], world[k])) >= SLIVER_M:
                         dst.idx += [off + remap[i], off + remap[j], off + remap[k]]
+        # T-2964: a mansard bay's iron cresting along its curb (1816's two crowns)
+        mn = (built.meta.get("roof") or {}).get("mansard")
+        if mn and (v["roof"].get("mansard") or {}).get("cresting"):
+            self.bay_cresting(v, mn, W, R, N, conf)
         # T-2451: the strips down its corners, each a box proud of one run of the plan
         if b.get("strips"):
             pts = v["plan"]["points"]
@@ -2751,6 +2757,50 @@ class Assembly:
                     basis((xa, ya, 0.0), ((xb - xa) / L, (yb - ya) / L, 0.0), (0.0, 0.0, 1.0)), None)
         pr.face([(jamb, floor, 0.0), (edge, floor, 0.0), (edge, floor, proud), (jamb, floor, proud)], Y,
                 basis((jamb, floor, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)), None)
+
+    def bay_cresting(self, v, mn, W, R, N, conf):
+        """T-2964: K10's iron cresting (`k10.cresting.iron_ridge`, as 1801's deck carries it,
+        k01_mansard_deck) along each run of a K08 mansard bay's curb, `inset_m` onto its deck
+        and stretched to `height_m`, stopped `CREST_STOP_M` short of every corner and of the
+        wall plane behind. Each run is built along X about the origin and turned onto the run
+        in the bay's frame (X along it, Z its inward normal's opposite), which W carries home."""
+        from . import k10_frontage
+        from .k01_mansard_deck import _stretch
+        cr = v["roof"]["mansard"]["cresting"]
+        h, ins = float(cr["height_m"]), float(cr["inset_m"])
+        if not 0.3 <= h <= 1.0 or not 0.03 <= ins <= 0.3:
+            raise ValueError(f"{v['id']}: a mansard bay's cresting stands 0.3-1.0 m high, 0.03-0.3 m inside its curb")
+        K = k10_frontage._kit()
+        data = K.load()
+        crest = next(x for x in data["variants"] if x["id"] == "k10.cresting.iron_ridge")
+        y_cap = mn["curb_m"] + float(v["roof"]["pitch"]) * ins
+        pts = mn["curb"]
+        laid = []
+        for j in range(len(pts) - 1):
+            (x0, z0), (x1, z1) = pts[j], pts[j + 1]
+            L0 = math.hypot(x1 - x0, z1 - z0)
+            tx, tz = (x1 - x0) / L0, (z1 - z0) / L0
+            kx, kz = -tz, tx          # local +Z, the run's outward side (the curb runs left to right)
+            L = L0 - 2 * CREST_STOP_M
+            if L < k10_frontage.MIN_CRESTING_M:
+                continue
+            mx, mz = (x0 + x1) / 2 - kx * ins, (z0 + z1) / 2 - kz * ins
+            seed = self.instance("k10.cresting.iron_ridge", "cresting",
+                                 {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4), "height_m": h,
+                                  "host": f"bay {v['id']} curb", "run": j}, {"ridge": W((mx, y_cap, mz))})
+            var = K.Variant(dict(crest), data)
+            var.seed, var.rng = seed, random.Random(seed)
+            var.cresting(0.0, L, y_cap, 0.0, host=f"bay {v['id']} curb")
+            top = max(q[1] for pc in var.pieces for q in pc.mesh.pos)
+            _stretch(var.pieces, y_cap - 0.007, h / (top - (y_cap - 0.007)))
+            for pc in var.pieces:
+                m = pc.mesh
+                m.pos = [W((mx + q[0] * tx + q[2] * kx, q[1], mz + q[0] * tz + q[2] * kz)) for q in m.pos]
+                m.nrm = [_add(_add(_mul(R, n[0] * tx + n[2] * kx), _mul(Y, n[1])), _mul(N, n[0] * tz + n[2] * kz))
+                         for n in m.nrm]
+            k10_frontage._lay(self, var.pieces, conf, "k10.cresting.iron_ridge")
+            laid.append({"run": j, "length_m": round(L, 3)})
+        self.bay_crests = getattr(self, "bay_crests", []) + [{"bay": v["id"], "runs": laid}]
 
     def bay_columns(self, b, pts, W, R, N, mat, seed, conf):
         """T-2781: a stone bay's engaged columns (1637's south bay, the Grosvenor photograph).
