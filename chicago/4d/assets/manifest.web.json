@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -432,7 +432,7 @@
     "pullman_glasshouse_1800_calumet_north__as_standing_1904.glb": "2e60cf2516491dc1f770625c108b1328115e7558fc9699d3f7099dbc39108222",
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": "9fa8f8489955f01ec95d7776a68969f556a790e91be7f26cc7ad42df3c5b3710",
     "pullman_house_1729_prairie__as_mapped_1904.glb": "c538efdfd3189e72b8711bf34361f365a6dd9fc65caf7ac9b3870842e1bcc0e0",
-    "pullman_house_1729_prairie_conservatory__as_standing_1904.glb": "0698ca124104b1f4804eefaba675138f636fc036a6ea44608e8dd6ba0a1f8e83",
+    "pullman_house_1729_prairie_conservatory__as_standing_1904.glb": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
     "pullman_house_1729_prairie_ranges__draft_1904.glb": "f90f1211a87638e2bbf3ac21ab6b639bdad02428e9119a1e6de818198e9cf8d0",
     "pullman_lodge_1800_calumet__as_standing_1904.glb": "64cf883d07802f5a531ad807d9305b8640fbaabee4fdfdffa85c81aedd0effbe",
     "ream_house_1901_prairie__draft_1904.glb": "d5a58d10243c36a76931a940727f88af745b1657eb5e69d7b8514c23104ee3da",
