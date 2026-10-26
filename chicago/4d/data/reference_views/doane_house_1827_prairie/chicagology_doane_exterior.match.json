@@ -6,7 +6,86 @@
   "camera_sha256": "f3b653e96ff02a983e1779b9b0ef6576e93cdb97be9e753647feb7b149a3d7c6",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
-  "verdict": "unreviewed",
-  "differences": [],
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a stone house two storeys over a raised basement under a slated mansard, its front and south flank seen from the south-west",
+      "status": "fixed",
+      "how": "T-3171: the 1911 sheet's 24.4 x 15.5 m main block on K01, the principal floor 2.0 m, the storeys 5.5 and 5.1 m and the cornice's top 12.6 m, read through this camera"
+    },
+    {
+      "what": "the shallow pavilion on the front with three lights a storey, a wide centre light between narrow ones (x 330-530 px)",
+      "status": "fixed",
+      "how": "T-3171: a K08 projection 5.46 m wide and 0.47 m out, as the sheet draws it, with 0.75-1.3-0.75 m lights a storey"
+    },
+    {
+      "what": "the porch at the front's north end: columns carrying a balustraded balcony at the second floor (x 0-275 px, y 1126-1170)",
+      "status": "fixed",
+      "how": "T-3171: the sheet's 2.7 x 5.0 m stone range built as the door's hood on columns with a railing, its soffit 6.3 m"
+    },
+    {
+      "what": "the dormer under a pediment over the window bay south of the pavilion (x 650-770 px) and the dormer over the porch (x 190-250 px)",
+      "status": "fixed",
+      "how": "T-3171: two gabled dormers on the mansard's street face at v 2.55 and 12.9"
+    },
+    {
+      "what": "the moulded stone cornice round the front and the south flank",
+      "status": "fixed"
+    },
+    {
+      "what": "the two tall stone stacks over the south flank (x 1240-1300 px)",
+      "status": "fixed",
+      "how": "T-3171: two stone stacks at v 14.4, their places along the flank reconstructed"
+    },
+    {
+      "what": "the iron fence of scrolled bars on a stone curb along the walk (y 1630-1700 px)",
+      "status": "fixed",
+      "how": "T-3171: K11's scroll-band fence on the Prairie line"
+    },
+    {
+      "what": "the corner block at the south-west corner, with its narrow cant, carried up a storey past the cornice as a square tower under a tall slated hip with a crested top and two finials (x 610-1135 px, y 80-1600)",
+      "status": "open",
+      "how": "T-3172"
+    },
+    {
+      "what": "the pavilion's steep pyramidal roof over the cornice, with its finial and its triple attic lights (x 330-560 px, y 350-830); the render shows the pavilion's low hip under the main mansard",
+      "status": "open",
+      "how": "T-3172"
+    },
+    {
+      "what": "the rear part's step out on the south flank (the sheet's 1.6 m at u 0-14.6), seen past the corner at x 1080-1150 px",
+      "status": "open"
+    },
+    {
+      "what": "the carved hoods over the pavilion's lights and the segmental hoods over the window bay's (plain lintels stand in)",
+      "status": "open"
+    },
+    {
+      "what": "the alternating light and dark stone courses of the front and flank",
+      "status": "open"
+    },
+    {
+      "what": "the porch's round arches and its steps rising along the front from the north (a flight stands across the porch's width)",
+      "status": "open"
+    },
+    {
+      "what": "the barred basement lights' full height, about 1.5 m (K02's two base courses hold them to 0.75 m)",
+      "status": "open"
+    },
+    {
+      "what": "the window heights and places on the front and in the pavilion, read through the camera",
+      "status": "within tolerance",
+      "how": "they render within about 0.3 m of the print's"
+    },
+    {
+      "what": "the stone's colour",
+      "status": "not shown",
+      "how": "the print is monochrome; Lemont limestone is reconstructed (L-k01-1827-doane-3171)"
+    },
+    {
+      "what": "the north flank, the rear and the brick rear range",
+      "status": "not shown"
+    }
+  ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
