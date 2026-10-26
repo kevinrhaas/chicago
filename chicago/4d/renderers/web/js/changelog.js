@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2299, ts: '2026-10-26T01:38:01.134Z', date: 'Oct 25, 2026, 8:38 PM CT', title: 'The Pullman house\'s arched windows and dormers', kind: 'feature',
+    items: [
+      '1729 Prairie\'s street front now has its round-arched windows, read off the Detroit Publishing photograph: three on the upper storey under stone arch rings, two on the ground storey beside the portico.',
+      'Its mansard has four arched dormers in place of two hooded ones: two over Prairie Avenue and two over 18th Street.',
+    ] },
   { v: 2298, ts: '2026-10-26T00:33:30.322Z', date: 'Oct 25, 2026, 7:33 PM CT', title: '1815 Prairie\'s pavilion rises an attic storey under its own roof', kind: 'improvement',
     items: [
       'The pavilion at the north end of 1815 Prairie Avenue now rises a full attic storey past the main cornice, with a pair of tall mullioned windows in it, and its steep hipped roof sits on top of that storey, as both old photographs show.',

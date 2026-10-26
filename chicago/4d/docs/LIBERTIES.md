@@ -33487,6 +33487,34 @@ the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
 **Ticket:** T-3122, a bounded visible increment; original T-2373 remains open.
 
 **Recorded:** 2026-10-24; adopted 2026-10-25 (T-3122). Freshly baked with the pinned Blender through the current producer: the lighthouse master carries 8,021 triangles and the other 24 fort-family masters and web derivatives come out byte-identical. The overall height the profile reaches is 12.84968 m against the unchanged 12.19 m (40 ft) wall-height literal, whose datum stays unresolved.
+### L-k01-1729-pullman-heads-3157 — 1729 Prairie's arched windows and dormers read off the Detroit print, their mouldings laid as K02 voussoir rings and plain surrounds
+
+**Decision:** the Pullman house's Prairie front (T-3157, a piece of T-1881) now lays the Detroit
+Publishing photograph's round-arched windows (`loc_det_4a08065_pullman_residence`, through its solved
+camera `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`): three on the
+second storey and the two the ivy leaves readable on the principal storey, each named with its centre,
+width, sill and height (`street_front_windows`); and its mansard carries four round-arched dormers, two
+on the Prairie face and two on the 18th Street face, where it had two hooded ones.
+**What is read, not invented.** Each light's place along the front, its width between the jambs' dark
+edges, and the second storey's sills and crowns; the principal storey's crowns; the dormers' places,
+widths and crowns on the Prairie face; the flank dormers' places, to within about 2 m (the view is
+oblique to that face). The print gives 14-16 px a metre on the front.
+**What is invented.** The arches' moulded rings are laid as 0.25 m rings of thirteen K02 voussoirs,
+0.05 m proud, the keystone barely larger: the print does not part a moulding from a ring of stones at
+that scale. The principal storey's lights carry no ring (the ivy hides their surrounds) and stand on
+sills the ivy also hides (2.5 m over grade); the centre one is held 1.2 m wide so its head stays clear
+of the portico's south end. The sash is K06's round fanlight sash. The flank dormers' heads are taken
+arched like the Prairie face's, the print drawing them too small to read; every dormer's surround is
+plain where the print's Prairie dormers carry pilasters and an eared hood. The front's basement lights
+are gone with the named windows (`street_front_windows` names every street opening); the print shows
+none, the street wall and the ivy standing in front of the raised basement.
+**How to resolve:** T-3158 lays the pavilions' quoined piers, their own mansard sections, the dormers'
+hoods and the north-west pavilion's dormer; T-3160 arches the 18th Street flank's windows; a picture
+closer to the front than this one (T-3161) replaces the rings with the mouldings it shows.
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`
+**Ticket:** T-3157.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-25 (T-3157).
 
 
 ### L-green-tree-right-front-entry — Green Tree front-ground opening order
