@@ -58,9 +58,9 @@
     "bench": {"height_m": 0.8, "depth_m": 0.55, "clear_m": 0.14, "end_inset_m": 0.3},
     "pot_plants": {"spacing_m": 0.42, "height_m": [0.18, 0.55], "radius_m": [0.13, 0.2]},
     "border": {"spacing_m": 0.55, "height_m": [0.7, 1.5], "radius_m": [0.18, 0.28], "from_wall_m": 0.35},
-    "clear_of_glass_m": 0.08, "below_eave_m": 0.25, "max_triangles": 420,
+    "clear_of_glass_m": 0.08, "below_eave_m": 0.25, "max_triangles": 420, "max_triangles_per_plan_m2": 12,
     "confidence": "reconstructed",
-    "note": "The restrained planting the K13 entry asks for: a staging bench along the glass with a row of low pot-plant masses on it, and in a lean-to a taller border against the house wall. Each mass is a six-sided frustum seeded per position, opaque and dark green; none reaches the glass or rises within a quarter metre of the eave. It is backing, not a plant scene."
+    "note": "The restrained planting the K13 entry asks for: a staging bench along the glass with a row of low pot-plant masses on it, and in a lean-to a taller border against the house wall. Each mass is a six-sided frustum seeded per position, opaque and dark green; none reaches the glass or rises within a quarter metre of the eave. It is backing, not a plant scene. A house larger in plan than the kit's specimens may carry max_triangles_per_plan_m2 triangles of staging and plants a square metre of its plan instead, whichever is more (T-3164): the closed specimens carry 15 to 18 a square metre, so a long range's benches are held to two-thirds of the densest. Pullman's 120 m2 east range carries 1,204 under a 1,440 cap."
   },
   "rainwater": {
     "_doc": "K04's profiles (data/components/prairie_1904/k04_roofs.json `profiles.gutter` and `profiles.downpipe`), read by the generator: a half-round gutter on every eave, falling to an outlet, a round pipe from the outlet with a swan neck where the plinth's coping stands in its way, and a shoe kicked out over grade.",
@@ -69,8 +69,9 @@
     "confidence": "reconstructed"
   },
   "costs": {
-    "_doc": "Triangle budget per house, as built (the board's wall and ground excluded). A house over its budget is refused.",
-    "max_triangles": 3000
+    "_doc": "Triangle budget per house, as built (the board's wall and ground excluded). A house over its budget is refused. A house larger in plan than the kit's specimens is held to per_plan_m2 triangles a square metre of its plan instead, whichever is more (T-3164): the closed specimens are built at 87 (span) to 110 (span_lantern) a square metre, and a long estate range repeats the kit's bay, so it may cost what its bays cost but never more than half as densely as the specimens this budget was set on. Pullman's 211 m2 north range is 5,221 triangles under a 10,555 cap.",
+    "max_triangles": 3000,
+    "per_plan_m2": 50
   },
   "_variants_doc": "form: lean_to, span, span_lantern, curvilinear_lean_to or canted_bay. Lengths in metres, x along the front, z out from the house wall (a lean-to or bay) or across the house (a span), y up. bays sets the posts and rafters (each a primary at an even fraction of its panel's base). door names the wall it stands in. gutters lists the eaves that shed, each with its outlet end.",
   "variants": [

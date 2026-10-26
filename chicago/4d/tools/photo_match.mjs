@@ -9,6 +9,8 @@
 //   also_render    optional ids of context structures, all required in `scene`;
 //                  scene sidecars select phases and place them in the anchor frame.
 //                  The review uses a common grade plane, not the app terrain.
+//   enclosures     optional native enclosure ids belonging to the anchor in `scene`;
+//                  app geometry on that same plane, with source/renderer freshness.
 //   source_id      the picture's record in data/sources/ (and/or library_image, its Prairie
 //                  library id)
 //   photo          the photograph or drawing, relative to the camera file
@@ -57,6 +59,7 @@ import crypto from 'node:crypto';
 import os from 'node:os';
 import {createRequire} from 'node:module';
 import {renderGroup, groupReview} from './photo_match_group.mjs';
+import {enclosureReview} from './photo_match_enclosures.mjs';
 const root = process.cwd(), require = createRequire(path.join(root, 'tools/qa.mjs'));
 const {chromium} = require('playwright');
 const args = process.argv.slice(2);
@@ -71,6 +74,7 @@ if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.cli
 const members = renderGroup(root, cam, {glb: opt('--glb')});
 const glb = members[0].glb;
 const group = members.length > 1 ? groupReview(root, members) : null;
+const enclosures = enclosureReview(root, cam);
 const out = opt('--out') || path.join('docs/RESEARCH/photo-match', cam.structure_id);
 const name = path.basename(camFile, '.json');
 const photo = path.resolve(path.dirname(camFile), cam.photo);
@@ -84,7 +88,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], enclosures: enclosures ? {anchor: enclosures.anchor, ids: cam.enclosures} : null, members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
@@ -119,7 +123,22 @@ Promise.all(c.members.map(async member=>{
  x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;for(const m of (Array.isArray(o.material)?o.material:[o.material]))tintKeithStone(m,{id:member.structure_id});}});
  const placed=new THREE.Group();placed.position.fromArray(member.position);placed.rotation.y=member.rotation_y;
  placed.add(x.scene);return placed;
-})).then(placed=>{for(const object of placed)s.add(object);r.render(s,cam);window.__done=true;})
+})).then(async placed=>{
+ for(const object of placed)s.add(object);
+ if(c.enclosures){
+  const {createEnclosures}=await import('/renderers/web/js/enclosures.js');
+  const problems=[];
+  const layer=await createEnclosures({dataBase:new URL('/__photo_enclosures/',location.href),
+   terrain:{surfaceHeight:()=>0,isWater:()=>false},problems,detail:'full'});
+  if(problems.length||layer.records.length!==c.enclosures.ids.length||!layer.census.posts)
+   throw Error('native enclosure review failed: '+problems.join('; '));
+  const anchor=c.enclosures.anchor, frame=new THREE.Group();
+  frame.rotation.y=anchor.rotation_deg*Math.PI/180;
+  layer.group.position.set(-anchor.local_e,0,anchor.local_n);
+  frame.add(layer.group);s.add(frame);
+ }
+ r.render(s,cam);window.__done=true;
+})
  .catch(e=>{window.__error=String(e);});
 </script>`;
 const types = {'.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.ktx2': 'image/ktx2', '.webp': 'image/webp'};
@@ -127,6 +146,17 @@ const server = http.createServer((req, res) => {
   const u = decodeURIComponent(req.url.split('?')[0]);
   if (u === '/__photo_match.html') { res.writeHead(200, {'Content-Type': 'text/html'}); return res.end(page_html); }
   if (u === '/__photo') { res.writeHead(200, {'Content-Type': 'image/jpeg'}); return fs.createReadStream(photo).pipe(res); }
+  if (enclosures && u.startsWith('/__photo_enclosures/enclosures/')) {
+    const file = u.slice('/__photo_enclosures/enclosures/'.length);
+    if (file === 'index.json') {
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      return res.end(JSON.stringify(enclosures.index));
+    }
+    const record = enclosures.records.find(value => path.basename(value.file) === file);
+    if (!record) { res.writeHead(404); return res.end(); }
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    return fs.createReadStream(path.join(root, record.file)).pipe(res);
+  }
   const p = path.join(root, u);
   if (!p.startsWith(root) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); return res.end(); }
   res.writeHead(200, {'Content-Type': types[path.extname(p)] || 'application/octet-stream'});
@@ -162,16 +192,18 @@ try {
   const was = fs.existsSync(matchFile) ? JSON.parse(fs.readFileSync(matchFile, 'utf8')) : {};
   const glbSha = sha(glb), camSha = sha(camFile), photoSha = sha(photo);
   const same = was.glb_sha256 === glbSha && was.camera_sha256 === camSha
-    && was.photo_sha256 === photoSha && (!group || was.group_sha256 === group.group_sha256);
+    && was.photo_sha256 === photoSha && (!group || was.group_sha256 === group.group_sha256)
+    && (!enclosures || was.enclosures_sha256 === enclosures.review.enclosures_sha256);
   const rec = {
     structure_id: cam.structure_id, view: name, glb: glb.replace(/\\/g, '/'), glb_sha256: glbSha, camera_sha256: camSha,
     photo_sha256: photoSha,
     ...(group || {}),
+    ...(enclosures?.review || {}),
     side_by_side: path.relative(root, side).replace(/\\/g, '/'),
     verdict: same && was.verdict ? was.verdict : 'unreviewed',
     differences: Array.isArray(was.differences) ? was.differences : [],
     _how: 'verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not "matches" (tools/image_gate.mjs).',
   };
   fs.writeFileSync(matchFile, JSON.stringify(rec, null, 2) + '\n');
-  console.log(`photo_match: ${glb}\n  ${render}\n  ${side}\n  ${matchFile} (${rec.verdict}${same ? '' : was.verdict ? ' — the GLB or camera changed; look again' : ''})`);
+  console.log(`photo_match: ${glb}\n  ${render}\n  ${side}\n  ${matchFile} (${rec.verdict}${same ? '' : was.verdict ? ' — a rendered input changed; look again' : ''})`);
 } finally { await browser.close(); server.close(); }

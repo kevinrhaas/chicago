@@ -1,0 +1,130 @@
+{
+  "id": "pullman_glasshouse_1800_calumet_pavilion",
+  "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13",
+  "aka": [
+    "1800 S. Calumet Avenue",
+    "Pullman conservatory",
+    "Pullman palm house"
+  ],
+  "archetype": "k13_conservatories",
+  "function": {
+    "value": "glasshouse",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The 1911 sheet letters the range 'GREEN HO.' with a glass roof ('GLASS R'F' / 'GLASS ROOF'), and the sheet-28 census allocates it to the Pullman estate (s28-pullman-service-garden), on the placement of Beman's conservatory 'across 18th Street from the house (toward Calumet)' in the image research; no deed has been read. The pavilion is the cross-shaped head the sheet draws at the north end of the north range."
+  },
+  "review_required": false,
+  "research_note": "T-3164 (piece 1 of T-1934): Pullman's glasshouse ground across 18th Street, which the district draft left empty because the sheet-28 trace never drew it (T-2335, L-draft-prairie-16-18-east-2335). Read off sheet 28 by hand at the pixels named in each note, as T-2306 read the house's own bay off sheet 20, because the colour trace cannot separate these ranges: the lodge's pink wash spills diagonally across the east range on this copy. Every size above the plan is the K13 kit's reconstruction (L-pullman-glasshouses-1800-calumet-3164). T-3165 works the glasshouses to the 1894 plates and the photographs and replaces what they contradict.",
+  "phases": [
+    {
+      "id": "as_standing_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448541.581,
+        "utm_n": 4634157.442,
+        "rotation_deg": 88.986,
+        "symbolic_location": "1800 S. Calumet Avenue, parcel calumet_1800 (data/street_grid/1904.json): the Pullman estate's glasshouse ground across 18th Street from the house, west side of Calumet Avenue between 18th and 20th Streets; its north end, facing 18th Street.",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "The north-east corner, read off the committed sheet 28 raster at pixel (3166, 1640) where the drawn wall lines cross, and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json; 1.47 m RMS on independent standing houses): local E 1468.88, N -3238.36. The bearing turns the plan onto the sheet's own ruled lines (1.014 degrees off east in that fit), so the building runs square to the lot as drawn.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is the pixel named in the note, of the committed sheet 28 raster, carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, so the sum can be recomputed by hand."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            12.589,
+            0.0
+          ],
+          [
+            12.589,
+            -8.342
+          ],
+          [
+            0.0,
+            -8.342
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "From the corner at the origin, u along the range and v across it (v = -z of the kit's plan, so north on an east-west range and east on a north-south one). The drawn wall lines' centres on the sheet (x 3001-3166, y 1640-1889) at 0.0506 m a pixel: 12.59 by 8.34 m. The south end is drawn as a dashed line with a gap, the door into the north range; the plan stops 0.05 m short of it so the two glass ends never meet in one plane."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The sheet prints '1' on the glasshouse: one storey.",
+          "geometry": "simplified"
+        },
+        "construction": {
+          "value": "glass",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "Lettered 'GLASS R'F' / 'GLASS ROOF' on the sheet, over the blue wash this copy gives the whole glasshouse ground. The kit stands the glass on a brick plinth.",
+          "geometry": "simplified"
+        },
+        "conservatory": {
+          "value": {
+            "id": "k13.house.pullman_1800_pavilion",
+            "form": "span_lantern",
+            "eave_m": 3.4,
+            "pitch_deg": 30,
+            "bays": 8,
+            "door": {
+              "wall": "end_left",
+              "at": 0.5
+            },
+            "gutters": [
+              {
+                "eave": "front",
+                "outlet": "both"
+              },
+              {
+                "eave": "back",
+                "outlet": "both"
+              }
+            ],
+            "ridge_vent": true,
+            "planting": [
+              "bench_front",
+              "bench_back"
+            ],
+            "length_m": 12.589,
+            "width_m": 8.342
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The plan is the sheet's (inferred): the pavilion's long arm, north to south. The sheet draws it as a cross, its middle arms 1.3 m and 1.4 m wider each side over 7 m of its length; those arms are NOT built here, the long arm standing for the whole, and are T-3165's to build to the pictures. A span house with the kit's lantern, taller than the ranges (a 3.4 m eave against their 2.4-2.6 m) because the sheet makes it the head of the range; the door in its north end; everything else is RECONSTRUCTED from the K13 kit (data/components/prairie_1904/k13_conservatories.json, L-k13-conservatory-kit-2305) and recorded as L-pullman-glasshouses-1800-calumet-3164. Its south end stands 5 cm short of the north range's end wall, so the two never share a pane."
+        }
+      }
+    }
+  ]
+}

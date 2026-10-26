@@ -51,6 +51,10 @@ step "Every building's reference views and match records read; where each stands
 
 step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
   node tools/image_gate.mjs --test
+step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
+  node tools/test_enclosure_points.mjs
+step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
+  node tools/test_photo_match_enclosures.mjs
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
