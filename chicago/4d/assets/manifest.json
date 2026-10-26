@@ -9411,14 +9411,14 @@
       "phase_id": "documented_1834",
       "structure_id": "wabansia_doctors_house"
     },
-    "walker_house_1720_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "walker_house_1720_prairie__as_mapped_1904.glb": {
+      "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 173812,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "9de66d8471ea5ed6d067c903c0db9e6a45a1e08ccb58640876ab31fc23354dec",
+      "bytes": 2741340,
+      "generator": "generators/k16_emit.py",
+      "inputs_sha256": "33b6242816b780747847095a60a78a19c31cc7c56b27ea4d2e55e8f3dc9ab7cf",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "walker_house_1720_prairie"
     },
     "walker_house_1720_prairie_coach_house__draft_1904.glb": {

@@ -1,0 +1,102 @@
+{
+  "structure_id": "walker_house_1720_prairie",
+  "view": "tyrrell_front",
+  "glb": "assets/gltf/walker_house_1720_prairie__as_mapped_1904.glb",
+  "glb_sha256": "8f192b87e4f439b7aae9ebad797af3ae1dfe82d930fac564c0ab9efba45b661c",
+  "camera_sha256": "52c93c6040c8c508e4bd10739e18ee995b829eadc9d5727d4efe755c529da3ad",
+  "photo_sha256": "8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81",
+  "side_by_side": "docs/RESEARCH/photo-match/walker_house_1720_prairie/tyrrell_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a two-storey clapboard front 10 m wide, its north corner at x 990 px",
+      "status": "fixed",
+      "how": "T-3180: the 1911 sheet's 10 m main block on K16 clapboard; the render's north corner within 5 px"
+    },
+    {
+      "what": "the frieze and eave: the frieze's foot at y 210-215 px and the soffit at about y 110",
+      "status": "fixed",
+      "how": "T-3180: wall top 10.45 m with a 1.55 m frieze; the foot within 5 px, the soffit within about 15 px"
+    },
+    {
+      "what": "the principal floor and porch floor at y 860-865 px, about 1.55 m over the walk",
+      "status": "fixed",
+      "how": "T-3180: a 1.4 m foundation under the clapboard and the porch floor raised 0.95 m over the kit's"
+    },
+    {
+      "what": "the porch across the front from x 55 to 975 px, its plate and fascia at y 490-525",
+      "status": "fixed",
+      "how": "T-3180: the kit porch 11.5 m long centred on its stair, plate clear 3.6 m, fascia 0.35 m; within 5-10 px"
+    },
+    {
+      "what": "posts at the porch's ends and either side of its middle opening (x 65-100, 390-425, 615-645, 930-965)",
+      "status": "fixed",
+      "how": "T-3180: end posts and inner posts 1.3 m either side of the middle; single kit posts stand where the photograph pairs them"
+    },
+    {
+      "what": "the central stair from the porch floor to the walk, x 415-570 px",
+      "status": "fixed",
+      "how": "T-3180: kit steps 1.6 m wide on the stair's line, eight risers to the raised floor"
+    },
+    {
+      "what": "the front's openings: below a single light, the door and a pair; above two single sash and a pair",
+      "status": "fixed",
+      "how": "T-3180: placed at v 1.8, 4.8, 7.8 below and 2.3, 5.0, 7.7 above; middles within 5-15 px"
+    },
+    {
+      "what": "one stack over the south part of the roof at x 300-335 px",
+      "status": "fixed",
+      "how": "T-3180: one brick stack at u 18, v 0.5; within 15 px"
+    },
+    {
+      "what": "nothing two storeys high south of the bay over the porch roof (x 35-107 px shows sky and distant buildings)",
+      "status": "fixed",
+      "how": "T-3180: the sheet's south wing built one storey"
+    },
+    {
+      "what": "the porch's posts in pairs, the three segmental arches between them, the turned balustrades either side of the stair, the stair's cheek walls",
+      "status": "open",
+      "owner": "T-3181"
+    },
+    {
+      "what": "the iron cresting round the porch deck at y 430-480 px",
+      "status": "open",
+      "owner": "T-3181"
+    },
+    {
+      "what": "the canted bay on the upper storey at the south end, x 107-333 px, under its hipped cap",
+      "status": "open",
+      "owner": "T-3182"
+    },
+    {
+      "what": "the round-arched casings and hood mouldings over every front window, and the ground storey's taller arched lights",
+      "status": "open",
+      "owner": "T-3182"
+    },
+    {
+      "what": "the frieze's small attic lights between paired carved brackets, and the eave projecting about 0.6-1.0 m against the kit's 0.42 m",
+      "status": "open",
+      "owner": "T-3182"
+    },
+    {
+      "what": "the low central gable over the middle of the front, its paired attic window and the hood over the middle window below it",
+      "status": "open",
+      "owner": "T-3182"
+    },
+    {
+      "what": "the body's colour: the photograph is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the stone posts and iron fence along the street line",
+      "status": "not shown",
+      "how": "not this record's: the street-line fence is an enclosure, outside the house's GLB"
+    },
+    {
+      "what": "the upper and lower window heads 15-30 px off the photograph's arch tops",
+      "status": "within tolerance",
+      "how": "under 0.4 m and inside the arched casings T-3182 replaces"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
