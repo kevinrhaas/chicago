@@ -357,7 +357,7 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
-step "Catalogue Brougham preserves registered near/mid, V18 lamps, contacts and inert interfaces (T-3084)" \
+step "Catalogue Brougham preserves physical masters, exact optical delivery, lamps, contacts and scoped Full/HEAD policy (T-3084)" \
   python3 tools/check_brougham_near.py
 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
