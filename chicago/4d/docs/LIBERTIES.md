@@ -33729,3 +33729,31 @@ dark tone: open on the match record. The 1874 Land Owner engraving is not read.
 hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
+
+### L-kimball-1801-east-frontispiece-3110 — 1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows
+
+**Decision:** HABS photograph 2 (Harold Allen, June 1965, from the north-west;
+`habs_kimball_photo_02_nw_1965`), the only picture that shows the 18th Street flank's east range
+whole (a tree stands in front of it in the Taylor print), has its camera solved
+(`data/reference_views/kimball_house_1801_prairie/habs_1965_02_northwest.json`) and the range is
+brought to it (T-3110). **What is read, not invented.** Through the camera, at the wall's depth: a
+shallow stone frontispiece between pilaster strips from grade, about 3.0-3.5 m across, on an axis
+at about u -7.85; a small round-arched light with an ornamental grille at about 2.4-3.1 m over the
+side door; a paired light in the upper storey at about 4.7-5.9 m; a coped gable through the eave
+between pinnacles, its apex about 8.65 m with a finial; and, of the range's other openings, one
+column of lights a storey at about u -12.6. Built: `bays.p_door`, a K08 full-height projection on
+r3b's 18th Street wall, 3.0 m wide and 0.1 m proud, two storeys to the wing's 6.35 m, the grilled
+round-headed light (0.8 x 0.75 m, sill 2.3 m) and a mullioned pair (1.5 x 1.2 m, sill 4.65 m) on
+its axis; r2's three reconstructed lights on that wall become the one column (s 5.3) and r3b's one
+is taken out. **What is invented or held by the kit.** The gable's pitch (1.5, apex about 8.6 m),
+its coping, kneelers, pinnacles and finial (sized after p_gable's), the grille's four bars and
+ring, the pair's mullion and surround, and the frontispiece's 0.1 m projection. **What it stops
+short of.** Its axis stands about 1.15 m west of the print's (u -6.7), because a K08 bay stands on
+one wing's wall and r3b's (u -8.5 to -4.6, the 1911 sheet's rectangle) holds it, where the print's
+straddles the sheet's junction of r3b and r2; the side door itself is not cut (no K01 wing or K08
+bay cuts a door); the hooded dormer on the range's roof and the stack behind the frontispiece are
+not built (a K01 wing's roof takes neither). All open in the match record.
+**How to resolve:** a door a K08 bay or a K01 wing can cut; wing dormers and wing stacks in the
+kit; a measured plan of the east range, or a reading that moves the sheet's junction.
+**Ticket:** T-3110 (piece 4 of T-3003).
+**Recorded:** 2026-10-26 (T-3110).
