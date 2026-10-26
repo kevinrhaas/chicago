@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2302, ts: '2026-10-26T05:13:16.206Z', date: 'Oct 26, 2026, 12:13 AM CT', title: 'Green Tree\'s entrance moves beside its paired front sash', kind: 'improvement',
+    items: [
+      'The Green Tree Tavern now has two front sash to the left of its entrance, following the historical drawings. Its cleared approach follows the moved doorway. The opening spacing is reconstructed; larger annex and long-wall differences remain under review.',
+    ] },
   { v: 2301, ts: '2026-10-26T03:42:20.702Z', date: 'Oct 25, 2026, 10:42 PM CT', title: '1828 Prairie, the Shipman house, rebuilt from its photographs', kind: 'feature',
     items: [
       '1828 Prairie Avenue is no longer a plain draft block. It now stands as Daniel B. Shipman\'s light stone house: two tall storeys over a raised basement, under a slated mansard with dormers.',
