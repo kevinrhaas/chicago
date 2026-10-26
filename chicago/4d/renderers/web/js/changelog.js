@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2314, ts: '2026-10-26T21:04:58.476Z', date: 'Oct 26, 2026, 4:04 PM CT', title: 'Log jail gains a high palisade', kind: 'improvement',
+    items: [
+      'A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review.',
+      'Light uses smaller house texture maps and builds distant rail sections as you approach to reduce phone memory use.',
+    ] },
   { v: 2313, ts: '2026-10-26T17:15:54.371Z', date: 'Oct 26, 2026, 12:15 PM CT', title: 'The Pullman house\'s portico and its porte-cochere on 18th Street', kind: 'feature',
     items: [
       '1729 Prairie\'s portico is now brownstone, on four columns under a stone balustrade, and its steps rise in the bay north of the door instead of across the whole porch. Read off the Detroit Publishing photograph.',

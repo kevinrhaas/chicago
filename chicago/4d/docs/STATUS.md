@@ -24978,3 +24978,78 @@ preintegration c6 published tree; the incoming9f7 change preserves all operative
 1835 geometry, terrain and entrance inputs exactly. Final current-base full
 preflight and CI results are recorded in the PR when actually complete. Original2376 is not closed
 by this bounded correction.
+
+
+### T-2380 — source-bounded jail palisade (2026-10-25)
+
+The actual Gale1902 p51 and complete plate/n79 support a high plank enclosure, absent from the previous scene. A compact palisade with pointed tops and a clear doorway-aligned passage is authored through the existing enclosure layer. Height, outline, stock, exact point and July continuity are reconstructed; the jail master, footprint, position, dates and population stay unchanged. Optional formal comparisons reuse the native enclosure renderer, hash its selected records/geometry dependencies/anchor placement, and retain legacy default views. The provisional cameras are compound diagnostics, not solved evidence of the mostly concealed original jail core; narrow not_pictured rulings preserve its existing inferred grade without denying the fence evidence. Keeper-house absence and unresolved cell/roof identity remain in the view discrepancy register. Actual source renders, published app grounding/access review, native reader pipeline and full preflight are still pending at this authored checkpoint. No image match or original ticket completion is claimed.
+
+The native grader retains its generic inferred wording, "no picture of it has been found"; here the two source-specific rulings refer to the concealed, ambiguous jail core. They do not deny the Gale compound picture or its palisade evidence. Provisional diagnostic camera poses are excluded from the historical From this spot reader action. Actual Images/Sources review remains pending.
+
+The finite native 61-step reader tail, owning package fixed point and publish passed on 25 October; 3,285 protected inputs and all 23 incoming workbooks remain byte-exact. On 26 October both official whole-source comparisons rendered the actual native pointed enclosure, with current picture, master, camera, selected enclosure, native geometry dependencies and anchor hashes verified. Both verdicts remain differs: the absent keeper house and unresolved compound/gate relationship are open; contradictory concealed-core roof depictions and provisional framing are recorded as source/camera limitations. Diagnostic cameras preserve picture credits without offering From this spot. Actual published mobile/desktop grounding, access and Sources review, fullcheck/preflight and latest-dev integration remain pending; this is not original-ticket completion.
+
+Published app review completed on 26 October at 390 x 780 and 1280 x 800: actual normal and By Grade views, pointed tops, credited Photos/Sources/Lib, core grade/placement/attributes, diagnostic spot absence, terrain grounding and all eight frame budgets passed. Each tested nine-step native walker path crossed the real gateway at E468.56 without a blocked movement sample; its ground and eye stayed correct. A separate coarse route-planning grid marks the final point near the core wall blocked; the original local-harness failure is preserved and actual-walker access was independently reviewed by root. This qualifies only the tested approach. The earlier 240-second readiness timeout and successful bounded retry are retained without a performance claim. Both formal views remain differs; the missing keeper house and compound/gate relationship remain open. Latest integrated cf25+88 owning native tail and fullcheck/preflight remain pending before code commit or PR.
+
+Combined cf25+88 native validation completed on 26 October: the owning 61-step tail converged in two native laps, the package tail and publish passed, and all 5,343 protected integrated source/asset files remained byte-exact. The single audit of every dirty XLSX/gzip/outside-4d path found two serialization-only changes, proved whole-artifact equality and restored exact incoming88 bytes. The earlier phone/desktop screenshots were captured on 9f7; their selected jail web GLB, native fence JSON/renderer and sidecar remain byte-identical in the combined published mirror. The incoming lighthouse change is preserved. Required wholecheck/preflight, code commit and PR remain pending; original T-2380 remains an unfinished image match.
+
+
+### T-2376 — the full-scene batch census retains the lighthouse glass
+
+The immutable checked 132 renderer matrix on `0c78d17b` exposed a real stage 8
+regression oracle mismatch at both viewports: six structure batches, four mapped,
+against the older five/four expectation. The active 1835 GLB census finds exactly
+one BLEND material, the existing T-3122 lighthouse's `lantern_cage_glass` at
+alpha 0.18. Green Tree's material records and primitive material indices are exact
+base 132 values; its opening positions did not create the extra material class.
+
+The scoped smoke repair retains six total and four mapped groups and additionally
+requires five opaque groups plus exactly one unmapped translucent batch owned
+only by the lighthouse, retaining its declared 0.18 uniform opacity within 1e-6.
+The renderer, assets, roughness assertions and reach assertions are unchanged.
+This new opacity predicate is UNVERIFIED at authoring; actual terminal native stage 8
+results on the new checked head belong in PR #1328 and its evidence checkpoint.
+The local one-context readiness timeout is not runtime opacity evidence. The
+original Green Tree image gate remains DIFFERS with its two visitor-visible gaps.
+
+
+The same immutable matrix exposed two further baseline-oracle mismatches. The
+lighthouse's recorded local origin is outside its explicitly offset 3.04 m
+footprint; GLB-CONTRACT fixes the origin at polygon coordinate(0,0), not an
+occupied corner. The shared drawn-placement census now compares the committed
+polygon's area centroid, independently transformed from its placement, with the
+GPU-read plan bounds. The original survey origin, vertex-by-vertex 1 mm transform
+bar, mirror checks, one-metre occupancy bar and sparse-camp treatment remain.
+No geometry, position, footprint or tolerance changes. Hand-authored offset-plan
+fixtures pass; translated, rotated, mirrored and wrong-record-footprint controls
+fail. The actual published reruns remain owed.
+
+The strict 1904 placed-record set also adds only
+`pullman_house_1729_prairie_ranges`: the T-1880/T-1934 separately retained stable
+and rear ranges, explicitly dated 1904-07-01 through 1911 and present in the
+1904 compiled sidecar, with no exclusion or suppressed-render ruling. It was the
+sole extra placed ID in both published viewport failures. Exact placed-set and
+registry equality and zero 1835-town-layer assertions remain. This is a corrected
+closed set, not permission for arbitrary new records; actual new-head stage 14
+results are still required.
+
+
+### T-2380 — Current dev integration and phone texture residency (2026-10-26)
+
+The jail palisade is integrated with actual dev `ecfff9f56ce359b70aa520e97d1923c12a6dafb2`, retaining the incoming 283 unique 1904 structure ids, current runner checks and all active 1835 geometry. Native full202, seven feedback steps, the settled 57-step tail, package export and publish passed; all 44 workbook/gzip artifacts were audited against the incoming tree, with raw regenerated serialization-only variants preserved. All 5,362 protected inputs remained exact.
+
+The current phone memory failure was real: 455.4 MiB against the unchanged 400 MiB Light ceiling. The existing Light texture policy had reached library sheets but not embedded GLB textures. It now reaches both initial decode and residency reload, once per texture. An actual regression fixture failed before the fix and passes 43 cases after it. Separating transient scalar/confidence readers also avoids retaining their source context. Mip-only measured 399.0 MiB; both fixes measured 395.8 MiB. Actual phone street/courtyard/1827 views, desktop Full/Balanced inventories and explicit eviction/reload passed without page or network errors; Full/Balanced mip dimensions and samplers stayed exact. Light deliberately shows less fine map detail; native assets are unchanged.
+
+The 1904 Full desktop measured 1168.7 MiB and failed its former1125 MiB ceiling. Its conscious Full-only re-budget follows the declared reading-plus10%, rounded to25MiB rule:1300MiB. The exact reading and staged-input binding are committed under docs/measurements. The full previous row is preserved at the definition, all five other viewport/year rows remain unchanged, and the phone400MiB floor is preserved. This is a measured point reading, not an all-camera guarantee or a passed old1125 gate.
+
+Native integration/ending gates and the current published both-viewport validation are reported on PR#1333. The selected published parts are1–2,3–4,12,13,14,15, with explicit unchanged active1835 inputs/semantic impact proof supporting dated actual8cd parts5–11; this is not a current whole18 or global-hash-equality claim. All685 active1835 WEB headers have no embedded images or textures. Original T-2380 remains DIFFERS: keeper-house/full-compound and conflicting roof readings remain open; no new photo follow-up is filed.
+
+
+### T-2380 — Hosted phone memory and deferred rail buffers (2026-10-26)
+
+The checked b3fb integration passed the native1076-step/387-self-test gate, both hosted still frames and five memory rows, but the actual hosted1904 phone read403.3MiB against400. This failure remains retained; local395.8 did not establish hosted headroom. A bounded static-instance release experiment recovered only1,013,384 rail CPU bytes and measured395.7 locally after full-count bound caching; it was restored without adoption.
+
+The adopted correction defers the existing far-rail sections until their unchanged drawing reach and disposes them outside that reach plus one-zone hysteresis. It retains native profiles, section order, materials and visibility. Newly reached near/far geometries receive the existing coarse-device upload callback before drawing. No caps, native building assets, rail shape, random scatter or detail reaches changed. The source-bound phone reading is384.0MiB; railway retained CPU drops exactly12,183,792B and actual GPU buffers143,358,180B/textures58,766,513B stay exact. The exact reading and uncommitted runtime-input binding are committed beside the earlier measurements. These are spawn readings, not all-camera guarantees.
+
+The new native lifecycle fixture holds the production rail geometry, all three tiers, boundaries, drop/rebuild identity and upload marking. Current actual walking/picture checks, final native/preflight and current hosted qualification remain pending on PR#1333. The source hash changes, but neither1835 nor1812 contains a railway consumer; their physical inputs and the reviewed selected12 plus dated8cd parts5–11 plan remain explicit. No current whole18 or global equality is claimed. Original T-2380 remains DIFFERS.
+
+Actual published phone review completed at19:55UTC: walking north/south, flying, leaving and returning correctly upload, drop and rebuild rail zones; a vertical pick resolves the actual track; the app switches Full and back to Light. Native baseline and deferred layers on the same terrain/camera/world have identical visible rail attribute/index bytes and zero differing pixels in five304,200-pixel held frames, including after rebuild. Hiding the rails changes19,587/18,380 pixels in the two street controls. Page, network and console-error lists are empty. An extra raw GL diagnostic1281 occurs at the first pose in BOTH the exact b3fb baseline and candidate; later pose queues are empty. It is retained as an existing qualified diagnostic, not described as zero GL errors. Final preflight/current hosted qualification still remains required.

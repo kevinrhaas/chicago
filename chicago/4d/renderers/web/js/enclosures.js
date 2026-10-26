@@ -219,6 +219,7 @@ const PARTS = {
   post: [0, 1, 2, 3, 4],
   rail: [2, 3, 4, 5],
   pale: [0, 1, 2, 3, 4],
+  pale_shoulder: [0, 1, 2, 3], // pointed stock has no buried cap under its head
   plank: [2, 3],
 };
 
@@ -266,6 +267,36 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
       buf.nrm.push(n0, n1, n2);
       buf.conf.push(level);
     }
+  }
+}
+
+/** The pointed head of a vertical pale; the body uses the ordinary timber box. */
+function pushPointedPale(buf, cx, foot, cz, ux, uz, width, height, point, level, plank) {
+  const shoulder = height - point;
+  pushBox(buf, cx, foot + shoulder / 2, cz, ux, uz, width / 2, PALE_T_M / 2,
+    shoulder / 2, level, plank ? 'plank' : 'pale_shoulder');
+  const w = width / 2, t = plank ? 0 : PALE_T_M / 2;
+  const vx = -uz, vz = ux;
+  // Local (along, across, up). Each face has its own outward unit normal,
+  // including the two sloping edges retained by Full's thick-stock form.
+  const triangle = (points, normal) => {
+    for (const [u, v, y] of points) {
+      buf.pos.push(cx + ux * u + vx * v, foot + y, cz + uz * u + vz * v);
+      buf.nrm.push(normal[0] * ux + normal[1] * vx, normal[2],
+        normal[0] * uz + normal[1] * vz);
+      buf.conf.push(level);
+    }
+  };
+  triangle([[-w, t, shoulder], [w, t, shoulder], [0, t, height]], [0, 1, 0]);
+  triangle([[-w, -t, shoulder], [0, -t, height], [w, -t, shoulder]], [0, -1, 0]);
+  if (!plank) {
+    const length = Math.hypot(point, w);
+    const left = [-point / length, 0, w / length];
+    const right = [point / length, 0, w / length];
+    triangle([[-w, -t, shoulder], [-w, t, shoulder], [0, t, height]], left);
+    triangle([[-w, -t, shoulder], [0, t, height], [0, -t, height]], left);
+    triangle([[w, t, shoulder], [w, -t, shoulder], [0, -t, height]], right);
+    triangle([[w, t, shoulder], [0, -t, height], [0, t, height]], right);
   }
 }
 
@@ -435,6 +466,13 @@ function formOf(record) {
   // boards, which is millimetres; a pale's floor stays where it was.
   const palePitch = paleW + Math.max(board ? 0 : 0.01,
     (board ? form.board_gap_m?.value : form.picket_gap_m?.value) ?? 0.089);
+  const top = form.top_shape?.value ?? 'flat';
+  if (!['flat', 'pointed'].includes(top) || (top === 'pointed' && !closed))
+    throw Error(`enclosures: ${record.id} has an invalid fence top shape`);
+  const point = top === 'pointed'
+    ? (form.point_height_m === undefined ? paleW / 2 : form.point_height_m?.value) : 0;
+  if (top === 'pointed' && (!Number.isFinite(point) || point <= 0 || point >= height))
+    throw Error(`enclosures: ${record.id} point must be positive and below the total height`);
   // The weakest grade on anything that decides where a stick of this fence is.
   // In practice that is the fence type, and no fence type in this dataset is
   // anything but invented; the max is here so the day a source describes one,
@@ -442,8 +480,10 @@ function formOf(record) {
   const level = Math.max(
     LEVEL[form.fence_type?.confidence] ?? 1,
     LEVEL[form.height_m?.confidence] ?? 1,
+    ...(top === 'pointed' ? [LEVEL[form.top_shape?.confidence] ?? 1,
+      LEVEL[form.point_height_m?.confidence] ?? 1] : []),
   );
-  return { height, courses, spacing, postHalf, closed, board, paleW, palePitch, level };
+  return { height, courses, spacing, postHalf, closed, board, paleW, palePitch, level, point };
 }
 
 /**
@@ -516,7 +556,7 @@ function flushChunk(ch) {
 /** One run's timber, emitted into the shared chunker. */
 function emitRun(task, terrain, ch, tally, plankPales) {
   const { record, run, form: f } = task;
-  const { height, courses, spacing, postHalf, closed, paleW, palePitch, level } = f;
+  const { height, courses, spacing, postHalf, closed, paleW, palePitch, level, point } = f;
   // Every chunk this run's timber lands in names the record — `recordIds` is what a
   // reader asking "what is in this mesh" gets back.
   const path = run.path_local_enu_m;
@@ -549,8 +589,9 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     const post = (foot) => {
       if (!foot) return;
       cover(ch.buf, foot.e, foot.n);
-      pushBox(ch.buf, foot.e, foot.y + height / 2, -foot.n, 1, 0,
-        postHalf, postHalf, height / 2, level, 'post');
+      const postHeight = point ? height - point : height;
+      pushBox(ch.buf, foot.e, foot.y + postHeight / 2, -foot.n, 1, 0,
+        postHalf, postHalf, postHeight / 2, level, 'post');
       tally.posts++;
     };
     for (let i = 0; i < n; i++) {
@@ -592,10 +633,15 @@ function emitRun(task, terrain, ch, tally, plankPales) {
         const first = (len - (count - 1) * palePitch) / 2;
         for (let k = 0; k < count; k++) {
           const t = (first + k * palePitch) / len;
-          pushBox(ch.buf,
-            a.e + de * t, a.y + (b.y - a.y) * t + height / 2, -(a.n + dn * t),
-            ux, uz, paleW / 2, PALE_T_M / 2, height / 2, level,
-            plankPales ? 'plank' : 'pale');
+          if (point) {
+            pushPointedPale(ch.buf, a.e + de * t, a.y + (b.y - a.y) * t,
+              -(a.n + dn * t), ux, uz, paleW, height, point, level, plankPales);
+          } else {
+            pushBox(ch.buf,
+              a.e + de * t, a.y + (b.y - a.y) * t + height / 2, -(a.n + dn * t),
+              ux, uz, paleW / 2, PALE_T_M / 2, height / 2, level,
+              plankPales ? 'plank' : 'pale');
+          }
           tally.pales++;
         }
       }
