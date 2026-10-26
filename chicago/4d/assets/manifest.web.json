@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -114,7 +114,7 @@
     "goodman_house_1612_prairie__as_built_1869.glb": "d6904c23d074e8fd2d085a9ad433dfbbd0d2357fdae5664079fed609f8f459a1",
     "goodman_house_1612_prairie_coach_house__draft_1904.glb": "765abce6b532d2c405e2d9854041f23b3d64ecb9d28879c1e72e1ab1a9357168",
     "goss_cobb_saddlery__shop_1833.glb": "65ddad1ac29c0c15c7e0d1925baad9e23a33fd6b0ef0ae359a80d3b6257b7ae9",
-    "green_tree_tavern__frame_1833.glb": "06502d3176ac43778dcbd8da7de059416db044661a91e2a4df9045c5f9ca9364",
+    "green_tree_tavern__frame_1833.glb": "d2ce4d0ac6bcd66111382dc93504d3b5467287438ceb280a47672898954a0c5d",
     "h_jones_store__frame_1833.glb": "991f3081617d0fa60eefbf666106c7f3ff5078a9487d89ea3042f988e4d04155",
     "hanford_house_2008_calumet__draft_1904.glb": "8e32dfd6fecf8a500faa53911e12bd0c594774f48a36ca1db1a5f5b34fdd5194",
     "hanford_house_2008_calumet_coach_house__draft_1904.glb": "ec6b6d671e4faf2dfddb1d4b7001fa05ad612bbbe24d1bf0984f8fb51aeba5a3",

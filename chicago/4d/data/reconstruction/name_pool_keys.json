@@ -195,7 +195,8 @@
       "phases[].form.chimney_head_m.note",
       "phases[].form.gallery_storeys.note",
       "phases[].form.face_openings.note",
-      "phases[].form.railing_kind.note"
+      "phases[].form.railing_kind.note",
+      "phases[].form.front_ground_layout.note"
     ],
     "households": [
       "arrival.note",

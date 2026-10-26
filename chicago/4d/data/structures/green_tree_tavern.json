@@ -218,6 +218,20 @@
             "andreas_1884_green_tree_hotel_plate"
           ],
           "note": "The pictured main gable continues the framed wall’s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
+        },
+        "front_ground_layout": {
+          "value": [
+            0.2,
+            0.5,
+            0.78
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_green_tree_hotel_plate",
+            "trowbridge_green_tree_1902",
+            "kurz_allison_1893"
+          ],
+          "note": "Two sash left of a rightmost front-gable entrance agree in the actually viewed Andreas 1884 p634/n1301 plate, Trowbridge/Gale 1902 plate facing p35/n55, and Kurz & Allison 1893 panel11. This is retrospective form agreement, not independent contemporaneous proof of 1 July 1835; Kurz may derive from Andreas and Trowbridge may rely on later material. The ascending LOCAL-u fractions are door .20, sash .50, sash .78: exterior +y viewers see higher u toward screen left, so this yields two screen-left sash and a screen-right entrance. Exact centre fractions .20/.50/.78 across the existing 7.62 m wall, equal existing .85x1.35 m sash and 1.20x2.10 m door stock, sill bands, sections and hidden joinery are RECONSTRUCTED, not measured or attested by those pictures. Only the +y front ground floor opts in. The current two upper sash versus Trowbridge's three, attic light, text-attested south-side door, disputed additions, roof, geographic placement and all existing source/camera uncertainties stay unresolved. The held-rights/unverified 1859 source is excluded as a geometry witness. Original T-2376 remains open/differs; this is not a solved camera or picture match. The same pure resolved_front_ground_stations dataclass property (whose actual values are covered by the existing native mesh recipe) is consumed by the mesh and the native entrance/apron/clearance reader after resolving exactly the sidecar-selected source phase; no renderer facade API or bearing is changed."
         }
       },
       "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them."
