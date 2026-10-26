@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2310, ts: '2026-10-26T17:06:31.719Z', date: 'Oct 26, 2026, 12:06 PM CT', title: 'The placement check reads the lighthouse\'s footprint and names the right building', kind: 'fix',
+    items: [
+      'The release check that every building is drawn around the spot its record gives it was failing on the 1832 lighthouse. Its slimmer tower (T-3122) stands inside its plot rather than at the plot\'s corner, so the check now measures each building against its recorded footprint instead of the bare corner point. Every other building in 1835 is measured exactly as before.',
+      'When that check fails it now names the building that actually failed. It used to name the land-sale camp, which the check never gates, and the fault was filed against the wrong structure.',
+    ] },
   { v: 2309, ts: '2026-10-26T15:46:06.115Z', date: 'Oct 26, 2026, 10:46 AM CT', title: '1824 Prairie, the Pomeroy/Marsh house, rebuilt from its photographs', kind: 'feature',
     items: [
       '1824 Prairie Avenue is no longer a plain draft block. It now stands as Samuel B. Pomeroy\'s 1857 villa, two tall storeys over a raised basement under a deep bracketed eave and a low hip, behind the stone front George B. Marsh gave it after 1880.',
