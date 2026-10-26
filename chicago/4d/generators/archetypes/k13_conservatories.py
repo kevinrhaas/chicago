@@ -376,9 +376,57 @@ def form_segmental_bay(v, data):
     }
 
 
+def form_span_apse(v, data):
+    """T-3164: a span house whose right end is rounded, as the 1911 sheet draws the east end of
+    Pullman's glasshouse range across 18th Street: the end wall is a half-polygon of `facets`
+    sides inscribed in a semicircle of half the span's width, under a half-cone of glass
+    triangles whose hips all run to the ridge's end. The ridge runs `apex_out_m` past the
+    springing, so the two hips off the side roofs do not lie in the springing's own upright
+    plane, where they would share faces with the corner posts below them; the side roofs
+    stay planar (their slope does not change along the ridge), and the cone's pitch is the
+    roof's at the crown of the curve."""
+    L, W, he, n = v["length_m"], v["width_m"], v["eave_m"], v["facets"]
+    if n < 3:
+        raise ValueError(f"{v['id']}: an apse needs at least 3 facets, not {n}")
+    R = W / 2
+    hr = he + R * math.tan(math.radians(v["pitch_deg"]))
+    ring = [(L + R * math.sin(math.pi * k / n), R - R * math.cos(math.pi * k / n)) for k in range(n + 1)]
+    ring[0], ring[-1] = (L, 0.0), (L, W)           # exactly on the span's eave lines
+    apex = (L + v.get("apex_out_m", 0.25 * R), hr, R)
+    door = v.get("door") or {}
+    b = v["bays"]
+    P = [
+        Panel("front", [(0, 0, W), (L, 0, W), (L, he, W), (0, he, W)], (0, 0, 1), plinth=True, bays=b),
+        Panel("back", [(L, 0, 0), (0, 0, 0), (0, he, 0), (L, he, 0)], (0, 0, -1), plinth=True, bays=b),
+        Panel("roof_front", [(0, he, W), (L, he, W), apex, (0, hr, R)], (0, 1, 1), bays=b),
+        Panel("roof_back", [(L, he, 0), (0, he, 0), (0, hr, R), apex], (0, 1, -1), bays=b),
+        Panel("end_left", [(0, 0, 0), (0, 0, W), (0, he, W), (0, hr, R), (0, he, 0)], (-1, 0, 0), plinth=True,
+              door=door if door.get("wall") == "end_left" else None),
+    ]
+    for k in range(n):
+        (x0, z0), (x1, z1) = ring[k], ring[k + 1]
+        hint = ((x0 + x1) / 2 - L, 0.0, (z0 + z1) / 2 - R)
+        P.append(Panel(f"apse_{k}", [(x0, 0, z0), (x1, 0, z1), (x1, he, z1), (x0, he, z0)], hint, plinth=True,
+                       bays=1))
+        P.append(Panel(f"apse_roof_{k}", [(x0, he, z0), (x1, he, z1), apex], (hint[0], 1.0, hint[2]), bays=1))
+    return {
+        "panels": P, "host": False, "closed": True,
+        "plan": [(0, 0)] + ring + [(0, W)],
+        # one eave all the way round, back, curve and front, so the curve sheds too
+        "eaves": {"round": [(0, he, 0)] + [(x, he, z) for x, z in ring] + [(0, he, W)]},
+        "ridges": [((0, hr, R), apex, v["pitch_deg"])],
+        "benches": [("front", (0, W), (L, W)), ("back", (L, 0), (0, 0))], "border": None,
+        "eave_m": he, "top_m": hr, "centre": ((L + R) / 2, hr / 2, R),
+    }
+
+
 FORMS = {"lean_to": form_lean_to, "span": form_span, "span_lantern": form_span_lantern,
          "curvilinear_lean_to": form_curvilinear_lean_to, "canted_bay": form_canted_bay,
-         "segmental_bay": form_segmental_bay}
+         "segmental_bay": form_segmental_bay, "span_apse": form_span_apse}
+
+#: The forms that stand against a house wall and need a `host_wall` on their record. A
+#: free-standing house (a span, with or without its lantern or apse) needs none (T-3164).
+HOST_FORMS = frozenset({"lean_to", "curvilinear_lean_to", "canted_bay", "segmental_bay"})
 
 
 # -- the builder ----------------------------------------------------------------------------
@@ -493,6 +541,12 @@ class House:
     def build(self):
         v, d = self.v, self.data
         f = FORMS[v["form"]](v, d)
+        # T-3164: an end wall another glasshouse closes (`abuts`, the free-standing forms' end
+        # walls by name) is left out, so a line of sight never meets a second glass envelope
+        # inside the first; the plinth still runs under it, as the two houses' shared footing
+        abuts = set(v.get("abuts") or ())
+        if abuts:
+            f["panels"] = [p for p in f["panels"] if p.name not in abuts and p.name.removesuffix("_lantern") not in abuts]
         self.form = f
         self.panels = f["panels"]
         self.meta.update({"eave_m": f["eave_m"], "top_m": f["top_m"], "centre": list(f["centre"])})
