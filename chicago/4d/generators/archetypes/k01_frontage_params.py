@@ -203,6 +203,10 @@ class K01FrontageParams:
     # weathering over its cap and the eave brought in over it ({"to_m", "band_m", "cap_m",
     # "band_proud_m", "cap_proud_m", "weathering_pitch_deg"}; 1811's, off its three pictures)
     front_pier: dict = field(default_factory=dict)
+    # T-3158: a stone street front divided into pavilions — its rusticated quoined piers, the
+    # frieze's bed and panels between them, the cornice's modillions and the mansard's ribs over
+    # the piers (`street_front_pavilions`, k01_pavilions; 1729's, off the Detroit print)
+    pavilions: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -263,7 +267,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers", "round_corner", "front_pier",
+    "slope_dormers", "round_corner", "front_pier", "street_front_pavilions",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -5045,6 +5049,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
     front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
                              mansard_roof, pf + sum(heights))
+    from .k01_pavilions import ParamError as PavilionError, resolve as resolve_pavilions
+    try:
+        pavilions = resolve_pavilions(val("street_front_pavilions"), width=width, stone=stone, openings=openings,
+                                      mansard=mansard_roof, eave=pf + sum(heights),
+                                      wall_head=dict(val("wall_head", {}) or {}))
+    except PavilionError as e:
+        raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -5102,7 +5113,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
-        round_corner=round_corner, front_pier=front_pier,
+        round_corner=round_corner, front_pier=front_pier, pavilions=pavilions,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

@@ -417,10 +417,12 @@ def _cornice(a, K, data, bays, conf):
         ev = b["variant"].get("overrides", {}).get("eaves", {})
         if [tuple(q) for q in ev.get("profile", ())] == sec:
             wall_top = math.fsum(st["height_m"] for st in b["variant"]["storeys"])
-            if b["variant"].get("base") != "grade" or wall != runs(p)[0].name or abs(wall_top - y_bed) > 0.001:
-                raise ValueError(f"the bay {b['id']} carries the cornice's section; it rises from grade on the "
-                                 f"street front to the bed moulding's foot at {y_bed:.3f} m (has {wall_top:.3f})")
-            cut.append(tuple(b["span_m"]))
+            # T-2964: on any wall (1816's south flank bay, carried up into its own mansard), its
+            # cut at that wall's perimeter s, as a tower's is
+            if b["variant"].get("base") != "grade" or abs(wall_top - y_bed) > 0.001:
+                raise ValueError(f"the bay {b['id']} carries the cornice's section; it rises from grade "
+                                 f"to the bed moulding's foot at {y_bed:.3f} m (has {wall_top:.3f})")
+            cut.append(tuple(at_run[wall] + s for s in b["span_m"]))
             continue
         if b.get("through_eave"):
             # T-2778: an oriel carried up through the eave; the bed moulding dies into its

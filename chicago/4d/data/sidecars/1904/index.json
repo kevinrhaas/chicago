@@ -55,9 +55,9 @@
     },
     {
       "id": "dent_house_1823_prairie",
-      "name": "1823 Prairie Avenue — Dent masonry mansion (district draft; refined by T-1894)",
+      "name": "1823 Prairie Avenue — Thomas Dent house",
       "sidecar": "sidecars/1904/dent_house_1823_prairie.json",
-      "asset": "gltf/dent_house_1823_prairie__draft_1904.glb"
+      "asset": "gltf/dent_house_1823_prairie__as_mapped_1904.glb"
     },
     {
       "id": "dexter_house_1721_prairie",
@@ -1452,6 +1452,30 @@
       "asset": "gltf/otis_house_2033_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "pullman_glasshouse_1800_calumet_east",
+      "name": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13",
+      "sidecar": "sidecars/1904/pullman_glasshouse_1800_calumet_east.json",
+      "asset": "gltf/pullman_glasshouse_1800_calumet_east__as_standing_1904.glb"
+    },
+    {
+      "id": "pullman_glasshouse_1800_calumet_east_end",
+      "name": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13",
+      "sidecar": "sidecars/1904/pullman_glasshouse_1800_calumet_east_end.json",
+      "asset": "gltf/pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb"
+    },
+    {
+      "id": "pullman_glasshouse_1800_calumet_north",
+      "name": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13",
+      "sidecar": "sidecars/1904/pullman_glasshouse_1800_calumet_north.json",
+      "asset": "gltf/pullman_glasshouse_1800_calumet_north__as_standing_1904.glb"
+    },
+    {
+      "id": "pullman_glasshouse_1800_calumet_pavilion",
+      "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13",
+      "sidecar": "sidecars/1904/pullman_glasshouse_1800_calumet_pavilion.json",
+      "asset": "gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb"
+    },
+    {
       "id": "pullman_house_1729_prairie",
       "name": "1729 Prairie Avenue — the George M. Pullman house (K01; refined by T-1881)",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie.json",
@@ -1468,6 +1492,12 @@
       "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; refined by T-1934)",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie_ranges.json",
       "asset": "gltf/pullman_house_1729_prairie_ranges__draft_1904.glb"
+    },
+    {
+      "id": "pullman_lodge_1800_calumet",
+      "name": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges",
+      "sidecar": "sidecars/1904/pullman_lodge_1800_calumet.json",
+      "asset": "gltf/pullman_lodge_1800_calumet__as_standing_1904.glb"
     },
     {
       "id": "ream_house_1901_prairie",

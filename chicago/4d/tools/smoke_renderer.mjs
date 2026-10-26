@@ -20211,7 +20211,17 @@ for (const [label, viewport, touch] of [
           'house_1921_indiana_coach_house',
           'house_1931_indiana',
           'house_1931_indiana_rear_dwelling',
-          'house_213_e18th'].sort();
+          'house_213_e18th',
+          // T-1880 kept the Pullman house's stable, range and porte-cochere as a record of their own
+          // and left it off this list; T-3164 found it there and added it.
+          'pullman_house_1729_prairie_ranges',
+          // T-3164 stood Pullman's glasshouse ground across 18th Street at 1800 Calumet: four
+          // K13 glasshouses and the lodge between them.
+          'pullman_glasshouse_1800_calumet_pavilion',
+          'pullman_glasshouse_1800_calumet_north',
+          'pullman_glasshouse_1800_calumet_east',
+          'pullman_glasshouse_1800_calumet_east_end',
+          'pullman_lodge_1800_calumet'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
