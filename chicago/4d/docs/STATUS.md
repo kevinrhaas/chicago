@@ -24948,3 +24948,33 @@ The broad Full Fly diagnostic remains over the unchanged triangle cap: exact pre
 The retained before-change published view at 390 x 780 shows inherited clipping: a 292 px host contains a 349.859 px news-grid track, and entry boxes extend to x 424.859 beyond the screen's x 381 edge. All 2,250 rows rendered without page or HTTP errors. The screenshot and actual bounds distinguish this layout defect from the earlier diagnostic helper's stricter readiness timeout.
 
 The change constrains only the three existing news grids to a zero-minimum flexible column and permits intact text, including long links, to wrap. Typography, content, unread logic, navigation and every pre-existing CSS rule remain intact; no clipping mask or smaller font is introduced. Delivery evidence must cover real published 390 x 780 and 1280 x 800 views, every row at 100% and 140% text size, the six news-flow assertions, current content and the About route, together with preflight and ordinary exact-head CI. Focused notes evidence is recorded separately from a whole-part13/full-renderer pass.
+
+
+## T-2376 - Green Tree front-ground opening correction (2026-10-25)
+
+The main gable front now places two sash to the viewer's left of its rightmost
+entrance. The reconstructed local stations .20/.50/.78 are consumed directly by
+both the mesh and the exact-selected-phase native entrance reader through the
+hash-covered dataclass property. The door and native apron move 2.286m together;
+footprint, bearing, dates, existing finish and all old source grades remain.
+Genuine pinned Blender4.5.3 and supported glTF-Transform4.5.0 refreshed all23
+family masters and derivatives; all22 non-target master AND web bytes are exactly
+unchanged. Native liberties and20 picture-feature tests pass. The ordered61-step
+tail settled after native publish; an initial fresh-checkout missing-mirror
+prerequisite failure is retained, not called PASS. Actual incoming workbook
+serialization was restored only after all12 archive members were semantically
+exact, followed by the native dependent package tail.
+
+Actual source comparisons are registered and still DIFFERS: large annex/massing
+and long-wall entrance differences stay OPEN; camera and conflicting drawing
+details are within tolerance under T-3153. The known unverified1859 catalogue
+photo is not newly cleared or backdated. No new ticket is filed. Actual targeted published app review passed at390x780 and1280x800: normal and
+ByGrade full/front views, four credited picture links, the new liberty, unchanged
+old attributes and placement, actual served WEB hash, and clear grounded approach
+stands at2m and3m. The unchanged coarse route grid blocks an extra1m probe; it is
+a retained diagnostic, not a claimed interior walk. The native Images source
+entries remain link-only in the existing compiler. These captures use the
+preintegration c6 published tree; the incoming9f7 change preserves all operative
+1835 geometry, terrain and entrance inputs exactly. Final current-base full
+preflight and CI results are recorded in the PR when actually complete. Original2376 is not closed
+by this bounded correction.

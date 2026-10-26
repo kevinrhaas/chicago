@@ -1,4 +1,43 @@
 export const CHANGELOG = [ // newest first
+  { v: 2307, ts: '2026-10-26T14:36:25.035Z', date: 'Oct 26, 2026, 9:36 AM CT', title: '1823 Prairie, the Dent house, rebuilt from its engraving', kind: 'feature',
+    items: [
+      '1823 Prairie Avenue is no longer a plain draft block. It now stands as Thomas Dent\'s house: a light stone front on brick sides, two storeys over a raised basement, under a tall slated mansard with dormers.',
+      'At the front\'s south end a pavilion steps forward under its own steep roof, with one broad window on each floor.',
+      'North of it the door sits at the top of its stoop, beside groups of three tall windows on both floors. A tall chimney rises over the north wall, where the engraving shows it.',
+      'The pavilion\'s pediment and paired attic windows, the side bay on the north wall and the curving stoop are not built yet. They come next.',
+    ] },
+  { v: 2306, ts: '2026-10-26T13:35:50.913Z', date: 'Oct 26, 2026, 8:35 AM CT', title: 'Nothing you can see changed: room for finished houses again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance again, which held back a finished Prairie Avenue house. The growth since 20 October is measured: mostly the period carriages and horses, and the houses rebuilt from their photographs.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit, and the two biggest ways to hand bytes back are measured for later.',
+    ] },
+  { v: 2305, ts: '2026-10-26T09:28:31.179Z', date: 'Oct 26, 2026, 4:28 AM CT', title: '1816 Prairie\'s bays rise into crowned mansards under iron cresting', kind: 'improvement',
+    items: [
+      'Charles M. Henderson\'s house at 1816 Prairie Avenue (1904) now matches more of its photograph: both canted bays are carried up through the cornice into mansards of their own, the corner\'s a raised crown standing over the main roof, the south flank\'s lower, each ringed with iron cresting.',
+      'Iron cresting runs along the main roof\'s street curb, the three dormers are square-headed under pediments, and the front fence is cast-iron scrollwork instead of plain spears.',
+      'Still to come, and listed on the house\'s match record: the dormers in the two crowns, the carved window hoods, the balcony\'s taller railing with the door onto it, and the brick\'s dark tone.',
+    ] },
+  { v: 2304, ts: '2026-10-26T07:40:59.198Z', date: 'Oct 26, 2026, 2:40 AM CT', title: 'The Pullman house\'s front divided into pavilions', kind: 'feature',
+    items: [
+      '1729 Prairie\'s front is now divided into bays by banded stone piers, one turning the corner onto 18th Street, with the cornice stepping forward over each. Read off the Detroit Publishing photograph.',
+      'A deep frieze with framed panels runs under the cornice, a row of modillions runs round it, and raised ribs divide the mansard over the north bays. The north-west bay has its own dormer.',
+    ] },
+  { v: 2303, ts: '2026-10-26T06:34:03.026Z', date: 'Oct 26, 2026, 1:34 AM CT', title: 'Pullman\'s glasshouses rise across 18th Street', kind: 'feature',
+    items: [
+      'The open lawn east of Prairie at 18th Street now holds the Pullman estate\'s glasshouses, placed as the 1911 fire-insurance map draws them: a tall pavilion with a raised lantern, a long range running south from it, and a second range running east to a rounded glass end.',
+      'A two-storey brick lodge stands where the two ranges meet.',
+      'Every height, roof and pane is a reconstruction from the project\'s conservatory kit, and the cards say so. Matching them to the 1890s photographs comes next.',
+    ] },
+  { v: 2302, ts: '2026-10-26T05:13:16.206Z', date: 'Oct 26, 2026, 12:13 AM CT', title: 'Green Tree\'s entrance moves beside its paired front sash', kind: 'improvement',
+    items: [
+      'The Green Tree Tavern now has two front sash to the left of its entrance, following the historical drawings. Its cleared approach follows the moved doorway. The opening spacing is reconstructed; larger annex and long-wall differences remain under review.',
+    ] },
+  { v: 2301, ts: '2026-10-26T03:42:20.702Z', date: 'Oct 25, 2026, 10:42 PM CT', title: '1828 Prairie, the Shipman house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1828 Prairie Avenue is no longer a plain draft block. It now stands as Daniel B. Shipman\'s light stone house: two tall storeys over a raised basement, under a slated mansard with dormers.',
+      'A canted bay rises through both storeys on the front, and a porch on columns with a deep entablature and a balustrade stands at the head of the stoop.',
+      'The porch\'s round arches, its carving and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
   { v: 2300, ts: '2026-10-26T02:24:06.618Z', date: 'Oct 25, 2026, 9:24 PM CT', title: '1801 Prairie\'s south side, from its 1965 photograph', kind: 'improvement',
     items: [
       'The two tall stone chimneys over the W. W. Kimball house\'s south wall now carry their carved heads, a collar under a diamond-latticed stage and a heavy cap, on broader bases rising from the cornice, as Harold Allen\'s 1965 HABS photograph shows them.',

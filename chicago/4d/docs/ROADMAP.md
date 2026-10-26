@@ -5896,3 +5896,15 @@ Adopt only the reviewed board-parapet selector and credited Andreas correction, 
 ### T-3125 — keep complete release notes inside the Navigator
 
 The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.
+
+
+### T-2376 front-ground picture increment - 2026-10-25
+
+Adopted the reviewed V3 front-ground layout with its consumed/hash-covered
+parameter property and matching native primary entrance, without changing the
+legacy40 positional API or22 default physical assets. Genuine23 master/web
+refresh and source comparison are complete. Keep the visibly different annex
+and long-wall reading in the same match record; the T-3153 stopping rule treats
+camera/drawing disagreements within tolerance and creates no follow-up tickets.
+The original remains open while those larger discrepancies remain. App/current-
+base full qualification and actual merge are recorded separately when complete.
