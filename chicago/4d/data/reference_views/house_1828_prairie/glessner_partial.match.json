@@ -1,0 +1,88 @@
+{
+  "structure_id": "house_1828_prairie",
+  "view": "glessner_partial",
+  "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
+  "glb_sha256": "52b77ac5c1cdf7636f9e0192481fc2c944ee27ef50ed53f4368270bf41d6af3d",
+  "camera_sha256": "8f9167ca5a55f920dd6ede2b7a979f0e261e05fbd0e457e4d755c1c6d41d17a5",
+  "photo_sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/glessner_partial-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the recessed north part of the front square-on, the canted bay's north cheek at the left edge, the house's north corner (x 195 px), the main cornice (y 200-222)",
+      "status": "fixed",
+      "how": "T-3166's K01 front; through this camera the corner, the cornice and the porch render within about 10 px (the camera's solve)"
+    },
+    {
+      "what": "the porch's place, width and height: two front columns (x 108, 185), the entablature and the balustrade on its top (y 312-347), its floor at the principal floor (y 470)",
+      "status": "fixed",
+      "how": "T-3166: K01's door hood on two columns, 2.4 m wide and 1.8 m out, soffit 6.0 m, fascia 1.0 m, railing 0.6 m"
+    },
+    {
+      "what": "the second-storey window over the porch (x 116-152, y 243-320)",
+      "status": "within tolerance",
+      "how": "built over the door, rendering about 14 px (0.4 m) south of the print's; the porch it stands over renders about 6 px south too, so against the porch it is under 0.2 m off, inside what this fit's pixel aspect can say"
+    },
+    {
+      "what": "the mansard's height: its curb about 125-145 px over the main cornice",
+      "status": "open",
+      "how": "T-3168 raised the face from 3.6 to 4.5 m, the most K05/K01 give a one-storey (attic) face; through this camera the curb still renders about 25-30 px (about 1 m) under the print's. A two-storey face (4.5-7.5 m) would build an attic the print does not show, and how much of the gap is real rests on the 1.52 pixel aspect the camera's solve explains"
+    },
+    {
+      "what": "the street dormers: a tall light in a face about 1.4 m across, the one over the porch at x 110-162, y 110-175",
+      "status": "fixed",
+      "how": "T-3168: each light 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the porch's renders at x 100-152 and its head about 20 px under the print's, with the curb"
+    },
+    {
+      "what": "the dormers' heads: square-headed lights under a curved hood on the face",
+      "status": "within tolerance",
+      "how": "built as K01's round-headed lower-face dormer, whose surround is carried round the arch: the silhouette, a face with a curved top, is the print's; the light's own head differs by under a foot at the crown"
+    },
+    {
+      "what": "the canted bay carried up through the cornice into the mansard with a dormer of its own (top left, x 0-35, y 45-140)",
+      "status": "open",
+      "how": "built as a dormer over the bay on the mansard's face (along 2.4 m); the bay's faces stop at the main cornice under their own hip"
+    },
+    {
+      "what": "the iron cresting along the mansard's curb (y 48-62 px)",
+      "status": "fixed",
+      "how": "T-3168: K01's deck cresting, 0.5 m high, 0.08 m in from the curb"
+    },
+    {
+      "what": "the main cornice on scrolled brackets",
+      "status": "within tolerance",
+      "how": "built as K10's moulded stone cornice at the print's height and projection within about 10 px; the brackets' relief is under a foot"
+    },
+    {
+      "what": "the porch's round arch on its front and its south side, the carved spandrels and capitals, and the third column",
+      "status": "open",
+      "how": "built as a flat soffit on two square-capped columns (the automobile view's match record carries the same difference)"
+    },
+    {
+      "what": "the porch's balustrade: solid stone panels, heavier than the build's joinery railing",
+      "status": "open",
+      "how": "built as K01's painted railing, 0.6 m; as in the automobile view"
+    },
+    {
+      "what": "the stoop's cheeks: massive stone parapets sloping out to blocks at the foot (x 95-140 and 200-245)",
+      "status": "open",
+      "how": "built as K07's plain stone cheeks; as in the automobile view"
+    },
+    {
+      "what": "the boundary: a low solid stone wall along the walk (y 545-590), no iron fence over it",
+      "status": "within tolerance",
+      "how": "the automobile photograph (about 1897-1906) shows an iron fence on the curb before the house, which is what is built (K11's spear fence on its curb); the two pictures disagree, the partial view being undated"
+    },
+    {
+      "what": "the front's stone, mottled in this print",
+      "status": "not shown",
+      "how": "smooth in the larger automobile print: a print effect or weathering; built as K02's smooth Lemont ashlar (the stone_front note)"
+    },
+    {
+      "what": "the next house north, set back, its south flank and front at the right",
+      "status": "not shown",
+      "how": "1824 Prairie, judged on its own camera (marsh_house_1824_prairie/chicagology_automobile.json); this camera renders 1828 alone"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

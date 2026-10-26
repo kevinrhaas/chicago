@@ -1,0 +1,27 @@
+{
+ "structure_id": "marsh_house_1824_prairie",
+ "source_id": "chicagology_1828_shipman_automobile",
+ "library_image": "cgn-1828-shipman-automobile-copy",
+ "photo": "../../sources/assets/shipman_1828_photos_t1887/shipman_1828_automobile.jpg",
+ "image_px": [
+  1200,
+  969
+ ],
+ "principal_px": [
+  0.0,
+  496.0
+ ],
+ "focal_px": 1510.0,
+ "eye": [
+  45.1,
+  -16.5,
+  1.6
+ ],
+ "yaw_deg": -90.0,
+ "sun_uvy": [
+  0.8,
+  -0.6,
+  1.0
+ ],
+ "solve": "Fitted by T-3168 to 1824 alone, on the image store's 1200 x 969 px copy of the automobile photograph, keeping the lens T-3166 solved on 1828 in the same print (data/reference_views/house_1828_prairie/chicagology_automobile.json): level, square to the fronts (yaw -90), f 1510 px, the principal point at the print's left edge on the horizon (y 496). Only the eye was fitted, in 1824's frame (u toward the street, v north; the main block u 0-12.1, v 0-9.1, the canted bay's front at u 13.1 across v 1.4-4.2). DEPTH from heights: the bay's principal windows (K01 sill 2.6 m, head 5.9 m over grade) stand at y 450 and 294 px in the print and the second storey's at 225 and 95; through f 1510 on the horizon those four lines put the bay's front 31-33 m from the eye, and its widths agree (the front window, 1.1 m, is 50 px; the bay, 5.0 m at the wall, spans x 770-1000), so the eye is at u 45.1, 32 m before the bay's front. SIDEWAYS: the bay's south end at the wall (v 0.3) on x 770 puts the eye at v -16.5; the north end (v 5.3) then renders at x 997 against the print's 1000, the front window at x 885-935 against 875-915, the north cheek's light at 950-965 against 950-975, the belt between the storeys and the porch's balustraded balcony (y 230-265 px, x 1005-1120) within about 10-20 px. WHAT IT DOES NOT AGREE WITH: T-3166's camera carried into this frame through the 1904 scene's placements stands at u 39.29, v -19.96, so this fit puts 1824 5.8 m further from the street and 3.5 m further south, against 1828, than the 1911 sheet's traces do (the match record's first difference). Both fits keep the same lens and horizon; the print alone cannot say which house's plan is off, and 1828 is therefore not rendered beside 1824 here (also_render would place it by the sheet). LIGHT: as 1828's view, a sun in the south-east: the bay's south cheek and front lit, the porch in deep shade under the tree."
+}
