@@ -24980,19 +24980,17 @@ preflight and CI results are recorded in the PR when actually complete. Original
 by this bounded correction.
 
 
-### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+### T-2380 — source-bounded jail palisade (2026-10-25)
 
-The original 25 by 35 ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared 1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed 30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. The genuine 271 masters and 271 pinned web derivatives are complete; all 270 default web files are byte-identical, with exact actual-master physical/material/normal/confidence/node controls. The current native derived fixed point, official source record, app/grounded review and full gates remain owed. Original T-2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+The actual Gale1902 p51 and complete plate/n79 support a high plank enclosure, absent from the previous scene. A compact palisade with pointed tops and a clear doorway-aligned passage is authored through the existing enclosure layer. Height, outline, stock, exact point and July continuity are reconstructed; the jail master, footprint, position, dates and population stay unchanged. Optional formal comparisons reuse the native enclosure renderer, hash its selected records/geometry dependencies/anchor placement, and retain legacy default views. The provisional cameras are compound diagnostics, not solved evidence of the mostly concealed original jail core; narrow not_pictured rulings preserve its existing inferred grade without denying the fence evidence. Keeper-house absence and unresolved cell/roof identity remain in the view discrepancy register. Actual source renders, published app grounding/access review, native reader pipeline and full preflight are still pending at this authored checkpoint. No image match or original ticket completion is claimed.
 
+The native grader retains its generic inferred wording, "no picture of it has been found"; here the two source-specific rulings refer to the concealed, ambiguous jail core. They do not deny the Gale compound picture or its palisade evidence. Provisional diagnostic camera poses are excluded from the historical From this spot reader action. Actual Images/Sources review remains pending.
 
-T-2384 source comparison update (2026-10-26): the actual canonical Moss comparison
-is registered as **differs**. The major chapel-form corrections are visible, while
-the retained generic sash sill/head appear about 0.4–0.6 m too low by wall-relative
-proportion, an uncertain but plausibly noticeable remaining difference. The record
-keeps that OPEN; date/identity and camera/source disagreements are disclosed limits
-or within tolerance, not additional automatic geometry blockers. No new geometry
-variant or follow-up ticket is added. After the bounded PR passes its actual app/code
-gates and merges, original T-2384 is to be released for that remaining setout.
+The finite native 61-step reader tail, owning package fixed point and publish passed on 25 October; 3,285 protected inputs and all 23 incoming workbooks remain byte-exact. On 26 October both official whole-source comparisons rendered the actual native pointed enclosure, with current picture, master, camera, selected enclosure, native geometry dependencies and anchor hashes verified. Both verdicts remain differs: the absent keeper house and unresolved compound/gate relationship are open; contradictory concealed-core roof depictions and provisional framing are recorded as source/camera limitations. Diagnostic cameras preserve picture credits without offering From this spot. Actual published mobile/desktop grounding, access and Sources review, fullcheck/preflight and latest-dev integration remain pending; this is not original-ticket completion.
+
+Published app review completed on 26 October at 390 x 780 and 1280 x 800: actual normal and By Grade views, pointed tops, credited Photos/Sources/Lib, core grade/placement/attributes, diagnostic spot absence, terrain grounding and all eight frame budgets passed. Each tested nine-step native walker path crossed the real gateway at E468.56 without a blocked movement sample; its ground and eye stayed correct. A separate coarse route-planning grid marks the final point near the core wall blocked; the original local-harness failure is preserved and actual-walker access was independently reviewed by root. This qualifies only the tested approach. The earlier 240-second readiness timeout and successful bounded retry are retained without a performance claim. Both formal views remain differs; the missing keeper house and compound/gate relationship remain open. Latest integrated cf25+88 owning native tail and fullcheck/preflight remain pending before code commit or PR.
+
+Combined cf25+88 native validation completed on 26 October: the owning 61-step tail converged in two native laps, the package tail and publish passed, and all 5,343 protected integrated source/asset files remained byte-exact. The single audit of every dirty XLSX/gzip/outside-4d path found two serialization-only changes, proved whole-artifact equality and restored exact incoming88 bytes. The earlier phone/desktop screenshots were captured on 9f7; their selected jail web GLB, native fence JSON/renderer and sidecar remain byte-identical in the combined published mirror. The incoming lighthouse change is preserved. Required wholecheck/preflight, code commit and PR remain pending; original T-2380 remains an unfinished image match.
 
 
 ### T-2376 — the full-scene batch census retains the lighthouse glass
@@ -25035,4 +25033,22 @@ closed set, not permission for arbitrary new records; actual new-head stage 14
 results are still required.
 
 
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original 25 by 35 ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared 1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed 30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. The genuine 271 masters and 271 pinned web derivatives are complete; all 270 default web files are byte-identical, with exact actual-master physical/material/normal/confidence/node controls. The current native derived fixed point, official source record, app/grounded review and full gates remain owed. Original T-2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 source comparison update (2026-10-26): the actual canonical Moss comparison
+is registered as **differs**. The major chapel-form corrections are visible, while
+the retained generic sash sill/head appear about 0.4–0.6 m too low by wall-relative
+proportion, an uncertain but plausibly noticeable remaining difference. The record
+keeps that OPEN; date/identity and camera/source disagreements are disclosed limits
+or within tolerance, not additional automatic geometry blockers. No new geometry
+variant or follow-up ticket is added. After the bounded PR passes its actual app/code
+gates and merges, original T-2384 is to be released for that remaining setout.
+
+
 T-2384 carrier update (2026-10-26): PR #1334 also carries the four checked strict smoke-oracle repairs from 6a61ab6e after actual merged/folded dev a575ddde. The five opaque plus one source-bound lighthouse glass batches, independently transformed data-footprint reference, and exact 1904 rear-range set require fresh terminal full eighteen-part coverage on this combined head. The donor opacity runtime predicate is not accepted from old scoped passes. No new model geometry, placement, bake or source-date claim is introduced by these gate repairs. The Moss vertical sash setout remains OPEN.
+
+
+T-2384 cumulative draft checkpoint (2026-10-26): checked Jail PR #1333 head 8cd2db60 is integrated as an upstream dependency while this PR remains based on dev. The earlier Mary 3f74a551 source passed all eighteen native published groups; that old-base result does not certify the combined world. Supported native regeneration, current all-three preflight and a fresh exact-head eighteen-group matrix are pending for this cumulative candidate. Jail must land first; before ready/merge, actual dev must be integrated and the native global smoke-input hash compared with the frozen tested candidate, with a fresh stage 13 at both viewports when only the separately hashed changelog changes. The original Moss vertical sash setout remains open; no original image-match completion is claimed.
