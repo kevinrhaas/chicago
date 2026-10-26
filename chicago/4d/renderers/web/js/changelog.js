@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2305, ts: '2026-10-26T09:28:31.179Z', date: 'Oct 26, 2026, 4:28 AM CT', title: '1816 Prairie\'s bays rise into crowned mansards under iron cresting', kind: 'improvement',
+    items: [
+      'Charles M. Henderson\'s house at 1816 Prairie Avenue (1904) now matches more of its photograph: both canted bays are carried up through the cornice into mansards of their own, the corner\'s a raised crown standing over the main roof, the south flank\'s lower, each ringed with iron cresting.',
+      'Iron cresting runs along the main roof\'s street curb, the three dormers are square-headed under pediments, and the front fence is cast-iron scrollwork instead of plain spears.',
+      'Still to come, and listed on the house\'s match record: the dormers in the two crowns, the carved window hoods, the balcony\'s taller railing with the door onto it, and the brick\'s dark tone.',
+    ] },
   { v: 2304, ts: '2026-10-26T07:40:59.198Z', date: 'Oct 26, 2026, 2:40 AM CT', title: 'The Pullman house\'s front divided into pavilions', kind: 'feature',
     items: [
       '1729 Prairie\'s front is now divided into bays by banded stone piers, one turning the corner onto 18th Street, with the cornice stepping forward over each. Read off the Detroit Publishing photograph.',
