@@ -24140,7 +24140,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24193,6 +24193,7 @@ the house, its posts and roof left to the house's own pass.
 plate, plan or measured drawing; the alley buildings are T-1935's.
 **Retired in part:** 1816 Henderson's house by T-2963 (piece 1 of T-1886), which refined it in place on the K01 frontage kit under `L-k01-1816-henderson-2963`; its stable is still this draft's.
 **Retired in part:** 1828 Shipman's house by T-3166 (piece 1 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1828-shipman-1887`; its stable is still this draft's.
+**Retired in part:** 1824 Pomeroy/Marsh's house by T-3167 (piece 2 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1824-marsh-1887`; its stable is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
@@ -33772,6 +33773,49 @@ dark tone: open on the match record. The 1874 Land Owner engraving is not read.
 hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
+
+
+### L-k01-1824-marsh-1887 — 1824 Prairie refined from the district draft to a K01 house: the 1857 Pomeroy villa's flanks and bracketed eaves behind the stone front of about 1880, its cupola ruled out of 1904
+
+**Decision:** the house at 1824 Prairie Avenue, Samuel B. Pomeroy's villa of 1857 refaced in stone
+for George B. Marsh after he bought it in 1880 (T-3167, piece 2 of T-1887), is no longer a district
+draft. It stands, under the draft's own id `marsh_house_1824_prairie`, as a `k01_frontage` record
+built by `generators/k01_emit.py`: brick flanks two tall storeys over a raised basement under a deep
+bracketed cornice and a low hip, behind a stone front with a canted bay through both storeys at its
+south end and a porch on columns under a balustraded balcony at its north end; the rear range; an iron
+fence on a curb. The pictures, all rights check_required and read for forms and proportions only: the
+Pomeroy photograph (`glessner_blog_1824_pomeroy_italianate`, before about 1880), read only for what
+the stone front did not change; the right side of the automobile photograph of 1828
+(`chicagology_1828_shipman_automobile`, about 1897-1906) and of the partial view of 1828
+(`glessner_blog_1828_shipman_partial`), which show 1824's stone front and south flank.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1824-b1, census
+s28-1824-front and s28-1824-wing): the main block's place and plan (12.1 by 9.1 m), the stone strip
+of the new front, the canted bay's width and projection, the stone piece before the north part that
+the porch stands on, the rear range ('rear2B') and its run past the south flank, brick with a stone
+front. From the automobile photograph: the front's composition (bay at the south, entrance porch with
+balcony at the north, stone cheeks, the bay's windows one to a face, its belt and cornice under the
+frieze, the fence). From the Pomeroy photograph: the storeys over a raised basement, the bracketed
+cornice and its eave, the low hip, the lower block beside the main one, the stacks on the flanks. From
+the Glessner House Museum's blog: the stone front of about 1880.
+**What is invented.** Every size the sheet does not give: the floor, storey and window heights (read
+in proportion off unscaled prints; no camera is solved for 1824 yet), the walls' thickness and the
+flanks' brick and its tone, the front stone's quarry, the hip's pitch and covering, the treads, the
+flank windows' number and places, the stacks' places, the rainwater, the sash pattern, the rear
+range's storeys, windows and flat deck, the gates.
+**Ruled.** The cupola the Pomeroy photograph shows before 1880 is not built in 1904: no picture after
+the stone front shows the roof, the sheet prints no lantern, and its '½' storey is met by the attic
+behind the frieze. Recorded as uncertain; a picture of the roof after 1880 overturns it.
+**What is not built.** The flank windows' round heads under hoods (K01 cuts a flank's windows flat);
+the frieze's panels between the brackets; the flanks' light painted or stuccoed finish; the bay's
+pilasters and their incised blocks; the rear range's low hip (a pitched K01 wing is slated, from 45
+degrees) and the bay the sheet draws on its south wall (a K01 wing carries no bay); the one-storey
+projection low on the south flank in the partial view.
+**How to resolve:** T-3168 solves 1824's cameras on the automobile photograph and the partial view,
+builds what is open, and brings the match records to `matches`.
+**Covers:** `marsh_house_1824_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marsh_house_1824_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marsh_house_1824_prairie.as_mapped_1904.form.service_wall_brick`, `marsh_house_1824_prairie.as_mapped_1904.form.roof_pitch_deg`, `marsh_house_1824_prairie.as_mapped_1904.form.roof_covering`, `marsh_house_1824_prairie.as_mapped_1904.form.stair_tread_m`, `marsh_house_1824_prairie.as_mapped_1904.form.side_bays`, `marsh_house_1824_prairie.as_mapped_1904.form.north_bays`, `marsh_house_1824_prairie.as_mapped_1904.form.rainwater`, `marsh_house_1824_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3167 (piece 2 of T-1887).
+**Review:** `docs/RESEARCH/k01-1824-marsh-3167/README.md`.
+**Recorded:** 2026-10-26 (T-3167).
 
 ### L-pullman-1729-portico-3159 — 1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed
 

@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2309, ts: '2026-10-26T15:46:06.115Z', date: 'Oct 26, 2026, 10:46 AM CT', title: '1824 Prairie, the Pomeroy/Marsh house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1824 Prairie Avenue is no longer a plain draft block. It now stands as Samuel B. Pomeroy\'s 1857 villa, two tall storeys over a raised basement under a deep bracketed eave and a low hip, behind the stone front George B. Marsh gave it after 1880.',
+      'The stone front has a canted bay through both storeys at its south end, and its entrance sits in a porch on columns under a balcony at the north end, as a photograph of the house next door shows it.',
+      'The villa\'s cupola is left off for 1904: no picture after the new front shows it. The flanks\' round-headed windows and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
+  { v: 2308, ts: '2026-10-26T15:23:51.179Z', date: 'Oct 26, 2026, 10:23 AM CT', title: 'Nightly builds run again on a pinned test machine', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated build that tests each new batch of buildings had stopped after GitHub moved its test machines to a newer system our browser tester does not support; the tests now run on the system they were measured on, and a check keeps it that way.',
+    ] },
   { v: 2307, ts: '2026-10-26T14:36:25.035Z', date: 'Oct 26, 2026, 9:36 AM CT', title: '1823 Prairie, the Dent house, rebuilt from its engraving', kind: 'feature',
     items: [
       '1823 Prairie Avenue is no longer a plain draft block. It now stands as Thomas Dent\'s house: a light stone front on brick sides, two storeys over a raised basement, under a tall slated mansard with dormers.',
