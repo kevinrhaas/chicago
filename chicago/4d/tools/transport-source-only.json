@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "reason": "T-2793: preserve canonical and historical transport source meshes in the repository without duplicating unused masters in every visitor download.",
+  "files": [
+    "transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb",
+    "transport/parked-brougham/brougham-source.glb",
+    "transport/parked-brougham/brougham-mid-source.glb",
+    "transport/parked-wagon/wagon-w01.glb"
+  ]
+}

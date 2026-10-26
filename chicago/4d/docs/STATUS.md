@@ -24978,3 +24978,12 @@ preintegration c6 published tree; the incoming9f7 change preserves all operative
 1835 geometry, terrain and entrance inputs exactly. Final current-base full
 preflight and CI results are recorded in the PR when actually complete. Original2376 is not closed
 by this bounded correction.
+
+
+### T-2793 — source-guided farm-box master in preparation (2026-10-26)
+
+A separately versioned wagon master now adapts the recovered licensed Old Cart geometry/UVs/maps instead of rebuilding a weaker flat surface. It has explicit metric/articulation controls, separately circular front/rear wheels, a neutralised front axle and reconstructed single pole with a real central bearing. The original source and Lyskilde/longtail CC BY4.0 credit remain intact. Native matched appearance, turn/contact clearances, portable LODs and current phone/world qualification are pending. Existing80 static wagons and the three fine-wood placement identities/selections are preserved; this does not close T-2793 or infer traffic, teams, drivers or riding.
+
+T-2793 source increment now has actual current WebP LODs8,433,236bytes total and desktop/mobile isolated captures with zero errors; full repository/published-world qualification remains pending. Continuous actual front-wheel/body envelopes and explicit detached/moved-geometry controls pass; artist pin/rim fit limits remain disclosed. Source-only publication exclusions preserve originals and live consumers; actual final publisher budget still pending.
+
+T-2793 required portable structural nodes now own actual reach/kingbolt geometry: one44-triangle reconstructed coupling reach and the original28-triangle pin split from front details. Current near/mid/far total8,465,076bytes,12materialbatches; prior8,433,236-byte views remain historical. Final current-source rendering, canonical tail, full publisher/preflight and photographic/world acceptance remain pending.

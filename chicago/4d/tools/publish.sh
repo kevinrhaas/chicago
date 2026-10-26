@@ -89,6 +89,27 @@ mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 if [ -d renderers/web ]; then
   rm -rf "$SITE/walk"
   cp -a renderers/web "$SITE/walk"
+  # T-2793: these historical/canonical masters have no live model or demo
+  # consumer. Keep every source byte for authoring and physical checks, while
+  # shipping the selected web deliveries. Year packs are built later from this
+  # finished mirror; check_published.mjs also refuses a live reference here.
+  python3 - "$SITE" <<'TRANSPORT_SOURCE_ONLY'
+import json
+from pathlib import Path
+import sys
+
+policy = json.loads(Path('tools/transport-source-only.json').read_text())
+if policy.get('schema') != 1 or not policy.get('reason'):
+    raise SystemExit('Invalid transport source-only publication policy')
+for name in policy['files']:
+    relative = Path(name)
+    if (relative.is_absolute() or '..' in relative.parts
+            or not name.startswith('transport/') or relative.suffix != '.glb'):
+        raise SystemExit('Unsafe transport source-only path: ' + name)
+    if not (Path('renderers/web') / relative).is_file():
+        raise SystemExit('Transport authoring source must remain present: ' + name)
+    (Path(sys.argv[1]) / 'walk' / relative).unlink(missing_ok=True)
+TRANSPORT_SOURCE_ONLY
 fi
 
 # The changelog is authored inside the app (the What's-new tab imports it, and
