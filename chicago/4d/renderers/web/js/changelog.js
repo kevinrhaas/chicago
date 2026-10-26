@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2308, ts: '2026-10-26T15:23:51.179Z', date: 'Oct 26, 2026, 10:23 AM CT', title: 'Nightly builds run again on a pinned test machine', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated build that tests each new batch of buildings had stopped after GitHub moved its test machines to a newer system our browser tester does not support; the tests now run on the system they were measured on, and a check keeps it that way.',
+    ] },
   { v: 2307, ts: '2026-10-26T14:36:25.035Z', date: 'Oct 26, 2026, 9:36 AM CT', title: '1823 Prairie, the Dent house, rebuilt from its engraving', kind: 'feature',
     items: [
       '1823 Prairie Avenue is no longer a plain draft block. It now stands as Thomas Dent\'s house: a light stone front on brick sides, two storeys over a raised basement, under a tall slated mansard with dormers.',
