@@ -33773,6 +33773,80 @@ hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
 
+
+### L-jail-palisade-2380 — The jail's high plank enclosure
+
+**Building:** `log_jail`.
+**Decision:** Add a high, closed plank palisade around the jail. Gale's 1902 memoir, p. 51, remembers the small jail "concealed within a high plank palisade" during a town walk framed in 1835. The independently verified Trowbridge plate facing p. 53 is captioned 1836. The fence's existence and kind are inferred from that retrospective source, rather than from a contemporary contract or a dated description of 1 July.
+**What is reconstructed:** the compact outline 0.70 m beyond the unchanged side and rear walls and 0.748 m in front; the 3.05 m overall height, including 127 mm symmetrical pointed heads; 180 mm backing posts at approximately 2.44 m bays; three backing rails; 254 mm boards with 6 mm gaps; July continuity; and a 2.20 m open passage aligned with the existing doorway. The chosen 10 ft height conceals the 2.66 m walls; it is not a measurement from the drawing. The physical fence run stops at both gateway jambs. The soil, population, building footprint, placement and phase dates are unchanged.
+**Visible limits:** the pointed pale form follows the plate, while its cut and stock dimensions remain chosen. The keeper's house partly within the compound, a hung gate, and the original-cell/later-cell roof identity remain unresolved. This increment does not claim that the jail compound matches its pictures.
+**How to resolve:** dated county specifications or a resolved jail and keeper-house sequence could replace the dimensions and continuity choice. Application review must verify that the fence meets the ground and the passage remains usable.
+**Source:** `trowbridge_first_jail_gale_1902`, actual p. 51 (scan n76) and plate n79. The independently verified 1902 artwork is public domain by publication age; no UCR copy-specific rights or added newspaper layout is used.
+**Ticket:** T-2380.
+**Recorded:** 2026-10-25.
+
+**Application review (2026-10-26):** Checked in the actual published phone and desktop views. The enclosure meets the ground, its pointed tops remain visible, and the open passage is walkable on the tested approach. The keeper-house and full-compound limits above remain unresolved.
+
+
+### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
+
+**Building:** `st_marys_church`.
+**Decision:** transfer the undated Moss engraving's five long-wall sash, end door,
+blank gable and open belfry/cross into the original 1835 range as **reconstructed**
+appearance (`andreas_1884_st_marys_engraving`, Andreas 1884 vol.1 p.291). Andreas p.290
+says the church had no tower when built in 1833 and received a low open tower and bell
+"some time afterwards". That interval does not establish presence or absence in July
+1835. This reconstruction chooses presence; it does not claim a dated installation,
+a date for the engraving or proof that its later appearance stood at the original site.
+**What is chosen:** five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71
+of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the
+existing stud module. The six-opening count and transfer to 1835 are reconstructed.
+Existing sash size, glazing, casing, sill and threshold are retained. Both gables are
+blank: the near one is pictured; the unseen far one is reconstructed. The one existing
+stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged.
+**Belfry scantlings:** a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end
+straddles the body ridge. Its lower edge follows the roof slopes with 30 mm
+penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach
+2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved
+brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave
+square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish
+it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm
+high, hangs within the open frame. These sections, profiles, material assignments and
+placements are reconstructed, not measured schedules; the bell's dark appearance does
+not establish an alloy or a paint colour from a monochrome engraving.
+**What is retained:** the original 25 by 35 ft footprint, location, dates, storey,
+wall height, gabled body type and unpainted body finish. The reconstructed 30 degree
+body pitch replaces the older typological 38 degrees after the first actual comparison
+showed a conspicuously high ridge. It is a selected shape, not a measured roof angle.
+No later enlargement or
+relocation is adopted. This supersedes L55's generic house-front placeholder and the
+2026-10-23 conservative tower omission for St Mary's only.
+**How to resolve:** a dated original-site elevation or alteration account could replace
+the temporal reconstruction. The actual source comparison records remaining visible
+differences under the owner's stopping rule; no complete picture match is claimed by
+a field value or this entry alone.
+**Covers:** `st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`.
+**Ticket:** T-2384.
+**Recorded:** 2026-10-25.
+
+
+### L-wolf-point-roof-tone-2386 — A picture-bounded roof tone
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.roof_colour`.
+
+**Decision:** Explicitly select the optional `deep_brown` roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening.
+
+**Production:** The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0.
+
+**Verification owed:** The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and T-3153's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here.
+
+**Recorded:** 2026-10-26 (T-2386).
+
+**Ticket:** T-2386.
+
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

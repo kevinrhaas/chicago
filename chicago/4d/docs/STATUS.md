@@ -24979,6 +24979,94 @@ preintegration c6 published tree; the incoming9f7 change preserves all operative
 preflight and CI results are recorded in the PR when actually complete. Original2376 is not closed
 by this bounded correction.
 
+
+### T-2380 — source-bounded jail palisade (2026-10-25)
+
+The actual Gale1902 p51 and complete plate/n79 support a high plank enclosure, absent from the previous scene. A compact palisade with pointed tops and a clear doorway-aligned passage is authored through the existing enclosure layer. Height, outline, stock, exact point and July continuity are reconstructed; the jail master, footprint, position, dates and population stay unchanged. Optional formal comparisons reuse the native enclosure renderer, hash its selected records/geometry dependencies/anchor placement, and retain legacy default views. The provisional cameras are compound diagnostics, not solved evidence of the mostly concealed original jail core; narrow not_pictured rulings preserve its existing inferred grade without denying the fence evidence. Keeper-house absence and unresolved cell/roof identity remain in the view discrepancy register. Actual source renders, published app grounding/access review, native reader pipeline and full preflight are still pending at this authored checkpoint. No image match or original ticket completion is claimed.
+
+The native grader retains its generic inferred wording, "no picture of it has been found"; here the two source-specific rulings refer to the concealed, ambiguous jail core. They do not deny the Gale compound picture or its palisade evidence. Provisional diagnostic camera poses are excluded from the historical From this spot reader action. Actual Images/Sources review remains pending.
+
+The finite native 61-step reader tail, owning package fixed point and publish passed on 25 October; 3,285 protected inputs and all 23 incoming workbooks remain byte-exact. On 26 October both official whole-source comparisons rendered the actual native pointed enclosure, with current picture, master, camera, selected enclosure, native geometry dependencies and anchor hashes verified. Both verdicts remain differs: the absent keeper house and unresolved compound/gate relationship are open; contradictory concealed-core roof depictions and provisional framing are recorded as source/camera limitations. Diagnostic cameras preserve picture credits without offering From this spot. Actual published mobile/desktop grounding, access and Sources review, fullcheck/preflight and latest-dev integration remain pending; this is not original-ticket completion.
+
+Published app review completed on 26 October at 390 x 780 and 1280 x 800: actual normal and By Grade views, pointed tops, credited Photos/Sources/Lib, core grade/placement/attributes, diagnostic spot absence, terrain grounding and all eight frame budgets passed. Each tested nine-step native walker path crossed the real gateway at E468.56 without a blocked movement sample; its ground and eye stayed correct. A separate coarse route-planning grid marks the final point near the core wall blocked; the original local-harness failure is preserved and actual-walker access was independently reviewed by root. This qualifies only the tested approach. The earlier 240-second readiness timeout and successful bounded retry are retained without a performance claim. Both formal views remain differs; the missing keeper house and compound/gate relationship remain open. Latest integrated cf25+88 owning native tail and fullcheck/preflight remain pending before code commit or PR.
+
+Combined cf25+88 native validation completed on 26 October: the owning 61-step tail converged in two native laps, the package tail and publish passed, and all 5,343 protected integrated source/asset files remained byte-exact. The single audit of every dirty XLSX/gzip/outside-4d path found two serialization-only changes, proved whole-artifact equality and restored exact incoming88 bytes. The earlier phone/desktop screenshots were captured on 9f7; their selected jail web GLB, native fence JSON/renderer and sidecar remain byte-identical in the combined published mirror. The incoming lighthouse change is preserved. Required wholecheck/preflight, code commit and PR remain pending; original T-2380 remains an unfinished image match.
+
+
+### T-2376 — the full-scene batch census retains the lighthouse glass
+
+The immutable checked 132 renderer matrix on `0c78d17b` exposed a real stage 8
+regression oracle mismatch at both viewports: six structure batches, four mapped,
+against the older five/four expectation. The active 1835 GLB census finds exactly
+one BLEND material, the existing T-3122 lighthouse's `lantern_cage_glass` at
+alpha 0.18. Green Tree's material records and primitive material indices are exact
+base 132 values; its opening positions did not create the extra material class.
+
+The scoped smoke repair retains six total and four mapped groups and additionally
+requires five opaque groups plus exactly one unmapped translucent batch owned
+only by the lighthouse, retaining its declared 0.18 uniform opacity within 1e-6.
+The renderer, assets, roughness assertions and reach assertions are unchanged.
+This new opacity predicate is UNVERIFIED at authoring; actual terminal native stage 8
+results on the new checked head belong in PR #1328 and its evidence checkpoint.
+The local one-context readiness timeout is not runtime opacity evidence. The
+original Green Tree image gate remains DIFFERS with its two visitor-visible gaps.
+
+
+The same immutable matrix exposed two further baseline-oracle mismatches. The
+lighthouse's recorded local origin is outside its explicitly offset 3.04 m
+footprint; GLB-CONTRACT fixes the origin at polygon coordinate(0,0), not an
+occupied corner. The shared drawn-placement census now compares the committed
+polygon's area centroid, independently transformed from its placement, with the
+GPU-read plan bounds. The original survey origin, vertex-by-vertex 1 mm transform
+bar, mirror checks, one-metre occupancy bar and sparse-camp treatment remain.
+No geometry, position, footprint or tolerance changes. Hand-authored offset-plan
+fixtures pass; translated, rotated, mirrored and wrong-record-footprint controls
+fail. The actual published reruns remain owed.
+
+The strict 1904 placed-record set also adds only
+`pullman_house_1729_prairie_ranges`: the T-1880/T-1934 separately retained stable
+and rear ranges, explicitly dated 1904-07-01 through 1911 and present in the
+1904 compiled sidecar, with no exclusion or suppressed-render ruling. It was the
+sole extra placed ID in both published viewport failures. Exact placed-set and
+registry equality and zero 1835-town-layer assertions remain. This is a corrected
+closed set, not permission for arbitrary new records; actual new-head stage 14
+results are still required.
+
+T-2380 integration qualification (2026-10-26): the visible palisade is unchanged while current dev is integrated. The smoke record now assigns the generated release-number metadata to its declared changelog partition, including the actual published values; all other page content stays in the global hash. Isolated real CLI/git fixtures verify the partition and retained dirty-input warning. Legacy hashes and raw CI failures remain preserved; this does not relabel old runs as fresh validation. The newer 1904 Dent inputs require current integration checks and an explicit active-1835 input audit before reusing any earlier stage. Code preflight and current published checks remain pending at this checkpoint. The missing keeper house and compound relationship remain open on original T-2380.
+
+
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original 25 by 35 ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared 1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed 30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. The genuine 271 masters and 271 pinned web derivatives are complete; all 270 default web files are byte-identical, with exact actual-master physical/material/normal/confidence/node controls. The current native derived fixed point, official source record, app/grounded review and full gates remain owed. Original T-2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 source comparison update (2026-10-26): the actual canonical Moss comparison
+is registered as **differs**. The major chapel-form corrections are visible, while
+the retained generic sash sill/head appear about 0.4–0.6 m too low by wall-relative
+proportion, an uncertain but plausibly noticeable remaining difference. The record
+keeps that OPEN; date/identity and camera/source disagreements are disclosed limits
+or within tolerance, not additional automatic geometry blockers. No new geometry
+variant or follow-up ticket is added. After the bounded PR passes its actual app/code
+gates and merges, original T-2384 is to be released for that remaining setout.
+
+
+T-2384 carrier update (2026-10-26): PR #1334 also carries the four checked strict smoke-oracle repairs from 6a61ab6e after actual merged/folded dev a575ddde. The five opaque plus one source-bound lighthouse glass batches, independently transformed data-footprint reference, and exact 1904 rear-range set require fresh terminal full eighteen-part coverage on this combined head. The donor opacity runtime predicate is not accepted from old scoped passes. No new model geometry, placement, bake or source-date claim is introduced by these gate repairs. The Moss vertical sash setout remains OPEN.
+
+
+T-2384 cumulative draft checkpoint (2026-10-26): checked Jail PR #1333 head 8cd2db60 is integrated as an upstream dependency while this PR remains based on dev. The earlier Mary 3f74a551 source passed all eighteen native published groups; that old-base result does not certify the combined world. Supported native regeneration, current all-three preflight and a fresh exact-head eighteen-group matrix are pending for this cumulative candidate. Jail must land first; before ready/merge, actual dev must be integrated and the native global smoke-input hash compared with the frozen tested candidate, with a fresh stage 13 at both viewports when only the separately hashed changelog changes. The original Moss vertical sash setout remains open; no original image-match completion is claimed.
+
+
+## T-2386 — Wolf Point roof tone, 2026-10-26
+
+The first genuine stock-darkened roof/mobile comparison passed technical native checks but remained visibly pale; desktop was canceled before launch, not reported as passed. Replace only that provisional new condition field with explicit reconstructed `roof_colour=deep_brown`, a keyword-only LogDwelling opt-in using one quarter of existing darkened stock linear RGB. All default outputs/common finishes remain unchanged; its uncertainty reaches every roof face. Native 82-master/82-WEB refresh, default/nonfamily protection, final candidate mobile/desktop and all-picture source acceptance are pending. No geometry change, source-rights upgrade, new ticket or matches claim. Original T-2386 remains open.
+
+T-2386 native production: exactly82 genuine canonical masters and82 real pinned WEB outputs completed; all81 default master/WEB pairs are individually byte-identical, all nonfamily/source/people controls exact, and Wolf changes only roof basecolour with its roofconfidence1.0 preserved. Final native metadata closure, source comparison and actual candidate app remain pending; no matches or commit claimed.
+
+T-2386 integration: the genuine deep-brown82 source/assets were preserved before normal fast-forward to dev a575. Exact checked shared strict smoke/drawn-placement repairs from 6a61 are included; incoming source, records, changelog and registry entries are retained. Native closure, final app checks and full preflight on this combined tree remain pending.
+
+T-2386 cumulative draft checkpoint (2026-10-26): checked Jail PR #1333 head 8cd2db60 and checked Mary PR #1334 head bffc4cff are upstream dependencies while this PR remains based on dev. The earlier Wolf 4fe7d4ba passed all eighteen native published groups; that old-base result does not certify this cumulative world. Supported native regeneration, the complete binary audit, current all-three preflight and a fresh exact-head eighteen-group matrix are required for this candidate. Jail and Mary must land first. Before ready/merge, integrate actual dev and compare the native global smoke-input hash with this tested candidate; rerun stage 13 at both viewports when only the separately hashed changelog changes. All eight original picture acceptances remain unfinished; no original image-match completion is claimed.
+
+
 ## T-2385 — first Tremont evidence correction (2026-10-26)
 
 Gale1902 printed p51, in a walk framed by arrival 25 May 1835 (p25; chapter p43),
@@ -25109,3 +25197,31 @@ native checks and self-tests pass. No scene/native115/202/app/bake cycle is used
 for these reports, whose literal readers are their own tools. The original full
 two-failure verdict is preserved; another full preflight on this exact corrected
 source remains pending before any code commit or draft dev PR.
+
+
+T-2385 exact-head renderer checkpoint, 2026-10-26: public commit
+c878258c511eb4854ffbd93c5c08ba2e0b8ea9a1 completed its single 18-group
+published mobile/desktop matrix with 16 actual passes and two actual failures,
+both in stages 1–2. The smaller footprint moved the native Tremont signage
+anchor 3.05 m east while the reading probe stayed at its old fixed position.
+The native Dearborn street-edge closure also lengthened one walk by 5.16009 m:
+16 additional board tops and two additional stringer bays add exactly 40 top
+triangles, independently re-read by check_far_plank_tops as 111510. Both failed
+logs remain preserved; this is not a full renderer pass. The narrow probe repair
+keeps the existing 3.5 m facade-reading distance, pitch and pixel thresholds,
+uses the actual native anchor and bearing, and retains the exact top-face census
+and geometry/material/draw checks. New browser results and current-dev
+integration remain pending; the original picture discrepancy remains OPEN/DIF.
+
+
+T-2385 current dependency closure, 2026-10-26: the existing public32dc
+merge is preserved as a parent, including dev's runner-image checks. A normal
+merge of checked Jail23dd and exact, checked Mary/Wolf source/asset deltas
+retains all current 1904/Dent work, the four native hash/isolation repairs,
+and both Tremont masters and compressed versions byte for byte. The owning
+manifest resolve, actual incoming44-file audit, package, publish and native
+lodging/business/staffing and placement checks passed. All2189 protected
+people/capacity/version records stayed exact. The hotel's reading probe now
+uses the native facade at the same3.5m distance and unchanged pixel bar; the
+far-walk census retains exact111510 derived top triangles. Fresh final-head
+renderer validation is still required; originalT-2385 remains OPEN/DIF.

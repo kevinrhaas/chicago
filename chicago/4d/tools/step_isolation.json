@@ -5578,11 +5578,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_dev_smoke_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_driver_draws.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_enclosure_points.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5943,6 +5951,10 @@
       "wrote_ignored": []
     },
     "tools/test_people_scene.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_match_enclosures.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

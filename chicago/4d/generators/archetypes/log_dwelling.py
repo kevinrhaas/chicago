@@ -79,6 +79,8 @@ from archetypes.log_dwelling_params import (  # noqa: E402
 #: `materials.roof_substrate` holds the argument for why it is this one and
 #: which half of it is graded by materials.md §2.2 and which half is L266.
 _ROOF = materials.roof_substrate("log_dwelling")
+# T-2386: same reconstructed local stock as frame_tavern; no shared finish retune.
+ROOF_DEEP_BROWN_RGBA = tuple(c * 0.25 for c in materials.roof_finish("darkened").rgba[:3]) + (1.0,)
 
 
 # Materials are indices into the list passed to to_object(), in this order.
@@ -203,6 +205,15 @@ def build(params: LogDwellingParams, name: str):
             else:
                 _sign(b, params, params.conf("sign", "reconstructed"))
 
+    # The optional tone carries its own uncertainty on every roof face.
+    # Absent/legacy selectors leave every previous confidence value untouched.
+    if params.roof_colour == "deep_brown":
+        c_colour = params.worst_conf("roof_colour")
+        for face, material in zip(b.faces, b.mat_index):
+            if material == M_ROOF:
+                for vertex in face:
+                    b.conf[vertex] = max(b.conf[vertex], c_colour)
+
     # ---- the surfaces, off the sheet (T-0007) --------------------------------
     # The log core is the town's log fabric and does not vary: a cabin's walls ARE
     # its finish. What varies is the FRAME ADDITION, which is a clapboarded wall like
@@ -231,7 +242,8 @@ def build(params: LogDwellingParams, name: str):
         # FOR, and a cabin is a dwelling and not a shed. `materials.roof_substrate`
         # holds the argument; the 0.9 is unchanged.
         simple_material(materials.roof_material_name(_ROOF),
-                        materials.roof_finish(params.roof_condition).rgba,
+                        (ROOF_DEEP_BROWN_RGBA if params.roof_colour == "deep_brown"
+                         else materials.roof_finish(params.roof_condition).rgba),
                         roughness=_ROOF.roughness),
         simple_material("frame", frame_rgba, roughness=frame_rough),
         # ONE DARK (T-0126) — the sheet's `DARK` row, converging the three readings
