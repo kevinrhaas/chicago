@@ -4793,8 +4793,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError(f"chimney at ({u}, {v}): fabric is 'brick' or 'stone', not {fab!r}")
             if fab == "stone" and not val("stone_front"):
                 raise ParamError(f"chimney at ({u}, {v}): a stone stack stands on a house with a stone front")
+            # T-3109: a stone stack may carry a dressed head and base, as 1801's two south stacks
+            # do in HABS photograph 1: a broader base from the cornice weathered back to the
+            # shaft, a moulded collar, a stage of diamond lattice and the moulded cap over it
+            head = st_.get("head")
+            if head is not None:
+                if fab != "stone" or not mansard or base is None:
+                    raise ParamError(f"chimney at ({u}, {v}): a dressed head is a stone stack's on a mansard's cornice")
+                bs, cl, sg = head["base"], head["collar"], head["stage"]
+                bp, bt, bw = float(bs["proud_m"]), float(bs["top_m"]), float(bs["weathering_m"])
+                cp_, cdp = float(cl["proud_m"]), float(cl["depth_m"])
+                gp, gd = float(sg["proud_m"]), float(sg["depth_m"])
+                lat = sg.get("lattice") or {}
+                n_d, rw, rp = int(lat.get("diamonds", 0)), float(lat.get("rib_m", 0.06)), float(lat.get("proud_m", 0.03))
+                if not (0.0 < bp <= 0.3 and 0.05 <= bw <= 0.6 and base + 0.5 <= bt - bw):
+                    raise ParamError(f"chimney at ({u}, {v}): its base stands 0-0.3 m proud, weathered over "
+                                     "0.05-0.6 m, at least 0.5 m over the cornice")
+                if max(sz / 2 + bp - v, v + sz / 2 + bp - width) > float(val("eave_overhang_m")) + 1e-9:
+                    raise ParamError(f"chimney at ({u}, {v}): its base runs past the cornice's edge")
+                if not (0.0 < cp_ <= 0.3 and 0.1 <= cdp <= 0.6 and 0.0 < gp <= cp_ and 0.4 <= gd <= 2.0):
+                    raise ParamError(f"chimney at ({u}, {v}): its collar stands 0-0.3 m proud and 0.1-0.6 m deep, "
+                                     "its stage 0.4-2.0 m deep and no prouder than the collar")
+                if sp_ < cp_ or bt + 0.6 > top - sd_ - gd - cdp:
+                    raise ParamError(f"chimney at ({u}, {v}): its cap stands no prouder than its collar, or its "
+                                     "shaft shows under 0.6 m between the base and the collar")
+                if n_d and not (1 <= n_d <= 4 and 0.03 <= rw <= 0.12 and 0.01 <= rp <= gp + 0.02):
+                    raise ParamError(f"chimney at ({u}, {v}): a lattice of 1-4 diamonds a face, ribs 0.03-0.12 m "
+                                     "wide and no prouder than the stage's face")
+                head = {"base_proud_m": bp, "base_top_m": bt, "weathering_m": bw, "collar_proud_m": cp_,
+                        "collar_depth_m": cdp, "stage_proud_m": gp, "stage_depth_m": gd,
+                        "diamonds": n_d, "rib_m": rw, "rib_proud_m": rp}
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
-                             "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone"})
+                             "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone",
+                             **({"head": head} if head else {})})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")

@@ -24991,3 +24991,43 @@ The finite native 61-step reader tail, owning package fixed point and publish pa
 Published app review completed on 26 October at 390 x 780 and 1280 x 800: actual normal and By Grade views, pointed tops, credited Photos/Sources/Lib, core grade/placement/attributes, diagnostic spot absence, terrain grounding and all eight frame budgets passed. Each tested nine-step native walker path crossed the real gateway at E468.56 without a blocked movement sample; its ground and eye stayed correct. A separate coarse route-planning grid marks the final point near the core wall blocked; the original local-harness failure is preserved and actual-walker access was independently reviewed by root. This qualifies only the tested approach. The earlier 240-second readiness timeout and successful bounded retry are retained without a performance claim. Both formal views remain differs; the missing keeper house and compound/gate relationship remain open. Latest integrated cf25+88 owning native tail and fullcheck/preflight remain pending before code commit or PR.
 
 Combined cf25+88 native validation completed on 26 October: the owning 61-step tail converged in two native laps, the package tail and publish passed, and all 5,343 protected integrated source/asset files remained byte-exact. The single audit of every dirty XLSX/gzip/outside-4d path found two serialization-only changes, proved whole-artifact equality and restored exact incoming88 bytes. The earlier phone/desktop screenshots were captured on 9f7; their selected jail web GLB, native fence JSON/renderer and sidecar remain byte-identical in the combined published mirror. The incoming lighthouse change is preserved. Required wholecheck/preflight, code commit and PR remain pending; original T-2380 remains an unfinished image match.
+
+
+### T-2376 — the full-scene batch census retains the lighthouse glass
+
+The immutable checked 132 renderer matrix on `0c78d17b` exposed a real stage 8
+regression oracle mismatch at both viewports: six structure batches, four mapped,
+against the older five/four expectation. The active 1835 GLB census finds exactly
+one BLEND material, the existing T-3122 lighthouse's `lantern_cage_glass` at
+alpha 0.18. Green Tree's material records and primitive material indices are exact
+base 132 values; its opening positions did not create the extra material class.
+
+The scoped smoke repair retains six total and four mapped groups and additionally
+requires five opaque groups plus exactly one unmapped translucent batch owned
+only by the lighthouse, retaining its declared 0.18 uniform opacity within 1e-6.
+The renderer, assets, roughness assertions and reach assertions are unchanged.
+This new opacity predicate is UNVERIFIED at authoring; actual terminal native stage 8
+results on the new checked head belong in PR #1328 and its evidence checkpoint.
+The local one-context readiness timeout is not runtime opacity evidence. The
+original Green Tree image gate remains DIFFERS with its two visitor-visible gaps.
+
+
+The same immutable matrix exposed two further baseline-oracle mismatches. The
+lighthouse's recorded local origin is outside its explicitly offset 3.04 m
+footprint; GLB-CONTRACT fixes the origin at polygon coordinate(0,0), not an
+occupied corner. The shared drawn-placement census now compares the committed
+polygon's area centroid, independently transformed from its placement, with the
+GPU-read plan bounds. The original survey origin, vertex-by-vertex 1 mm transform
+bar, mirror checks, one-metre occupancy bar and sparse-camp treatment remain.
+No geometry, position, footprint or tolerance changes. Hand-authored offset-plan
+fixtures pass; translated, rotated, mirrored and wrong-record-footprint controls
+fail. The actual published reruns remain owed.
+
+The strict 1904 placed-record set also adds only
+`pullman_house_1729_prairie_ranges`: the T-1880/T-1934 separately retained stable
+and rear ranges, explicitly dated 1904-07-01 through 1911 and present in the
+1904 compiled sidecar, with no exclusion or suppressed-render ruling. It was the
+sole extra placed ID in both published viewport failures. Exact placed-set and
+registry equality and zero 1835-town-layer assertions remain. This is a corrected
+closed set, not permission for arbitrary new records; actual new-head stage 14
+results are still required.
