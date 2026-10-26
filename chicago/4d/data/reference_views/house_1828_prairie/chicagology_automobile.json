@@ -1,0 +1,27 @@
+{
+ "structure_id": "house_1828_prairie",
+ "source_id": "chicagology_1828_shipman_automobile",
+ "library_image": "cgn-1828-shipman-automobile-copy",
+ "photo": "../../sources/assets/shipman_1828_photos_t1887/shipman_1828_automobile.jpg",
+ "image_px": [
+  1200,
+  969
+ ],
+ "principal_px": [
+  0.0,
+  496.0
+ ],
+ "focal_px": 1510.0,
+ "eye": [
+  45.0,
+  -3.0,
+  1.6
+ ],
+ "yaw_deg": -90.0,
+ "sun_uvy": [
+  0.8,
+  -0.6,
+  1.0
+ ],
+ "solve": "Fitted by T-3166 (piece 1 of T-1887) to the photograph alone, the image store's 1200 x 969 px copy, against the 1911 sheet's plan (s28fp-1828-b1). The footprint frame's u runs toward Prairie Avenue (east) and v north; the front block is u 0-19.4, v 0-8.2, its recessed north part's face at u 19.4 and the canted bay's front at 20.65. The camera is LEVEL and SQUARE to the front (yaw -90): the front's horizontals run level across the print (the principal windows' heads at y 195 px on the bay's cheek and its front alike, the porch's entablature level) and its verticals stand vertical, so the print is a view camera's, its lens shifted; the principal point therefore stands at the print's left edge, on the horizon, and the eye south of the bay. SCALE: the bay's front window, x 300-365 px, read as K01's 1.05 m sash gives about 62 px/m on the bay's front; with the eye 24.35 m before it that is f 1510 px. PLACE: the eye at u 45.0 (in the roadway, about 13 m past the walk) and v -3.0, opposite the house's south corner, 1.6 m over the house's grade; through it the bay's south cheek window (x 190-250 px) and front window (x 300-365) and the porch's columns (x 510 and 620) render within about 10-15 px, which is how far the bay's cheek width trades against the eye's v: an eye 4 m further south widens the cheek by about 15 px. HEIGHTS: on the horizon at y 496 px the basement windows' foot (y 580) renders on 0.25 m over grade, so the house's grade and the eye's agree within about 0.2 m; the principal windows' sills and heads (y 415, 195), the porch's entablature (y 140-215) and balustrade (y 100-140) and the second storey's sills (about y 60, the frame's top) all render within about 10 px once the heights in the record were read through this camera. UNCERTAINTY: the distance trades against every height and width at once (10% nearer reads each 10% smaller); nothing outside the house fixes it, so it is held by the sash's width. The left edge of the print (x 0-150 px), a light stone face south of the bay's cheek, does not fit the sheet's bay, which starts at the house's south corner (the match record). LIGHT: the front lit by a sun in the south-east, the street trees' shadows falling on the next house north's south wall (sun_uvy)."
+}
