@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2304, ts: '2026-10-26T07:40:59.198Z', date: 'Oct 26, 2026, 2:40 AM CT', title: 'The Pullman house\'s front divided into pavilions', kind: 'feature',
+    items: [
+      '1729 Prairie\'s front is now divided into bays by banded stone piers, one turning the corner onto 18th Street, with the cornice stepping forward over each. Read off the Detroit Publishing photograph.',
+      'A deep frieze with framed panels runs under the cornice, a row of modillions runs round it, and raised ribs divide the mansard over the north bays. The north-west bay has its own dormer.',
+    ] },
   { v: 2303, ts: '2026-10-26T06:34:03.026Z', date: 'Oct 26, 2026, 1:34 AM CT', title: 'Pullman\'s glasshouses rise across 18th Street', kind: 'feature',
     items: [
       'The open lawn east of Prairie at 18th Street now holds the Pullman estate\'s glasshouses, placed as the 1911 fire-insurance map draws them: a tall pavilion with a raised lantern, a long range running south from it, and a second range running east to a rounded glass end.',

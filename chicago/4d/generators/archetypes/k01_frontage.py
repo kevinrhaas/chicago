@@ -5051,6 +5051,11 @@ def build(params, structure_id: str):
     # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
     # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
     k10_frontage.dress(a, reach)
+    if p.pavilions:
+        # T-3158: the front's pavilions — piers, frieze panels, modillions under the cornice
+        # just laid, and the mansard's ribs over the piers (1729's, the Detroit print)
+        from . import k01_pavilions
+        k01_pavilions.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck
