@@ -5908,3 +5908,15 @@ and long-wall reading in the same match record; the T-3153 stopping rule treats
 camera/drawing disagreements within tolerance and creates no follow-up tickets.
 The original remains open while those larger discrepancies remain. App/current-
 base full qualification and actual merge are recorded separately when complete.
+
+### T-2385 checkpoint — first Tremont (2026-10-26)
+
+The default follows Gale's retrospective 1835-framed 20x30 yellow two-storey text.
+Native gifford-reading preserves the undated three-storey picture alternative.
+Original case remains open for that real source dispute; no dated enlargement is
+invented. Native exports/app/gates are pending at this authoring checkpoint; see STATUS.
+
+T-2385 checkpoint continuation (2026-10-26): exact native2masters+2WEB closed on
+publicGTcf25 plus incoming dev88; canonical single-asset comparison remainsDIF,
+with the original case OPEN. Native scene/tail/app/fixed-point/finalgates are still
+pending. The old three-storey version retains exact incoming model bytes; see STATUS.

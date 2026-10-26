@@ -30,8 +30,11 @@ from archetypes.frame_tavern_params import (  # noqa: E402
 from common.mesh import MeshBuilder  # noqa: E402
 
 
-def record_params(structure_id, phase_id):
-    record = json.loads((ROOT / "data/structures" / f"{structure_id}.json").read_text())
+def record_params(structure_id, phase_id, version=None):
+    path = ROOT / "data/structures" / f"{structure_id}.json"
+    if version is not None:
+        path = ROOT / "data/structures/versions" / structure_id / f"{version}.json"
+    record = json.loads(path.read_text())
     phase = next(p for p in record["phases"] if p["id"] == phase_id)
     return record, phase, from_phase(phase, record)
 
@@ -213,36 +216,42 @@ class PictureFeatures(unittest.TestCase):
                 self.assertGreaterEqual(triangles.count(builder.M_WALL), 2)
 
     def test_tremont_openings_shutters_and_raised_entries(self):
-        _, _, p = record_params("tremont_house_1", "frame_1833")
-        self.assertEqual((p.stories, p.elevation_scheme), (3, "corner_gable"))
-        with patch.object(builder, "_win", wraps=builder._win) as windows, \
-             patch.object(builder, "_door", wraps=builder._door) as doors, \
-             patch.object(builder, "_corner_landing", wraps=builder._corner_landing) as landings, \
-             patch.object(builder, "_corner_lunettes", wraps=builder._corner_lunettes) as lunettes, \
-             patch.object(builder, "_corner_entry_surround", wraps=builder._corner_entry_surround) as surrounds:
-            mesh, _ = builder.build(p, "tremont_house_1__frame_1833")
-        self.assertEqual((landings.call_count, lunettes.call_count, surrounds.call_count), (4, 1, 4))
-        self.assertEqual(len(windows.call_args_list), 44)
-        self.assertEqual(len(doors.call_args_list), 4)
-        by_face = collections.Counter(tuple(c.args[2:4]) for c in windows.call_args_list)
-        self.assertEqual(by_face, {("x", 0.): 8, ("x", p.width_m): 8,
-                                   ("y", 0.): 14, ("y", p.depth_m): 14})
-        first = p.first_story_height_m
-        self.assertIsNotNone(first)
-        upper = (p.wall_height_m - first) / 2
-        levels = sorted({round(c.args[7], 9) for c in windows.call_args_list})
-        expected = (first*.3, first + upper*.3, first + upper + upper*.3)
-        for actual, wanted in zip(levels, expected):
-            self.assertAlmostEqual(actual, wanted)
-        self.assertEqual(len(levels), 3)
-        for call in doors.call_args_list:
-            self.assertEqual(call.args[7], p.entry_raise_m)
-        shutter_faces = [f for f, m in zip(mesh.faces, mesh.mat_index) if m == builder.M_SHUTTER]
-        self.assertEqual(len(shutter_faces), 88*6)
-        self.assertTrue(all(mesh.conf[i] == 1 for f in shutter_faces for i in f))
-        bare, _ = builder.build(dataclasses.replace(p, shutters=None), "tremont_house_1__frame_1833")
-        self.assertNotIn(builder.M_SHUTTER, bare.mat_index)
-        self.assert_valid_mesh(mesh)
+        # Preserve the actual pictured alternative regression as well as the
+        # text-led default. Neither structural count is an image-match verdict.
+        for version, stories, count, short, long, leaves in (
+                (None, 2, 28, 5, 9, 0),
+                ("gifford-reading", 3, 44, 8, 14, 88)):
+            with self.subTest(version=version or "default"):
+                _, _, p = record_params("tremont_house_1", "frame_1833", version)
+                self.assertEqual((p.stories, p.elevation_scheme), (stories, "corner_gable"))
+                with patch.object(builder, "_win", wraps=builder._win) as windows, \
+                     patch.object(builder, "_door", wraps=builder._door) as doors, \
+                     patch.object(builder, "_corner_landing", wraps=builder._corner_landing) as landings, \
+                     patch.object(builder, "_corner_lunettes", wraps=builder._corner_lunettes) as lunettes, \
+                     patch.object(builder, "_corner_entry_surround", wraps=builder._corner_entry_surround) as surrounds:
+                    mesh, _ = builder.build(p, "tremont_house_1__frame_1833")
+                self.assertEqual((landings.call_count, lunettes.call_count, surrounds.call_count), (4, 1, 4))
+                self.assertEqual(len(windows.call_args_list), count)
+                self.assertEqual(len(doors.call_args_list), 4)
+                by_face = collections.Counter(tuple(c.args[2:4]) for c in windows.call_args_list)
+                self.assertEqual(by_face, {("x", 0.): short, ("x", p.width_m): short,
+                                           ("y", 0.): long, ("y", p.depth_m): long})
+                first = p.first_story_height_m
+                self.assertIsNotNone(first)
+                upper = (p.wall_height_m - first) / (stories - 1)
+                levels = sorted({round(c.args[7], 9) for c in windows.call_args_list})
+                expected = [first*.3] + [first + (i+.3)*upper for i in range(stories-1)]
+                self.assertEqual(len(levels), stories)
+                for actual, wanted in zip(levels, expected):
+                    self.assertAlmostEqual(actual, wanted)
+                for call in doors.call_args_list:
+                    self.assertEqual(call.args[7], p.entry_raise_m)
+                shutter_faces = [f for f, m in zip(mesh.faces, mesh.mat_index) if m == builder.M_SHUTTER]
+                self.assertEqual(len(shutter_faces), leaves*6)
+                self.assertTrue(all(mesh.conf[i] == 1 for f in shutter_faces for i in f))
+                bare, _ = builder.build(dataclasses.replace(p, shutters=None), "tremont_house_1__frame_1833")
+                self.assertNotIn(builder.M_SHUTTER, bare.mat_index)
+                self.assert_valid_mesh(mesh)
 
     def test_tremont_lunette_staff_and_stack_occurrences(self):
         _, _, p = record_params("tremont_house_1", "frame_1833")
@@ -454,7 +463,7 @@ class PictureFeatures(unittest.TestCase):
         _, _, corner = record_params("tremont_house_1", "frame_1833")
         _, _, green = record_params("green_tree_tavern", "frame_1833")
         _, _, hotel = record_params("sauganash_hotel", "frame_1831")
-        cases = [(corner, d) for d in ({"width_m": 8.}, {"depth_m": 16.},
+        cases = [(corner, d) for d in ({"width_m": 5.5}, {"depth_m": 16.},
             {"entry_raise_m": float("nan")}, {"entry_raise_m": True},
             {"first_story_height_m": 4.}, {"first_story_height_m": True},
             {"flagstaff_height_m": float("inf")}, {"flagstaff_height_m": True},

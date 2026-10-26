@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 783,
+  "count": 784,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56064,6 +56064,71 @@
         "T-3166",
         "T-1887",
         "T-3168"
+      ]
+    },
+    {
+      "id": "L-tremont-gale-envelope-2385",
+      "title": "two-storey default and picture alternative",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.first_story_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flag_anchor"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.shutters"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.wall_height_m"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the default first Tremont follows Gale's retrospective, 1835-framed 20x30 yellow two-storey description (printed p51; context p25 and p43). Feet and natural long/short axes are inferred, not surveyed. Working wall height is 5.45 m: the existing 3.1 m lower module plus one 2.35 m upper module. Exact stock yellow, roof pitch, fitting dates, hidden elevations, lettering, entry stock and flag pose remain liberties. Both street-facing planes are preserved when the smaller rectangle changes its northeast origin. The explicit flag anchor follows the native ridge/staff."
+        },
+        {
+          "label": "Alternative",
+          "text": "native gifford-reading retains the three-storey picture-led model, including reconstructed 50x30 ft scale and unpainted stock, explicitly disagreeing with Gale. No dated enlargement or pigment history is invented."
+        },
+        {
+          "label": "Limit",
+          "text": "Gifford genuinely shows three storeys; the two-storey default is not asserted to match it. The original picture case remains open for the source dispute."
+        },
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.flag_anchor`, `tremont_house_1.frame_1833.form.shutters`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on tremont house 1."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-2385)."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
       ]
     },
     {

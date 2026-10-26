@@ -1,0 +1,28 @@
+{
+  "id": "gale_1902_tremont_town_walk",
+  "type": "book",
+  "citation": "Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Chicago: Fleming H. Revell Company, 1902), printed pp. 25, 43 and 51.",
+  "author": "Edwin O. Gale",
+  "date": "1902",
+  "describes_date": "Town walk framed by arrival on 25 May 1835; retrospective recollection published in 1902.",
+  "repository": "Internet Archive, item reminiscencesofe00ingale; Allen County Public Library digitized volume",
+  "url": "https://archive.org/details/reminiscencesofe00ingale/page/n76/mode/1up",
+  "archived_url": "https://archive.org/download/reminiscencesofe00ingale/page/n76.jpg",
+  "locator": "Printed p 25 / service n 40 gives arrival 25 May 1835; Chapter III begins the town walk on printed p 43 / n 66; printed p 51 / n 76 describes the original Tremont. Actual title n 12 and copyright n 13 establish the 1902 imprint.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "US-published 1902 text, out of copyright by age. Actual title and copyright pages of this volume were inspected; this finding concerns the book text, not the separate undated Gifford drawing or a later reproduction.",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "The actual uncropped scans of printed pp 25,43,51 were read. On p 51 Gale writes: \"On the northwest corner of Lake and Dearborn streets is Chicago's sixth hotel, the original 20 x 30 yellow two story Tremont House, built in 1833 by Alanson Sweet, with Starr Foot as first proprietor.\" The arrival and chapter context frame the walk in 1835; this is a participant recollection published 67 years later, not a contemporary survey. Feet are a contextual unit inference: the printed 20 x 30 does not spell out a unit or identify its axes. The project chooses 30 ft along the existing long axis and 20 ft along the short axis, with a rectangular plan; precise conversion does not imply survey precision. The two-storey count and yellow colour are adopted as inferred for the July 1835 scene. Gifford's undated drawing genuinely depicts three storeys; neither source dates an enlargement, so no enlargement chronology is invented.",
+  "what_it_supplies": [
+    "A retrospective, 1835-framed account identifying the original Tremont at the northwest Lake and Dearborn corner, built 1833 by Alanson Sweet.",
+    "The printed description original 20 x 30 yellow two story, adopted as inferred dimensional, storey and colour evidence.",
+    "Starr Foot named as first proprietor, without a precise tenure date."
+  ],
+  "what_it_does_not_supply": [
+    "A surveyed plan, explicit units or long/short axis orientation, wall heights, exact yellow pigment, dated roof or opening details.",
+    "A dated construction alteration reconciling the two-storey text with the three-storey Gifford depiction.",
+    "Proof that every detail remembered in 1902 was present on 1 July 1835."
+  ]
+}

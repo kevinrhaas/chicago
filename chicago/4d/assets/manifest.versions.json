@@ -44,6 +44,17 @@
       "structure_id": "glessner_house",
       "version_label": "v3",
       "web_master_sha256": "b7ca4637959ce45ee3104bdb80d442c9d0b3687fcc957e23b5d39a10a0c598c2"
+    },
+    "versions/tremont_house_1/gifford-reading/tremont_house_1__frame_1833.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 445040,
+      "inputs_sha256": "16ddd5768fc6eece0ce64469f5e7183d0e393f50da52b6c8275d9de8d6f0fa5b",
+      "kind": "generated",
+      "phase_id": "frame_1833",
+      "structure_id": "tremont_house_1",
+      "version_label": "gifford-reading",
+      "web_master_sha256": "35976a58a4b5911cf663df9d95efc0ad751ebda49ec3390eb43442800e5d09f9"
     }
   },
   "inputs_scheme": "resolved-params-v4"

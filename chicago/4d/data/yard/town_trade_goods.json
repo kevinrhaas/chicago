@@ -8,7 +8,7 @@
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
     "frontages": 29,
-    "objects": 160,
+    "objects": 159,
     "wagons": 81,
     "wagons_by_kind": {
       "farm_box": 26,
@@ -20,7 +20,7 @@
     "wagon_stands_refused": 67,
     "benches": 1,
     "sheds": 1,
-    "marked_objects": 160,
+    "marked_objects": 159,
     "distinct_marks": 76
   },
   "existence": {
@@ -3407,20 +3407,20 @@
       "why_goods": "a public house takes its provisions in by the barrel and puts the empties back out",
       "confidence": "reconstructed",
       "facade_bearing_deg": 180.0,
-      "frontage_m": 15.24,
-      "usable_frontage_m": 14.24,
+      "frontage_m": 9.14,
+      "usable_frontage_m": 8.14,
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
           687.82,
-          -91.42
+          -94.46
         ],
         [
-          672.58,
-          -91.42
+          678.68,
+          -94.46
         ],
         [
-          672.58,
+          678.68,
           -100.56
         ],
         [
@@ -3479,9 +3479,9 @@
         },
         {
           "kind": "barrel",
-          "pose": "upright",
+          "pose": "laid",
           "at_local_enu_m": [
-            685.15,
+            684.8,
             -101.11
           ],
           "bearing_deg": 180.0,
@@ -3494,26 +3494,10 @@
           }
         },
         {
-          "kind": "barrel",
-          "pose": "laid",
-          "at_local_enu_m": [
-            684.18,
-            -101.11
-          ],
-          "bearing_deg": 180.0,
-          "mark": {
-            "lines": [
-              "FLOUR"
-            ],
-            "letterform": "stencil",
-            "says": "commodity"
-          }
-        },
-        {
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            682.86,
+            681.67,
             -101.11
           ],
           "bearing_deg": 180.0,
@@ -3530,7 +3514,7 @@
           "kind": "crate",
           "tier": 1,
           "at_local_enu_m": [
-            682.86,
+            681.67,
             -101.11
           ],
           "bearing_deg": 180.0,
