@@ -36,7 +36,9 @@ on:
 
 jobs:
   still-frame:
-    runs-on: ubuntu-latest
+    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
+    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     strategy:
       fail-fast: false
@@ -74,7 +76,9 @@ jobs:
           if-no-files-found: ignore
 
   memory:
-    runs-on: ubuntu-latest
+    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
+    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     strategy:
       fail-fast: false
