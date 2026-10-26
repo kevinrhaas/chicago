@@ -33729,3 +33729,29 @@ dark tone: open on the match record. The 1874 Land Owner engraving is not read.
 hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
+
+### L-pullman-1729-portico-3159 — 1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed
+
+**Decision:** the Pullman house's Prairie portico (T-3159, a piece of T-1881) is rebuilt as the Detroit
+Publishing photograph (`loc_det_4a08065_pullman_residence`) shows it, through its solved camera
+`data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`: the door's hood laid in the
+front's brownstone rather than painted joinery (`entrance_kit…hood.fabric: stone`), carried on four
+columns (`hood.columns.at_v_m`) and railed by a stone balustrade (`hood.railing_fabric: stone`), and the
+flight narrowed to the sheet's stoop (2.6 m, `stoop_width_m`) at the portico's north end
+(`stoop_v_m` 5.0), the rest of the portico's floor carried at the landing's height on terraces either
+side of it.
+**What is read, not invented.** Two columns standing on the portico's floor: a lit round shaft at x
+374-381 px (v 6.9) and one at x 322-330 (v 3.05), both footed at y 470; the balustrade's posts and
+balusters at y 380-390 over the entablature (x 343-395); the flight's steps at x 300-370, y 465-490,
+rising between the two columns, its north cheek's raked top (x 335 y 465 to x 298 y 488); and the
+sheet's stoop, 2.6 x 3.4 m (s20fp-1729-b1 p1-p2). The portico's front stands about 13-14 px a metre.
+**What is invented.** The two southern columns (v 8.5 and 10.03): the print loses the portico's south
+half in the ivy, so the row is carried on to the hood's south end, four columns in all (the match
+record's "four or more"). The balustrade's section (0.7 m high, 0.3 m posts, 0.1 m square balusters
+every 0.2 m, a 0.25 x 0.15 m rail), held under the second storey's sills; the print shows turned
+balusters at a scale where their profile cannot be read. The columns' size and capitals are T-1880's.
+**How to resolve:** a picture closer to the portico (T-3161: the Albertype plate, the CHM and Taylor
+views) places the southern columns and gives the balusters' profile.
+**Ticket:** T-3159.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3159).

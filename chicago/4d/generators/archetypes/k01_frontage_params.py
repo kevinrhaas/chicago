@@ -4561,7 +4561,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         hd = door_kit_in["hood"]
         need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
-        extra = {"columns", "railing_fabric"}
+        # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
+        extra = {"columns", "railing_fabric", "fabric"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -4587,9 +4588,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # flat respond against the wall behind it. The landing has to reach under them
         if "columns" in hd:
             co = hd["columns"]
-            if set(co) != {"diameter_m", "plinth_m", "capital_m", "respond_m"}:
+            if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m")
+                                 "capital_m and respond_m, and optionally at_v_m")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -4598,14 +4600,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  "square and 0.8 m high, a 0.1-0.6 m capital and a 0.05-0.3 m respond")
             if hd["out_m"] < pw + 0.3 or hd["width_m"] < 2 * pw + 0.8:
                 raise ParamError("entrance_kit.hood.columns: the hood is too small to stand on two columns")
-            if float(val("stair_landing_depth_m")) < hd["out_m"] - 0.05 or float(val("stoop_width_m")) < hd["width_m"] - 0.05:
-                raise ParamError("entrance_kit.hood.columns stand on the stoop's landing: it must be as deep "
-                                 "as the hood is out and as wide as the hood")
+            # T-3159: or on a terrace either side of a narrower stoop, at the landing's height,
+            # that carries the deck on to the hood's ends (1729's portico, its flight at the north end)
+            hs0, hs1 = door_s - hd["width_m"] / 2, door_s + hd["width_m"] / 2
+            sv, sh = float(door_kit_in.get("stoop_v_m", door_s)), float(val("stoop_width_m")) / 2
+            ters = door_kit.get("terrace")
+            ters = ters if isinstance(ters, list) else [ters] if ters else []
+            lo = min([sv - sh] + [t["to_v_m"] for t in ters if t["side"] == "left"])
+            hi = max([sv + sh] + [t["to_v_m"] for t in ters if t["side"] == "right"])
+            if float(val("stair_landing_depth_m")) < hd["out_m"] - 0.05 or lo > hs0 + 0.05 or hi < hs1 - 0.05:
+                raise ParamError("entrance_kit.hood.columns stand on the stoop's landing, or the terraces beside "
+                                 "it: they must be as deep as the hood is out and reach both its ends")
             door_kit["hood"]["columns"] = {"diameter_m": dia, "plinth_m": [pw, ph], "capital_m": cap, "respond_m": rsp}
+            # T-3159: the columns' centres along the front (the front's own v), where a picture
+            # puts them, in place of one at each front corner
+            if "at_v_m" in co:
+                at = sorted(float(x) for x in co["at_v_m"])
+                if not 2 <= len(at) <= 8 or at[0] < hs0 + pw / 2 + 0.05 - 1e-6 or at[-1] > hs1 - pw / 2 - 0.05 + 1e-6 \
+                        or any(b - a < pw + 0.3 for a, b in zip(at, at[1:])):
+                    raise ParamError(f"entrance_kit.hood.columns.at_v_m {at}: two to eight columns under the hood "
+                                     f"(v {hs0:.3f}-{hs1:.3f}), their plinths inside its ends and 0.3 m apart")
+                door_kit["hood"]["columns"]["at_s_m"] = [round(a - door_s, 4) for a in at]
+        if "fabric" in hd:
+            if hd["fabric"] != "stone" or "columns" not in hd:
+                raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "
+                                 "for the painted joinery")
+            door_kit["hood"]["fabric"] = "stone"
         if "railing_fabric" in hd:
-            if hd["railing_fabric"] != "iron":
-                raise ParamError("entrance_kit.hood.railing_fabric: iron, or leave it out for the painted joinery")
-            door_kit["hood"]["railing_fabric"] = "iron"
+            # T-3159: or a stone balustrade, its posts, balusters and rail in the hood's stone
+            if hd["railing_fabric"] not in ("iron", "stone") or \
+                    (hd["railing_fabric"] == "stone" and hd.get("fabric") != "stone"):
+                raise ParamError("entrance_kit.hood.railing_fabric: iron, or stone on a stone hood, or leave it "
+                                 "out for the painted joinery")
+            door_kit["hood"]["railing_fabric"] = hd["railing_fabric"]
     # T-2463: a stoop whose axis is not its door's (1620's, the door at the south end of a
     # landing that runs on north into the porch): the stoop's centre along the front, in the
     # front's own s. The door has to stand on the landing or on a terrace beside it

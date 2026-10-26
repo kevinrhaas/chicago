@@ -302,12 +302,13 @@
           "note": "The sheet's portico, 3 m deep in front of the west wall, its floor the landing the columns stand on."
         },
         "stoop_width_m": {
-          "value": 8.0,
+          "value": 2.6,
           "confidence": "inferred",
           "sources": [
+            "loc_det_4a08065_pullman_residence",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The portico's floor, as wide as the sheet's portico (v 1.6 to 10.6 less its north return); the flight is laid across it, where the sheet's stoop (s20fp-1729-b1 p1-p2, 2.6 x 3.4 m) and the photograph rise at its north end (open in the match record)."
+          "note": "T-3159: the sheet's stoop (s20fp-1729-b1 p1-p2, 2.6 x 3.4 m), which the Detroit print shows rising between the portico's two northern columns; the portico's floor carries on either side of it as the entrance's terraces (entrance_kit)."
         },
         "entrance_bay": {
           "value": "south",
@@ -447,13 +448,13 @@
                 },
                 "brackets": "k08.bay.canted_hooded",
                 "railing": {
-                  "height_m": 0.6,
-                  "post_m": 0.1,
-                  "baluster_m": 0.03,
-                  "pitch_m": 0.12,
+                  "height_m": 0.7,
+                  "post_m": 0.3,
+                  "baluster_m": 0.1,
+                  "pitch_m": 0.2,
                   "rail_m": [
-                    0.08,
-                    0.06
+                    0.25,
+                    0.15
                   ]
                 },
                 "columns": {
@@ -463,10 +464,28 @@
                     0.35
                   ],
                   "capital_m": 0.35,
-                  "respond_m": 0.12
+                  "respond_m": 0.12,
+                  "at_v_m": [
+                    3.05,
+                    6.9,
+                    8.5,
+                    10.03
+                  ]
                 },
-                "railing_fabric": "iron"
-              }
+                "railing_fabric": "stone",
+                "fabric": "stone"
+              },
+              "stoop_v_m": 5.0,
+              "terrace": [
+                {
+                  "side": "left",
+                  "to_v_m": 2.33
+                },
+                {
+                  "side": "right",
+                  "to_v_m": 10.33
+                }
+              ]
             }
           },
           "confidence": "inferred",
@@ -474,7 +493,7 @@
             "loc_det_4a08065_pullman_residence",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The portico the sheet draws 3 m deep in front of the Prairie front (v 1.6 to 10.6), built as the door's hood on columns with a railing over it: the photograph's columned portico carrying a balustraded balcony at the second floor (y 380-395 px)."
+          "note": "The portico the sheet draws 3 m deep in front of the Prairie front (v 1.6 to 10.6), built as the door's hood on columns: the photograph's columned portico carrying a balustraded balcony at the second floor (y 380-395 px). T-3159, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json; the portico's front at u 30.6, 13-14 px a metre): the portico is the front's brownstone, not painted joinery (fabric stone), its balcony railed by a stone balustrade (the print's posts and balusters at y 380-390 over the entablature at 390-400, x 343-395; railing_fabric stone, 0.7 m, its rail clear under the second-storey sills). Its columns: the print shows two clear of the ivy and the trees, a lit round shaft at x 374-381 (v 6.9) and one at x 322-330 (v 3.05), both standing on the portico's floor at y 470; the south half is lost in the ivy, so the row is carried on at the print's pitch, a column at the hood's south end (v 10.03) and one between (v 8.5), four in all (the count is the match record's 'four or more'; the two south positions are a bounded design, L-pullman-1729-portico-3159). The flight: the sheet's stoop (s20fp-1729-b1 p1-p2) is 2.6 x 3.4 m, and the print's steps (x 300-370, y 465-490) rise between the two read columns, its north cheek's raked top running from x 335 y 465 down to x 298 y 488 (v about 3.7): a 2.6 m flight centred at v 5.0 (stoop_v_m), and the rest of the portico's floor terraces at the landing's height either side of it out to the hood's ends."
         },
         "boundary": {
           "value": {

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 786,
+  "count": 787,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56263,6 +56263,41 @@
       "work_refs": [
         "T-1886",
         "T-2964"
+      ]
+    },
+    {
+      "id": "L-pullman-1729-portico-3159",
+      "title": "1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house's Prairie portico is rebuilt as the Detroit Publishing photograph (Detroit Publishing Co. The Pullman residence, Chicago) shows it, through its solved camera the detroit det 4a08065 data: the door's hood laid in the front's brownstone rather than painted joinery (entrance kit…hood.fabric: stone), carried on four columns (hood.columns.at v (m)) and railed by a stone balustrade (hood.railing fabric: stone), and the flight narrowed to the sheet's stoop (2.6 m, stoop width (m)) at the portico's north end (stoop v (m) 5.0), the rest of the portico's floor carried at the landing's height on terraces either side of it. **What is read, not invented.** Two columns standing on the portico's floor: a lit round shaft at x 374-381 px (v 6.9) and one at x 322-330 (v 3.05), both footed at y 470; the balustrade's posts and balusters at y 380-390 over the entablature (x 343-395); the flight's steps at x 300-370, y 465-490, rising between the two columns, its north cheek's raked top (x 335 y 465 to x 298 y 488); and the sheet's stoop, 2.6 x 3.4 m (s20fp-1729-b1 p1-p2). The portico's front stands about 13-14 px a metre. **What is invented.** The two southern columns (v 8.5 and 10.03): the print loses the portico's south half in the ivy, so the row is carried on to the hood's south end, four columns in all (the match record's \"four or more\"). The balustrade's section (0.7 m high, 0.3 m posts, 0.1 m square balusters every 0.2 m, a 0.25 x 0.15 m rail), held under the second storey's sills; the print shows turned balusters at a scale where their profile cannot be read. The columns' size and capitals are earlier work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture closer to the portico (the Albertype plate, the CHM and Taylor views) places the southern columns and gives the balusters' profile."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3159)."
+        }
+      ],
+      "work_refs": [
+        "T-3159",
+        "T-1881",
+        "T-1880",
+        "T-3161"
       ]
     },
     {
