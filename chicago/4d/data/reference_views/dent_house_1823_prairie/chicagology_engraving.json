@@ -1,0 +1,27 @@
+{
+ "structure_id": "dent_house_1823_prairie",
+ "source_id": "chicagology_1823_dent_engraving",
+ "library_image": "a18-cgy-1823-dent-engraving",
+ "photo": "../../sources/assets/dent_1823_engraving_t1894/dent_1823_engraving.jpg",
+ "image_px": [
+  2000,
+  1076
+ ],
+ "principal_px": [
+  1250,
+  901
+ ],
+ "focal_px": 1816,
+ "eye": [
+  40.09,
+  -17.35,
+  1.76
+ ],
+ "yaw_deg": 321.97,
+ "sun_uvy": [
+  0.6,
+  -1.0,
+  1.1
+ ],
+ "solve": "Fitted by T-3162 to the engraving's left two-thirds (x 0-1410 px of the image store's 2000 x 1076 px copy; the right third is Thomas Dent's portrait), against the 1911 sheet's plan (s28fp-1823-b1). The footprint frame's u runs toward Prairie Avenue (west) and v along the front from its north wall (v 0) to its south wall (v 13.88); K01's frame calls those east and north, so yaw 322 looks back toward the house's front and north flank from the north-west. The camera is LEVEL: the engraving's verticals are vertical (it is after a photograph with a rising front), so the principal point sits right of and below the picture's centre. ELEVEN POINTS, least squares over the eye, the heading, the focal length, the principal point and two heights: the north flank's rear corner at grade and cornice (x 140 px), the cornice's step where the rear range begins (x 250 px), the front's north corner at grade, at the stone base course's top and at the cornice (x 578-581 px), and the pavilion's two front corners at grade and cornice (x 990 and 1155 px), every plan place from the sheet's trace. Residuals 9.4 px RMS (the worst 19 px, the flank's rear cornice, which the engraving draws higher than the camera puts it). SCALE: the sheet's 13.88 m front and 18.75 m north flank; the fit puts the cornice's top at 11.6 m and the base course's top at 2.5 m, with the eye at u 40.1 (on the far walk of Prairie Avenue: the street line at u 22.3, the avenue about 20 m wide), v -17.3 (north of the house, in front of 1815), 1.76 m over grade. UNCERTAINTY: an engraving, so its own drawing errs by some pixels; the distance trades against the house's width (13.88 m on the sheet, its georeference 1.47 m RMS), and the heights with it. LIGHT: the front and the north flank both in soft light under bare trees, the north flank a little darker, so the sun from the west-south-west, high."
+}

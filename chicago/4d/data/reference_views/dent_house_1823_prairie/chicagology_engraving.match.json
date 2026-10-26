@@ -1,0 +1,101 @@
+{
+  "structure_id": "dent_house_1823_prairie",
+  "view": "chicagology_engraving",
+  "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
+  "glb_sha256": "bc92b0b969080d39623439960600a3d43902b4be15395b940d42ff027fb947f0",
+  "camera_sha256": "91c299e98d3496cfb1ccb0b26e0f52aa00091983b508c57702f2e8585fc981b6",
+  "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
+  "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a stone front and brick north flank two storeys over a raised basement under a slated mansard, the front's north corner at x 581 px, the north flank running back to x 140 px, the cornice's top at y 330 px on the corner",
+      "status": "fixed",
+      "how": "T-3162: the 1911 sheet's 12.05 x 13.88 m front block on K01 and its 6.7 m rear range, the principal floor 2.35 m, storeys 4.0 and 4.2 m, a K02 limestone front on brick flanks; the render's corner within 3 px, the flank's rear corner within 10 px, the cornice within 10-15 px"
+    },
+    {
+      "what": "the south pavilion standing forward of the front, flush with the south wall, x 975-1155 px, one broad window to a storey (x 1005-1090 px) and two grilled basement lights",
+      "status": "fixed",
+      "how": "T-3162: the sheet's front projection on K08, 5.74 m wide and 1.12 m forward, its windows 1.6 and 1.5 m clear; its edges within 10-15 px"
+    },
+    {
+      "what": "the triple window groups in the front's north part on both storeys (x 600-735 px), the door beside the pavilion (x 780-840 px), and the window over the door",
+      "status": "fixed",
+      "how": "T-3162: three lights 1.02 m apart centred on 1.9 m, the door at 4.85 m, a window over it at 4.85 m on the chamber storey"
+    },
+    {
+      "what": "the north flank's window columns over the main body and its basement lights",
+      "status": "fixed",
+      "how": "T-3162: four columns at u 2.1, 4.3, 8.4 and 10.9 m, and three over the rear range"
+    },
+    {
+      "what": "the mansard's lower faces and dormers: the pedimented dormer over the triple group, the small one over the door, and two on the north flank",
+      "status": "fixed",
+      "how": "T-3162: K05's mansard, 4.4 m to its curb, gabled dormers at 2.2 and 4.85 m on the street face and 2.8 and 5.4 m on the north"
+    },
+    {
+      "what": "the tall stack behind the north flank's front half, its top at y 20 px",
+      "status": "fixed",
+      "how": "T-3162: a K01 stack at u 7.6 m on the north wall, 18.3 m to its top; it renders on those pixels"
+    },
+    {
+      "what": "the pavilion's crown: the engraving's steep roof rises to about y 110 px with a pediment of paired lights in front of it (the 1883 vignette: a pedimented gable with a finial); the build's hipped crown, at K05's steepest end pitch, peaks near y 210 px, about 2 m lower, and carries no pediment or lights",
+      "status": "open"
+    },
+    {
+      "what": "the mansard's curb and cresting: the engraving's curb stands under a cresting rail at y 100-130 px; the build's curb, at the most a one-storey face may rise, is about 0.5 m lower and carries no cresting",
+      "status": "open"
+    },
+    {
+      "what": "the pedimented dormer over the triple group is broad (its pediment x 600-740 px) with a carved tympanum; the build's is K05's gable head over one 1.2 m sash, 0.3 m south of the group's centre",
+      "status": "open"
+    },
+    {
+      "what": "the north flank's paired lights under one pediment (x 270-375 px): built as one broad dormer",
+      "status": "open"
+    },
+    {
+      "what": "the north flank's one-storey box bay under a hood at x 295-380 px (u 1.7-4.6 m), on the principal storey: not built",
+      "status": "open"
+    },
+    {
+      "what": "the stack at the north flank's rear (x 170-235 px, about 16.8 m high) stands over the rear range (u -4.8 m), where K01 stands no stack: not built",
+      "status": "open"
+    },
+    {
+      "what": "the stoop climbs from the north to the landing (x 740-840 px) between stone cheeks; the build's K07 stoop runs straight to the walk",
+      "status": "open"
+    },
+    {
+      "what": "the narrow light beside the door on the principal storey (x 885-905 px): not built; the chamber storey's is laid at the sash's 0.75 m, wider than the print's",
+      "status": "open"
+    },
+    {
+      "what": "the grilled round-arched basement doorway under the landing (x 920-960 px, y 940-990 px): not built",
+      "status": "open"
+    },
+    {
+      "what": "the moulded heads and stone surrounds of the front's windows and the cornice's blocks and dentils: K01's flat lintels and K10's moulded cornice",
+      "status": "open"
+    },
+    {
+      "what": "the flank's cornice dropping where the rear range begins (x 250 px)",
+      "status": "within tolerance",
+      "how": "the rear range's flat roof meets the main body at the same wall head; the drop is a few pixels"
+    },
+    {
+      "what": "the stone's and brick's colours: the print is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the south flank and the rear",
+      "status": "not shown"
+    },
+    {
+      "what": "the trees, the walk and the area railings",
+      "status": "not shown",
+      "how": "outside the building record"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

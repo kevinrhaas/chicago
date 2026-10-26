@@ -25031,3 +25031,5 @@ sole extra placed ID in both published viewport failures. Exact placed-set and
 registry equality and zero 1835-town-layer assertions remain. This is a corrected
 closed set, not permission for arbitrary new records; actual new-head stage 14
 results are still required.
+
+T-2380 integration qualification (2026-10-26): the visible palisade is unchanged while current dev is integrated. The smoke record now assigns the generated release-number metadata to its declared changelog partition, including the actual published values; all other page content stays in the global hash. Isolated real CLI/git fixtures verify the partition and retained dirty-input warning. Legacy hashes and raw CI failures remain preserved; this does not relabel old runs as fresh validation. The newer 1904 Dent inputs require current integration checks and an explicit active-1835 input audit before reusing any earlier stage. Code preflight and current published checks remain pending at this checkpoint. The missing keeper house and compound relationship remain open on original T-2380.
