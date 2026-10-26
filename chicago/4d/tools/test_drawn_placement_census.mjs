@@ -34,7 +34,8 @@ let b = CENSUS().buildings;
 assert.equal(b.compared, 1);
 assert.equal(b.verts, 4);
 assert.equal(b.compounds, 1);
-assert.ok(b.worst > 4, 'the empty plot corner really is outside the drawn body');
+assert.ok(b.campWorst > 4, 'the empty plot corner really is outside the drawn body');
+assert.equal(b.worst, 0, 'and an exempt camp is never named as the worst stray (T-3174)');
 assert.equal(b.outside, 0);
 assert.equal(b.misplaced, 0);
 
@@ -56,6 +57,17 @@ assert.equal(b.outside, 0);
 assert.equal(b.misplaced, 0);
 scene({ camp: false, gap: 0, dx: 0.02 });
 assert.equal(CENSUS().buildings.misplaced, 1, 'the stronger transform check covers buildings too');
+// T-3174: a body drawn inside a footprint that is inset from its origin (the
+// 1832 lighthouse) is drawn around the anchor its record gives it. The fixture
+// turns 180 degrees, so a wrong sign on either footprint axis misses by metres.
+scene({ camp: false, footprint: [[4, 1], [42, 1], [42, 7], [4, 7]] });
+b = CENSUS().buildings;
+assert.equal(b.outside, 0, 'an inset footprint drawn where it is recorded passes');
+assert.ok(b.worst < 1e-3);
+scene({ camp: false, footprint: [[4, 10], [42, 10], [42, 16], [4, 16]] });
+b = CENSUS().buildings;
+assert.equal(b.outside, 1, 'a body drawn off its recorded footprint still fails');
+assert.equal(b.worstId, 'fixture');
 scene({ missing: true });
 assert.equal(CENSUS().buildings.unrecorded, 1, 'missing provenance cannot pass');
 // The DATA plan has an offset origin, independently of the hand-authored

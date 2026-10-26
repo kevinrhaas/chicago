@@ -1,0 +1,169 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-10-26T18:19:39.709Z",
+    "build": "6b72454ea",
+    "machine": "AMD EPYC 9V74 80-Core Processor ×5",
+    "seconds": 238,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "desktop",
+      "label": "desktop 1280x800",
+      "tier": "full",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 80287700,
+        "arrayBuffers": 633125599,
+        "gpuBuffers": 223192390,
+        "gpuTextures": 288847925,
+        "gpuRenderbuffers": 3145732,
+        "total": 1225453614
+      },
+      "gl": {
+        "gpuBuffers": 223192390,
+        "gpuTextures": 285702193,
+        "gpuRenderbuffers": 3145732,
+        "liveBuffers": 1635,
+        "liveTextures": 760,
+        "liveRenderbuffers": 2,
+        "liveFramebuffers": 6,
+        "livePrograms": 69
+      },
+      "heapTotal": 83312640,
+      "shadowMapBytes": 134217728,
+      "textures": {
+        "distinct": 483,
+        "images": 111
+      },
+      "layers": [
+        {
+          "name": "structures",
+          "cpuKept": 177059694,
+          "gpuGeometry": 177059694,
+          "textureBytes": 570436864,
+          "textures": 432,
+          "geometries": 274,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "railway",
+          "cpuKept": 77067504,
+          "gpuGeometry": 77067504,
+          "textureBytes": 35651576,
+          "textures": 26,
+          "geometries": 72,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 11185468,
+          "gpuGeometry": 11185468,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 5255496,
+          "gpuGeometry": 5255496,
+          "textureBytes": 7340592,
+          "textures": 21,
+          "geometries": 17,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "context",
+          "cpuKept": 7109320,
+          "gpuGeometry": 7109320,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 5,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 3914132,
+          "gpuGeometry": 3914132,
+          "textureBytes": 0,
+          "textures": 3,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "parked-transport",
+          "cpuKept": 1970388,
+          "gpuGeometry": 1970388,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 14,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 283562842,
+        "gpuGeometry": 283562842,
+        "textureBytes": 613516413,
+        "cpuNeverUploaded": 0
+      },
+      "uploadRelease": {
+        "geometries": 0,
+        "attributes": 0,
+        "bytes": 0,
+        "keptForHarness": false,
+        "sources": 0,
+        "sourceBytes": 0,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 0,
+        "compressedBytes": 0
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 82,
+        "resident": 61,
+        "sources": 61,
+        "residentBytes": 104160176,
+        "budgetBytes": 536870912,
+        "wantedBytes": 104160176,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 0,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": false,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 32,
+          "fallback": 0,
+          "gpuBytes": 29011504,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 237
+      }
+    }
+  ]
+}

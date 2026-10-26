@@ -12694,7 +12694,8 @@ for (const [label, viewport, touch] of [
       + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`
       + `; ${drawnTown.buildings.misplaced} wrong vertex transforms (worst `
       + `${drawnTown.buildings.worstTransform.toFixed(6)} m, 0.001 m bar), `
-      + `${drawnTown.buildings.compounds} sparse camp plots`, true);
+      + `${drawnTown.buildings.compounds} sparse camp plots (empty plot corners up to `
+      + `${drawnTown.buildings.campWorst.toFixed(2)} m out, which gate nothing)`, true);
     check(`${label}: every panel of road is drawn on a street the data records`,
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,

@@ -3,7 +3,7 @@
   "view": "moss-engraving",
   "glb": "assets/gltf/st_marys_church__frame_1833.glb",
   "glb_sha256": "f3e78bf91b68e95b0eee1200e5b006729bd4a0d33fc73e8968fba18c382d26f7",
-  "camera_sha256": "4d352ebd2cd8a0fff50509bb03fc996b0a54e5fedd471ac7208ec9682b74956f",
+  "camera_sha256": "944c60cee23e516513a287648ab488d9e08308eafad7940f3331f373d584d49a",
   "photo_sha256": "e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
   "side_by_side": "docs/RESEARCH/photo-match/st_marys_church/moss-engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -33,5 +33,11 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_review": {
+    "reviewed_at": "2026-10-26T22:27:39.151136+00:00",
+    "method": "Freshly viewed the whole held Moss engraving and newly generated same-camera native side-by-side after adding diagnostic_only and library_image. The open belfry/cross, five-sash/end-door topology and far stack are present. The sash heads and sills remain visibly lower than the engraving, preserving the existing original-ticket OPEN discrepancy. Exact paint/metal colours are not established by the engraving.",
+    "original_ticket": "T-2384 remains OPEN/DIFFERS; no follow-up ticket or claimed match.",
+    "metadata_correction": "Only camera metadata changed: pose, basis, focal length, principal point, source photograph and MASTER/WEB geometry remain exact. The provisional undated view is not offered as a historical From this spot. The new JPEG was freshly viewed; no byte/pixel equality claim is made."
+  }
 }

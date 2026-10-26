@@ -56,6 +56,15 @@ step "Native palisade heads retain total height, outward normals, open gates and
 step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
   node tools/test_photo_match_enclosures.mjs
 
+selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
+  node tools/test_dev_smoke_state.mjs --self-test
+
+selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
+  node tools/test_ktx2_texture_policy.mjs --self-test
+
+selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
+  node tools/test_rail_geometry_lifecycle.mjs --self-test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
@@ -4292,6 +4301,16 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 # drift guards that the workflow still asks at all.
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
+
+# T-3169. `ubuntu-latest` moved to 26.04 on 2026-10-26 and playwright@1.56.1 refuses
+# to install chromium there, so all eighteen content-build smoke legs died in
+# `Install Playwright` and no bake could open its PR. A job that installs Playwright
+# names an exact image — the one its timings and ceilings were measured on.
+step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+  python3 tools/check_runner_images.py --gate
+
+selftest "…and a job on a moving label is refused, read per job and not from prose" \
+  python3 tools/check_runner_images.py --self-test
 
 # T-2314. A whole-town bake derives only the masters the record says moved; deriving
 # all ~714 pushed the content-build job past its thirty-minute ceiling.

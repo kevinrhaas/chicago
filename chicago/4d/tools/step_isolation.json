@@ -2904,6 +2904,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_runner_images.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_shadow_bias.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5574,6 +5578,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_dev_smoke_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5850,6 +5858,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_ktx2_texture_policy.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_leg_notes.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6007,6 +6019,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_rail_geometry_lifecycle.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
