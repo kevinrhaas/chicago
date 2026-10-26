@@ -17,7 +17,7 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
 # 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013;
-# 192 000 from T-2793's two necessary provenance records — see outputs().
+# 192 000 from T-3167/T-2793 and the later T-3110/T-3171 records — see outputs().
 INDEX_BUDGET = 192_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
@@ -436,6 +436,12 @@ class Compiler:
         # the index to 177 692 raw bytes with every citation whole. Same bargain as before:
         # about twenty sources of room, and the 120 KB compressed first-open allowance,
         # measured by measure_sources.mjs, unchanged.
+        # 192 000 SINCE 2026-10-26 (T-3167): 1824 Prairie's Pomeroy photograph merged onto
+        # dev's T-3162 (1823's engraving and album plate) took the index to 184 545 raw
+        # bytes with every citation whole. Same bargain: about twenty sources of room; the
+        # index gzips to 43.8 KB (gzip -9), far inside the 120 KB compressed first-open allowance.
+        # T-3110 (HABS photograph 2 of 1801 Prairie) landed in the same room, alongside T-3167.
+        # T-3171 (the Doane photograph's record, 1827 Prairie) landed in the same room too.
         # 192 000 SINCE 2026-10-26 (T-2793): accepted 1e289896 held 456 sources in
         # 183 931 bytes, leaving 69 bytes. The licensed Old Cart development base and
         # Wild's dated 1835 Cincinnati cross-check are two distinct, necessary records;

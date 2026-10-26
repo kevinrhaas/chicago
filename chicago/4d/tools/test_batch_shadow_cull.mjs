@@ -38,4 +38,162 @@ test('actual native shadow wrapper removes away caster only; colour list exact',
 test('toward-view sun keeps offscreen caster',()=>{const o=context();o.light.position.set(320,320,-10);o.light.updateMatrixWorld(true);o.light.shadow.updateMatrices(o.light);const a=build(M,null),b=build(M,o.descriptor);for(const x of[a,b])x.b.onBeforeShadow(o.renderer,x.b,o.camera,o.light.shadow.camera,x.b.geometry,x.depth);assert.deepEqual(ids(b.b),ids(a.b));assert.deepEqual([...ids(b.b)].sort(),[0,1]);});
 let seed=82735;const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/2**32);
 test('1000 separating-plane rays remain outside for arbitrary positive travel and bounded offsets',()=>{for(let i=0;i<1000;i++){const n=new T.Vector3(rand()-.5,rand()-.5,rand()-.5).normalize(),ray=n.clone().negate(),margin=.1+rand(),f={frustum:{planes:[new T.Plane(n,0)]},ray,margin};const center=n.clone().multiplyScalar(-10),box=new T.Box3().setFromCenterAndSize(center,new T.Vector3(1,1,1));assert(M.shadowCannotReachView(f,box));for(const t of[0,.1,1,100,1e6])for(const x of[box.min.x,box.max.x])for(const y of[box.min.y,box.max.y])for(const z of[box.min.z,box.max.z]){const p=new T.Vector3(x,y,z).addScaledVector(ray,t).add(new T.Vector3((rand()-.5)*2*margin,(rand()-.5)*2*margin,(rand()-.5)*2*margin));assert(n.dot(p)<0);}}});
+
+// T-3173: execute the actual proposed owner closure and pinned native shadow/
+// uniform kernels. No WebGL renderer is initialized by these CPU controls.
+const jsFile = (name) => new URL('../renderers/web/js/' + name, import.meta.url);
+async function pureModule(name) {
+  return import('data:text/javascript;base64,' + Buffer.from(fs.readFileSync(jsFile(name), 'utf8')
+    .replace("from 'three'", 'from ' + JSON.stringify(vendor))).toString('base64'));
+}
+const { createConfidenceView, programKeyOf } = await pureModule('confidence.js');
+const { SCALARS_GLSL } = await pureModule('compact-attributes.js');
+const packed = { read: SCALARS_GLSL.confidence, declare: SCALARS_GLSL.declare };
+const buildingsText = fs.readFileSync(jsFile('buildings.js'), 'utf8');
+const closureStart = buildingsText.indexOf('  const depthMaterials = new Map();');
+const closureEnd = buildingsText.indexOf('\n  const batches = [];', closureStart);
+assert(closureStart >= 0 && closureEnd > closureStart);
+const ownerFactory = new Function('THREE', 'confidence', 'PACKED_CONFIDENCE',
+  buildingsText.slice(closureStart, closureEnd) + '\nreturn { depthFor, depthMaterials };');
+const confidence = createConfidenceView();
+const makeOwners = () => ownerFactory(T, confidence, packed);
+const vendorText = fs.readFileSync(new URL(vendor), 'utf8');
+function kernel(name, next) {
+  const a = vendorText.indexOf('\tfunction ' + name + '(');
+  const b = vendorText.indexOf('\n\tfunction ' + next + '(', a);
+  assert(a >= 0 && b > a, 'pinned vendor kernel anchors');
+  return vendorText.slice(a, b);
+}
+const getDepth = new Function('VSMShadowMap', 'shadowSide',
+  kernel('getDepthMaterial', 'renderObject') + '\nreturn getDepthMaterial;')(
+    T.VSMShadowMap, { [T.FrontSide]: T.BackSide, [T.BackSide]: T.FrontSide, [T.DoubleSide]: T.DoubleSide });
+const transform = new Function(kernel('refreshTransformUniform', 'refreshFogUniforms')
+  + '\nreturn refreshTransformUniform;')();
+const refresh = new Function('properties', 'refreshTransformUniform', 'BackSide',
+  kernel('refreshUniformsCommon', 'refreshUniformsLine') + '\nreturn refreshUniformsCommon;')(
+    { get: () => ({}) }, transform, T.BackSide);
+const nativeDepth = (depth, material, type = T.PCFShadowMap) =>
+  getDepth({ customDepthMaterial: depth }, material, { isPointLight: false }, type);
+const depthUniforms = () => T.UniformsUtils.clone(T.ShaderLib.depth.uniforms);
+function blocks() {
+  const levels = Array.from({ length: 10 }, (_, i) => {
+    const width = Math.max(1, 512 >> i);
+    return { width, height: width, data: new Uint8Array(Math.ceil(width / 4) ** 2 * 16).fill(i + 1) };
+  });
+  const tex = new T.CompressedTexture(levels, 512, 512, T.RGBA_BPTC_Format);
+  tex.colorSpace = T.SRGBColorSpace; tex.needsUpdate = true;
+  return tex;
+}
+test('old shared depth negative control retains released mapped source in native uniforms after null-map batch', () => {
+  const raw = blocks(), mapped = new T.MeshStandardMaterial({ map: raw }), plain = new T.MeshStandardMaterial();
+  const shared = confidence.patch(new T.MeshDepthMaterial({ depthPacking: T.RGBADepthPacking }), { packed });
+  const uniforms = depthUniforms(); refresh(uniforms, nativeDepth(shared, mapped));
+  for (const level of raw.mipmaps) level.data = new Uint8Array(0);
+  refresh(uniforms, nativeDepth(shared, plain));
+  assert.equal(shared.map, null);
+  assert.equal(uniforms.map.value, raw, 'native refresh only assigns a truthy map; stale uniform remains');
+  assert(uniforms.map.value.mipmaps.every(m => m.data.byteLength === 0));
+});
+test('distinct live colour materials own distinct depth records; identical owner reuses one record', () => {
+  const o = makeOwners(), a = new T.MeshStandardMaterial({ map: blocks() }), b = new T.MeshStandardMaterial();
+  assert.equal(o.depthFor(a), o.depthFor(a)); assert.notEqual(o.depthFor(a), o.depthFor(b));
+  assert.equal(o.depthMaterials.size, 2);
+});
+test('mapped-to-mapless shadow passes keep independent native uniforms and never inherit old released map', () => {
+  const o = makeOwners(), raw = blocks(), mapped = new T.MeshStandardMaterial({ map: raw });
+  const plain = new T.MeshStandardMaterial(), a = o.depthFor(mapped), b = o.depthFor(plain);
+  const ua = depthUniforms(), ub = depthUniforms(); refresh(ua, nativeDepth(a, mapped));
+  for (const level of raw.mipmaps) level.data = new Uint8Array(0);
+  refresh(ub, nativeDepth(b, plain));
+  assert.equal(ua.map.value, raw); assert.equal(ub.map.value, null); assert.equal(b.map, null);
+});
+test('different mapped owners preserve actual alpha/displacement and confidence shader state', () => {
+  const o = makeOwners(), color = new T.MeshStandardMaterial({ map: blocks(), alphaMap: blocks(),
+    displacementMap: blocks(), displacementScale: .125, displacementBias: -.01, alphaTest: .37 });
+  color.clipShadows = true; color.clipIntersection = true; color.clippingPlanes = [new T.Plane()];
+  color.wireframe = true; color.wireframeLinewidth = 2; color.visible = false;
+  const depth = o.depthFor(color);
+  for (const key of ['map','alphaMap','displacementMap','displacementScale','displacementBias','alphaTest',
+    'clipShadows','clipIntersection','clippingPlanes','wireframe','wireframeLinewidth','visible']) {
+    assert.equal(depth[key], color[key], key);
+  }
+  assert.equal(depth.depthPacking, T.RGBADepthPacking);
+  const shader = { uniforms: depthUniforms(), vertexShader: T.ShaderLib.depth.vertexShader,
+    fragmentShader: T.ShaderLib.depth.fragmentShader };
+  depth.onBeforeCompile(shader, null);
+  assert(shader.vertexShader.includes('vConfidence'));
+  assert(shader.fragmentShader.includes('uConfMode'));
+  assert(programKeyOf(depth).includes('chicago4d-confidence|packed:'));
+});
+test('alpha-to-coverage and native PCF/VSM/custom sidedness retain actual shadow settings', () => {
+  const o = makeOwners(), color = new T.MeshStandardMaterial({ side: T.FrontSide });
+  color.alphaToCoverage = true;
+  const depth = o.depthFor(color);
+  assert.equal(depth.alphaTest, .5); assert.equal(nativeDepth(depth, color).side, T.BackSide);
+  assert.equal(nativeDepth(depth, color, T.VSMShadowMap).side, T.FrontSide);
+  color.shadowSide = T.DoubleSide;
+  assert.equal(nativeDepth(depth, color).side, T.DoubleSide);
+});
+test('actual buildings assignment and cull owner use the same per-material depth; cleanup disposes each once', () => {
+  assert(buildingsText.includes('const depthMaterial = depthFor(bucket.material);'));
+  assert(buildingsText.includes('batch.customDepthMaterial = depthMaterial;'));
+  assert(buildingsText.includes('installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial,'));
+  const o = makeOwners(), a = new T.MeshStandardMaterial(), b = new T.MeshStandardMaterial();
+  let disposed = 0;
+  for (const material of new Set([a, a, b])) o.depthFor(material).addEventListener('dispose', () => disposed++);
+  const start = buildingsText.indexOf('      for (const depth of depthMaterials.values()) depth.dispose();');
+  const end = buildingsText.indexOf('\n', buildingsText.indexOf('      depthMaterials.clear();', start));
+  new Function('depthMaterials', buildingsText.slice(start, end))(o.depthMaterials);
+  assert.equal(disposed, 2); assert.equal(o.depthMaterials.size, 0);
+});
+
+// Real production source/owner registration and residency; only upload bookkeeping
+// and the encoded decoder are CPU doubles. No GPU-success claim is made here.
+const sharedURL = jsFile('shared-images.js').href;
+const { shareImageSources } = await import(sharedURL);
+const residencyText = fs.readFileSync(jsFile('texture-residency.js'), 'utf8')
+  .replace("from 'three'", 'from ' + JSON.stringify(vendor))
+  .replace("from './shared-images.js'", 'from ' + JSON.stringify(sharedURL))
+  .replace("import { noteReleasedLevels } from './upload-release.js';", 'const noteReleasedLevels = () => {};');
+const { createTextureResidency } = await import('data:text/javascript;base64,'
+  + Buffer.from(residencyText).toString('base64'));
+const rawShadowSource = blocks();
+class ShadowParser {
+  constructor() { this.json = { images: [{ bufferView: 0, mimeType: 'image/ktx2' }] }; this.sourceCache = {}; }
+  getDependency() { return Promise.resolve(new Uint8Array([9, 2, 7]).buffer); }
+  loadImageSource() { return Promise.resolve(rawShadowSource); }
+}
+const imageLoader = { load(url, done) { queueMicrotask(() => done(blocks())); } };
+const parser = new ShadowParser();
+shareImageSources({ register(plugin) { plugin(parser); } }, { keepEncoded: true });
+const shadowTexture = await parser.loadImageSource(0, imageLoader);
+const ownerState = makeOwners(), color = new T.MeshStandardMaterial({ map: shadowTexture });
+const mesh = new T.Mesh(new T.BoxGeometry(1, 1, 1), color);
+mesh.customDepthMaterial = ownerState.depthFor(color);
+const group = new T.Group(); group.add(mesh);
+const properties = new WeakMap();
+const props = (object) => { if (!properties.has(object)) properties.set(object, {}); return properties.get(object); };
+const bookkeeping = { properties: { get: props }, initTexture(texture) {
+  Object.assign(props(texture), { __webglTexture: {}, __version: texture.version });
+} };
+bookkeeping.initTexture(shadowTexture);
+const residency = createTextureResidency({ group, renderer: bookkeeping, tier: 'light', closeImages: false,
+  releaseCompressedLevels: true });
+residency.prime(new T.Vector3()); residency.tick(new T.Vector3(0, 1000, 0));
+test('actual residency captures colour plus initialized shadow slots before release and evicts both to same valid stand-in', () => {
+  assert.equal(residency.state.sources, 1); assert.equal(residency.state.evictions, 1);
+  assert(shadowTexture.mipmaps.every(m => m.data.byteLength === 0));
+  assert.notEqual(color.map, shadowTexture); assert.equal(mesh.customDepthMaterial.map, color.map);
+  assert(color.map.image.width <= 64);
+  assert(color.map.mipmaps.every(m => m.data.byteLength === Math.ceil(m.width / 4) * Math.ceil(m.height / 4) * 16));
+});
+residency.tick(new T.Vector3()); await new Promise(resolve => setTimeout(resolve, 0)); residency.tick(new T.Vector3());
+test('actual residency return restores both colour and shadow owner slots without changing hook identity', () => {
+  const depth = ownerState.depthFor(color), hook = depth.onBeforeCompile, key = programKeyOf(depth);
+  assert.equal(residency.state.retranscodes, 1); assert.equal(residency.state.pending, 0);
+  assert.equal(color.map, shadowTexture); assert.equal(depth.map, shadowTexture);
+  assert.equal(mesh.customDepthMaterial, depth); assert.equal(depth.onBeforeCompile, hook);
+  assert.equal(programKeyOf(depth), key); assert.deepEqual(residency.state.problems, []);
+});
+
 console.log('PASS '+checks.length+' batch shadow cull controls; CPU only, no browser/GPU acceptance');

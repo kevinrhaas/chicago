@@ -24,6 +24,8 @@
  * desktop: device-profile.js `decide`) the top mip is dropped before upload, so a 1024²
  * sheet goes up as 512² and its chain — a quarter of the bytes from the same file, with
  * no second asset to ship or keep in step.
+ * The shared GLB adapter applies this same device texture policy before delivery,
+ * including residency re-decodes. Full retains every mip regardless of scene detail.
  */
 import * as THREE from 'three';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
@@ -32,6 +34,7 @@ let loader = null;
 let dropTopMip = false;
 let rendererRef = null;
 let glbLoader = null;
+const lightGlbVariants = new WeakMap();
 /** What the boot found, for `__chicago4d.ktx2` and the memory meter's report. */
 export const ktx2State = { enabled: false, reason: 'not initialised', dropTopMip: false, glb: 'shared',
   formats: null, sheets: { ktx2: 0, fallback: 0, gpuBytes: 0, failed: [] } };
@@ -90,13 +93,50 @@ export function initKTX2(renderer, { textures = 'full', disabled = false } = {})
  * fall back to, so a GLTFLoader with no KTX2 loader cannot open it at all. A sheet has
  * its image path; a GLB does not. So where the shared loader is off — `?ktx2=0`, or a
  * GPU with no block format — the GLB loader gets one of its own that transcodes every
- * texture to RGBA8: exactly what the JPEG cost on the GPU, which is the honest "before"
- * the kill switch is for, and never a missing house.
+ * texture to RGBA8, so the kill switch reads uncompressed storage rather than a
+ * missing house. The same device texture policy applies there: Light drops mip 0
+ * for both block-compressed and RGBA GLB textures; full texture profiles keep it.
  */
 export function registerKTX2(gltfLoader) {
   const l = loader || rgbaGlbLoader();
-  if (l) gltfLoader.setKTX2Loader(l);
+  if (l) gltfLoader.setKTX2Loader(glbTextureLoader(l, dropTopMip));
   return gltfLoader;
+}
+
+/** Isolate delivered mip descriptors from the transcoder cache on every profile.
+ * Light also drops mip0, matching library sheets; Full keeps every byte and size.
+ * Clone before trimming or release: the cached full texture must stay full.
+ * The encoded-image record keeps this adapter, so a residency refill gets the same
+ * mip layout as the original decode, never a full chain in half-sized slots.
+ */
+function glbTextureLoader(source, reduce) {
+  return {
+    load(url, onLoad, onProgress, onError) {
+      return source.load(url, (texture) => {
+        let variant = texture;
+        if (reduce) {
+          let light = lightGlbVariants.get(texture);
+          if (!light) {
+            light = texture.clone();
+            light.source = new THREE.Source(texture.source.data);
+            // Three clones the mip array, not its descriptors. Residency releases
+            // descriptor.data after upload; isolate that mutation from the full cache.
+            light.mipmaps = texture.mipmaps.map((level) => ({ ...level }));
+            dropTop(light);
+            light.needsUpdate = true;
+            lightGlbVariants.set(texture, light);
+          }
+          variant = light;
+        }
+        // Share the selected source for Three's GPU cache, while isolating each
+        // delivery's descriptors from the retained variant and other deliveries.
+        const delivered = variant.clone();
+        delivered.mipmaps = variant.mipmaps.map((level) => ({ ...level }));
+        forgetSettledTranscodes(source);
+        onLoad(delivered);
+      }, onProgress, onError);
+    },
+  };
 }
 
 function rgbaGlbLoader() {
@@ -132,7 +172,7 @@ function forgetSettledTranscodes(l) {
 
 /** The light tier's residency: upload from mip 1, a quarter of the bytes. */
 function dropTop(tex) {
-  if (!dropTopMip || !(tex.mipmaps?.length > 1)) return tex;
+  if (!dropTopMip || tex.userData?.ktx2DroppedMip0 || !(tex.mipmaps?.length > 1)) return tex;
   tex.mipmaps = tex.mipmaps.slice(1);
   const { width, height } = tex.mipmaps[0];
   tex.image = { width, height, depth: 1 };

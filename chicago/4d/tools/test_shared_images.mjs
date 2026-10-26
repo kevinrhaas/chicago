@@ -104,5 +104,8 @@ check('an image the module never shared may always be closed', releaseSharedImag
   check('a texture with no source is shared, not a TypeError', threw === null, String(threw));
 }
 
+// The same embedded-image owner also holds light mip policy and uploaded-level recovery.
+await import('./test_texture_residency.mjs');
+
 console.log(`${failures} failure(s)`);
 process.exit(failures ? 1 : 0);

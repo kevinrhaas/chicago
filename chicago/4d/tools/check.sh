@@ -51,6 +51,19 @@ step "Every building's reference views and match records read; where each stands
 
 step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
   node tools/image_gate.mjs --test
+step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
+  node tools/test_enclosure_points.mjs
+step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
+  node tools/test_photo_match_enclosures.mjs
+
+selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
+  node tools/test_dev_smoke_state.mjs --self-test
+
+selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
+  node tools/test_ktx2_texture_policy.mjs --self-test
+
+selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
+  node tools/test_rail_geometry_lifecycle.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs

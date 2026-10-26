@@ -76,7 +76,7 @@ import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
 import { compactStreams } from './compact-streams.js';
-import { createTextureResidency } from './texture-residency.js';
+import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceTextures } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { countDriverDraws } from './driver-draws.js';
 import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport } from './blackbox.js';
@@ -1782,6 +1782,7 @@ async function boot() {
     // the reach alone would hold.
     const budget = Number(params.get('residency-budget'));
     residency = createTextureResidency({ group, renderer, tier: detailLevel, closeImages: coarse,
+      releaseCompressedLevels: true,
       settings: budget > 0 ? { budgetBytes: budget * 1048576 } : null });
     residency.prime(eye, options);
     api.residency = residency.state;
@@ -1944,11 +1945,13 @@ async function boot() {
     onProgress: (done, total) => bootController.progress('scene', done, total),
     version: VERSION_REQUEST,
     detail: detailLevel,
-    // T-2548: a phone re-fetches on a detail switch rather than banking the GLB.
-    keepAssetBytes: !coarse,
-    // T-2598: and keeps each house picture's encoded bytes, so one that went distant
-    // and had its decoded copy closed can be decoded again (texture-residency.js).
-    keepEncodedImages: coarse && RESIDENCY_ON,
+    // Re-fetch/revalidate through the normal HTTP path on a detail switch. Every
+    // device avoids retaining a complete raw GLB beside its parsed scene and GPU.
+    keepAssetBytes: false,
+    // A phone can release every decoded image; desktop releases compressed levels
+    // only, so keep encoded recovery bytes only for the images that can need them.
+    // Desktop regular images remain decoded and can be restored directly.
+    keepEncodedImages: RESIDENCY_ON ? (coarse ? true : 'compressed') : false,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
@@ -2280,6 +2283,9 @@ async function boot() {
   const railway = await createRailway({
     dataBase: layerBase('railway'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
+    // Newly reached rail zones are marked before their next draw. This only
+    // installs upload callbacks; it does not render from inside update().
+    onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined,
   });
   scene3d.add(railway.group);
   api.railway = railway;
@@ -2942,19 +2948,25 @@ async function boot() {
     for (const gltf of next.reread ?? []) disposeLoadedAsset(gltf);
   };
   /**
-   * T-2548: a phone let go of every building's source geometry once its batch
-   * held a copy, so a rebuild re-reads the GLBs of the rows it released — the
-   * HTTP cache answers — into the candidate registry. The gltfs those rows held
-   * are retired at commit (`next.retired`), the ones read here at discard.
+   * Re-read source rows whose geometry or compressed texture payloads were
+   * released, using the normal HTTP refetch/revalidation path. A fresh candidate
+   * must prepare valid texture stand-ins before its next upload release. Old
+   * gltfs retire only at commit; new reads are disposed if preparation fails.
    */
   const rereadReleased = async (next, skipId) => {
     next.reread = [];
     next.retired = [];
-    const rows = [...next.registry.values()].filter((row) => row.sourceReleased && row.id !== skipId);
+    const rows = [...next.registry.values()].filter((row) => row.id !== skipId
+      && (row.sourceReleased || hasReleasedTextureLevels(row.gltf)));
     const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
     got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
     const failed = got.find((r) => r.status === 'rejected');
     if (failed) throw failed.reason;
+    rows.forEach((row, i) => {
+      if (!hasRequiredSourceTextures(row.gltf, got[i].value.gltf)) {
+        throw new Error(`${row.id}: reloaded source is missing a required texture`);
+      }
+    });
     rows.forEach((row, i) => {
       next.retired.push(row.gltf);
       Object.assign(row, got[i].value, { node: null, instanceId: null, sourceReleased: false });
@@ -4556,7 +4568,11 @@ async function boot() {
       ask() {
         if (asked) return;
         asked = true;
-        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+        // Complete the zero-byte body too: discarding Chromium's HEAD response
+        // can leave its request aborted even after a successful HTTP status.
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then(async (r) => {
+          await r.arrayBuffer(); known = r.ok;
+        }).catch(() => { known = false; });
       },
       load() {
         if (people) return Promise.resolve(people);

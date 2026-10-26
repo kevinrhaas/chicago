@@ -61,8 +61,9 @@ function entryFor(byKey, key) {
 
 /**
  * Teach `loader` (a GLTFLoader) to decode each distinct embedded image once for
- * every file it parses. Returns `{ stats }`, which counts images decoded and
- * images shared, for the tools that measure it.
+ * every file it parses. `keepEncoded` is true for all recovery bytes, false for
+ * none, or 'compressed' for only decoded compressed textures. Returns `{ stats }`,
+ * which counts images decoded and images shared, for the tools that measure it.
  */
 export function shareImageSources(loader, { keepEncoded = false } = {}) {
   const byKey = new Map();
@@ -96,7 +97,8 @@ export function shareImageSources(loader, { keepEncoded = false } = {}) {
             // tenth of the levels it transcodes to.
             // A texture with no `source` (never one of three's) has nothing to key on.
             if (texture.source) {
-              glbSources.set(texture.source, { encoded: keepEncoded
+              const retainEncoded = keepEncoded && (keepEncoded !== 'compressed' || texture.isCompressedTexture);
+              glbSources.set(texture.source, { encoded: retainEncoded
                 ? { view, mimeType: def.mimeType, imageLoader } : null });
             }
             return texture;
