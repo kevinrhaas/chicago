@@ -1,0 +1,21 @@
+{
+  "structure_id": "green_tree_tavern",
+  "source_id": "andreas_1884_green_tree_hotel_plate",
+  "photo": "../../../../reference/images/chicago/chicago_green_tree_inn_1838.jpg",
+  "image_px": [
+    1600,
+    1000
+  ],
+  "principal_px": [
+    -3472.8297136919055,
+    682.311321563539
+  ],
+  "focal_px": 6661.424855035462,
+  "eye": [
+    -119.02830380700041,
+    72.37506685114646,
+    1.6395476268613007
+  ],
+  "yaw_deg": 84.47345858188956,
+  "solve": "PROVISIONAL REVIEW CAMERA ONLY, NOT A SOLVED OR ACCEPTED MATCH. Six approximate wall-corner points were fitted while holding the existing 7.62 x 12.19 m footprint and 5.0 m wall height; dimensions are model inputs, not measured from the drawing. Coordinate RMS 6.11 px; maximum point residual 12.65 px. Source picks and residuals are in docs/RESEARCH/frame-picture-match-T-2376-T-2385/green-tree/source-picks-and-fit.json. The extreme principal x -3472.8 px is outside the 1600 px image and makes this a poorly constrained perspective drawing fit, not a physical lens or geographic viewing spot. Two withheld roof-ridge points disagree, especially the far apex. Lighting is not solved; default review light is retained. Use only for initial before/after comparison, retain differs, and refine manual controls/camera before any acceptance. Retrospective Andreas form witness, not proof of the exact July 1835 elevation. Current T-3153 review: drawing/camera residuals are within tolerance and do not alone block acceptance. This retained fixed comparison framing is not a survey or measured lens; the current visitor-visible missing or misplaced architectural elements are recorded separately. The render draws the isolated current asset on a neutral plane, without the app terrain, procedural signage or neighbours."
+}
