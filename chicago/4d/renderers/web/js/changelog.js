@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2306, ts: '2026-10-26T13:35:50.913Z', date: 'Oct 26, 2026, 8:35 AM CT', title: 'Nothing you can see changed: room for finished houses again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance again, which held back a finished Prairie Avenue house. The growth since 20 October is measured: mostly the period carriages and horses, and the houses rebuilt from their photographs.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit, and the two biggest ways to hand bytes back are measured for later.',
+    ] },
   { v: 2305, ts: '2026-10-26T09:28:31.179Z', date: 'Oct 26, 2026, 4:28 AM CT', title: '1816 Prairie\'s bays rise into crowned mansards under iron cresting', kind: 'improvement',
     items: [
       'Charles M. Henderson\'s house at 1816 Prairie Avenue (1904) now matches more of its photograph: both canted bays are carried up through the cornice into mansards of their own, the corner\'s a raised crown standing over the main roof, the south flank\'s lower, each ringed with iron cresting.',
