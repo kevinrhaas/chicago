@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3f0c05ba67605453ae1ce0036fab9141d7b87b059164ff47840978d2388b93da",
+  "glb_sha256": "44f90ddd847f45a215dbdd34e0255fae8f43dc76036fb070330810750eb9d3c2",
   "camera_sha256": "f3b653e96ff02a983e1779b9b0ef6576e93cdb97be9e753647feb7b149a3d7c6",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -43,13 +43,13 @@
       "how": "T-3171: K11's scroll-band fence on the Prairie line"
     },
     {
-      "what": "the corner block at the south-west corner, with its narrow cant, carried up a storey past the cornice as a square tower under a tall slated hip with a crested top and two finials (x 610-1135 px, y 80-1600)",
+      "what": "the corner block at the south-west corner, with its narrow cant, carried up a storey past the cornice as a square tower under a tall slated hip with a crested top and two finials (x 610-1135 px, y 80-1600). T-3175 measured it against the 1911 sheet: the photograph's turned square reads a face about 4-4.7 m across (its broad south-west face x 860-1130 px, its narrow north-west face x 820-860, at the scale of the cornice and storeys), where the sheet's bump is a square of about 2.4 m on a face centred on the main block's corner; through this camera a tower of the photograph's size would stand about 2.8 m out of the front, and no camera fitted to the sheet's plan holds both (the best leaves about 165 px). The camera itself misses the pavilion's north edge by about 90 px (x 371 against the print's 277). T-3176 owns the reconciliation, the re-solve and the tower",
       "status": "open",
       "how": "T-3172"
     },
     {
-      "what": "the pavilion's steep pyramidal roof over the cornice, with its finial and its triple attic lights (x 330-560 px, y 350-830); the render shows the pavilion's low hip under the main mansard",
-      "status": "open",
+      "what": "the pavilion's steep pyramidal roof over the cornice, with its finial and its triple attic lights (x 330-560 px, y 350-830); the render showed the pavilion's low hip under the main mansard. T-3175 carries the pavilion up an attic storey from the main eave to its own cornice at the main curb's height (y about 605 px, 16.8 m), three tall lights in its wall, under a slated crown hipped on every side at 47 degrees to a point (about 20.5 m) and a turned iron finial",
+      "status": "fixed",
       "how": "T-3172"
     },
     {
@@ -85,6 +85,26 @@
     {
       "what": "the north flank, the rear and the brick rear range",
       "status": "not shown"
+    },
+    {
+      "what": "the pavilion's crown and attic render about 60-90 px east of the print's (the attic's lights at about x 440-560 against the print's 357-500), with the pavilion under them; the camera's misfit along the front (the corner block's entry above), not the crown's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the crown's cornice stands 0.65 m past the pavilion's sides, the kit's least past the main cornice's 0.6 m, where the print's stands about at them (its eave x 350-597 px against the pavilion's face to x 600), and the attic's wall is stone across the pavilion's whole width, where the print slates its outer parts as cheeks (x 535-600 on its south side) and sets the lights between stone piers",
+      "status": "open"
+    },
+    {
+      "what": "the attic's three lights: the print's carry arched transom heads under carved hoods (y about 627-690 px); the build's flat transoms stand in",
+      "status": "open"
+    },
+    {
+      "what": "the crown's pitch: the print's rise of about 3.4 m over a half-width of about 3.4 m reads 45 degrees, the build's 47 (the kit's steep range starts over 45), its point about 0.3 m higher",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the crown's finial: the print's is a wrought iron cross-like finial about 1 m tall (y 355-410 px); the build turns the deck's iron finial (T-3000) to the same height",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
