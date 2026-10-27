@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2336, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1901 Prairie: stone chimneys, a flank dormer and a scrolled fence', kind: 'feature',
+    items: [
+      'The Ream house at 1901 Prairie now matches its south-west photograph more closely: its two tall chimneys are pale stone like its walls, not red brick, and they stand where the photograph puts them.',
+      'A pedimented dormer now sits on the south side\'s mansard over the bay window, and the street dormers have lower pediments.',
+      'The iron fence is a band of scrolls on a stone curb, and its gate hangs on stone piers.',
+    ] },
+  { v: 2335, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1827 Prairie\'s window hoods, arched attic lights and tower cornice', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie now matches its photograph more closely: every front, pavilion and tower window carries a moulded hood, the attic\'s three lights are round-headed, the corner tower is capped by a deep moulded cornice at the print\'s height, and the stone front is laid in alternating high and low courses.',
+    ] },
   { v: 2334, ts: '2026-10-27T10:23:38.289Z', date: 'Oct 27, 2026, 5:23 AM CT', title: 'Kimball\'s 18th Street tower rebuilt to its photographs', kind: 'improvement',
     items: [
       '1801 Prairie\'s round tower is now a slim shaft under a wider corbelled top stage with small square windows, as the c. 1895 Taylor print and the 1965 HABS photograph both show it. It used to be one tall, narrow cylinder.',
