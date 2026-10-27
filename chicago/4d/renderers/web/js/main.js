@@ -4063,8 +4063,8 @@ async function boot() {
     if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
       hit = { ...treeHit };
     }
-    // And a street lamp's post (T-3199) or a fire hydrant (T-3201), with its own card: what it is,
-    // its grade, its pictures.
+    // And a street lamp's post (T-3199), a fire hydrant (T-3201) or a wooden pole (T-3202), with its
+    // own card: what it is, its grade, its pictures.
     const furnitureHit = streetFurniture.pickAt(ndc, camera);
     if (furnitureHit && furnitureHit.record && (!hit || furnitureHit.distance < hit.distance)) {
       hit = { ...furnitureHit };

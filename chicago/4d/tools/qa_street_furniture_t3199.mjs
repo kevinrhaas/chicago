@@ -36,6 +36,12 @@ const STANDS=[
  ['pullman-hydrant',[1411.0,-3178.5,1.5],[1408.8,-3192.0,0.4],42],
  // Tucker's hydrant toward 22nd Street, from the south-east as in the second 2140 photograph.
  ['tucker-hydrant',[1408.0,-3750.0,1.6],[1400.5,-3741.8,0.45],40],
+ // T-3202: Glessner's pole from 18th Street west of the stable, looking east past it.
+ ['glessner-pole-18th',[1318.0,-3207.0,1.7],[1345.0,-3216.0,6.0],55],
+ // The alley behind Glessner's, from its 18th Street mouth looking south down the line.
+ ['alley-18-20',[1334.0,-3212.0,1.7],[1336.5,-3290.0,6.0],60],
+ // 22nd Street's overhead, from the north walk west of Prairie looking east along it.
+ ['e22nd-trolley',[1330.0,-3754.5,1.7],[1430.0,-3757.0,5.5],55],
 ];
 const ONLY=process.env.QA_STANDS?process.env.QA_STANDS.split(','):null;
 const RUN=ONLY?STANDS.filter(s=>ONLY.includes(s[0])):STANDS;
@@ -65,7 +71,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   a.streetTrees?.update?.(0,a.camera);a.streetTrees?.settle?.();a.streetFurniture?.settle?.(a.camera);a.contextCity?.update?.(a.camera);
   a.renderer.info.reset();a.renderer.render(a.scene3d,a.camera);
   const sf=a.streetFurniture?.stats??{};
-  return {info:{triangles:a.renderer.info.render.triangles,calls:a.renderer.info.render.calls},furniture:{near:sf.near,far:sf.far,hydrants:sf.hydrantsDrawn,triangles:sf.triangles,drawCalls:sf.drawCalls,detail:sf.detail},problems:a.problems.slice(-3)};
+  return {info:{triangles:a.renderer.info.render.triangles,calls:a.renderer.info.render.calls},furniture:{near:sf.near,far:sf.far,hydrants:sf.hydrantsDrawn,poles:sf.polesDrawn,wires:sf.wiresShown,triangles:sf.triangles,drawCalls:sf.drawCalls,detail:sf.detail},problems:a.problems.slice(-3)};
  },{pos,target,fov,shown});
  const stands=[];
  for(const [name,pos,target,fov] of RUN){
