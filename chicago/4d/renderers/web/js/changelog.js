@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2339, ts: '2026-10-27T13:44:26.497Z', date: 'Oct 27, 2026, 8:44 AM CT', title: '1801 Prairie\'s 18th Street section, corbel table and fan gable', kind: 'improvement',
+    items: [
+      'The section of the W. W. Kimball house\'s 18th Street wall beside the tower now matches its c. 1895 and 1965 photographs: its top storey stands on a row of stone corbels, with paired windows under a coped gable carved with a fan and topped by a finial, where the wall used to rise plain to a low hipped roof.',
+      'The tall stone chimney behind it moves about three metres toward the back of the house, where both photographs put it, and is now built in the walls\' pale stone instead of brick.',
+    ] },
   { v: 2338, ts: '2026-10-27T12:57:23.899Z', date: 'Oct 27, 2026, 7:57 AM CT', title: '1834 Prairie, the Jones house, now matches its photograph', kind: 'improvement',
     items: [
       'The front door is a tall round-arched doorway with a stone hood and keystone, and its front steps have open sides under scrolled cast-iron railings. The landing runs on south to the corner behind a pierced iron guard.',
