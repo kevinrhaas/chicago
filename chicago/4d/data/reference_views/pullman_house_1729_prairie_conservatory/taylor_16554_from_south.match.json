@@ -1,0 +1,108 @@
+{
+  "structure_id": "pullman_house_1729_prairie_conservatory",
+  "view": "taylor_16554_from_south",
+  "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
+  "camera_sha256": "546e6b9670ce77a20c1b84dd2c72692f313c5a003168f8c6e6f1ba2edb07e916",
+  "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -11.208975503773733,
+        0,
+        -0.08144418823104738
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        -11.227541329977607,
+        0,
+        2.3485375627495597
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
+    }
+  ],
+  "group_sha256": "978e273ae0c42ec7612618b04dd4c8561ffb6a8db31256f062f71a5be918ef2a",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the stable's 18th Street front: three bays of sash in two storeys between the corner bay and the stack, the stack at the front's east end rising past the deck, the lantern toward the deck's west end",
+      "status": "fixed",
+      "how": "T-3193: the sash moved west with the bay; through this camera the sash within about 10 px, the front's east end at x 1091 (print about 1090) and the lantern at x 934 (print about 945)"
+    },
+    {
+      "what": "the hipped roof to a crested deck, the upper storey's wall and cornice through it",
+      "status": "fixed",
+      "how": "T-3192's forms, the deck set by T-3193 between this print and the plate"
+    },
+    {
+      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum, and reads it rounder",
+      "status": "within tolerance",
+      "how": "two pictures disagree (the plate puts it about 0.8 m further east); the build stands between them"
+    },
+    {
+      "what": "the drum and dome between the house and the stable",
+      "status": "fixed",
+      "how": "within about 10 px"
+    },
+    {
+      "what": "the house and the wing: their outlines within about 35 px of the print's",
+      "status": "within tolerance",
+      "how": "rendered for placement only; their own records judge them"
+    },
+    {
+      "what": "the stable's arcade and court face",
+      "status": "not shown",
+      "how": "the camera stands south-east of the corner; the plate and 16555 show them"
+    },
+    {
+      "what": "colour; the lantern's and the deck's detail",
+      "status": "not shown",
+      "how": "a monochrome print, the roof seen through bare trees"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

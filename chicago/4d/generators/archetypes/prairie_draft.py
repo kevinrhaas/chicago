@@ -313,14 +313,65 @@ def _on_face(side, at):
     return lambda s, n, y: (at + sign * n, s, y)
 
 
-def round_head(m: Mesh, mat, P, s, w, sill, spring, n, outward, seg=8):
+def round_head(m: Mesh, mat, P, s, w, sill, spring, n, outward, seg=8, rise=None):
     """A round-headed opening drawn flat on a wall: jambs from `sill` to `spring` and a
-    half-circle over them, `n` out of the wall plane."""
+    half-circle over them, `n` out of the wall plane. `rise`, when given, flattens the
+    half-circle to a half-ellipse that rises that far over the springing (T-3193)."""
+    rise = w / 2 if rise is None else rise
     pts = [P(s - w / 2, n, sill), P(s + w / 2, n, sill)]
     for k in range(seg + 1):
         a = math.pi * k / seg
-        pts.append(P(s + w / 2 * math.cos(a), n, spring + w / 2 * math.sin(a)))
+        pts.append(P(s + w / 2 * math.cos(a), n, spring + rise * math.sin(a)))
     m.face(mat, pts, outward)
+
+
+def corner_bay(m: Mesh, bay: dict, wall: str) -> int:
+    """A canted bay standing across a corner of the building (T-3193): `plan` is its
+    outline in the building's frame, from the point where it leaves one wall to the
+    point where it meets the other, so the chord between them cuts the corner. The
+    same body, cornice, low cap and round-headed lights as a bay on one face."""
+    pts = [(float(a), float(b)) for a, b in bay["plan"]]
+    top, cap = float(bay["top_m"]), float(bay.get("cap_m", 0.8))
+    mu = (pts[0][0] + pts[-1][0]) / 2
+    mv = (pts[0][1] + pts[-1][1]) / 2           # the chord's middle, inside the corner
+    prism(m, wall, pts, 0.0, top)
+
+    def out(p, o):
+        # a point pushed `o` away from the chord's middle, for the cornice's overhang
+        du, dv = p[0] - mu, p[1] - mv
+        L = math.hypot(du, dv) or 1.0
+        return (p[0] + du / L * o, p[1] + dv / L * o)
+    ro = [out(p, 0.25) for p in pts]
+    prism(m, "cornice", ro, top - 0.35, top)
+    apex = (mu, mv, top + cap)
+    for k in range(len(ro) - 1):
+        a_, b_ = ro[k], ro[k + 1]
+        m.face("roof", [(a_[0], a_[1], top), (b_[0], b_[1], top), apex], (mu, mv, top))
+    lt = bay["light"]
+    ww, sill, hh = float(lt["w_m"]), float(lt["sill_m"]), float(lt["h_m"])
+    spring = sill + hh - ww / 2
+    n = 0
+    for k in range(len(pts) - 1):
+        (a0, b0), (a1, b1) = pts[k], pts[k + 1]
+        L = math.hypot(a1 - a0, b1 - b0)
+        if L < ww + 0.4:
+            continue            # a return too short to carry a light
+        ta, tb = (a1 - a0) / L, (b1 - b0) / L
+        ma, mb = (a0 + a1) / 2, (b0 + b1) / 2
+        na, nb = tb, -ta
+        if na * (ma - mu) + nb * (mb - mv) < 0:
+            na, nb = -na, -nb
+
+        def Pf(t, off, y, ma=ma, mb=mb, ta=ta, tb=tb, na=na, nb=nb):
+            return (ma + ta * t + na * off, mb + tb * t + nb * off, y)
+        for mat_, wd, off, y0 in (("trim", ww + 0.3, 0.03, sill - 0.1), ("glass", ww, 0.06, sill)):
+            q = [Pf(-wd / 2, off, y0), Pf(wd / 2, off, y0)]
+            for j in range(9):
+                a = math.pi * j / 8
+                q.append(Pf(wd / 2 * math.cos(a), off, spring + wd / 2 * math.sin(a)))
+            m.face(mat_, q, Pf(0.0, -3.0, sill))
+        n += 1
+    return n
 
 
 def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple[int, int]:
@@ -363,6 +414,18 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         m.box("cornice", min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y1 - 0.35, y1)
         a, b = P(s0, 0.0, y1), P(s1, -dp, y1 + 0.06)
         m.box("roof", min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y1, y1 + 0.06)
+    for cw in f.get("corner_walls", []):
+        # the upper storey's wall carried diagonally across a corner (T-3193): `plan` in the
+        # building's frame, its first two points the outer face, with its cornice and lead
+        ring = [(float(a), float(b)) for a, b in cw["plan"]]
+        y0, y1 = float(cw["from_m"]), float(cw["top_m"])
+        prism(m, wall, ring, y0, y1)
+        cu = _seqsum(q[0] for q in ring) / len(ring)
+        cv = _seqsum(q[1] for q in ring) / len(ring)
+        ro = [(q[0] + (q[0] - cu) * 0.3 / (math.hypot(q[0] - cu, q[1] - cv) or 1.0),
+               q[1] + (q[1] - cv) * 0.3 / (math.hypot(q[0] - cu, q[1] - cv) or 1.0)) for q in ring]
+        prism(m, "cornice", ro, y1 - 0.35, y1)
+        prism(m, "roof", ring, y1, y1 + 0.06)
     for band in f.get("courses", []):
         P, inside, _ = face_of(band)
         s0, s1, y = float(band["s0"]), float(band["s1"]), float(band["y_m"])
@@ -374,11 +437,14 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         P, inside, _ = face_of(arc)
         sill, spring = float(arc.get("sill_m", 0.0)), float(arc["spring_m"])
         pier = float(arc.get("pier_m", 0.45))
+        rises = arc.get("rises_m") or [None] * len(arc["centres"])
         for k, (s, w) in enumerate(zip(arc["centres"], arc["spans_m"])):
             s, w = float(s), float(w)
-            round_head(m, "trim", P, s, w + 2 * 0.22, sill, spring, 0.04, inside(s, sill))
+            rs = None if rises[k] is None else float(rises[k])
+            round_head(m, "trim", P, s, w + 2 * 0.22, sill, spring, 0.04, inside(s, sill),
+                       rise=None if rs is None else rs + 0.22)
             round_head(m, "door" if k in arc.get("open", []) else "glass", P, s, w, sill, spring, 0.08,
-                       inside(s, sill))
+                       inside(s, sill), rise=rs)
             # the piers' impost blocks at the springing
             for e_ in (s - w / 2 - pier / 2, s + w / 2 + pier / 2):
                 m.solid([[P(e_ - pier / 2, 0.0, spring - 0.25), P(e_ + pier / 2, 0.0, spring - 0.25),
@@ -387,6 +453,10 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
                           P(e_ + pier / 2, 0.14, spring), P(e_ - pier / 2, 0.14, spring)]], mat="trim")
             doors += 1
     bay = f.get("canted_bay")
+    if bay and bay.get("plan"):
+        windows += corner_bay(m, bay, wall)
+        facts["bay_top_m"] = round(float(bay["top_m"]), 3)
+        bay = None
     if bay:
         P, inside, _ = face_of(bay)
         s0, s1, d = float(bay["s0"]), float(bay["s1"]), float(bay["proj_m"])
