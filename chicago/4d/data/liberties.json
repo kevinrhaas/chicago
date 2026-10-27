@@ -159,7 +159,7 @@
     },
     {
       "id": "elbridge_keith_house_1900_prairie",
-      "name": "1900 Prairie Avenue — Elbridge Keith Second Empire"
+      "name": "1900 Prairie Avenue — Elbridge G. Keith house"
     },
     {
       "id": "elbridge_keith_house_1900_prairie_coach_house",
@@ -35001,18 +35001,6 @@
         },
         {
           "domain": "structure",
-          "structure": "elbridge_keith_house_1900_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "elbridge_keith_house_1900_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "elbridge_keith_house_1900_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35137,7 +35125,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35168,6 +35156,10 @@
           "text": "1834 Jones's house by later work, which refined it in place on the K01 frontage kit under `“1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them”`; its alley building is still this draft's."
         },
         {
+          "label": "Retired in part",
+          "text": "1900 Elbridge G. Keith's house by later work, which refined it in place on the K01 frontage kit under `“1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph”`; its coach house is still this draft's."
+        },
+        {
           "label": "Review",
           "text": "the research notes on prairie draft west."
         },
@@ -35192,6 +35184,8 @@
         "T-3167",
         "T-1888",
         "T-3183",
+        "T-1897",
+        "T-3207",
         "T-2329",
         "T-2159"
       ]
@@ -57985,6 +57979,111 @@
         "T-3185",
         "T-1903",
         "T-3186"
+      ]
+    },
+    {
+      "id": "L-k01-1900-keith-3207",
+      "title": "1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph",
+      "section": "per_subject",
+      "subjects": [
+        "elbridge_keith_house_1900_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "elbridge_keith_house_1900_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1900 Prairie Avenue, Elbridge G. Keith's, is no longer a district draft. It stands, under the draft's own id 1900 Prairie Avenue — Elbridge G. Keith house, as a k01 frontage record built by the k01 emit generator, against the one period photograph of it ('1900 PA' [the Elbridge G. Keith house, 1900 S. Prairie Avenue, from the avenue…: the Glessner House Museum's '1900 PA' and Chicagology's print of the same negative, rights check required, forms and proportions only): a smooth limestone front two storeys over a raised basement; a canted bay at the front's south end carried up through the cornice under its own slated crown; a porch on columns at the stoop's head with a balcony on it; a terrace along the front at the principal floor; a deep cornice on paired brackets; a slated mansard with dormers; the 1911 sheet's canted bay on the south flank and its one-storey frame range behind; a low coped stone wall before the lawn. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1900-b1, census s28-1900-front and s28-1900-wing): the main body's place and plan (19.9 by 12.3 m), the brick walls and the stone front, the south flank's canted bay, the stone before the front, the frame range behind. From the photograph, through its solved camera (the glessner oblique data): the corner bay's projection and faces, the three opening columns north of it, both storeys' window heights, the porch's place and entablature, the cornice's height and brackets, the mansard's rise, the dormers' places, and the boundary wall. Every height rests on the camera's solve, which holds the principal floor at 2.2 m. **Where the picture and the sheet disagree.** The photograph's corner bay turns from the front's south corner and stands about 0.93 m proud from v 0.3 to 4.3 m; the sheet's outline bulges about 1.8 m from v 2.0 to 6.1 m. The photograph is followed. The photograph shows the south flank's front part in the front's light stone; the sheet's 'brick with stone front' is kept and the stone flank is open on the match record. **What is invented.** The walls' thickness; the north and rear walls' brick and their windows (no picture sees them); the basement lights under the terrace; the stacks (the print's frame cuts the roof); the mansard's deck and its pitch; the treads; the rainwater; the sash pattern; the corner bay crown's rise over its eaves; the south flank bay's height, windows and roof; the frame range's floor, height, windows and deck; the boundary wall's line and height. **What is not built.** The round-headed windows and their carved hoods; the paired arched window over the porch; the dormers' arched hoods; the bay crown's dormer; the porch's paired columns and its balcony rail's full height; the terrace's brackets; the stone posts at the walk and the stoop; the south flank's stone: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds those, weighs the house's later pictures (the mid-century and 2024 fronts, the 1972 survey photograph, the c. 2014 detail) and the 1800-1900 elevation drawing, and brings every 1900 match record to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`elbridge_keith_house_1900_prairie.as_mapped_1904.form.wall_thickness_front_m`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.wall_thickness_side_m`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.service_wall_brick`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.roof_pitch_deg`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.stair_tread_m`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.north_bays`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.rear_bays`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.basement_lights`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.chimneys`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.rainwater`, `elbridge_keith_house_1900_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3207)."
+        }
+      ],
+      "work_refs": [
+        "T-3207",
+        "T-1897",
+        "T-3208"
       ]
     },
     {
