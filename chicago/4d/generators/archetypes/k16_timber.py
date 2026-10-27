@@ -86,6 +86,9 @@ ROLE_MATERIAL = {
     # stone plinths, each cap hollow behind its pierced faces, the finials iron
     "fence_bar": "fence_iron", "fence_rail": "fence_iron", "pier_finial": "fence_iron",
     "fence_base": "fence_stone", "pier_plinth": "fence_stone", "pier": "trim", "pier_cap": "trim",
+    # T-3181: 1720's porch — its turned balustrades, the stair's cheeks and newels, and the iron
+    # cresting round its deck, which takes the boundary's iron
+    "rail": "trim", "baluster": "trim", "string": "trim", "newel": "trim", "cresting": "fence_iron",
 }
 #: T-2425: how far behind a glazed door's glass the dark of the hall is laid
 GLAZED_HALL_M = 0.15
@@ -95,6 +98,7 @@ NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing
 # T-2357: what a whole house adds that is not timber, its roof covering and its brick stack
 NOT_TIMBER += ("roof_covering", "chimney")
 NOT_TIMBER += ("fence_bar", "fence_rail", "pier_finial", "fence_base", "pier_plinth")
+NOT_TIMBER += ("cresting",)
 #: T-2456: the boundary's two materials, offered only to a house that builds one
 BOUNDARY_MATERIALS = {
     "fence_iron": {"color": (0.12, 0.12, 0.12), "roughness": 0.6, "metallic": 0.4, "class": "metal"},
@@ -1545,18 +1549,36 @@ class Sample:
                     self.poly(F, "post", [(sp + ds0, yy, zp + dz0), (sp + corner[0], yy, zp + corner[1]), (sp + ds1, yy, zp + dz1)],
                               (0, hy, 0), tp_)
 
-        post_at(sp)
         inner = v.get("inner_posts_m", [])     # T-3180: a long porch's posts between its ends
-        for s_in in inner:
-            post_at(s_in)
+        pair = v.get("pair_m")     # T-3181: every post doubled, the pair's centres this far apart
+        if pair:     # the end pair keeps its outer post at the floor's end; an inner pair straddles its place
+            groups = [(s_in - pair / 2, s_in + pair / 2) for s_in in sorted(inner)] + [(sp - pair, sp)]
+        else:
+            groups = [(s_in, s_in) for s_in in sorted(inner)] + [(sp, sp)]
+        for g0, g1 in groups:
+            for s_p in sorted({g0, g1}):
+                post_at(s_p)
+        if pair:
+            self.meta["posts_s_m"] = [round(s_p, 6) for g in groups for s_p in g]
         # the plate, the brackets under it, the beaded ceiling, the roof over all
         self.box(F, "plate", 0.0, Wf + 0.05, yp, yc, zp - pd / 2, zp + pd / 2, skip=("top",), tone=self.tone("plate"),
                  roles={"s0": "cut", "s1": "end_grain"})
+        # T-3181: the openings between the post groups, the middle one spanning the mirror line
+        openings = [(-(groups[0][0] - a), groups[0][0] - a)]
+        openings += [(g[1] + a, h[0] - a) for g, h in zip(groups, groups[1:])]
+        if v.get("arcade"):     # T-3181: a segmental arch over every opening, no brackets
+            self._porch_arcade(F, v["arcade"], openings, zp - pd / 2, zp + pd / 2, yp)
+        if v.get("balustrade"):     # T-3181: a turned balustrade in every opening but the stair's
+            self._porch_balustrade(F, v["balustrade"], openings[1:], zp, yf)
+        if v.get("cresting"):       # T-3181: iron cresting round the roof's deck
+            self._porch_cresting(F, v["cresting"], Wf + 0.05 + ov_r, zp + pd / 2 + ov_r, yc + po["roof_m"])
         if v.get("arch"):     # T-2425: an arched head between the posts takes the brackets' place
             self._porch_arch(F, v["arch"], sp - a, zp - pd / 2, zp + pd / 2, yp)
+        elif v.get("arcade"):
+            pass
         else:
             br = dict(tr["bracket"], drop_m=pt["head_m"], reach_m=0.28)
-            for s_p in [sp] + list(inner):
+            for s_p in [s_p for g in groups for s_p in sorted({g[0], g[1]})]:
                 self.bracket(F, s_p - a, zp, yp, br, br["thickness_m"], along_s=True, outward=-1.0, tone=tp_)
                 self.bracket(F, s_p + a, zp, yp, br, br["thickness_m"], along_s=True, outward=1.0, tone=tp_)
         if v.get("stoop"):    # T-2425: steps up between cheek walls in the posts' line
@@ -1587,6 +1609,118 @@ class Sample:
         self.poly(F, "soffit", [(Wf + 0.05, yc, 0), (sr, yc, 0), (sr, yc, zp + pd / 2), (Wf + 0.05, yc, zp + pd / 2)],
                   (0, -1, 0))
         self.meta.update({"floor_width_m": round(Wf, 6), "focus": [Wf * 0.62, 1.3, Dp * 0.8], "span_m": 3.0})
+
+    def _porch_arcade(self, F, ar, openings, z0, z1, yp):
+        """T-3181: 1720's arcade, a segmental arch over every opening between the post groups,
+        springing `spring_below_plate_m` under the plate and rising `rise_m` to its crown (the
+        middle opening, across the mirror line, `middle_rise_m`), its spandrel a solid board
+        as deep as the plate. An opening is (s_a, s_b) between post faces; the middle one's
+        s_a is its mirror image, and only its half from s 0 is built."""
+        y_sp = yp - ar["spring_below_plate_m"]
+        tsp = self.tone("spandrel")
+        built = []
+        for i, (s_a, s_b) in enumerate(openings):
+            h = ar["middle_rise_m"] if i == 0 else ar["rise_m"]
+            c = (s_b - s_a) / 2
+            if not (0.0 < h <= c and y_sp + h < yp - 0.02):
+                raise ValueError(f"{self.v['id']}: an arch rising {h} m over {2 * c:.3f} m does not stand under its plate")
+            R = (c * c + h * h) / (2 * h)
+            cs, cy = (s_a + s_b) / 2, y_sp + h - R
+            s_lo = max(s_a, 0.0)
+            n = max(3, math.ceil((s_b - s_lo) / 0.25))
+            arc_ = [(s_lo + (s_b - s_lo) * k / n, 0.0) for k in range(n + 1)]
+            arc_ = [(s, cy + math.sqrt(max(0.0, R * R - (s - cs) ** 2))) for s, _ in arc_]
+            for (sa, ya), (sb, yb) in zip(arc_, arc_[1:]):
+                self.poly(F, "spandrel", [(sa, ya, z1), (sb, yb, z1), (sb, yp, z1), (sa, yp, z1)], (0, 0, 1), tsp)
+                self.poly(F, "spandrel", [(sa, ya, z0), (sa, yp, z0), (sb, yp, z0), (sb, yb, z0)], (0, 0, -1), tsp)
+                m = ((sa + sb) / 2, (ya + yb) / 2)
+                self.poly(F, "spandrel", [(sa, ya, z0), (sb, yb, z0), (sb, yb, z1), (sa, ya, z1)],
+                          (cs - m[0], cy - m[1], 0), tsp)
+            built.append({"span_m": round(2 * c, 6), "rise_m": h, "radius_m": round(R, 6)})
+        self.meta["arcade"] = {"spring_m": round(y_sp, 6), "arches": built}
+
+    def _turned(self, F, role, s_c, z_c, y0, y1, w, prof, tone=1.0):
+        """T-3181: a turned baluster or newel's shaft, square-turned: four faces whose edge runs
+        the profile [(half-width as a share of w / 2, share of the height)] from y0 up to y1,
+        its ends hidden in the rails it stands between."""
+        rings = [(f * w / 2, y0 + t * (y1 - y0)) for f, t in prof]
+        sides = (((1, 0), (1, 1), (1, -1)), ((0, 1), (-1, 1), (1, 1)),
+                 ((-1, 0), (-1, -1), (-1, 1)), ((0, -1), (1, -1), (-1, -1)))
+        for (r0, ya), (r1, yb) in zip(rings, rings[1:]):
+            for (ns, nz), (pa_s, pa_z), (pb_s, pb_z) in sides:
+                self.poly(F, role, [(s_c + pa_s * r0, ya, z_c + pa_z * r0), (s_c + pb_s * r0, ya, z_c + pb_z * r0),
+                                    (s_c + pb_s * r1, yb, z_c + pb_z * r1), (s_c + pa_s * r1, yb, z_c + pa_z * r1)],
+                          (ns, 0, nz), tone)
+
+    def _porch_balustrade(self, F, bl, openings, zp, yf):
+        """T-3181: a turned balustrade in the posts' line across each opening: a bottom rail on
+        the floor, balusters at `pitch_m` (each opening divided evenly), and a moulded top rail
+        `height_m` over the floor, its ends dying into the posts."""
+        H, p = bl["height_m"], bl["pitch_m"]
+        bh, bw = bl["bottom_rail_m"]
+        th, tw = bl["top_rail_m"]
+        tr = self.tone("rail")
+        count = 0
+        for s_a, s_b in openings:
+            self.box(F, "rail", s_a, s_b, yf, yf + bh, zp - bw / 2, zp + bw / 2, skip=("bottom", "s0", "s1"), tone=tr)
+            self.box(F, "rail", s_a, s_b, yf + H - th, yf + H, zp - tw / 2, zp + tw / 2, skip=("s0", "s1"), tone=tr)
+            n = max(1, round((s_b - s_a) / p))
+            for j in range(n):
+                s_c = s_a + (s_b - s_a) * (j + 0.5) / n
+                self._turned(F, "baluster", s_c, zp, yf + bh, yf + H - th, bl["baluster_m"], BALUSTER, self.tone("baluster", j))
+            count += n
+        self.meta["balustrade"] = {"height_m": H, "balusters": count}
+
+    def _porch_cresting(self, F, cr, sr, zr, yr):
+        """T-3181: iron cresting on the porch roof's deck, `inset_m` in from its edge along the
+        front and back along its open end to `return_to_m` from the wall: a base bar and a top
+        bar `height_m` over the deck, square bars between them at `bar_pitch_m`, and posts at
+        no more than `post_pitch_m` standing `post_above_m` over the top bar, each under a
+        pointed knob. Iron, so bound to the boundary's iron and outside the timber rules."""
+        H, ci = cr["height_m"], cr["inset_m"]
+        bb, tb, bar, pm = cr["base_bar_m"], cr["top_bar_m"], cr["bar_m"], cr["post_m"]
+        S, Z, Z0 = sr - ci, zr - ci, cr["return_to_m"]
+        nbar = npost = 0
+        y_top = yr + H + cr["post_above_m"]
+
+        def post(s_c, z_c):
+            self.box(F, "cresting", s_c - pm / 2, s_c + pm / 2, yr + bb, y_top, z_c - pm / 2, z_c + pm / 2,
+                     skip=("bottom", "top"))
+            tip = (s_c, y_top + cr["knob_m"], z_c)
+            q = [(s_c - pm / 2, y_top, z_c + pm / 2), (s_c + pm / 2, y_top, z_c + pm / 2),
+                 (s_c + pm / 2, y_top, z_c - pm / 2), (s_c - pm / 2, y_top, z_c - pm / 2)]
+            for i in range(4):
+                a_, b_ = q[i], q[(i + 1) % 4]
+                self.poly(F, "cresting", [a_, b_, tip], ((a_[0] + b_[0]) / 2 - s_c, 0.3, (a_[2] + b_[2]) / 2 - z_c))
+
+        # the front run: its bars wrap the corner, and it meets its mirror at s 0 with no post there
+        for y0, y1, h, sk in ((yr, yr + bb, bb / 2, ("bottom", "s0")), (yr + H - tb, yr + H, tb / 2, ("s0",))):
+            self.box(F, "cresting", 0.0, S + h, y0, y1, Z - h, Z + h, skip=sk)
+        k = max(1, round(S / cr["bar_pitch_m"]))
+        for j in range(k):
+            u = S * (j + 0.5) / k
+            self.box(F, "cresting", u - bar / 2, u + bar / 2, yr + bb, yr + H - tb, Z - bar / 2, Z + bar / 2,
+                     skip=("bottom", "top"))
+        nbar += k
+        m = max(1, math.ceil(S / cr["post_pitch_m"]))
+        for j in range(1, m + 1):
+            post(S * j / m, Z)
+        npost += m
+        # the return along the open end, from the front run's back face to `return_to_m`
+        for y0, y1, h, sk in ((yr, yr + bb, bb / 2, ("bottom", "front")), (yr + H - tb, yr + H, tb / 2, ("front",))):
+            self.box(F, "cresting", S - h, S + h, y0, y1, Z0, Z - h, skip=sk)
+        L = Z - Z0
+        k = max(1, round(L / cr["bar_pitch_m"]))
+        for j in range(k):
+            u = Z0 + L * (j + 0.5) / k
+            self.box(F, "cresting", S - bar / 2, S + bar / 2, yr + bb, yr + H - tb, u - bar / 2, u + bar / 2,
+                     skip=("bottom", "top"))
+        nbar += k
+        m = max(1, math.ceil(L / cr["post_pitch_m"]))
+        for j in range(m):
+            post(S, Z0 + L * j / m)
+        npost += m
+        self.meta["cresting"] = {"height_m": H, "bars": nbar, "posts": npost}
 
     def _porch_arch(self, F, ar, w, z0, z1, yp):
         """T-2425: the half of a four-centred pointed arch between the porch's middle (s 0) and
@@ -2822,6 +2956,56 @@ def _porch_steps(sm: Sample, data: dict, po: dict, steps: dict) -> None:
         sm.box(sm.F, "step_riser", c - hw, c + hw, 0.0, k * r, z0, z0 + g, skip=("back", "bottom"),
                tone=sm.tone("step", k), roles={"top": "step_tread"})
     sm.meta["steps"] = {"risers": n, "riser_m": round(r, 6), "going_m": g, "width_m": steps["width_m"]}
+    if steps.get("cheek"):
+        _stair_cheeks(sm, steps["cheek"], c, hw, n, r, g, z_edge, yf)
+
+
+#: T-3181: a turned baluster's profile, [half-width as a share of its greatest, share of its height]:
+#: a square foot, a neck, the vase's belly, a second neck and a square head
+BALUSTER = [(0.75, 0.0), (0.5, 0.12), (1.0, 0.38), (0.42, 0.72), (0.7, 0.86), (0.75, 1.0)]
+
+
+def _stair_cheeks(sm: Sample, ch: dict, c: float, hw: float, n: int, r: float, g: float, z_edge: float,
+                  yf: float) -> None:
+    """T-3181: a raking balustrade either side of the stair: a closed string `width_m` thick let
+    0.02 m into the steps' ends, its top `string_above_m` over the nosings' line, turned
+    balusters on it at `pitch_m`, a raking rail `height_m` over the nosings, and a newel at the
+    foot `newel_above_m` over the rail. The steps are built whole in the right half, so both
+    cheeks are too."""
+    F = sm.F
+    z_foot = z_edge + (n - 1) * g                      # the bottom step's nosing
+    nose = lambda z: (n - (z - z_edge) / g) * r        # the nosings' line
+    cw, sa, H = ch["width_m"], ch["string_above_m"], ch["height_m"]
+    rh, rw, nw = ch["rail_m"], ch["rail_width_m"], ch["newel_m"]
+    z_n0 = z_foot - nw / 2                             # the newel's back face
+    t = sm.tone("string")
+    k = max(1, round((z_n0 - z_edge) / ch["pitch_m"]))
+    for side in (-1, 1):
+        s0 = c + side * (hw - 0.02)
+        s1 = s0 + side * cw
+        sc = (s0 + s1) / 2
+        lo, hi = min(s0, s1), max(s0, s1)
+        z_b = z_edge - 0.01        # its back end under the floor's nosing, clear of the boards' end grain
+        string = [(z_b, 0.0), (z_n0, 0.0), (z_n0, nose(z_n0) + sa), (z_b, nose(z_b) + sa)]
+        rail = [(z_b, nose(z_b) + H - rh), (z_n0, nose(z_n0) + H - rh), (z_n0, nose(z_n0) + H), (z_b, nose(z_b) + H)]
+        for role, prof in (("string", string), ("rail", rail)):
+            if role == "rail":     # the rail as broad as its own section, centred over the string
+                lo, hi = sc - rw / 2, sc + rw / 2
+            for s_, hs in ((lo, -1), (hi, 1)):
+                sm.poly(F, role, [(s_, y, z) for z, y in prof], (hs, 0, 0), t)
+            (z0, y0), (z1, y1), (z2, y2), (z3, y3) = prof
+            # the top, the back end, and (the rail's) underside; the foot dies into the newel
+            sm.poly(F, role, [(lo, y2, z2), (hi, y2, z2), (hi, y3, z3), (lo, y3, z3)], (0, 1, 0), t)
+            sm.poly(F, role, [(lo, y3, z3), (hi, y3, z3), (hi, y0, z0), (lo, y0, z0)], (0, 0, -1), t)
+            if role == "rail":
+                sm.poly(F, role, [(lo, y0, z0), (hi, y0, z0), (hi, y1, z1), (lo, y1, z1)], (0, -1, 0), t)
+        for j in range(k):
+            z = z_edge + (z_n0 - z_edge) * (j + 0.5) / k
+            sm._turned(F, "baluster", sc, z, nose(z) + sa, nose(z) + H - rh, ch["baluster_m"], BALUSTER,
+                       sm.tone("baluster", j))
+        y_n = nose(z_foot) + H + ch["newel_above_m"]
+        sm.box(F, "newel", sc - nw / 2, sc + nw / 2, 0.0, y_n, z_n0, z_n0 + nw, skip=("bottom",), tone=sm.tone("newel", side))
+    sm.meta["cheeks"] = {"balusters": 2 * k, "foot_z_m": round(z_foot, 6), "height_m": H}
 
 
 #: T-2398: the end walls a gable roof stands its gables on, by the plan axis its ridge runs along
@@ -2939,6 +3123,7 @@ def frame_house_materials(house: Sample, data: dict, form: dict) -> dict:
     """The materials a whole frame house draws: the kit's, its own body paint where the
     record names one, its roof's covering and its stack's brick."""
     mats = materials(data)
+    mats.update(BOUNDARY_MATERIALS)     # T-3181: a porch's iron cresting; kept below only where used
     paint = form["frame_house"]["value"].get("paint") or {}
     for k, col in paint.items():
         mats[k] = dict(mats[k], color=tuple(col))
