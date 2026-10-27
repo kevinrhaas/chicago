@@ -34129,7 +34129,7 @@ across with small square lights on its north and north-west faces (sills about 9
 0.15 m out of the wall, its face 1.25 m. Built: `bays.tower`, a K08 round tower 2.2 m across with
 a `stage` (the kit's new corbelled stage, `k08_bays._build_staged`) from its 8.9 m storey line,
 3.7 m across on five stepped corbel courses down to 7.9 m, under the K10 moulded stone cornice to
-11.26 m and a cone at pitch 2.5 to 16.69 m, and the kit's finial sized to 2.6 m (its tip 19.29 m).
+11.26 m and a cone at pitch 2.7 to 17.12 m (2.5 to 16.69 m until T-1890 raised its apex 0.43 m to both pictures: HABS 2's collar now within about 3 px, the Taylor print's about 0.2 m over it), and the kit's finial sized to 2.6 m (its tip 19.29 m).
 The east turret at the flank's far corner takes the same two record keys: its finial sized to the Taylor print's 2.5 m spike and its eaves dressed in the same moulded cornice. The record's earlier tower, 2.9 m across to a 12.9 m eave and an 18.7 m cone, had been read
 through a Taylor camera that T-3074 later re-solved; both current cameras read it about 1.8 m
 lower. **What is invented or held by the kit.** The corbel table is the kit's plain stepped
@@ -34144,6 +34144,7 @@ in the Taylor match record.
 flank section's top brought to its pictures.
 **Ticket:** T-1890.
 **Recorded:** 2026-10-26 (T-1890).
+**Revised:** 2026-10-27 (T-1890: the cone pitched 2.7, its apex raised 0.43 m to 17.12 m, where both pictures put it).
 
 ### L-pullman-palm-house-3165 — Pullman's palm house rebuilt to J. W. Taylor's photograph: a columned glass drum under a ribbed dome, moved 3 m east of the 1911 sheet's semicircle
 

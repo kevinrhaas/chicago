@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0ca92f3ef671b621e60192f1f9a3be9837a2e83dbda38282c14c96435dd93ece",
+  "glb_sha256": "813c37762f2793e8333f9cf4e0ea5520f0958eff4c7db132b387f035970868a3",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -30,7 +30,8 @@
     },
     {
       "what": "a tall stack rising behind the frontispiece's gable (x 337-403 px, its cap at about y 780, about 10 m): the build has no stack over the east range (a K01 stack stands only in the main block's roof)",
-      "status": "open"
+      "status": "open",
+      "how": "T-1890 tried it (2026-10-27): a stone stack in the east range's roof on the print's line of sight, its cap at about y 776. One picture cannot fix its depth, and on the build's range hip (its ridge 8.3 m) the stack stood about 4 m of bare shaft over the slate, where the print shows only its cap clearing the slate behind the frontispiece, which stands to about y 795 (about 10 m at the wall's depth) against the build's hip at about y 865 there. So the stack was taken out: it waits on the range's roof, which in this print stands far higher than the build's (the frontispiece's place, above, moves with it)"
     },
     {
       "what": "the east range's eaves: about 5.9 m at the turret end through this camera against the build's 6.35 m, which T-3076 read off the Taylor print at 6.2-6.4 m; the two pictures disagree by about 0.4 m",
