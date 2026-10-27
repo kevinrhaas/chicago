@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2325, ts: '2026-10-27T04:54:40.252Z', date: 'Oct 26, 2026, 11:54 PM CT', title: '1721 Prairie, the Dexter house, rebuilt to its 1891 plate', kind: 'feature',
+    items: [
+      'The Wirt Dexter house at 1721 Prairie Avenue now stands as Arthur Little\'s front of 1889, read off the Inland Architect plate of 1891: three pale storeys under a deep cornice and a flat roof, its entrance porch on two columns set back in a recess at the north end, its roof railed as a balcony, and the rest of the front stepping forward with two bows rising through two storeys and a tall stack beside the porch. The long two-storey wing behind it runs back toward the alley as the 1911 map draws it.',
+    ] },
   { v: 2324, ts: '2026-10-27T04:09:58.098Z', date: 'Oct 26, 2026, 11:09 PM CT', title: 'A darker doorway for Carpenter\'s log shop', kind: 'change',
     items: [
       'Carpenter’s log annex has a dark recessed doorway, following the old engraving. Its picture is available on the Images card with the original credit.',
