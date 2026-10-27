@@ -77,3 +77,5 @@ tool. `street-grid.js` cuts the parkway and the curb out under each crossing, la
 ramp, breaks the curb's face where the ramp runs through it, closes each ramp's sides with a stone
 cheek, and gives the walker the ramp's slope. The corner lamp's plot stands between each pair
 (T-3199). Liberty: L-prairie-corner-crossings-3200.
+
+![the Glessner (top) and Pullman (bottom) corners at 18th, before and after T-3200](prairie_1904_street_section/corner-ramps-before-after.jpg)
