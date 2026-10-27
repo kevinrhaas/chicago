@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__draft_1904.glb": "e0e660dd4d59fad53946a89cb7131babd9d202ae183bab58695ce2638e197477",
@@ -1031,6 +1032,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "394c965b3637b16fc5b35b7a169d4ef95ce7c2c3805bcb50abb20f8e1912f75f",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
