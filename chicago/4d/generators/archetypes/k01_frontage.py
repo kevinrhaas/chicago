@@ -986,9 +986,15 @@ class Assembly:
         for _s0, _s1, _sp, top, curve in over:
             for q0, q1 in zip(curve, curve[1:]):    # q0 right of q1
                 pr.face([P(q1[0], q1[1], 0), P(q0[0], q0[1], 0), P(q0[0], top, 0), P(q1[0], top, 0)], N, b, conf)
-        for (y0, y1, proud) in bands:  # belt courses, part of the wall component
-            for s0, s1 in _pieces(0.0, length, gaps):   # T-2308: stopped against a bay
+        for band in bands:  # belt courses, part of the wall component
+            y0, y1, proud = band[:3]
+            # T-3184: a basement's facing (side_base) framing the lights cut through it
+            lights = band[3] if len(band) > 3 else ()
+            for s0, s1 in _pieces(0.0, length, list(gaps) + [(h0, h1) for h0, h1, _, _ in lights]):   # T-2308: stopped against a bay
                 self.proud_box("limestone_trim", (O, R, N), s0, s1, y0, y1, proud, seed, conf)
+            for h0, h1, hs, hh in lights:
+                self.proud_box("limestone_trim", (O, R, N), h0, h1, y0, hs, proud, seed, conf)
+                self.proud_box("limestone_trim", (O, R, N), h0, h1, hh, y1, proud, seed, conf)
         return (O, R, N), thickness
 
     # -- k01.wall.wing.* (T-2343) ------------------------------------------------------
@@ -1523,6 +1529,8 @@ class Assembly:
             belts = list(af["belts"])
         if "belts" in p.street_dress:   # T-2753: the photograph's own string course
             belts = list(p.street_dress["belts"])
+        if "belts" in k:   # T-3184: the belts a brick front's picture draws, or none
+            belts = list(k["belts"])
         # T-2366: a frieze stands between the stone's top and the soffit
         ytop = af["stone_top_m"] if af else yf
         lines = {0.0, cop_top, ytop, *[bc * i for i in range(1, k["base_courses"] + 1)]}
@@ -1553,8 +1561,10 @@ class Assembly:
                 courses.append((ya, yb, "coping"))
             elif any(abs(ya - b0) < 1e-6 and abs(yb - b1) < 1e-6 for b0, b1 in belts):
                 courses.append((ya, yb, "belt"))
-            elif yb - ya < lo_c - 1e-9:
+            elif yb - ya < lo_c - 1e-9 and not ("belts" in k and beds is None and ya >= k["brick_above_m"] - 1e-6):
                 courses.append((ya, yb, "band"))   # too thin for the walling: a dressed band
+            elif yb - ya < lo_c - 1e-9:
+                courses.append((ya, yb, "walling"))   # T-3184: in the brick, brick (stone_front.belts)
             else:
                 courses += [(a_, b_, "walling") for a_, b_ in self._walling(ya, yb)]
         return holes, arches, seats, belts, courses, square, ytop
@@ -1736,6 +1746,8 @@ class Assembly:
             self.frontispiece(frame, length, conf)
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
+        if beds is None and p.street_iron:   # T-3184: a brick front's balconettes and stoop rails
+            k01_arched_front.street_iron(self, frame, p.street_iron, conf)
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
         # (T-3112: from the pier's side, which stops under the cap)
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -1760,7 +1772,9 @@ class Assembly:
         cid = "k01.opening.street_dress"
         for op in openings:
             # T-3097: `read`, a side face's plain or round-headed window read off a picture
-            if not (op.component.startswith(STREET_WINDOW) or (read and op.plain)):
+            # T-3184: or a stone basement's round-headed light read off a picture (1834's)
+            if not (op.component.startswith(STREET_WINDOW) or (read and op.plain)
+                    or (op.plain and op.component == "k01.opening.sash_round_plain" and op.wall == "k01.wall.street_front")):
                 continue
             # T-2753: a window on the frontispiece is dressed on its face
             frame = self.frontispiece_frame(wall_frame) if self.p.on_frontispiece(op) else wall_frame
@@ -4923,7 +4937,11 @@ def build(params, structure_id: str):
     side = "rough_stone_trim" if all_round else "brick"
 
     def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
-        return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}")
+        return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}") \
+            + tuple((0.0, b["to_m"], b["proud_m"], tuple((o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m)
+                                                          for o in p.openings if o.wall == f"k01.wall.side.{which}"
+                                                          and o.sill_m < b["to_m"]))
+                    for b in p.side_base if b["wall"] == f"k01.wall.side.{which}")   # T-3184
     walls = {
         # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
         "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
