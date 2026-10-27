@@ -337,6 +337,41 @@ def _num(x) -> bool:
     return isinstance(x, (int, float)) and not isinstance(x, bool)
 
 
+#: T-3181: a porch's paired posts, arcade, balustrade, cresting and stair cheeks — each key the
+#: builder reads, and the range a timber porch's part may take
+PORCH_DETAIL = {
+    "arcade": {"spring_below_plate_m": (0.1, 1.0), "rise_m": (0.02, 1.0), "middle_rise_m": (0.02, 1.0)},
+    "balustrade": {"height_m": (0.4, 1.2), "pitch_m": (0.08, 0.4), "baluster_m": (0.03, 0.2)},
+    "cresting": {"height_m": (0.15, 1.0), "inset_m": (0.0, 0.3), "return_to_m": (0.0, 2.0), "base_bar_m": (0.01, 0.1),
+                 "top_bar_m": (0.01, 0.1), "bar_m": (0.005, 0.05), "bar_pitch_m": (0.05, 0.4), "post_m": (0.01, 0.1),
+                 "post_pitch_m": (0.2, 2.0), "post_above_m": (0.0, 0.3), "knob_m": (0.0, 0.3)},
+    "cheek": {"width_m": (0.05, 0.4), "string_above_m": (0.0, 0.4), "height_m": (0.4, 1.2), "rail_m": (0.03, 0.2),
+              "rail_width_m": (0.03, 0.3), "baluster_m": (0.03, 0.2), "pitch_m": (0.08, 0.4), "newel_m": (0.08, 0.4),
+              "newel_above_m": (0.0, 0.5)},
+}
+
+
+def _porch_detail_errors(po: dict) -> list[str]:
+    out = []
+    pr = po.get("pair_m")
+    if pr is not None and not (_num(pr) and 0.15 <= pr <= 0.6):
+        out.append("porch.pair_m (a paired post's centres apart) must lie in 0.15-0.6 m")
+    for key, spec in PORCH_DETAIL.items():
+        v = (po.get("steps") or {}).get(key) if key == "cheek" else po.get(key)
+        if v is None:
+            continue
+        for k, (lo, hi) in spec.items():
+            if not (_num(v.get(k)) and lo <= v[k] <= hi):
+                out.append(f"porch.{'steps.' if key == 'cheek' else ''}{key}.{k} must lie in {lo}-{hi}")
+    bl = po.get("balustrade")
+    if bl is not None:
+        for k in ("bottom_rail_m", "top_rail_m"):
+            r = bl.get(k)
+            if not (isinstance(r, list) and len(r) == 2 and all(_num(x) and 0.02 <= x <= 0.2 for x in r)):
+                out.append(f"porch.balustrade.{k} must be [height, width], each 0.02-0.2 m")
+    return out
+
+
 def frame_house_errors(fh: dict) -> list[str]:
     """What the whole-house builder cannot read (T-2357). The first block stands free and
     is walled on all four sides; every later block stands `against` one side of it and is
@@ -389,6 +424,7 @@ def frame_house_errors(fh: dict) -> list[str]:
         bm = po.get("basement_m")
         if bm is not None and not (_num(bm) and 0.0 <= bm <= 2.5):
             out.append("porch.basement_m (the floor raised over the kit's) must lie in 0-2.5 m")
+        out += _porch_detail_errors(po)
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
