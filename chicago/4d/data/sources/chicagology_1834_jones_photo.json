@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1834_jones_photo",
+ "type": "photograph",
+ "citation": "1834 S. Prairie. [The Fernando Jones house, John M. Van Osdel architect, 1866.] Unknown photographer, undated (before the mansard storey of 1886). Reproduced on chicagology.com, Prairie Avenue, 1834 S. Prairie; the Glessner House Museum's blog reproduces another print of the same negative ('John M. Van Osdel, Chicago's First Architect', 31 August 2015).",
+ "author": "unknown photographer",
+ "date": "undated (between 1866, when the house was built, and 1886, when the mansard storey it does not show was added)",
+ "describes_date": "1866-1886",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library images cgs-1834-jones-photo (this copy) and a18-gh-1834-fernando-jones (the Glessner House Museum blog's print of the same negative), both recorded there as 'link only'; the project's reference copies are the image store's (kevinrhaas/chicago-images, prairie-1904/files/), committed since T-1888 at data/sources/assets/jones_1834_photos_t1888/ with their attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1834prairie/",
+ "locator": "The whole frame: the street front and, as the print stands, the flank on its left with a one-storey canted bay; the stoop, the lawn and the low stone wall before it; neighbouring houses at both edges. The print is laterally reversed (data/reference_views/jones_house_1834_prairie/chicagology_photo.json, its solve): turned back, the flank is the north one and the camera stands north-east of the house across Prairie Avenue.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1888) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-1888) from the image store's reference copy, 1200 x 900 px greyscale, sha256 b56b80160679f820ed88e84b46eaf9a96c838b317fe1791ebf78d2773156fe52.",
+ "note": "The one photograph of the Jones house this project builds from, before 1886. Turned the right way round it shows a two-storey Italianate house of dark brick over a high basement of smooth light ashlar: four opening columns on the front, the door in the second from the south at the head of a straight stoop of about eleven steps between scrolled cast-iron railings; every window and the door under a light segmental stone hood with a key and short ears; iron balconettes under the two north principal windows; round-headed basement lights under them; a deep cornice on paired carved brackets with panels between, over a plain frieze, round the front and the north flank; a low hipped roof with a broad centre gable over the front, an oculus in its tympanum; two tall stacks. On the north flank, a blank brick wall for some 6 m from the front corner, one window a storey, then a one-storey canted bay of light stone with a tall light in each face under a bracketed cornice, and over it a round-headed pair. A low stone wall stands on the street line before the lawn, with no fence on it.",
+ "what_it_supplies": [
+  "the street front's composition: its four bays, the door's place, the window and door hoods, the balconettes, the basement lights, the stoop and its railings",
+  "the heights of the water table, the windows and the wall head through the photograph's camera",
+  "the north flank's windows and its canted bay",
+  "the bracketed cornice, and the low stone wall on the street line"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 roofline: the photograph predates the mansard storey of 1886",
+  "colour: the print is monochrome",
+  "the south flank and the rear"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "structure_id": "jones_house_1834_prairie",
+ "source_id": "chicagology_1834_jones_photo",
+ "library_image": "cgs-1834-jones-photo",
+ "photo": "../../sources/assets/jones_1834_photos_t1888/jones_1834_chicagology.jpg",
+ "mirrored": true,
+ "image_px": [
+  1200,
+  900
+ ],
+ "principal_px": [
+  508.5,
+  725.1
+ ],
+ "focal_px": 2313.4,
+ "eye": [
+  55.07,
+  23.79,
+  1.0
+ ],
+ "yaw_deg": -118.64,
+ "sun_uvy": [
+  0.5,
+  0.8,
+  0.55
+ ],
+ "solve": "Fitted by T-1888 to the photograph alone (the image store's 1200 x 900 px copy of Chicagology's print) against the 1911 sheet's plan (s28fp-1834-b1). The footprint frame's u runs toward Prairie Avenue (east) and v north; the body is u 0-22.25, v 0-9.58. THE PRINT IS REVERSED (mirrored: true; every pixel below is the picture turned back, x' = 1200 - x). As the print stands, the flank with the canted bay is left of the front, which puts the camera south-east of the house and the bay on the south flank at its rear (sheet u 0-5.45, where the sheet draws a straight wall); fitted that way, the front's corners, wall head, water table and grade and the flank window's 0.9 m sash leave residuals to 4.5 px and need the principal point at x 1905 (cost 31.8 px^2). Turned back, the camera stands where the Prairie library puts it, north-east of the house across Prairie Avenue, the bay falls on the north flank where the sheet draws it (u 8.5-13.3), and the same observations close within 2 px (cost 5.6) with the principal point near the middle. FITTED TO (turned-back pixels): the front's south-east corner at x 212 and north-east corner at x 720 (the front 9.58 m between them); the bay's junction with the north wall at u 13.3, x 910; the north flank's upper single window's 0.9 m sash, x 855-873; the frieze's foot (the wall head) at y 222 (south-east) and 157 (north-east); the water table at y 655 and 645 and at the bay, 662; the grade at the north-east corner (y 788) and at the bay (780). The camera is LEVEL (its verticals stand vertical), its focal length 2313 px and its principal point (508.5, 725.1); the eye at u 55.07, v 23.79 (in the far side of Prairie Avenue, about 33 m before the front and 14 m north of the north wall), 1.0 m over the house's grade, the street before the house standing lower than its lawn behind the stone wall. READ THROUGH IT: the water table 2.2 m over grade, the wall head 9.75 m; the front's four columns at 1.18, 3.50 (the door), 5.88 and 8.37 m from the south corner; the principal windows 3.0-5.25 m, the upper 6.85-9.0 m; the cornice's top 10.85 m and the old roof's centre gable's apex 12.1 m, the oculus at 10.4 m on v 4.65; the north flank's window column at u 15.1-16.4 and the round-headed pair over the bay at u 11.6-13.8; the bay's top about 5.7 m and its stone base about 2.0 m. UNCERTAINTY: the eye's height trades against the horizon, which the near-level grade and water table lines fix only to about 30 px; heights over grade are read at each point's own distance and do not depend on it. LIGHT: turned back, the north flank is lit hard and the front glancingly, so the sun stands in the north-east, low (a summer morning; sun_uvy)."
+}
