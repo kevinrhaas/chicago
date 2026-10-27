@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2331, ts: '2026-10-27T08:26:22.288Z', date: 'Oct 27, 2026, 3:26 AM CT', title: '1712 Prairie stands as a stone-front house', kind: 'feature',
+    items: [
+      '1712 Prairie Avenue is no longer a draft box: a light limestone front across the whole house, two tall storeys of windows in moulded stone surrounds, a high stoop to the door on the south, a bracketed cornice and a tin hip with a dormer lighting the attic.',
+      'Its plan comes from the 1911 Sanborn map: a wider, shallower house than the draft stood, a two-storey brick wing behind with a timber room at its end, and a small timber porch on its south side.',
+      'The one picture filed under 1712 turned out to be a 1939 model of the Kodak plant that replaced the house, so it no longer counts as a picture of the house. Every height, window and roof shape is reconstructed, and the house\'s card says which parts.',
+    ] },
   { v: 2330, ts: '2026-10-27T07:59:44.015Z', date: 'Oct 27, 2026, 2:59 AM CT', title: '1827 Prairie stands at its true height', kind: 'improvement',
     items: [
       'The Doane house was standing about a third taller than its photograph. It is now measured off the photograph through its corrected camera: the cornice is at about 9.4 m, not 12.6 m, and the windows, the mansard, the pavilion\'s attic and roof, the corner tower and the porch\'s balcony have all come down with it, as the photograph shows them.',
