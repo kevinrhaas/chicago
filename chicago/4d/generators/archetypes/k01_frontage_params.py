@@ -935,6 +935,11 @@ def mansard_face_height(setback: float, rise: float, lower_pitch_deg: float, bul
 MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 
 
+#: T-1890: the sheet metals a K08 cap's finial may be laid in, each a K01 slot (the default,
+#: no fabric named, is the cap's own covering)
+FINIAL_FABRICS = {"zinc_sheet": "k04_zinc_sheet"}
+
+
 #: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
 #: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes.
 #: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer).
@@ -1007,6 +1012,18 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 0.0 <= tp_ <= (sw / 2 + ring) - 0.15:
             raise ParamError(f"{what}.hood.taper_m {tp_}: each cheek leans in 0 m up to 0.15 m short of the middle")
         out["hood"] = {"shelf_m": sf, "shelf_proud_m": sp, "rise_m": hr, "lean_m": ln, "taper_m": tp_}
+        # T-1890: the face under the shelf may be SLATED as the hood is, its light in a pale
+        # stone frame `frame_m` wide inside the surround (1801's, in the Taylor print and HABS 1)
+        if hd.get("face", "stone") not in ("stone", "slate"):
+            raise ParamError(f"{what}.hood.face {hd['face']!r}: stone or slate")
+        if hd.get("face") == "slate":
+            fm = float(hd.get("frame_m", 0.0))
+            if not 0.05 <= fm <= ring - 0.05:
+                raise ParamError(f"{what}.hood.frame_m {fm}: a slated face's frame is 0.05 m wide up to "
+                                 f"0.05 m short of its surround ({ring} m)")
+            out["hood"].update(face="slate", frame_m=fm)
+        elif "frame_m" in hd:
+            raise ParamError(f"{what}.hood.frame_m: a frame stands in a slated face only")
         out["head_m"] = round(sht + ring + sf + hr, 4)
     if head == "flat":
         # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
@@ -2256,11 +2273,28 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-1890: a cap's finial read off a picture sizes the kit's spike, never adds one
             # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
             fn = e["finial"]
-            if not v["roof"].get("finial") or not isinstance(fn, dict) or set(fn) != {"height_m", "radius_m"} \
+            if not v["roof"].get("finial") or not isinstance(fn, dict) or not {"height_m", "radius_m"} <= set(fn) \
+                    or not set(fn) <= {"height_m", "radius_m", "form", "collar_m", "fabric"} \
                     or not 0.3 <= float(fn["height_m"]) <= 3.5 or not 0.03 <= float(fn["radius_m"]) <= 0.3:
                 raise ParamError(f"bays: {e['id']}'s finial sizes its cap's own finial by height_m (0.3-3.5 m) "
                                  f"and radius_m (0.03-0.3 m), not {fn}")
             v.setdefault("overrides", {})["finial"] = {k: float(fn[k]) for k in ("height_m", "radius_m")}
+            # T-1890: or TURNS it — knobs stacked on a waisted shaft over a crocketed collar
+            # `collar_m` out on the cone (1801's tower in the Taylor print) — and may lay it in a
+            # sheet metal of its own (FINIAL_FABRICS), where a picture reads it pale on the slate
+            form = fn.get("form", "spike")
+            if form not in ("spike", "turned"):
+                raise ParamError(f"bays: {e['id']}'s finial.form {form!r}: spike or turned")
+            if "collar_m" in fn:
+                cm = float(fn["collar_m"])
+                if form != "turned" or v["roof"].get("kind") != "cone" or not 0.2 <= cm <= 0.8:
+                    raise ParamError(f"bays: {e['id']}'s finial.collar_m {cm}: a turned finial's collar, "
+                                     f"0.2-0.8 m out on a cone")
+                v["overrides"]["finial"]["collar_m"] = cm
+            if form == "turned":
+                v["overrides"]["finial"]["form"] = form
+            if "fabric" in fn and fn["fabric"] not in FINIAL_FABRICS:
+                raise ParamError(f"bays: {e['id']}'s finial.fabric {fn['fabric']!r}: one of {', '.join(FINIAL_FABRICS)}")
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]
@@ -2635,6 +2669,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"block": True} if (e.get("plan") or {}).get("block") is True else {}),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
+                    **({"finial_fabric": e["finial"]["fabric"]} if "fabric" in (e.get("finial") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
                     **({"corner": corner} if corner else {}),
                     **({"across_corner": across} if across else {}),
