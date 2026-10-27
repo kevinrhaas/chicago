@@ -1643,7 +1643,12 @@ def _bay_span(plan: dict) -> tuple:
     if plan["kind"] == "polygon":
         # ...and a polygonal one where its ring does (k08_bays walks the same ring)
         from . import k08_bays as K8
-        ring = K8.polygon_vertices(int(plan["sides"]), float(plan["radius_m"]), float(plan["centre_proud_m"]))
+        ring = K8.polygon_vertices(int(plan["sides"]), float(plan["radius_m"]), float(plan["centre_proud_m"]),
+                                   float(plan.get("turned_deg", 0.0)))
+        if plan.get("across_corner"):
+            # T-3176: across its corner it meets its wall from its junction to the corner
+            chain = K8.across_corner_chain(ring, plan["across_corner"])
+            return (chain[0][0], 0.0) if plan["across_corner"] == "right" else (0.0, chain[-1][0])
         xs = [a[0] + a[1] / (a[1] - b[1]) * (b[0] - a[0])
               for a, b in zip(ring, ring[1:] + ring[:1]) if (a[1] < 0) != (b[1] < 0)]
         xs += [a[0] for a in ring if abs(a[1]) < 1e-12]
@@ -1845,16 +1850,38 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # never the size. Its centre stands on or out of the wall's face, so at least half
             # the ring is clear of it, and the ring always crosses the face
             q = e["plan"]
-            if set(q) != {"radius_m", "centre_proud_m"}:
+            across = e.get("across_corner")
+            if across is None and set(q) != {"radius_m", "centre_proud_m"}:
                 raise ParamError(f"bays: {e['id']} sizes its tower by radius_m and centre_proud_m, not {sorted(q)}")
             r, c = float(q["radius_m"]), float(q["centre_proud_m"])
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
-            c_lo = -(r - 0.3) if e.get("corner") is not None else 0.0
+            c_lo = -(r - 0.3) if e.get("corner") is not None or across is not None else 0.0
             if not (1.0 <= r <= 4.0 and c_lo <= c <= r - 0.3):
                 raise ParamError(f"bays: {e['id']}'s tower is {r} m in radius, its centre {c} m proud; a tower "
                                  f"is 1.0-4.0 m in radius and its centre {c_lo} m to its radius less 0.3 m out")
             v["plan"] = {**v["plan"], "radius_m": r, "centre_proud_m": c}
+            if across is not None:
+                # T-3176: a square tower set diagonally across its wall's corner (1827's, from the
+                # Doane photograph and the 1911 sheet's turned bump at the south-west corner): the
+                # kit's polygon with four sides, turned 45 degrees so an angle points out of each
+                # wall, its centre on the end wall's plane (s_m the wall's end) and `centre_proud_m`
+                # out of (or inside) the face, so its ring crosses both walls. Its walls stand on the
+                # ring outside the house; over the wall head it is closed on both planes and its
+                # cap is whole (k08_bays.Bay._corner_back)
+                if across not in ("left", "right") or v["plan"]["kind"] != "polygon" or e.get("corner") \
+                        or e.get("flush_corner") or set(q) != {"radius_m", "centre_proud_m", "sides", "turned_deg"} \
+                        or int(q["sides"]) != 4 or abs(float(q["turned_deg"]) - 45.0) > 1e-9:
+                    raise ParamError(f"bays: {e['id']} across_corner is 'left' or 'right', on a polygonal tower "
+                                     f"sized by radius_m, centre_proud_m, sides 4 and turned_deg 45")
+                end = 0.0 if across == "left" else wall_len[e["wall"]]
+                if abs(float(e["s_m"]) - end) > 1e-6:
+                    raise ParamError(f"bays: {e['id']} stands across its {across} corner, so its s_m is that "
+                                     f"corner's ({end} m), not {e['s_m']}")
+                if not -(r - 0.3) <= c <= r / math.sqrt(2):
+                    raise ParamError(f"bays: {e['id']}'s centre {c} m proud leaves its ring off one of its walls")
+                v["plan"] = {**v["plan"], "sides": 4, "turned_deg": 45.0, "across_corner": across}
+                v["corner_back_m"] = eave
         elif "plan" in e and not oriel and v["plan"]["kind"] == "polyline" and v["kind"] == "bay":
             # T-2780: a canted bay drawn on its sheet keeps the sheet's size (1637's south bay on
             # the 1911 sheet, 3.55 m at the wall and 0.75 m out); the kit's polyline is the shape,
@@ -2292,8 +2319,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s ring stands {gap:.3f} m inside its {corner} end; a corner turret's "
                                  f"stands 0-{TURRET_CORNER_M} m inside it, never past the end wall's plane")
             v["cap_whole"] = True
-        if cant is None and face is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or
-                             (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right" and corner != "right")):
+        across = e.get("across_corner")   # T-3176
+        if cant is None and face is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left"
+                                               and across != "left") or
+                                              (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right"
+                                               and corner != "right" and across != "right")):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
@@ -2451,6 +2481,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
                     **({"corner": corner} if corner else {}),
+                    **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3101: a canted cheek seats the bay part by part on its wall
