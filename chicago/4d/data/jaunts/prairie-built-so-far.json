@@ -338,10 +338,10 @@
       "id": "stop-16",
       "destination": {
         "kind": "structure",
-        "id": "wheeler_house_1812_prairie_coach_house"
+        "id": "marsh_house_1824_prairie"
       },
-      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Coach house, 1736 Prairie.",
-      "read_s": 14,
+      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: 3 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-16",
         "tour"
@@ -349,7 +349,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "wheeler_house_1812_prairie_coach_house",
+          "id": "marsh_house_1824_prairie",
           "label": "About this building"
         }
       ],
@@ -359,10 +359,10 @@
       "id": "stop-17",
       "destination": {
         "kind": "structure",
-        "id": "house_1736_prairie_coach_house"
+        "id": "wheeler_house_1812_prairie_coach_house"
       },
-      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
-      "read_s": 13,
+      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Coach house, 1736 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-17",
         "tour"
@@ -370,7 +370,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1736_prairie_coach_house",
+          "id": "wheeler_house_1812_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -380,10 +380,10 @@
       "id": "stop-18",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
+        "id": "house_1736_prairie_coach_house"
       },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
-      "read_s": 10,
+      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-18",
         "tour"
@@ -391,7 +391,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1730_prairie",
+          "id": "house_1736_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -401,10 +401,10 @@
       "id": "stop-19",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "house_1730_prairie"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13.",
-      "read_s": 18,
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-19",
         "tour"
@@ -412,7 +412,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "house_1730_prairie",
           "label": "About this building"
         }
       ],
@@ -422,10 +422,10 @@
       "id": "stop-20",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_pavilion"
+        "id": "house_1726_prairie"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13.",
-      "read_s": 22,
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13.",
+      "read_s": 18,
       "evidence": [
         "stood-20",
         "tour"
@@ -433,7 +433,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_pavilion",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -443,10 +443,10 @@
       "id": "stop-21",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_north"
+        "id": "pullman_glasshouse_1800_calumet_pavilion"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13.",
-      "read_s": 21,
+      "text": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13.",
+      "read_s": 22,
       "evidence": [
         "stood-21",
         "tour"
@@ -454,7 +454,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_north",
+          "id": "pullman_glasshouse_1800_calumet_pavilion",
           "label": "About this building"
         }
       ],
@@ -464,9 +464,9 @@
       "id": "stop-22",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_east_end"
+        "id": "pullman_glasshouse_1800_calumet_north"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13.",
+      "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13.",
       "read_s": 21,
       "evidence": [
         "stood-22",
@@ -475,7 +475,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_east_end",
+          "id": "pullman_glasshouse_1800_calumet_north",
           "label": "About this building"
         }
       ],
@@ -485,7 +485,7 @@
       "id": "stop-23",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_east"
+        "id": "pullman_glasshouse_1800_calumet_east_end"
       },
       "text": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Dexter House, 1721 Prairie.",
       "read_s": 17,
@@ -496,7 +496,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_east",
+          "id": "pullman_glasshouse_1800_calumet_east_end",
           "label": "About this building"
         }
       ],
@@ -527,7 +527,7 @@
       "id": "stop-25",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie_ranges"
+        "id": "pullman_lodge_1800_calumet"
       },
       "text": "1729 Prairie. DETAIL 1/5: a first rough model, reshaped from a picture. Pictured: a picture on the Images tab shows it. Next: Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges.",
       "read_s": 15,
@@ -538,7 +538,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie_ranges",
+          "id": "pullman_lodge_1800_calumet",
           "label": "About this building"
         }
       ],
@@ -1203,7 +1203,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
     },
     {
-      "id": "stood-17",
+      "id": "stood-18",
       "text": "Coach house, 1736 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1212,7 +1212,7 @@
       "reasoning": "STANDING IN 1904 rests on the 1911 sheet carried back seven years, as every building on sheets 20, 28 and 35 is read (the T-1840 census rules it present_as_mapped, census row s20-1736-r1). FROM: nothing read here dates the building, so the record claims the 1904 target and no earlier day; the house was built in 1864 or 1875 (house_1736_prairie.built) and its stable is not dated with it. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date."
     },
     {
-      "id": "stood-18",
+      "id": "stood-19",
       "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1221,7 +1221,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-19",
+      "id": "stood-20",
       "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1230,7 +1230,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-20",
+      "id": "stood-21",
       "text": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1239,7 +1239,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-21",
+      "id": "stood-22",
       "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1248,7 +1248,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-22",
+      "id": "stood-23",
       "text": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1257,7 +1257,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-23",
+      "id": "stood-24",
       "text": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1276,7 +1276,7 @@
       "reasoning": "The 1891 plate shows Arthur Little's front of 1889; the 1911 sheet draws the same plan and the T-1840 census rules it present in 1904 (present_as_mapped). The c. 1888 photographs show the house before that front and are not this phase."
     },
     {
-      "id": "stood-25",
+      "id": "stood-26",
       "text": "1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
