@@ -1999,6 +1999,22 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
+        # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
+        # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
+        if "stage" in e:
+            sg = e["stage"]
+            ok = isinstance(sg, dict) and set(sg) == {"from_storey", "radius_m", "corbel_courses"} \
+                and v["kind"] == "tower" and v["plan"]["kind"] == "circle" and not e.get("corner")
+            if ok:
+                k, r2, kc = int(sg["from_storey"]), float(sg["radius_m"]), int(sg["corbel_courses"])
+                r1 = float(v["plan"]["radius_m"])
+                ok = 0 < k < len(v["storeys"]) and r1 + 0.2 <= r2 <= min(4.0, r1 + 1.0) and 2 <= kc <= 8
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s stage takes from_storey (one of its storey lines), radius_m "
+                                 f"(0.2-1.0 m wider than its shaft, at most 4.0 m) and corbel_courses (2-8), on "
+                                 f"a round tower standing on its own wall, not {sg}")
+            v["stage"] = {"from_storey": k, "radius_m": r2, "corbel_courses": kc}
         # T-2525: a window's iron grille in its reveal (1621's basement lights, from its drawing)
         for st in v["storeys"]:
             for w in st["windows"]:
@@ -2209,6 +2225,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                               **({"foot_m": ft} if ft is not None else {}),
                               **({"corbel_m": cm} if cm is not None else {}),
                               **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {})}
+        if "finial" in e:
+            # T-1890: a cap's finial read off a picture sizes the kit's spike, never adds one
+            # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
+            fn = e["finial"]
+            if not v["roof"].get("finial") or not isinstance(fn, dict) or set(fn) != {"height_m", "radius_m"} \
+                    or not 0.3 <= float(fn["height_m"]) <= 3.5 or not 0.03 <= float(fn["radius_m"]) <= 0.3:
+                raise ParamError(f"bays: {e['id']}'s finial sizes its cap's own finial by height_m (0.3-3.5 m) "
+                                 f"and radius_m (0.03-0.3 m), not {fn}")
+            v.setdefault("overrides", {})["finial"] = {k: float(fn[k]) for k in ("height_m", "radius_m")}
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]

@@ -34085,6 +34085,37 @@ the house and brings the match record to `matches`.
 **Ticket:** T-2380, required to clear the current integration memory failure for the visible jail enclosure.
 **Recorded:** 2026-10-26.
 
+### L-kimball-1801-tower-stage-1890 — 1801 Prairie's 18th Street tower rebuilt as a shaft under a corbelled stage, from the Taylor print and HABS photograph 2
+
+**Decision:** the round tower on the 18th Street flank is rebuilt to the two pictures that show it,
+J. W. Taylor's c. 1895 print (`taylor_c1895_kimball_residence_1801`) and HABS photograph 2 (June
+1965, `habs_kimball_photo_02_nw_1965`), each read through its solved camera (T-1890). **What is
+read, not invented.** Both pictures agree, within about 0.3 m, on a plain round shaft about
+2.0-2.2 m across, one light on its north-west face at the principal storey and none on the faces
+they see above it; a corbel table round it at about 8.0-8.9 m; over that a stage about 3.7 m
+across with small square lights on its north and north-west faces (sills about 9.6 m, heads
+10.3-10.45 m); a heavy moulded cornice at about 11.0-11.1 m; and a slated cone to about
+16.4-16.8 m under a finial whose tip stands about 19.6 m in the c. 1895 print (about 18 m in
+1965). The 1911 sheet's bump in the north wall, 1.2-1.3 m out, fits the shaft: its centre is
+0.15 m out of the wall, its face 1.25 m. Built: `bays.tower`, a K08 round tower 2.2 m across with
+a `stage` (the kit's new corbelled stage, `k08_bays._build_staged`) from its 8.9 m storey line,
+3.7 m across on five stepped corbel courses down to 7.9 m, under the K10 moulded stone cornice to
+11.26 m and a cone at pitch 2.5 to 16.69 m, and the kit's finial sized to 2.6 m (its tip 19.29 m).
+The east turret at the flank's far corner takes the same two record keys: its finial sized to the Taylor print's 2.5 m spike and its eaves dressed in the same moulded cornice. The record's earlier tower, 2.9 m across to a 12.9 m eave and an 18.7 m cone, had been read
+through a Taylor camera that T-3074 later re-solved; both current cameras read it about 1.8 m
+lower. **What is invented or held by the kit.** The corbel table is the kit's plain stepped
+courses, where both pictures show a row of carved corbels; the cone is straight, where the print's
+flares out over the cornice; the finial is the kit's plain spike, in the cap's slate, where the
+print's is turned and pale over a crocketed collar; the east face's lights, which neither picture
+sees, follow the north-west face's (one at the principal storey, one in the stage). **What it
+stops short of.** The flank section east of the tower still stands to 13.9 m and passes through
+the stage's cone at its corner, as it passed through the old cone; the finial's shape stays open
+in the Taylor match record.
+**How to resolve:** a carved-corbel course and a bell-cast cone in the K08 kit; a turned finial; the
+flank section's top brought to its pictures.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-26 (T-1890).
+
 ### L-pullman-palm-house-3165 — Pullman's palm house rebuilt to J. W. Taylor's photograph: a columned glass drum under a ribbed dome, moved 3 m east of the 1911 sheet's semicircle
 
 **Decision:** `pullman_house_1729_prairie_conservatory` stops being a small conservatory bay read off a
@@ -34400,3 +34431,39 @@ plate's cameras, and brings every 1901 match record to `matches`.
 **Ticket:** T-3185 (piece 1 of T-1903).
 **Review:** `docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3185).
+
+### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
+
+**Decision:** the stable at the east end of 1729 Prairie (`pullman_house_1729_prairie_ranges`, its south
+block r1, north block r4 and east section r5) stops being the district draft's mansard box and becomes the
+stable J. W. Taylor photographed from 18th Street (AIC 16555, `aic_taylor_16555_pullman_west_front`), worked
+to that picture through the camera T-3165 solved on it until the side-by-side shows the same building.
+**What is read.** Through that camera (23.8 px/m at the stable's front, about 10% scale uncertainty there):
+the first-floor cornice at 3.95 m, from which a steep hipped roof springs to a flat deck at about 10.2 m
+inside iron cresting; the upper storey on the 18th Street front carried up through the roof's lower slope as
+one long wall with its own cornice at 6.0 m; a three-arch arcade between the west wall and a polygonal bay
+4.8 m across with its cornice at 4.9 m and round-headed lights; three bays of sash east of the bay on both
+storeys; the deck's west edge 3.3 m in from the eave; the belvedere's top about 10.3 m at the range's face;
+and the front's length: the hipped roof spans the 1911 sheet's south block within about 0.5 m, and the
+two-storey front runs on about 4 m further east under a lower roof. From the 1894 Inland Architect plate
+(`inland_1894_pullman_palm_house_stable`) and Taylor's south-west view (`aic_taylor_16554_pullman_from_sw`),
+read for form only: the arcade's broad open middle arch between narrower lights, the octagonal lantern
+under a dome and finial toward the deck's west end, the tall stack at the front's east end, and the square
+belvedere with a cornice and balustrade. **What is invented.** The east section's depth (7.3 m) and its
+low hipped roof: the 1911 sheet draws no building there, so either it was gone by 1911 or the sheet's
+trace missed it, and the 1904 scene keeps what the picture shows (AGENTS.md rule 11). The deck's east, north
+and south insets (the photograph shows only its west corner clearly), the lantern's and the stack's exact
+places and sizes, the belvedere's depth behind the range's parapet (4.4 m, the wing's own depth), the north
+block's hipped roof, and the sash on the north, east and west faces, which stay the draft rules'. The
+arcade's three arches are fitted into the 3.2 m Taylor's frontal reads between the west wall and the bay;
+the Inland plate reads that stretch about twice as long, which T-3193 weighs through the plate's own camera.
+Stone is the draft's light buff (the pictures are monochrome). **What is not.** The sheet's west wall, 18th
+Street front, east wall and north block; the heights, the bay, the arcade's place, the window bays and the
+roof's form are the photograph's. **How to resolve:** T-3193 solves the Inland plate's camera (its eye about
+8 m up, its horizon on the range's parapet) and the south-west view's, and either confirms or moves the
+arcade's length, the belvedere and the east section; the c. 1905 CHM negative i70232 (`a16-chm-clark-i70232-
+pullman-addition`, not in the image store) would date the east section against 1904.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-3192 (piece 1 of T-3178).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-27 (T-3192).

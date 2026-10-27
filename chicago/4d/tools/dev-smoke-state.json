@@ -13,21 +13,21 @@
       "failed": 0,
       "failures": [],
       "wallSeconds": 436,
-      "takenAt": "2026-10-27T10:53:34.089Z",
+      "takenAt": "2026-10-27T10:58:32.564Z",
       "ref": "steward/t3184-jones-photo-matches",
-      "commit": "fab6096ad923",
-      "devCommit": "f4478b76ab5d",
-      "treeHash": "sha256:336ef169fe470172",
-      "treeDirty": false,
-      "changelogHash": "sha256:4be298fb1e3f6e4a",
+      "commit": "1715651a095e",
+      "devCommit": "e40caf1dedd0",
+      "treeHash": "sha256:822eeb3e7e90d486",
+      "treeDirty": true,
+      "changelogHash": "sha256:86bffc8a9337b0c6",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          3.7,
-          4.5,
-          3.7
+          1.3,
+          2.3,
+          2.9
         ]
       },
       "source": "/tmp/w/smoke_d3.log"
@@ -44,21 +44,21 @@
       "failed": 0,
       "failures": [],
       "wallSeconds": 181,
-      "takenAt": "2026-10-27T10:53:33.947Z",
+      "takenAt": "2026-10-27T10:58:32.428Z",
       "ref": "steward/t3184-jones-photo-matches",
-      "commit": "fab6096ad923",
-      "devCommit": "f4478b76ab5d",
-      "treeHash": "sha256:336ef169fe470172",
-      "treeDirty": false,
-      "changelogHash": "sha256:4be298fb1e3f6e4a",
+      "commit": "1715651a095e",
+      "devCommit": "e40caf1dedd0",
+      "treeHash": "sha256:822eeb3e7e90d486",
+      "treeDirty": true,
+      "changelogHash": "sha256:86bffc8a9337b0c6",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          3.7,
-          4.5,
-          3.7
+          1.3,
+          2.3,
+          2.9
         ]
       },
       "source": "/tmp/w/smoke_m3.log"
