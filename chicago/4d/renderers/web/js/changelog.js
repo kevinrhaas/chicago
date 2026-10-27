@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2321, ts: '2026-10-27T02:58:41.574Z', date: 'Oct 26, 2026, 9:58 PM CT', title: '1720 Prairie stands as a clapboard Italianate built from its photograph', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house at 1720 Prairie is no longer a placeholder draft: it is a clapboard frame house with corner boards, cased sash, a deep frieze and a bracketed eave under a low hip.',
+      'Its front follows the undated Tyrrell photograph: the round-headed windows, the door, the floor raised high over the walk, and a porch across the whole front on its posts with a central stair.',
+      'The photograph is on the house\'s Images tab and is matched from its own camera; the porch\'s arches and cresting, the corner bay and the centre gable come next.',
+    ] },
+  { v: 2320, ts: '2026-10-27T02:03:20.961Z', date: 'Oct 26, 2026, 9:03 PM CT', title: 'Wolf Point Tavern gets a darker roof tone', kind: 'improvement',
+    items: [
+      'The tavern uses a deeper reconstructed brown roof tone guided by the credited 1867 NYPL print of Wolf Point in 1833. Its existing shingle relief and building form remain.',
+      'The print does not establish the exact pigment, weathering or unchanged appearance in July 1835. Picture comparisons continue before the building is signed off.',
+    ] },
   { v: 2319, ts: '2026-10-27T01:25:30.838Z', date: 'Oct 26, 2026, 8:25 PM CT', title: '1823 Prairie looks like its pictures', kind: 'improvement',
     items: [
       'Thomas Dent\'s house at 1823 Prairie now has the box bay with its hood on the north side, iron cresting along the top of its mansard, paired windows in its dormers, and moulded heads over its front windows.',

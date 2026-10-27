@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 798,
+  "count": 800,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35619,18 +35619,6 @@
         },
         {
           "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "walker_house_1720_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35647,11 +35635,11 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
-          "text": "the district draft's 16th-18th block (split to for the west side and for the east), run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace and the census instead of sheet 28's. Block 20's west side stands nineteen houses and thirteen alley buildings: 1600, 1604, 1608, 1612 Goodman, 1616, 1620 Law, the 1626/1628 pair, 1630, the 1634/1636 stone-front pair, 1700 Glessner Lee and 1706 George Glessner, 1708, 1712, 1720 Walker, 1726, 1730 and 1736, with the stables and garages the sheet draws behind 1612, 1616, 1620, 1626, 1628, 1630, 1638, 1700, 1712, 1720, 1726, 1730 and 1736. 1638's street front is the K16 record already standing and is not touched; the draft adds only its stable. Nothing on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** Where two neighbours of the same family would have shared a roof, one is drawn differently and its frontage row says so (1608 and 1730 flat behind a bracketed cornice); which roof either had is its per-building piece of work's. **1608 retired from this liberty by later work (2026-10-11):** the house now stands as the K01 brick frontage under `“1608 Prairie refined from the district draft to a K01 brick house: front bay and south projection where the sheet draws them, everything else the kits'”`, under the same id; its draft attributes are gone. **1600 retired from this liberty by later work (2026-10-11):** the corner house now stands as the K01 brick frontage under `“1600 Prairie refined from the district draft to a K01 brick corner house: windows on its 16th Street side and a half-round bow where the sheet draws its curved bay, everything else the kits'”`, under the same id; its draft attributes are gone. **1616 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage under `“1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1616 S. Prairie Avenue — the alley building of the house at 1616 here. **1604 retired from this liberty by later work (2026-10-11):** the house now stands as the K01 brick frontage with its traced rear range on K01's rear wings under `“1604 Prairie refined from the district draft to a K01 brick house with its traced rear range: the three-storey block, the two-storey range and the west block behind it, everything else the kits'”`, under the same id; its draft attributes are gone. **1628 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage under `“1628 Prairie's main body refined from the district draft to a three-storey K01 brick house, the south half of the pair with 1626, everything but the plan the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1628 S. Prairie Avenue — the alley building of the house at 1628 here. **1626 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage with its frame front bay under `“1626 Prairie's main body refined from the district draft to a three-storey K01 brick house with a two-storey frame bay, the north half of the pair with 1628, everything but the plan, the bay's place and its timber the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1626 S. Prairie Avenue — the alley building of the house at 1626 here. **1630 retired from this liberty by later work (2026-10-11):** the small earlier frame house now stands whole — main block, south wing and front porch — as the K16 clapboard house under `“1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's”`, under the same id; its draft attributes are gone, and its stable keeps 1630 S. Prairie Avenue — the alley building of the house at 1630 here. **1634 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 stone-front house under the flat roof K01 learned from K05, with the sheet's stone front bay on K08, under `“1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1636 retired from this liberty by later work (2026-10-11):** it now stands as the K01 stone-front house under K01's flat roof, the sheet's canted stone bay on K08 and its narrow rear part on K01's rear wings, under `“1636 Prairie refined from the district draft to a three-storey K01 stone-front house under a flat roof with its rear wing, the south half of the pair with 1634, everything but the plan the kits'”`, under the same id; its draft attributes are gone. Its door moves from the south end to the north: the sheet's bay fills the south half of its front, so the 1634/1636 pair repeats rather than mirrors. **1726 and 1730 retired from this liberty by later work (2026-10-20):** both now stand as K01 brick frontages under `“1726 and 1730 Prairie refined from the district draft to bounded map-led K01 brick houses, their plans the 1911 sheet's and everything above the plan the kits'”`, under the same ids, their plans read off the sheet (1726's canted bays, side projections and rear pieces; 1730's front block under a mansard, its frame bay, south projection and vestibule, and its two-storey rear range); their draft attributes are gone, and their stables keep 1726 S. Prairie Avenue — the alley building of the house at 1726 and 1730 S. Prairie Avenue — the alley building of the house at 1730 here. The rule above that drew 1730 flat beside 1726 is retired with them: the sheet's own dashed line puts a mansard on 1730. **1736's stable retired from this liberty by later work (2026-10-23):** 1736 Prairie Avenue (the Ingraham/McBirney house): the coach house on the alley at 18th Street now stands as the K12 coach house under `“The coach house on the alley behind 1736 Prairie, at the 18th Street corner, built from the K12 kit on the outline the 1911 sheet draws”`, under the same id, on the outline, storeys, brick and window mark the sheet draws; its draft attributes are gone. 1720 Walker's Italianate frame is a low bracketed hip, its central gable, canted bay and full-width porch left to earlier work. The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their outer ends. **1620, the one house the 1911 sheet does not draw.** The census stands the Robert Law house for 1904 on Robinson 1886 and the 1904 Blue Book (backcast 1886). Its outline is read off Robinson 1886 plate 10 in the plate's own pixels and carried by the plate's fit (4.54 m RMS, the weakest of the four), so its plan is inferred from that plate and not from the sheet. Its two storeys are RECONSTRUCTED: the atlas prints no storey count. Its documented range claims 1904-07-01 and nothing either side of it. **1700 and 1706.** The sheet traces the U-shaped block as one building with two parts; the census rules them two townhouses (pa-1700-52, pa-1706-53) and 1702 an alias with no house of its own (study ruling 2). Each frontage row names its own traced part (house part), so each house stands on its own half of the trace. The one stable on their shared lot is drawn once, under 1700's id; which household it served is not read."
+          "text": "the district draft's 16th-18th block (split to for the west side and for the east), run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace and the census instead of sheet 28's. Block 20's west side stands nineteen houses and thirteen alley buildings: 1600, 1604, 1608, 1612 Goodman, 1616, 1620 Law, the 1626/1628 pair, 1630, the 1634/1636 stone-front pair, 1700 Glessner Lee and 1706 George Glessner, 1708, 1712, 1720 Walker, 1726, 1730 and 1736, with the stables and garages the sheet draws behind 1612, 1616, 1620, 1626, 1628, 1630, 1638, 1700, 1712, 1720, 1726, 1730 and 1736. 1638's street front is the K16 record already standing and is not touched; the draft adds only its stable. Nothing on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** Where two neighbours of the same family would have shared a roof, one is drawn differently and its frontage row says so (1608 and 1730 flat behind a bracketed cornice); which roof either had is its per-building piece of work's. **1608 retired from this liberty by later work (2026-10-11):** the house now stands as the K01 brick frontage under `“1608 Prairie refined from the district draft to a K01 brick house: front bay and south projection where the sheet draws them, everything else the kits'”`, under the same id; its draft attributes are gone. **1600 retired from this liberty by later work (2026-10-11):** the corner house now stands as the K01 brick frontage under `“1600 Prairie refined from the district draft to a K01 brick corner house: windows on its 16th Street side and a half-round bow where the sheet draws its curved bay, everything else the kits'”`, under the same id; its draft attributes are gone. **1616 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage under `“1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1616 S. Prairie Avenue — the alley building of the house at 1616 here. **1604 retired from this liberty by later work (2026-10-11):** the house now stands as the K01 brick frontage with its traced rear range on K01's rear wings under `“1604 Prairie refined from the district draft to a K01 brick house with its traced rear range: the three-storey block, the two-storey range and the west block behind it, everything else the kits'”`, under the same id; its draft attributes are gone. **1628 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage under `“1628 Prairie's main body refined from the district draft to a three-storey K01 brick house, the south half of the pair with 1626, everything but the plan the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1628 S. Prairie Avenue — the alley building of the house at 1628 here. **1626 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 brick frontage with its frame front bay under `“1626 Prairie's main body refined from the district draft to a three-storey K01 brick house with a two-storey frame bay, the north half of the pair with 1628, everything but the plan, the bay's place and its timber the kits'”`, under the same id; its draft attributes are gone, and its stable keeps 1626 S. Prairie Avenue — the alley building of the house at 1626 here. **1630 retired from this liberty by later work (2026-10-11):** the small earlier frame house now stands whole — main block, south wing and front porch — as the K16 clapboard house under `“1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's”`, under the same id; its draft attributes are gone, and its stable keeps 1630 S. Prairie Avenue — the alley building of the house at 1630 here. **1634 retired from this liberty by later work (2026-10-11):** its main body now stands as the K01 stone-front house under the flat roof K01 learned from K05, with the sheet's stone front bay on K08, under `“1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'”`, under the same id; its draft attributes are gone. **1636 retired from this liberty by later work (2026-10-11):** it now stands as the K01 stone-front house under K01's flat roof, the sheet's canted stone bay on K08 and its narrow rear part on K01's rear wings, under `“1636 Prairie refined from the district draft to a three-storey K01 stone-front house under a flat roof with its rear wing, the south half of the pair with 1634, everything but the plan the kits'”`, under the same id; its draft attributes are gone. Its door moves from the south end to the north: the sheet's bay fills the south half of its front, so the 1634/1636 pair repeats rather than mirrors. **1726 and 1730 retired from this liberty by later work (2026-10-20):** both now stand as K01 brick frontages under `“1726 and 1730 Prairie refined from the district draft to bounded map-led K01 brick houses, their plans the 1911 sheet's and everything above the plan the kits'”`, under the same ids, their plans read off the sheet (1726's canted bays, side projections and rear pieces; 1730's front block under a mansard, its frame bay, south projection and vestibule, and its two-storey rear range); their draft attributes are gone, and their stables keep 1726 S. Prairie Avenue — the alley building of the house at 1726 and 1730 S. Prairie Avenue — the alley building of the house at 1730 here. The rule above that drew 1730 flat beside 1726 is retired with them: the sheet's own dashed line puts a mansard on 1730. **1736's stable retired from this liberty by later work (2026-10-23):** 1736 Prairie Avenue (the Ingraham/McBirney house): the coach house on the alley at 18th Street now stands as the K12 coach house under `“The coach house on the alley behind 1736 Prairie, at the 18th Street corner, built from the K12 kit on the outline the 1911 sheet draws”`, under the same id, on the outline, storeys, brick and window mark the sheet draws; its draft attributes are gone. 1720 Walker's Italianate frame is a low bracketed hip, its central gable, canted bay and full-width porch left to earlier work. The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their outer ends. **1720 retired from this liberty by later work (2026-10-26):** the Tyrrell/Walker Italianate frame now stands as the K16 timber record 1720 Prairie Avenue — Tyrrell/Walker Italianate frame, read from the 1911 sheet and the undated Tyrrell photograph and recorded as `“1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1620, the one house the 1911 sheet does not draw.** The census stands the Robert Law house for 1904 on Robinson 1886 and the 1904 Blue Book (backcast 1886). Its outline is read off Robinson 1886 plate 10 in the plate's own pixels and carried by the plate's fit (4.54 m RMS, the weakest of the four), so its plan is inferred from that plate and not from the sheet. Its two storeys are RECONSTRUCTED: the atlas prints no storey count. Its documented range claims 1904-07-01 and nothing either side of it. **1700 and 1706.** The sheet traces the U-shaped block as one building with two parts; the census rules them two townhouses (pa-1700-52, pa-1706-53) and 1702 an alias with no house of its own (study ruling 2). Each frontage row names its own traced part (house part), so each house stands on its own half of the trace. The one stable on their shared lot is drawn once, under 1700's id; which household it served is not read."
         },
         {
           "label": "How to resolve",
@@ -35676,6 +35664,7 @@
         "T-2335",
         "T-2328",
         "T-2323",
+        "T-1873",
         "T-1840",
         "T-2341",
         "T-2342",
@@ -35688,7 +35677,7 @@
         "T-2348",
         "T-2934",
         "T-2995",
-        "T-1873",
+        "T-3180",
         "T-1250",
         "T-1859",
         "T-1874",
@@ -56934,6 +56923,66 @@
       ]
     },
     {
+      "id": "L-k16-1720-frame-house-3180",
+      "title": "1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph",
+      "section": "per_subject",
+      "subjects": [
+        "walker_house_1720_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Tyrrell/Walker house at 1720 Prairie Avenue (Otis L. Wheelock, 1868;, piece 1) is no longer a district draft. It stands, under the draft's own id 1720 Prairie Avenue — Tyrrell/Walker Italianate frame, as a k16 timber record built by the k16 emit generator from the K16 timber kit, as 1630 does (`“1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's”`): kit clapboard walls on a water table, corner boards and returns, K06 sash in the kit's flat timber casings, a panelled door, a frieze under a boxed eave with scroll brackets, a low hip, a flat deck over the wing, one brick stack, and the kit's porch across the front. This work taught the kit a long porch's posts between its ends (porch.inner posts (m)), a porch floor raised over a basement with steps solved to it (porch.basement (m)), and a block's own frieze depth (frieze (m)). **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the trace (s20fp-1720-b1) and the census (s20-1720-f): the main block's rectangle (22.25 m deep, 10 m along Prairie), the south wing's (u 10-21.5), the porch's 1.5 m depth, two storeys and frame. From the Tyrrell photograph ([The John Tyrrell house, 1720 S. Prairie Avenue (Otis L. Wheelock, 1868).]…) through its camera (the tyrrell front data): the porch floor and door about 1.55 m over the walk, the eave about 10.6 m and the frieze about 1.5 m deep, the front's openings (below, a single round-headed light, the door and a pair; above, two single round-headed sash and a pair), the porch's span (v -1.65 to 9.85 m, against the sheet's -2.0 to 8.25), its stair at its middle, its posts at its ends and either side of its middle opening and its plate, and the wing standing only one storey where it meets the front (the photograph sees sky over the porch roof south of the bay, where a two-storey wing would stand). **What is invented.** Every opening on the flanks, the wing and the rear, and the kit's two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main block's); one stack, placed over the south wall where the photograph shows one, the second it shows over the north wall not built; the tin roof and its colour; the pale body paint and the kit's trim and sash colours (the photograph is monochrome). **What is not built yet.** Owned by the pieces of earlier work: the porch's paired posts, three arches, turned balustrades, the stair's cheek walls and the iron cresting round its deck; the upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired carved brackets, the wider eave and the central front gable. The photograph's stone posts and iron fence along the street line are not this record's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work replace the kit's stand-ins in place from the same photograph; a plan, a second photograph or a description of the flanks replaces their openings."
+        },
+        {
+          "label": "Covers",
+          "text": "`walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`"
+        },
+        {
+          "label": "Review",
+          "text": "the tyrrell front match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3180)."
+        }
+      ],
+      "work_refs": [
+        "T-3180",
+        "T-1873",
+        "T-3181",
+        "T-3182",
+        "T-2328",
+        "T-1840"
+      ]
+    },
+    {
       "id": "L-st-mary-chapel-front-2384",
       "title": "A pictured chapel form for St Mary's",
       "section": "per_subject",
@@ -57010,6 +57059,54 @@
       ],
       "work_refs": [
         "T-2384"
+      ]
+    },
+    {
+      "id": "L-wolf-point-roof-tone-2386",
+      "title": "A picture-bounded roof tone",
+      "section": "per_subject",
+      "subjects": [
+        "wolf_point_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wolf_point_tavern",
+          "phase": "log_frame_1828",
+          "aspect": "form.roof_colour"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`wolf_point_tavern.log_frame_1828.form.roof_colour`."
+        },
+        {
+          "label": "Decision",
+          "text": "Explicitly select the optional deep brown roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes."
+        },
+        {
+          "label": "Source and limits",
+          "text": "Wolf's Point in 1833. Hand-coloured lithograph, published by Rufus Blanchard…: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening."
+        },
+        {
+          "label": "Production",
+          "text": "The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0."
+        },
+        {
+          "label": "Verification owed",
+          "text": "The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and later work's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-2386)."
+        }
+      ],
+      "work_refs": [
+        "T-3153",
+        "T-2386"
       ]
     },
     {

@@ -2376,6 +2376,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "walker_house_1720_prairie/as_mapped_1904/form.frame_house": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1720_tyrrell_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "walker_meeting_house/log_1831/form.construction": {
       "kind": "structure",
       "blocked_sources": [

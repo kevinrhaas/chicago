@@ -1,0 +1,30 @@
+{
+ "id": "glessner_blog_1720_tyrrell_photo",
+ "type": "photograph",
+ "citation": "[The John Tyrrell house, 1720 S. Prairie Avenue (Otis L. Wheelock, 1868).] Undated photograph of the street front from the Prairie Avenue walk; photographer and original holder not named. Reproduced by the Glessner House Museum, 'Burley & Tyrrell, Chicago's Forgotten Retailer', The Story of a House (blog), 18 January 2022.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library's range: 1868-1910)",
+ "describes_date": "between 1868 and 1910",
+ "repository": "Glessner House Museum blog 'The Story of a House' (secondary reproduction; the original holder is not named). Prairie library image a16-ghm-blog-1720-tyrrell-house, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1720-tyrrell-house.jpg), committed since T-3180 at data/sources/assets/tyrrell_1720_photo_t3180/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
+ "archived_url": "https://web.archive.org/web/20260430090406/http://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
+ "locator": "The whole photograph: the clapboard street front nearly square to the camera, from its south end (a canted bay on the upper storey) to its north corner, with the north flank just seen beyond it; the full-width porch, its central stair, and the stone posts and iron fence along the street line.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'; the photograph is likely public domain by age, but its holder and the reproduction's terms are not established). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3180) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3180) from the image store's reference copy, 1200 x 1119 px greyscale, sha256 8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81, the same file glessner_blog_2022_01_burley_tyrrell's access note records.",
+ "note": "The only photograph of 1720 Prairie this project reads (the Tribune's 1898 sketch is a drawing of the same front). It shows a two-storey clapboard Italianate on a raised basement: a deep frieze with small attic lights under wide eaves on paired carved brackets, a low gable over the middle of the front, round-arched windows under hood mouldings, single and paired, a canted bay on the upper storey at the south end, and a porch across the whole front on paired posts with three arched openings, a turned balustrade, a central stair between cheek walls, and an iron cresting round its flat deck. It is evidence of its own undated moment, not of 1904.",
+ "what_it_supplies": [
+  "the front's width against its eave, frieze, storeys and porch, read through the camera at data/reference_views/walker_house_1720_prairie/tyrrell_front.json",
+  "the principal floor about 1.55 m over grade (the porch floor and its stair)",
+  "the openings of the front: one door and three windows below, three windows and the bay above",
+  "the porch's span, its post groups and its plate"
+ ],
+ "what_it_does_not_supply": [
+  "a date, and so the 1904 state",
+  "colour: the photograph is monochrome",
+  "the south flank, the rear and the roof behind the street face"
+ ]
+}
