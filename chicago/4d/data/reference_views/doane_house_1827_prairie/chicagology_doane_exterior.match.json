@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e7eb1c87fd07bf5b40e77772fbdbe6f8fe6333fee9c1f564e91f50273f2b3348",
+  "glb_sha256": "9249f748bafb44c6c48d7b9d7e4ab1897ca7b705a38bfd54b30a822a94d1eb5d",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -79,7 +79,22 @@
       "status": "open"
     },
     {
-      "what": "the barred basement lights' height: T-3171's camera read about 1.5 m; the re-solved one reads about 1.0 m",
+      "what": "the iron grilles in the basement lights: one under the pavilion's centre light (x 392-468 px, y 1471-1548), one under the window bay south of it (x 664-749, y 1475-1557) and a tall one in the tower's narrow north-west face (x 832-856, y 1482-1570); the build's basement lights were glazed, and the pavilion and tower had none",
+      "status": "fixed",
+      "how": "T-3196 (piece 1 of T-3195): the front's area lights barred with K08's bar grille in their reveal (window_kit's grille, four uprights and a ring), and the pavilion's and the tower's basement lights added as K08 lights with the same grille (three uprights in the tower's), each 1.25 m (the tower's 0.65 m) from 0.17 to 1.02 m over grade, the pavilion's and the tower's in a basement storey 1.3 m high on plinths lowered to 0.05 m, its band standing for the print's water table over them; the render's stand at y about 1471 to 1550 under the print's. The print's bars scroll from a centre stem into an arch, which the kit's ring stands for (within tolerance)"
+    },
+    {
+      "what": "the window bay south of the pavilion and its dormer: the print's window stands at x 665-745 px (v 11.43-12.64 through the re-solved camera), its dormer at x 650-770; T-3171's v 12.9, from the camera since re-solved, rendered them about 60 px (0.85 m) south, beside the tower",
+      "status": "fixed",
+      "how": "T-3196: the bay at v 12.05 (front_bays), its window rendering at x about 669-741 px; its dormer moved with it to v 12.25, the nearest the pavilion's crown and its cornice allow, about 0.25 m south of the print's (within tolerance)"
+    },
+    {
+      "what": "the pavilion's narrow lights: the print's stand close beside the wide centre light (x 337-381 and 490-533 px), where the build's, at 0.17 and 0.83 of the pavilion's width, rendered about 55 px (0.9 m) further out each side",
+      "status": "fixed",
+      "how": "T-3196: at 0.26 and 0.74 of its width on both storeys, rendering at x about 320-363 and 509-552 px (about 0.3 m out each side, within tolerance)"
+    },
+    {
+      "what": "the barred basement lights' height: T-3171's camera read about 1.5 m; the re-solved one reads about 1.0 m (T-3196: the print's grilled lights run from about 0.07 to 1.04 m over grade; the build's from 0.17 to 1.02 m)",
       "status": "within tolerance",
       "how": "T-3189: through the re-solved camera the print's lights run from about grade to about 1.0 m (y 1475-1553 px beside the pavilion), under the 1.3 m water table; the build's stand 0.3-1.05 m, their heads level with the print's and about 0.2 m shorter"
     },
@@ -132,7 +147,8 @@
     },
     {
       "what": "the tower's row of corbel blocks under its crown (about eleven to the broad face, y 485-522 px); the build's frieze there is plain stone",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3196 (piece 1 of T-3195): K08's corbel table under the tower's moulded crown on every face, blocks 0.16 m across at most 0.28 m apart, 0.35 m deep under the wall top (12.15-12.5 m) and 0.2 m out, eleven to the broad face as the print's; the render's row stands at y about 480-515 px against the print's blocks at 487-517. The print's blocks are stepped under; the build's are plain (within tolerance)"
     },
     {
       "what": "the tower's lights: the print's carry segmental hoods over the principal floor's pair and a roundel between the second floor's (y 1130-1160 px); T-3194's moulded surrounds and level hoods stand in",
