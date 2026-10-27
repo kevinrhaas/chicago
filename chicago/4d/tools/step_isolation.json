@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-26",
+  "measured": "2026-10-27",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -5578,11 +5578,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_dev_smoke_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_driver_draws.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_enclosure_points.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5730,6 +5738,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_dress_components.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_frame_residue.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5798,6 +5810,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_cant_corner.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_pavilion_past_eave.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5842,11 +5858,27 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k08_corbel_table.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k08_gable.py": {
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k08_round_oriel.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_tower_stage.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k10_mansard_cornice.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_ktx2_texture_policy.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5946,6 +5978,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_photo_match_enclosures.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_pick_boxes.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6006,6 +6042,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_rail_geometry_lifecycle.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_reader_text.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6063,6 +6103,10 @@
       "wrote_ignored": []
     },
     "tools/test_sources_view.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_standing_horse_anatomy_v2.py": {
       "wrote": [],
       "wrote_ignored": []
     },

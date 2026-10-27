@@ -88,7 +88,8 @@ def _storey(params, op) -> int:
 def head(params, op) -> str:
     """The head an opening takes: a kit trim id, or K01's flat lintel."""
     t = spec(params)
-    if not t or op.wall != "k01.wall.street_front":
+    # T-3186: a canted corner's face is the front's own, turned: its windows wear the front's heads
+    if not t or op.wall not in ("k01.wall.street_front", "k01.wall.cant"):
         return FLAT
     if op.component == "k01.opening.door_leaf":
         return t.get("entrance") or FLAT

@@ -1,0 +1,73 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "view": "albertype_1890",
+  "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
+  "camera_sha256": "efed15b177939d01403a58cf4d34b863a4df5b6e853edeac73c492973aa2e42f",
+  "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the main block two storeys over a raised basement under its mansard, the Prairie front from its north projection (x 966) to the south-west corner (x 1312) and the 18th Street flank to its east end (x 1491); the cornice's top at y 319-393 and the curb's about 120 px over it",
+      "status": "fixed",
+      "how": "T-1880, T-3158: the render's corners at x 966, 1313 and 1491 against the plate's 967, 1312 and 1492, the cornice within 2-7 px"
+    },
+    {
+      "what": "the portico across the front's north part on columns, the balustraded balcony over it, and the stoop rising at its north end",
+      "status": "fixed",
+      "how": "T-3159: the render's portico and balcony stand within about 10 px of the plate's (under half a metre at about 22 px a metre); the flight at the portico's north end as the plate draws it"
+    },
+    {
+      "what": "the rusticated quoined piers dividing the front into pavilions, the corner pier, and the cornice's modillions over the deep frieze",
+      "status": "fixed",
+      "how": "T-3158: the piers in the render fall on the plate's within about 10 px"
+    },
+    {
+      "what": "the Prairie front's round-arched windows on both storeys under moulded heads",
+      "status": "within tolerance",
+      "how": "T-3157: the render's arched windows line up with the plate's within 10-20 px (under a metre at the front's scale); the plate's heads read heavier, a profile the vignette cannot measure"
+    },
+    {
+      "what": "the tall stack rising behind the tree just west of the corner pier (x about 1293, its top at y 213)",
+      "status": "fixed",
+      "how": "T-3161: the deck stack at (20, 13.3), top 19.5 m, its cap at x 1290, y 220"
+    },
+    {
+      "what": "the flank's great stack on the 18th Street cornice (T-3161, read off Taylor's photograph 1445) renders at x 1326-1354 rising to y 204; the plate shows sky and branches there",
+      "status": "not shown",
+      "how": "the plate is of 1890 or earlier (the book's date) and Taylor's photograph of the 1890s, which shows the 1892 work east of the flank, is later: the plate is evidence of the house before the stack, and the 1904 build keeps it (AGENTS.md rule 11, L-pullman-1729-flank-stack-3161)"
+    },
+    {
+      "what": "the 18th Street arcade: the plate's open west arch at about x 1408-1454, the build's at x 1383-1426",
+      "status": "within tolerance",
+      "how": "a gap two pictures and two camera fits disagree about (T-3153): about 1.7 m along the flank at the arcade's scale; the Detroit print, from the same corner, puts the arch where the build stands it (T-3160), and Taylor's photograph 1445 puts it further east still (docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md). The block is not moved until the pictures agree"
+    },
+    {
+      "what": "the flank west of the arcade: the plate shows one round-arched window over another between the corner pier and the arcade, where the build cuts a pair on each storey",
+      "status": "open",
+      "how": "T-3161 read it (Taylor's photograph 1445 shows the same single column); not rebuilt in this run"
+    },
+    {
+      "what": "the Prairie dormers' moulded, eared hoods (the plate's large dormer at about x 1200 under a broken pediment); the build lays a plain surround round each arch",
+      "status": "open",
+      "how": "the same gap as the Detroit print's open difference; not rebuilt in this run"
+    },
+    {
+      "what": "the iron cresting round the deck, and the low stone wall on piers along the Prairie Avenue line",
+      "status": "not shown",
+      "how": "the plate's 1890 vignette shows neither at its scale (the wall line is a low curb and lawn); the Detroit print and Taylor's photograph, both later, show both, and the 1904 build follows them"
+    },
+    {
+      "what": "the walls' colour and the mansard's slate",
+      "status": "not shown",
+      "how": "a monochrome collotype"
+    },
+    {
+      "what": "the building east of the flank at the plate's right edge",
+      "status": "not shown",
+      "how": "cut by the vignette's edge, and before the 1892 east addition"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

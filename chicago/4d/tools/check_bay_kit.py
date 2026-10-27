@@ -129,7 +129,7 @@ def rule_data(v, data, b):
     lo_h, hi_h = k06["ranges"]["ordinary_clear_height_m"]
     levels = b.meta["levels_m"]
     for w in b.windows:
-        run = b.runs[w["run"]]
+        run = (b.runs + b.stage_runs)[w["run"]]   # T-1890: a staged tower's stage runs on from its shaft's
         a, z = w["s_extent"]
         if a < pier - EPS or z > run.L - pier + EPS:
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
@@ -157,8 +157,49 @@ def rule_data(v, data, b):
     return fails
 
 
+def _across_inside(b, margin=1e-6):
+    """T-3176: inside the house a ring across its corner stands on: behind the wall's face and
+    inside its end (x < 0 for the right corner), by more than `margin` on both; None if the
+    bay is not across a corner."""
+    across = b.plan.get("across_corner")
+    if across is None:
+        return None
+    k = 1.0 if across == "right" else -1.0
+    return lambda x, z: z < -margin and k * x < -margin
+
+
 def rule_keyed(b, v):
     fails = []
+    inside = _across_inside(b)
+    if inside is not None:
+        # T-3176: a tower across its house's corner starts on the wall's face and ends on the end
+        # wall's plane (or the reverse, at a left corner); nothing of it but its cap, its deck's
+        # iron and finials and the soffit closing the cap stands inside the corner
+        right = b.plan["across_corner"] == "right"
+        a = b.runs[0].world(0.0, 0.0, 0.0)
+        e = b.runs[-1].world(b.runs[-1].L, 0.0, 0.0)
+        on_face, on_side = (a, e) if right else (e, a)
+        if abs(on_face[2]) > 1e-6 or (on_face[0] >= 0) == right:
+            fails.append(f"keyed: an across-corner tower's junction {on_face} is not on its wall's face inside its end")
+        if abs(on_side[0]) > 1e-6 or on_side[2] >= 0:
+            fails.append(f"keyed: an across-corner tower's junction {on_side} is not on its end wall's plane behind the face")
+        whole = ("roof", "finial", "iron", "soffit")
+        worst = [(role, p) for role, pr in b.prims.items() if role not in K.BOARD_ROLES and role not in whole
+                 for p in pr.pos if inside(p[0], p[2])]
+        if worst:
+            fails.append(f"behind: a {worst[0][0]} vertex stands inside the corner at {worst[0][1]}")
+        ring, (cx, cz) = b.plan["ring"], b.plan["centre"]
+        n = len(ring)
+        reach = math.hypot(ring[0][0] - cx, ring[0][1] - cz) + b.meta["overhang_m"] / math.cos(math.pi / n)
+        far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
+        if far > reach + 1e-6:
+            fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
+        off = 0.0
+        for p in b.prims["wall"].pos:
+            off = max(off, min(plan_distance(r, p) for r in b.runs))
+        if off > 2e-4:
+            fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
+        return fails
     # T-3048: a chamfered corner's run ends on its side wall's plane, behind the face, inside
     # the corner its host cuts away under it (k01_frontage_params.chamfer_spans); there, and
     # nowhere else, the bay stands behind the face
@@ -206,7 +247,7 @@ def rule_keyed(b, v):
     # the outer wall on the declared plan
     off = 0.0
     for p in b.prims["wall"].pos:
-        off = max(off, min(plan_distance(r, p) for r in b.runs))
+        off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
         fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
     return fails
@@ -227,22 +268,26 @@ def plan_distance(r, p):
 
 def inside_point(b):
     """A point inside the bay's solid and outside every recess, one per storey."""
-    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1))
+    # T-1890: a window centred on a deep projection (1801's p_flank) has its recess's back on
+    # z 0.05 under every one of the first four, so a point ON a footprint's edge counts as in
+    # it, and the last stands behind every recess (they all end 0.05 m in front of the wall)
+    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1), (0.0, 0.025))
     if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
         (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
         cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
     for cand in cands:
-        if not any(in_hull(cand, w["footprint"]) for w in b.windows):
+        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows):
             break
     lv = b.meta["levels_m"]
     return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
            [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
 
 
-def in_hull(p, h):
+def in_hull(p, h, edge=False):
     n = len(h)
+    lim = -1e-9 if edge else 0.0
     return n >= 3 and all((h[(i + 1) % n][0] - h[i][0]) * (p[1] - h[i][1])
-                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > 0 for i in range(n))
+                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > lim for i in range(n))
 
 
 def rule_closed(b, tracer):
@@ -301,11 +346,15 @@ def rule_recesses(b, v, data):
     for w in b.windows:
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
+        inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         for p in w["footprint"]:
-            if p[1] < floor:
+            if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
-            for i, r in enumerate(b.runs):
+            # T-1890: a staged tower's stage window is held inside the stage's ring, not the shaft's
+            n0 = len(b.runs)
+            ring = list(enumerate(b.stage_runs, n0)) if w["run"] >= n0 else list(enumerate(b.runs))
+            for i, r in ring:
                 if i == w["run"]:
                     continue
                 if r.kind == "arc":
@@ -375,13 +424,24 @@ def rule_curves(b, data, tier):
 
 def rule_support(b, v, data):
     fails = []
+    sg = b.meta.get("stage")
+    if sg is not None:
+        # T-1890: a staged tower's corbel courses carry its stage back to its shaft
+        cb = K.part(v, data, "corbel")
+        if sg["step_m"] > cb["max_oversail_ratio"] * sg["course_height_m"] + 1e-6:
+            fails.append(f"oversail: the stage's corbel courses step {sg['step_m']:.3f} m, more than "
+                         f"{cb['max_oversail_ratio']} of their {sg['course_height_m']} m height")
+        if sg["bearing_m"] < cb["min_bearing_m"] - 1e-6:
+            fails.append(f"bearing: the stage's lowest corbel course bears on the shaft by {sg['bearing_m']:.3f} m only")
+        if not b.prims.get("corbel") or not b.prims["corbel"].idx:
+            fails.append("support: a staged tower has no corbel courses under its stage")
     if v["base"] == "grade":
         pl = b.prims.get("plinth")
         h = K.part(v, data, "plinth")["height_m"]
         if not pl or not pl.idx or abs(min(p[1] for p in pl.pos)) > 1e-6 or max(p[1] for p in pl.pos) < h - 1e-6 \
                 or h <= 0:
             return ["foundation: a bay on grade stands on no plinth from grade"]
-        return []
+        return fails
     if v.get("apron"):
         return rule_apron(b, b.prims.get("apron"))   # T-2904: the apron's own role
     cb = b.prims.get("corbel")

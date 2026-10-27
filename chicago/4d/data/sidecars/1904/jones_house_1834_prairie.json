@@ -1,12 +1,12 @@
 {
   "id": "jones_house_1834_prairie",
-  "phase": "draft_1904",
-  "name": "1834 Prairie Avenue — Jones villa with mansard addition (district draft; refined by T-1888)",
+  "phase": "as_mapped_1904",
+  "name": "1834 Prairie Avenue — Fernando Jones house",
   "aka": [
     "1834 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/jones_house_1834_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/jones_house_1834_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -24,23 +24,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1866 and given its mansard storey in 1886 (the marker); the photograph shows it before 1886.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1363.746,
-    "local_n": -3328.821,
+    "local_e": 1363.446,
+    "local_n": -3330.041,
     "rotation_deg": -0.616,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 24.500, v -3.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The main body's rear south corner: lot frame u 24.20, v -4.72 m (the draft's frame point u -0.30, v -1.22 through its own rotation), where the 1911 sheet's trace (s28fp-1834-b1 p2) puts the south wall and the rear wall. The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1834 S. Prairie Avenue, parcel prairie_1834 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -50,158 +50,638 @@
         0.0
       ],
       [
-        22.0,
+        22.25,
         0.0
       ],
       [
-        22.0,
-        7.0
+        22.25,
+        9.58
       ],
       [
         0.0,
-        7.0
+        9.58
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The main body read off the 1911 sheet's trace (s28fp-1834-b1 p2) in the lot's frame: its south wall at v -4.72, its north wall at v 4.86 (the front's 9.58 m, which the photograph's four bays fill), the front at u 46.45 and the rear at u 24.2. The sheet steps the north wall back to v 3.6 behind the bay (u 24.2-32.7) and draws two frame porches at the rear (p3-p5); K01 runs the body full width to the rear, and the rear porches are not built (L-k01-1834-jones-1888)."
   },
   "attributes": {
     "stories": {
-      "value": 3,
+      "value": 2,
       "confidence": "attested",
       "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "'3S.B.' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two storeys of brick over a high stone basement in the photograph (before 1886); the 1911 sheet's '3S.B.' is those two and the mansard storey of 1886 over them (roof_form, mansard)."
     },
     "construction": {
       "value": "brick_with_stone_front",
-      "confidence": "attested",
+      "confidence": "inferred",
       "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The register reads the map's colours as 'brick with stone front'."
+      "note": "The 1911 sheet: '3S.B. brick with stone front dwelling'. The photograph shows what that is on the street: a front of dark brick over a basement of smooth light ashlar to the water table, the window hoods, sills and the water table stone. Built as K01's stone front stopped at the principal floor (stone_front.brick_above_m)."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 2.2,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The water table (the stone basement's top) about 2.2 m over grade through the photograph's camera (data/reference_views/jones_house_1834_prairie/chicagology_photo.json): y 645 px at the north-east corner and 655 px at the south-east, the grade at 788 px; the door's sill stands on it (2.25 m)."
+    },
+    "storey_heights_m": {
+      "value": [
+        3.95,
+        4.7
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "Floor to floor through the photograph's camera: the second storey's sills about 6.85 m over grade (y 345 px at the north window, 385 px at the south) put its floor about 6.15 m up, and the frieze's foot (the wall head) about 9.75 m (y 157 px at the north-east corner, 222 px at the south-east). T-3184: the upper figure runs to the EAVE, not the wall head: the print's plain frieze and its cornice stand over the wall head to the cornice's top at about 10.85 m (the old note's reading), and K01 hangs the cornice's brackets under its eave line, so the upper storey is 4.7 m to the eave (6.15 + 4.7 = 10.85) with the frieze (wall_head.frieze, 0.9 m under the soffit) from the wall head up."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A brick front over an ashlar basement, inside the K01 contract's masonry range; no picture shows a reveal deep enough to read it."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "The K01 brick flank's thickness."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "K01 lays the flanks and the rear in common brick, as the 1911 sheet colours them. The photograph's north flank reads paler than the front in the sun; it is monochrome, so the buff is reconstructed."
+    },
+    "stone_front": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "mansard",
-            "rect": [
-              0.0,
-              0.0,
-              22.0,
-              7.0
-            ],
-            "from": "s28fp-1834-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              8.5,
-              7.0,
-              12.75,
-              10.5
-            ],
-            "from": "s28fp-1834-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "bay",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              22.0,
-              3.5,
-              24.0,
-              5.25
-            ],
-            "from": "s28fp-1834-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 58% of its fill"
-          },
-          {
-            "id": "r4",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              4.5,
-              7.25,
-              8.25,
-              9.5
-            ],
-            "from": "s28fp-1834-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill"
-          }
-        ],
-        "lot_v": [
-          -4.855,
-          11.855
-        ],
-        "street_u": 29.433
+        "fabric": "limestone_lemont",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 1,
+        "coping_height_m": 0.3,
+        "corner_bond": [],
+        "brick_above_m": 2.2,
+        "belts": []
       },
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1834-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s28fp-1834-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill; s28fp-1834-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 58% of its fill; s28fp-1834-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The photograph's basement is smooth light ashlar from grade to a projecting water table at the principal floor, under a front of brick; built as K02's smooth Lemont limestone stopped at the principal floor (brick_above_m 2.2, T-1888), its two base courses and a 0.3 m coping to the basement lights' heads. The print is monochrome and does not name the stone; the local limestone is reconstructed (L-k01-1834-jones-1888). T-3184: no stone belt across the brick (belts: []), which K01 lays at the second floor and the print does not show; one plinth course (rusticated_base_courses 1) under the tall round-headed basement lights, which rise through it."
     },
-    "draft_elevation": {
+    "street_front_brick": {
       "value": {
-        "kind": "house",
-        "seed": 1487922662,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 18,
-        "mansard_lower_m": 3.0,
-        "front_bays": 3,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2329",
-          "refined_by": [
-            "T-1888"
-          ]
+        "tone": [
+          0.62,
+          0.44,
+          0.4
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The front's brick toned a red-brown over the K03 panel, the flanks left buff: the photograph reads the front's brick far darker than its stone and darker than the sunlit north flank. It is monochrome, so the colour is reconstructed and only the relation is read (L-k01-1834-jones-1888)."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber",
+        "pairs": {
+          "spacing_m": 1.6
+        },
+        "bracket_m": {
+          "height_m": 0.8,
+          "projection_m": 0.7,
+          "width_m": 0.16
+        },
+        "frieze": {
+          "height_m": 0.9,
+          "proud_m": 0.025
         }
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'mansard' overlaid with the frontage row: The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1487922662 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "A deep cornice on paired carved brackets with panels between, over a plain frieze, round the front and the north flank in the photograph: K10's bracketed timber cornice. T-3184: paired (pairs.spacing_m 1.6), its brackets sized off the print (about 0.8 m deep and 0.7 m out at the south-east corner, bracket_m), over a plain frieze 0.9 m deep from the wall head (frieze); the frieze's panels between the pairs and the brackets' carving are not built. In 1904 it stands under the 1886 mansard (mansard)."
     },
-    "draft": {
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "The register's 'recorded 1886 mansard storey' (T-1837, frontage-28-042) and the 1911 sheet's 3 storeys over a house the photograph shows with two under a low hipped roof and a centre gable: the mansard is the 1886 roof. No picture of it is held, so its form is the 1904 street's commonest, a slated mansard with dormers (mansard)."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "The mansard's upper deck, above every view's sight line."
+    },
+    "eave_overhang_m": {
+      "value": 0.9,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The cornice's projection past the front, about 0.9 m at the south-east corner through the photograph's camera (its corona 47 px past the corner at about 52 px/m)."
+    },
+    "roof_covering": {
       "value": {
-        "pass": "T-2329",
-        "liberty": "L-draft-prairie-18-20-west-2329",
-        "register_row": "frontage-28-042",
-        "census_ids": [
-          "s28-1834-front"
-        ],
-        "trace_building": "s28fp-1834-b1",
-        "seed": 1487922662,
-        "replaceable_by": [
-          "T-1888"
-        ],
-        "card": "District draft — refined by T-1888."
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "RECONSTRUCTED: the 1886 mansard's covering, slate on its faces and painted tin on its deck, as the street's mansards are; no picture shows it."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        },
+        "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight",
+        "k01.opening.sash_round_hooded": "k06.opening.sash_1over1_segmental"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The photograph's segmental-headed street sash, a meeting rail and a centre bar behind blinds: K06's one-over-one segmental sash (its centre bar not carved); the flank's square-headed sash K06's two-over-two; its basement lights K06's area lights. The round-headed pair over the north bay is K06's round-headed fanlight sash."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The stoop's treads; the photograph shows the flight from its side."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.5,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "A short landing at the door, about 1.5 m, before the flight turns down to the walk, in the photograph."
+    },
+    "stoop_width_m": {
+      "value": 2.4,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The flight between its iron railings about 2.4 m, a little wider than the door's arched opening (about 1.6 m) in the photograph."
+    },
+    "entrance_bay": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "The door in the second bay from the south of four, under the second storey's second window, in the photograph turned the right way round (the print is reversed: the camera's solve). The 1911 sheet's stone stoop (s28fp-1834-b1 p1) stands about 1.5 m north of the door's axis; the photograph is followed (L-k01-1834-jones-1888)."
+    },
+    "front_bays": {
+      "value": [
+        1.18,
+        3.5,
+        5.88,
+        8.37
+      ],
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "Four opening columns across the 9.58 m front, read through the photograph's camera at their sash: 1.18 (0.70-1.59), the door 3.50 (2.74-4.30), 5.88 (5.44-6.30) and 8.37 m (7.87-8.91) from the south corner; the second storey's windows stand over them within 0.05 m."
+    },
+    "side_bays": {
+      "value": [
+        4.0,
+        10.0,
+        16.0
+      ],
+      "confidence": "reconstructed",
+      "note": "The south flank's windows; no picture shows it."
+    },
+    "north_bays": {
+      "value": [
+        {
+          "s_m": 6.6,
+          "sill_m": 0.3,
+          "width_m": 0.5,
+          "height_m": 1.45,
+          "head": "round",
+          "why_not_ordinary": "the photograph's narrow round-headed basement light in the stone base under the flank's window column, about 0.3-1.75 m over grade through its camera"
+        },
+        {
+          "s_m": 6.6,
+          "sill_m": 2.75,
+          "width_m": 1.0,
+          "height_m": 2.55,
+          "head": "round"
+        },
+        {
+          "s_m": 6.6,
+          "sill_m": 6.75,
+          "width_m": 1.0,
+          "height_m": 2.15
+        },
+        {
+          "s_m": 9.0,
+          "sill_m": 6.3,
+          "width_m": 0.75,
+          "height_m": 2.45,
+          "head": "round"
+        },
+        {
+          "s_m": 10.15,
+          "sill_m": 6.3,
+          "width_m": 0.75,
+          "height_m": 2.45,
+          "head": "round"
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The north flank through the photograph's camera: from the front corner a blank brick wall for about 5.9 m, then one window a storey (u 15.1-16.4, s 6.6 from the front), then over the canted bay a round-headed pair (s 9.1-10.1) in the second storey. Beyond the bay the wall steps back (the 1911 sheet) and the camera does not see it. The pair's two lights are set 0.4 m apart, the kit's least between read windows, where the print shows a narrow mullion (within tolerance). T-3184: the principal window on the flank's column (s 6.6) is round-headed in the print, and under it in the stone base a narrow round-headed light, about 0.5 m by 1.45 m, sill 0.3 m (x 865, y 685-770 px)."
+    },
+    "rear_bays": {
+      "value": [
+        2.4,
+        7.2
+      ],
+      "confidence": "reconstructed",
+      "note": "The rear wall's windows; no picture shows the rear."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.8,
+          "width_m": 0.95,
+          "height_m": 2.15
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 0.9,
+          "height_m": 2.05
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "Through the photograph's camera: the principal windows about 0.95 m wide (0.86-1.03) from a sill about 3.0 m over grade (on the balconies' tops) to their springing about 5.15 m, the arch's crown at about 5.25; the upper windows about 0.9 m wide (0.81-0.91) from about 6.85 m to 8.9 m, crown about 9.0."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.15,
+        "width_m": 0.95,
+        "height_m": 1.7,
+        "head": "round",
+        "base_top_m": 0.7
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "T-3184: read through the photograph's camera, the basement lights under the windows are tall round-headed lights, x 480-535 and 620-680 px (turned back), from y 780 to the crown at y 675: about 0.95 m by 1.7 m, the sill 0.15 m over grade; the plain plinth's top under them (base_top_m 0.7 m) is RECONSTRUCTED."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 16.0,
+            "v_m": 8.8
+          },
+          {
+            "u_m": 17.5,
+            "v_m": 0.8
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the photograph shows two tall stacks over the old hipped roof, one near each flank toward the front; they are kept on the flank walls through the 1886 mansard, which no picture shows."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 20.9
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 1.5
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "K01's copper gutter and two downpipes on walls the photograph does not see. T-3184: the south pipe moved to s 20.9 and the rear one to s 1.5, clear of the paired corner brackets (RECONSTRUCTED either way)."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.double_door_deep_arch",
+          "front_yard_m": 7.48,
+          "cheeks": false,
+          "reveal_depth_m": 0.4,
+          "arch": {
+            "ring_m": 0.25,
+            "keystone_top_m": 5.85,
+            "keystone_m": [
+              0.22,
+              0.32
+            ],
+            "extrados": "curved",
+            "ring_proud_m": 0.05
+          },
+          "opening_m": [
+            1.4,
+            3.3
+          ],
+          "terrace": {
+            "side": "left",
+            "to_v_m": 0.0
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "T-3184: through the photograph's camera, a round-headed doorway about 1.4 m wide whose crown stands about 3.3 m over the landing (y 95 px in a 1.5x crop of x 150-750) under a stone hood and key, its leaves in shadow: K07's round-headed pair of leaves in a 0.4 m reveal under K01's door arch (ring 0.25 m, keystone to 5.85 m). The stoop has no stone cheeks over its treads: it is open-sided under the cast-iron rails (street_front_iron), and its landing runs on south to the front's south corner as a terrace behind a pierced guard (x 177-302 px at the landing's height)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 7.48,
+        "lot_s_m": [
+          -3.635,
+          13.075
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.06,
+        "runs": [
+          {
+            "to_s_m": 11.63,
+            "height_m": 0.45
+          },
+          {
+            "to_s_m": 13.075,
+            "opening": true
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "A low wall of squared stone along the street line before the lawn and no fence over it, in the photograph: K11's stone coping wall, about 0.45 m high. T-3184: the walk's opening is built: the wall's run ends at s 11.63 m (x 630 px on the street line, turned back) and the opening runs on to the north lot line; the next wall in the print, from x 850 px (s 14.4 m), is the neighbour's."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "north_canted",
+          "variant": "k08.bay.canted_hooded",
+          "wall": "k01.wall.side.north",
+          "s_m": 10.5,
+          "fabric": "stone",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -1.5,
+                0.0
+              ],
+              [
+                -0.75,
+                1.2
+              ],
+              [
+                0.75,
+                1.2
+              ],
+              [
+                1.5,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 2.2,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 0.5,
+                  "clear_height_m": 1.2,
+                  "sill_m": 0.72,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the photograph's narrow round-headed basement light in the bay's stone base, about 0.3-1.7 m over grade through its camera; built on the kit's 0.6 m plinth at 0.72-1.92 m, the lowest and tallest light the plinth and the stage's clear wall admit"
+                }
+              ]
+            },
+            {
+              "height_m": 3.5,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.1634,
+                    0.8366
+                  ],
+                  "why_not_ordinary": "the photograph's narrow lights in the bay's cheeks, about 2.5-5.1 m over grade through its camera",
+                  "recess_m": 0.33
+                },
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the photograph's wide light in the bay's front, about 2.5-5.1 m over grade through its camera"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The one-storey canted bay on the north flank, in the photograph light stone throughout, its cheeks and front each with a tall light over a stone base to about 2.0 m, its top at about 5.7 m. Through the camera its front junction stands 9.0 m back from the front corner and its far cheek ends about 3 m beyond; the 1911 sheet's outline round it runs lot u 32.7-37.5 (s 8.95-13.75) and up to 3.2 m proud, a lean-to's or a terrace's line drawn round the bay. Built 3.0 m along the wall (s 9.0-12.0) and 1.2 m proud on the photograph (a 4.0 m bay overran its far edge by about 35 px). T-3184: K08's hooded canted bay on the same plan, its hood on consoles as the print's bracketed top; two stages, the stone base 2.2 m with a narrow round-headed light in its front (the print's about 0.5 by 1.4 m, built 0.5 by 1.2 m over the kit's 0.6 m plinth, which K08's storey rule keeps every light above) and over it the round-headed lights, the cheeks' 0.8 m wide as the print reads the near one, each centred on its cheek so it clears both ends by K08's pier. The hood's flare and slates are the kit's, RECONSTRUCTED."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 3.6,
+        "bulge": 0.0,
+        "lower_pitch_deg": 78,
+        "dormers": [
+          {
+            "face": "street",
+            "along_m": 3.5,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15,
+            "head": "gable",
+            "gable_pitch_deg": 40
+          },
+          {
+            "face": "street",
+            "along_m": 6.6,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15,
+            "head": "gable",
+            "gable_pitch_deg": 40
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the 1886 mansard storey the register records and the 1911 sheet's third storey count. No picture of it is held: built as 1816's, a slated convex mansard on the bracketed cornice with two gabled dormers on the street face (L-k01-1834-jones-1888). The photograph's low hipped roof, centre gable and oculus are the house before it."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          0,
+          1
+        ],
+        "head": "segmental",
+        "rise_over_span": 0.2,
+        "key": {
+          "width_m": 0.2,
+          "height_m": 0.3,
+          "proud_m": 0.06
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "Every street window on both storeys segmental-headed under a light stone hood moulding with a key at its crown, in the photograph: K06's arch band turned as the hood, spring to spring, and a key block on it (rise about a fifth of the span, read through the camera: the principal windows' crowns about 0.1 m over their springing at 0.95 m wide). The photograph's hoods stop in short ears at their springing, which the band does not carve (the match record). Cut in the brick over the stone basement (stone_front.brick_above_m at the principal floor, T-1888)."
+    },
+    "street_front_iron": {
+      "value": {
+        "balconettes": [
+          {
+            "from_s_m": 5.36,
+            "to_s_m": 6.39,
+            "floor_m": 2.2,
+            "proud_m": 0.25,
+            "height_m": 0.8,
+            "slab_m": 0.1,
+            "consoles": 0
+          },
+          {
+            "from_s_m": 7.2,
+            "to_s_m": 9.55,
+            "floor_m": 2.2,
+            "proud_m": 0.6,
+            "height_m": 0.8,
+            "slab_m": 0.15,
+            "consoles": 2
+          }
+        ],
+        "stoop_rails": {
+          "kit": "k11.rail.stoop_rail",
+          "scroll_m": 0.3,
+          "panel_m": 0.5,
+          "guard": {
+            "to_v_m": 0.05
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "T-3184: read through the photograph's solved camera (chicagology_photo.json). Two pierced iron balconettes stand on the stone basement's top under the north two principal windows: the middle one's ends at x 475 and 531 (turned-back pixels) read at 0.25 m proud, v 5.36-6.39; the north one's at x 565 and 707 read at 0.6 m proud, v 7.20-9.62 (to the north corner), its slab on two scrolled consoles; both guards rise from the water table (2.2 m) to the principal sills (y 593-600, about 0.8 m). The stoop's cast-iron railings, scrolled panels on newels, are K11's stoop rail on a stoop without cheeks. The pierced panels' pattern is the kit's scroll band, RECONSTRUCTED; the slab and console sizes are inferred from the print."
+    },
+    "side_base": {
+      "value": [
+        {
+          "wall": "k01.wall.side.north",
+          "to_m": 2.2,
+          "proud_m": 0.03
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "note": "T-3184: the photograph shows the north flank's basement in the same light stone as the front's, up to the water table that runs round from the front (y 645-662 at the bay), and the brick only over it."
     },
     "function": {
       "value": "residence",
@@ -222,6 +702,42 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1834_jones_photo",
+      "citation": "1834 S. Prairie. [The Fernando Jones house, John M. Van Osdel architect, 1866.] Unknown photographer, undated (before the mansard storey of 1886). Reproduced on chicagology.com, Prairie Avenue, 1834 S. Prairie; the Glessner House Museum's blog reproduces another print of the same negative ('John M. Van Osdel, Chicago's First Architect', 31 August 2015).",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1834prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the street front's composition: its four bays, the door's place, the window and door hoods, the balconettes, the basement lights, the stoop and its railings",
+        "the heights of the water table, the windows and the wall head through the photograph's camera",
+        "the north flank's windows and its canted bay",
+        "the bracketed cornice, and the low stone wall on the street line"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 roofline: the photograph predates the mansard storey of 1886",
+        "colour: the print is monochrome",
+        "the south flank and the rear"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_2015_08_van_osdel",
+      "citation": "Glessner House Museum, 'John M. Van Osdel, Chicago's First Architect', The Story of a House (blog), 31 August 2015; with an undated photograph of the Fernando Jones house, 1834 S. Prairie Avenue, photographer and holder not named.",
+      "url": "https://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
+      "archived_url": "https://web.archive.org/web/20251209155717/http://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the style, the architect and the year built",
+        "that the house was razed in 1942",
+        "the front and north flank as they stood before 1886: brackets, centre gable, window hoods, flank bay, stoop"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 roofline: the photograph predates the mansard",
+        "measurement or colour"
+      ]
+    },
     {
       "source_id": "hmdb_prairie_lost_houses_1800_1900_west",
       "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
@@ -257,8 +773,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1888 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1834-b1), the T-1841 census (s28-1834-front) and the T-1837 register row frontage-28-042 (Jones villa with mansard addition); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "Refined from the district draft (T-2329) in place by T-1888, under the draft's own id, as a K01 brick frontage over a stone basement read off the one photograph of the house (two prints of one negative, before 1886: chicagology_1834_jones_photo and the Glessner House Museum's) against the 1911 sheet's plan. The print is laterally reversed: its camera fits the sheet only turned the right way round (data/reference_views/jones_house_1834_prairie/). The 1886 mansard storey is reconstructed over the photograph's bracketed cornice. T-3184 (piece 2 of T-1888) worked both match records to matches: the door, the iron, the basement lights, the bay, the cornice and frieze, the flank's stone base and the walk's opening, each through the solved camera.",
   "research_doc": "",
-  "review_required": false,
-  "called": "1834 Prairie Avenue — Jones villa with mansard addition"
+  "review_required": false
 }

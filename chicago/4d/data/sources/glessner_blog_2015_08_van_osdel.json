@@ -11,15 +11,15 @@
   "locator": "The section headed '1834 S. Prairie Avenue' and the photograph above it.",
   "tier": 4,
   "rights_status": "check_required",
-  "rights_note": "A museum's blog post, cited in words only; the photograph's holder and rights are not stated, so nothing is derived from it.",
-  "asset_use": "text_only",
+  "rights_note": "A museum's blog post. The photograph's holder and rights are not stated; its print is committed for the image gate unaltered with its attribution (T-1888, data/sources/assets/jones_1834_photos_t1888/), and only forms, counts, places and proportions are read from it (no texture, no traced mesh).",
+  "asset_use": "cross_check",
   "verified": true,
   "access_notes": "Read 2026-10-19 (T-2642) from the live page; the photograph read from the image store's copy, 675 x 506 px, sha256 4180b8c58b74f7611529056a55633e18f01a35f37ad769ebda8bfefeff219283, which the page shows.",
-  "note": "Read: Van Osdel designed two houses on Prairie Avenue; 'The first of these, at 1834 S. Prairie Avenue, was built in 1866 for one of Chicago's earliest pioneers - Fernando Jones'; 'The Italianate style house was razed in 1942.' The photograph, from across the street, shows the house before its 1886 mansard: two storeys of brick on a high stone basement, deep eaves on paired carved brackets, a low pediment-like gable with a round window over the middle of the front, tall windows under curved stone hoods, a one-storey angled bay at one front corner, and a stoop with iron railings.",
+  "note": "Read: Van Osdel designed two houses on Prairie Avenue; 'The first of these, at 1834 S. Prairie Avenue, was built in 1866 for one of Chicago's earliest pioneers - Fernando Jones'; 'The Italianate style house was razed in 1942.' The photograph, from across the street, shows the house before its 1886 mansard: two storeys of brick on a high stone basement, deep eaves on paired carved brackets, a low pediment-like gable with a round window over the middle of the front, tall windows under curved stone hoods, a one-storey angled bay on the flank, and a stoop with iron railings. T-1888: the print is laterally reversed, as Chicagology's of the same negative is (chicagology_1834_jones_photo): the flank it shows is the north one, and the bay stands 9-14 m back from the front, where the 1911 sheet draws it.",
   "what_it_supplies": [
     "the style, the architect and the year built",
     "that the house was razed in 1942",
-    "the front as it stood before 1886: brackets, centre gable, window hoods, corner bay, stoop"
+    "the front and north flank as they stood before 1886: brackets, centre gable, window hoods, flank bay, stoop"
   ],
   "what_it_does_not_supply": [
     "the 1904 roofline: the photograph predates the mansard",

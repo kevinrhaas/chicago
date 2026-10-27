@@ -1,7 +1,0 @@
-{
-  "title": "Nightly builds run again on a pinned test machine",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed in the town. The automated build that tests each new batch of buildings had stopped after GitHub moved its test machines to a newer system our browser tester does not support; the tests now run on the system they were measured on, and a check keeps it that way."
-  ]
-}

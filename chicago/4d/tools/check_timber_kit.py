@@ -390,12 +390,17 @@ def rule_doubled(sm, data):
     return []
 
 
-def rule_costs(sm, data):
+def rule_costs(sm, data, house_wall=False):
     use = sm.v["use"]
     budget = data["costs"]["max_triangles"].get(use)
     n = K.triangles(sm)
     if budget is None:
         return [f"costs: no triangle budget for use {use!r}"]
+    if house_wall and use == "wall" and sm.v.get("kind") == "clapboard_wall":
+        # T-3180: a whole house's wall is held to the kit's density, not to one specimen's
+        # count, so a long or tall wall may cost what its face costs and no more
+        face = sm.v["width_m"] * (sm.v["wall_top_m"] - sm.v["foundation_m"])
+        budget = max(budget, round(data["costs"]["wall_per_m2"] * face))
     if n > budget:
         return [f"costs: {n} triangles, over its {use} budget of {budget}"]
     return []
@@ -520,7 +525,7 @@ def check_houses(data, mats=None, role_material=None, records=None):
             for f in (rule_thickness(sm, data) + rule_lapped(sm, data) + rule_stagger(sm, data)
                       + rule_proud(sm, data) + rule_pierced(sm, data) + rule_end_grain(sm, data)
                       + rule_timber(sm, data, mats, role_material) + rule_wear(sm, data) + rule_doubled(sm, data)
-                      + rule_costs(sm, data) + rule_metric(sm, data)):
+                      + rule_costs(sm, data, house_wall=whole) + rule_metric(sm, data)):
                 fails.append(f"house {rid} {k}: {f}")
     return fails
 

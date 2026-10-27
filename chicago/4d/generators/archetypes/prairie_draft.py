@@ -286,6 +286,283 @@ def cone(m: Mesh, mat, ring, y0, apex_y):
     m.face("cornice", [(p[0], p[1], y0) for p in ring], cen)
 
 
+def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None):
+    """A hipped roof cut off level `deck_h` over its eave: four sloped faces to a flat
+    lead deck, and a ring of iron cresting round the deck. `insets` (u0, u1, v0, v1), the
+    deck's edges in from the eave lines, gives each face its own pitch where a picture
+    shows a steeper end. Returns the cresting's top."""
+    u0, u1, v0, v1 = u0 - o, u1 + o, v0 - o, v1 + o
+    inset = min(deck_h / math.tan(math.radians(pitch)), (u1 - u0) / 2 - 0.3, (v1 - v0) / 2 - 0.3)
+    yd = y + inset * math.tan(math.radians(pitch))
+    i_u0, i_u1, i_v0, i_v1 = insets if insets else (inset,) * 4
+    a0, a1, b0, b1 = u0 + i_u0, u1 - i_u1, v0 + i_v0, v1 - i_v1
+    lo = [(u0, v0, y), (u1, v0, y), (u1, v1, y), (u0, v1, y)]
+    hi = [(a0, b0, yd), (a1, b0, yd), (a1, b1, yd), (a0, b1, yd)]
+    cen = ((u0 + u1) / 2, (v0 + v1) / 2, y + (yd - y) / 3)
+    for k in range(4):
+        m.face("roof", [lo[k], lo[(k + 1) % 4], hi[(k + 1) % 4], hi[k]], cen)
+    m.face("cornice", lo, cen)
+    return crested_cap(m, [(a0, b0), (a1, b0), (a1, b1), (a0, b1)], (a0 + a1) / 2, (b0 + b1) / 2, yd)
+
+
+def _on_face(side, at):
+    """(s, n, y) on a wall -> (u, v, y): `s` runs along the wall, `n` out of it."""
+    sign = 1 if side in ("u1", "v1") else -1
+    if side in ("v0", "v1"):
+        return lambda s, n, y: (s, at + sign * n, y)
+    return lambda s, n, y: (at + sign * n, s, y)
+
+
+def round_head(m: Mesh, mat, P, s, w, sill, spring, n, outward, seg=8, rise=None):
+    """A round-headed opening drawn flat on a wall: jambs from `sill` to `spring` and a
+    half-circle over them, `n` out of the wall plane. `rise`, when given, flattens the
+    half-circle to a half-ellipse that rises that far over the springing (T-3193)."""
+    rise = w / 2 if rise is None else rise
+    pts = [P(s - w / 2, n, sill), P(s + w / 2, n, sill)]
+    for k in range(seg + 1):
+        a = math.pi * k / seg
+        pts.append(P(s + w / 2 * math.cos(a), n, spring + rise * math.sin(a)))
+    m.face(mat, pts, outward)
+
+
+def corner_bay(m: Mesh, bay: dict, wall: str) -> int:
+    """A canted bay standing across a corner of the building (T-3193): `plan` is its
+    outline in the building's frame, from the point where it leaves one wall to the
+    point where it meets the other, so the chord between them cuts the corner. The
+    same body, cornice, low cap and round-headed lights as a bay on one face."""
+    pts = [(float(a), float(b)) for a, b in bay["plan"]]
+    top, cap = float(bay["top_m"]), float(bay.get("cap_m", 0.8))
+    mu = (pts[0][0] + pts[-1][0]) / 2
+    mv = (pts[0][1] + pts[-1][1]) / 2           # the chord's middle, inside the corner
+    prism(m, wall, pts, 0.0, top)
+
+    def out(p, o):
+        # a point pushed `o` away from the chord's middle, for the cornice's overhang
+        du, dv = p[0] - mu, p[1] - mv
+        L = math.hypot(du, dv) or 1.0
+        return (p[0] + du / L * o, p[1] + dv / L * o)
+    ro = [out(p, 0.25) for p in pts]
+    prism(m, "cornice", ro, top - 0.35, top)
+    apex = (mu, mv, top + cap)
+    for k in range(len(ro) - 1):
+        a_, b_ = ro[k], ro[k + 1]
+        m.face("roof", [(a_[0], a_[1], top), (b_[0], b_[1], top), apex], (mu, mv, top))
+    lt = bay["light"]
+    ww, sill, hh = float(lt["w_m"]), float(lt["sill_m"]), float(lt["h_m"])
+    spring = sill + hh - ww / 2
+    n = 0
+    for k in range(len(pts) - 1):
+        (a0, b0), (a1, b1) = pts[k], pts[k + 1]
+        L = math.hypot(a1 - a0, b1 - b0)
+        if L < ww + 0.4:
+            continue            # a return too short to carry a light
+        ta, tb = (a1 - a0) / L, (b1 - b0) / L
+        ma, mb = (a0 + a1) / 2, (b0 + b1) / 2
+        na, nb = tb, -ta
+        if na * (ma - mu) + nb * (mb - mv) < 0:
+            na, nb = -na, -nb
+
+        def Pf(t, off, y, ma=ma, mb=mb, ta=ta, tb=tb, na=na, nb=nb):
+            return (ma + ta * t + na * off, mb + tb * t + nb * off, y)
+        for mat_, wd, off, y0 in (("trim", ww + 0.3, 0.03, sill - 0.1), ("glass", ww, 0.06, sill)):
+            q = [Pf(-wd / 2, off, y0), Pf(wd / 2, off, y0)]
+            for j in range(9):
+                a = math.pi * j / 8
+                q.append(Pf(wd / 2 * math.cos(a), off, spring + wd / 2 * math.sin(a)))
+            m.face(mat_, q, Pf(0.0, -3.0, sill))
+        n += 1
+    return n
+
+
+def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple[int, int]:
+    """The Pullman stable's elevation from its pictures (T-3178), every number the record's:
+    sash and round-headed lights on named faces, an arcade of round arches, a canted bay,
+    a lantern on the roof deck, a square belvedere with a balustrade, and stacks."""
+    windows = doors = 0
+
+    def face_of(spec):
+        u0, v0, u1, v1 = rects[spec["part"]]
+        side = spec["side"]
+        at = {"u0": u0, "u1": u1, "v0": v0, "v1": v1}[side]
+        sign = 1 if side in ("u1", "v1") else -1
+        P = _on_face(side, at)
+        return P, (lambda s, y: P(s, -5.0, y)), sign
+
+    for w in f.get("windows", []):
+        P, inside, _ = face_of(w)
+        s, sill, ww, hh = float(w["s"]), float(w["sill_m"]), float(w["w_m"]), float(w["h_m"])
+        if w.get("head") == "round":
+            spring = sill + hh - ww / 2
+            round_head(m, "trim", P, s, ww + 0.3, sill - 0.1, spring, 0.03, inside(s, sill))
+            round_head(m, "glass", P, s, ww, sill, spring, 0.06, inside(s, sill))
+        else:
+            m.face("trim", [P(s - ww / 2 - 0.12, 0.03, sill - 0.1), P(s + ww / 2 + 0.12, 0.03, sill - 0.1),
+                            P(s + ww / 2 + 0.12, 0.03, sill + hh + 0.15), P(s - ww / 2 - 0.12, 0.03, sill + hh + 0.15)],
+                   inside(s, sill))
+            m.face("glass", [P(s - ww / 2, 0.06, sill), P(s + ww / 2, 0.06, sill),
+                             P(s + ww / 2, 0.06, sill + hh), P(s - ww / 2, 0.06, sill + hh)], inside(s, sill))
+        windows += 1
+    for up in f.get("upper_walls", []):
+        # an upper storey carried up through the roof's lower slope as one long wall
+        # dormer with its own cornice, the stable's 18th Street front (T-3178)
+        P, inside, _ = face_of(up)
+        s0, s1 = float(up["s0"]), float(up["s1"])
+        y0, y1, dp = float(up["from_m"]), float(up["top_m"]), float(up.get("depth_m", 1.2))
+        a, b = P(s0, 0.0, y0), P(s1, -dp, y1)
+        m.box(wall, min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y0, y1)
+        a, b = P(s0 + (0.25 if s1 > s0 else -0.25) * -1, 0.3, y1 - 0.35), P(s1 + (0.25 if s1 > s0 else -0.25), -dp, y1)
+        m.box("cornice", min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y1 - 0.35, y1)
+        a, b = P(s0, 0.0, y1), P(s1, -dp, y1 + 0.06)
+        m.box("roof", min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y1, y1 + 0.06)
+    for cw in f.get("corner_walls", []):
+        # the upper storey's wall carried diagonally across a corner (T-3193): `plan` in the
+        # building's frame, its first two points the outer face, with its cornice and lead
+        ring = [(float(a), float(b)) for a, b in cw["plan"]]
+        y0, y1 = float(cw["from_m"]), float(cw["top_m"])
+        prism(m, wall, ring, y0, y1)
+        cu = _seqsum(q[0] for q in ring) / len(ring)
+        cv = _seqsum(q[1] for q in ring) / len(ring)
+        ro = [(q[0] + (q[0] - cu) * 0.3 / (math.hypot(q[0] - cu, q[1] - cv) or 1.0),
+               q[1] + (q[1] - cv) * 0.3 / (math.hypot(q[0] - cu, q[1] - cv) or 1.0)) for q in ring]
+        prism(m, "cornice", ro, y1 - 0.35, y1)
+        prism(m, "roof", ring, y1, y1 + 0.06)
+    for band in f.get("courses", []):
+        P, inside, _ = face_of(band)
+        s0, s1, y = float(band["s0"]), float(band["s1"]), float(band["y_m"])
+        q = [P(s0, 0.0, y), P(s1, 0.0, y), P(s1, 0.12, y), P(s0, 0.12, y)]
+        m.solid([q, [P(s0, 0.0, y + 0.2), P(s1, 0.0, y + 0.2), P(s1, 0.12, y + 0.2), P(s0, 0.12, y + 0.2)],
+                 [P(s0, 0.12, y), P(s1, 0.12, y), P(s1, 0.12, y + 0.2), P(s0, 0.12, y + 0.2)]], mat="trim")
+    arc = f.get("arcade")
+    if arc:
+        P, inside, _ = face_of(arc)
+        sill, spring = float(arc.get("sill_m", 0.0)), float(arc["spring_m"])
+        pier = float(arc.get("pier_m", 0.45))
+        rises = arc.get("rises_m") or [None] * len(arc["centres"])
+        for k, (s, w) in enumerate(zip(arc["centres"], arc["spans_m"])):
+            s, w = float(s), float(w)
+            rs = None if rises[k] is None else float(rises[k])
+            round_head(m, "trim", P, s, w + 2 * 0.22, sill, spring, 0.04, inside(s, sill),
+                       rise=None if rs is None else rs + 0.22)
+            round_head(m, "door" if k in arc.get("open", []) else "glass", P, s, w, sill, spring, 0.08,
+                       inside(s, sill), rise=rs)
+            # the piers' impost blocks at the springing
+            for e_ in (s - w / 2 - pier / 2, s + w / 2 + pier / 2):
+                m.solid([[P(e_ - pier / 2, 0.0, spring - 0.25), P(e_ + pier / 2, 0.0, spring - 0.25),
+                          P(e_ + pier / 2, 0.0, spring), P(e_ - pier / 2, 0.0, spring)],
+                         [P(e_ - pier / 2, 0.14, spring - 0.25), P(e_ + pier / 2, 0.14, spring - 0.25),
+                          P(e_ + pier / 2, 0.14, spring), P(e_ - pier / 2, 0.14, spring)]], mat="trim")
+            doors += 1
+    bay = f.get("canted_bay")
+    if bay and bay.get("plan"):
+        windows += corner_bay(m, bay, wall)
+        facts["bay_top_m"] = round(float(bay["top_m"]), 3)
+        bay = None
+    if bay:
+        P, inside, _ = face_of(bay)
+        s0, s1, d = float(bay["s0"]), float(bay["s1"]), float(bay["proj_m"])
+        top, cap = float(bay["top_m"]), float(bay.get("cap_m", 0.8))
+        g = 1.0 if s1 > s0 else -1.0     # the cheeks turn in toward each other along the face
+        ring = [(s0, 0.0), (s0 + g * d, d), (s1 - g * d, d), (s1, 0.0)]
+        ring3 = [P(a, b, 0.0) for a, b in ring]
+        prism(m, wall, [(q[0], q[1]) for q in ring3], 0.0, top)
+        o = 0.25
+        ringo = [(s0 - g * o, -0.01), (s0 + g * (d - o * 0.41), d + o), (s1 - g * (d - o * 0.41), d + o),
+                 (s1 + g * o, -0.01)]
+        ro = [P(a, b, 0.0) for a, b in ringo]
+        prism(m, "cornice", [(q[0], q[1]) for q in ro], top - 0.35, top)
+        # a low hipped cap leaning back onto the wall
+        rr = [(q[0], q[1]) for q in ro]
+        apex = P((s0 + s1) / 2, 0.0, top + cap)
+        cen = P((s0 + s1) / 2, -1.0, top)
+        for k in range(3):
+            a_, b_ = rr[k], rr[k + 1]
+            m.face("roof", [(a_[0], a_[1], top), (b_[0], b_[1], top), apex], cen)
+        # lights, one to each outer face, round-headed
+        lt = bay["light"]
+        for k in range(3):
+            (a0, b0), (a1, b1) = ring[k], ring[k + 1]
+            L = math.hypot(a1 - a0, b1 - b0)
+            ta, tb = (a1 - a0) / L, (b1 - b0) / L
+            ma, mb = (a0 + a1) / 2, (b0 + b1) / 2
+            na, nb = tb, -ta          # outward: away from the bay's own middle
+            if na * (ma - (s0 + s1) / 2) + nb * (mb - d / 2) < 0:
+                na, nb = -na, -nb
+            ww, sill, hh = float(lt["w_m"]), float(lt["sill_m"]), float(lt["h_m"])
+            spring = sill + hh - ww / 2
+
+            def Pf(t, off, y, ma=ma, mb=mb, ta=ta, tb=tb, na=na, nb=nb):
+                return P(ma + ta * t + na * off, mb + tb * t + nb * off, y)
+            for mat_, wd, off, y0 in (("trim", ww + 0.3, 0.03, sill - 0.1), ("glass", ww, 0.06, sill)):
+                pts = [Pf(-wd / 2, off, y0), Pf(wd / 2, off, y0)]
+                for j in range(9):
+                    a = math.pi * j / 8
+                    pts.append(Pf(wd / 2 * math.cos(a), off, spring + wd / 2 * math.sin(a)))
+                m.face(mat_, pts, Pf(0.0, -3.0, sill))
+            windows += 1
+        facts["bay_top_m"] = round(top, 3)
+    lan = f.get("lantern")
+    if lan:
+        cu, cv = lan["at"]
+        r, y0 = float(lan["radius_m"]), float(lan["base_m"])
+        dh, dome, fin = float(lan["drum_m"]), float(lan["dome_m"]), float(lan.get("finial_m", 0.9))
+        ns = int(lan.get("sides", 8))
+        ringf = lambda rad: [(cu + rad * math.cos(2 * math.pi * (k + 0.5) / ns),  # noqa: E731
+                              cv + rad * math.sin(2 * math.pi * (k + 0.5) / ns)) for k in range(ns)]
+        prism(m, "cornice", ringf(r + 0.15), y0 - 0.25, y0)
+        prism(m, "trim", ringf(r), y0, y0 + dh)
+        rg = ringf(r + 0.02)
+        for k in range(ns):
+            a_, b_ = rg[k], rg[(k + 1) % ns]
+            ca, cb = a_[0] + (b_[0] - a_[0]) * 0.22, a_[1] + (b_[1] - a_[1]) * 0.22
+            da, db = a_[0] + (b_[0] - a_[0]) * 0.78, a_[1] + (b_[1] - a_[1]) * 0.78
+            m.face("glass", [(ca, cb, y0 + 0.25), (da, db, y0 + 0.25), (da, db, y0 + dh - 0.3),
+                             (ca, cb, y0 + dh - 0.3)], (cu, cv, y0 + dh / 2))
+            windows += 1
+        prism(m, "cornice", ringf(r + 0.2), y0 + dh, y0 + dh + 0.22)
+        # the dome in four rings to its crown
+        yb = y0 + dh + 0.22
+        prev = ringf(r + 0.1)
+        for k in range(1, 5):
+            t = k / 4
+            rad = (r + 0.1) * math.cos(t * math.pi / 2) + 0.06
+            yy = yb + dome * math.sin(t * math.pi / 2)
+            nxt = ringf(rad)
+            for j in range(ns):
+                a_, b_, c_, d_ = prev[j], prev[(j + 1) % ns], nxt[(j + 1) % ns], nxt[j]
+                m.face("roof", [(a_[0], a_[1], yb + dome * math.sin((k - 1) / 4 * math.pi / 2)),
+                                (b_[0], b_[1], yb + dome * math.sin((k - 1) / 4 * math.pi / 2)),
+                                (c_[0], c_[1], yy), (d_[0], d_[1], yy)], (cu, cv, yb))
+            prev = nxt
+        m.face("roof", [(p_[0], p_[1], yb + dome) for p_ in prev], (cu, cv, yb))
+        m.box("cornice", cu - 0.05, cu + 0.05, cv - 0.05, cv + 0.05, yb + dome, yb + dome + fin)
+        facts["lantern_top_m"] = round(yb + dome + fin, 3)
+    bel = f.get("belvedere")
+    if bel:
+        u0, v0, u1, v1 = bel["rect"]
+        top, bal = float(bel["top_m"]), float(bel.get("balustrade_m", 0.9))
+        m.box(wall, u0, u1, v0, v1, 0.0, top - 0.45)
+        m.box("cornice", u0 - 0.3, u1 + 0.3, v0 - 0.3, v1 + 0.3, top - 0.45, top)
+        t = 0.22
+        for b_ in ((u0 - 0.2, u1 + 0.2, v0 - 0.2, v0 - 0.2 + t), (u0 - 0.2, u1 + 0.2, v1 + 0.2 - t, v1 + 0.2),
+                   (u0 - 0.2, u0 - 0.2 + t, v0 - 0.2, v1 + 0.2), (u1 + 0.2 - t, u1 + 0.2, v0 - 0.2, v1 + 0.2)):
+            m.box("trim", b_[0], b_[1], b_[2], b_[3], top, top + bal - 0.12)
+            m.box("cornice", b_[0] - 0.04, b_[1] + 0.04, b_[2] - 0.04, b_[3] + 0.04, top + bal - 0.12, top + bal)
+        m.box("roof", u0, u1, v0, v1, top, top + 0.1)
+        for side in bel.get("lights", []):
+            at = {"u0": u0, "u1": u1, "v0": v0, "v1": v1}[side]
+            mid = (v0 + v1) / 2 if side[0] == "u" else (u0 + u1) / 2
+            window(m, side, at, mid, float(bel["light_sill_m"]), 0.9, float(bel.get("light_h_m", 1.5)))
+            windows += 1
+        facts["belvedere_top_m"] = round(top + bal, 3)
+    for st in f.get("stacks", []):
+        su, sv = st["at"]
+        hw, hd = float(st["w_m"]) / 2, float(st["d_m"]) / 2
+        m.box(wall, su - hw, su + hw, sv - hd, sv + hd, float(st.get("from_m", 4.0)), float(st["top_m"]))
+        m.box("cornice", su - hw - 0.12, su + hw + 0.12, sv - hd - 0.12, sv + hd + 0.12,
+              float(st["top_m"]) - 0.3, float(st["top_m"]))
+    return windows, doors
+
+
 # ---------------------------------------------------------------- walls and openings
 
 def _wall_faces(r):
@@ -370,6 +647,8 @@ def build(params, structure_id: str):
     is_house = params.kind == "house"
     # a church's own dressing (T-3103) replaces the house front's sash, door and courses
     gothic = next((f for f in e.get("features", []) if f["kind"] == "gothic_church"), None)
+    # faces a stable's dressing (T-3178) sets out from its pictures take no draft sash
+    dressed = {d for f in e.get("features", []) if f["kind"] == "stable_dress" for d in f.get("dressed_faces", [])}
     if is_house and e.get("works"):
         return works_shell(m, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, rnd)
 
@@ -435,6 +714,12 @@ def build(params, structure_id: str):
         elif roof in ("hip", "hip_steep"):
             m.box("cornice", u0 - 0.12, u1 + 0.12, v0 - 0.12, v1 + 0.12, eave - 0.35, eave)
             top = hip(m, "roof", u0, u1, v0, v1, eave, pitch)
+        elif roof == "hip_deck":
+            # a hipped roof stopped at a flat deck inside an iron cresting, the stable roof of
+            # the Pullman estate's 1894 plate (T-3178); `deck_m` is the deck over the eave
+            m.box("cornice", u0 - 0.3, u1 + 0.3, v0 - 0.3, v1 + 0.3, eave - 0.4, eave)
+            top = hip_deck(m, u0, u1, v0, v1, eave, pitch, float(p.get("deck_m", 3.0)),
+                           insets=[float(x) for x in p["deck_insets_m"]] if p.get("deck_insets_m") else None)
         elif roof == "gable":
             along = "u" if (u1 - u0) >= (v1 - v0) else "v"
             inset = float(gothic.get("gable_inset_v0_m", 0.0)) if gothic and role == "main" else 0.0
@@ -500,6 +785,8 @@ def build(params, structure_id: str):
             if side == "v1" and lot_v1 - at < party:
                 continue
             if _covered(side, at, a, b, rects, i):
+                continue
+            if f"{p['id']}:{side}" in dressed:
                 continue
             if gothic and role == "main" and side == "u1":
                 continue
@@ -649,6 +936,10 @@ def build(params, structure_id: str):
             facts["tower_top_m"] = round(tower_top, 3)
         elif kind == "gothic_church":
             w_, d_ = gothic_church(m, feat, facts)
+            windows += w_
+            doors += d_
+        elif kind == "stable_dress":
+            w_, d_ = stable_dress(m, feat, {p["id"]: p["rect"] for p in parts}, front_mat, facts)
             windows += w_
             doors += d_
         elif kind == "party_wall":

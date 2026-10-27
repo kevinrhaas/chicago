@@ -1,10 +1,10 @@
 {
   "id": "walker_house_1720_prairie",
-  "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame (district draft; refined by T-1873)",
+  "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame, K16 clapboard",
   "aka": [
     "1720 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k16_timber",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2BB frame (yellow) dwelling (D) with a bay'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1873 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1720-b1), the T-1840 census (s20-1720-f, s20-1720-a1) and the T-1837 register row frontage-20-018 (Tyrrell/Walker Italianate frame); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "T-3180 (piece 1 of T-1873) refines the district draft (T-2334) in place under the same id: the whole house is rebuilt from the K16 timber kit as clapboard walls, cased sash, a bracketed eave under a low hip, a two-storey south wing and a porch across the front, read from the 1911 Sanborn sheet 20 and from the undated Tyrrell photograph (glessner_blog_1720_tyrrell_photo), whose camera is solved at data/reference_views/walker_house_1720_prairie/tyrrell_front.json. Otis L. Wheelock designed the house for John Tyrrell in 1868 (glessner_blog_2022_01_burley_tyrrell). The photograph's porch detail is T-3181's and its upper storey, bay and central gable T-3182's; until they land the match record says what still differs. Liberty L-k16-1720-frame-house-3180.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -73,123 +73,571 @@
           "value": 2,
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "glessner_blog_1720_tyrrell_photo"
           ],
-          "note": "'2BB' printed on the 1911 sheet: 2 full storeys."
+          "note": "'2BB' printed on the 1911 sheet: two full storeys, which the photograph shows over a raised basement, the porch floor and the front door about 1.55 m over the walk.",
+          "geometry": "simplified"
         },
         "construction": {
           "value": "frame",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "glessner_blog_1720_tyrrell_photo"
           ],
-          "note": "The register reads the map's colours as 'frame'."
+          "note": "Drawn yellow, the sheet's colour for frame; the photograph shows the front in clapboard with corner boards. Built board by board from the K16 timber kit at a frame wall's 0.15 m.",
+          "geometry": "simplified"
         },
-        "draft_plan": {
+        "frame_house": {
           "value": {
-            "parts": [
+            "foundation_m": 1.4,
+            "return_m": 0.3,
+            "blocks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
+                "id": "main",
+                "rect_uv": [
                   0.0,
                   0.0,
                   22.25,
                   10.0
                 ],
-                "from": "s20fp-1720-b1 p3 (main, frame), rectangle 1 of that part; the part's rectangles cover 93% of its fill"
+                "wall_top_m": 10.45,
+                "frieze_m": 1.55,
+                "roof": {
+                  "kind": "hip",
+                  "pitch_deg": 20
+                },
+                "walls": [
+                  {
+                    "side": "east",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 1.8,
+                        "surround": "round"
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_paired_round",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 7.8,
+                        "surround": "round"
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 2.3,
+                        "surround": "round",
+                        "hood_mould": {
+                          "width_m": 0.07,
+                          "projection_m": 0.06,
+                          "legs_m": 0.25
+                        }
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 5.0,
+                        "surround": "round",
+                        "hood_mould": {
+                          "width_m": 0.07,
+                          "projection_m": 0.06,
+                          "legs_m": 0.25
+                        },
+                        "hood": {
+                          "width_m": 2.5,
+                          "height_m": 0.45,
+                          "projection_m": 0.4,
+                          "above_m": -0.2,
+                          "bracket": {
+                            "reach_m": 0.35,
+                            "drop_m": 0.8,
+                            "web_m": 0.08,
+                            "thickness_m": 0.08,
+                            "curve_segments": 6
+                          },
+                          "offset_m": -0.2,
+                          "panel": {
+                            "width_m": 1.25,
+                            "height_m": 0.45,
+                            "projection_m": 0.12
+                          }
+                        }
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_paired_round",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 7.7,
+                        "surround": "round",
+                        "hood_mould": {
+                          "width_m": 0.07,
+                          "projection_m": 0.06,
+                          "legs_m": 0.25
+                        }
+                      }
+                    ],
+                    "doors": [
+                      {
+                        "centre_m": 4.8,
+                        "clear_width_m": 1.1,
+                        "clear_height_m": 2.7,
+                        "panels": [
+                          2,
+                          3
+                        ],
+                        "stile_m": 0.12,
+                        "top_rail_m": 0.12,
+                        "lock_rail_m": 0.2,
+                        "bottom_rail_m": 0.26,
+                        "panel_sink_m": 0.015
+                      }
+                    ],
+                    "bracket_pairs_m": [
+                      0.45,
+                      3.4,
+                      6.3,
+                      9.6
+                    ],
+                    "frieze_lights": [
+                      {
+                        "kind": "oval",
+                        "centre_m": 2.0,
+                        "centre_y_m": 9.9,
+                        "width_m": 1.0,
+                        "height_m": 0.4,
+                        "frame_m": 0.06
+                      },
+                      {
+                        "kind": "round",
+                        "centre_m": 4.9,
+                        "centre_y_m": 9.975,
+                        "width_m": 1.05,
+                        "height_m": 0.85,
+                        "frame_m": 0.06,
+                        "bays": 2,
+                        "mullion_m": 0.14
+                      },
+                      {
+                        "kind": "oval",
+                        "centre_m": 7.7,
+                        "centre_y_m": 9.9,
+                        "width_m": 1.05,
+                        "height_m": 0.4,
+                        "frame_m": 0.06
+                      }
+                    ]
+                  },
+                  {
+                    "side": "north",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 5.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 9.4
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 13.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 17.0
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 20.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 2.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 5.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 9.4
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 13.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 17.0
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 20.2
+                      }
+                    ]
+                  },
+                  {
+                    "side": "west",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.5
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 7.5
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 2.5
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 7.5
+                      }
+                    ],
+                    "doors": [
+                      {
+                        "centre_m": 5.0,
+                        "clear_width_m": 0.95,
+                        "clear_height_m": 2.35,
+                        "panels": [
+                          2,
+                          2
+                        ],
+                        "stile_m": 0.12,
+                        "top_rail_m": 0.12,
+                        "lock_rail_m": 0.2,
+                        "bottom_rail_m": 0.26,
+                        "panel_sink_m": 0.015
+                      }
+                    ]
+                  },
+                  {
+                    "side": "south",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.4
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 6.4
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 2.4
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.0,
+                        "sill_m": 6.4,
+                        "centre_m": 6.4
+                      }
+                    ]
+                  }
+                ],
+                "eave": {
+                  "projection_m": 0.75
+                },
+                "bracket": {
+                  "reach_m": 0.6,
+                  "drop_m": 0.75,
+                  "web_m": 0.1,
+                  "thickness_m": 0.07,
+                  "pair_m": 0.3,
+                  "curve_segments": 6
+                },
+                "front_gable": {
+                  "centre_m": 4.75,
+                  "width_m": 4.6,
+                  "pitch_deg": 26,
+                  "overhang_m": 0.12,
+                  "rake_m": 0.2
+                }
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
+                "id": "wing",
+                "rect_uv": [
                   10.0,
                   -5.0,
                   21.5,
                   0.0
                 ],
-                "from": "s20fp-1720-b1 p3 (main, frame), rectangle 2 of that part; the part's rectangles cover 93% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  22.25,
-                  -2.0,
-                  23.75,
-                  8.25
-                ],
-                "from": "s20fp-1720-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill"
+                "wall_top_m": 5.6,
+                "roof": {
+                  "kind": "flat",
+                  "deck_m": 0.03
+                },
+                "against": "north",
+                "walls": [
+                  {
+                    "side": "west",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.5
+                      }
+                    ]
+                  },
+                  {
+                    "side": "south",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 5.75
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 9.3
+                      }
+                    ]
+                  },
+                  {
+                    "side": "east",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.2,
+                        "centre_m": 2.4
+                      }
+                    ]
+                  }
+                ]
               }
             ],
-            "lot_v": [
-              -12.106,
-              12.606
-            ],
-            "street_u": 31.218
+            "porch": {
+              "id": "k16.porch.1720_front",
+              "kind": "porch",
+              "use": "porch",
+              "side": "east",
+              "half_width_m": 5.45,
+              "depth_m": 1.5,
+              "centre_m": 4.1,
+              "basement_m": 0.95,
+              "post_m": 0.18,
+              "plate": {
+                "clear_m": 3.88
+              },
+              "roof_m": 0.13,
+              "inner_posts_m": [
+                1.3
+              ],
+              "steps": {
+                "centre_m": 4.1,
+                "width_m": 2.24,
+                "going_m": 0.3,
+                "max_riser_m": 0.2,
+                "cheek": {
+                  "width_m": 0.14,
+                  "string_above_m": 0.14,
+                  "height_m": 0.65,
+                  "rail_m": 0.08,
+                  "rail_width_m": 0.11,
+                  "baluster_m": 0.07,
+                  "pitch_m": 0.17,
+                  "newel_m": 0.2,
+                  "newel_above_m": 0.12
+                }
+              },
+              "pair_m": 0.26,
+              "arcade": {
+                "spring_below_plate_m": 0.45,
+                "rise_m": 0.21,
+                "middle_rise_m": 0.15
+              },
+              "balustrade": {
+                "height_m": 0.7,
+                "pitch_m": 0.21,
+                "baluster_m": 0.1,
+                "bottom_rail_m": [
+                  0.07,
+                  0.08
+                ],
+                "top_rail_m": [
+                  0.08,
+                  0.11
+                ]
+              },
+              "cresting": {
+                "height_m": 0.5,
+                "inset_m": 0.06,
+                "return_to_m": 0.25,
+                "base_bar_m": 0.04,
+                "top_bar_m": 0.03,
+                "bar_m": 0.016,
+                "bar_pitch_m": 0.12,
+                "post_m": 0.035,
+                "post_pitch_m": 0.37,
+                "post_above_m": 0.06,
+                "knob_m": 0.07
+              },
+              "skirt": "open"
+            },
+            "chimney": {
+              "u_m": 18.0,
+              "v_m": 0.5,
+              "width_m": 0.6,
+              "depth_m": 0.9,
+              "above_ridge_m": 1.0
+            },
+            "paint": {
+              "body": [
+                0.8,
+                0.77,
+                0.68
+              ]
+            },
+            "bays": [
+              {
+                "side": "east",
+                "plan": [
+                  [
+                    -0.95,
+                    0.0
+                  ],
+                  [
+                    -0.4,
+                    0.55
+                  ],
+                  [
+                    1.1,
+                    0.55
+                  ],
+                  [
+                    1.6,
+                    0.0
+                  ]
+                ],
+                "floor_m": 5.81,
+                "base_m": 6.25,
+                "wall_top_m": 8.3,
+                "frieze_m": 0.3,
+                "post_m": 0.1,
+                "cap_rise_m": 0.5,
+                "faces": [
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_width_m": 0.4,
+                        "clear_height_m": 1.3,
+                        "sill_m": 6.6,
+                        "centre_m": 0.39,
+                        "surround": "round"
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_width_m": 0.75,
+                        "clear_height_m": 1.3,
+                        "sill_m": 6.6,
+                        "centre_m": 0.75,
+                        "surround": "round"
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_round_fanlight",
+                        "clear_width_m": 0.4,
+                        "clear_height_m": 1.3,
+                        "sill_m": 6.6,
+                        "centre_m": 0.39,
+                        "surround": "round"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           "confidence": "inferred",
           "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "glessner_blog_1720_tyrrell_photo"
+          ],
+          "note": "The whole house from the K16 kit (T-3180, piece 1 of T-1873), refined from the district draft in place. READ from the 1911 sheet through the T-2328 trace s20fp-1720-b1 and the draft's fit of it: the main block's rectangle (22.25 m deep, 10 m along Prairie), the two-storey south wing (u 10-21.5, standing 0.75 m back from the front) and the one-storey range across the front, here the porch, 1.5 m deep. READ from the Tyrrell photograph through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json), at about 80 px a metre on the front: the porch floor and the door 1.55 m over the walk (a 1.4 m foundation under the clapboard, the porch floor raised 0.95 m over the kit's), the frieze about 1.1 m deep under the eave at about 10.2 m, the upper sash between about 6.4 and 8.4 m and the lower between 2.2 and 4.5 m; the front's openings where the photograph puts them, measured from the south corner: below, a single round-headed light at 2.0 m, the door at 4.8 m, a pair at 8.0 m; above, single round-headed sash at 2.5 and 5.0 m and a pair at 7.9 m; the porch across the front from about v -1.35 to 9.55 m (the sheet's range runs -2.0 to 8.25; the photograph is preferred where it shows the porch reaching nearly to the north corner; T-3181 measured its 925 px at the porch's own depth, about 85 px a metre, where T-3180 had used the wall's 80), centred on its stair at 4.1 m. T-3181 (piece 2 of T-1873) READ from the same photograph, at the porch's depth: the posts paired, 0.26 m between centres, at its ends and either side of its middle opening, 1.3 m out (x 65-100, 385-430, 610-655 and 928-980 px); the plate's underside at y 518 px, about 3.9 m over the floor, under a fascia 0.13 m deep to the deck at about y 482; a segmental arch over each opening, springing at about y 556 px (0.45 m under the plate) and crowned at y 538 over the side openings and 543 over the middle (rises of 0.21 and 0.15 m); a turned balustrade 0.7 m high (top rail y 800, bottom rail y 855) in each side opening, about sixteen balusters to a side (0.21 m apart); the stair as broad as the middle opening (2.24 m, its cheeks rising to the inner posts), each side a raking balustrade on a closed string; and iron cresting about 0.5 m high on the deck (y 437-482 px) with posts about 0.37 m apart. RECONSTRUCTED and recorded as L-k16-1720-frame-house-3180: every opening on the flanks, the wing and the rear; the kit's two-over-two sash there and the K06 sash on the front; the hip's 20-degree pitch; the one brick stack (the draft rules gave two; the photograph shows two stacks over the roof, the second not built); the paint. RECONSTRUCTED by T-3181 and recorded under the same liberty: the balusters' vase profile, the kit's chamfered posts for the print's turned ones, the cresting's cast panels as plain bars between knobbed posts and its return along the porch roof's north end, and newels where the print's stair rails end in scrolls. T-3182 (piece 3 of T-1873) READ from the same photograph, at 80 px a metre on the wall: the eave about 0.75 m deep on paired brackets about 0.75 m tall, the pairs at x 185-230, 460-500, 685-725 and 950-990 px (v 0.45, 3.4, 6.3 and 9.6 m); two oval lights in the frieze over the outer bays (x 325-405 and 780-865 px, y 150-192, about 1.0 by 0.4 m) and a paired round-headed attic window over the middle (x 555-640 px); over it a low gable 4.6 m across (x 400-763 px, its apex at y 6, about 26 degrees) standing on the eave; every front window's casing carried round its round head (both storeys), the upper storey's under a hood mould whose ends drop down the jambs; over the middle upper window a flat hood 2.5 m across on scroll brackets (x 472-662, y 257-295 px), a plain panel standing on it; the upper storey's canted bay at the south end (x 107-350 px) on the porch deck, a round-headed light in each face, its cornice at about y 270-300 and its hipped cap up to about y 235; and the porch's skirt open and dark under the floor's rim, where the kit's lattice was. RECONSTRUCTED by T-3182 and recorded under the same liberty: the bay's depth (0.55 m) and plan, its south end carried about 1 m past the front's corner as the print shows it (the sheet's main rectangle stops at the corner), its back closed in plain clapboard; the brackets' scroll profile for the print's stacked consoles; the frieze lights glazed; the gable's boarded tympanum; the attic window kept under the soffit where the print's rises about 0.3 m into the gable; the hood's fringe of drops not built; the lower lights' hood moulds not built, the porch roof's shade hiding whether they have them."
+        },
+        "roof_covering": {
+          "value": {
+            "material": "tin, painted",
+            "color": [
+              0.24,
+              0.22,
+              0.21
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1720-b1 p3 (main, frame), rectangle 1 of that part; the part's rectangles cover 93% of its fill; s20fp-1720-b1 p3 (main, frame), rectangle 2 of that part; the part's rectangles cover 93% of its fill; s20fp-1720-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1628210251,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 30,
-            "mansard_lower_m": 3.0,
-            "front_bays": 4,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2334",
-              "refined_by": [
-                "T-1873"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1628210251 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2334",
-            "liberty": "L-draft-prairie-16-18-west-2334",
-            "register_row": "frontage-20-018",
-            "census_ids": [
-              "s20-1720-f",
-              "s20-1720-a1"
-            ],
-            "trace_building": "s20fp-1720-b1",
-            "seed": 1628210251,
-            "replaceable_by": [
-              "T-1873"
-            ],
-            "card": "District draft — refined by T-1873."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "No roof covering has been read for 1720: the photograph sees only the eave of a low hip. A low-pitched Italianate hip of the late 1860s was commonly covered in painted tin; its dark grey is reconstructed."
         }
       }
     }

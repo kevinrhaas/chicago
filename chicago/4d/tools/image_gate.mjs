@@ -42,6 +42,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import os from 'node:os';
 import {renderGroup, groupReview} from './photo_match_group.mjs';
+import {enclosureReview} from './photo_match_enclosures.mjs';
 import {testRenderGroups} from './test_photo_match_group.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -84,6 +85,9 @@ function malformed(structureId, v) {
   if (cam.also_render !== undefined) {
     try { renderGroup(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
   }
+  if (cam.enclosures !== undefined) {
+    try { enclosureReview(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
+  }
   if (fs.existsSync(v.matchFile)) {
     let m;
     try { m = JSON.parse(fs.readFileSync(v.matchFile, 'utf8')); } catch (e) { return [...out, `${rel(v.matchFile)}: not JSON (${e.message})`]; }
@@ -109,6 +113,9 @@ function blocker(structureId, v) {
   if (m.camera_sha256 !== sha(v.cameraFile)) return `${v.view}: the camera changed after the match — rerun photo_match`;
   if (members && m.group_sha256 !== groupReview(ROOT, members).group_sha256)
     return `${v.view}: a rendered group member or its scene placement changed after the match — rerun photo_match`;
+  const enclosures = enclosureReview(ROOT, camera);
+  if (enclosures && m.enclosures_sha256 !== enclosures.review.enclosures_sha256)
+    return `${v.view}: a rendered enclosure, native renderer or its anchor placement changed after the match — rerun photo_match`;
   if ((members || m.photo_sha256) && m.photo_sha256 !== sha(path.resolve(path.dirname(v.cameraFile), camera.photo)))
     return `${v.view}: the reference picture changed after the match — rerun photo_match`;
   const open = (m.differences || []).filter((d) => d.status === 'open');
@@ -199,6 +206,23 @@ function selfTest() {
     fs.writeFileSync(matchFile, JSON.stringify(match));
     fs.writeFileSync(path.join(groupDir, 'p.jpg'), 'different fixture picture');
     ok(gateFor([anchor]).some(b => /reference picture changed/.test(b)), 'a changed picture refuses closure');
+    // A native procedural fence is part of the image just as a second GLB is.
+    const jail = 'log_jail', jailDir = path.join(VIEWS_DIR, jail);
+    fs.mkdirSync(jailDir);
+    fs.writeFileSync(path.join(jailDir, 'p.jpg'), 'fixture jail picture');
+    const fenceCamera = {...camera, structure_id: jail, scene: '1835', also_render: [],
+      enclosures: ['log_jail_palisade']};
+    const fenceCameraFile = path.join(jailDir, 'fence.json');
+    const fenceMatchFile = path.join(jailDir, 'fence.match.json');
+    fs.writeFileSync(fenceCameraFile, JSON.stringify(fenceCamera));
+    const fenceMatch = {verdict: 'matches', differences: [], glb_sha256: sha(path.join(ROOT, glbFor(jail))),
+      camera_sha256: sha(fenceCameraFile), photo_sha256: sha(path.join(jailDir, 'p.jpg')),
+      ...enclosureReview(ROOT, fenceCamera).review};
+    fs.writeFileSync(fenceMatchFile, JSON.stringify(fenceMatch));
+    ok(gateFor([jail]).length === 0, 'a current native enclosure review can close');
+    fs.writeFileSync(fenceMatchFile, JSON.stringify({...fenceMatch, enclosures_sha256: 'old fence'}));
+    ok(gateFor([jail]).some(b => /rendered enclosure, native renderer or its anchor placement changed/.test(b)),
+      'the actual closing gate refuses a stale native fence signature');
   } finally { fs.rmSync(VIEWS_DIR, { recursive: true, force: true }); VIEWS_DIR = real; }
   return fails ? 1 : 0;
 }

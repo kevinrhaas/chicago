@@ -51,6 +51,19 @@ step "Every building's reference views and match records read; where each stands
 
 step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
   node tools/image_gate.mjs --test
+step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
+  node tools/test_enclosure_points.mjs
+step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
+  node tools/test_photo_match_enclosures.mjs
+
+selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
+  node tools/test_dev_smoke_state.mjs --self-test
+
+selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
+  node tools/test_ktx2_texture_policy.mjs --self-test
+
+selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
+  node tools/test_rail_geometry_lifecycle.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
@@ -325,6 +338,9 @@ step "CC0 adult preparation preserves source UVs, metric frame and bounded rig w
 step "Bardwell waistcoat shoulder panels connect without changing default source (T-1789)" \
   python3 tools/test_human_workwear_shoulders.py
 
+step "Modular adult dress consumes cleared source and preserves existing resident bounds (T-1789)" \
+  python3 tools/test_human_dress_components.py
+
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
 
@@ -368,6 +384,10 @@ step "Canonical planted-standing horse preserves metre scale, allowed clip, cloc
 
 step "Horse eye-UV derivative preserves original geometry, rig, clip, materials and image bytes (T-3086)" \
   python3 tools/test_standing_horse_eye_uv_boundary.py
+
+# Local derivation/boundary checks take under one second; no browser/bake.
+step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
+  python3 tools/test_standing_horse_anatomy_v2.py
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
@@ -1018,6 +1038,29 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
 
+# T-1890. ...and a K08 round tower carries a corbelled upper stage, and a record sizes its cap's
+# finial (1801 Prairie's 18th Street tower, off the Taylor print and HABS photograph 2): the
+# shaft on its own ring, capped; the stage on the wider ring with the cone; its corbel courses
+# stepped back to the shaft within the kit's oversail; the ring closed above the wall head
+# across the shaft's junctions and then the stage's; a stage or finial out of range refused.
+step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
+  python3 tools/test_k08_tower_stage.py
+
+# T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
+# (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
+# under the storey line in place of its floor band, the corbels hung from it, the light tier
+# keeping the course only; the fan's wheel on the panel; a gable up to 1.5 m in from its front's
+# corners; a corbel table on the ground storey or out of range refused.
+step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1890)" \
+  python3 tools/test_k08_corbel_table.py
+
+# T-1890. ...and a K08 oriel may be round, on a rear wing's wall (1801 Prairie's gabled section,
+# off the Taylor print and HABS photograph 2): a bow's chord and rise in range, its corbel courses
+# reaching back from the crown and still bearing on the wall, on one of the wing's floors; a bay on a
+# wing, a bow past half its chord, or a bow beside a canted plan's points refused.
+step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
+  python3 tools/test_k08_round_oriel.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
@@ -1087,6 +1130,11 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 # stand behind the front's plane only on the round, clear of it. Each refusal says why.
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
+# T-3186: or cuts a corner of the main body on a canted face (1901's, both Chicagology
+# photographs): the front and its side wall stop at the face, which is a wall of its own with
+# its window column, and the cornice, the mansard, the gutter and the curb's cresting turn it.
+step "a K01 main body cuts a corner on a canted face, carried through the cornice and the mansard (T-3186)" \
+  python3 tools/test_k01_cant_corner.py
 
 # T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
 # (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's

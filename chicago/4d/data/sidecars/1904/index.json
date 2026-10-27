@@ -61,9 +61,9 @@
     },
     {
       "id": "dexter_house_1721_prairie",
-      "name": "1721 Prairie Avenue — Dexter house, post-1889 phase (district draft; refined by T-1878, T-1879)",
+      "name": "1721 Prairie Avenue — Wirt Dexter house, Arthur Little's front of 1889, K01 frontage assembly",
       "sidecar": "sidecars/1904/dexter_house_1721_prairie.json",
-      "asset": "gltf/dexter_house_1721_prairie__draft_1904.glb"
+      "asset": "gltf/dexter_house_1721_prairie__as_mapped_1904.glb"
     },
     {
       "id": "dexter_house_1721_prairie_coach_house",
@@ -73,9 +73,9 @@
     },
     {
       "id": "doane_house_1827_prairie",
-      "name": "1827 Prairie Avenue — Doane towered stone mansion (district draft; refined by T-1895, T-1896)",
+      "name": "1827 Prairie Avenue — the John W. Doane house (K01; refined by T-3172, T-1896)",
       "sidecar": "sidecars/1904/doane_house_1827_prairie.json",
-      "asset": "gltf/doane_house_1827_prairie__draft_1904.glb"
+      "asset": "gltf/doane_house_1827_prairie__as_mapped_1904.glb"
     },
     {
       "id": "doane_house_1827_prairie_coach_house",
@@ -433,15 +433,15 @@
     },
     {
       "id": "house_1708_prairie",
-      "name": "1708 Prairie Avenue — Thorne-associated map-led brick house (district draft; refined by T-1872)",
+      "name": "1708 Prairie Avenue — three-storey brick front with a canted bay (Thorne-associated), K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1708_prairie.json",
-      "asset": "gltf/house_1708_prairie__draft_1904.glb"
+      "asset": "gltf/house_1708_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1712_prairie",
-      "name": "1712 Prairie Avenue — Stone-front masonry (district draft; refined by T-1872)",
+      "name": "1712 Prairie Avenue — stone-front house of two and a half storeys, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1712_prairie.json",
-      "asset": "gltf/house_1712_prairie__draft_1904.glb"
+      "asset": "gltf/house_1712_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1712_prairie_coach_house",
@@ -1291,9 +1291,9 @@
     },
     {
       "id": "jones_house_1834_prairie",
-      "name": "1834 Prairie Avenue — Jones villa with mansard addition (district draft; refined by T-1888)",
+      "name": "1834 Prairie Avenue — Fernando Jones house",
       "sidecar": "sidecars/1904/jones_house_1834_prairie.json",
-      "asset": "gltf/jones_house_1834_prairie__draft_1904.glb"
+      "asset": "gltf/jones_house_1834_prairie__as_mapped_1904.glb"
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
@@ -1309,9 +1309,9 @@
     },
     {
       "id": "kellogg_house_1709_prairie",
-      "name": "1709 Prairie Avenue — Palmer Kellogg successor (district draft; refined by T-1877)",
+      "name": "1709 Prairie Avenue — Palmer Kellogg successor, K01 frontage assembly from the 1893 drawing and the 1911 sheet",
       "sidecar": "sidecars/1904/kellogg_house_1709_prairie.json",
-      "asset": "gltf/kellogg_house_1709_prairie__draft_1904.glb"
+      "asset": "gltf/kellogg_house_1709_prairie__as_mapped_1904.glb"
     },
     {
       "id": "kellogg_house_1709_prairie_coach_house",
@@ -1375,9 +1375,9 @@
     },
     {
       "id": "marsh_house_1824_prairie",
-      "name": "1824 Prairie Avenue — Pomeroy/Marsh altered stone-front villa (district draft; refined by T-1887)",
+      "name": "1824 Prairie Avenue — Pomeroy/Marsh house (the 1857 villa refaced in stone after 1880)",
       "sidecar": "sidecars/1904/marsh_house_1824_prairie.json",
-      "asset": "gltf/marsh_house_1824_prairie__draft_1904.glb"
+      "asset": "gltf/marsh_house_1824_prairie__as_mapped_1904.glb"
     },
     {
       "id": "marsh_house_1824_prairie_coach_house",
@@ -1471,7 +1471,7 @@
     },
     {
       "id": "pullman_glasshouse_1800_calumet_pavilion",
-      "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13",
+      "name": "Pullman estate (1800 S. Calumet Avenue): Beman's conservatory at the head of the north range, K13",
       "sidecar": "sidecars/1904/pullman_glasshouse_1800_calumet_pavilion.json",
       "asset": "gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb"
     },
@@ -1483,13 +1483,13 @@
     },
     {
       "id": "pullman_house_1729_prairie_conservatory",
-      "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing, K13",
+      "name": "George M. Pullman house (1729 Prairie Avenue): the palm house on its east range, K13",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie_conservatory.json",
       "asset": "gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb"
     },
     {
       "id": "pullman_house_1729_prairie_ranges",
-      "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; refined by T-1934)",
+      "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; the stable refined to its pictures by T-3192 and re-planned through three solved cameras by T-3193)",
       "sidecar": "sidecars/1904/pullman_house_1729_prairie_ranges.json",
       "asset": "gltf/pullman_house_1729_prairie_ranges__draft_1904.glb"
     },
@@ -1501,9 +1501,9 @@
     },
     {
       "id": "ream_house_1901_prairie",
-      "name": "1901 Prairie Avenue — Ream, post-1887 reconstruction (district draft; refined by T-1903)",
+      "name": "1901 Prairie Avenue — Norman B. Ream house",
       "sidecar": "sidecars/1904/ream_house_1901_prairie.json",
-      "asset": "gltf/ream_house_1901_prairie__draft_1904.glb"
+      "asset": "gltf/ream_house_1901_prairie__as_mapped_1904.glb"
     },
     {
       "id": "ream_house_1901_prairie_coach_house",
@@ -1669,9 +1669,9 @@
     },
     {
       "id": "walker_house_1720_prairie",
-      "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame (district draft; refined by T-1873)",
+      "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame, K16 clapboard",
       "sidecar": "sidecars/1904/walker_house_1720_prairie.json",
-      "asset": "gltf/walker_house_1720_prairie__draft_1904.glb"
+      "asset": "gltf/walker_house_1720_prairie__as_mapped_1904.glb"
     },
     {
       "id": "walker_house_1720_prairie_coach_house",
