@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1700_1706_townhouses_photo",
+ "type": "photograph",
+ "citation": "[1706 and 1700 S. Prairie Avenue, the townhouses of George Glessner and Frances Glessner Lee.] Photograph from the east side of Prairie Avenue, captioned 'Left: 1706 S. Prairie Avenue / Right: 1700 S. Prairie Avenue'; photographer and original holder not named. Reproduced by Chicagology, '1706 Prairie Avenue' (chicagology.com/chicagostreets/prairieavenue/1706prairie/).",
+ "author": "unknown photographer",
+ "date": "undated (after 1902, the townhouses' completion; the Prairie library's dating)",
+ "describes_date": "after 1902",
+ "repository": "Chicagology (secondary reproduction; the original holder is not named, possibly the Glessner House Museum). Prairie library image a16-cgy-1700-1706-townhouses, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-cgy-1700-1706-townhouses.jpg), committed since T-3188 at data/sources/assets/thorne_1708_photos_t3188/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1706prairie/",
+ "locator": "The left edge of the photograph, x 0-150 of the 1955 px copy: the north 1.8 m of 1708 Prairie's street front, beside the rusticated quoins of 1706's south corner.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3188) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3188) from the image store's reference copy, 1955 x 1200 px greyscale.",
+ "note": "A photograph of the Glessner townhouses, 1700-1706 Prairie, from the east side of Prairie Avenue south-east of them. 1708 Prairie stands at its left edge: the north end of its brick street front, a window in each of the upper two storeys under a hood (sills about 5.8 and 9.4 m over grade through T-3188's camera), and below them, at the north end, a moulded hood about 4.25-4.65 m over grade over the entrance, a drop under its north end. It is evidence of the street front after 1902.",
+ "what_it_supplies": [
+  "the north end of 1708's street front in the plane of the townhouses' front",
+  "the upper storeys' sill heights at the north end, a cross-check on the Christmas print",
+  "the entrance hood at the north end and its height"
+ ],
+ "what_it_does_not_supply": [
+  "the rest of 1708's front, its cornice and its bay, all outside the frame",
+  "colour: the photograph is monochrome",
+  "the south wall, the rear and the roof"
+ ]
+}

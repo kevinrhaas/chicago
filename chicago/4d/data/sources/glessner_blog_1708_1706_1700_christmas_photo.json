@@ -1,0 +1,29 @@
+{
+ "id": "glessner_blog_1708_1706_1700_christmas_photo",
+ "type": "photograph",
+ "citation": "[1708, 1706 and 1700 S. Prairie Avenue, the homes of James and Narcissa Thorne, George and Alice Glessner, and Blewett and Frances Lee.] Photograph from the east side of Prairie Avenue, captioned 'Three of the trees from The Rocks were delivered to these Prairie Avenue homes: (L-R) James and Narcissa Thorne (1708), George and Alice Glessner (1706), and Blewett and Frances Lee (1700)'; photographer not named. Reproduced by the Glessner House Museum, 'The Glessner House Christmas Tree', The Story of a House (blog), 14 December 2021.",
+ "author": "unknown photographer (probably of the Glessner family)",
+ "date": "undated (after 1902; the blog's context is Christmas 1911)",
+ "describes_date": "after 1902",
+ "repository": "Glessner House Museum blog 'The Story of a House' (the museum's collection, per the blog). Prairie library image a16-ghm-blog-1708-1706-1700-christmas, its rights recorded there as 'pending - permission requested' (rights-requests/ghm-george-glessner-2026-10.md); the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1708-1706-1700-christmas.jpg), committed since T-3188 at data/sources/assets/thorne_1708_photos_t3188/ with its attribution.",
+ "url": "https://glessnerhouse.blogspot.com/2021/12/the-glessner-house-christmas-tree.html",
+ "locator": "The left fifth of the photograph, x 0-190 of the 1200 px copy: 1708 Prairie's street front from its cornice to grade, the north end of it behind 1706's porch and a street lamp.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "Permission for the museum's scans was requested on 2026-10-02 and is pending; the reproduction carries no rights statement. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3188) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3188) from the image store's reference copy, 1200 x 983 px greyscale. The Prairie library has the camera south-east of the houses looking north-west; the townhouses' cornice rises toward 1700 and 1700's north wall is in view, so it stood NORTH-east of them looking south-west (T-3188's camera).",
+ "note": "The fullest picture of 1708 Prairie this project reads, at the left edge of a photograph of the Glessner townhouses. Through T-3188's camera: a flat-topped brick front of three storeys taller than the townhouses' cornice; a deep plain cornice, its soffit about 13.0 m and its top about 13.55 m over grade, over a frieze about 1.2 m deep closed below by a string course about 12.0 m up; eared hoods over the upper storeys' windows (sills about 5.7 and 9.2 m); on the south part of the front a bay rising through the lower two storeys to a flat top about 8.9 m up, the 1911 sheet's canted bay; the north end of the front behind 1706's porch; the brick north wall standing clear above 1706's cornice. It is evidence of the front after 1902.",
+ "what_it_supplies": [
+  "the front's height: its cornice, frieze and string course",
+  "the upper storeys' windows, their sills, heads and eared hoods",
+  "the south bay through two storeys and its flat top",
+  "the north wall rising above 1706's cornice"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the photograph is monochrome",
+  "the ground storey's openings at the north end, hidden by 1706's porch and a street lamp",
+  "the bay's south end, the south wall, the rear and the roof"
+ ]
+}
