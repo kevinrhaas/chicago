@@ -3296,14 +3296,14 @@
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
     },
-    "kellogg_house_1709_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "kellogg_house_1709_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 249932,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "8ec432ea6d59fd0b3ed331d13987a991ec253bba1ca78b2bfe04e071655b9058",
+      "bytes": 6265156,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "2ff422cf61fe8d225e47c13b563969d05e50bcab1226c92c87528d788cb1bd94",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1709_prairie"
     },
     "kellogg_house_1709_prairie_coach_house__draft_1904.glb": {

@@ -1,0 +1,27 @@
+{
+  "id": "rand_mcnally_1893_views_prairie_east_1701_1815",
+  "type": "illustration",
+  "citation": "'Prairie Avenue (Looking North East).' Street-front drawing of the east side of Prairie Avenue from 1701 to 1815, p. 233 in Rand, McNally & Co.'s Bird's-Eye Views and Guide to Chicago (Chicago: Rand, McNally & Co., 1893); artist not named.",
+  "author": "Rand, McNally & Co. (artist not named)",
+  "date": "1893",
+  "describes_date": "1892-1893",
+  "repository": "Internet Archive, item randmcnallycosbi00lawr (digitized from the University of Illinois at Chicago Library); the Prairie library's image st-randmcnally-1893-p233-east-1700-1800 (stream-streetscape), held in the image store.",
+  "url": "https://archive.org/details/randmcnallycosbi00lawr/page/233/mode/1up",
+  "locator": "The strip's house fronts, each over its printed street number: 1701, 1709, 1721, 1729, 18th Street, 1801, 1811 and 1815. The front over 1709 stands second from the north end.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Published in Chicago in 1893, before 1929: public domain in the United States. Read for forms and proportions and used as the image gate's reference picture for 1709 Prairie; nothing in a scene is derived from it (no texture, no traced mesh).",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-27 (T-1877) from the image store's copy, 883 x 2400 px (the strip printed sideways on the page), sha256 in data/sources/assets/rand_mcnally_1893_p233_east_t1877/README.md, turned upright and enlarged.",
+  "note": "A drawing of the east side of Prairie Avenue from 17th Street to 1815, each front over its printed number, from an imagined eye over the west walk. The front over 1709 is drawn as two storeys of tall windows over a raised basement, pedimented hoods over the principal windows, a columned porch at its north end reached by a stoop, a deep cornice, a mansard with two dormers over the north part, and at its south end a projecting corner piece with its own tall slated roof, its north-west face shaded and its south-west face lit with a window a storey. A guidebook drawing, not a measured one.",
+  "what_it_supplies": [
+    "1709's storeys, porch, stoop, cornice, mansard, dormers and corner piece as drawn in 1893",
+    "the proportions of 1709's front, at a guidebook drawing's accuracy"
+  ],
+  "what_it_does_not_supply": [
+    "measurement",
+    "material or colour",
+    "the north wall, the south flank behind the corner piece, and the rear"
+  ]
+}
