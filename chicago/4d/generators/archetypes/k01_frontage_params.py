@@ -205,6 +205,10 @@ class K01FrontageParams:
     # corbelled out to the square under the wall head ({"corner", "radius_m"}; 1811's, off
     # the 1888 plate) — empty for every other house, whose corners stand square
     round_corner: dict = field(default_factory=dict)
+    # T-3186: a corner of the main body cut on a canted face from grade to the roof, its own
+    # window column on it and the cornice and the mansard carried round it ({"corner",
+    # "cut_m", "face_m"}; 1901's, off both Chicagology photographs) — empty for every other house
+    cant_corner: dict = field(default_factory=dict)
     # T-3112: the street front's low-s end stood as a pier capped under the wall head, a slate
     # weathering over its cap and the eave brought in over it ({"to_m", "band_m", "cap_m",
     # "band_proud_m", "cap_proud_m", "weathering_pitch_deg"}; 1811's, off its three pictures)
@@ -276,7 +280,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers", "round_corner", "front_pier", "street_front_pavilions", "porte_cochere",
+    "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron",
 })
 
@@ -1474,7 +1478,7 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
-                     chimneys) -> list:
+                     chimneys, cant=None) -> list:
     """T-2411: round-headed dormers in the main mansard's lower faces — the 1874 engraving's
     two on 1620's north face — each the crown dormer's construction (`_round_dormer`) on a
     face the record names, at a centre along it. Each stands clear of the face's hips, of
@@ -1486,6 +1490,24 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
     for i, e in enumerate(entries):
         what = f"mansard.dormers[{i}]"
         face = e.get("face")
+        if face == "cant":
+            # T-3186: the canted corner's own dormer (1901's, over the face's window column in both
+            # photographs), centred on the face's lower slope and clear of its two hips under the
+            # curb, where the face is narrowest; k01_frontage turns a street dormer onto it
+            d = _round_dormer(e, what, run, hood=False)
+            if not cant or float(e["along_m"]) != 0.0 or d["head"] not in ("gable", "round"):
+                raise ParamError(f"{what}: a cant dormer stands on a cant_corner, centred (along_m 0), "
+                                 f"under a gable or round head")
+            half = float(cant["cut_m"]) * math.sqrt(0.5) + (overhang - run) * math.tan(math.pi / 8)
+            if d["width_m"] / 2 + 0.15 > half:
+                raise ParamError(f"{what}: {d['width_m']} m across leaves the canted face's hips no "
+                                 f"0.15 m under the curb, where the face is {2 * half:.2f} m")
+            foot = mansard_face_height(d["face_setback_m"], m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"],
+                                       m["profile"])
+            if foot + d["sill_m"] + d["head_m"] > m["lower_rise_m"] - 0.1:
+                raise ParamError(f"{what}: its head meets the curb at {m['lower_rise_m']} m")
+            out.append(dict(d, face=face, along_m=0.0, foot_m=round(eave + foot, 4)))
+            continue
         if face not in MANSARD_FACES:
             raise ParamError(f"{what}.face {face!r}: one of {', '.join(MANSARD_FACES)}")
         d = _round_dormer(e, what, run, hood=True)
@@ -3661,6 +3683,123 @@ def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
             "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
 
 
+#: T-3186: the wall a canted corner's face is (`cant_corner`)
+CANT_WALL = "k01.wall.cant"
+#: ...cut this far back along each wall at the least and the most (1901's south-west corner,
+#: about 1.83 m each way through the Chicagology south-west photograph's camera)
+CANT_CUT_M = (1.0, 2.5)
+#: ...with a window on either wall it cuts standing at least this far clear of the cut
+CANT_PIER_M = 0.2
+
+
+def cant_corner_plan(cc: dict, depth: float, width: float) -> dict:
+    """T-3186: where a canted corner stands: each wall's span (s0, s1) it cuts away, the canted
+    face's two ends in the footprint (u, v) in the order a run round the house meets them (the
+    street front's end and the north wall's start, or the south wall's end and the front's
+    start), and the face's outward unit normal (nu, nv)."""
+    c, h = cc["cut_m"], math.sqrt(0.5)
+    if cc["corner"] == "north":   # the front's far end, s = width, into the north wall's start
+        return {"walls": {"k01.wall.street_front": (width - c, width), "k01.wall.side.north": (0.0, c)},
+                "ends": ((depth, width - c), (depth - c, width)), "normal": (h, h)}
+    return {"walls": {"k01.wall.street_front": (0.0, c), "k01.wall.side.south": (depth - c, depth)},
+            "ends": ((depth - c, 0.0), (depth, c)), "normal": (h, -h)}
+
+
+def cant_ring(ring, cc: dict, depth: float, width: float, out: float):
+    """T-3186: a K05 ring of four (x, z) corners (k05_roofs.inset_rect's order) cut on the
+    canted face's line moved `out` out from the wall plane: the corner replaced by the two
+    points where that line crosses its sides, or doubled where the line misses it, so every
+    ring keeps five points and a ring stack's faces stay planar."""
+    (u0, v0), (u1, v1) = cant_corner_plan(cc, depth, width)["ends"]
+    nu, nv = cant_corner_plan(cc, depth, width)["normal"]
+    nx, nz = nu, -nv                                  # the plan's (x, z) = (u, -v)
+    k = nx * u0 + nz * -v0 + out
+    i = 1 if cc["corner"] == "north" else 2           # inset_rect: (xb, za) or (xb, zb)
+    cx, cz = ring[i]
+    if nx * cx + nz * cz <= k + 1e-9:
+        return ring[:i] + [ring[i], ring[i]] + ring[i + 1:]
+    a = (cx, (k - nx * cx) / nz)                      # on the side x = cx
+    b = ((k - nz * cz) / nx, cz)                      # on the side z = cz
+    pair = [b, a] if cc["corner"] == "north" else [a, b]
+    return ring[:i] + pair + ring[i + 1:]
+
+
+def _cant_corner(cc, depth, width, openings, bays, rainwater, chimneys, *, construction, roof_form,
+                 mansard, wall_head, others, floors, sash, basement) -> dict:
+    """T-3186: a corner of the main body cut on a canted face from grade to the roof (1901's
+    south-west corner, K01's 'north', in both Chicagology photographs: the face square to the
+    corner, its own window column on both storeys, the cornice and the mansard carried round
+    it). The face is a wall of its own (`CANT_WALL`), laid in the front's stone on its beds
+    with a window at its middle in every storey and a basement light under them; the front
+    and the side wall stop where it begins; the mansard's rings, its cornice, its gutter and
+    the deck's cresting are cut on its line. Nothing else may stand on the walls it cuts."""
+    if not cc:
+        return {}
+    if not isinstance(cc, dict) or set(cc) != {"corner", "cut_m"} or cc["corner"] not in ROUND_CORNERS:
+        raise ParamError(f"cant_corner takes corner ({' or '.join(ROUND_CORNERS)}) and cut_m, not {cc}")
+    c = float(cc["cut_m"])
+    if not CANT_CUT_M[0] <= c <= min(CANT_CUT_M[1], width / 4, depth / 4):
+        raise ParamError(f"cant_corner.cut_m {c}: {CANT_CUT_M[0]}-{CANT_CUT_M[1]} m and at most a quarter "
+                         f"of the main body's width and depth")
+    if construction != "stone":
+        raise ParamError("cant_corner is laid on the front's beds round an all-stone house (construction: stone)")
+    if roof_form != "mansard" or not mansard or mansard.get("crown") or mansard.get("straight") \
+            or mansard.get("side_parapet"):
+        raise ParamError("cant_corner cuts a plain mansard's rings: not a hip, a gable or a flat roof, nor a "
+                         "crown, a straight wall or a side parapet")
+    if (mansard.get("deck") or {}).keys() & {"finials", "hoods"}:
+        raise ParamError("cant_corner: the deck's finials and corner hoods stand on its square corners")
+    walls = wall_head.get("walls") or []
+    side = "k01.wall.side.north" if cc["corner"] == "north" else "k01.wall.side.south"
+    if wall_head.get("cornice") != "k10.cornice.moulded_stone" or not {"k01.wall.street_front", side} <= set(walls):
+        raise ParamError(f"cant_corner carries the moulded stone cornice round it: wall_head names "
+                         f"k10.cornice.moulded_stone on the street front and {side}")
+    clash = [k for k, v in others.items() if v]
+    if clash:
+        raise ParamError(f"cant_corner cuts the corner {', '.join(clash)} would stand on")
+    out = {"corner": cc["corner"], "cut_m": c}
+    plan = cant_corner_plan(out, depth, width)
+    for wall, (s0, s1) in plan["walls"].items():
+        lo, hi = s0 - CANT_PIER_M, s1 + CANT_PIER_M
+        for o in openings:
+            if o.wall == wall and o.s_m + o.width_m / 2 > lo and o.s_m - o.width_m / 2 < hi:
+                raise ParamError(f"cant_corner {cc['corner']}: {o.component} at s {o.s_m} on {wall} stands "
+                                 f"within {CANT_PIER_M} m of the cut")
+        for b in bays:
+            if b["wall"] == wall and b["span_m"][1] > s0 - 1e-6 and b["span_m"][0] < s1 + 1e-6:
+                raise ParamError(f"cant_corner {cc['corner']}: the bay {b['id']} on {wall} stands on the cut")
+        for x in (rainwater or {}).get("downpipes", []):
+            if x["wall"] == wall and s0 - 0.3 < x["s_m"] < s1 + 0.3:
+                raise ParamError(f"cant_corner {cc['corner']}: the downpipe at s {x['s_m']} on {wall} stands on the cut")
+    if (rainwater or {}).get("front_pipes"):
+        raise ParamError("cant_corner: a front pipe has no head on a cut corner's gutter")
+    for d in mansard.get("dormers") or ():
+        if d["face"] == "street" and (d["along_m"] > width - c - 0.5 if cc["corner"] == "north"
+                                      else d["along_m"] < c + 0.5):
+            raise ParamError(f"cant_corner: the street dormer at {d['along_m']} m stands over the cut")
+    (u0, v0), _ = plan["ends"]
+    nu, nv = plan["normal"]
+    for ch in chimneys:
+        reach = math.hypot(*ch["plan_m"]) / 2 + 0.1
+        if nu * ch["u_m"] + nv * ch["v_m"] > nu * u0 + nv * v0 - reach:
+            raise ParamError(f"cant_corner: the stack at ({ch['u_m']}, {ch['v_m']}) stands on the cut")
+    # the face's own column: a window at its middle in every storey, the storey's sash, and the
+    # basement's light under them, each with a pier either side of it
+    L = c * math.sqrt(2.0)
+    mid = round(L / 2, 4)
+    for k, row in enumerate(sash):
+        w, h = float(row["width_m"]), float(row["height_m"])
+        if w + 2 * CANT_PIER_M > L:
+            raise ParamError(f"cant_corner: storey {k}'s sash, {w} m, leaves no pier on a {L:.2f} m face")
+        openings.append(Opening("k01.opening.sash_flat", CANT_WALL, mid,
+                                round(floors[k] + float(row["sill_above_floor_m"]), 4), w, h))
+    if basement:
+        openings.append(Opening("k01.opening.area_light", CANT_WALL, mid, float(basement.get("sill_m", 0.0)),
+                                float(basement["width_m"]), float(basement["height_m"]), False))
+    out["face_m"] = round(L, 4)
+    return out
+
+
 def chamfer_of(b: dict):
     """T-3048: a shallow pavilion's chamfered corner, or None: (corner, along_m, behind_m,
     cross_m), cross_m how far in from the corner its canted face crosses the wall's face."""
@@ -5289,7 +5428,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"mansard.dormers: the {spp['wall']} face stands behind the side parapet")
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
-                                                   float(val("eave_overhang_m")), chimneys)
+                                                   float(val("eave_overhang_m")), chimneys, val("cant_corner"))
     if (val("mansard") or {}).get("deck"):
         # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
@@ -5394,6 +5533,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     stone_finish = validate_stone_finish(dict(val("stone_finish", {}) or {}), width)
     if stone_finish and (roof_form != "flat" or not stone):
         raise ParamError("stone_finish requires a flat roof and a stone front")
+    cant_corner = _cant_corner(val("cant_corner"), depth, width, openings, bays, rainwater, chimneys,
+                               construction=construction, roof_form=roof_form, mansard=mansard_roof,
+                               wall_head=dict(val("wall_head", {}) or {}),
+                               others={"round_corner": val("round_corner"), "front_pier": val("front_pier"),
+                                       "street_front_pavilions": val("street_front_pavilions"),
+                                       "shaped_gable": val("shaped_gable"),
+                                       "a shallow pavilion": [b for b in bays if b["variant"].get("shallow")]},
+                               floors=floors, sash=sash, basement=bl)
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
     front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
@@ -5483,7 +5630,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
-        round_corner=round_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
+        round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

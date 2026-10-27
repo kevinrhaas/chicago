@@ -31,6 +31,11 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             `round_corner`): the front's stone, coursed on its beds and
                             curved stone by stone, corbelled out to the square in its last
                             course under the cornice, the eave and the gable end
+  k01.wall.cant             a corner of the main body cut on a canted face (T-3186,
+                            `cant_corner`): the front's stone on its beds, its own window
+                            column and basement light, the front and the side wall stopped
+                            at it, and the cornice, the mansard's rings, the gutter and the
+                            curb's cresting turned round it on two mitres
   k01.wall.round_arcade     the porch's arcade round that corner (T-2991, the loggia's
                             `round_arcade`): round-headed lights cut through the round's
                             courses into the porch's shadow, each over a colonnette
@@ -1752,11 +1757,16 @@ class Assembly:
         # (T-3112: from the pier's side, which stops under the cap)
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         s_lo = p.front_pier["to_m"] if p.front_pier and beds is None else 0.0
+        s_hi = length
+        if p.cant_corner:   # T-3186: and stopped where a canted corner cuts the wall
+            c0, c1 = k01_frontage_params.cant_corner_plan(p.cant_corner, p.depth_m, p.width_m)["walls"].get(
+                cid, (length, length))
+            s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
                 self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
             else:
-                self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)],
+                self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)],
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
@@ -3450,8 +3460,12 @@ class Assembly:
         # the elements: the hip over the wall line, a body under it (the walls' tops,
         # so the soffit is a ring and not a lid; never emitted), the dormer, the stacks
         if m:   # T-2370: K05's mansard ring stack, the lower faces curved to the curb
+            # T-3186: a canted corner cuts every ring on its face's line, out to the fascia
+            cut = ((lambda ring, out: k01_frontage_params.cant_ring(ring, p.cant_corner, D, W, out)),
+                   o + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0))) if p.cant_corner else None
             hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
-                                            m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+                                            m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
+                                            cut=cut)
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
@@ -3459,6 +3473,9 @@ class Assembly:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if p.cant_corner:   # T-3186: and the walls' tops under it cut on the face's own line
+            ring = k01_frontage_params.cant_ring(k5.inset_rect(0.0, D, -W, 0.0, 0.0), p.cant_corner, D, W, 0.0)
+            solids[1] = k5.ring_stack([(hs - 1.0, ring), (hs, ring)], ["wall"], "base", top_role="hidden")
         spp = (m or {}).get("side_parapet")
         if spp:
             # T-3061: a side wall carried up past the curb as a coped parapet, joined FIRST so
@@ -3951,8 +3968,12 @@ class Assembly:
     def _in_gable_dormer(self, tri):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+        # T-3186: a turned dormer's box is tested in the frame it was built in
+        turned = [((cx - mx) * nx + (cz - mz) * nz, -(cx - mx) * nz + (cz - mz) * nx, b)
+                  for mx, mz, nx, nz, b in getattr(self, "gable_dormer_turns", ())]
         return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
-                   for b in getattr(self, "gable_dormer_boxes", ()))
+                   for b in getattr(self, "gable_dormer_boxes", ())) or \
+            any(b[0] - 1e-6 <= x <= b[1] + 1e-6 and b[2] - 1e-6 <= z <= b[3] + 1e-6 for x, z, b in turned)
 
     def _emit_shell(self, pts, tris, seed, conf):
         """Each triangle into its material, with metric UVs: a covering's courses run up
@@ -4178,12 +4199,42 @@ class Assembly:
         fascia = {"street": D + o, "rear": -o, "north": -W - o, "south": o}
         out = []
         for d in m.get("dormers", ()):
+            if d["face"] == "cant":   # T-3186: a street dormer, turned onto the canted face
+                g = self.cant_dormer_body(d, m, E)
+                self.round_dormers.append(g["geom"])
+                out.append(g)
+                continue
             centre = d["along_m"] if self.DORMER_FACES[d["face"]][0] == "z" else -d["along_m"]
             g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
                                        m["lower_pitch_deg"], m["bulge"], E)
             self.round_dormers.append(g["geom"])
             out.append(g)
         return out
+
+    def cant_dormer_body(self, d, m, E):
+        """T-3186: the canted corner's dormer: built as a street dormer whose face's fascia line
+        crosses the axis at the origin, then turned about the vertical onto the canted face's
+        normal and moved to the middle of the face's fascia line, its sash's frame with it. A
+        gabled one's plan box goes with its turn (`gable_dormer_turns`), so its cheeks are slated."""
+        from . import k05_roofs as k5
+        D, W, o = self.p.depth_m, self.p.width_m, self.p.eave_overhang_m
+        plan = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)
+        (u0, v0), (u1, v1) = plan["ends"]
+        nx, nz = plan["normal"][0], -plan["normal"][1]
+        mx, mz = (u0 + u1) / 2 + nx * o, -(v0 + v1) / 2 + nz * o
+        boxes = len(getattr(self, "gable_dormer_boxes", []))
+        g = self.round_dormer_body(d, "street", 0.0, 0.0, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"], E)
+        turn = lambda q: (mx + q[0] * nx - q[2] * nz, q[1], mz + q[0] * nz + q[2] * nx)
+        vec = lambda q: (q[0] * nx - q[2] * nz, q[1], q[0] * nz + q[2] * nx)
+        for key in ("body", "recess"):
+            g[key] = [k5.Poly([turn(q) for q in pl.v], pl.role) for pl in g[key]]
+        for key in ("O", "sill_pt", "top_pt"):
+            g["geom"][key] = turn(g["geom"][key])
+        g["geom"]["R"] = vec(g["geom"]["R"])
+        if len(getattr(self, "gable_dormer_boxes", [])) > boxes:
+            self.gable_dormer_turns = getattr(self, "gable_dormer_turns", []) + \
+                [(mx, mz, nx, nz, self.gable_dormer_boxes.pop())]
+        return g
 
     def slope_dormer_bodies(self, E, tp):
         """T-2866: the hip's side-slope dormers (1625's on its open south side), each the
@@ -4476,6 +4527,44 @@ class Assembly:
             pr.face([_add(c, r) for r in ring], nn, self.basis(mat, c, side, bis, seed), conf)
 
     # -- rainwater: gutter, brackets, outlets, downpipes, shoes, splash stones -----------
+    def cant_gutter(self, A):
+        """T-3186: the eave gutter's runs round a house with a canted corner: the wall line's five
+        sides (the face between the two walls it cuts) each moved `A` out, as rainwater() reads
+        them — each run's start, direction, outward side and length, the run each wall's pipes
+        stand on, and how far along it that wall's s = 0 stands."""
+        D, W = self.p.depth_m, self.p.width_m
+        (u0, v0), (u1, v1) = k01_frontage_params.cant_corner_plan(self.p.cant_corner, D, W)["ends"]
+        line = [(D, 0.0), (D, -W), (0.0, -W), (0.0, 0.0)]
+        names = ["k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south"]
+        origin = dict(zip(names, line))
+        i = 1 if self.p.cant_corner["corner"] == "north" else 0
+        line[i:i + 1] = [(u0, -v0), (u1, -v1)]
+        if i == 0:   # the south corner: the front starts at the face's end, the face closes the loop
+            line = line[1:] + line[:1]
+        names.insert(1 if i == 1 else 4, k01_frontage_params.CANT_WALL)
+        n = len(line)
+        sides = []
+        for j in range(n):
+            (ax, az), (bx, bz) = line[j], line[(j + 1) % n]
+            L = math.hypot(bx - ax, bz - az)
+            d = ((bx - ax) / L, (bz - az) / L)
+            o = (-d[1], d[0])                               # outward: the wall line runs clockwise from above
+            sides.append(((ax + o[0] * A, az + o[1] * A), d, o))
+        corners = []
+        for j in range(n):
+            (pa, da, _), (pb, db, _) = sides[j - 1], sides[j]
+            den = da[0] * db[1] - da[1] * db[0]
+            t = ((pb[0] - pa[0]) * db[1] - (pb[1] - pa[1]) * db[0]) / den
+            corners.append((pa[0] + da[0] * t, pa[1] + da[1] * t))
+        lens = [math.hypot(corners[(j + 1) % n][0] - corners[j][0], corners[(j + 1) % n][1] - corners[j][1])
+                for j in range(n)]
+        dirs = [(d[0], 0.0, d[1]) for _, d, _ in sides]
+        outs = [(o[0], 0.0, o[1]) for _, _, o in sides]
+        side_of = {w: j for j, w in enumerate(names)}
+        lead = {w: (origin[w][0] - corners[side_of[w]][0]) * dirs[side_of[w]][0]
+                + (origin[w][1] - corners[side_of[w]][1]) * dirs[side_of[w]][2] for w in origin}
+        return corners, dirs, outs, lens, side_of, lead
+
     def rainwater(self, ye, yf, seed):
         p, r = self.p, self.p.rainwater
         if not r["downpipes"]:   # T-2919: a gable's front pipes alone, each from its own head
@@ -4495,11 +4584,15 @@ class Assembly:
         dirs = [(0.0, 0.0, -1.0), (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0), (1.0, 0.0, 0.0)]
         outs = [(1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0)]
         lens = [W + 2 * A, D + 2 * A, W + 2 * A, D + 2 * A]
-        starts = [sum(lens[:i]) for i in range(4)]
-        P = sum(lens)
         side_of = {"k01.wall.street_front": 0, "k01.wall.side.north": 1, "k01.wall.rear_service": 2,
                    "k01.wall.side.south": 3}
-        outlets = sorted(starts[side_of[x["wall"]]] + A + x["s_m"] for x in r["downpipes"])
+        lead = {w: A for w in side_of}       # how far along its run a wall's s = 0 stands
+        if p.cant_corner:
+            corners, dirs, outs, lens, side_of, lead = self.cant_gutter(A)
+        n_runs = len(lens)
+        starts = [sum(lens[:i]) for i in range(n_runs)]
+        P = sum(lens)
+        outlets = sorted(starts[side_of[x["wall"]]] + lead[x["wall"]] + x["s_m"] for x in r["downpipes"])
         gaps = [((outlets[(i + 1) % len(outlets)] - outlets[i]) % P) or P for i in range(len(outlets))]
         highs = [(outlets[i] + gaps[i] / 2) % P for i in range(len(outlets))]
         reach = max(gaps) / 2
@@ -4516,7 +4609,7 @@ class Assembly:
 
         def at(sv):
             sv %= P
-            i = max(j for j in range(4) if starts[j] <= sv + 1e-9)
+            i = max(j for j in range(n_runs) if starts[j] <= sv + 1e-9)
             t = sv - starts[i]
             cx, cz = corners[i]
             return (cx + dirs[i][0] * t, y_at(sv), cz + dirs[i][2] * t), i, t
@@ -4528,8 +4621,11 @@ class Assembly:
             pt, i, t = at(sv)
             out = outs[i]
             if t < 1e-6:  # a corner: the mitre between the side before and this one
-                prev = outs[(i - 1) % 4]
+                prev = outs[(i - 1) % n_runs]
                 out = (out[0] + prev[0], 0.0, out[2] + prev[2])
+                if p.cant_corner:   # T-3186: a canted corner's 135-degree turns, mitred true
+                    k_ = 2.0 / (out[0] * out[0] + out[2] * out[2])
+                    out = (out[0] * k_, 0.0, out[2] * k_)
             return [(pt[0] - math.cos(a) * rad * out[0], pt[1] - math.sin(a) * rad, pt[2] - math.cos(a) * rad * out[2])
                     for a in secs], pt
 
@@ -4600,7 +4696,7 @@ class Assembly:
                 pr.quad(Ri[j], Rj[j], Rb[j], Ro[j], Y, self.basis(mat, Ri[j], along, _unit(_sub(Ro[j], Ri[j])), seed), conf)
         for sv, sign in stop_ends:   # T-3047: a stop end, the half-round closed across its lips
             arc, _ = ring(sv, ro)
-            i = max(j for j in range(4) if starts[j] <= sv + 1e-9)
+            i = max(j for j in range(n_runs) if starts[j] <= sv + 1e-9)
             n = _mul(dirs[i], sign)
             pr.face(arc, n, self.basis(mat, arc[0], _unit(_sub(arc[-1], arc[0])), Y, seed), conf)
         # wrought-iron hangers at the bracket spacing, a band under the gutter and a leg
@@ -4608,7 +4704,7 @@ class Assembly:
         iron = self.prim("iron")
         bw = r["bracket_section_m"][0] / 2
         rb = ro + r["bracket_section_m"][1] * 0.6
-        for i in range(4):
+        for i in range(n_runs):
             t = 0.30
             while t < lens[i] - 0.30:
                 sv = starts[i] + t
@@ -4643,7 +4739,7 @@ class Assembly:
             off = r["pipe_offset_from_wall_m"] + (0.05 if x["wall"] == "k01.wall.street_front" else 0.0)
             lat = off + rp
             base = _add(O, _mul(R, x["s_m"]))
-            sv = starts[side_of[x["wall"]]] + A + x["s_m"]
+            sv = starts[side_of[x["wall"]]] + lead[x["wall"]] + x["s_m"]
             gy = y_at(sv)
             at_wall = lambda l, y: (base[0] + N[0] * l, y, base[2] + N[2] * l)
             p0 = at_wall(A, gy - ro + 0.002)
@@ -4934,6 +5030,9 @@ def build(params, structure_id: str):
     # T-3048: and a chamfered pavilion's canted face stands where the square corner was, from
     # grade, so the front and its side wall are cut back to it as far up
     rounded = {**rounded, **k01_frontage_params.chamfer_spans(p.bays, D, W)}
+    # T-3186: a canted corner cuts the front and its side wall back to its face, to the wall head
+    cant = k01_frontage_params.cant_corner_plan(p.cant_corner, D, W) if p.cant_corner else None
+    cant_cut = {w: (*sp, 0.0, E) for w, sp in cant["walls"].items()} if cant else {}
     y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 
@@ -4948,6 +5047,8 @@ def build(params, structure_id: str):
                                        (g["cuts"][0], g["cuts"][-1], g["spring_m"], g["top_m"])]
         if wall_id in rounded:
             finish_gap = finish_gap + [(*rounded[wall_id], 0.0, y_round)]
+        if wall_id in cant_cut:
+            finish_gap = finish_gap + [cant_cut[wall_id]]
         # T-3112: the side wall beside the pier stepped down under its weathering's slope
         if p.front_pier and wall_id == "k01.wall.side.south":
             L, step = a.pier_slope(), 0.1
@@ -4987,6 +5088,10 @@ def build(params, structure_id: str):
         "k01.wall.rear_service": (side, (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
         "k01.wall.side.south": (side, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("south")),
     }
+    if cant:   # T-3186: the canted face, from the end of the wall before it to the start of the next
+        (u0, v0), (u1, v1) = cant["ends"]
+        walls[k01_frontage_params.CANT_WALL] = (side, (u0, 0.0, -v0), _unit((u1 - u0, 0.0, v0 - v1)),
+                                                p.cant_corner["face_m"], p.front_thickness_m, belts)
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]
                  + ([p.rear_section["host_span_m"]] if p.rear_section and p.rear_section["host_wall"] == cid else [])
@@ -5019,6 +5124,7 @@ def build(params, structure_id: str):
         frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front,
                                       extra=([(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else [])
                                       + ([(0.0, p.front_pier["to_m"], 0.0, E)] if p.front_pier else [])
+                                      + ([cant_cut["k01.wall.street_front"]] if cant else [])
                                       + a.bay_holes.get("k01.wall.street_front", []))
         if p.round_corner:
             a.round_corner(t)
