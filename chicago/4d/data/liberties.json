@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 817,
+  "count": 818,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56953,12 +56953,6 @@
           "domain": "structure",
           "structure": "dexter_house_1721_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.side_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "dexter_house_1721_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.stair_tread_m"
         },
         {
@@ -56997,7 +56991,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.side_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`"
+          "text": "`dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`"
         },
         {
           "label": "Decision",
@@ -57017,7 +57011,7 @@
         },
         {
           "label": "Kit fit",
-          "text": "the K08 bay kit's gate refused two of the reconstructed window choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and says why in its record: the plate draws it taller than the lights above, and its size is read only in proportion to the 5.6 m storey."
+          "text": "the K08 bay kit's gate refused two of the reconstructed window choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and says why in its record: the plate draws it taller than the lights above, and its size is read only in proportion to the 5.6 m storey. **form.side bays retired from this liberty by later work (2026-10-27):** the north flank's lights (K01's south wall in this house's frame) are now read off the 1891 plate through its solved camera — one column 4.0 m back from the front corner, a window, a small oval light and a slot — and graded inferred, under `“1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank”`. The south and rear walls' lights stay this liberty's."
         }
       ],
       "work_refs": [
@@ -58012,6 +58006,41 @@
       "work_refs": [
         "T-1890",
         "T-3000"
+      ]
+    },
+    {
+      "id": "L-k01-1721-dress-1879",
+      "title": "1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank",
+      "section": "per_subject",
+      "subjects": [
+        "dexter_house_1721_prairie",
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (package N18B) solves the 1891 plate's camera (the inland architect plate data, 5.5 px RMS) and builds the front until the render from it shows the plate's building: two lights a storey on each bow with a blank pier at its middle; four lights on the forward block's third floor and a round-headed fanlight between the bows; a stone balustrade round each bow's top and along the forward block's parapet; the recessed front's parapet solid for 1.5 m from its corner and then balustered; open louvred shutters at every light of the front but the round-headed one; iron guards on stone slabs under the ground floor's bay lights; the stack carried up to 16.9 m; and the north flank as one column of openings. **What is read, not invented.** From the plate, through its camera: every count and place above, the stack's height, the guards' and balustrades' runs, the north flank's three openings. **What is invented.** The shutters' colour (the deep green chose for 1637's; the plate is monochrome); the balusters' section (square, the plate's are turned); the guards' bars and their 0.85 m height and 0.3 m projection; the balustrades' heights (0.75-0.8 m, read only in proportion); the north flank's oval light, built square-headed at its size because K01 cuts no oval; the carved tablets over the upper lights, for which a cornice hood (the recessed front) and K06's plain head (the bays) stand; the forward parapet's 1.5 m solid pedestal at its north-west corner, built pierced. Each is `within tolerance` in the match record, with its reason. **The other pictures.** The two c. 1888 photographs (`a16-ghm-blog-1721-dexter-c1888`, `cgn-1721-dexter-winter-photo-copy`) show the frame house before Little's front of 1889 — another phase, so no camera is solved on them for as mapped 1904. The Detroit print (`a16-pullman-det-4a08065`) sees 1721 only at its left edge behind trees; its camera is Pullman's (1729 Prairie Avenue — the George M. Pullman house). The c. 1905 Clark negative (`a16-chm-clark-ichi-071912-dexter-c1905`) is online only as a 375 px contact thumbnail inside a scrapbook PDF and is not in the image store; when it is fetched it is the 1904 phase's closest picture and takes a camera of its own. **Grades.** The new attributes (form.window shutters, form.flat balustrade) and the reworked `form.bays`, form.side bays and `form.chimneys` are `inferred`: what they place is the plate's, their sizes are read in proportion and their notes say so; the inventions above live inside them. **How it is built.** Three additive kit options, which no other record names (every other K01, K12, K13 and K16 asset re-emitted byte-identical): window shutters on K01's own walls, `shutters` and `guard` on a K08 bay's light (in the light's frame, so a bow bends them), and flat balustrade, the flat roof's blocking course stopped at a plinth and balustered over a stretch of the street front."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper or colour picture of the front (the Clark negative at full size) replaces the shutters' colour, the balusters' section and the tablets' carving."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1721 dexter, an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-1879)."
+        }
+      ],
+      "work_refs": [
+        "T-1837",
+        "T-2887",
+        "T-1879"
       ]
     },
     {
