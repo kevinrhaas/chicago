@@ -1,4 +1,39 @@
 export const CHANGELOG = [ // newest first
+  { v: 2352, ts: '2026-10-27T22:12:23.059Z', date: 'Oct 27, 2026, 5:12 PM CT', title: '1721 Prairie matches its 1891 photograph', kind: 'feature',
+    items: [
+      'The Dexter house at 1721 Prairie Avenue now matches the 1891 Inland Architect plate seen from the plate\'s own camera: balustrades on both bows and along the parapets, louvred shutters at the front\'s windows, iron balconettes at the ground floor, a round-headed window between the bows and the tall chimney at its full height.',
+    ] },
+  { v: 2351, ts: '2026-10-27T21:45:30.328Z', date: 'Oct 27, 2026, 4:45 PM CT', title: 'Wooden poles and wires on 18th Street, the alleys and 22nd', kind: 'feature',
+    items: [
+      'Glessner\'s pole stands by the stable on 18th Street, where an 1887 photograph shows it, with its crossarm and glass insulators.',
+      'A line of poles runs from it to Indiana Avenue and down every alley, the wires sagging between them.',
+      '22nd Street has its streetcar overhead: span wires on paired poles and two trolley wires over the tracks.',
+      'No pole stands on Prairie Avenue, where the pictures show none.',
+      'On a phone the wires are left off to save the frame.',
+    ] },
+  { v: 2350, ts: '2026-10-27T21:11:00.302Z', date: 'Oct 27, 2026, 4:11 PM CT', title: 'Fire hydrants stand on the 1904 parkways', kind: 'feature',
+    items: [
+      'A cast-iron post fire hydrant stands at Pullman\'s corner, beside the walk north of 18th Street, where the Detroit Publishing view shows it.',
+      'Another stands toward 22nd Street at Tucker\'s, from the 2140 photograph.',
+      'The rest stand one to an intersection and one mid-block on each long block, in the parkway grass by the curb.',
+      'Tap a hydrant for its card.',
+    ] },
+  { v: 2349, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: '1904 Prairie: carriage blocks cleared from the curbs', kind: 'fix',
+    items: [
+      '91 curb blocks removed; period photos show the parkway edge clear.',
+      '13 stone carriage posts stand where photos show them: 1815 Prairie and the 2100 block.',
+      'Each post differs in height, cap, lean and stone tone.',
+      'Carriage walks across the parkway are unchanged.',
+    ] },
+  { v: 2348, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: 'The Kimball house\'s tower wears its turned finial, its dormers their slate', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s corner tower now carries the knobbed, turned finial of the c. 1895 Taylor photograph, rising from a crocketed collar on the cone\'s tip, in pale metal where a plain slate spike stood.',
+      'The house\'s three hooded dormers have slated faces with a pale frame round each small window, as the Taylor photograph and the 1965 HABS photograph show them, where their faces were plain stone.',
+    ] },
+  { v: 2347, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: '1827 Prairie\'s carved window heads and slated attic cheeks', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie matches its photograph more closely: carved stone panels now arch over the windows of its front pavilion and of the window bay beside it, the pavilion\'s attic is slated at its sides around a stone face with its three windows, and the steep roof over it sits closer to the wall, as the photograph shows.',
+    ] },
   { v: 2346, ts: '2026-10-27T19:19:34.707Z', date: 'Oct 27, 2026, 2:19 PM CT', title: 'Gas lamps stand at every corner and along the 1904 parkways', kind: 'feature',
     items: [
       'A cast-iron gas lamp post stands at each of the district\'s 28 street corners, on a stone footing at the curb corner.',
