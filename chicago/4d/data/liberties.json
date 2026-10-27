@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 799,
+  "count": 800,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1359,7 +1359,7 @@
     },
     {
       "id": "jones_house_1834_prairie",
-      "name": "1834 Prairie Avenue — Jones villa with mansard addition"
+      "name": "1834 Prairie Avenue — Fernando Jones house"
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
@@ -35072,18 +35072,6 @@
         },
         {
           "domain": "structure",
-          "structure": "jones_house_1834_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "jones_house_1834_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "jones_house_1834_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35148,7 +35136,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35175,6 +35163,10 @@
           "text": "1824 Pomeroy/Marsh's house by later work, which refined it in place on the K01 frontage kit under `“1824 Prairie refined from the district draft to a K01 house: the 1857 Pomeroy villa's flanks and bracketed eaves behind the stone front of about 1880, its cupola ruled out of 1904”`; its stable is still this draft's."
         },
         {
+          "label": "Retired in part",
+          "text": "1834 Jones's house by later work, which refined it in place on the K01 frontage kit under `“1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them”`; its alley building is still this draft's."
+        },
+        {
           "label": "Review",
           "text": "the research notes on prairie draft west."
         },
@@ -35197,6 +35189,8 @@
         "T-1887",
         "T-3166",
         "T-3167",
+        "T-1888",
+        "T-3183",
         "T-2329",
         "T-2159"
       ]
@@ -56331,6 +56325,117 @@
       "work_refs": [
         "T-1886",
         "T-2964"
+      ]
+    },
+    {
+      "id": "L-k01-1834-jones-1888",
+      "title": "1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them",
+      "section": "per_subject",
+      "subjects": [
+        "jones_house_1834_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.mansard"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "jones_house_1834_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        }
+      ],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1834 Prairie Avenue, built for Fernando Jones in 1866 to John M. Van Osdel's design and given a mansard storey in 1886 (the marker), is no longer a district draft. It stands, under the draft's own id 1834 Prairie Avenue — Fernando Jones house, as a k01 frontage record built by the k01 emit generator: a front of dark brick over a basement of smooth light ashlar, four bays with the door in the second from the south at the head of a straight stoop, every window segmental-headed under a keyed hood, a deep bracketed cornice round the front and the north flank, and on the north flank one window a storey, a round-headed pair and a one-storey canted bay of stone; a low stone wall on the street line. The picture is one photograph of before 1886 in two prints (1834 S. Prairie. [The Fernando Jones house, John M. Van Osdel architect, 1866.]…, Glessner House Museum, 'John M. Van Osdel, Chicago's First Architect', The…), rights check required, read for forms, counts, places and proportions only. **The print is reversed.** Both prints show the flank with the bay on the left of the front. Read so, the camera stands south-east of the house and the bay on the south flank, where the 1911 sheet draws a straight wall, the flank's windows come out 2.5-3 m wide and the principal point stands at the print's edge (cost 31.8 px^2). Turned back, the camera stands north-east across Prairie Avenue, as the Prairie library says, the bay falls on the north flank 9-12 m back where the sheet draws one, and the fit closes within 2 px (cost 5.6). The cameras carry `mirrored: true` (adds it to the photo match tool); the committed copies are unaltered. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1834-b1, census s28-1834-front): the body's place and plan (22.25 by 9.58 m), brick with a stone front, three storeys (the mansard's among them), the north flank's bay. From the photograph, through its solved camera: the principal floor 2.2 m, the wall head 9.75 m, the storeys 3.95 and 3.6 m, the four columns and the door's place, the windows' and the door's sizes, the segmental heads and keys, the stone basement and its basement lights, the bracketed cornice and its eave, the north flank's windows and the bay's place, size and height, the stone wall on the street line. **What is invented.** The mansard storey of 1886: the register and the sheet's storey count say it was there; no picture of it is held, so it is built as 1816's is, a slated convex mansard 3.6 m high on the cornice with two gabled dormers on the street face and a tin deck. The stone (K02's Lemont limestone; the print is monochrome), the front's brick tone (a red-brown, darker than the flanks, as the print reads them), the walls' thicknesses, the south flank's and the rear's windows, the stacks' places on the flanks, the rainwater, the treads. **Ruled.** The photograph's low hipped roof, its broad centre gable and the oculus in it are the house before 1886 and are not built in 1904; the match records call them `not shown`. The door is followed to the photograph, where the sheet's stone stoop stands about 1.5 m north of its axis. The body runs full width to the rear, where the sheet steps the north wall back 1.26 m behind the bay; the rear frame porches on the sheet are not built. **What is not built.** The door's hood; the iron balconettes under the two north principal windows; the stoop's iron railings (K07's stone cheeks stand in their place); the north flank's stone basement; the bay's round-headed lights and bracketed top; the cornice's full depth. And K01's stone front lays a belt at the second floor that the print does not show."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds what is open and brings both match records to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_front_m`, `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_side_m`, `jones_house_1834_prairie.as_mapped_1904.form.service_wall_brick`, `jones_house_1834_prairie.as_mapped_1904.form.street_front_brick`, `jones_house_1834_prairie.as_mapped_1904.form.roof_pitch_deg`, `jones_house_1834_prairie.as_mapped_1904.form.roof_covering`, `jones_house_1834_prairie.as_mapped_1904.form.stair_tread_m`, `jones_house_1834_prairie.as_mapped_1904.form.side_bays`, `jones_house_1834_prairie.as_mapped_1904.form.rear_bays`, `jones_house_1834_prairie.as_mapped_1904.form.chimneys`, `jones_house_1834_prairie.as_mapped_1904.form.rainwater`, `jones_house_1834_prairie.as_mapped_1904.form.mansard`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1834 jones."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3183)."
+        }
+      ],
+      "work_refs": [
+        "T-3183",
+        "T-1888",
+        "T-3184"
       ]
     },
     {

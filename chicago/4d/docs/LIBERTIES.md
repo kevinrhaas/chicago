@@ -24140,7 +24140,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24194,6 +24194,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 **Retired in part:** 1816 Henderson's house by T-2963 (piece 1 of T-1886), which refined it in place on the K01 frontage kit under `L-k01-1816-henderson-2963`; its stable is still this draft's.
 **Retired in part:** 1828 Shipman's house by T-3166 (piece 1 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1828-shipman-1887`; its stable is still this draft's.
 **Retired in part:** 1824 Pomeroy/Marsh's house by T-3167 (piece 2 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1824-marsh-1887`; its stable is still this draft's.
+**Retired in part:** 1834 Jones's house by T-3183 (piece 1 of T-1888), which refined it in place on the K01 frontage kit under `L-k01-1834-jones-1888`; its alley building is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
@@ -33774,6 +33775,54 @@ hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
 
+
+### L-k01-1834-jones-1888 — 1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them
+
+**Decision:** the house at 1834 Prairie Avenue, built for Fernando Jones in 1866 to John M. Van Osdel's
+design and given a mansard storey in 1886 (the marker), is no longer a district draft (T-3183, piece 1
+of T-1888). It stands, under the draft's own id `jones_house_1834_prairie`, as a `k01_frontage` record
+built by `generators/k01_emit.py`: a front of dark brick over a basement of smooth light ashlar, four
+bays with the door in the second from the south at the head of a straight stoop, every window
+segmental-headed under a keyed hood, a deep bracketed cornice round the front and the north flank, and
+on the north flank one window a storey, a round-headed pair and a one-storey canted bay of stone; a low
+stone wall on the street line. The picture is one photograph of before 1886 in two prints
+(`chicagology_1834_jones_photo`, `glessner_blog_2015_08_van_osdel`), rights check_required, read for
+forms, counts, places and proportions only.
+**The print is reversed.** Both prints show the flank with the bay on the left of the front. Read so,
+the camera stands south-east of the house and the bay on the south flank, where the 1911 sheet draws a
+straight wall, the flank's windows come out 2.5-3 m wide and the principal point stands at the print's
+edge (cost 31.8 px^2). Turned back, the camera stands north-east across Prairie Avenue, as the Prairie
+library says, the bay falls on the north flank 9-12 m back where the sheet draws one, and the fit closes
+within 2 px (cost 5.6). The cameras carry `mirrored: true` (T-1888 adds it to `tools/photo_match.mjs`);
+the committed copies are unaltered.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1834-b1, census
+s28-1834-front): the body's place and plan (22.25 by 9.58 m), brick with a stone front, three storeys
+(the mansard's among them), the north flank's bay. From the photograph, through its solved camera: the
+principal floor 2.2 m, the wall head 9.75 m, the storeys 3.95 and 3.6 m, the four columns and the
+door's place, the windows' and the door's sizes, the segmental heads and keys, the stone basement and
+its basement lights, the bracketed cornice and its eave, the north flank's windows and the bay's place,
+size and height, the stone wall on the street line.
+**What is invented.** The mansard storey of 1886: the register and the sheet's storey count say it was
+there; no picture of it is held, so it is built as 1816's is, a slated convex mansard 3.6 m high on the
+cornice with two gabled dormers on the street face and a tin deck. The stone (K02's Lemont limestone;
+the print is monochrome), the front's brick tone (a red-brown, darker than the flanks, as the print
+reads them), the walls' thicknesses, the south flank's and the rear's windows, the stacks' places on the
+flanks, the rainwater, the treads.
+**Ruled.** The photograph's low hipped roof, its broad centre gable and the oculus in it are the house
+before 1886 and are not built in 1904; the match records call them `not shown`. The door is followed to
+the photograph, where the sheet's stone stoop stands about 1.5 m north of its axis. The body runs full
+width to the rear, where the sheet steps the north wall back 1.26 m behind the bay; the rear frame
+porches on the sheet are not built.
+**What is not built.** The door's hood; the iron balconettes under the two north principal windows; the
+stoop's iron railings (K07's stone cheeks stand in their place); the north flank's stone basement; the
+bay's round-headed lights and bracketed top; the cornice's full depth. And K01's stone front lays a belt
+at the second floor that the print does not show.
+**How to resolve:** T-3184 (piece 2 of T-1888) builds what is open and brings both match records to
+`matches`.
+**Covers:** `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_front_m`, `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_side_m`, `jones_house_1834_prairie.as_mapped_1904.form.service_wall_brick`, `jones_house_1834_prairie.as_mapped_1904.form.street_front_brick`, `jones_house_1834_prairie.as_mapped_1904.form.roof_pitch_deg`, `jones_house_1834_prairie.as_mapped_1904.form.roof_covering`, `jones_house_1834_prairie.as_mapped_1904.form.stair_tread_m`, `jones_house_1834_prairie.as_mapped_1904.form.side_bays`, `jones_house_1834_prairie.as_mapped_1904.form.rear_bays`, `jones_house_1834_prairie.as_mapped_1904.form.chimneys`, `jones_house_1834_prairie.as_mapped_1904.form.rainwater`, `jones_house_1834_prairie.as_mapped_1904.form.mansard`
+**Ticket:** T-3183 (piece 1 of T-1888).
+**Review:** `docs/RESEARCH/k01-1834-jones-1888/README.md`.
+**Recorded:** 2026-10-27 (T-3183).
 
 ### L-k01-1824-marsh-1887 — 1824 Prairie refined from the district draft to a K01 house: the 1857 Pomeroy villa's flanks and bracketed eaves behind the stone front of about 1880, its cupola ruled out of 1904
 

@@ -27,6 +27,8 @@
 //   yaw_deg        the heading, degrees clockwise from north (90 looks due east)
 //   basis_right_up_forward optional: three orthonormal [east,north,up] vectors for
 //                  inclined or rolled photographs; overrides yaw orientation
+//   mirrored       optional (default false): the print is laterally reversed; the pixels
+//                  above are the picture's turned back, and the side-by-side turns it back
 //   sun_uvy        optional: the direction the photograph's sunlight comes from, [u, v, y]
 //                  in the same frame (T-2369: which walls are lit and where shadows fall is
 //                  part of what is compared); the review render's default east-north-east sun
@@ -68,6 +70,10 @@ const camFile = args.find(a => a.endsWith('.json'));
 if (!camFile) { console.error('usage: node tools/photo_match.mjs <camera.json> [--glb <path>] [--out <dir>]'); process.exit(2); }
 const cam = JSON.parse(fs.readFileSync(camFile, 'utf8'));
 if (cam.pixel_aspect !== undefined && (!Number.isFinite(cam.pixel_aspect) || cam.pixel_aspect<=0.5 || cam.pixel_aspect>=2)) throw Error('pixel_aspect must be finite and between 0.5 and 2');
+// T-1888: a print laterally reversed (1834's, its camera only fits the 1911 sheet turned the
+// right way round): the camera's pixels are the corrected picture's, and the side-by-side shows
+// the committed copy, unaltered, turned back
+if (cam.mirrored !== undefined && typeof cam.mirrored !== 'boolean') throw Error('mirrored must be true or false');
 if (cam.sky !== undefined && !['sun', 'overcast'].includes(cam.sky)) throw Error('sky must be "sun" or "overcast"');
 if (cam.near_m !== undefined && (!Number.isFinite(cam.near_m) || cam.near_m<=0 || cam.near_m>=500)) throw Error('near_m must be finite and between 0 and the 500 m far plane');
 if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.clip_planes.some(p => !p || !Array.isArray(p.normal) || p.normal.length !== 3 || !p.normal.every(Number.isFinite) || Math.abs(Math.hypot(...p.normal)-1)>1e-6 || !Number.isFinite(p.constant)))) throw Error('clip_planes requires finite unit [east,north,up] normals and constants in metres');
@@ -183,7 +189,7 @@ try {
   const side = path.join(out, `${name}-side-by-side.jpg`);
   const png = fs.readFileSync(render).toString('base64');
   await page.setViewportSize({width: 2 * W + 24, height: H});
-  await page.setContent(`<body style="margin:0;background:#fff;display:flex;gap:24px"><img src="${base}/__photo" style="width:${W}px;height:${H}px"><img src="data:image/png;base64,${png}" style="width:${W}px;height:${H}px"></body>`);
+  await page.setContent(`<body style="margin:0;background:#fff;display:flex;gap:24px"><img src="${base}/__photo" style="width:${W}px;height:${H}px${cam.mirrored ? ';transform:scaleX(-1)' : ''}"><img src="data:image/png;base64,${png}" style="width:${W}px;height:${H}px"></body>`);
   await page.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth));
   await page.screenshot({path: side, type: 'jpeg', quality: 82});
   // the match record the image gate reads (T-2368)
