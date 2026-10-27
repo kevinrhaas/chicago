@@ -38,6 +38,9 @@ const RINGS = {
   light: { near: 30, far: 200, shadow: false },
 };
 const REDEAL_M = 3;
+// A hydrant is under a metre tall: past this it is a speck, so it is not drawn at all.
+const HYDRANT_FAR_M = { full: 160, balanced: 130, light: 90 };
+const KINDS = ['gas_lamp', 'fire_hydrant'];
 
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -145,6 +148,42 @@ function footingGeometry(m) {
   return { near, far: near.clone() };
 }
 
+/**
+ * The post hydrant, in its own frame: y up from the ground, local x along the street (its
+ * two nozzles point along it). `m` is the data file's `model_m`. Returns { near, far }.
+ */
+function hydrantGeometry(m) {
+  const H = m.height_m ?? 0.85;
+  const r = (m.barrel_d_m ?? 0.2) / 2;
+  const foot = (m.foot_d_m ?? 0.34) / 2;
+  const bandY = m.band_at_m ?? 0.62;
+  const nozY = m.nozzles_at_m ?? 0.5;
+  const domeY = bandY + 0.05;
+  const near = merge([
+    // The flared foot and the barrel, one turned profile up to the band.
+    lathe([[0, 0], [foot, 0], [foot, 0.04], [foot * 0.8, 0.07], [r * 1.15, 0.13], [r, 0.18],
+      [r, bandY - 0.03], [r * 1.22, bandY - 0.02], [r * 1.22, bandY + 0.03], [r * 1.05, domeY], [0, domeY]], 14),
+    // The domed bonnet and the operating nut on its top.
+    at(new THREE.SphereGeometry(r * 1.02, 14, 6, 0, Math.PI * 2, 0, Math.PI / 2), domeY),
+    at(new THREE.CylinderGeometry(0.028, 0.032, H - domeY - r * 1.02 + 0.01, 5), (H + domeY + r * 1.02) / 2 - 0.005),
+    // The two side nozzles and their caps, along the street.
+    ...[1, -1].map((s) => {
+      const g = merge([
+        at(new THREE.CylinderGeometry(0.045, 0.05, 0.08, 10), 0),
+        at(new THREE.CylinderGeometry(0.052, 0.052, 0.03, 6), 0.05),
+      ]);
+      g.rotateZ(-s * Math.PI / 2);
+      g.translate(s * (r + 0.035), nozY, 0);
+      return g;
+    }),
+  ]);
+  const far = merge([
+    at(new THREE.CylinderGeometry(r, foot * 0.9, domeY, 6), domeY / 2),
+    at(new THREE.ConeGeometry(r, H - domeY, 6), (H + domeY) / 2),
+  ]);
+  return { near, far };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the card                                                                    */
 /* -------------------------------------------------------------------------- */
@@ -174,9 +213,8 @@ function itemCard(it, doc) {
       name: `A ${kind.name ?? 'street lamp'}`,
       phase: null,
       change_note: attested
-        ? `A cast-iron gas lamp post ${where}, where a picture shows one: ${pictures.join('; ')}. ${it.note ?? ''}`.trim()
-        : `A cast-iron gas lamp post ${where}. The pictures show such lamps at the district's corners and along `
-          + 'its parkways; this one\'s place is our reconstruction.',
+        ? `${kind.what ?? 'A street lamp'} ${where}, where a picture shows one: ${pictures.join('; ')}. ${it.note ?? ''}`.trim()
+        : `${kind.what ?? 'A street lamp'} ${where}. ${kind.rule_note ?? ''}; this one's place is our reconstruction.`,
       placement: {
         symbolic_location: it.face ?? (it.faces ?? []).join(' / '),
         position_confidence: it.grade,
@@ -195,7 +233,7 @@ function itemCard(it, doc) {
       },
       citations: citationsOf(doc, [...(it.sources ?? []), ...(kind.form_sources ?? [])]),
       research_doc: 'docs/RESEARCH/prairie_1904_street_furniture.md',
-      research_note: `Item ${it.id} of data/street_furniture/1904.json (T-3199). ${it.liberty ?? ''}`.trim(),
+      research_note: `Item ${it.id} of data/street_furniture/1904.json (${kind.ticket ?? 'T-3199'}). ${it.liberty ?? ''}`.trim(),
     },
   };
 }
@@ -214,7 +252,7 @@ export async function createStreetFurniture({
 } = {}) {
   const group = new THREE.Group();
   group.name = 'street-furniture';
-  const stats = { items: 0, lamps: 0, near: 0, far: 0, triangles: 0, drawCalls: 0, detail };
+  const stats = { items: 0, lamps: 0, hydrants: 0, near: 0, far: 0, hydrantsDrawn: 0, triangles: 0, drawCalls: 0, detail };
   const out = {
     group, stats, records: [],
     pickAt: () => null, update() {}, setDetail() {}, cardFor: () => null, dispose() {},
@@ -224,13 +262,14 @@ export async function createStreetFurniture({
   try {
     doc = await getJSON(new URL(`street_furniture/${sceneId}.json`, dataBase));
   } catch (err) {
-    problems.push(`street furniture: ${err.message} — no street lamp is drawn`);
+    problems.push(`street furniture: ${err.message} — no street furniture is drawn`);
     return out;
   }
-  const items = (doc.items ?? []).filter((it) => it.kind === 'gas_lamp');
+  const items = (doc.items ?? []).filter((it) => KINDS.includes(it.kind));
   out.records = items;
   stats.items = (doc.items ?? []).length;
-  stats.lamps = items.length;
+  stats.lamps = items.filter((it) => it.kind === 'gas_lamp').length;
+  stats.hydrants = items.filter((it) => it.kind === 'fire_hydrant').length;
   if (!items.length) return out;
 
   /* ---- the parts, each one instanced geometry per level ------------------ */
@@ -238,16 +277,23 @@ export async function createStreetFurniture({
   const lamp = lampGeometry(model);
   const footing = footingGeometry(model);
   const footH = model.footing_m?.h ?? 0.16;
+  const hydrantModel = doc.kinds?.fire_hydrant?.model_m ?? {};
+  const hydrant = hydrantGeometry(hydrantModel);
+  const isLamp = (it) => it.kind === 'gas_lamp';
+  const isHydrant = (it) => it.kind === 'fire_hydrant';
   const mats = {
     iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
     glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
+    // The Detroit view prints the hydrant lighter than the lamp posts: a mid-grey paint.
+    hydrant: new THREE.MeshStandardMaterial({ color: 0x6f6e66, roughness: 0.6, metalness: 0.25 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
-    { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: () => true },
-    { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: () => true },
+    { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: isLamp },
+    { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
+    { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
   ];
 
   /* ---- where each lamp stands, once ------------------------------------- */
@@ -278,7 +324,8 @@ export async function createStreetFurniture({
       meshes.push(mesh);
     }
   }
-  for (const g of [lamp.near.iron, lamp.near.glass, lamp.far.iron, lamp.far.glass, footing.near, footing.far]) g.dispose();
+  for (const g of [lamp.near.iron, lamp.near.glass, lamp.far.iron, lamp.far.glass, footing.near, footing.far,
+    hydrant.near, hydrant.far]) g.dispose();
 
   /* ---- the deal: which lamps each level draws, from where the eye is ----- */
   let tier = RINGS[detail] ? detail : 'full';
@@ -286,7 +333,7 @@ export async function createStreetFurniture({
   const m4 = new THREE.Matrix4(); const pos = new THREE.Vector3(); const one = new THREE.Vector3(1, 1, 1);
   const deal = (eye) => {
     const ring = RINGS[tier];
-    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0;
+    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0;
     for (const mesh of meshes) {
       const { part, level } = mesh.userData;
       const conf = mesh.geometry.getAttribute('_confidence');
@@ -294,7 +341,8 @@ export async function createStreetFurniture({
       for (const p of placed) {
         if (!part.on(p.it)) continue;
         const d = Math.hypot(p.x - eye.x, p.z - eye.z);
-        const lvl = d <= ring.near ? 'near' : (d <= ring.far ? 'far' : null);
+        const farM = part.far ? Math.min(ring.far, part.far[tier] ?? ring.far) : ring.far;
+        const lvl = d <= ring.near ? 'near' : (d <= farM ? 'far' : null);
         if (lvl !== level) continue;
         pos.set(p.x, p.y + part.lift(p.it), p.z);
         mesh.setMatrixAt(k, m4.compose(pos, p.q, one));
@@ -311,9 +359,10 @@ export async function createStreetFurniture({
         calls += 1;
         triangles += k * (mesh.geometry.attributes.position.count / 3);
         if (part.name === 'lamp-iron') { if (level === 'near') nearN = k; else farN = k; }
+        if (part.name === 'hydrant') hydN += k;
       }
     }
-    stats.near = nearN; stats.far = farN; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
+    stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
     last.copy(eye);
   };
 
@@ -333,6 +382,7 @@ export async function createStreetFurniture({
   /* ---- picks: a post under the crosshair -------------------------------- */
   const ray = new THREE.Raycaster();
   const height = (model.finial_top_m ?? 3.1);
+  const hydrantH = hydrantModel.height_m ?? 0.85;
   out.pickAt = (ndc, camera) => {
     if (!camera || !group.visible) return null;
     ray.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
@@ -342,14 +392,15 @@ export async function createStreetFurniture({
     let best = null;
     for (const p of placed) {
       const lift = p.it.footing ? footH : 0;
+      const hyd = isHydrant(p.it);
       const dx = o.x - p.x; const dz = o.z - p.z;
       const tt = -(dx * d.x + dz * d.z) / a;
       if (!(tt > 0 && tt < 200)) continue;
       const px = dx + d.x * tt; const pz = dz + d.z * tt;
       const yy = o.y + d.y * tt;
       // The column is thin; the pick takes a lantern's width so a post can be hit.
-      const r = yy > p.y + lift + 2.3 ? 0.26 : 0.16;
-      if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + height
+      const r = hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16);
+      if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + (hyd ? hydrantH : height)
         && (!best || tt < best.distance)) {
         best = { p, distance: tt, point: new THREE.Vector3(o.x + d.x * tt, yy, o.z + d.z * tt) };
       }

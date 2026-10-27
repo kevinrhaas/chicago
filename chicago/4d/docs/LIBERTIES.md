@@ -27325,7 +27325,7 @@ fixes the reveal.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-13 (T-2474).
 
-### L-prairie-carriage-walks-2474 — Carriage walks and carriage blocks before every lot 40 ft wide or more
+### L-prairie-carriage-walks-2474 — Carriage walks before every lot 40 ft wide or more, and carriage posts only where pictured
 
 **Decision:** 91 paved crossings of the parkway, from the walk to the curb, 5 ft wide, one at the
 middle of every 1904 lot at least 40 ft wide, each with a dressed stone carriage block 3 ft long,
@@ -27344,6 +27344,21 @@ one by one.
 **Ticket:** T-2474.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-13 (T-2474).
+**Amended (T-3198, 2026-10-27; owner: "i dont need to have those carriage steps at every house. i
+dont see that in photos of prarie anywhere", then "what you keep you should vary them in appearance so
+that they do not look like clones" and "they mostly should go i think because i dont see them in
+photos, unless you do"):** the 91 rule-placed blocks are withdrawn. Read again, the Flinn view and the
+1905 plate show the lot-line coping along the walk's inside edge, not blocks at the curb, and the
+Pullman views show the parkway edge clear. Stones at the curb stand only where a picture shows one:
+a square domed post beside the crossing at 1815 Prairie (`chicagology_1815_sears_two_views`,
+attested), a pair of round domed posts flanking 2112's crossing and one at 2110
+(`glessner_blog_2100_block_looking_nw_1890s`, attested), and a row of the same posts at the east
+curb opposite 2109-2115 (inferred: the same picture's edge, the houses not certain). 13 posts in all,
+0.38 m in from the curb's face, stood clear of the elms. Each is varied by a seed on its id (height,
+width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degrees; tone) so no
+two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in
+HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
+crossings exist where no picture reaches.
 
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
@@ -34779,3 +34794,29 @@ without a lamp removes that one.
 **Ticket:** T-3199.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
+
+### L-prairie-hydrants-3201 — The 1904 district's fire hydrants: the two pictured, then one per intersection and one mid-block on each long block, placed by rule
+
+**Decision:** a cast-iron post fire hydrant stands in the parkway grass at two pictured places and at
+places set by rule (`data/street_furniture/1904.json`, written by
+`tools/lay_prairie_1904_street_furniture.py`). Pullman's stands on the Prairie Avenue parkway beside
+the walk 8 m north of the corner at 18th Street; Tucker's on the Prairie Avenue parkway near the curb
+6 m north of the corner at 22nd Street; these two are attested. Every other intersection has one, at
+its corners taken in turn (NE, SW, NW, SE, west to east and north to south), on the avenue's parkway
+3.5 m from the corner and 0.45 m inside the curb; and every block face 150 m long or more has one
+mid-block on one side of its street. Each is moved along the parkway clear of a lamp (2 m), an elm
+(1.8 m), a carriage walk, an alley mouth and a corner crossing (0.5 m). Every hydrant is the same:
+a barrel on a flared foot, a band under a domed bonnet with an operating nut, two side nozzles with
+caps, about 0.85 m, painted a mid grey.
+**What it stands on:** the hydrant's form and the two places from the Detroit Publishing Pullman view
+(`loc_det_4a08065_pullman_residence`), the Glessner House Museum's halftone of the finished Pullman
+house (`ghm_blog_pullman_completed`) and the second 2140 photograph (`chicagology_2140_photo_b`).
+**What is invented:** every hydrant's place but the two pictured; one per intersection and the turn
+of corners; the 3.5-m and 0.45-m measures; the mid-block hydrant on faces of 150 m or more; one form
+for the district at the measures read off three pictures; the paint (the prints are monochrome; the Detroit view prints it lighter than the lamp posts).
+**How to resolve:** a city water department record of hydrants by street (an annual report's
+hydrant list) would place them; Sanborn insurance sheets mark hydrants, so a Sanborn sheet of the
+district near 1904 would place them too.
+**Ticket:** T-3201.
+**Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 2.
+**Recorded:** 2026-10-27 (T-3201).
