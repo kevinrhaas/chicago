@@ -1047,6 +1047,13 @@ step "a K08 round tower carries a corbelled upper stage and a sized finial (T-18
 step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1890)" \
   python3 tools/test_k08_corbel_table.py
 
+# T-1890. ...and a K08 oriel may be round, on a rear wing's wall (1801 Prairie's gabled section,
+# off the Taylor print and HABS photograph 2): a bow's chord and rise in range, its corbel courses
+# reaching back from the crown and still bearing on the wall, on one of the wing's floors; a bay on a
+# wing, a bow past half its chord, or a bow beside a canted plan's points refused.
+step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
+  python3 tools/test_k08_round_oriel.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main

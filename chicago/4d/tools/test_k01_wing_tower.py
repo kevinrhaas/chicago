@@ -13,9 +13,10 @@ in slate, as 1801's range will be — and holds the assembly to what the ticket 
     wing behind it, from that wall top to the tower's own;
   * the wing's wall is open behind it — no walling, string course or sill inside its
     junctions under the wing's wall top — and the wing's lights there are dropped;
-  * refused: a tower under the wing's eave, a bay or an oriel on a wing's wall, a tower
-    on a gable end, one where a later wing stands on the wall, one nearer a corner than
-    the kit's pier, and a wall no wing has.
+  * refused: a tower under the wing's eave, a bay on a wing's wall, an oriel there whose wall
+    top is not a metre under the wing's eave (T-1890: an oriel may stand on a wing, under a
+    main-wall oriel's rules), a tower on a gable end, one where a later wing stands on the
+    wall, one nearer a corner than the kit's pier, and a wall no wing has.
 
     python3 tools/test_k01_wing_tower.py
 """
@@ -204,7 +205,7 @@ def main() -> int:
             "a tower whose wall top (9.0 m) is not 1 m past the wing's 8.8 m", "not 1.0 m over the eave (8.80 m)")
     refused("house_1604_prairie", tower(north, 4.2, variant="k08.bay.canted"), "a canted bay on a wing's wall", "carries a K08 tower")
     refused("house_1604_prairie", {**tower(north, 4.2, variant="k08.oriel.canted_corbelled"), "base_m": 5.3},
-            "an oriel on a wing's wall", "carries a K08 tower")
+            "an oriel on a wing's wall whose wall top is not a metre under its eave", "a metre under the eave")
     refused("house_1604_prairie", tower(north, 6.0, plan=SMALL), "a tower on a gable end", "a gable end",
             roofs={"rear_range": {"kind": "gable", "pitch_deg": 50, "gable_to": "north"}})
     refused("house_1604_prairie", tower("k01.wall.wing.rear_range.rear", 2.0, plan=SMALL),

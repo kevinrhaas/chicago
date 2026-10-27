@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 809,
+  "count": 810,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -57788,6 +57788,33 @@
       "work_refs": [
         "T-1890",
         "T-3000"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-gable-oriel-1890",
+      "title": "1801 Prairie's gabled section on 18th Street given its round oriel on corbels and its three round-arched lights",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-27."
+        },
+        {
+          "label": "Decision",
+          "text": "the face of the W. W. Kimball house's gabled section on 18th Street (p gable) is rebuilt to the Taylor photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…) and Harold Allen's HABS photograph 2 of June 1965 (Harold Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…), read through their solved cameras, where later work had laid one mullioned and transomed pair a storey on the pavilion and bowed a floor balcony out from it. **What is read, not invented.** Both pictures show a round oriel on the section's face over its principal storey, carried on a deep stepped corbel, with two lights under a transom on its front and a balustrade round its top; and, under it, three round-arched lights across the section. Through the cameras the oriel stands from the r3 range's 5.0 m floor to a wall top of about 9.2 m, its corbel's foot about 3.8 m, its front about 2.7 m across and 0.6 m out, its lights from about 5.4 to 8.0 m; the balustrade on its top renders within about 8 px of the Taylor print's, and the arched lights, about 0.5-0.6 m across in the pictures, are built 0.5 m clear on 2.0 m sills (their frames fill the face). **What is invented or held by the kit.** The bow's exact curve (a segmental arc on that chord and rise), the six corbel courses' coursing, the cornice's section (K10's moulded stone), the balusters' square section and spacing ('s), the lights' frames and the transom's place (K06's) are the kit's or reconstructed to the pictures' outlines; the carved panel the Taylor print shows over the oriel's lights is not modelled. The pictures disagree about the balustrade's plan (straight across the section in the Taylor print, round on the oriel in HABS photograph 2); the build follows the oriel, and the Taylor match record carries it within tolerance. The loggia behind the balustrade, open on slender posts in the Taylor print, is still built as a glazed pair, and the pier at the section's east edge is not built (both open in that record). This supersedes the gabled section's lights and its floor balcony in “1801 Prairie's gabled section on 18th Street narrowed to the Taylor photograph and given its coped gable and balcony”."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured elevation of the 18th Street front, or a nearer photograph of the gabled section."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3001"
       ]
     },
     {
