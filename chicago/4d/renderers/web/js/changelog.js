@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2319, ts: '2026-10-27T01:25:30.838Z', date: 'Oct 26, 2026, 8:25 PM CT', title: '1823 Prairie looks like its pictures', kind: 'improvement',
+    items: [
+      'Thomas Dent\'s house at 1823 Prairie now has the box bay with its hood on the north side, iron cresting along the top of its mansard, paired windows in its dormers, and moulded heads over its front windows.',
+      'Its south pavilion rises past the roof line to an attic with paired windows under a stone gable and finial, as the 1883 New Chicago Album draws it, and the stoop climbs to the door from the north.',
+      'The front\'s windows, door and side windows now stand where the old engraving puts them.',
+    ] },
   { v: 2318, ts: '2026-10-27T00:49:38.262Z', date: 'Oct 26, 2026, 7:49 PM CT', title: 'The Pullman house\'s great chimney stack on 18th Street', kind: 'feature',
     items: [
       'A tall stone stack now stands on the 18th Street cornice, just east of the south-west corner. It runs up past the mansard to a capped top, as an 1890s photograph by J. W. Taylor shows it.',
