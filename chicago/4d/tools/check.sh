@@ -1129,6 +1129,11 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 # stand behind the front's plane only on the round, clear of it. Each refusal says why.
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
+# T-3186: or cuts a corner of the main body on a canted face (1901's, both Chicagology
+# photographs): the front and its side wall stop at the face, which is a wall of its own with
+# its window column, and the cornice, the mansard, the gutter and the curb's cresting turn it.
+step "a K01 main body cuts a corner on a canted face, carried through the cornice and the mansard (T-3186)" \
+  python3 tools/test_k01_cant_corner.py
 
 # T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
 # (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's
