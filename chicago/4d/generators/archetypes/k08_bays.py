@@ -2514,7 +2514,8 @@ class Bay:
         """The host wall the bay is keyed to, its top and returns, and grade in front."""
         xs = [p[0] for pr in self.prims.values() for p in pr.pos]
         x0, x1 = min(xs) - 1.0, max(xs) + 1.0
-        roof_y = max(p[1] for p in self.prims["roof"].pos if abs(p[2]) < 1e-6) if self.prims.get("roof") else y_e
+        roof_y = max((p[1] for p in self.prims["roof"].pos if abs(p[2]) < 1e-6), default=y_e) \
+            if self.prims.get("roof") else y_e   # T-3176: a whole cap may touch no wall plane
         top = y_e if self.v["kind"] == "tower" else roof_y + 0.6
         D = 0.45
         if self.v.get("shallow"):
