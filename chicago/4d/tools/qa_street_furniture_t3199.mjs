@@ -31,6 +31,11 @@ const STANDS=[
  ['glessner-stable-18th',[1336.0,-3201.0,1.7],[1352.0,-3215.0,4.0],50],
  // A long look south down Prairie from 18th: the file of lamps on both parkways.
  ['prairie-south',[1402.0,-3222.0,1.7],[1405.0,-3420.0,4.0],62],
+ // T-3201: Pullman's hydrant, from the Prairie roadway south-west of it, the corner lamp behind
+ // (the owner's crop of the Detroit Publishing view).
+ ['pullman-hydrant',[1401.0,-3194.0,1.6],[1409.4,-3187.9,0.45],34],
+ // Tucker's hydrant toward 22nd Street, from the south-east as in the second 2140 photograph.
+ ['tucker-hydrant',[1408.0,-3750.0,1.6],[1400.5,-3741.8,0.45],40],
 ];
 const ONLY=process.env.QA_STANDS?process.env.QA_STANDS.split(','):null;
 const RUN=ONLY?STANDS.filter(s=>ONLY.includes(s[0])):STANDS;
@@ -60,7 +65,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   a.streetTrees?.update?.(0,a.camera);a.streetTrees?.settle?.();a.streetFurniture?.settle?.(a.camera);a.contextCity?.update?.(a.camera);
   a.renderer.info.reset();a.renderer.render(a.scene3d,a.camera);
   const sf=a.streetFurniture?.stats??{};
-  return {info:{triangles:a.renderer.info.render.triangles,calls:a.renderer.info.render.calls},furniture:{near:sf.near,far:sf.far,triangles:sf.triangles,drawCalls:sf.drawCalls,detail:sf.detail},problems:a.problems.slice(-3)};
+  return {info:{triangles:a.renderer.info.render.triangles,calls:a.renderer.info.render.calls},furniture:{near:sf.near,far:sf.far,hydrants:sf.hydrantsDrawn,triangles:sf.triangles,drawCalls:sf.drawCalls,detail:sf.detail},problems:a.problems.slice(-3)};
  },{pos,target,fov,shown});
  const stands=[];
  for(const [name,pos,target,fov] of RUN){

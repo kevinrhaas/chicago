@@ -619,6 +619,7 @@ def build():
                               "July morning with no night, so no lamp is lit."),
                 "model_m": LAMP,
                 "what": "A cast-iron gas lamp post",
+                "ticket": "T-3199",
                 "rule_note": "The pictures show such lamps at the district's corners and along its parkways",
             },
             "fire_hydrant": {
@@ -633,6 +634,7 @@ def build():
                               "monochrome, so the paint is reconstructed: the lamps' dark iron."),
                 "model_m": HYDRANT,
                 "what": "A cast-iron post fire hydrant",
+                "ticket": "T-3201",
                 "rule_note": ("The pictures show post hydrants on the parkway at Pullman's corner and at 22nd Street; "
                               "the city's hydrants stood at its corners and along its long blocks"),
             },

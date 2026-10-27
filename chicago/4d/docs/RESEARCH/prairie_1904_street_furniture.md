@@ -5,7 +5,7 @@ streetlamps at the corners of major streets, and also from the photo"*. The brie
 repo's `evidence/streetscape-1904-2026-10-27/BRIEF.md` § 2. This page is the reading behind
 `data/street_furniture/1904.json` (written by `tools/lay_prairie_1904_street_furniture.py`, drawn by
 `renderers/web/js/street-furniture.js`); the inventions are `docs/LIBERTIES.md`
-L-prairie-street-lamps-3199. Every picture below was read from the image store's copy
+L-prairie-street-lamps-3199 (the lamps) and L-prairie-hydrants-3201 (the hydrants). Every picture below was read from the image store's copy
 (`kevinrhaas/chicago-images`, `prairie-1904/files/<id>.jpg`).
 
 ## 1. Gas lamps (T-3199)
@@ -41,3 +41,19 @@ the parkway close to the walk, which is where the rule places the others. The pi
 
 **Lit?** The scene is 10:30 on a July morning and world.js has no night or evening setting, so no
 lamp is lit and no light is added.
+
+## 2. Fire hydrants (T-3201)
+
+**The hydrant.** The Detroit Publishing view of the Pullman house (`loc_det_4a08065_pullman_residence`,
+the owner's crop) shows it clearly on the Prairie Avenue parkway beside the walk, a few metres north of
+the corner lamp at 18th Street: a post hydrant, a barrel on a flared foot, a band under a domed bonnet
+with an operating nut on top, and a nozzle cap on each side, read as about 0.85 m tall. The museum's halftone of the finished house (`ghm_blog_pullman_completed`)
+has the same hydrant at the same place. The second 2140 photograph (`chicagology_2140_photo_b`) has
+one of the same type in its left foreground, on the Prairie Avenue parkway toward 22nd Street, near
+the curb. The prints are monochrome; the paint is drawn in the lamps' dark iron.
+
+**Where the rest stand.** No other picture places one, so the rest are a reconstructed spacing: one
+at each intersection, at a corner taken in turn, on the avenue's parkway a few metres from the corner near the curb, and one
+mid-block on the long blocks (the faces of 150 m or more), on one side of the street. Every hydrant is
+in the grass, never in a walk, a corner crossing or a carriage walk, and is kept clear of the lamps and
+the elms. The inventions are `docs/LIBERTIES.md` L-prairie-hydrants-3201.
