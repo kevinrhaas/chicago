@@ -34764,6 +34764,42 @@ asserted to match it. The original picture case remains open for the source disp
 **Review:** `docs/RESEARCH/tremont_house_1.md`.
 **Recorded:** 2026-10-26 (T-2385).
 
+### L-kimball-1801-tower-finial-1890 — 1801 Prairie's tower given a turned finial on a crocketed collar, in pale sheet metal
+**Recorded:** 2026-10-27.
+
+**Decision:** the W. W. Kimball house's round tower on its north-west corner (`bays.tower`, T-1890)
+carries a turned finial over a crocketed collar, laid in zinc sheet, where the kit's plain spike stood
+in the cap's own slate. **What is read, not invented.** J. W. Taylor's photograph of c. 1895
+(`taylor_c1895_kimball_residence_1801`), read through its solved camera, shows the cone's apex
+dressed with a collar flaring off the slate, ringed with crockets, and over it a slender turned
+pinnacle carrying a knob, a cluster of larger knobs, a pair of smaller ones and a bulb under a fine
+spike, its tip about 19.6 m; the whole reads pale against the slate. The finial is built 2.9 m over
+the apex (its tip 19.59 m) and the collar 0.45 m out on the cone, its flare rendering about 62 px
+across against the print's about 70. **What is invented or held by the kit.** The turnings' profile,
+the number and shape of the crockets (two tiers of eight leaves on the flare and a tier of small ones
+up its neck), and the metal are reconstructed: the print shows a pale finish, not what it is, and
+pressed zinc is the commonest pale roof ornament of the period; a painted iron or a terracotta finial
+would read the same in the print. The cone's apex itself still renders about 0.4-0.5 m under the
+print's (open in the Taylor match record).
+**How to resolve:** a nearer photograph of the tower's cap, or a maker's catalogue plate naming the
+finial.
+
+### L-kimball-1801-dormer-faces-1890 — 1801 Prairie's hooded dormers given slated faces with a pale frame round each light
+**Recorded:** 2026-10-27.
+
+**Decision:** the faces of the W. W. Kimball house's three hooded dormers (`mansard.dormers`, T-1890)
+are slated as their hoods are, each light set in a pale stone frame, where T-3000 had built the face
+under the shelf in stone. **What is read, not invented.** The Taylor photograph of c. 1895 shows the
+street and 18th Street dormers' faces dark and coursed as the slate is, with a pale frame round the
+small light; Harold Allen's HABS photograph 1 of June 1965 (`habs_kimball_photo_01_sw_1965`) shows the
+south dormer's face slated in the same way with a pale frame round its taller light. **What is
+invented or held by the kit.** The frame's width (0.1 m) and how far it stands out of the slate
+(0.04 m) are reconstructed to the pictures' outlines, and the frame is laid in the dormers' own stone;
+the pictures do not say whether it is stone or painted timber. The hoods' widening cheeks (Taylor)
+and the south hood standing wider than its face (HABS 1) are not built and stay open in their
+records. This supersedes the faces' stone in L-kimball-1801-deck-cresting-3000.
+**How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
+
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
 
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
