@@ -42,6 +42,19 @@ some houses: one square post with a domed cap beside 1815's carriage walk (its o
 girth, cap, lean, set and tone so no two are clones. A post keeps a trunk's width off every
 parkway elm (data/street_trees/1904.json, read if present: the trees read only the walks, so the
 two files never chase each other).
+
+THE CORNER CROSSINGS (T-3200). The owner, 2026-10-27: "there are ramps down into the street.
+they appear to be stone". J. W. Taylor's photograph no. 2135 of the Glessner corner (18th and
+Prairie, south-west) shows the walk carried on across the parkway to the curb at the corner and
+a broad stone slab sloping from the curb's top down to the roadway, one for each way across, the
+corner lamp's footing between them; the Detroit Publishing view of the Pullman corner (north-east)
+shows the same two crossings either side of a curbed grass corner. So at every corner where two
+faces of a block meet (at 45 degrees or more: Calumet's curve at 18th is a bend, not a corner),
+each face's walk runs straight on across the other face's parkway and curb at its own width, and
+its last RAMP_RUN_M (less on a narrow parkway, leaving RAMP_MIN_FLAT_M flat) is a stone ramp from
+the walk's level down to the roadway; the curb's face is broken where the ramp runs through it.
+The two pictured corners are attested; the rest stand by that rule, reconstructed
+(docs/LIBERTIES.md L-prairie-corner-crossings-3200).
 """
 from __future__ import annotations
 
@@ -65,6 +78,20 @@ TREES = ROOT / "data" / "street_trees" / "1904.json"
 POST_FROM_CURB_M = 0.38        # a post's centre behind the curb's street face
 POST_TRUNK_CLEAR_M = 0.85      # a post's centre off an elm's
 POST_ROW_STEP_M = 2.6          # the east curb's row in the 2100-block photograph
+RAMP_RUN_M = 1.35              # a corner ramp's run, curb line back toward the walk
+RAMP_MIN_FLAT_M = 0.3          # the least flat walk left between the walk and a ramp
+CORNER_MIN_SIN = math.sin(math.radians(45))   # two faces meeting at less than this are a bend
+# T-3200: the corners a picture shows, by the two faces meeting there.
+PICTURED_CORNERS = {
+    frozenset({"prairie__indiana_prairie_18_20", "e18th__indiana_prairie_18_20"}): {
+        "sources": ["taylor_2135_glessner_exterior_1887_1889"], "picture": "a18-rba-taylor-2135-glessner-ne",
+        "note": "The Glessner corner: two stone slabs slope from the curb's top to the roadway, one each way "
+                "across, the lamp's stone footing between them."},
+    frozenset({"prairie__prairie_ic_16_18", "e18th__prairie_ic_16_18"}): {
+        "sources": ["loc_det_4a08065_pullman_residence"], "picture": "a16-pullman-det-4a08065",
+        "note": "The Pullman corner: the walks carried across the parkway either side of a curbed grass corner "
+                "with the lamp, down to the roadway at the curb."},
+}
 
 # T-3198: every post stands because a picture shows it there. `at`: beside a carriage walk
 # (`side` +1 = the walk's north side, -1 its south), `flank` (one each side of the walk), `mid`
@@ -131,6 +158,72 @@ def street_side(face):
     if (mid[0] - a[0]) * n[0] + (mid[1] - a[1]) * n[1] < 0:
         n = (-n[0], -n[1])
     return t, n
+
+
+def corner_end(face, c):
+    """The face's tangent pointing out of its block at corner c, and its out-normal there."""
+    line = face["street_line_local_m"]
+    _, n = street_side(face)
+    a, b = (line[1], line[0]) if math.dist(line[0], c) < math.dist(line[-1], c) else (line[-2], line[-1])
+    t = unit(a, b)
+    m = (-t[1], t[0])
+    if m[0] * n[0] + m[1] * n[1] < 0:
+        m = (-m[0], -m[1])
+    return t, m
+
+
+def lay_crossings(grid, xs):
+    """Two crossings at every corner: each face's walk carried on across the other's parkway."""
+    byblock = {}
+    for f in grid["faces"]:
+        byblock.setdefault(f["block"], []).append(f)
+    out, seen = [], set()
+    for _, fs in sorted(byblock.items()):
+        for i, fa in enumerate(fs):
+            for fb in fs[i + 1:]:
+                la, lb = fa["street_line_local_m"], fb["street_line_local_m"]
+                c = next((p for p in (la[0], la[-1]) for q in (lb[0], lb[-1]) if math.dist(p, q) < 0.05), None)
+                if c is None:
+                    continue
+                ta, na = corner_end(fa, c)
+                tb, nb = corner_end(fb, c)
+                if abs(ta[0] * tb[1] - ta[1] * tb[0]) < CORNER_MIN_SIN:
+                    continue
+                pic = PICTURED_CORNERS.get(frozenset({fa["id"], fb["id"]}))
+                if pic:
+                    seen.add(frozenset({fa["id"], fb["id"]}))
+                for A, tA, nA, B, nB in ((fa, ta, na, fb, nb), (fb, tb, nb, fa, na)):
+                    bA = {b["band"]: b for b in xs[A["cross_section"]]["bands"]}
+                    bB = {b["band"]: b for b in xs[B["cross_section"]]["bands"]}
+                    w0, w1 = bA["walk"]["from_ft"] * FT, bA["walk"]["to_ft"] * FT
+                    a_walk, a_curb = bB["walk"]["to_ft"] * FT, bB["curb"]["to_ft"] * FT
+                    run = min(RAMP_RUN_M, a_curb - a_walk - RAMP_MIN_FLAT_M)
+                    a_ramp = a_curb - run
+                    k = tA[0] * nB[0] + tA[1] * nB[1]
+
+                    def at(off, across):
+                        base = (c[0] + nA[0] * off, c[1] + nA[1] * off)
+                        s = (across - ((base[0] - c[0]) * nB[0] + (base[1] - c[1]) * nB[1])) / k
+                        return [round(base[0] + tA[0] * s, 3), round(base[1] + tA[1] * s, 3)]
+                    rec = {
+                        "id": f"{B['id']}.x.{A['street']}",
+                        "face": B["id"], "walk_of": A["id"],
+                        "origin": [round(c[0], 3), round(c[1], 3)],
+                        "out": [round(nB[0], 5), round(nB[1], 5)],
+                        "flat": [at(w0, a_walk), at(w1, a_walk), at(w1, a_ramp), at(w0, a_ramp)],
+                        "ramp": [at(w0, a_ramp), at(w1, a_ramp), at(w1, a_curb), at(w0, a_curb)],
+                        "ramp_from_m": round(a_ramp, 3), "ramp_to_m": round(a_curb, 3),
+                        "width_m": round(w1 - w0, 3), "run_m": round(run, 3),
+                        "tier": "attested" if pic else "reconstructed",
+                    }
+                    if pic:
+                        rec.update({"sources": pic["sources"], "picture": pic["picture"], "note": pic["note"]})
+                    out.append(rec)
+    missing = [sorted(k) for k in PICTURED_CORNERS if k not in seen]
+    if missing:
+        raise SystemExit(f"street section: a pictured corner found no corner: {missing}")
+    out.sort(key=lambda x: x["id"])
+    return out
 
 
 def build():
@@ -214,6 +307,16 @@ def build():
                      "Square with a domed cap (1815) or round-topped and painted white (the 2100 block)."),
             "posts": posts,
         },
+        "corner_crossings": {
+            "ticket": "T-3200",
+            "liberty": "L-prairie-corner-crossings-3200",
+            "sources": ["taylor_2135_glessner_exterior_1887_1889", "loc_det_4a08065_pullman_residence"],
+            "ramp_run_m": RAMP_RUN_M,
+            "note": ("At every corner each face's walk is carried on across the other street's parkway to the "
+                     "curb, and its last run is a dressed stone ramp down to the roadway, the curb broken for it. "
+                     "Pictured at the Glessner and Pullman corners of 18th and Prairie; elsewhere by that rule."),
+            "crossings": lay_crossings(grid, xs),
+        },
     }
 
 
@@ -264,22 +367,18 @@ def lay_posts(grid, faces, xs, walk_of):
 
 
 def dump(doc):
-    walks = doc["carriage_walks"].pop("walks")
-    posts = doc.pop("carriage_posts")
-    head = json.dumps(doc, indent=1, ensure_ascii=False)
-    doc["carriage_walks"]["walks"] = walks
-    doc["carriage_posts"] = posts
+    """indent=1, with each list of placed things one record per line."""
+    lists = (("carriage_walks", "walks"), ("carriage_posts", "posts"), ("corner_crossings", "crossings"))
+    held = {}
+    for key, sub in lists:
+        held[key] = doc[key][sub]
+        doc[key][sub] = f"@@{key}@@"
+    text = json.dumps(doc, indent=1, ensure_ascii=False)
     line = lambda xs: ",\n".join("   " + json.dumps(x, separators=(", ", ": "), ensure_ascii=False) for x in xs)
-    # Re-open the carriage_walks object to append its one-walk-per-line list.
-    i = head.rindex("}", 0, head.rindex("}"))
-    text = head[:i].rstrip() + f',\n  "walks": [\n{line(walks)}\n  ]\n ' + head[i:]
-    # Then the posts, the last key, their list one post per line.
-    plist = posts.pop("posts")
-    phead = json.dumps(posts, indent=1, ensure_ascii=False)
-    posts["posts"] = plist
-    pbody = "\n".join(" " + ln for ln in phead.splitlines())
-    pbody = pbody[:pbody.rindex("}")].rstrip() + f',\n  "posts": [\n{line(plist)}\n  ]\n }}'
-    return text[:text.rindex("}")].rstrip() + f',\n "carriage_posts": {pbody.lstrip()}\n}}\n'
+    for key, sub in lists:
+        doc[key][sub] = held[key]
+        text = text.replace(f'"@@{key}@@"', "[\n" + line(held[key]) + "\n  ]")
+    return text + "\n"
 
 
 def main():
@@ -291,17 +390,18 @@ def main():
     json.loads(text)
     n = len(doc["carriage_walks"]["walks"])
     m = len(doc["carriage_posts"]["posts"])
+    x = len(doc["corner_crossings"]["crossings"])
     if a.check:
         have = OUT.read_text() if OUT.exists() else ""
         if have != text:
             print(f"street section: {OUT.relative_to(ROOT)} is not what the tool writes -- re-run "
                   "python3 tools/lay_prairie_1904_street_section.py")
             return 1
-        print(f"street section: {n} carriage walks, {m} carriage posts, as written")
+        print(f"street section: {n} carriage walks, {m} carriage posts, {x} corner crossings, as written")
         return 0
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text)
-    print(f"wrote {OUT.relative_to(ROOT)}: {n} carriage walks, {m} carriage posts")
+    print(f"wrote {OUT.relative_to(ROOT)}: {n} carriage walks, {m} carriage posts, {x} corner crossings")
     return 0
 
 

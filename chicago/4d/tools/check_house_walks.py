@@ -80,6 +80,7 @@ PENDING = {
     "house_1730_prairie": "T-3205",
     "house_1736_prairie": "T-3205",
     "kellogg_house_1709_prairie": "T-3205",
+    "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
     "pullman_house_1729_prairie": "T-3205",
     "walker_house_1720_prairie": "T-3205",
 }
@@ -435,7 +436,7 @@ def main(argv=None) -> int:
             print(f"  {f}")
         return 1
     print(f"check_house_walks: ok — {n_ok} worked 1904 houses walked into from the public walk through an "
-          f"opening; {n_pend} pending on their lanes (T-3204, T-3205)")
+          f"opening; {n_pend} pending on their lanes (T-3204, T-3205, T-3207)")
     return 0
 
 
