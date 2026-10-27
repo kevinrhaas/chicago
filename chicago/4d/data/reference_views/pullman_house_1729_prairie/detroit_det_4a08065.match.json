@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "798821bac81d445f923c7d70f33ca898ae2fe7a5d104dabe0559c6eca6803ec2",
+  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
   "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
@@ -30,15 +30,28 @@
     },
     {
       "what": "the portico's four or more columns and its stone balustrade, where the build stands two turned columns and an iron railing",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3159: the portico laid in the front's brownstone on four columns (hood.columns.at_v_m), the render's at x 327 and 378 against the print's 322-330 and 374-381, two more carried to the hood's south end where the ivy hides the print's; a stone balustrade (railing_fabric stone, 0.7 m) on the balcony, its rail under the second storey's sills (L-pullman-1729-portico-3159)"
     },
     {
       "what": "the stoop: the print's flight rises at the portico's north end (the sheet's p1-p2), where the build lays a broad flight across the portico's whole width",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3159: the sheet's 2.6 m flight at v 5.0 (stoop_v_m), between the two read columns, the render's steps at x 313-373 against the print's 300-370; the portico's floor carried either side at the landing's height on terraces"
     },
     {
       "what": "the rusticated quoined piers that divide the Prairie front into pavilions (x 362-380, 413-428, 497-515 and the corners) and the pavilions' own mansard sections and stepped roof line",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3158: four piers in the front's brownstone (street_front_pavilions), banded in channelled courses that step in and out, from the base's coping to the cornice's bed, the corner one returned 1.1 m onto 18th Street; the render's at x 363-380, 412-428, 495-512 and the corner from x 545. The mansard is read in sections over the bays by raised ribs over the first two piers, the render's at x 362-378 and 412-427 against the print's 368-382 and 413-427"
+    },
+    {
+      "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m",
+      "status": "within tolerance",
+      "how": "T-3158: under the good-enough bar; the curb runs level"
+    },
+    {
+      "what": "the cornice broken forward over each pier, the piers' heads breaking the deep frieze under it",
+      "status": "fixed",
+      "how": "T-3158: the K10 section swept again along each pier's face 0.15 m out and capped, over a plain head through the frieze"
     },
     {
       "what": "the Prairie front's windows round-arched under moulded rings: three on the second storey (x 390-402, 452-472 and 519-528 px, crowns at y 339) and the two the ivy leaves on the principal storey (heads at y 411 and 418)",
@@ -47,8 +60,13 @@
     },
     {
       "what": "the 18th Street flank's windows round-arched under hoods, as the Prairie front's; the build cuts them flat under plain lintels",
-      "status": "open",
-      "how": "T-3160"
+      "status": "fixed",
+      "how": "T-3160: round-headed (north_bays read once a storey under K06's round fanlight sash), the pavilion's too; their places reconstructed (the face reads at about 5 px a metre)"
+    },
+    {
+      "what": "the flank windows' moulded hoods",
+      "status": "not shown",
+      "how": "under a pixel along this face; the closer views are T-3161's"
     },
     {
       "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630",
@@ -56,17 +74,34 @@
       "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
     },
     {
-      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters, and the north-west pavilion's own dormer at x 330 on its own mansard section; the build lays a plain surround round each arch and no dormer on the north-west block",
+      "what": "the north-west pavilion's own dormer at x 330 on its section of the mansard",
+      "status": "fixed",
+      "how": "T-3158: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5, the render's surround at x 318-337 against the print's 322-338"
+    },
+    {
+      "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters; the build lays a plain surround round each arch",
       "status": "open",
-      "how": "T-3158, with the pavilions' own mansard sections"
+      "how": "T-3161"
     },
     {
       "what": "the cornice's modillions and the deep frieze's panels",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3158: a modillion every 0.5 m under the corona all round the cornice, stopped at the breaks; the frieze's bed course at 10.70-10.86 m and a framed panel between each pair of piers (two in the centre bay), the render's frieze at y 311-333 against the print's 310-330"
     },
     {
       "what": "the arcade on the 18th Street flank (x 598-683): two round arches on piers under a balustrade at about y 385-395, the porte-cochere; the build stands a plain pavilion 6.0 m wide and 1.2 m out there, and the sheet's one-storey porte-cochere (p4) at the draft's massing in pullman_house_1729_prairie_ranges, which this camera puts behind the flank at x 690-710",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3160: a one-storey porte-cochere standing 4.27 m out from the flank at s 6.35-11.48 (porte_cochere): the west end's arch (2.37 m, crown 6.0 m) renders at x 612-644 against the print's 610-645, the south front's (2.27 m) at about x 668-678 against 668-678, the balustrade's top at y 389. The pavilion moved east clear of it. The sheet's p4 stands 1.4 m east and 1.1 m further out than the print's; the print governs (L-pullman-1729-porte-cochere-3160)"
+    },
+    {
+      "what": "the arcade's piers banded in channelled courses (x 645-668 under the ivy)",
+      "status": "within tolerance",
+      "how": "T-3160: built as plain coursed brownstone; the banding's channels are about 0.1 m, under 2 px here"
+    },
+    {
+      "what": "the porte-cochere's east end, behind the tree at x 685-700",
+      "status": "not shown",
+      "how": "T-3160: a bounded design, a corner pier and an arch mirroring the west end's"
     },
     {
       "what": "the north-west block flush with the Prairie front: the sheet draws it 3.96 m north of the main block's line at the draft's v 0, 1.53 m past the built block's north wall; built 1.2 m out",
@@ -75,8 +110,13 @@
     },
     {
       "what": "the low stone wall on piers along the Prairie Avenue line and on round the corner along 18th Street",
+      "status": "fixed",
+      "how": "T-1880 lays the Prairie run; T-3160 carries it round the corner along 18th Street (boundary.side_return, 0.9 m) to the print's x 693, the render's run at x 629-693"
+    },
+    {
+      "what": "the run of posts on a lower curb along 18th Street east of x 693 (to x 760 and on behind the trees)",
       "status": "open",
-      "how": "T-1880 lays the Prairie run; the 18th Street run is not built"
+      "how": "not built: its posts and rail are too fine to read here"
     },
     {
       "what": "the ivy over the principal storey, the street trees, the lamp post and the hydrant",
@@ -92,6 +132,16 @@
       "what": "the low hip-roofed building beyond the flank's east end (x 687-753) and the glass house behind it",
       "status": "not shown",
       "how": "the conservatory and the sheet's south-east block; not compared here"
+    },
+    {
+      "what": "the tall stack rising behind the cresting just west of the south-west corner pier (x 528-545 px, its top at y 222), where the build stood a short deck stack at (18, 12.5)",
+      "status": "fixed",
+      "how": "T-3161: the deck stack moved to (20, 13.3) and raised to 19.5 m (top_m), on the line of sight this print and the Albertype plate share, where Taylor's photograph 1445 hides it behind the flank stack; the render's at x 532-552, its cap at y 215-222"
+    },
+    {
+      "what": "the flank's great stack on the 18th Street cornice (T-3161, read off Taylor's photograph 1445) renders at x 577-591, its cap at y 203; the print shows cresting and branches there, with a thin upright at x 575-580, y 225-250",
+      "status": "within tolerance",
+      "how": "T-3161: a gap two pictures disagree about (T-3153): Taylor's photograph shows the stack on the cornice at 18 px a metre, where this print would draw it about 6 px wide among the branches; the stack stands, and L-pullman-1729-flank-stack-3161 says so"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

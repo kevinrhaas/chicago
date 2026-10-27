@@ -51,7 +51,7 @@ CONSUMED = frozenset({
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
-    "first_story_height_m", "entry_raise_m", "gable_lunette",
+    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
     "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
 })
@@ -216,6 +216,11 @@ class FrameTavernParams:
     # evidence to the unpictured opposite wall. A ground-floor side entrance
     # still replaces one of that face's bays, as before.
     eaves_bays: dict[str, int] = field(default_factory=dict, kw_only=True)
+
+    # Ground floor of the +y gable only: door then two sash in local +u, at fractions
+    # across its width. None preserves the legacy centred-door layout exactly.
+    # Stations and stock sections remain reconstructed; this is not a survey.
+    front_ground_layout: list[float] | None = field(default=None, kw_only=True)
 
     # Explicit sash on the MAIN gable ends of a frontage-scheme block (T-2383).
     # Each tuple is (end, at, z, width, height): end +x/-x, at a fraction of
@@ -478,6 +483,30 @@ class FrameTavernParams:
                     f"eaves_bays[{face!r}] {bays} on a {self.depth_m} m wall "
                     f"leaves {self.depth_m / bays:.2f} m a bay, under "
                     f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if self.front_ground_layout is not None:
+            stations = self.front_ground_layout
+            if self.conf("front_ground_layout") != 1.0:
+                raise ParamError("front_ground_layout metrics must remain reconstructed")
+            if self.elevation_scheme != "gable_front":
+                raise ParamError("front_ground_layout needs the gable_front scheme")
+            if not isinstance(stations, list) or len(stations) != 3:
+                raise ParamError("front_ground_layout needs three local fractions: door, sash, sash")
+            if any(isinstance(v, bool) or not isinstance(v, (int, float))
+                   or not math.isfinite(v) for v in stations):
+                raise ParamError("front_ground_layout stations must be finite numbers")
+            if not stations[0] < stations[1] < stations[2]:
+                raise ParamError("front_ground_layout must order low-u door before the two local-u sash")
+            # Existing opening widths, plus at least .15 m to a corner and
+            # .30 m between openings. Never shrink a kit to fit a bad layout.
+            spans = [(at * self.width_m - width / 2,
+                      at * self.width_m + width / 2)
+                     for at, width in zip(stations, (1.20, .85, .85))]
+            if spans[0][0] < .15 or spans[-1][1] > self.width_m - .15:
+                raise ParamError("front_ground_layout reaches a wall corner")
+            if any(right[0] - left[1] < .30 for left, right in zip(spans, spans[1:])):
+                raise ParamError("front_ground_layout overlaps openings or leaves too little pier")
+            if self.wall_height_m / self.stories < 2.25:
+                raise ParamError("front_ground_layout needs the stock 2.1 m door below its storey")
         if self.end_windows:
             if self.elevation_scheme != "frontage" or self.roof_type != "gable" or self.width_m < self.depth_m:
                 raise ParamError("end_windows needs a frontage block with gables at its x ends")
@@ -562,6 +591,22 @@ class FrameTavernParams:
                              "the engraving draws stands over the wing's door, and "
                              "a hood over blank logs is a claim no view makes")
 
+
+
+    @property
+    def resolved_front_ground_stations(self) -> tuple[float, tuple[float, float]]:
+        """Actual local-u centres consumed by mesh and native primary access.
+
+        Existing mesh_inputs hashes all dataclass property VALUES. Keeping the
+        geometry arithmetic here makes a station change a real recipe change;
+        this is not a hash-only proxy. No plain params helper can move the mesh.
+        Exterior +y reverses screen order, so low-u door precedes the local sash.
+        Default door applies to all tavern schemes; sash only to gable_front.
+        """
+        if self.front_ground_layout is None:
+            return self.width_m / 2, (self.width_m * .22, self.width_m * .78)
+        door, sash_a, sash_b = self.front_ground_layout
+        return self.width_m * door, (self.width_m * sash_a, self.width_m * sash_b)
 
 
 def _board_lay(recon: dict) -> float:
@@ -675,6 +720,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         upper_windows=(None if val("upper_windows") is None
                        else int(val("upper_windows"))),
         eaves_bays=val("eaves_bays", {}),
+        front_ground_layout=val("front_ground_layout"),
         end_windows=tuple((str(o["end"]), float(o["at"]), float(o["z"]),
                            float(o["width_m"]), float(o["height_m"]))
                           for o in (val("end_windows") or ())),

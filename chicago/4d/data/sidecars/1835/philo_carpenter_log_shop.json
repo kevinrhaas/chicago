@@ -16,7 +16,7 @@
     "value": "attested",
     "why": "Pictured: a picture on the Images tab shows it.",
     "pictures": [
-      "andreas_1884_sauganash_hotel_plate"
+      "early-andreas-1884-sauganash"
     ]
   },
   "documented_range": {
@@ -101,6 +101,14 @@
       "value": 35.0,
       "confidence": "inferred",
       "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low single-storey log building roofed in riven shakes. Inferred from construction practice, not measured."
+    },
+    "front_door_state": {
+      "value": "recess",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_sauganash_hotel_plate"
+      ],
+      "note": "T-2382 bounded exterior choice: the public-domain Andreas 1884 Sauganash plate draws a dark doorway in this separately recorded log annex, with a person interrupting its opening. The existing log builder's 0.30 m blind recess replaces the generic closed board-and-batten leaf as a reconstructed shadow proxy. It supplies no real interior, passable opening, person, swung leaf or historical hinge position. Existing doorway station and size, wall/roof/stack, footprint, placement, dates and former-use/current-use qualifications remain unchanged. Petford and the dependent Trowbridge 1902 depiction also retain a dark annex doorway, but do not independently attest an open door on 1 July 1835; no July fitting/state or grade is promoted. The source-camera/group fit and all other visible differences remain open."
     },
     "front_set_out": {
       "value": [
@@ -222,7 +230,7 @@
       "what_it_does_not_supply": [
         "any coordinate, footprint outline or dimension",
         "the hitching posts or the right-hand board fence the brief lists — not resolvable in this scan, and not claimed here",
-        "the engraver's name: no signature is legible, so the brief's Braunhold attribution stands unverified",
+        "a resolved given name or independently identified biography for the engraver; the held reproduction supplies a signed surname, Braunhold",
         "a date for the scene, and a date for the plate only by way of the volume's 1884 imprint"
       ]
     },

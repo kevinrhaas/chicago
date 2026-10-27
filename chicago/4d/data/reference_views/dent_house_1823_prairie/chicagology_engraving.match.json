@@ -1,0 +1,126 @@
+{
+  "structure_id": "dent_house_1823_prairie",
+  "view": "chicagology_engraving",
+  "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
+  "glb_sha256": "2635e3a1de3f46d0e6231977996dda055eb5ac79f1115bbab3a36cd71e660ce4",
+  "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
+  "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
+  "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a stone front and brick north flank two storeys over a raised basement under a slated mansard, the front's north corner at x 581 px, the north flank running back to x 140 px, the cornice's top at y 323 px on the corner",
+      "status": "fixed",
+      "how": "T-3162's 12.05 x 13.88 m front block and 6.7 m rear range on K01; T-3163 re-solved the camera (11 px RMS) and the render's corners, cornice and curb now land on the print's within about 10-20 px"
+    },
+    {
+      "what": "the south pavilion standing forward of the front, flush with the south wall, x 1035-1233 px, one broad window to a storey (x 1080-1165 px) and two grilled basement lights",
+      "status": "fixed",
+      "how": "T-3162's K08 projection; T-3163's camera puts its corners at x 1014 and 1236 px (T-3162's had them 60-70 px left of the print), its windows now under stone surrounds"
+    },
+    {
+      "what": "the triple window groups in the front's north part on both storeys (x 655-805 px), the door north of the pavilion (x 860-930 px), and the window over the door",
+      "status": "fixed",
+      "how": "T-3163: re-read through the re-solved camera, three lights at v 1.6, 2.75 and 3.9 m and the door at 6.2 m (T-3162 had 0.88-2.92 and 4.85 m), under K09's cornice hoods"
+    },
+    {
+      "what": "the north flank's window columns: five over the main body (x 257-570 px), one over the rear range (x 225-250 px), the wall behind it blank to x 140 px",
+      "status": "fixed",
+      "how": "T-3163: columns at u 0.25, 2.15, 5.0 (chamber storey only), 7.35 and 11.0 m and one over the rear range; T-3162 had four over the body and three over the range"
+    },
+    {
+      "what": "the north flank's one-storey box bay under a hood at x 377-455 px on the principal storey, a basement light under it",
+      "status": "fixed",
+      "how": "T-3163: K08's rectangular bay, 2.4 m wide and 0.5 m out at u 5.5-7.9 m, its broad light 2.6-5.5 m over grade, its hood's top about 6.3 m"
+    },
+    {
+      "what": "the box bay's foot: the print corbels it out at about 1.8 m (y 895 px); the build carries it to grade 0.5 m proud: K08's corbelled oriel stands only on an upper floor, and the bay's 0.5 m is the least K08's window recesses fit in",
+      "status": "open"
+    },
+    {
+      "what": "the mansard's lower faces, the curb and the cresting on it (y 60-170 px)",
+      "status": "fixed",
+      "how": "T-3163: K05's mansard 4.5 m to its curb at 15.05 m, the camera putting the curb at y 142 px on the corner against the print's 150-165 px, and K10's iron cresting 0.55 m high round the deck"
+    },
+    {
+      "what": "the cresting's top: the print's rail reads up to about 0.5 m higher along the front than the build's",
+      "status": "within tolerance",
+      "how": "the 1883 vignette draws the curb and its cresting where the build stands them; two pictures disagree"
+    },
+    {
+      "what": "the north flank's dormers: a broad one with paired lights under one pediment (x 375-445 px) and a small one behind it (x 300-340 px)",
+      "status": "fixed",
+      "how": "T-3163: K05 gabled dormers with paired lights at u 4.2 m and a small one at 2.05 m"
+    },
+    {
+      "what": "the street face's small dormer over the door (x 855-880 px)",
+      "status": "fixed",
+      "how": "T-3163: K05's small gabled dormer at v 5.6 m"
+    },
+    {
+      "what": "the triple group's dormer: the print draws it broad, its carved pediment x 620-800 px rising to about 16.3 m (y 85 px), 1.3 m over the curb, between scrolled consoles; the build's is K05's paired-light gabled dormer at v 3.1 m, 2.0 m wide (K05's widest) and stopping under the curb",
+      "status": "open"
+    },
+    {
+      "what": "the tall stack on the north flank (x 455-520 px, its top at y 20 px)",
+      "status": "fixed",
+      "how": "T-3163: a K01 stack on the mansard's cornice at u 7.8 m, 17.5 m to its top; it renders on those pixels"
+    },
+    {
+      "what": "the stack at the north flank's rear (x 170-235 px), over the rear range, where K01 stands no stack: not built",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's crown: its top is behind the trees (x 1000-1230 px, y 150-300 px); what shows is an attic over the cornice with paired lights (x 1070-1190 px, y 280-410 px) under a pediment",
+      "status": "within tolerance",
+      "how": "T-3163: the pavilion's attic storey with its paired lights under a coped gable and finial, its top near y 150 px; the vignette is the picture that shows the crown whole"
+    },
+    {
+      "what": "the stoop climbs from the north to the landing before the door (x 740-930 px)",
+      "status": "fixed",
+      "how": "T-3163: K01's side stoop, its landing at v 5.3-7.1 m and its flight running north along the front"
+    },
+    {
+      "what": "the stoop's cheek: the print's flight rises between low stone cheeks; the build's K07 cheek stands as a solid stone wall under the flight",
+      "status": "within tolerance",
+      "how": "the same stone and the same line; the vignette draws an iron rail on it, so the two pictures disagree"
+    },
+    {
+      "what": "the grilled round-arched basement doorway under the landing (x 925-975 px, y 935-990 px): not built",
+      "status": "open"
+    },
+    {
+      "what": "the narrow light beside the door on the principal storey (x 960-980 px, v 7.7-8.2 m): not built; the chamber storey's is laid at v 7.4 m",
+      "status": "open"
+    },
+    {
+      "what": "the moulded heads and surrounds of the front's windows",
+      "status": "fixed",
+      "how": "T-3163: K09's lintel with a cornice hood over the north part's windows on both storeys, stone surrounds on the pavilion's"
+    },
+    {
+      "what": "the cornice's blocks and dentils: K10's moulded cornice",
+      "status": "within tolerance",
+      "how": "the kit's profile at the print's height; its blocks are under a foot"
+    },
+    {
+      "what": "the flank's cornice dropping where the rear range begins (x 250 px)",
+      "status": "within tolerance",
+      "how": "the rear range's flat roof meets the main body at the same wall head; the drop is a few pixels"
+    },
+    {
+      "what": "the stone's and brick's colours: the print is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the south flank and the rear",
+      "status": "not shown"
+    },
+    {
+      "what": "the trees, the walk and the area railings",
+      "status": "not shown",
+      "how": "outside the building record"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

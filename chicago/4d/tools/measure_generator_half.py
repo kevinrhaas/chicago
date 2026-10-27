@@ -670,8 +670,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # `k01_frontage` under the same id, and the stable, range and porte-cochere its draft carried
 # kept as one record of their own on `prairie_draft`: one asset in, none out.
 #
+# 1025 -> 1030 on 2026-10-26 (T-3164): Pullman's glasshouse ground across 18th Street at 1800
+# Calumet, four glasshouses on `k13_conservatories` (generators/k13_emit.py) and the lodge between
+# them on `prairie_draft` (generators/draft_emit.py), all pure Python, restaling on none of the
+# shared rows above.
+#
 STATED = {
-    "assets": 1025,
+    "assets": 1030,
     "restales": {
         "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,

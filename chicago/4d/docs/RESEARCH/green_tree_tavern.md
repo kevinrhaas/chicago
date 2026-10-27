@@ -145,3 +145,59 @@ nothing dates the additions. They are deliberately excluded from the geometry; r
 | Frame or weatherboarded log core | Any account independent of W. H. Stow; Andreas on early construction |
 | When the one-storey side additions were built | Unattested; they would split the phase |
 | Braced or balloon frame | 1833 is exactly when balloon framing appeared in Chicago, so either is possible |
+
+## Front-ground entrance layout — bounded retrospective reconstruction
+
+`not_a_reading`: rereading the already admitted three plates to adjudicate one
+visible layout discrepancy; no new formal source unit or research spend.
+
+The actual whole Andreas1884 p634/n1301 and Trowbridge/Gale1902 plate facingp35/n55,
+and Kurz1893 panel11, agree on two lower front-gable sash to the left of a
+rightmost door. The old centre-door/flanking-sash layout is revised only on this
+front ground floor. Their agreement is not three independent period witnesses:
+Kurz may derive from Andreas and Trowbridge may depend on later material.
+Neither the local1838 label nor the retrospective1835 title proves the precise
+July1835 form. This is a declared working reconstruction of the early inn.
+
+The chosen ascending LOCAL-u fractions .20/.50/.78 (door, sash, sash), existing stock opening dimensions and sections
+are reconstructed, NOT picture measurements. Keep the upper two-versus-three
+sash conflict, attic, text-attested side entrance, additions, roof and geographic
+placement unchanged. Keep all comparisons DIFFERS pending actual current exports,
+source-specific cameras and side-by-sides. Andreas1884, Trowbridge1902 and
+Kurz1893 underlying artwork have their existing public-domain source credits; no
+new rights upgrade is made. Exclude `chm_green_tree_1859` (check_required/unverified)
+and the site filename1859.jpg as governing geometry: the viewed site file is an
+engraving, not thereby a verified CHM photograph. No later commercial shopfront,
+awning, sign or gaslamp is backdated.
+
+The exterior +y face reverses local-u screen order: low-u is screen right.
+The shared pure `resolved_front_ground_stations` dataclass property feeds the mesh and exact-phase
+native entrance/apron/doorway-clearance reader; no camera or geographic bearing
+is changed to obtain the order. Full native derivation remains owed.
+
+The mesh directly consumes the resolved dataclass property value, already hashed
+by the native recipe. There is no separate plain helper arithmetic or phantom
+checksum field; source calculations, actual geometry and native access share it.
+
+## Current picture coverage and the visible stopping rule (2026-10-25)
+
+The whole Andreas plate, the whole Trowbridge/Gale plate and Kurz panel11 were
+re-read for this increment. The published 1838 Andreas view is now a registered
+comparison in `data/reference_views/green_tree_tavern/andreas_1838.json`; its
+actual official-master comparison remains DIFFERS. The front-ground opening
+order is fixed; the visibly different annex massing and retained long-wall
+entrance remain OPEN in its match record. Camera residuals and the conflicting
+upper/attic details are within tolerance under the owner's T-3153 rule. No photo
+follow-up ticket is filed and no literal-pixel match is required.
+
+The catalogue record `chm_green_tree_1859` is also known. Its current metadata
+says c1859, before the 1880 move, with intervening alterations; its identity and
+rights remain unverified/check_required and asset_use cross_check. It is not a
+new geometry source or a cleared asset here. The filename site1859.jpg does not
+verify a Chicago History Museum photograph. Later alterations are not backdated.
+
+The existing data-only eaves-bay controls already give seven bays. Removing the
+central side entrance would conflict with John Gray's explicit description of
+an entrance about the middle of the Lake Street long side; the unresolved
+picture/text interpretation is retained rather than silently changing that
+source-based reading to fit the retrospective engraving.

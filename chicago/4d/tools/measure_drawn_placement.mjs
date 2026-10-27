@@ -28,12 +28,12 @@
  * R-BUG3c lesson applied: a gate that compares the renderer with itself is a
  * gate that agrees with itself.
  *
- * THE BUILDING INVARIANT IS NOT "THE CENTRE IS THE ANCHOR". A structure's
- * anchor is its FRONTAGE and the body grows from it — K30(b) measured 331 of
- * 333 footprints growing from the minimum corner — so the honest, sign-sensitive
- * statement is that **the anchor lies inside the body's own drawn plan
- * footprint**. Under a mirrored northing a building 200 m north of the datum is
- * drawn 400 m from its anchor, which no footprint in this town spans.
+ * THE BUILDING INVARIANT IS NOT "THE CENTRE IS THE ANCHOR". GLB-CONTRACT
+ * fixes the mesh origin at the polygon's coordinate(0,0), which need not be an
+ * occupied corner. The DATA polygon's area centroid, independently transformed
+ * by its recorded bearing/origin, must lie inside the GPU-read body bounds.
+ * Every vertex still owes the original origin and bearing within one millimetre.
+ * Under mirrored northing a building 200 m north moves 400 m from its record.
  *
  * `mirrorCloser` is that signature stated directly: how many bodies stand
  * nearer to the mirror of their anchor than to the anchor, among anchors far
@@ -162,7 +162,7 @@ if (JSON_OUT) {
   console.log('buildings');
   console.log(`  ${B.compared} structures compared, unioned from ${B.instances} instances in `
     + `${B.batches} batches (${B.verts.toLocaleString()} vertices read back)`);
-  console.log(`  anchor outside its own drawn footprint: ${B.outside}`
+  console.log(`  recorded footprint reference outside drawn bounds: ${B.outside}`
     + `   worst ${B.worst.toFixed(2)} m${B.worstId ? ` (${B.worstId}, span ${B.worstSpan} m)` : ''}`);
   console.log(`  worst anchor-to-nearest-corner: ${B.worstCorner.toFixed(2)} m`);
   console.log(`  nearer to the MIRROR of its anchor (|N| > 5 m): ${B.mirrorCloser}`
@@ -172,6 +172,7 @@ if (JSON_OUT) {
     + ` against the 0.001 m bar; ${B.compounds} sparse camp plots`);
   for (const s of B.strays) {
     console.log(`    ${s.id}: anchor E ${s.anchor[0]} N ${s.anchor[1]}, `
+      + `footprint reference E ${s.footprintReference[0]} N ${s.footprintReference[1]}, `
       + `drawn centre E ${s.drawn[0]} N ${s.drawn[1]}, ${s.out} m outside a ${s.span} m span `
       + `(${s.parts} material parts)`);
   }
@@ -196,7 +197,7 @@ if (JSON_OUT) {
     console.log(`\nnegative control — R-BUG5b's fault injected into this scene `
       + `(${broken.injected.instances} instance matrices, `
       + `${broken.injected.verts.toLocaleString()} road vertices mirrored)`);
-    console.log(`  buildings: ${b.outside} of ${b.compared} anchors outside their footprint, `
+    console.log(`  buildings: ${b.outside} of ${b.compared} footprint references outside drawn bounds, `
       + `worst ${b.worst.toFixed(2)} m; ${b.mirrorCloser} nearer to their mirror`);
     console.log(`  streets:   ${s.stray} of ${s.verts.toLocaleString()} vertices off every `
       + `centreline, worst ${s.worst.toFixed(2)} m, `

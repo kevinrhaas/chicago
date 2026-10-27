@@ -153,6 +153,14 @@
       ],
       "note": "T-2386 L trial rounds the analytic shape/camera hypothesis to42degrees on a nominal5m span. Source bounds its silhouette, not an exact angle, scale or camera. The numeric12-corner fit is within manual pick uncertainty; actual model comparison remains unrun."
     },
+    "roof_colour": {
+      "value": "deep_brown",
+      "confidence": "reconstructed",
+      "sources": [
+        "blanchard_shober_1867_wolf_point"
+      ],
+      "note": "T-2386 picture-bounded roof tone: select the optional deep_brown stock, exactly one quarter of the existing darkened linear RGB with unchanged alpha and roughness. The actual first darkened-preset native mobile comparison remained visibly pale; the inspected NYPL Wolf's Point in 1833 lithograph bounds a darker warm field. Rufus Blanchard published it and Chas. Shober & Co. lithographed it in Chicago in 1867. This explicit reconstructed colour is not a roof-condition, brown-pigment, weather-blackening, age or calibrated-reflectance attestation. The retrospective 1833 depiction does not prove unchanged appearance on 1 July 1835. Existing covering/normal-ORM relief, geometry, coordinates, other finishes and source rights remain unchanged. All eight source pictures and actual current master comparisons still govern original acceptance."
+    },
     "paint": {
       "value": "unpainted",
       "confidence": "inferred",

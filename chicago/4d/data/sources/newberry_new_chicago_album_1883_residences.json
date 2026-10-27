@@ -1,0 +1,27 @@
+{
+ "id": "newberry_new_chicago_album_1883_residences",
+ "type": "illustration",
+ "citation": "'Private Residences of Chicago.' Plate in The New Chicago Album (Chicago: Wittemann Bros., 1883): eleven engraved vignettes, among them 'Thomas Dent' (the second vignette of the middle row, left of C. P. Libby's). Newberry Library.",
+ "author": "Wittemann Bros. (publisher); engraver not named",
+ "date": "1883",
+ "describes_date": "1883 or a little before: the house two years after its building (1881)",
+ "repository": "Newberry Library (via CARLI Digital Collections, nby_chicago)",
+ "url": "https://collections.carli.illinois.edu/digital/collection/nby_chicago/id/7411",
+ "locator": "The 'Thomas Dent' vignette, x 545-935 and y 465-890 px of the Prairie library's copy a19-nby-newchicagoalbum-1883-residences (2400 x 1480 px, sha256 7ba41d629fb60890a887eee4a18a0574e98aa9e9326031035ea53c809b9bc1f0): the house from the north-west.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Newberry: 'makes its collections available for any lawful purpose, commercial or non-commercial, without licensing or permission fees to the library'. The Prairie library records the plate as 'no known restrictions'.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "note": "A small engraved vignette of the Dent house from the north-west, the same view as the Chicagology engraving and dated, which that one is not. It draws the same house: a light, smooth street front of stone beside a brick north flank, two storeys over a raised basement under a slated mansard; at the front's south end a pavilion flush with the south wall and standing forward of the front, one window to a storey, carried up into an attic under a pedimented gable with paired lights and a finial in front of a steep roof; the door north of it up a stoop that climbs from the north, with an arched opening under the landing; a group of three windows to a storey north of the door; a pedimented dormer in the mansard over that group and a small one over the door; four window columns on the north flank and a hooded window on it, three dormers in its mansard, the mansard ending short of the flank's rear corner over a lower rear part; tall stacks on the north wall, one at the flank's rear corner and one at the pavilion's back.",
+ "what_it_supplies": [
+  "a date for the composition the Chicagology engraving shows (1883)",
+  "the street front's light stone against the darker brick of the north flank",
+  "the pavilion's attic under its pedimented gable, and the dormers' heads"
+ ],
+ "what_it_does_not_supply": [
+  "measurements: a vignette a few centimetres across, its perspective drawn rather than photographed",
+  "the south flank and the rear",
+  "the house in 1904: two decades before the target date"
+ ]
+}

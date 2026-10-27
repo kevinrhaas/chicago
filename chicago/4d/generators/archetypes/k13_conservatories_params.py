@@ -8,7 +8,9 @@ against. Its phase's `form` carries both as attested-shaped entries:
                    house's own site-specific shape: what generators/archetypes/
                    k13_conservatories.py builds
     host_wall      the block the bay stands against: west_m and east_m of wall either
-                   side of the bay's centre, depth_m back from it, height_m up
+                   side of the bay's centre, depth_m back from it, height_m up. Only a
+                   form that stands against a wall needs one (HOST_FORMS); a free-standing
+                   span, span_lantern or span_apse has none (T-3164)
 
 Nothing here imports Blender; `generators/mesh_inputs.py` hashes the dataclass this
 returns, so every field the builder reads is in it.
@@ -20,10 +22,13 @@ from dataclasses import dataclass, field
 
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
-REQUIRED = ("conservatory", "host_wall")
+REQUIRED = ("conservatory",)
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`: the block is plain.
-CONSUMED = frozenset(REQUIRED)
+CONSUMED = frozenset(("conservatory", "host_wall"))
+#: generators/archetypes/k13_conservatories.py HOST_FORMS, restated so this module stays
+#: free of the builder's imports
+HOST_FORMS = frozenset({"lean_to", "curvilinear_lean_to", "canted_bay", "segmental_bay"})
 HOST_KEYS = ("west_m", "east_m", "depth_m", "height_m")
 
 
@@ -46,12 +51,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K13ConservatoryParams
     missing = [k for k in REQUIRED if k not in form]
     if missing:
         raise ParamError(f"{(record or {}).get('id')}/{phase.get('id')}: form lacks {', '.join(missing)}")
-    host = form["host_wall"]["value"]
+    hosted = form["conservatory"]["value"].get("form") in HOST_FORMS
+    if hosted and "host_wall" not in form:
+        raise ParamError(f"{(record or {}).get('id')}/{phase.get('id')}: a "
+                         f"{form['conservatory']['value'].get('form')} stands against a wall, so form lacks host_wall")
+    host = form["host_wall"]["value"] if "host_wall" in form else {}
     bad = [k for k in HOST_KEYS if not isinstance(host.get(k), (int, float)) or host[k] <= 0]
-    if bad:
+    if hosted and bad:
         raise ParamError(f"{(record or {}).get('id')}: host_wall needs positive {', '.join(bad)}")
     return K13ConservatoryParams(
         conservatory=dict(form["conservatory"]["value"]),
         host_wall=dict(host),
-        confidence={k: form[k]["confidence"] for k in REQUIRED},
+        confidence={k: form[k]["confidence"] for k in ("conservatory", "host_wall") if k in form},
     )

@@ -12,8 +12,9 @@
   "target_date": "1835-07-01",
   "grade": {
     "value": "attested",
-    "why": "Pictured: a picture on the Images tab shows it.",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
     "pictures": [
+      "andreas_1884_green_tree_hotel_plate",
       "chm_green_tree_1859"
     ]
   },
@@ -219,6 +220,20 @@
       ],
       "note": "The pictured main gable continues the framed wall’s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
     },
+    "front_ground_layout": {
+      "value": [
+        0.2,
+        0.5,
+        0.78
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "trowbridge_green_tree_1902",
+        "kurz_allison_1893"
+      ],
+      "note": "Two sash left of a rightmost front-gable entrance agree in the actually viewed Andreas 1884 p634/n1301 plate, Trowbridge/Gale 1902 plate facing p35/n55, and Kurz & Allison 1893 panel11. This is retrospective form agreement, not independent contemporaneous proof of 1 July 1835; Kurz may derive from Andreas and Trowbridge may rely on later material. The ascending LOCAL-u fractions are door .20, sash .50, sash .78: exterior +y viewers see higher u toward screen left, so this yields two screen-left sash and a screen-right entrance. Exact centre fractions .20/.50/.78 across the existing 7.62 m wall, equal existing .85x1.35 m sash and 1.20x2.10 m door stock, sill bands, sections and hidden joinery are RECONSTRUCTED, not measured or attested by those pictures. Only the +y front ground floor opts in. The current two upper sash versus Trowbridge's three, attic light, text-attested south-side door, disputed additions, roof, geographic placement and all existing source/camera uncertainties stay unresolved. The held-rights/unverified 1859 source is excluded as a geometry witness. Original T-2376 remains open/differs; this is not a solved camera or picture match. The same pure resolved_front_ground_stations dataclass property (whose actual values are covered by the existing native mesh recipe) is consumed by the mesh and the native entrance/apron/clearance reader after resolving exactly the sidecar-selected source phase; no renderer facade API or bearing is changed."
+    },
     "function": {
       "value": "tavern_inn",
       "confidence": "attested",
@@ -417,12 +432,63 @@
       "tier_label": "later scholarship"
     },
     {
+      "source_id": "kurz_allison_1893",
+      "citation": "Kurz & Allison. Chicago In Early Days, 1779-1857. Chicago: Kurz & Allison, 76 & 78 Wabash Avenue, 1893. Chromolithograph, fifteen numbered vignettes with printed key.",
+      "url": "https://www.loc.gov/pictures/item/2003656685/",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "panel 1: Old Fort Dearborn of 1803 from across the river - the palisade under a ruled cap line, the barracks ranges, the blockhouses and the bare trodden ground outside the walls that data/enclosures/fort_dearborn_apron.json is built on",
+        "panel 8: the town from the lake in 1830, population 96 - the low far bank, a lodge and bark canoes on the shore, and trees round the buildings on both banks; a scene-adjacent TOWN view, five years early, not a second view of the fort",
+        "panel 12: the long low Kinzie house with a full-width piazza on its front, a red roof, and outbuildings up the rise behind it",
+        "panel 12: a row of four Lombardy poplars standing between the house and the river — the count and rhythm tools/generate_planted_rows.py measures across seven plates",
+        "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
+        "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
+        "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse",
+        "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
+        "the sheet's printed key, which names each panel and dates several of the buildings"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — tier 5, and a perspective vignette cannot be asked for a metre",
+        "a date for anything it draws that can be relied on: its own key puts the Kinzie Mansion at 1832, which contradicts every documentary source this project holds",
+        "independent testimony for panel 14, which follows the F. Braunhold engraving in Andreas (1884) closely enough to be probably derived from it",
+        "any evidence that a garden fence stood on a lot in the town: panel 12 is the north bank, and the house it draws is excluded from the 1835 scene (data/exclusions.json, kinzie_house)",
+        "a height, a pale width or a bay for the fence it draws — every dimension on the fence layer is invented, and docs/LIBERTIES.md L129 says so",
+        "a Lombardy poplar anywhere in Chicago but this one group",
+        "a view of the 1835 fort in panel 8: that panel is dated 1830 by the sheet's own key and was mistaken for a fort plate for a month (T-1107)"
+      ]
+    },
+    {
       "source_id": "osm_streets_2026",
       "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
       "url": "https://www.openstreetmap.org/",
       "archived_url": "https://overpass-api.de/",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "trowbridge_green_tree_1902",
+      "citation": "The Green Tree Tavern in 1835 (published 1902). W. E. S. Trowbridge, in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity. Chicago: Fleming H. Revell Company, 1902; plate facing printed p. 35.",
+      "url": "https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up",
+      "archived_url": "https://archive.org/download/reminiscencesofe00ingale/page/n55_large.jpg",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the Green Tree's hanging signboard, lettered GREEN TREE, swinging from a post set at the street edge rather than fixed to the wall",
+        "a bench against the front wall between the door and the corner",
+        "an open-sided, shed-roofed wagon bay attached at the left gable, with a covered wagon standing under it",
+        "farm wagons standing on the yard and on the road",
+        "two brick chimneys, one at each end of the ridge, and an even rhythm of sash on both floors",
+        "a dirt road with grass verges and brush at the field edges rather than a made street"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — a retrospective drawing may drive form and setting and may never move a building an inch",
+        "the state of the inn on 1 July 1835: the drawing is dated 1902 and titled to 1835, and nothing on it records what was checked",
+        "independent testimony — the building it draws is the building in the 1859 photograph on the same page, so it is very probably that photograph's descendant rather than a second witness",
+        "the wolf, lettering or colour of any sign but the Green Tree's own"
+      ]
     },
     {
       "source_id": "wright_1834",

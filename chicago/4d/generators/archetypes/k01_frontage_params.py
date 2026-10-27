@@ -123,6 +123,12 @@ class K01FrontageParams:
     # {"wall", "from_m", "to_m", "proud_m"}, stopped against a bay and a rear wing as the
     # front's belts are; empty for every house whose side walls carry K03's brick course or none
     side_belts: tuple = ()
+    # T-3184: a side wall's basement faced in the front's stone up to its water table, read
+    # off a picture (1834's north flank); empty where the side walls are brick to grade
+    side_base: tuple = ()
+    # T-3184: a brick front's iron, read off its picture: balconettes under named street
+    # windows and the stoop's rails (1834's), as k01_arched_front lays them on an arched front
+    street_iron: dict = field(default_factory=dict)
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     # T-2866: dormers on a hip's side and rear slopes (1625's on its open south side), each
@@ -203,6 +209,13 @@ class K01FrontageParams:
     # weathering over its cap and the eave brought in over it ({"to_m", "band_m", "cap_m",
     # "band_proud_m", "cap_proud_m", "weathering_pitch_deg"}; 1811's, off its three pictures)
     front_pier: dict = field(default_factory=dict)
+    # T-3158: a stone street front divided into pavilions — its rusticated quoined piers, the
+    # frieze's bed and panels between them, the cornice's modillions and the mansard's ribs over
+    # the piers (`street_front_pavilions`, k01_pavilions; 1729's, off the Detroit print)
+    pavilions: dict = field(default_factory=dict)
+    # T-3160: a one-storey arcaded porte-cochere on a side wall under a balustraded deck
+    # (`porte_cochere`, k01_porte_cochere; 1729's on 18th Street, off the Detroit print)
+    porte_cochere: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -263,7 +276,8 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers", "round_corner", "front_pier",
+    "slope_dormers", "round_corner", "front_pier", "street_front_pavilions", "porte_cochere",
+    "side_base", "street_front_iron",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -781,9 +795,11 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     # paired lights in the wall between the main cornice and its own eave), the crown's fascia
     # then standing `attic_m` over the main eave's; the main eave box stops square at the
     # pavilion's cheeks under the crown, as at a shallow pavilion's (k01_frontage.shallow_bay_cutters)
+    # T-3175: or the whole mansard storey (1827's, the Doane photograph: its attic of three
+    # lights rises from the main cornice to the main curb's height, about 4.2 m)
     attic = float(c.get("attic_m", 0.0))
-    if attic and not 1.0 <= attic <= 3.0:
-        raise ParamError(f"mansard.crown.attic_m {attic}: 1-3 m")
+    if attic and not 1.0 <= attic <= 4.5:
+        raise ParamError(f"mansard.crown.attic_m {attic}: 1-4.5 m")
     E = eave + attic
     # the pavilion is carried up to the crown's soffit, its own eaves and deck inside the crown
     soffit = E - float(k5["parts"]["eave"]["fascia_depth_m"])
@@ -807,11 +823,20 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     back = x1 - cd - co + rise / math.tan(math.radians(side))
     if back > apex - 0.5:
         raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
+    # T-3175: and a turned iron finial on the ridge's street end (1827's, over its pavilion in
+    # the Doane photograph), the deck's turning (k01_mansard_deck) at the same bounds
+    fn = c.get("finial")
+    if fn is not None:
+        if set(fn) != {"height_m", "radius_m"} or not 0.8 <= float(fn["height_m"]) <= 3.0 \
+                or not 0.05 <= float(fn["radius_m"]) <= 0.2:
+            raise ParamError("mansard.crown.finial: height_m 0.8-3.0 m and radius_m 0.05-0.2 m")
+        fn = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
             "overhang_m": co, "ridge_m": round(E + rise, 4),
             "ridge_x_m": (round(back, 4), round(apex, 4)),
-            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {})}
+            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {}),
+            **({"finial": fn} if fn else {})}
 
 
 def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float):
@@ -1599,10 +1624,90 @@ def _k02(front: dict) -> dict:
         **({"coursing": dict(coursing)} if coursing else {}),
         # T-2914: the stone stops at a storey line and the front is the K03 brick over it
         **({"brick_above_m": float(front["brick_above_m"])} if "brick_above_m" in front else {}),
+        # T-3184: the stone belts a picture draws across such a front's brick, in place of K01's
+        **({"belts": _brick_belts(front)} if "belts" in front else {}),
         "coping_height_m": coping_h, "coping_fall": t["coping"]["fall"],
         "coping_overhang_m": t["coping"]["overhang_m"], "drip_groove_m": t["coping"]["drip_groove_m"],
         "fabric_roughness": lib[fab]["mean_roughness"], "trim_roughness": lib[trim]["mean_roughness"],
     }
+
+
+def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
+    """T-3184: a brick front's iron read off its picture (1834's photograph), which an arched
+    stone front names in `street_front_dress` and k01_arched_front lays:
+
+      balconettes  [{from_s_m, to_s_m, floor_m, proud_m, height_m, slab_m, consoles}, ...]: a
+                   stone slab `slab_m` deep under `floor_m`, `proud_m` out from the front, on
+                   `consoles` scrolled stone consoles (none where the slab sits on the stone
+                   basement's top), and on it a pierced iron guard `height_m` high under the
+                   street window(s) it stands before, whose sills it stays under
+      stoop_rails  {kit: k11.rail.stoop_rail, scroll_m}: the K11 stoop rail each side of a
+                   stoop the record builds without cheeks (entrance_kit cheeks: false)"""
+    if not si:
+        return {}
+    if not set(si) <= {"balconettes", "stoop_rails"} or not si:
+        raise ParamError("street_front_iron takes balconettes and stoop_rails")
+    out = {}
+    bals = []
+    front = [o for o in openings if o.wall == "k01.wall.street_front" and o.component != "k01.opening.door_leaf"
+             and o.component != "k01.opening.area_light"]
+    for j, b in enumerate(si.get("balconettes") or ()):
+        need = {"from_s_m", "to_s_m", "floor_m", "proud_m", "height_m", "slab_m", "consoles"}
+        if set(b) != need:
+            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)}")
+        s0, s1, fl, d, h, sl, n = (float(b["from_s_m"]), float(b["to_s_m"]), float(b["floor_m"]),
+                                   float(b["proud_m"]), float(b["height_m"]), float(b["slab_m"]), b["consoles"])
+        if not (0.6 <= s1 - s0 <= 3.0 and 0.15 <= d <= 0.9 and 0.6 <= h <= 1.1 and 0.08 <= sl <= 0.25
+                and isinstance(n, int) and n in (0, 2, 3, 4)):
+            raise ParamError(f"street_front_iron.balconettes[{j}]: 0.6-3.0 m long, 0.15-0.9 m proud, a guard "
+                             f"0.6-1.1 m high on a slab 0.08-0.25 m deep, on 0 or 2-4 consoles")
+        over = [o for o in front if s0 < o.s_m < s1 and o.sill_m > fl]
+        if not over or any(o.sill_m < fl + h - 0.05 for o in over):
+            raise ParamError(f"street_front_iron.balconettes[{j}] stands under a street window, its guard "
+                             f"under the sill ({fl + h:.2f} m)")
+        bals.append({"from_s_m": s0, "to_s_m": s1, "floor_m": fl, "proud_m": d, "height_m": h, "slab_m": sl,
+                     "consoles": n})
+    if bals:
+        out["balconettes"] = tuple(bals)
+    rails = si.get("stoop_rails")
+    if rails:
+        if not {"kit", "scroll_m"} <= set(rails) <= {"kit", "scroll_m", "panel_m", "guard"} or rails["kit"] != "k11.rail.stoop_rail" \
+                or not 0.1 <= float(rails["scroll_m"]) <= 0.5 or not 0.2 <= float(rails.get("panel_m", 0.4)) <= 0.7:
+            raise ParamError("street_front_iron.stoop_rails are the K11 kit's k11.rail.stoop_rail, scroll_m 0.1-0.5, "
+                             "and may name panel_m (0.2-0.7), a scrolled panel that deep under the handrail")
+        if (entrance_kit.get("k01.opening.door_leaf") or {}).get("cheeks") is not False:
+            raise ParamError("street_front_iron.stoop_rails stand on a stoop without cheeks (entrance_kit cheeks: false)")
+        out["stoop_rails"] = {"kit": rails["kit"], "scroll_m": float(rails["scroll_m"]),
+                              **({"panel_m": float(rails["panel_m"])} if "panel_m" in rails else {})}
+        # the landing's guard along a terrace to `to_v_m`, pierced its whole length (the stoop's
+        # scrolled panels, so it takes panel_m) — k01_arched_front._landing_guard
+        gd = rails.get("guard")
+        if gd is not None:
+            if set(gd) != {"to_v_m"} or "panel_m" not in rails or "terrace" not in (
+                    entrance_kit.get("k01.opening.door_leaf") or {}):
+                raise ParamError("street_front_iron.stoop_rails.guard takes to_v_m, along a terrace, on scrolled "
+                                 "rails (panel_m)")
+            out["stoop_rails"]["guard"] = {"to_v_m": float(gd["to_v_m"]), "scrolled": True}
+    return out
+
+
+def _brick_belts(front: dict) -> tuple:
+    """T-3184: a brick front over a stone basement (`brick_above_m`) may name the stone belts
+    its picture draws across the brick, [[bed, top], ...] — none at all where it draws none
+    (1834's photograph: no belt at the second floor and no band at the principal heads, which
+    K01's two belts lay). Named, they are the only stone in the brick: every other thin course
+    the openings' lines would strike there is brick."""
+    if "brick_above_m" not in front:
+        raise ParamError("stone_front.belts names the belts across a brick front over a stone "
+                         "basement (brick_above_m); a stone front lays its own")
+    out = []
+    for b in front["belts"]:
+        b0, b1 = (float(y) for y in b)
+        if not float(front["brick_above_m"]) < b0 < b1 <= b0 + 0.4:
+            raise ParamError(f"stone_front.belts {list(b)}: a course at most 0.40 m deep over the "
+                             f"stone's top ({front['brick_above_m']} m)")
+        out.append((b0, b1))
+    return tuple(out)
 
 
 BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
@@ -1625,7 +1730,12 @@ def _bay_span(plan: dict) -> tuple:
     if plan["kind"] == "polygon":
         # ...and a polygonal one where its ring does (k08_bays walks the same ring)
         from . import k08_bays as K8
-        ring = K8.polygon_vertices(int(plan["sides"]), float(plan["radius_m"]), float(plan["centre_proud_m"]))
+        ring = K8.polygon_vertices(int(plan["sides"]), float(plan["radius_m"]), float(plan["centre_proud_m"]),
+                                   float(plan.get("turned_deg", 0.0)))
+        if plan.get("across_corner"):
+            # T-3176: across its corner it meets its wall from its junction to the corner
+            chain = K8.across_corner_chain(ring, plan["across_corner"])
+            return (chain[0][0], 0.0) if plan["across_corner"] == "right" else (0.0, chain[-1][0])
         xs = [a[0] + a[1] / (a[1] - b[1]) * (b[0] - a[0])
               for a, b in zip(ring, ring[1:] + ring[:1]) if (a[1] < 0) != (b[1] < 0)]
         xs += [a[0] for a in ring if abs(a[1]) < 1e-12]
@@ -1703,6 +1813,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s apron takes one fabric, front_stone (the front's "
                                      f"K02 walling), and the record must name a stone_front")
             q = e.get("plan")
+            # T-1890: or ROUND, a segmental bow on its chord and rise (1801's gabled section on
+            # 18th Street, its oriel bowed on its corbels in the Taylor print and HABS photograph
+            # 2), its front at most 1.2 m out as a canted one's
+            if q is not None and q.get("kind") == "bow":
+                if set(q) != {"kind", "chord_m", "rise_m"} \
+                        or not 1.0 <= float(q["chord_m"]) <= 4.0 \
+                        or not 0.2 <= float(q["rise_m"]) <= min(float(q["chord_m"]) / 2, 1.2):
+                    raise ParamError(f"bays: {e['id']} sizes a round oriel's plan by chord_m (1.0-4.0 m) and "
+                                     f"rise_m (0.2 m to half its chord, at most 1.2 m), not {q}")
+                v["plan"] = {"kind": "bow", "chord_m": float(q["chord_m"]), "rise_m": float(q["rise_m"])}
+                q = None
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
                 # T-3007: or, saying so (`asymmetric`), returns of their own (1811's on its 1888
@@ -1758,7 +1879,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # pavilion), never the size
             q = e["plan"]
             w, d = float(q["width_m"]), float(q["proud_m"])
-            if not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
+            # T-1878: or a whole FORWARD BLOCK of the front (`block`), standing proud of the wall
+            # behind a corner recess (1721's, the 1911 sheet and the 1891 Inland plate: 14 m of the
+            # front stands 2.9 m before the wall the porch is set back against), square, flush
+            # with its wall's other corner, and carrying the front's bows on its face (`on_front`)
+            if q.get("block") is not None:
+                if q["block"] is not True or not (6.0 < w <= 16.0 and 1.2 < d <= 3.5) \
+                        or e.get("variant") != "k08.projection.full_height" or e.get("flush_corner") is None \
+                        or set(q) - {"width_m", "proud_m", "block"}:
+                    raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
+                                     f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+            elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
             # T-2988: either cheek may be CANTED, running from the wall `cant_*_m` further out
@@ -1766,7 +1897,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
@@ -1817,16 +1948,38 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # never the size. Its centre stands on or out of the wall's face, so at least half
             # the ring is clear of it, and the ring always crosses the face
             q = e["plan"]
-            if set(q) != {"radius_m", "centre_proud_m"}:
+            across = e.get("across_corner")
+            if across is None and set(q) != {"radius_m", "centre_proud_m"}:
                 raise ParamError(f"bays: {e['id']} sizes its tower by radius_m and centre_proud_m, not {sorted(q)}")
             r, c = float(q["radius_m"]), float(q["centre_proud_m"])
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
-            c_lo = -(r - 0.3) if e.get("corner") is not None else 0.0
+            c_lo = -(r - 0.3) if e.get("corner") is not None or across is not None else 0.0
             if not (1.0 <= r <= 4.0 and c_lo <= c <= r - 0.3):
                 raise ParamError(f"bays: {e['id']}'s tower is {r} m in radius, its centre {c} m proud; a tower "
                                  f"is 1.0-4.0 m in radius and its centre {c_lo} m to its radius less 0.3 m out")
             v["plan"] = {**v["plan"], "radius_m": r, "centre_proud_m": c}
+            if across is not None:
+                # T-3176: a square tower set diagonally across its wall's corner (1827's, from the
+                # Doane photograph and the 1911 sheet's turned bump at the south-west corner): the
+                # kit's polygon with four sides, turned 45 degrees so an angle points out of each
+                # wall, its centre on the end wall's plane (s_m the wall's end) and `centre_proud_m`
+                # out of (or inside) the face, so its ring crosses both walls. Its walls stand on the
+                # ring outside the house; over the wall head it is closed on both planes and its
+                # cap is whole (k08_bays.Bay._corner_back)
+                if across not in ("left", "right") or v["plan"]["kind"] != "polygon" or e.get("corner") \
+                        or e.get("flush_corner") or set(q) != {"radius_m", "centre_proud_m", "sides", "turned_deg"} \
+                        or int(q["sides"]) != 4 or abs(float(q["turned_deg"]) - 45.0) > 1e-9:
+                    raise ParamError(f"bays: {e['id']} across_corner is 'left' or 'right', on a polygonal tower "
+                                     f"sized by radius_m, centre_proud_m, sides 4 and turned_deg 45")
+                end = 0.0 if across == "left" else wall_len[e["wall"]]
+                if abs(float(e["s_m"]) - end) > 1e-6:
+                    raise ParamError(f"bays: {e['id']} stands across its {across} corner, so its s_m is that "
+                                     f"corner's ({end} m), not {e['s_m']}")
+                if not -(r - 0.3) <= c <= r / math.sqrt(2):
+                    raise ParamError(f"bays: {e['id']}'s centre {c} m proud leaves its ring off one of its walls")
+                v["plan"] = {**v["plan"], "sides": 4, "turned_deg": 45.0, "across_corner": across}
+                v["corner_back_m"] = eave
         elif "plan" in e and not oriel and v["plan"]["kind"] == "polyline" and v["kind"] == "bay":
             # T-2780: a canted bay drawn on its sheet keeps the sheet's size (1637's south bay on
             # the 1911 sheet, 3.55 m at the wall and 0.75 m out); the kit's polyline is the shape,
@@ -1857,6 +2010,22 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
+        # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
+        # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
+        if "stage" in e:
+            sg = e["stage"]
+            ok = isinstance(sg, dict) and set(sg) == {"from_storey", "radius_m", "corbel_courses"} \
+                and v["kind"] == "tower" and v["plan"]["kind"] == "circle" and not e.get("corner")
+            if ok:
+                k, r2, kc = int(sg["from_storey"]), float(sg["radius_m"]), int(sg["corbel_courses"])
+                r1 = float(v["plan"]["radius_m"])
+                ok = 0 < k < len(v["storeys"]) and r1 + 0.2 <= r2 <= min(4.0, r1 + 1.0) and 2 <= kc <= 8
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s stage takes from_storey (one of its storey lines), radius_m "
+                                 f"(0.2-1.0 m wider than its shaft, at most 4.0 m) and corbel_courses (2-8), on "
+                                 f"a round tower standing on its own wall, not {sg}")
+            v["stage"] = {"from_storey": k, "radius_m": r2, "corbel_courses": kc}
         # T-2525: a window's iron grille in its reveal (1621's basement lights, from its drawing)
         for st in v["storeys"]:
             for w in st["windows"]:
@@ -2024,6 +2193,22 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             st["head_frieze"] = {"run": int(hf["run"]), "at": float(hf["at"]), "roundel": {
                 "radius_m": float(rd["radius_m"]), "ring_m": float(rd["ring_m"]), "proud_m": float(rd["proud_m"]),
                 "segments": int(rd["segments"])}, **{k: float(hf[k]) for k in ("from_m", "to_m", "border_m", "proud_m")}}
+        # T-1890: a corbel table carrying a storey in place of its floor band (1801's 18th Street
+        # section, the Taylor print and HABS photograph 2): a stone course on a row of corbels
+        for k, st in enumerate(v["storeys"]):
+            ct = st.get("corbel_table")
+            if ct is None:
+                continue
+            keys = {"height_m", "course_m", "proud_m", "block_m", "pitch_m", "margin_m"}
+            if k == 0 or not isinstance(ct, dict) or set(ct) != keys \
+                    or not (0.1 <= float(ct["course_m"]) <= 0.4 and float(ct["course_m"]) + 0.2 <= float(ct["height_m"]) <= 1.5
+                            and 0.05 <= float(ct["proud_m"]) <= 0.5 and 0.1 <= float(ct["block_m"]) <= 0.6
+                            and float(ct["block_m"]) + 0.05 <= float(ct["pitch_m"]) <= 1.5
+                            and 0.0 <= float(ct["margin_m"]) <= 0.5):
+                raise ParamError(f"bays: {e['id']}'s corbel_table takes {sorted(keys)} (on a storey over another: a "
+                                 f"0.1-0.4 m course 0.05-0.5 m proud, corbels 0.1-0.6 m wide, 0.05 m apart at "
+                                 f"least, down to 1.5 m under the line), not {ct}")
+            st["corbel_table"] = {k_: float(ct[k_]) for k_ in sorted(keys)}
         if "pilasters" in e:
             # T-2931: carved pilasters at the ends of a stone bay's runs (1801's bow and its south
             # pavilion, from the Taylor photograph), one a storey on a base, under a capital
@@ -2067,6 +2252,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                               **({"foot_m": ft} if ft is not None else {}),
                               **({"corbel_m": cm} if cm is not None else {}),
                               **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {})}
+        if "finial" in e:
+            # T-1890: a cap's finial read off a picture sizes the kit's spike, never adds one
+            # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
+            fn = e["finial"]
+            if not v["roof"].get("finial") or not isinstance(fn, dict) or set(fn) != {"height_m", "radius_m"} \
+                    or not 0.3 <= float(fn["height_m"]) <= 3.5 or not 0.03 <= float(fn["radius_m"]) <= 0.3:
+                raise ParamError(f"bays: {e['id']}'s finial sizes its cap's own finial by height_m (0.3-3.5 m) "
+                                 f"and radius_m (0.03-0.3 m), not {fn}")
+            v.setdefault("overrides", {})["finial"] = {k: float(fn[k]) for k in ("height_m", "radius_m")}
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]
@@ -2104,6 +2298,23 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     if not lo <= float(x) <= hi:
                         raise ParamError(f"bays: {e['id']}'s brackets.{k}.{kk} {x} is outside [{lo}, {hi}]")
                     kb[k][kk] = int(x) if kk == "segments" else float(x)
+        # T-3195: a row of plain stone blocks under a moulded eave (1827's tower, from the Doane
+        # photograph), on every run: only under a K10 moulded cornice, never beside the brackets
+        if "corbel_table" in e:
+            ct = e["corbel_table"]
+            need = {"spacing_m", "width_m", "drop_m", "out_m", "margin_m"}
+            ok = isinstance(ct, dict) and set(ct) == need and not v.get("brackets") \
+                and bool(v["overrides"].get("eaves", {}).get("profile"))
+            if ok:
+                ct = {k: float(ct[k]) for k in sorted(need)}
+                ok = 0.05 <= ct["width_m"] < ct["spacing_m"] <= 1.5 and 0.05 <= ct["drop_m"] <= 0.6 \
+                    and 0.05 <= ct["out_m"] <= 0.5 and 0.0 <= ct["margin_m"] <= 0.5
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s corbel_table stands under eaves naming a K10 moulded "
+                                 f"cornice, with no brackets, and takes width_m (at least 0.05) under spacing_m "
+                                 f"(at most 1.5), drop_m (0.05-0.6), out_m (0.05-0.5) and margin_m (0-0.5), "
+                                 f"not {e['corbel_table']}")
+            v["corbel_table"] = ct
         # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall;
         # T-2780: or a stone balustrade round a flat-topped canted bay's (1637's south bay);
         # T-2888: or an iron rail round a flat-topped projection's front and cheeks (1812's)
@@ -2217,6 +2428,26 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     "along": (round(ex, 6), round(ez, 6)), "out": (round(-ez, 6), round(ex, 6)),
                     "length_m": round(L, 4), "s_m": s}
             a, b = host["s_m"] + min(ax, bx), host["s_m"] + max(ax, bx)
+        # T-1878: a bay standing on a forward block's FRONT (1721's two bows, the 1911 sheet and
+        # the 1891 Inland plate): its wall is the block's face, s_m measured along it from its
+        # left end, and on its host wall it stands over the block's own span. The same frame
+        # as a chamfer's, with no cant
+        face = None
+        if e.get("on_front") is not None:
+            host = next((x for x in out if x["id"] == e["on_front"]), None)
+            if host is None or not host.get("block") or host["wall"] != e["wall"] or v["kind"] != "bay" \
+                    or oriel or cant is not None or e.get("flush_corner") or e.get("corner") \
+                    or e.get("window_over") or e.get("strips") or e.get("columns") or e.get("dress"):
+                raise ParamError(f"bays: {e['id']} stands on_front: a bay on grade, on the face of a forward "
+                                 f"block laid before it on the same wall")
+            (ax, az), (bx, _bz) = host["variant"]["plan"]["points"][1:3]
+            L = bx - ax
+            if not (BAY_PIER_M - 1e-9 <= a and b <= L - BAY_PIER_M + 1e-9):
+                raise ParamError(f"bays: {e['id']} meets its block's face at s {a:.3f}..{b:.3f}, closer than "
+                                 f"{BAY_PIER_M} m to an end of its {L:.3f} m face")
+            face = {"host": host["id"], "origin": (round(host["s_m"] + ax, 6), round(az, 6)),
+                    "along": (1.0, 0.0), "out": (0.0, 1.0), "length_m": round(L, 4), "s_m": s}
+            a, b = host["s_m"] + ax, host["s_m"] + bx
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
@@ -2244,8 +2475,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s ring stands {gap:.3f} m inside its {corner} end; a corner turret's "
                                  f"stands 0-{TURRET_CORNER_M} m inside it, never past the end wall's plane")
             v["cap_whole"] = True
-        if cant is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or
-                             (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right" and corner != "right")):
+        across = e.get("across_corner")   # T-3176
+        if cant is None and face is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left"
+                                               and across != "left") or
+                                              (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right"
+                                               and corner != "right" and across != "right")):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
@@ -2394,13 +2628,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if e.get("fabric", "stone") not in ("stone", "front_stone") or not any(abs(brick_above - y) < 1e-6 for y in lines):
                 raise ParamError(f"bays: {e['id']}.brick_above_m {brick_above} must be one of a stone bay's "
                                  f"storey lines {lines}")
-        out.append({"id": e["id"], "wall": e["wall"], "s_m": s if cant is None else round(a, 4),
+        out.append({"id": e["id"], "wall": e["wall"], "s_m": s if cant is None and face is None else round(a, 4),
                     "span_m": (round(a, 4), round(b, 4)),
                     **({"on_chamfer": cant} if cant else {}),
+                    **({"on_face": face} if face else {}),
+                    **({"block": True} if (e.get("plan") or {}).get("block") is True else {}),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
                     **({"corner": corner} if corner else {}),
+                    **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3101: a canted cheek seats the bay part by part on its wall
@@ -3334,8 +3571,8 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     the wing's own eave with its cap whole over the wing's roof, and the wing's lights behind
     it are dropped; the wing's eave is not cut for it and runs into its ring, as the main
     eave does. T-3001: a full-height projection too, standing to the wing's wall top with its
-    gable over it (1801's gabled section); a bay or an oriel on a wing is still the main walls'
-    kit.
+    gable over it (1801's gabled section); T-1890: an oriel too, on one of the wing's floors
+    (that section's round oriel); a bay on a wing is still the main walls' kit.
     Refused where the wing's walling stands in the tower's back above its wall top (a gable
     end), and where a later wing stands on the same stretch of the wall."""
     wings = list(wings)
@@ -3348,11 +3585,14 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
         # T-3001: or a full-height projection, to the wing's own wall top (1801's gabled
         # section on 18th Street, its coped gable and balcony over a shallow pavilion as the
         # front's south one is, in the Taylor photograph); a bay or an oriel still is not
+        # T-1890: or an oriel on its corbels from one of the wing's floors, its wall top under the
+        # wing's as a main-wall oriel's is under the main eave (1801's gabled section, its round
+        # oriel on the shallow pavilion's face)
         kind = kinds.get(e["variant"])
-        if kind != "tower" and e["variant"] != "k08.projection.full_height":
+        if kind not in ("tower", "oriel") and e["variant"] != "k08.projection.full_height":
             raise ParamError(f"bays: {e['id']} is a {kind or e['variant']} on {e['wall']}; a "
-                             f"rear wing's wall carries a K08 tower, past the wing's eave, or a full-height "
-                             f"projection")
+                             f"rear wing's wall carries a K08 tower, past the wing's eave, a full-height "
+                             f"projection or an oriel")
         j, side = at[e["wall"]]
         w = wings[j]
         if side in _gable_walls(w["roof"]):
@@ -3689,6 +3929,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     front_bays = tuple(float(s) for s in val("front_bays"))
     entrance = val("entrance_bay")
     door_s = front_bays[-1] if entrance == "north" else front_bays[0]
+    # T-1888: a front entered in an inner bay that is not its middle one (1834's four bays,
+    # the door third from the south in its photograph): the bay's number, 1 the southmost
+    if isinstance(entrance, int) and not isinstance(entrance, bool):
+        if not 1 <= entrance <= len(front_bays):
+            raise ParamError(f"entrance_bay {entrance} names a bay this {len(front_bays)}-bay front has not "
+                             f"(1 is the southmost)")
+        door_s = front_bays[entrance - 1]
+    elif entrance not in ("south", "north", "middle"):
+        raise ParamError(f"entrance_bay is south, north, middle or a bay's number, not {entrance!r}")
     # T-2408: a three-bay front entered in its middle bay, the door between the bays either
     # side (1620's, beside the bay window its pictures put on the south part)
     if entrance == "middle":
@@ -3745,7 +3994,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  or not 0.05 <= hood["overhang_m"] <= 0.4):
             raise ParamError(f"street_front_round_heads.hood takes variant {ROUND_HEAD_HOOD!r} and overhang_m, "
                              f"its block 0.05-0.4 m past each jamb")
-        if val("stone_front") or sfo:
+        # T-1888: a front whose stone stops at the principal floor (brick_above_m there) is a
+        # brick front over a stone basement, and its storeys' windows are cut in the brick
+        sf_ = val("stone_front") or {}
+        if (sf_ and sf_.get("brick_above_m") != val("principal_floor_m")) or sfo:
             raise ParamError("street_front_round_heads cuts round holes in a brick front; a stone front "
                              "lays its arches with street_front_openings")
         if any(not 0 <= int(k) < stories for k in rh["storeys"]):
@@ -3955,10 +4207,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("basement_lights names the area lights of a front without street_front_openings, "
                          "and only of one")
     bsill = float(bl.get("sill_m", 0.0))
+    # T-3184: a stone basement's lights read round-headed off a picture (1834's photograph: a
+    # tall round-headed light under each window but the door's) are cut as the side walls'
+    # round lights are, ROUND_PLAIN, in the coursed stone, the head at least half the width
+    bhead = bl.get("head")
+    if not set(bl) <= {"sill_m", "width_m", "height_m"} | ({"head", "base_top_m"} if bhead else set()):
+        raise ParamError("basement_lights takes sill_m, width_m and height_m (and, round-headed, head and base_top_m)")
+    if bhead is not None and (bhead != "round" or not val("stone_front")
+                              or float(bl["height_m"]) < float(bl["width_m"]) / 2 + 0.2):
+        raise ParamError("basement_lights.head is 'round', in a K02 stone front, its spring at least "
+                         "0.2 m over the sill")
     for s in (() if sfo or sfw else front_bays):
         if s != door_bay:
-            openings.append(Opening("k01.opening.area_light", "k01.wall.street_front", s, bsill,
-                                    float(bl["width_m"]), float(bl["height_m"]), False))
+            openings.append(Opening(ROUND_PLAIN if bhead else "k01.opening.area_light", "k01.wall.street_front",
+                                    s, bsill, float(bl["width_m"]), float(bl["height_m"]), False, plain=bool(bhead)))
     if not sfo and not sfw and bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
     arched_rows, arched_groups = [], []
@@ -4073,6 +4335,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # put a basement light's sill above grade and so leave its area well out
         entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
         kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+        # T-3195: a plain front's basement lights barred as a bay's are (1827's, from the Doane
+        # photograph): K08's bar grille in each light's reveal (k08_bays.grille), on the area
+        # lights only, and only where no well is dug, so the bars stand in a reveal above grade
+        g = entry.get("grille")
+        if g is not None:
+            ok = comp == "k01.opening.area_light" and not kit[comp]["well"] and isinstance(g, dict) \
+                and set(g) == {"bars", "set_back_m", "ring_radius_m"} and 2 <= int(g["bars"]) <= 16 \
+                and 0.0 < float(g["set_back_m"]) <= 0.08
+            if not ok:
+                raise ParamError(f"window_kit: {comp}'s grille is a basement light's, out of its well "
+                                 f"(\"well\": false), and takes bars (2-16), set_back_m (at most 0.08 m) "
+                                 f"and ring_radius_m, not {g}")
+            kit[comp]["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
+                                   "ring_radius_m": float(g["ring_radius_m"])}
     for comp in sorted({o.component for o in openings} - {"k01.opening.door_leaf"}):
         vid = kit.get(comp, {}).get("variant")
         if vid not in variants:
@@ -4116,6 +4392,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if v.get("well") and kit[comp]["well"] and comp == "k01.opening.area_light" and bsill > 0:
             raise ParamError(f"window_kit: {vid} sits in an area well, but these basement "
                              f"lights' sills stand {bsill} m above grade; set \"well\": false")
+        if comp == ROUND_PLAIN and v["operation"].startswith("double_hung"):
+            # T-3160: a round-headed light read off a picture, hung as a sash under its fanlight
+            # (1729's 18th Street flank) where the kit names one, not a fixed basement light
+            openings = [dataclasses.replace(o, meeting_rail=True) if o.component == comp else o for o in openings]
         if v["operation"].startswith("double_hung") != any(
                 o.meeting_rail for o in openings if o.component == comp):
             raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
@@ -4557,7 +4837,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         hd = door_kit_in["hood"]
         need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
-        extra = {"columns", "railing_fabric"}
+        # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
+        extra = {"columns", "railing_fabric", "fabric"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -4583,9 +4864,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # flat respond against the wall behind it. The landing has to reach under them
         if "columns" in hd:
             co = hd["columns"]
-            if set(co) != {"diameter_m", "plinth_m", "capital_m", "respond_m"}:
+            if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m")
+                                 "capital_m and respond_m, and optionally at_v_m")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -4594,14 +4876,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  "square and 0.8 m high, a 0.1-0.6 m capital and a 0.05-0.3 m respond")
             if hd["out_m"] < pw + 0.3 or hd["width_m"] < 2 * pw + 0.8:
                 raise ParamError("entrance_kit.hood.columns: the hood is too small to stand on two columns")
-            if float(val("stair_landing_depth_m")) < hd["out_m"] - 0.05 or float(val("stoop_width_m")) < hd["width_m"] - 0.05:
-                raise ParamError("entrance_kit.hood.columns stand on the stoop's landing: it must be as deep "
-                                 "as the hood is out and as wide as the hood")
+            # T-3159: or on a terrace either side of a narrower stoop, at the landing's height,
+            # that carries the deck on to the hood's ends (1729's portico, its flight at the north end)
+            hs0, hs1 = door_s - hd["width_m"] / 2, door_s + hd["width_m"] / 2
+            sv, sh = float(door_kit_in.get("stoop_v_m", door_s)), float(val("stoop_width_m")) / 2
+            ters = door_kit.get("terrace")
+            ters = ters if isinstance(ters, list) else [ters] if ters else []
+            lo = min([sv - sh] + [t["to_v_m"] for t in ters if t["side"] == "left"])
+            hi = max([sv + sh] + [t["to_v_m"] for t in ters if t["side"] == "right"])
+            if float(val("stair_landing_depth_m")) < hd["out_m"] - 0.05 or lo > hs0 + 0.05 or hi < hs1 - 0.05:
+                raise ParamError("entrance_kit.hood.columns stand on the stoop's landing, or the terraces beside "
+                                 "it: they must be as deep as the hood is out and reach both its ends")
             door_kit["hood"]["columns"] = {"diameter_m": dia, "plinth_m": [pw, ph], "capital_m": cap, "respond_m": rsp}
+            # T-3159: the columns' centres along the front (the front's own v), where a picture
+            # puts them, in place of one at each front corner
+            if "at_v_m" in co:
+                at = sorted(float(x) for x in co["at_v_m"])
+                if not 2 <= len(at) <= 8 or at[0] < hs0 + pw / 2 + 0.05 - 1e-6 or at[-1] > hs1 - pw / 2 - 0.05 + 1e-6 \
+                        or any(b - a < pw + 0.3 for a, b in zip(at, at[1:])):
+                    raise ParamError(f"entrance_kit.hood.columns.at_v_m {at}: two to eight columns under the hood "
+                                     f"(v {hs0:.3f}-{hs1:.3f}), their plinths inside its ends and 0.3 m apart")
+                door_kit["hood"]["columns"]["at_s_m"] = [round(a - door_s, 4) for a in at]
+        if "fabric" in hd:
+            if hd["fabric"] != "stone" or "columns" not in hd:
+                raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "
+                                 "for the painted joinery")
+            door_kit["hood"]["fabric"] = "stone"
         if "railing_fabric" in hd:
-            if hd["railing_fabric"] != "iron":
-                raise ParamError("entrance_kit.hood.railing_fabric: iron, or leave it out for the painted joinery")
-            door_kit["hood"]["railing_fabric"] = "iron"
+            # T-3159: or a stone balustrade, its posts, balusters and rail in the hood's stone
+            if hd["railing_fabric"] not in ("iron", "stone") or \
+                    (hd["railing_fabric"] == "stone" and hd.get("fabric") != "stone"):
+                raise ParamError("entrance_kit.hood.railing_fabric: iron, or stone on a stone hood, or leave it "
+                                 "out for the painted joinery")
+            door_kit["hood"]["railing_fabric"] = hd["railing_fabric"]
     # T-2463: a stoop whose axis is not its door's (1620's, the door at the south end of a
     # landing that runs on north into the porch): the stoop's centre along the front, in the
     # front's own s. The door has to stand on the landing or on a terrace beside it
@@ -4656,7 +4963,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for bay in (val("bays") or []):
             if bay.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
                 continue
-            half = float(bay["plan"]["chord_m"]) / 2
+            # T-3163: a bow names its chord, a projection its width (1823's pavilion), a
+            # polyline its ends on the wall
+            pl = bay.get("plan") or {}
+            half = (float(pl["chord_m"]) / 2 if "chord_m" in pl else float(pl["width_m"]) / 2 if "width_m" in pl
+                    else max(abs(float(x)) for x, _ in pl["points"]))
             b0, b1 = float(bay["s_m"]) - half, float(bay["s_m"]) + half
             if b0 < b - 1e-9 and a + 1e-9 < b1:
                 raise ParamError(f"entrance_kit.side_stoop: the landing (v {a}-{b}) stands on the {bay['id']} bay")
@@ -4965,6 +5276,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # the rusticated base and its coping run up to the area lights' heads, so the
         # coping's top is the line the lights' flat arches spring from (T-2289)
         top = bsill + float(bl["height_m"]) if bl else float((val("street_front_dress") or sfw or {}).get("base_top_m", 0.0))
+        if bl and bhead:   # T-3184: tall round-headed lights rise through it: its top is the record's
+            top = float(bl.get("base_top_m", -1.0))
+            if not bsill < top < bsill + float(bl["height_m"]) - float(bl["width_m"]) / 2:
+                raise ParamError("basement_lights.base_top_m: round-headed lights name the plinth's top, "
+                                 "over their sills and under their spring")
         if not stone["base_courses"]:
             if bl or abs(top - stone["coping_height_m"]) > 1e-6:
                 raise ParamError("stone_front: a plain plinth (no rusticated base courses) is its coping alone, "
@@ -4984,7 +5300,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # surrounds stay stone. A quoined corner is stone returned into brick up a
             # stone front, so it is refused here rather than half laid
             ba = stone["brick_above_m"]
-            lines = [round(pf + sum(heights[:i]), 4) for i in range(1, len(heights))]
+            # T-1888: or the principal floor's, a stone basement under a brick front (1834's
+            # photograph: the ashlar basement to the water table, every storey over it brick)
+            lines = [round(pf + sum(heights[:i]), 4) for i in range(len(heights))]
             if construction == "stone" or not any(abs(ba - f) < 1e-6 for f in lines):
                 raise ParamError(f"stone_front.brick_above_m {ba} must be one of the upper storeys' "
                                  f"floor lines {lines}, on a brick house with a stone front")
@@ -5045,6 +5363,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
     front_pier = _front_pier(val("front_pier"), stone, openings, bays, rainwater, round_corner, roof_form,
                              mansard_roof, pf + sum(heights))
+    from .k01_pavilions import ParamError as PavilionError, resolve as resolve_pavilions
+    try:
+        pavilions = resolve_pavilions(val("street_front_pavilions"), width=width, stone=stone, openings=openings,
+                                      mansard=mansard_roof, eave=pf + sum(heights),
+                                      wall_head=dict(val("wall_head", {}) or {}))
+    except PavilionError as e:
+        raise ParamError(str(e)) from None
+    from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte
+    try:
+        porte_cochere = resolve_porte(val("porte_cochere"), depth=depth, width=width, stone=stone, openings=openings)
+    except PorteError as e:
+        raise ParamError(str(e)) from None
     lg_ = (door_kit or {}).get("loggia") or {}
     round_arcade_check(lg_.get("round_arcade"), round_corner, lg_.get("columns"), width)
     # T-2997: a pipe on a return stands on a street projection's square high-s return, at
@@ -5080,6 +5410,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if o.wall == sb["wall"] and o.sill_m < y1 and y0 < o.head_m:
                 raise ParamError(f"side_belts[{j}] runs through {o.component} at s {o.s_m} on {o.wall}")
         side_belts.append({"wall": sb["wall"], "from_m": y0, "to_m": y1, "proud_m": d})
+    side_base = []
+    for j, sb in enumerate(val("side_base") or ()):
+        if set(sb) != {"wall", "to_m", "proud_m"} or sb["wall"] not in ("k01.wall.side.north", "k01.wall.side.south"):
+            raise ParamError(f"side_base[{j}] takes wall (a side wall), to_m and proud_m, not {sb}")
+        if not stone or "brick_above_m" not in stone:
+            raise ParamError(f"side_base[{j}] carries a stone basement's facing round its side; this front has none")
+        y1, d = float(sb["to_m"]), float(sb["proud_m"])
+        if not (abs(y1 - stone["brick_above_m"]) < 1e-6 and 0.01 <= d <= 0.06):
+            raise ParamError(f"side_base[{j}] runs to the front's stone top ({stone['brick_above_m']} m), "
+                             f"0.01-0.06 m proud, not {y1} m and {d} m")
+        for o in openings:   # a light in the basement is framed by it (1834's round-headed one)
+            if o.wall == sb["wall"] and o.sill_m < y1 and (o.head_m > y1 - 0.15 or o.sill_m < 0.15):
+                raise ParamError(f"side_base[{j}]: {o.component} at s {o.s_m} on {o.wall} stands across "
+                                 f"its top or its foot")
+        side_base.append({"wall": sb["wall"], "to_m": y1, "proud_m": d})
+    street_iron = _street_iron(val("street_front_iron") or {}, openings, val("entrance_kit") or {})
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
         storey_heights_m=heights, front_thickness_m=ft, side_thickness_m=st,
@@ -5091,7 +5437,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         north_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("north_bays") or ()),
-        side_belts=tuple(side_belts),
+        side_belts=tuple(side_belts), side_base=tuple(side_base), street_iron=street_iron,
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, slope_dormers=slope_dormers, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
@@ -5102,7 +5448,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
-        round_corner=round_corner, front_pier=front_pier,
+        round_corner=round_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

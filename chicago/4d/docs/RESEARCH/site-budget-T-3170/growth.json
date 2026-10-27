@@ -1,0 +1,143 @@
+{
+ "ticket": "T-3170",
+ "measured": "2026-10-26",
+ "method": "tools/publish.sh at each commit in one cloud checkout, every file under site/4d compared by path; embedded GLB images hashed by bufferView content",
+ "before": {
+  "commit": "5f787d3a7",
+  "note": "T-2958/T-2959's dev (CI read 335,532,030 B there; this checkout's ticket mirror adds the rest)",
+  "bytes": 335775882,
+  "files": 5118
+ },
+ "after": {
+  "commit": "a9c5bd4a9",
+  "note": "origin/dev, after T-2964 and T-3158",
+  "bytes": 399386526,
+  "files": 5521
+ },
+ "delta_bytes": 63610644,
+ "by_directory_bytes": {
+  "walk/transport": 25759419,
+  "data/gltf": 24928336,
+  "data/humans": 7012916,
+  "data/sidecars": 3631259,
+  "data/liberties.json": 566253,
+  "prairie-1904/research": 529838,
+  "walk/js": 311778,
+  "data/reader": 210337,
+  "data/transport": 208636,
+  "js/changelog.js": 111546,
+  "data/prebuilt": 81590,
+  "data/context": 76720,
+  "data/street_grid": 47649,
+  "packs/1904.json": 25713,
+  "data/inspect": 22605,
+  "data/pictures": 21032,
+  "prairie-1904/data": 15731,
+  "data/comparisons": 13444,
+  "walk/css": 12082,
+  "data/residents": 11507,
+  "packs/1835.json": 10278,
+  "data/flora": 6492,
+  "packs/1812.json": 5903,
+  "data/scenes": 2255,
+  "1835/index.html": 1787,
+  "1880/index.html": 1787,
+  "1904/index.html": 1787,
+  "1812/index.html": 1787,
+  "walk/index.html": 1787,
+  "data/yard": 1699,
+  "data/frontage": 1319,
+  "data/street_section": 1272,
+  "data/enclosures": -25869
+ },
+ "gltf_by_state_bytes": {
+  "grown": 2961008,
+  "new": 22261832,
+  "gone": -294504
+ },
+ "largest_gltf_changes_bytes": [
+  {
+   "path": "data/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+   "delta": 4714224,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
+   "delta": 3825960,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/house_1828_prairie__as_mapped_1904.glb",
+   "delta": 3793316,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
+   "delta": 2159376,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/house_1730_prairie__as_mapped_1904.glb",
+   "delta": 1997992,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/house_1726_prairie__as_mapped_1904.glb",
+   "delta": 1923472,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/glessner_house__as_built_1887.glb",
+   "delta": 1620084,
+   "state": "grown"
+  },
+  {
+   "path": "data/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+   "delta": 708432,
+   "state": "grown"
+  },
+  {
+   "path": "data/gltf/kinzie_garden_1812__kinzie_1804.glb",
+   "delta": 197560,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
+   "delta": 190356,
+   "state": "grown"
+  },
+  {
+   "path": "data/gltf/chicago_lighthouse_1832__tower_1832.glb",
+   "delta": 142460,
+   "state": "grown"
+  },
+  {
+   "path": "data/gltf/first_presbyterian_church_2029_indiana__draft_1904.glb",
+   "delta": 86288,
+   "state": "new"
+  }
+ ],
+ "levers_measured_not_pulled": {
+  "embedded_texture_copies": {
+   "glbs": 1062,
+   "embedded_image_mib": 98.41,
+   "unique_mib": 32.102,
+   "repeated_mib": 66.309,
+   "note": "the same KTX2 sheet embedded in many houses' GLBs (the K01 kit's 625 KiB sheet in 28 of them); sharing one copy per sheet is the durable lever"
+  },
+  "unread_transport_masters_bytes": {
+   "walk/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb": 3783600,
+   "walk/transport/parked-brougham/brougham-source.glb": 2487440,
+   "walk/transport/parked-brougham/brougham-mid-source.glb": 909556,
+   "note": "no runtime fetch reads them (standing-horses.json names the eye-uv-v1 file; brougham.json names near and mid); only tools/transport/brougham/check_*.py and the eye-UV generator read them, from the source tree"
+  }
+ },
+ "pages_arithmetic": {
+  "other_site_content_mib": 129.136,
+  "allowance_mib": 416,
+  "two_allowances_plus_other_mib": 961.136,
+  "pages_limit_mib": 1024,
+  "spare_mib": 62.864,
+  "largest_safe_allowance_mib": 447.4
+ }
+}

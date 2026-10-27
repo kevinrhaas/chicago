@@ -693,13 +693,25 @@ const STANDS = [
  * mirror: lake_market 189 -> 193 and south_water 173 -> 177 at 1280x800, 83 -> 87
  * and 80 -> 84 at 390x780, and +4 at every close stand too — the two batches once
  * in each pass, triangles unchanged to the triangle.
+ *
+ * **5 -> 6 ON 2026-10-26 (T-2376, the existing T-3122 lantern).** The 1832
+ * lighthouse now carries its declared 0.18-opacity `lantern_cage_glass` as a
+ * BLEND material. It cannot share an opaque material without losing that glass.
+ * The actual published stage 8 read six batches and four mapped batches at both
+ * viewports on 0c78d17b; the active-1835 input census identifies this as the only
+ * BLEND material. Green Tree's material records and primitive material indices
+ * are unchanged. Keep the five opaque batches, including all four relief groups,
+ * and require exactly one separate lighthouse glass batch with its source alpha.
+ * This admits the intended material, not an arbitrary split. All roughness and
+ * reach assertions below remain unchanged. The new glass predicate must be
+ * verified by the actual published stage 8 runs before this change can merge.
  */
-const STRUCTURE_BATCHES = 5;
+const STRUCTURE_BATCHES = 6;
 /**
- * …and of those three, exactly two are roof coverings — T-1488. The count above
- * would pass identically on a town that had split into three batches by LOSING
- * the merge, which is the failure R-W5a2 wrote it to catch; this says WHICH
- * three, so a regression that re-splits the walls cannot hide behind the raise.
+ * Four of those six are the two roof coverings and two wall substrates. The
+ * total alone could pass after losing a relief map and splitting an unrelated
+ * surface instead; this holds the mapped groups, while the live glass predicate
+ * below holds the one separate translucent class and the five opaque groups.
  */
 const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
 /**
@@ -12001,13 +12013,33 @@ for (const [label, viewport, touch] of [
       return {
         batches: bs.length, values: seen.size, min, max,
         textured: bs.filter((b) => b.material?.normalMap).length,
+        opaque: bs.filter((b) => !b.material?.transparent).length,
+        normalMode: !window.__chicago4d.confidenceView,
+        translucent: bs.filter((b) => b.material?.transparent).map((b) => ({
+          owners: [...new Set((b.userData.batchIndex ?? []).filter(Boolean))].sort(),
+          opacity: b.material.opacity,
+          mapped: Boolean(b.material.normalMap),
+        })),
       };
     });
-    check(`${label}: the town is its one untextured batch, its two roof coverings and its two wall substrates`,
+    check(`${label}: the opaque town stays merged beside its four relief groups and separate lantern glass`,
       batchCensus.batches === STRUCTURE_BATCHES
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
       + `${batchCensus.textured} carry a relief map, want ${TEXTURED_STRUCTURE_BATCHES}`);
+    const lanternGlass = batchCensus.translucent[0];
+    check(`${label}: only the lighthouse's separate glass batch keeps its declared 0.18 opacity`,
+      batchCensus.normalMode && batchCensus.opaque === 5
+        && batchCensus.translucent.length === 1
+        && lanternGlass.owners.length === 1
+        && lanternGlass.owners[0] === 'chicago_lighthouse_1832'
+        && !lanternGlass.mapped && Number.isFinite(lanternGlass.opacity)
+        && Math.abs(lanternGlass.opacity - 0.18) <= 1e-6,
+      `${batchCensus.opaque} opaque batch(es), want 5; `
+      + `${batchCensus.translucent.length} translucent, want one unmapped lighthouse batch; `
+      + `owners ${JSON.stringify(lanternGlass?.owners ?? [])}, `
+      + `opacity ${lanternGlass?.opacity ?? 'missing'} (want 0.18 ± 1e-6), `
+      + `normal mode ${batchCensus.normalMode}`);
     check(`${label}: the batch still carries the town's finishes`,
       batchCensus.values >= ROUGHNESS_VALUES_MIN
         && batchCensus.min <= 0.30 && batchCensus.max >= 0.95,
@@ -12646,12 +12678,12 @@ for (const [label, viewport, touch] of [
      *      reflected road runs where no centreline is recorded.
      */
     const drawnTown = await page.evaluate(`(${CENSUS.toString()})()`);
-    check(`${label}: every building is drawn around the anchor its record gives it`,
+    check(`${label}: every building occupies its recorded footprint at its independently checked placement`,
       drawnTown.buildings.compared > 200 && drawnTown.buildings.unrecorded === 0
       && drawnTown.buildings.outside === 0 && drawnTown.buildings.mirrorCloser === 0
       && drawnTown.buildings.misplaced === 0,
       `${drawnTown.buildings.outside} of ${drawnTown.buildings.compared} structures whose own `
-      + `anchor falls outside their drawn footprint — unioned from `
+      + `recorded footprint reference falls outside their drawn bounds — unioned from `
       + `${drawnTown.buildings.instances} instances in ${drawnTown.buildings.batches} batches, `
       + `${drawnTown.buildings.verts} vertices read back; worst `
       + `${drawnTown.buildings.worst.toFixed(2)} m`
@@ -12662,7 +12694,8 @@ for (const [label, viewport, touch] of [
       + `; ${drawnTown.buildings.unrecorded} instances with no readable placement`
       + `; ${drawnTown.buildings.misplaced} wrong vertex transforms (worst `
       + `${drawnTown.buildings.worstTransform.toFixed(6)} m, 0.001 m bar), `
-      + `${drawnTown.buildings.compounds} sparse camp plots`, true);
+      + `${drawnTown.buildings.compounds} sparse camp plots (empty plot corners up to `
+      + `${drawnTown.buildings.campWorst.toFixed(2)} m out, which gate nothing)`, true);
     check(`${label}: every panel of road is drawn on a street the data records`,
       drawnTown.streets.verts > 1000 && drawnTown.streets.records >= 17
       && drawnTown.streets.stray === 0,
@@ -20177,7 +20210,17 @@ for (const [label, viewport, touch] of [
           'house_1921_indiana_coach_house',
           'house_1931_indiana',
           'house_1931_indiana_rear_dwelling',
-          'house_213_e18th'].sort();
+          'house_213_e18th',
+          // T-1880 kept the Pullman house's stable, range and porte-cochere as a record of their own
+          // and left it off this list; T-3164 found it there and added it.
+          'pullman_house_1729_prairie_ranges',
+          // T-3164 stood Pullman's glasshouse ground across 18th Street at 1800 Calumet: four
+          // K13 glasshouses and the lodge between them.
+          'pullman_glasshouse_1800_calumet_pavilion',
+          'pullman_glasshouse_1800_calumet_north',
+          'pullman_glasshouse_1800_calumet_east',
+          'pullman_glasshouse_1800_calumet_east_end',
+          'pullman_lodge_1800_calumet'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

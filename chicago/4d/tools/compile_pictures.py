@@ -215,7 +215,9 @@ def camera_spot(cam):
 
     The camera looks along `basis_right_up_forward`'s forward vector where it has one (an
     inclined or rolled photograph), else along `yaw_deg`, level. None for a camera with no
-    eye, or one narrower than SPOT_MIN_FOV_DEG (a drawing's elevation camera)."""
+    eye, a diagnostic_only camera, or one narrower than SPOT_MIN_FOV_DEG (a drawing's elevation camera)."""
+    if cam.get("diagnostic_only") is True:
+        return None
     eye = cam.get("eye")
     if not (isinstance(eye, list) and len(eye) == 3 and all(isinstance(x, (int, float)) for x in eye)):
         return None
@@ -448,6 +450,11 @@ def self_test():
     expect(by["front"].get("spot") == {"u": 30.0, "v": -5.0, "h": 1.6, "bearing": 290.0, "pitch": 0.0},
            f"a solved camera gives its picture a spot ({by['front'].get('spot')})")
     expect("spot" not in by["street"], "a drawing's far-off elevation camera is not a spot")
+    diagnostic_views = {"goodman_house_1612_prairie": [dict(views["goodman_house_1612_prairie"][0], diagnostic_only=True)]}
+    diagnostic = derive(images, tsv, sources, texts, scenes, diagnostic_views)
+    diagnostic_front = next(e for e in diagnostic["1904"]["by_structure"]["goodman_house_1612_prairie"] if e["id"] == "front")
+    expect(diagnostic_front == {k: v for k, v in by["front"].items() if k != "spot"},
+           "a diagnostic camera retains its picture and credit but offers no historical camera spot")
     expect("spot" not in by.get("barn", {}) and "spot" not in out["1904"]["by_structure"]
            ["goodman_house_1612_prairie_coach_house"][0], "a picture no camera names has no spot")
     expect(source_years("1963 (sheets 1-5); 1965 (sheet 6)") == [1963, 1965] and source_years("n.d.") is None,

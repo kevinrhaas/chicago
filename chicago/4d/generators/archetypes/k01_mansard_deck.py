@@ -28,6 +28,7 @@ import random
 #: the curb's four corners, by the two K01 faces that meet at each
 CORNERS = ("street_south", "street_north", "rear_south", "rear_north")
 CRESTING = "k10.cresting.iron_ridge"
+SIDES = ("south", "north", "street", "rear")
 HOOD_INSET_M = 0.02        # a hood's base stands this far inside the curb's lines
 HOOD_FOOT_M = 0.05         # a hood's foot stands this far under the curb, buried in the roof
 CORNER_CLEAR_M = 0.05      # the cresting stops this far short of a hood's base
@@ -63,6 +64,13 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         if not 0.3 <= h <= 1.0 or not 0.03 <= ins <= 0.3:
             raise ParamError("mansard.deck.cresting: 0.3-1.0 m high, 0.03-0.3 m inside the curb")
         out["cresting"] = {"variant": CRESTING, "height_m": h, "inset_m": ins}
+        # T-2964: on the curb's sides a picture shows it on (1816's street and north; its south
+        # curb stands behind the flank bay's own crowned deck), all four by default
+        sd = cr.get("sides")
+        if sd is not None:
+            if not sd or set(sd) - set(SIDES) or len(set(sd)) != len(sd):
+                raise ParamError(f"mansard.deck.cresting.sides: some of {', '.join(SIDES)}, once each")
+            out["cresting"]["sides"] = list(sd)
     fn = deck.get("finials")
     if fn is not None:
         fh, fr = float(fn["height_m"]), float(fn["radius_m"])
@@ -188,6 +196,8 @@ def dress(a, dk, conf):
                  ("street", "v", u1 - ins, v0, v1, "street_south", "street_north"),
                  ("rear", "v", u0 + ins, v0, v1, "rear_south", "rear_north"))
         for side, along, at, lo, hi, c_lo, c_hi in sides:
+            if side not in cr.get("sides", SIDES):
+                continue
             s0, s1 = lo + stop(c_lo), hi - stop(c_hi)
             L = s1 - s0
             if L < k10_frontage.MIN_CRESTING_M:
@@ -230,3 +240,19 @@ def dress(a, dk, conf):
             k10_frontage._lay(a, [pc], conf, "k01.roof.deck_finial")
             laid["finials"].append({"corner": name, "foot_m": round(foot, 3), "on": host})
     a.deck = laid
+
+
+def crown_finial(a, cr, conf):
+    """T-3175: a hipped crown's turned finial (k01_frontage_params._hip_crown), standing on
+    its ridge's street end, the apex the end's hip and the two side hips meet at, its foot
+    let into the ridge; the deck's turning, laid as a deck finial on the crown."""
+    from . import k10_frontage
+    from .k09_trim import lathe, Piece
+    fn = cr["finial"]
+    x, z = cr["ridge_x_m"][1], (cr["z0"] + cr["z1"]) / 2
+    foot = cr["ridge_m"] - LET_IN_M
+    a.instance("k01.roof.deck_finial", "finial", {"height_m": fn["height_m"], "corner": "crown",
+                                                   "host": "mansard crown"}, {"foot": (x, foot, z)})
+    pc = Piece("finial crown", "iron", "rooted", host="mansard crown")
+    lathe(pc.mesh, (x, z), [(fn["radius_m"] * r, foot + fn["height_m"] * y) for r, y in FINIAL], FINIAL_SEGS)
+    k10_frontage._lay(a, [pc], conf, "k01.roof.deck_finial")

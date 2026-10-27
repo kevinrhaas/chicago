@@ -14,6 +14,7 @@ import json
 import inspect
 import math
 from pathlib import Path
+import ast
 import sys
 import types
 import unittest
@@ -336,6 +337,80 @@ class PictureFeatures(unittest.TestCase):
         self.assertEqual(p.gable_arch_text,phase["form"]["gable_arch_text"]["value"])
         bad=copy.deepcopy(phase);bad["form"]["gable_arch_text"]["confidence"]="attested"
         with self.assertRaises(ParamError):from_phase(bad,record)
+
+    def test_green_tree_front_ground_layout_is_sparse_and_reconstructed(self):
+        record, phase, p = record_params("green_tree_tavern", "frame_1833")
+        self.assertEqual(p.front_ground_layout, [.20, .50, .78])
+        self.assertIn("front_ground_layout", CONSUMED)
+        signature = inspect.signature(FrameTavernParams)
+        self.assertEqual(signature.parameters["front_ground_layout"].kind,
+                         inspect.Parameter.KEYWORD_ONLY)
+        calls = []
+        with patch.object(builder, "_win", lambda *a, **k: calls.append(("win", a[2:]))),              patch.object(builder, "_door", lambda *a, **k: calls.append(("door", a[2:]))):
+            builder._fenestration_gable_front(MeshBuilder("layout"), p, p.width_m,
+                                              p.depth_m, p.wall_height_m, 8., .5)
+        front_ground = [(kind, a) for kind, a in calls
+                        if a[0] == "y" and a[1] == p.depth_m and a[2] == 1
+                        and a[5] < p.wall_height_m / p.stories]
+        self.assertEqual([kind for kind, _ in front_ground], ["door", "win", "win"])
+        for (_, a), at, width in zip(front_ground, (.20, .50, .78), (1.20, .85, .85)):
+            self.assertEqual(a[3:5], (p.width_m*at-width/2, p.width_m*at+width/2))
+            self.assertEqual(a[-1], 1.)
+        # Exterior +y view, yaw180: camera-right is -u. Physical screen order
+        # must be two sash then the door, not merely ascending local stations.
+        screen_order = [kind for kind, a in sorted(front_ground,
+                        key=lambda call: -(call[1][3]+call[1][4])/2)]
+        self.assertEqual(screen_order, ["win", "win", "door"])
+        legacy = copy.deepcopy(record)
+        del legacy["phases"][0]["form"]["front_ground_layout"]
+        self.assertIsNone(from_phase(legacy["phases"][0], legacy).front_ground_layout)
+
+    def test_front_ground_layout_refuses_bad_shape_spacing_or_grade(self):
+        _, _, p = record_params("green_tree_tavern", "frame_1833")
+        for bad in (False, (), [], [.2, .8], [True, .5, .8], [math.nan, .5, .8],
+                    [.2, math.inf, .8], [".2", .5, .8], [.5, .2, .8],
+                    [-.1, .5, .8], [.2, .5, 1.], [.2, .22, .8]):
+            with self.subTest(bad=bad), self.assertRaises(ParamError):
+                dataclasses.replace(p, front_ground_layout=bad).validate()
+        for grade in ("attested", "inferred"):
+            with self.subTest(grade=grade), self.assertRaises(ParamError):
+                dataclasses.replace(p, confidence={**p.confidence,
+                                      "front_ground_layout": grade}).validate()
+        with self.assertRaises(ParamError):
+            dataclasses.replace(p, elevation_scheme="frontage").validate()
+
+    def test_front_ground_actual_geometry_stations_are_native_hashed_property(self):
+        from mesh_inputs import _params_doc
+        _, _, p = record_params("green_tree_tavern", "frame_1833")
+        self.assertIsInstance(FrameTavernParams.resolved_front_ground_stations, property)
+        self.assertEqual(_params_doc(p)["inferred"]["resolved_front_ground_stations"],
+                         p.resolved_front_ground_stations)
+        self.assertEqual(p.resolved_front_ground_stations,
+                         (p.width_m*.20, (p.width_m*.50, p.width_m*.78)))
+
+    def test_front_ground_access_reads_exact_phase_not_sidecar_form(self):
+        record, phase, p = record_params("green_tree_tavern", "frame_1833")
+        decoy = copy.deepcopy(phase)
+        decoy["id"] = "other_phase_first"
+        del decoy["form"]["front_ground_layout"]
+        record = {**record, "phases": [decoy, phase]}
+        tree = ast.parse((ROOT / "tools/generate_entrances.py").read_text())
+        node = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
+                    and n.name == "front_doors")
+        fake = types.SimpleNamespace(STRUCTURES=ROOT / "data/structures",
+            _load=lambda path: record,
+            _front_edge=lambda poly: (0., p.width_m, p.depth_m))
+        ns = {"gbs": fake, "_frame_tavern_params": from_phase,
+              "TAVERN_DOOR_W_M": 1.2}
+        exec(compile(ast.Module(body=[node], type_ignores=[]), "actual_front_doors", "exec"), ns)
+        sc = {"id": record["id"], "archetype": "frame_tavern", "phase": phase["id"],
+              "footprint": phase["footprint"], "form": {"front_ground_layout": {"value": [.8,.9,.95]}}}
+        doors, reader = ns["front_doors"](sc)
+        c, _ = p.resolved_front_ground_stations
+        self.assertEqual(doors, [{"kind": "door", "u0": c-.6, "u1": c+.6}])
+        self.assertIn("selected phase", reader)
+        with self.assertRaises(ValueError):
+            ns["front_doors"]({**sc, "phase": "nonexistent"})
 
     def test_green_tree_override_changes_only_named_eaves_face(self):
         _, _, p = record_params("green_tree_tavern", "frame_1833")

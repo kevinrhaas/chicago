@@ -201,7 +201,8 @@
       "phases[].form.tower_openings.note",
       "phases[].form.tower_profile.note",
       "phases[].form.tower_lantern_detail.note",
-      "phases[].form.tower_masonry.note"
+      "phases[].form.tower_masonry.note",
+      "phases[].form.front_ground_layout.note"
     ],
     "households": [
       "arrival.note",

@@ -1,4 +1,228 @@
 export const CHANGELOG = [ // newest first
+  { v: 2343, ts: '2026-10-27T16:03:54.777Z', date: 'Oct 27, 2026, 11:03 AM CT', title: '1708 Prairie built from the Glessner townhouse photographs', kind: 'feature',
+    items: [
+      '1708 Prairie Avenue, next door to the Glessner townhouses, is no longer a draft box. It is now a three-storey brick front under a deep plain cornice, with a stone string course under the frieze, hooded windows, a canted bay rising two storeys on the south, and the entrance at the north end under a bracketed hood.',
+      'Two photographs of the townhouses show 1708 at their edge, and both are now on the house\'s card. Their cameras are solved against the townhouses\' front, and the house is built to match what they show. The plan behind the front, a long brick range and a narrow wing toward the alley, comes from the 1911 Sanborn map.',
+    ] },
+  { v: 2342, ts: '2026-10-27T15:31:37.543Z', date: 'Oct 27, 2026, 10:31 AM CT', title: '1801 Prairie\'s gabled section gets its round oriel and arched windows', kind: 'improvement',
+    items: [
+      'On the W. W. Kimball house\'s 18th Street side, the gabled section now matches its c. 1895 and 1965 photographs: a round oriel window stands on a deep stepped stone corbel, with a stone balustrade around its top and three round-arched windows below it, where the wall had a plain stack of paired windows.',
+    ] },
+  { v: 2341, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: 'Pullman\'s stable: arcade onto the court, a bay on its corner', kind: 'improvement',
+    items: [
+      '1729 Prairie: the Pullman stable\'s three-arch carriage arcade now faces the court beside the palm house, as the 1894 Inland Architect plate shows, instead of 18th Street.',
+      'A polygonal bay of three arched lights stands across the stable\'s south-west corner, under an upper storey that cuts the corner on the diagonal; the 18th Street sash moved west with it.',
+      'The stable\'s lantern is lower and smaller, the belvedere sits a little further west, and the north block shares the stable\'s eave.',
+      'The palm house now has three pictures with solved cameras: the plate, and two J. W. Taylor photographs.',
+    ] },
+  { v: 2340, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: '1827 Prairie\'s basement grilles and the tower\'s corbel blocks', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie matches its photograph more closely: its basement lights have iron grilles, a row of stone corbel blocks runs under the corner tower\'s cornice, and the front\'s south window bay and the pavilion\'s narrow windows now stand where the photograph puts them.',
+    ] },
+  { v: 2339, ts: '2026-10-27T13:44:26.497Z', date: 'Oct 27, 2026, 8:44 AM CT', title: '1801 Prairie\'s 18th Street section, corbel table and fan gable', kind: 'improvement',
+    items: [
+      'The section of the W. W. Kimball house\'s 18th Street wall beside the tower now matches its c. 1895 and 1965 photographs: its top storey stands on a row of stone corbels, with paired windows under a coped gable carved with a fan and topped by a finial, where the wall used to rise plain to a low hipped roof.',
+      'The tall stone chimney behind it moves about three metres toward the back of the house, where both photographs put it, and is now built in the walls\' pale stone instead of brick.',
+    ] },
+  { v: 2338, ts: '2026-10-27T12:57:23.899Z', date: 'Oct 27, 2026, 7:57 AM CT', title: '1834 Prairie, the Jones house, now matches its photograph', kind: 'improvement',
+    items: [
+      'The front door is a tall round-arched doorway with a stone hood and keystone, and its front steps have open sides under scrolled cast-iron railings. The landing runs on south to the corner behind a pierced iron guard.',
+      'Two pierced iron balconettes stand under the north windows of the main floor. The wider one rests on carved stone brackets.',
+      'The basement windows are tall and round-headed. The light stone basement now wraps round the north side, and the bay window there has arched windows under a bracketed hood.',
+      'The cornice is deep, with paired brackets over a plain frieze, and the stone band across the brick front is gone.',
+      'A gap in the low stone wall at the street lets the front walk through, as in the photograph.',
+    ] },
+  { v: 2337, ts: '2026-10-27T12:22:40.546Z', date: 'Oct 27, 2026, 7:22 AM CT', title: '1720 Prairie\'s upper storey now matches its photograph', kind: 'feature',
+    items: [
+      '1720 Prairie Avenue\'s upper storey now matches the Tyrrell photograph: a canted bay with a hipped cap stands on the porch roof at the south end, and a low gable rises over the middle of the front.',
+      'Every front window now has a round-arched casing under a hood moulding, and the middle upper window has a flat hood on scroll brackets.',
+      'The deeper eave now rests on paired brackets, with two oval lights and a paired attic window in the frieze. The porch\'s skirt is open and dark, as the picture shows.',
+    ] },
+  { v: 2336, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1901 Prairie: stone chimneys, a flank dormer and a scrolled fence', kind: 'feature',
+    items: [
+      'The Ream house at 1901 Prairie now matches its south-west photograph more closely: its two tall chimneys are pale stone like its walls, not red brick, and they stand where the photograph puts them.',
+      'A pedimented dormer now sits on the south side\'s mansard over the bay window, and the street dormers have lower pediments.',
+      'The iron fence is a band of scrolls on a stone curb, and its gate hangs on stone piers.',
+    ] },
+  { v: 2335, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1827 Prairie\'s window hoods, arched attic lights and tower cornice', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie now matches its photograph more closely: every front, pavilion and tower window carries a moulded hood, the attic\'s three lights are round-headed, the corner tower is capped by a deep moulded cornice at the print\'s height, and the stone front is laid in alternating high and low courses.',
+    ] },
+  { v: 2334, ts: '2026-10-27T10:23:38.289Z', date: 'Oct 27, 2026, 5:23 AM CT', title: 'Kimball\'s 18th Street tower rebuilt to its photographs', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s round tower is now a slim shaft under a wider corbelled top stage with small square windows, as the c. 1895 Taylor print and the 1965 HABS photograph both show it. It used to be one tall, narrow cylinder.',
+      'Its broad slate cone now springs and peaks about 2 m lower than before, under a heavy stone cornice and a tall finial. The blank stretch of shaft between the main windows and the corbels now matches the pictures, and so does the small corner turret\'s tall finial.',
+    ] },
+  { v: 2333, ts: '2026-10-27T09:45:34.781Z', date: 'Oct 27, 2026, 4:45 AM CT', title: 'Pullman\'s stable, as its 1890s photographs show it', kind: 'feature',
+    items: [
+      'The stable at the east end of 1729 Prairie, beside the palm house, is no longer a plain draft box. Its steep slate roof rises from the first-floor cornice to a flat deck ringed with iron cresting, with a domed lantern on top. The upper storey on 18th Street rises through the roof as one long wall of small windows. Below it are an arcade of round arches and a polygonal bay of round-headed windows, with a tall chimney at the east end. A square belvedere with a balustrade stands where the palm-house range meets the stable.',
+    ] },
+  { v: 2332, ts: '2026-10-27T09:41:13.175Z', date: 'Oct 27, 2026, 4:41 AM CT', title: '1828 Prairie\'s porch and front steps in stone', kind: 'improvement',
+    items: [
+      'The porch of the Shipman house at 1828 Prairie is now light stone like the rest of its front, columns and all, as both photographs show it. The railing on its roof is heavier, with stone posts and a broad top rail.',
+      'Its front steps now have stone balustrades along both sides, with a post at the top and another at the bottom, as in the street photograph with the electric runabout.',
+      'Both houses\' photograph comparisons were checked again. Some gaps are still open: the porch\'s round arches, the bay that rises into the roof, about a metre of the roof\'s height, the taller basement windows, and the question of where 1824 stands against 1828.',
+    ] },
+  { v: 2331, ts: '2026-10-27T08:26:22.288Z', date: 'Oct 27, 2026, 3:26 AM CT', title: '1712 Prairie stands as a stone-front house', kind: 'feature',
+    items: [
+      '1712 Prairie Avenue is no longer a draft box: a light limestone front across the whole house, two tall storeys of windows in moulded stone surrounds, a high stoop to the door on the south, a bracketed cornice and a tin hip with a dormer lighting the attic.',
+      'Its plan comes from the 1911 Sanborn map: a wider, shallower house than the draft stood, a two-storey brick wing behind with a timber room at its end, and a small timber porch on its south side.',
+      'The one picture filed under 1712 turned out to be a 1939 model of the Kodak plant that replaced the house, so it no longer counts as a picture of the house. Every height, window and roof shape is reconstructed, and the house\'s card says which parts.',
+    ] },
+  { v: 2330, ts: '2026-10-27T07:59:44.015Z', date: 'Oct 27, 2026, 2:59 AM CT', title: '1827 Prairie stands at its true height', kind: 'improvement',
+    items: [
+      'The Doane house was standing about a third taller than its photograph. It is now measured off the photograph through its corrected camera: the cornice is at about 9.4 m, not 12.6 m, and the windows, the mansard, the pavilion\'s attic and roof, the corner tower and the porch\'s balcony have all come down with it, as the photograph shows them.',
+    ] },
+  { v: 2329, ts: '2026-10-27T07:55:42.284Z', date: 'Oct 27, 2026, 2:55 AM CT', title: '1720 Prairie\'s porch built to its photograph: paired posts, arches, cresting', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house\'s porch now stands on paired posts under three shallow arches, as its undated photograph shows, with turned balustrades either side of the stair and raking rails up the stair\'s sides.',
+      'An iron cresting runs round the porch roof\'s deck, and the porch is a little shorter and taller than before, measured where it stands rather than at the wall behind it.',
+    ] },
+  { v: 2328, ts: '2026-10-27T07:13:31.771Z', date: 'Oct 27, 2026, 2:13 AM CT', title: '1901 Prairie Avenue — the Ream house built from its 1898 photograph', kind: 'feature',
+    items: [
+      'Norman B. Ream\'s house at 1901 Prairie, a generic draft block until now, stands as the light stone house of its 1898 photograph: two tall storeys over a raised basement under a slated mansard with dormers and an iron cresting.',
+      'Its stone porch on paired columns carries a balustraded balcony at the stoop\'s head, where the photographs put it, and the south flank\'s canted bay rises through both storeys.',
+    ] },
+  { v: 2327, ts: '2026-10-27T06:22:07.306Z', date: 'Oct 27, 2026, 1:22 AM CT', title: 'Pullman\'s conservatory across 18th Street, rebuilt from two 1890s pictures', kind: 'feature',
+    items: [
+      'The glasshouses at 1800 Calumet are now built from the 1894 Inland Architect plate and a c. 1897 photograph instead of a 1911 insurance map alone. Beman\'s conservatory now stands as a pointed Gothic glass house on a stone base, with an arched entrance, a transept and a ribbed glass dome about 13 m up. The long range behind it is now masonry with a row of high windows, ending in a domed glass colonnade. Both pictures now sit on the conservatory\'s card.',
+    ] },
+  { v: 2326, ts: '2026-10-27T05:25:17.872Z', date: 'Oct 27, 2026, 12:25 AM CT', title: '1827 Prairie\'s corner tower rises over Prairie Avenue', kind: 'feature',
+    items: [
+      'The Doane house now has its square corner tower, turned to face the corner, with paired windows on each floor, rising a storey above the cornice under a tall slate roof, an iron crest and finials, as the old photograph shows it.',
+    ] },
+  { v: 2325, ts: '2026-10-27T04:54:40.252Z', date: 'Oct 26, 2026, 11:54 PM CT', title: '1721 Prairie, the Dexter house, rebuilt to its 1891 plate', kind: 'feature',
+    items: [
+      'The Wirt Dexter house at 1721 Prairie Avenue now stands as Arthur Little\'s front of 1889, read off the Inland Architect plate of 1891: three pale storeys under a deep cornice and a flat roof, its entrance porch on two columns set back in a recess at the north end, its roof railed as a balcony, and the rest of the front stepping forward with two bows rising through two storeys and a tall stack beside the porch. The long two-storey wing behind it runs back toward the alley as the 1911 map draws it.',
+    ] },
+  { v: 2324, ts: '2026-10-27T04:09:58.098Z', date: 'Oct 26, 2026, 11:09 PM CT', title: 'A darker doorway for Carpenter\'s log shop', kind: 'change',
+    items: [
+      'Carpenter’s log annex has a dark recessed doorway, following the old engraving. Its picture is available on the Images card with the original credit.',
+    ] },
+  { v: 2323, ts: '2026-10-27T04:09:58.098Z', date: 'Oct 26, 2026, 11:09 PM CT', title: '1828 Prairie\'s roof raised and crested from its second photograph', kind: 'improvement',
+    items: [
+      'The Shipman house at 1828 Prairie now stands to a second photograph, the Glessner House Museum\'s partial view, as well as the street view with the electric runabout.',
+      'Its slate mansard is raised almost a metre, its two dormers are larger, and iron cresting runs along the top of the roof, as that photograph shows.',
+      'Next door, 1824 Prairie is checked against the runabout photograph from its own camera angle. Its bay window, belt course and porch balcony line up, but the photograph puts the house about 6 m further back from the street than the 1911 fire-insurance map does. That disagreement is written down and not yet settled.',
+    ] },
+  { v: 2322, ts: '2026-10-27T03:30:09.100Z', date: 'Oct 26, 2026, 10:30 PM CT', title: '1834 Prairie rebuilt from its photograph', kind: 'feature',
+    items: [
+      'The Fernando Jones house at 1834 Prairie now stands as its one photograph shows it: a four-bay brick front over a high stone basement, keyed window hoods, a bracketed cornice, and a canted bay on the north flank, with the 1886 mansard over it. The old photograph turned out to be printed back to front, and the house is built the right way round.',
+    ] },
+  { v: 2321, ts: '2026-10-27T02:58:41.574Z', date: 'Oct 26, 2026, 9:58 PM CT', title: '1720 Prairie stands as a clapboard Italianate built from its photograph', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house at 1720 Prairie is no longer a placeholder draft: it is a clapboard frame house with corner boards, cased sash, a deep frieze and a bracketed eave under a low hip.',
+      'Its front follows the undated Tyrrell photograph: the round-headed windows, the door, the floor raised high over the walk, and a porch across the whole front on its posts with a central stair.',
+      'The photograph is on the house\'s Images tab and is matched from its own camera; the porch\'s arches and cresting, the corner bay and the centre gable come next.',
+    ] },
+  { v: 2320, ts: '2026-10-27T02:03:20.961Z', date: 'Oct 26, 2026, 9:03 PM CT', title: 'Wolf Point Tavern gets a darker roof tone', kind: 'improvement',
+    items: [
+      'The tavern uses a deeper reconstructed brown roof tone guided by the credited 1867 NYPL print of Wolf Point in 1833. Its existing shingle relief and building form remain.',
+      'The print does not establish the exact pigment, weathering or unchanged appearance in July 1835. Picture comparisons continue before the building is signed off.',
+    ] },
+  { v: 2319, ts: '2026-10-27T01:25:30.838Z', date: 'Oct 26, 2026, 8:25 PM CT', title: '1823 Prairie looks like its pictures', kind: 'improvement',
+    items: [
+      'Thomas Dent\'s house at 1823 Prairie now has the box bay with its hood on the north side, iron cresting along the top of its mansard, paired windows in its dormers, and moulded heads over its front windows.',
+      'Its south pavilion rises past the roof line to an attic with paired windows under a stone gable and finial, as the 1883 New Chicago Album draws it, and the stoop climbs to the door from the north.',
+      'The front\'s windows, door and side windows now stand where the old engraving puts them.',
+    ] },
+  { v: 2318, ts: '2026-10-27T00:49:38.262Z', date: 'Oct 26, 2026, 7:49 PM CT', title: 'The Pullman house\'s great chimney stack on 18th Street', kind: 'feature',
+    items: [
+      'A tall stone stack now stands on the 18th Street cornice, just east of the south-west corner. It runs up past the mansard to a capped top, as an 1890s photograph by J. W. Taylor shows it.',
+      'The roof\'s other tall stack has moved to the spot two more pictures agree on, and it now rises about a metre and a half higher.',
+      'The 1890 Albertype plate of the house is now one of the pictures it is checked against.',
+    ] },
+  { v: 2317, ts: '2026-10-27T00:42:20.416Z', date: 'Oct 26, 2026, 7:42 PM CT', title: 'St Mary\'s gains its pictured belfry', kind: 'improvement',
+    items: [
+      'An open belfry and cross now rise over St Mary\'s. A lower roof, five windows and an end door replace the house form, and its one chimney stands toward the far end. These features are reconstructed for 1835 from an undated engraving; the original footprint and dates are retained.',
+      'The Images tab shows the credited Moss engraving. Its 1884 publication is distinguished from the undated scene; the provisional comparison camera is not offered as a historical viewpoint.',
+    ] },
+  { v: 2316, ts: '2026-10-27T00:03:14.827Z', date: 'Oct 26, 2026, 7:03 PM CT', title: '1827 Prairie\'s pavilion rises under its own steep roof', kind: 'feature',
+    items: [
+      'The Doane house\'s front pavilion now climbs through the mansard, three tall attic windows in its stone face, to a steep slated roof that rises to a point under an iron finial, as the old photograph shows it.',
+    ] },
+  { v: 2315, ts: '2026-10-26T22:54:28.003Z', date: 'Oct 26, 2026, 5:54 PM CT', title: 'Pullman\'s palm house, rebuilt to its photograph', kind: 'feature',
+    items: [
+      'The small glass bay on the Pullman house\'s east range is now Beman\'s 1892 palm house as J. W. Taylor photographed it from 18th Street: a glass drum between stone columns, under an entablature, a balustrade and a ribbed dome.',
+      'It stands 3 m further east, where the photograph puts it, on a raised terrace with a broad flight of steps, in a range of light stone with its arched door and window.',
+    ] },
+  { v: 2314, ts: '2026-10-26T21:04:58.476Z', date: 'Oct 26, 2026, 4:04 PM CT', title: 'Log jail gains a high palisade', kind: 'improvement',
+    items: [
+      'A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review.',
+      'Light uses smaller house texture maps and builds distant rail sections as you approach to reduce phone memory use.',
+    ] },
+  { v: 2313, ts: '2026-10-26T17:15:54.371Z', date: 'Oct 26, 2026, 12:15 PM CT', title: 'The Pullman house\'s portico and its porte-cochere on 18th Street', kind: 'feature',
+    items: [
+      '1729 Prairie\'s portico is now brownstone, on four columns under a stone balustrade, and its steps rise in the bay north of the door instead of across the whole porch. Read off the Detroit Publishing photograph.',
+      'On the 18th Street side, a one-storey porte-cochere now stands out from the wall, with round arches on stone piers and a balustraded balcony on top. The side\'s windows are round-headed, and the low stone wall carries round the corner along 18th Street.',
+    ] },
+  { v: 2312, ts: '2026-10-26T17:15:54.371Z', date: 'Oct 26, 2026, 12:15 PM CT', title: 'Kimball house\'s east range matched to a 1965 survey photograph', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s long 18th Street side now has a second photograph to answer to: the 1965 Historic American Buildings Survey view from the north-west corner.',
+      'The wing toward the alley gains its carved stone frontispiece: a small grilled arched window over the side door, a paired window above and a pinnacled gable rising through the roof edge.',
+      'Its walls lose the rows of guessed windows; the photograph shows mostly plain stone with one column of windows.',
+    ] },
+  { v: 2311, ts: '2026-10-26T17:15:54.371Z', date: 'Oct 26, 2026, 12:15 PM CT', title: 'The Doane house at 1827 Prairie takes its photographed shape', kind: 'feature',
+    items: [
+      '1827 Prairie, John W. Doane\'s stone house of 1882, is no longer a plain draft block: it now stands two storeys over a raised basement under a slated mansard, built to its one known photograph and the 1911 fire-insurance map.',
+      'Its front carries the shallow pavilion with three tall windows a storey, the window bay beside it under a pedimented dormer, and at the north end a columned porch with a balcony over it.',
+      'An iron scroll fence on a stone curb runs along the walk, and two tall stone chimneys rise over the south side.',
+      'The square corner tower and the pavilion\'s steep pointed roof come next; the stone\'s colour is a reconstruction, since the photograph is black and white.',
+    ] },
+  { v: 2310, ts: '2026-10-26T17:06:31.719Z', date: 'Oct 26, 2026, 12:06 PM CT', title: 'The placement check reads the lighthouse\'s footprint and names the right building', kind: 'fix',
+    items: [
+      'The release check that every building is drawn around the spot its record gives it was failing on the 1832 lighthouse. Its slimmer tower (T-3122) stands inside its plot rather than at the plot\'s corner, so the check now measures each building against its recorded footprint instead of the bare corner point. Every other building in 1835 is measured exactly as before.',
+      'When that check fails it now names the building that actually failed. It used to name the land-sale camp, which the check never gates, and the fault was filed against the wrong structure.',
+    ] },
+  { v: 2309, ts: '2026-10-26T15:46:06.115Z', date: 'Oct 26, 2026, 10:46 AM CT', title: '1824 Prairie, the Pomeroy/Marsh house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1824 Prairie Avenue is no longer a plain draft block. It now stands as Samuel B. Pomeroy\'s 1857 villa, two tall storeys over a raised basement under a deep bracketed eave and a low hip, behind the stone front George B. Marsh gave it after 1880.',
+      'The stone front has a canted bay through both storeys at its south end, and its entrance sits in a porch on columns under a balcony at the north end, as a photograph of the house next door shows it.',
+      'The villa\'s cupola is left off for 1904: no picture after the new front shows it. The flanks\' round-headed windows and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
+  { v: 2308, ts: '2026-10-26T15:23:51.179Z', date: 'Oct 26, 2026, 10:23 AM CT', title: 'Nightly builds run again on a pinned test machine', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated build that tests each new batch of buildings had stopped after GitHub moved its test machines to a newer system our browser tester does not support; the tests now run on the system they were measured on, and a check keeps it that way.',
+    ] },
+  { v: 2307, ts: '2026-10-26T14:36:25.035Z', date: 'Oct 26, 2026, 9:36 AM CT', title: '1823 Prairie, the Dent house, rebuilt from its engraving', kind: 'feature',
+    items: [
+      '1823 Prairie Avenue is no longer a plain draft block. It now stands as Thomas Dent\'s house: a light stone front on brick sides, two storeys over a raised basement, under a tall slated mansard with dormers.',
+      'At the front\'s south end a pavilion steps forward under its own steep roof, with one broad window on each floor.',
+      'North of it the door sits at the top of its stoop, beside groups of three tall windows on both floors. A tall chimney rises over the north wall, where the engraving shows it.',
+      'The pavilion\'s pediment and paired attic windows, the side bay on the north wall and the curving stoop are not built yet. They come next.',
+    ] },
+  { v: 2306, ts: '2026-10-26T13:35:50.913Z', date: 'Oct 26, 2026, 8:35 AM CT', title: 'Nothing you can see changed: room for finished houses again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance again, which held back a finished Prairie Avenue house. The growth since 20 October is measured: mostly the period carriages and horses, and the houses rebuilt from their photographs.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit, and the two biggest ways to hand bytes back are measured for later.',
+    ] },
+  { v: 2305, ts: '2026-10-26T09:28:31.179Z', date: 'Oct 26, 2026, 4:28 AM CT', title: '1816 Prairie\'s bays rise into crowned mansards under iron cresting', kind: 'improvement',
+    items: [
+      'Charles M. Henderson\'s house at 1816 Prairie Avenue (1904) now matches more of its photograph: both canted bays are carried up through the cornice into mansards of their own, the corner\'s a raised crown standing over the main roof, the south flank\'s lower, each ringed with iron cresting.',
+      'Iron cresting runs along the main roof\'s street curb, the three dormers are square-headed under pediments, and the front fence is cast-iron scrollwork instead of plain spears.',
+      'Still to come, and listed on the house\'s match record: the dormers in the two crowns, the carved window hoods, the balcony\'s taller railing with the door onto it, and the brick\'s dark tone.',
+    ] },
+  { v: 2304, ts: '2026-10-26T07:40:59.198Z', date: 'Oct 26, 2026, 2:40 AM CT', title: 'The Pullman house\'s front divided into pavilions', kind: 'feature',
+    items: [
+      '1729 Prairie\'s front is now divided into bays by banded stone piers, one turning the corner onto 18th Street, with the cornice stepping forward over each. Read off the Detroit Publishing photograph.',
+      'A deep frieze with framed panels runs under the cornice, a row of modillions runs round it, and raised ribs divide the mansard over the north bays. The north-west bay has its own dormer.',
+    ] },
+  { v: 2303, ts: '2026-10-26T06:34:03.026Z', date: 'Oct 26, 2026, 1:34 AM CT', title: 'Pullman\'s glasshouses rise across 18th Street', kind: 'feature',
+    items: [
+      'The open lawn east of Prairie at 18th Street now holds the Pullman estate\'s glasshouses, placed as the 1911 fire-insurance map draws them: a tall pavilion with a raised lantern, a long range running south from it, and a second range running east to a rounded glass end.',
+      'A two-storey brick lodge stands where the two ranges meet.',
+      'Every height, roof and pane is a reconstruction from the project\'s conservatory kit, and the cards say so. Matching them to the 1890s photographs comes next.',
+    ] },
+  { v: 2302, ts: '2026-10-26T05:13:16.206Z', date: 'Oct 26, 2026, 12:13 AM CT', title: 'Green Tree\'s entrance moves beside its paired front sash', kind: 'improvement',
+    items: [
+      'The Green Tree Tavern now has two front sash to the left of its entrance, following the historical drawings. Its cleared approach follows the moved doorway. The opening spacing is reconstructed; larger annex and long-wall differences remain under review.',
+    ] },
+  { v: 2301, ts: '2026-10-26T03:42:20.702Z', date: 'Oct 25, 2026, 10:42 PM CT', title: '1828 Prairie, the Shipman house, rebuilt from its photographs', kind: 'feature',
+    items: [
+      '1828 Prairie Avenue is no longer a plain draft block. It now stands as Daniel B. Shipman\'s light stone house: two tall storeys over a raised basement, under a slated mansard with dormers.',
+      'A canted bay rises through both storeys on the front, and a porch on columns with a deep entablature and a balustrade stands at the head of the stoop.',
+      'The porch\'s round arches, its carving and the carved pilasters on the bay are not built yet; they are next.',
+    ] },
   { v: 2300, ts: '2026-10-26T02:24:06.618Z', date: 'Oct 25, 2026, 9:24 PM CT', title: '1801 Prairie\'s south side, from its 1965 photograph', kind: 'improvement',
     items: [
       'The two tall stone chimneys over the W. W. Kimball house\'s south wall now carry their carved heads, a collar under a diamond-latticed stage and a heavy cap, on broader bases rising from the cornice, as Harold Allen\'s 1965 HABS photograph shows them.',

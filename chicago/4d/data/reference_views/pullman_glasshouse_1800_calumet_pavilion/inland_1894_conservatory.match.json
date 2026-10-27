@@ -1,0 +1,186 @@
+{
+  "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+  "view": "inland_1894_conservatory",
+  "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
+  "glb_sha256": "1893b2098fa4b31daa98a452095ebeccb3ab857ac059b2286df5d13dbe1f1464",
+  "camera_sha256": "8d8d966626799ed10be76b11e0b50622a4fbe0be80a28169fe4f96a950b6ce8d",
+  "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1468.881,
+        "local_n": -3238.358,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "1893b2098fa4b31daa98a452095ebeccb3ab857ac059b2286df5d13dbe1f1464"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_north",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_north__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.115,
+        "local_n": -3250.978,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        12.639861465175308,
+        0,
+        -1.010474215986432
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "90ecaa7328e04d6c3da52efb09fe4475df0195fce7925a199b0c1eab8812b2c1"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.613,
+        "local_n": -3279.134,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        40.80026522435114,
+        0,
+        -1.010127527884292
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "4699a5cc737f95cbdf9d65d1a2297a52a40439abbbd3cd769ba25744bea8390e"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east_end",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1487.476,
+        "local_n": -3280.504,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        42.46847038513005,
+        0,
+        -17.846242297674625
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
+    },
+    {
+      "structure_id": "pullman_lodge_1800_calumet",
+      "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.535,
+        "local_n": -3274.685,
+        "rotation_deg": 178.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        36.3505815900771,
+        0,
+        -1.0108724267342746
+      ],
+      "rotation_y": -1.5707963267948963,
+      "glb_sha256": "64cf883d07802f5a531ad807d9305b8640fbaabee4fdfdffa85c81aedd0effbe"
+    }
+  ],
+  "group_sha256": "449fbe623b9113d35b2b4d2aa3357cd5f293ff707f3cf324f6debf3035ec3b96",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the conservatory: a glass nave on a pointed section, its north end the great pointed arch springing at y 795 over a band of upright glazing on a stone podium (top y 858), apex y 510, between x 1250 and 1635",
+      "status": "fixed",
+      "how": "T-3179: the K13 record rebuilt as a pointed vault (eave 3.6 m, apex 9.45 m) on a 2.3 m stone podium; the render's springing, apex and corners fall within 5 px of the plate's (it was a straight-pitched span with a lantern, eave 3.4 m, top about 6 m)"
+    },
+    {
+      "what": "a broad arched frame round the north end's glass and a bar up its middle",
+      "status": "fixed",
+      "how": "T-3179: a 0.35 m frame on the arch and a central bar, in the frame's tone"
+    },
+    {
+      "what": "the arched stone entrance in the north end, about x 1395-1490, its crown near y 800",
+      "status": "fixed",
+      "how": "T-3179: a 2.1 m arched opening, crown 3.5 m, drawn dark in a 0.3 m stone surround; the render's spans x 1395-1495"
+    },
+    {
+      "what": "a transept crossing the nave, its north face rising upright and turning level at a crest at y 557, glazed with ribs",
+      "status": "fixed",
+      "how": "T-3179: a transept 7.0 m wide on a section that leaves the eave upright and turns level at 9.35 m, its slopes ribbed at 0.9 m; its crest falls at y 557-560"
+    },
+    {
+      "what": "the transept's east end: the plate shows a narrow upright edge at about x 1135-1150",
+      "status": "within tolerance",
+      "how": "the render's end, on the 1911 sheet's plan (1.35 m out over 7 m of the nave) with a curved hip run 1.5 m, shows its foot about 1.5 m further east (to x 1085); the sheet and the picture disagree about the arm's plan and the plan is held to the sheet (L-pullman-conservatory-3179). Its height, crest and upright face agree"
+    },
+    {
+      "what": "an octagonal glazed drum and a ribbed dome about 4 m across over the crossing, crown y 395, a finial over it",
+      "status": "fixed",
+      "how": "T-3179: a 2.05 m drum to 10.0 m and a 2.0 m ribbed dome rising 3.1 m with a 0.5 m finial; the crown falls within about 15 px (0.35 m) of the plate's"
+    },
+    {
+      "what": "the east range: a masonry wall to a coping at y 775 with eight square-headed windows high in it (sills y 842, heads y 812) between pilasters, and no roof seen over it",
+      "status": "fixed",
+      "how": "T-3179: masonry walls to 6.0 m under a coping, eight 1.35 m windows from 3.4 to 4.6 m between pilasters, the sheet's glass roof low (14 degrees) behind the parapet; it was a glass span with a 2.4 m eave"
+    },
+    {
+      "what": "the round east end: a glazed colonnade on a low podium under an entablature level with the range's coping, and a low ribbed dome, crown y 742",
+      "status": "fixed",
+      "how": "T-3179: columns at every joint of the curve and along the straight sides, glass between, a 0.55 m entablature to 6.05 m and a 1.5 m dome rising 1.45 m; its crown falls at about y 748"
+    },
+    {
+      "what": "the glazed band's lights have arched heads and the podium is rusticated and panelled; the range's wall is panelled with a base course, its pilasters and the colonnade's columns heavier than built",
+      "status": "within tolerance",
+      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts"
+    },
+    {
+      "what": "iron cresting along the transept's crest and the range's coping, and the small ornaments at the nave's apex and the transept's end",
+      "status": "within tolerance",
+      "how": "T-3153: each under 1 ft in section; not built"
+    },
+    {
+      "what": "the nave's arch is a smooth curve; the render's is four planar facets a half",
+      "status": "within tolerance",
+      "how": "the chords fall at most about 0.08 m inside the arc (the kit's glass is planar and its triangle budget holds the facets to four); the outline agrees within a few pixels"
+    },
+    {
+      "what": "the glass reads pale (the sky in it) on the transept, the drum and the domes",
+      "status": "fixed",
+      "how": "T-3179: those parts, which stand outside the nave's one transparent envelope, take an opaque glazing toned pale (glass_sky) instead of the kit's dark substitute; colour itself is not shown (a monochrome picture)"
+    },
+    {
+      "what": "the north range: the picture shows garden and the lodge's front where the 1911 sheet draws a 23.7 m glass range from the conservatory's south end to the lodge, with only a short low curved glass link beside the conservatory",
+      "status": "not shown",
+      "how": "the picture is of 1894-97 and cannot show 1904: the range was lengthened between about 1897 and 1911 and nothing dates it inside that span, so the 1904 record keeps the sheet's range (L-pullman-conservatory-3179). Its north end, which the picture does show, is built to it: a low curved glass roof, eave about 1.9 m, crown about 4.2 m"
+    },
+    {
+      "what": "the lodge (a two-storey stone building with a bowed front, a recessed columned porch under a balcony and a crested mansard roof) and the gate piers, walks, trees and planting",
+      "status": "not shown",
+      "how": "not this record's: the lodge is pullman_lodge_1800_calumet's (rendered for placement only, still the draft's brick block), the rest the grounds'; the camera's solve says so"
+    },
+    {
+      "what": "the glasshouses' south and west sides and the ranges' roofs behind their parapets",
+      "status": "not shown",
+      "how": "the camera stands north-east of them; the sheet's glass roof is built low behind the parapet"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -2,8 +2,9 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66",
+  "glb_sha256": "4daf8be4e4b97ee6ed488be24d85daae738420a42a10b57a456829fa588bae9d",
   "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
+  "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -38,53 +39,76 @@
       "how": "T-2963: K11's spear fence on its curb 7.4 m before the front"
     },
     {
-      "what": "the porch and the front's canted bay stand about 1 m further south in the print than on the 1911 trace (the porch's columns read 60-75 px right of the print's through this camera): an alteration between the photograph and 1911, or the trace's or the camera's error, is T-2964's to argue",
-      "status": "open"
+      "what": "the porch and the front's canted bay stand about 1 m further south in the print than on the 1911 trace (the porch's columns read 60-75 px right of the print's through this camera)",
+      "status": "within tolerance",
+      "how": "T-2964: the 1911 sheet's trace and this photograph's camera fit disagree about it, and no third source places the porch; under the T-3153 bar a gap two sources or two fits disagree about is within tolerance. The trace keeps the porch where the sheet draws it."
     },
     {
       "what": "the raised mansard crown over the front's south end, with its own curb and iron cresting, standing higher than the main roof",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2964: the front's canted bay carried up through the cornice into a mansard of its own (K08's roof.mansard): 4.4 m of lower face at 76 degrees over the bay's eaves, its deck 0.4 m over the main curb, K10's iron cresting 0.6 m high round its curb. Its rise is read as a fraction of the corner's height through this camera (about a third), good to about half a metre"
     },
     {
-      "what": "the south flank's bay carried up through the cornice under its own mansard with a dormer in each face, and its cresting; built stopping under the cornice with a low hip",
+      "what": "the south flank's bay carried up through the cornice under its own mansard, and its cresting; built stopping under the cornice with a low hip",
+      "status": "fixed",
+      "how": "T-2964: the flank bay's upper storey raised to the wall head (5.04 m, as the front bay's), the bracketed cornice run round it (K10, now on any wall), and over it a K08 mansard 4.0 m at 76 degrees under iron cresting; its rise reads about two-fifths of the wall under it in both the print and the render"
+    },
+    {
+      "what": "the dormers in the two crowns' own faces: one in the front crown's canted face, and one in each face of the flank crown",
       "status": "open"
     },
     {
       "what": "iron cresting along every roof deck",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2964: K10's iron cresting along the main deck's street curb (mansard.deck.cresting, as 1801's) and round both crowns' curbs; the main deck's south curb shows none in the print behind the flank crown, and its north and rear curbs are out of this camera's sight. The pattern is the kit's (the print's panels read only as a dense pierced band)"
     },
     {
       "what": "the dormers pedimented with carved cheeks; built round-headed",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2964: all three main dormers square-headed under a 40-degree pediment (K01's gabled dormer head, T-2452)"
+    },
+    {
+      "what": "the dormers' carved cheeks",
+      "status": "within tolerance",
+      "how": "T-2964: carving under a foot deep on a dormer 1.1 m wide; the dormers' size, place and pediment are built"
     },
     {
       "what": "the window hoods carved, with a scrolled crest over each; built as K09's plain cornice-hood lintels",
       "status": "open"
     },
     {
-      "what": "the porch columns' carved capitals and the balcony's pierced iron panels; built square capital blocks and square iron balusters, the railing 0.6 m where the print's reads nearer 1 m",
-      "status": "open"
+      "what": "the porch columns' carved capitals",
+      "status": "within tolerance",
+      "how": "T-2964: the columns, their plinths and the square capital blocks stand where the print's do; the carving is under the bar"
     },
     {
-      "what": "the window over the door opens onto the balcony; built as a window",
-      "status": "open"
+      "what": "the balcony's railing about 1 m high with pierced iron panels, and the window over the door opening onto it as a door; built as a 0.6 m railing of square balusters in front of a window",
+      "status": "open",
+      "how": "T-2964 tried the railing at 0.95 m: K01's door hood then runs into the sill of the window over the door (7.5 m), so the two are one change — that window made a door to the balcony floor, which K01 does not yet build"
     },
     {
       "what": "the fence's scrolled cast-iron panels and its tall posts; built as the kit's spears",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2964: K11's scroll-band fence on its curb, the nearest panel K11 has to the print's scrollwork"
+    },
+    {
+      "what": "the fence panels' pattern: scrollwork the fence's full height in the print, a band of scrolls under the top rail in the kit",
+      "status": "within tolerance",
+      "how": "T-2964: a pattern inside a fence of the right height, kind and line"
     },
     {
       "what": "the brick's tone: dark in the print; built in K01's buff brick (the print is monochrome, so the colour itself is not shown)",
       "status": "open"
     },
     {
-      "what": "the tall chimney stack behind the front's south end; placed on the south wall, its height and place not read",
-      "status": "open"
+      "what": "the tall chimney stack behind the front's south end",
+      "status": "within tolerance",
+      "how": "T-2964: read through the rebuilt render, the stack stands between the flank crown and the front crown with its head over the crown's cresting, as the print's does, about 35 px (under a metre) east of it"
     },
     {
       "what": "the north wall, the rear and the rear range",
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

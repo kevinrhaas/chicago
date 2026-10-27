@@ -337,6 +337,41 @@ def _num(x) -> bool:
     return isinstance(x, (int, float)) and not isinstance(x, bool)
 
 
+#: T-3181: a porch's paired posts, arcade, balustrade, cresting and stair cheeks — each key the
+#: builder reads, and the range a timber porch's part may take
+PORCH_DETAIL = {
+    "arcade": {"spring_below_plate_m": (0.1, 1.0), "rise_m": (0.02, 1.0), "middle_rise_m": (0.02, 1.0)},
+    "balustrade": {"height_m": (0.4, 1.2), "pitch_m": (0.08, 0.4), "baluster_m": (0.03, 0.2)},
+    "cresting": {"height_m": (0.15, 1.0), "inset_m": (0.0, 0.3), "return_to_m": (0.0, 2.0), "base_bar_m": (0.01, 0.1),
+                 "top_bar_m": (0.01, 0.1), "bar_m": (0.005, 0.05), "bar_pitch_m": (0.05, 0.4), "post_m": (0.01, 0.1),
+                 "post_pitch_m": (0.2, 2.0), "post_above_m": (0.0, 0.3), "knob_m": (0.0, 0.3)},
+    "cheek": {"width_m": (0.05, 0.4), "string_above_m": (0.0, 0.4), "height_m": (0.4, 1.2), "rail_m": (0.03, 0.2),
+              "rail_width_m": (0.03, 0.3), "baluster_m": (0.03, 0.2), "pitch_m": (0.08, 0.4), "newel_m": (0.08, 0.4),
+              "newel_above_m": (0.0, 0.5)},
+}
+
+
+def _porch_detail_errors(po: dict) -> list[str]:
+    out = []
+    pr = po.get("pair_m")
+    if pr is not None and not (_num(pr) and 0.15 <= pr <= 0.6):
+        out.append("porch.pair_m (a paired post's centres apart) must lie in 0.15-0.6 m")
+    for key, spec in PORCH_DETAIL.items():
+        v = (po.get("steps") or {}).get(key) if key == "cheek" else po.get(key)
+        if v is None:
+            continue
+        for k, (lo, hi) in spec.items():
+            if not (_num(v.get(k)) and lo <= v[k] <= hi):
+                out.append(f"porch.{'steps.' if key == 'cheek' else ''}{key}.{k} must lie in {lo}-{hi}")
+    bl = po.get("balustrade")
+    if bl is not None:
+        for k in ("bottom_rail_m", "top_rail_m"):
+            r = bl.get(k)
+            if not (isinstance(r, list) and len(r) == 2 and all(_num(x) and 0.02 <= x <= 0.2 for x in r)):
+                out.append(f"porch.balustrade.{k} must be [height, width], each 0.02-0.2 m")
+    return out
+
+
 def frame_house_errors(fh: dict) -> list[str]:
     """What the whole-house builder cannot read (T-2357). The first block stands free and
     is walled on all four sides; every later block stands `against` one side of it and is
@@ -382,9 +417,57 @@ def frame_house_errors(fh: dict) -> list[str]:
     if po is not None and (po.get("kind") != "porch" or not _num(po.get("half_width_m"))
                            or not _num(po.get("centre_m"))):
         out.append("porch must be a kit 'porch' variant with half_width_m and centre_m")
+    elif po is not None:
+        ip = po.get("inner_posts_m")     # T-3180: posts between a long porch's ends, each half's
+        if ip is not None and not (isinstance(ip, list) and all(_num(x) and 0.3 <= x <= po["half_width_m"] - 0.6 for x in ip)):
+            out.append("porch.inner_posts_m must list posts 0.3 m out from the porch's middle to 0.6 m short of its end")
+        bm = po.get("basement_m")
+        if bm is not None and not (_num(bm) and 0.0 <= bm <= 2.5):
+            out.append("porch.basement_m (the floor raised over the kit's) must lie in 0-2.5 m")
+        out += _porch_detail_errors(po)
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    out += _frame_upper_errors(fh)
+    return out
+
+
+def _frame_upper_errors(fh: dict) -> list[str]:
+    """T-3182: what a whole frame house's upper storey parts need: a block's own eave, its
+    paired brackets and frieze lights, a front gable on a hipped block, and a bay on the porch
+    deck whose plan is three faces from the wall out and back, each face naming its windows."""
+    out = []
+    for b in fh.get("blocks") or []:
+        bid = b.get("id", "?")
+        ev = b.get("eave")
+        if ev is not None and not (_num(ev.get("projection_m")) and 0.2 <= ev["projection_m"] <= 1.2):
+            out.append(f"{bid}: eave.projection_m must lie in 0.2-1.2 m")
+        fg = b.get("front_gable")
+        if fg is not None:
+            if (b.get("roof") or {}).get("kind") != "hip":
+                out.append(f"{bid}: a front gable stands on a hipped block")
+            if not all(_num(fg.get(k)) and fg[k] > 0 for k in ("centre_m", "width_m", "pitch_deg", "overhang_m", "rake_m")):
+                out.append(f"{bid}: front_gable needs positive centre_m, width_m, pitch_deg, overhang_m and rake_m")
+        for w in b.get("walls") or []:
+            if "bracket_pairs_m" in w and not ((b.get("bracket") or {}).get("pair_m")
+                                               and all(_num(x) for x in w["bracket_pairs_m"])):
+                out.append(f"{bid}.{w.get('side')}: bracket_pairs_m needs the block's bracket.pair_m")
+            for fl in w.get("frieze_lights") or []:
+                if fl.get("kind") not in ("oval", "round") or not all(
+                        _num(fl.get(k)) and fl[k] > 0 for k in ("centre_m", "centre_y_m", "width_m", "height_m", "frame_m")):
+                    out.append(f"{bid}.{w.get('side')}: a frieze light is an oval or round one with positive "
+                               "centre_m, centre_y_m, width_m, height_m and frame_m")
+    for i, bay in enumerate(fh.get("bays") or []):
+        plan = bay.get("plan") or []
+        if len(plan) != 4 or plan[0][1] != 0 or plan[-1][1] != 0 or min(plan[1][1], plan[2][1]) <= 0:
+            out.append(f"bay {i}: plan must be four (s, z) points from the wall out and back to it")
+        if len(bay.get("faces") or []) != 3:
+            out.append(f"bay {i}: faces must name each of the plan's three faces")
+        if not all(_num(bay.get(k)) and bay[k] > 0 for k in ("floor_m", "base_m", "wall_top_m", "frieze_m", "post_m",
+                                                               "cap_rise_m")) \
+                or not bay["floor_m"] < bay["base_m"] < bay["wall_top_m"]:
+            out.append(f"bay {i}: floor_m, base_m and wall_top_m must rise in that order, with frieze_m, post_m "
+                       "and cap_rise_m positive")
     return out
 
 

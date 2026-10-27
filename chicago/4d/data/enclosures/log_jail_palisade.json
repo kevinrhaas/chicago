@@ -1,0 +1,135 @@
+{
+  "id": "log_jail_palisade",
+  "name": "The log jail's plank palisade",
+  "aka": [
+    "the jail stockade"
+  ],
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "structure_id": "log_jail",
+  "belongs_to": [
+    "log_jail"
+  ],
+  "documented_range": {
+    "from": "1833-10-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "note": "Continuity bounds copied from the enclosed jail phase, not a dated fence contract. Gale1902 p51 remembers the small jail concealed within a high plank palisade in his1835 town-walk narrative; its exact completion relative to1July is not dated. The separate plate is captioned1836. Building this enclosure in theJuly scene is a declared continuity reconstruction; neither the1833 opening bound nor the1835 closing bound dates this fence."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "trowbridge_first_jail_gale_1902"
+    ],
+    "note": "Gale1902 p51 explicitly places the small log jail within a high plank palisade, with John Beach occupying a house partly within the same enclosure facingRandolph. This retrospective1835-framed narrative supports the palisade kind and existence, not a measured layout or exactJuly condition. The1836-captioned plate is a later depicted state, not contemporary corroboration."
+  },
+  "runs": [
+    {
+      "id": "jail_perimeter",
+      "path_local_enu_m": [
+        [
+          467.46,
+          -269.25
+        ],
+        [
+          464.81,
+          -269.25
+        ],
+        [
+          464.81,
+          -275.27
+        ],
+        [
+          472.306,
+          -275.27
+        ],
+        [
+          472.306,
+          -269.25
+        ],
+        [
+          469.66,
+          -269.25
+        ]
+      ],
+      "note": "Reconstructed compact outline around the unchanged jail footprint. Existing jail walls runE465.51..471.606 andN-274.57..-269.998 at bearing0; the fence stands0.70m beyond either side/back and0.748m in front. No source gives these distances. The north run remains within the public-square frontage and carries the gateway aligned with the already-compiled doorway. This outline does not invent or locate the missing keeper house, whose partly enclosed relationship and original-cell identity remain open. The authored run stops at the two gateway jambs rather than drawing a line across the doorway and relying only on renderer clipping; both the native geometry and the doorway-obstruction census therefore see the same2.20m passage."
+    }
+  ],
+  "openings": [
+    {
+      "id": "jail_access",
+      "on": "north",
+      "at_local_enu_m": [
+        468.56,
+        -269.25
+      ],
+      "width_m": 2.2,
+      "confidence": "reconstructed",
+      "note": "An open passage centered on native entrance log_jail__door_1 atE468.56/N-270.00. Width2.20m clears the0.86m doorway and its existing1.46m doorway safety band without making the fence block the approach. The actual picture shows a gate by the keeper house, whose footprint is not resolved here. This passage is an access reconstruction; no hung leaf, historical width, lock or gate position is claimed."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "board",
+      "confidence": "inferred",
+      "sources": [
+        "trowbridge_first_jail_gale_1902"
+      ],
+      "note": "Gale calls it a high PLANK PALISADE. The independently verified1902 plate shows close-set vertical boards or pales enclosing the jail. The existing closed-board construction is used with its optional pointed heads, read from that plate; exact stock and dimensions remain reconstructed."
+    },
+    "height_m": {
+      "value": 3.05,
+      "confidence": "reconstructed",
+      "note": "Chosen10ft(3.05m, rounded), not a source measurement. Bound by the text concealed within a HIGH palisade and the unchanged2.66m jail eaves: a normal6ft yard fence would expose most of those walls. The current12degree core roof remains unresolved, so this height is not fitted to its ridge or claimed as an1835 dimension."
+    },
+    "rail_courses": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "Three backing stringers support the tall closed boards. No source counts them; the existing board-fence construction is reused."
+    },
+    "post_spacing_m": {
+      "value": 2.44,
+      "confidence": "reconstructed",
+      "note": "Chosen8ft backing-post bays, copied from the existing boarded yard construction, not measured in the plate."
+    },
+    "post_size_m": {
+      "value": 0.18,
+      "confidence": "reconstructed",
+      "note": "Chosen180mm square posts for a tall closure, not a source scantling."
+    },
+    "board_width_m": {
+      "value": 0.254,
+      "confidence": "reconstructed",
+      "note": "Chosen10in wide boards, using the existing boarded-yard stock. No pictorial width is promoted to a measured dimension."
+    },
+    "board_gap_m": {
+      "value": 0.006,
+      "confidence": "reconstructed",
+      "note": "Chosen6mm shrinkage gap so the palisade reads as a closed enclosure rather than an open garden fence. Not a measured gap."
+    },
+    "top_shape": {
+      "value": "pointed",
+      "confidence": "inferred",
+      "sources": [
+        "trowbridge_first_jail_gale_1902"
+      ],
+      "note": "The complete1902 Trowbridge plate clearly shows pointed tops along the high palisade. Use the native optional pointed pale top, not jagged or randomly varied boards. Its exact angle and rise are reconstructed."
+    },
+    "point_height_m": {
+      "value": 0.127,
+      "confidence": "reconstructed",
+      "note": "Half the chosen254mm board width gives a127mm symmetrical pointed head. Total fence height3.05m includes this head; backing posts stop at the2.923m shoulder. No source measures the cut angle or point height."
+    }
+  },
+  "citations": [
+    {
+      "source_id": "trowbridge_first_jail_gale_1902",
+      "citation": "Edwin O.Gale, Reminiscences of Early Chicago and Vicinity (Chicago:Fleming H.Revell,1902), p51 and plate facingp53; actual scan n76/n79. Illustration byW.E.S.Trowbridge, captioned1836.",
+      "tier": 5,
+      "tier_label": "retrospective memoir and illustration, independently verified1902 publication"
+    }
+  ],
+  "research_note": "This adds only the missing high plank enclosure thatGale describes. The unchanged jail core, its shallow roof, a keeper house, hung gate and detailed compound layout still differ from the1836-captioned drawing or remain unresolved. No surveyed coordinate, building date, grade, GLB or population is changed. The existing enclosure renderer grounds every post on actual app terrain; full app review must verify a usable north passage. Reference comparisons remain DIFFERS."
+}

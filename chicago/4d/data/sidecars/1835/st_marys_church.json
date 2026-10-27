@@ -14,7 +14,7 @@
     "value": "attested",
     "why": "Pictured: a picture on the Images tab shows it.",
     "pictures": [
-      "andreas_1884_st_marys_engraving"
+      "early-moss-1884-st-marys"
     ]
   },
   "documented_range": {
@@ -98,22 +98,31 @@
     "roof_type": {
       "value": "gable",
       "confidence": "inferred",
-      "note": "Not attested. Gable is the near-universal roof form for a frame building of this type, period and region. Typological derivation, not a measurement. Note that the absence of a steeple IS attested (see `tower`), so the roof is a plain one with nothing on it."
+      "note": "Gable is inferred from the frame building's typology and the undated Moss engraving. The previous statement that the absence of a steeple was attested specifically for 1835 is superseded: the text dates that absence to construction in 1833, and the present belfry is a declared reconstruction within the unresolved addition interval. The original gabled type, footprint and wall height are retained; its pitch is a separate reconstructed picture-bounded choice."
     },
     "roof_pitch_deg": {
-      "value": 38.0,
-      "confidence": "inferred",
-      "note": "No pitch is attested. 38 degrees is the mid-range this project uses for period gable framing across the dataset. Inferred from construction practice, not measured."
+      "value": 30.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_st_marys_engraving"
+      ],
+      "note": "The retained gabled body is given a reconstructed30 degree pitch instead of the previous typological38 degree default: the first actual picture comparison showed the body ridge conspicuously too high against the engraving. This is a chosen picture-bounded shape correction with the original footprint and wall height fixed, not a surveyed roof angle or a sub-metre camera calibration. The engraving remains undated."
     },
     "plan": {
-      "value": "centre_passage",
+      "value": "chapel_side",
       "confidence": "reconstructed",
-      "note": "INVENTED, AND IT IS THE ARCHETYPE'S VOCABULARY RATHER THAN THE BUILDING'S - the same admission the Presbyterian record makes, for the same reason. `plan` names the room arrangement behind a HOUSE'S facade; this building had one room. centre_passage is chosen only because it is the value that produces a symmetrical front with a centred door. Nothing about the real door position is attested."
+      "note": "PICTURE-BOUNDED FRONTAGE, T-2384. The undated Moss engraving published by Andreas in 1884 p.291 shows five long-wall sash and an end door. The transfer of that opening topology to the original 1835 footprint is reconstructed: the engraving may show a later enlarged or relocated state and cannot date this arrangement to 1835. The original 25 by 35 ft footprint, location, dates, height, roof and existing stack are retained. Chosen centres are snapped to the existing stud module; their fractions are not surveyed measurements. The former centre-passage house front is superseded, and no interior plan is asserted. The chapel mode leaves the pictured near gable blank; its unseen opposite end is also reconstructed blank. No interior partition arrangement is asserted.",
+      "sources": [
+        "andreas_1884_st_marys_engraving"
+      ]
     },
     "bays": {
-      "value": 3,
+      "value": 6,
       "confidence": "reconstructed",
-      "note": "INVENTED. No source describes an opening on this building. Three - a centred door with one window either side - is the plainest front the archetype will build with a centred door, and plainness is the one thing the sources do support: not plastered, rough benches, a table for an altar, no steeple, unpainted outside. The archetype would derive four from the 35 ft frontage, and four is refused with a centred door. So the number follows from the grammar and from `plan`, not from evidence."
+      "note": "Five sash and one end door reproduce the visible long-wall count of the undated Moss engraving. Their transfer to the unaltered 1835 range is reconstructed, not an attested 1835 opening schedule. The existing sash size and glazing remain reconstructed; precise source perspective is not treated as a metric survey.",
+      "sources": [
+        "andreas_1884_st_marys_engraving"
+      ]
     },
     "paint": {
       "value": "unpainted",
@@ -121,7 +130,7 @@
       "sources": [
         "chicagology_prefire216"
       ],
-      "note": "DOCUMENTED, WHICH IS RARE HERE: 'The outside of the building was not painted and it had neither steeple nor tower.' This is the only exterior finish directly attested on any building in this parcel, and it is worth noting that it CORROBORATES the reading the Green Tree and the Presbyterian church records adopt by inference - unpainted weathered boarding was the norm and the Sauganash's white paint was the exception worth recording."
+      "note": "DOCUMENTED, WHICH IS RARE HERE: 'The outside of the building was not painted and it had neither steeple nor tower.' This is the only exterior finish directly attested on any building in this parcel, and it is worth noting that it CORROBORATES the reading the Green Tree and the Presbyterian church records adopt by inference - unpainted weathered boarding was the norm and the Sauganash's white paint was the exception worth recording. The quoted no-tower state is the original 1833 construction state, not a dated 1835 absence; the present belfry is a separate reconstructed choice."
     },
     "chimneys": {
       "value": 1,
@@ -129,13 +138,13 @@
       "note": "Not attested, and nothing on the page describes heating. One is the minimum for a room used through Chicago winters and is the number this project's other worship buildings carry on the same reasoning. THE RESIDUAL UNCERTAINTY IS THE KIND OF HEATING, NOT THE FACT OF IT: a box stove with a sheet-iron pipe is as likely as a masonry stack in a building this rough, and this archetype builds only the stack. The COUNT is the inference; the stack's position, size and material are the archetype's - docs/LIBERTIES.md L26."
     },
     "tower": {
-      "value": false,
-      "confidence": "inferred",
+      "value": true,
+      "confidence": "reconstructed",
       "sources": [
+        "andreas_1884_st_marys_engraving",
         "andreas_1884_v1"
       ],
-      "geometry": "record_only",
-      "note": "CONSERVATIVE 1835 CHOICE, NOT AN ATTESTED 1835 ABSENCE. Andreas 1884 vol 1 printed p.290, now read directly, says the church as built in 1833 had neither steeple nor tower, then only Some time afterwards a low open tower and bell. It supplies no addition date. Thompson 1921–22 p.258 sequences the belfry after removal but cites Andreas p.290, which does not establish that sequence. The held Moss engraving is on Andreas printed p.291 with an undated caption; its filename 1843 supplies no terminus. Tower=false is retained as the earliest-state reconstruction for July 1835 and graded inferred, not attested. Quarter's May 1844 diary explicitly describes the old frame church with small steeple, bell and cross (quarter_diary_may_1844_garraghan), so a later comparison form is supported; the exact relationship between that form and the engraving remains inferred. No belfry geometry is built by this record-only field."
+      "note": "PICTURE-BOUNDED 1835 RECONSTRUCTION. Andreas p.290 states that the church had no tower when built in 1833 and received a low open tower and bell some time afterwards, without an installation date. The undated Moss engraving on p.291 shows an open belfry, curved pointed cap and cross. This model chooses that recognizable form for 1835 as a reconstruction, not proof of its presence by July 1835 or a dated interpretation of the engraving. The four posts, low crossed rails, curved braces, boarded plinth, small bell, cap and cross use chosen dimensions recorded in the liberty. No later enlargement, relocation or phase is adopted. Tower presence is a chosen temporal reconstruction, not a dated witness."
     },
     "interior_plaster": {
       "value": false,
@@ -168,6 +177,14 @@
       "value": 0.114,
       "confidence": "reconstructed",
       "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+    },
+    "chimney_placement": {
+      "value": "far_gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_st_marys_engraving"
+      ],
+      "note": "The Moss engraving shows one stack toward the far roof end, away from the belfry. The existing single stack moves to 0.75 m from that end of the unchanged range; the margin is the archetype's retained reconstructed gable offset, not a measured source distance. The stack count, shaft and head sizes are unchanged. The chapel mode leaves the pictured near gable blank after the stack moves, and the unseen far gable is also reconstructed blank."
     },
     "function": {
       "value": "church",
@@ -283,6 +300,23 @@
   ],
   "citations": [
     {
+      "source_id": "andreas_1884_st_marys_engraving",
+      "citation": "Saint Mary's Church — wood engraving in Andreas's History of Chicago, volume 1 (1884), page 291. Moss Engraving Co., New York; Chicago publisher A. T. Andreas.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "https://archive.org/download/historyofchicago01andr/page/n602_large.jpg",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "Visible form: one long low clapboard range, blank near gable, five tall sash and a door at the far end of the visible long wall; open belfry with curved braces, crossed lower railing, curved pointed cap and cross; one chimney toward the far roof end; boarded sidewalk.",
+        "A specific 1884 printed-publication provenance and caption for the held picture."
+      ],
+      "what_it_does_not_supply": [
+        "No depicted year, relocation site, scale, measured dimensions or surveyed coordinate.",
+        "No evidence that the 1835 church lacked a tower or had this precise belfry. Andreas's text dates the initial no-tower state to construction in 1833 and the addition only to some time afterwards.",
+        "No secure proof that the picture shows the post-removal enlargement; assigning it to the 1844 textual state is a declared reconstruction, not a captioned date."
+      ]
+    },
+    {
       "source_id": "andreas_1884_v1",
       "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
       "url": "https://archive.org/details/historyofchicago01andr",
@@ -366,7 +400,7 @@
       "tier_label": "later scholarship"
     }
   ],
-  "research_note": "THE BEST-SPECIFIED SMALL BUILDING IN THE 1835 TOWN: two dimensions, a cost, a builder, a lumber price and shipping route, an exterior finish, an interior finish, a seating description and an explicit statement that it had no tower as built in 1833 - all from one page (chicagology_prefire216), which transcribes Andreas. THREE THINGS TO CARRY FORWARD, IN ORDER OF HOW MUCH DAMAGE THEY COULD DO. (1) THE TOWER. See the `tower` attribute. The page attests a low open tower with the first bell in Chicago at 'some time afterwards' and gives no date, which is exactly how a building gets aged forward by a detail that arrives without one. No tower is built. (2) THE CORNER IS NOT CONTESTED, whatever an earlier reading of the dossier suggested. Both statements on the page put the church south of Lake and west of State; what they do not fix is the lot, because the wording is 'NEAR the southwest corner'. This record therefore carries a quadrant, an unbounded westward uncertainty, and no dispute. (3) THE PAGE IS TIER 4 AND THE MATERIAL IT REPRINTS IS OLDER THAN THAT. The transcription is unpaginated and uncredited editorial prose sits beside the quoted matter with no typographic break; its own header field gives a Life Span that contradicts its body. Every dimension in this record is load-bearing, so it should be collated against Andreas vol. 1 at page image level and re-cited to `andreas_1884_v1` when it is - the dossier points at scan pp. 281 and 601. THE ORIENTATION IS THE MODEL'S LARGEST DEPARTURE from what the building probably looked like: a 25 x 35 ft church almost certainly stood gable-end to Lake Street, and this archetype cannot build that. See the footprint note and docs/LIBERTIES.md. ARCHETYPE CHOICE, STATED BECAUSE IT IS ITSELF A LIBERTY. The schema offers an `institutional` archetype and there is no generator behind it, so a record using it would compile a sidecar pointing at a GLB that does not exist and the building would be invisible in the walkthrough. `frame_dwelling` is used instead because it is the only archetype in the project that builds a plain single-range frame box with a gable roof and nothing else: `frame_tavern` carries a public house's gallery and bar-room frontage, `frame_storefront` carries a shopfront, `outbuilding` carries a stable's door and refuses a storey count. WHAT THE SUBSTITUTION COSTS is the facade: frame_dwelling puts the door in the long eaves-front wall and sets the openings out on a house's bay module, where a meeting house of these years normally had its door in the gable end. This is recorded in docs/LIBERTIES.md and the affected attributes (`plan`, `bays`) are tagged conjectural. T-2384 SOURCE REASSESSMENT, 2026-10-23: The earlier wording in this record that called tower absence documented for 1835 overstates its source. Andreas printed p.290 attests no tower WHEN BUILT in 1833; its Some time afterwards is undated, not an explicit post 1837 restriction. The unchanged no-tower model is a conservative inferred 1835 choice. The exact Moss picture has now been located at Andreas 1884 vol 1 printed p.291 (andreas_1884_st_marys_engraving), whose caption gives no 1843 date. A late wooden form with steeple, bell, cross is actually described in Quarter's May 1844 diary, printed by Garraghan p.127; the old frame church survives and houses College St Mary on June 3, 1844. The new brick church opening Christmas 1843 must not be made the wooden church's demolition. See docs/RESEARCH/st-marys-T-2384-chronology.md for a bounded later-form proposal and the unresolved engraving/date relationship. No new phase, camera, placement or geometry is enrolled by this source correction.",
+  "research_note": "THE BEST-SPECIFIED SMALL BUILDING IN THE 1835 TOWN: two dimensions, a cost, a builder, a lumber price and shipping route, an exterior finish, an interior finish, a seating description and an explicit statement that it had no tower as built in 1833 - all from one page (chicagology_prefire216), which transcribes Andreas. THREE THINGS TO CARRY FORWARD, IN ORDER OF HOW MUCH DAMAGE THEY COULD DO. (1) THE TOWER. See the `tower` attribute. The page attests a low open tower with the first bell in Chicago at 'some time afterwards' and gives no date, which is exactly how a building gets aged forward by a detail that arrives without one. No tower is built. (2) THE CORNER IS NOT CONTESTED, whatever an earlier reading of the dossier suggested. Both statements on the page put the church south of Lake and west of State; what they do not fix is the lot, because the wording is 'NEAR the southwest corner'. This record therefore carries a quadrant, an unbounded westward uncertainty, and no dispute. (3) THE PAGE IS TIER 4 AND THE MATERIAL IT REPRINTS IS OLDER THAN THAT. The transcription is unpaginated and uncredited editorial prose sits beside the quoted matter with no typographic break; its own header field gives a Life Span that contradicts its body. Every dimension in this record is load-bearing, so it should be collated against Andreas vol. 1 at page image level and re-cited to `andreas_1884_v1` when it is - the dossier points at scan pp. 281 and 601. THE ORIENTATION IS THE MODEL'S LARGEST DEPARTURE from what the building probably looked like: a 25 x 35 ft church almost certainly stood gable-end to Lake Street, and this archetype cannot build that. See the footprint note and docs/LIBERTIES.md. ARCHETYPE CHOICE, STATED BECAUSE IT IS ITSELF A LIBERTY. The schema offers an `institutional` archetype and there is no generator behind it, so a record using it would compile a sidecar pointing at a GLB that does not exist and the building would be invisible in the walkthrough. `frame_dwelling` is used instead because it is the only archetype in the project that builds a plain single-range frame box with a gable roof and nothing else: `frame_tavern` carries a public house's gallery and bar-room frontage, `frame_storefront` carries a shopfront, `outbuilding` carries a stable's door and refuses a storey count. WHAT THE SUBSTITUTION COSTS is the facade: frame_dwelling puts the door in the long eaves-front wall and sets the openings out on a house's bay module, where a meeting house of these years normally had its door in the gable end. This is recorded in docs/LIBERTIES.md and the affected attributes (`plan`, `bays`) are tagged conjectural. T-2384 SOURCE REASSESSMENT, 2026-10-23: The earlier wording in this record that called tower absence documented for 1835 overstates its source. Andreas printed p.290 attests no tower WHEN BUILT in 1833; its Some time afterwards is undated, not an explicit post 1837 restriction. The unchanged no-tower model is a conservative inferred 1835 choice. The exact Moss picture has now been located at Andreas 1884 vol 1 printed p.291 (andreas_1884_st_marys_engraving), whose caption gives no 1843 date. A late wooden form with steeple, bell, cross is actually described in Quarter's May 1844 diary, printed by Garraghan p.127; the old frame church survives and houses College St Mary on June 3, 1844. The new brick church opening Christmas 1843 must not be made the wooden church's demolition. See docs/RESEARCH/st-marys-T-2384-chronology.md for a bounded later-form proposal and the unresolved engraving/date relationship. No new phase, camera, placement or geometry is enrolled by this source correction.\n\nT-2384 PICTURE-BOUNDED RECONSTRUCTION, 2026-10-25: the original-site model now chooses the undated engraving's recognizable open belfry, cap, cross and side-front topology for 1835. Presence, exact shape and dimensions are reconstructed within the text's undated addition interval; no dated 1835 tower witness has been found. Five sash and an end door replace the house's centred front, the existing one stack moves to the opposite roof end, and the chapel gables are blank. The original 25 by 35 ft footprint, position, dates, storey and body roof/height remain unchanged. The chronological reassessment above remains valid; its earlier conservative no-tower choice is superseded by this explicitly disclosed reconstruction. No enlarged later phase or relocation is backdated. Actual comparison and the street-visible discrepancy register determine acceptance, not this note. The first actual private comparison showed the body roof too steep; its earlier typological38 degree pitch is superseded by a reconstructed30 degree choice, with footprint and wall height unchanged. The belfry frame is narrowed and its cap made taller to follow the visible silhouette; these remain selected profiles, not metric readings of the provisional camera.",
   "research_doc": "",
   "review_required": false
 }

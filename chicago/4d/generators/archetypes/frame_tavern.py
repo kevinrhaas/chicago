@@ -738,13 +738,18 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
                 _win(b, params, "x", x_wall, int(sgn), cy - win_w / 2, cy + win_w / 2,
                      z0, z0 + win_h, side_conf)
 
-    # ---- the front gable: centred door, flanking bays ---------------------- #
-    _door(b, params, "y", d, 1, w / 2 - 0.6, w / 2 + 0.6, 0.0, 2.1, conf)
+    # ---- front gable: legacy centre door, optional ground-only layout ----- #
+    layout = params.front_ground_layout
+    door_cx, ground_sash_centres = params.resolved_front_ground_stations
+    ground_conf = conf if layout is None else max(conf, params.conf("front_ground_layout"))
+    _door(b, params, "y", d, 1, door_cx - 0.6, door_cx + 0.6, 0.0, 2.1, ground_conf)
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
-        for cx in (w * 0.22, w * 0.78):
+        centres = (w * .22, w * .78) if story else ground_sash_centres
+        window_conf = ground_conf if story == 0 else conf
+        for cx in centres:
             _win(b, params, "y", d, 1, cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h,
-                 conf)
+                 window_conf)
 
     # ---- the rear gable ---------------------------------------------------- #
     # With a rear ell the storey windows would open into the ell's roof space;

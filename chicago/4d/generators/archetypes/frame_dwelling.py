@@ -184,8 +184,13 @@ def build(params: FrameDwellingParams, name: str):
         else None
 
     _chimneys(b, params, w, y0, d, wall_z, ridge_z, ell_ridge_z,
-              params.conf("chimneys", "reconstructed"),
+              (params.worst_conf("chimneys", "chimney_placement")
+               if params.chimney_placement != "house"
+               else params.conf("chimneys", "reconstructed")),
               M_CHIMNEY if params.chimneys > 0 else M_ROOF)
+
+    if params.tower:
+        _chapel_belfry(b, params, y0, d, ridge_z, params.conf("tower"))
 
     if params.stovepipes:
         _stovepipes(b, params, w, y0, d, wall_z,
@@ -654,7 +659,7 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     A ground-floor window goes in whichever gable end has no stack against it. The end
     walls of a small house carried very little glass; the fireplaces were there.
     """
-    if p.roof_type != "gable":
+    if p.roof_type != "gable" or p.chapel_blank_gables:
         return
     rise = ridge_z - wall_z
     yc = (y0 + d) / 2.0
@@ -746,12 +751,7 @@ def _ell(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
 def _stack_positions(p: FrameDwellingParams, w: float) -> list:
     """Where the stacks stand, as x on the main ridge. May be shorter than the count —
     a stack on the ell has no x on this ridge."""
-    if p.chimneys <= 0:
-        return []
-    out = [0.75]
-    if p.chimneys >= 3 or (p.chimneys == 2 and not p.ell):
-        out.append(w - 0.75)
-    return out
+    return list(p.stack_x_positions)
 
 
 def _chimneys(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float, d: float,
@@ -807,6 +807,135 @@ def _stack(b: MeshBuilder, cx: float, cy: float, base_z: float, ridge_z: float,
         b.add_box(cx - half - grow, cy - half - grow, z0,
                   cx + half + grow, cy + half + grow, z0 + 0.16, conf, mat,
                   skip=("bottom",))
+
+
+def _chapel_beam(b: MeshBuilder, a: tuple, c: tuple, side: float,
+                 conf: float, mat: int = M_TRIM) -> None:
+    """A square timber between two points, using the existing polygon builder."""
+    delta = tuple(c[i] - a[i] for i in range(3))
+    length = math.sqrt(sum(v * v for v in delta))
+    if length <= 1e-8:
+        return
+    direction = tuple(v / length for v in delta)
+    ref = (0.0, 1.0, 0.0) if abs(direction[2]) > 0.9 else (0.0, 0.0, 1.0)
+
+    def cross(x, y):
+        return (x[1] * y[2] - x[2] * y[1], x[2] * y[0] - x[0] * y[2],
+                x[0] * y[1] - x[1] * y[0])
+
+    u = cross(direction, ref)
+    magnitude = math.sqrt(sum(v * v for v in u))
+    u = tuple(v / magnitude for v in u)
+    v = cross(direction, u)
+    rings = [[tuple(point[k] + side / 2 * (su * u[k] + sv * v[k])
+                    for k in range(3)) for su, sv in ((-1, -1), (1, -1),
+                                                    (1, 1), (-1, 1))]
+             for point in (a, c)]
+    b.add_poly(list(reversed(rings[0])), conf, mat)
+    b.add_poly(rings[1], conf, mat)
+    for i in range(4):
+        j = (i + 1) % 4
+        b.add_poly([rings[0][i], rings[0][j], rings[1][j], rings[1][i]], conf, mat)
+
+
+def _chapel_lathe(b: MeshBuilder, cx: float, cy: float, profiles: tuple,
+                  conf: float, mat: int, sides: int = 12) -> None:
+    """A small bell or finial; profile heights and radii are reconstructed."""
+    rings = [[(cx + radius * math.cos(2 * math.pi * i / sides),
+               cy + radius * math.sin(2 * math.pi * i / sides), z)
+              for i in range(sides)] for z, radius in profiles]
+    b.add_poly(list(reversed(rings[0])), conf, mat)
+    for lo, hi in zip(rings, rings[1:]):
+        for i in range(sides):
+            j = (i + 1) % sides
+            b.add_poly([lo[i], lo[j], hi[j], hi[i]], conf, mat)
+    b.add_poly(rings[-1], conf, mat)
+
+
+def _chapel_belfry(b: MeshBuilder, p: FrameDwellingParams, y0: float,
+                   d: float, ridge_z: float, conf: float) -> None:
+    """T-2384: the undated picture's open belfry, declared reconstructed for 1835.
+
+    Presence, set-out, sections and curved profiles are chosen, not measured or
+    dated specifications. The body below it and every default house are unchanged.
+    """
+    cx, cy = 1.20, (y0 + d) / 2.0
+    hx, hy = 0.80, 0.90
+    # Seat the plinth into both roof slopes, not on a floating horizontal base.
+    bottom = ridge_z - hy * math.tan(math.radians(p.roof_pitch_deg)) - 0.03
+    floor, head = ridge_z + 0.45, ridge_z + 2.40
+    b.add_box(cx - hx, cy - hy, bottom, cx + hx, cy + hy, floor, conf, M_WALL)
+    # The print's vertical boarding around the lower plinth.
+    for axis, half, across in (("x", hx, hy), ("y", hy, hx)):
+        count = max(2, int(2 * half / 0.15))
+        for i in range(count + 1):
+            u = -half + 2 * half * i / count
+            for sign in (-1, 1):
+                if axis == "x":
+                    b.add_box(cx + u - 0.025, cy + sign * across - 0.016, bottom,
+                              cx + u + 0.025, cy + sign * across + 0.016, floor,
+                              conf, M_TRIM)
+                else:
+                    b.add_box(cx + sign * across - 0.016, cy + u - 0.025, bottom,
+                              cx + sign * across + 0.016, cy + u + 0.025, floor,
+                              conf, M_TRIM)
+    px, py = hx - 0.05, hy - 0.05
+    for x in (cx - px, cx + px):
+        for y in (cy - py, cy + py):
+            b.add_box(x - 0.05, y - 0.05, floor, x + 0.05, y + 0.05, head,
+                      conf, M_TRIM)
+    # Four open faces: low crossed rails and an arched brace under each head.
+    for axis, half, other in (("x", px, py), ("y", py, px)):
+        for sign in (-1, 1):
+            def point(u, z):
+                return ((cx + u, cy + sign * other, z) if axis == "x"
+                        else (cx + sign * other, cy + u, z))
+            for z in (floor + 0.10, floor + 0.55, head - 0.035):
+                _chapel_beam(b, point(-half, z), point(half, z), 0.07, conf)
+            _chapel_beam(b, point(-half, floor + 0.125),
+                         point(half, floor + 0.525), 0.045, conf)
+            _chapel_beam(b, point(-half, floor + 0.525),
+                         point(half, floor + 0.125), 0.045, conf)
+            arc = [point(-half + 2 * half * i / 8,
+                         head - 0.10 - 0.62 * (2 * i / 8 - 1) ** 2)
+                   for i in range(9)]
+            for a, c in zip(arc, arc[1:]):
+                _chapel_beam(b, a, c, 0.07, conf)
+    # Open space remains around the small hanging bell.
+    bell_bottom = floor + 0.76
+    _chapel_beam(b, (cx - 0.55, cy, head - 0.30),
+                 (cx + 0.55, cy, head - 0.30), 0.12, conf)
+    _chapel_beam(b, (cx, cy, bell_bottom + 0.40),
+                 (cx, cy, head - 0.30), 0.045, conf, M_DARK)
+    _chapel_lathe(b, cx, cy, tuple((bell_bottom + z, radius) for z, radius in
+                                  ((0, 0.225), (0.05, 0.18), (0.20, 0.12),
+                                   (0.36, 0.075), (0.40, 0.045))), conf, M_DARK)
+    # Square cornice and a concave, pointed cap, following the picture's silhouette.
+    cap_z = head + 0.16
+    b.add_box(cx - hx - 0.18, cy - hy - 0.18, head,
+              cx + hx + 0.18, cy + hy + 0.18, cap_z, conf, M_TRIM)
+    rings = []
+    for i in range(13):
+        t = i / 12
+        scale = (1 - t) ** 2
+        rx, ry = (hx + 0.18) * scale + 0.025 * t, (hy + 0.18) * scale + 0.025 * t
+        rings.append([(cx - rx, cy - ry, cap_z + 2.03 * t),
+                      (cx + rx, cy - ry, cap_z + 2.03 * t),
+                      (cx + rx, cy + ry, cap_z + 2.03 * t),
+                      (cx - rx, cy + ry, cap_z + 2.03 * t)])
+    for lo, hi in zip(rings, rings[1:]):
+        for i in range(4):
+            j = (i + 1) % 4
+            b.add_poly([lo[i], lo[j], hi[j], hi[i]], conf, M_ROOF)
+    b.add_poly(rings[-1], conf, M_ROOF)
+    tip = cap_z + 2.03
+    _chapel_lathe(b, cx, cy, ((tip, 0.04), (tip + 0.05, 0.12),
+                             (tip + 0.15, 0.16), (tip + 0.25, 0.12),
+                             (tip + 0.30, 0.04)), conf, M_TRIM)
+    b.add_box(cx - 0.04, cy - 0.04, tip + 0.15,
+              cx + 0.04, cy + 0.04, tip + 1.10, conf, M_TRIM)
+    b.add_box(cx - 0.04, cy - 0.38, tip + 0.70,
+              cx + 0.04, cy + 0.38, tip + 0.78, conf, M_TRIM)
 
 
 def _stovepipes(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,

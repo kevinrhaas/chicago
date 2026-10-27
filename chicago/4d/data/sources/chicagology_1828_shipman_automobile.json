@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1828_shipman_automobile",
+ "type": "photograph",
+ "citation": "1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric runabout at the curb.] Unknown photographer, undated (Chicagology's caption: 'about 1897'). Reproduced on chicagology.com, Prairie Avenue, 1828 S. Prairie; the Glessner House Museum's blog reproduces the same photograph ('Prairie Avenue in 1874', June 2014).",
+ "author": "unknown photographer",
+ "date": "undated (Chicagology: 'about 1897'; the Prairie library's dating from the runabout: c. 1897-1906)",
+ "describes_date": "c. 1897-1906",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library images cgn-1828-shipman-automobile-copy (this copy, 1200 x 969 px) and a18-gh-shipman-1828-with-automobile (the Glessner House Museum blog's smaller copy of the same photograph), both recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/cgn-1828-shipman-automobile-copy.jpg), committed since T-1887 at data/sources/assets/shipman_1828_photos_t1887/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1828prairie/",
+ "locator": "The left two-thirds: 1828's street front from the south cheek of its canted bay to the porch and stoop at its north end, the basement storey, the principal storey and the foot of the second; the area fence and the parkway in front. The right third: the next houses north, set back, partly behind a tree.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1887) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3166, piece 1 of T-1887) from the image store's reference copy, 1200 x 969 px greyscale, sha256 c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957.",
+ "note": "The one photograph of the Shipman house this project builds from. It shows a light ashlar street front: a canted bay carried through the basement and both storeys, its south cheek and its front face each with one tall flat-headed window per storey under a small moulded cap, between panelled stone pilasters; and north of the bay, against the recessed part of the front, a stone porch on columns: round arches on its front and on its south side, a deep carved entablature, and a stone balustrade on its flat top; the porch's floor reached by a straight stoop of about a dozen steps between solid stone cheeks, rising toward the house; basement windows under the principal windows; an iron fence on a stone curb with turned posts in front. The Inter Ocean's tour of the avenue (Chicagology's transcription) calls it 'the light stone-front house, No. 1828', and the Chicago Tribune of 9 July 1876 records D. B. Shipman's permit for a 'three-story dwelling, 35x84'.",
+ "what_it_supplies": [
+  "the street front's composition: the canted bay, its windows, the porch and its arches, the balustrade on the porch, the stoop and its cheeks",
+  "the heights of the basement, the principal floor, the principal windows and the porch through the photograph's camera",
+  "the tone of the front: a light smooth stone"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "the second storey and the roof, which the top of the frame cuts off (the Glessner House Museum's damaged partial view, a18-gh-shipman-1828-partial, shows them: a slated mansard with dormers over the bay and over the porch; its camera is T-3168's)",
+  "the flanks, the rear and the rear range"
+ ]
+}

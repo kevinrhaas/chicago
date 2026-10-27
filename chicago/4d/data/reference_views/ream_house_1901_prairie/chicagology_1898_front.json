@@ -1,0 +1,27 @@
+{
+ "structure_id": "ream_house_1901_prairie",
+ "source_id": "chicagology_1901_ream_1898",
+ "library_image": "a19-cgy-1901-ream-1898",
+ "photo": "../../sources/assets/ream_1901_photos_t1903/ream_1901_1898_front.jpg",
+ "image_px": [
+  981,
+  673
+ ],
+ "principal_px": [
+  619.0,
+  412.2
+ ],
+ "focal_px": 1468.9,
+ "eye": [
+  57.4,
+  32.43,
+  5.54
+ ],
+ "yaw_deg": 244.84,
+ "sun_uvy": [
+  0.7,
+  0.8,
+  1.0
+ ],
+ "solve": "Fitted by T-3185 (piece 1 of T-1903) to the photograph alone, the image store's 981 x 673 px copy, against the 1911 sheet's plan (s28fp-1901-b1). The footprint frame's u runs toward Prairie Avenue (west) from the main body's rear wall and v along the front from its north wall (v 0) to its south wall (v 15.2); the front stands at u 22.4. The camera is LEVEL (the front's verticals stand vertical in the print), so the print is a view camera's with its lens shifted and the principal point off the frame's centre. Eight points were fitted by least squares: the front's north corner at the cornice's bed (x 152, y 243 px) and on its base course (y 548), the front's south end where the canted corner turns from it (x 510, y 222 and 556), and the south flank's canted bay (sheet: 8.35-17.2 m behind the front, 1.9 m out) at its west corner on the wall (x 705, y 247 and 540) and its cheek's and front's corners at the cornice (x 790, y 255; x 836, y 262), the wall head held at the model's 10.75 m. Residual 3.3 px RMS, the largest 7 px at the bay's cheek corner. PLACE: the eye at u 57.4 (35 m before the front, on the far side of Prairie Avenue among the west side's front yards), v 32.4 (about 17 m south of the house's south wall) and 5.5 m over the house's grade: an upper window or porch across the avenue, which is what the print's high horizon (y about 412 px, level with the chamber storey's sills) says. The distance is the fit's weakest number: eyes from 50 to 70 m out fit the same eight points within 3-4 px, trading distance against focal length; the near one is kept because the avenue's width puts a photographer there. HEIGHTS through it: the principal floor about 2.35 m (the porch's floor at the stoop's head), the principal windows about 2.7-5.8 m, the chamber windows about 7.0-9.4 m, the porch's entablature from about 5.1 to 5.8 m and its balustrade to about 6.7 m, the mansard's cresting near 15.5 m. WHAT IT SAYS ABOUT THE PLAN: the porch's paired columns read at v about 4.7-5.4 and 7.8-8.6 m, about 1.5 m north of the sheet's one-storey box (v 6.5-10.8); the front's south end is cut by a canted corner whose face reads about 2.5 m from the front's plane each way (fitted: 2.5 m), where the sheet draws only a small chamfer. LIGHT: the front and the canted corner lit and the south flank in light shade, shadows falling north off the porch's columns and the cornice's blocks: a sun in the south-west (sun_uvy, in the frame where v runs south)."
+}

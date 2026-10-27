@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 972,
+    "structures_placed": 977,
     "structures_reached": 135,
     "structures_reached_by_grade": {
       "inferred": 30,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 278
+      "outside the four sections": 283
     },
     "school_section": {
       "parcels": {
@@ -40764,9 +40764,14 @@
       "murdoch_house_2130_prairie_coach_house",
       "otis_house_2033_prairie",
       "otis_house_2033_prairie_coach_house",
+      "pullman_glasshouse_1800_calumet_east",
+      "pullman_glasshouse_1800_calumet_east_end",
+      "pullman_glasshouse_1800_calumet_north",
+      "pullman_glasshouse_1800_calumet_pavilion",
       "pullman_house_1729_prairie",
       "pullman_house_1729_prairie_conservatory",
       "pullman_house_1729_prairie_ranges",
+      "pullman_lodge_1800_calumet",
       "ream_house_1901_prairie",
       "ream_house_1901_prairie_coach_house",
       "rees_house_2110_prairie",

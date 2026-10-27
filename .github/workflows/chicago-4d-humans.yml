@@ -133,7 +133,9 @@ jobs:
   teamster-studies:
     if: github.event_name == 'workflow_dispatch' && (inputs.build_teamsters || inputs.build_seated_driver_study)
     needs: humans
-    runs-on: ubuntu-latest
+    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
+    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

@@ -1,23 +1,24 @@
 {
   "id": "ream_house_1901_prairie",
-  "name": "1901 Prairie Avenue — Ream, post-1887 reconstruction (district draft; refined by T-1903)",
+  "name": "1901 Prairie Avenue — Norman B. Ream house",
   "aka": [
     "1901 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1901_ream_1898"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone with brick rear dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone with brick rear dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped); Norman B. Ream's house in the 1898 photograph's caption and the 1893 Pictorial Chicago plate."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1903 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1901-b1), the T-1841 census (s28-1901-front) and the T-1837 register row frontage-28-054 (Ream, post-1887 reconstruction); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "research_note": "Refined from the district draft (T-2330) in place by T-3185 (piece 1 of T-1903), under the draft's own id, as a K01 stone-front house read off the 1898 Chicagology photograph of Norman B. Ream's house (chicagology_1901_ream_1898) and the undated exterior view (chicagology_1901_ream_exterior) against the 1911 sheet's plan: the smooth ashlar front block two storeys over a raised basement under a slated, dormered mansard and a deep blocked cornice; the porch on columns at the stoop's head with its balustraded balcony over the door; the south flank's canted bay and the north flank's box; the brick rear; an iron fence on a stone curb. The 1898 photograph's camera and match record are in data/reference_views/ream_house_1901_prairie/; what the pictures show that is not built yet (the canted south-west corner, the porch's paired Corinthian columns and curved stoop cheeks, the flank dormers) is open there for T-3186.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,19 +26,19 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The 1893 plate, the 1898 photograph and the undated exterior view draw the same composition, the post-1887 rebuilding; nothing read so far records an alteration before 1904.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448515.759,
-        "utm_n": 4634072.202,
+        "utm_e": 448517.436,
+        "utm_n": 4634072.886,
         "rotation_deg": 179.444,
         "symbolic_location": "1901 S. Prairie Avenue, parcel prairie_1901 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 24.500, v -9.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The main body's rear north corner: lot frame u 22.83, v -10.20 (the draft's frame point u -1.67, v -0.70 through its own rotation), where the 1911 sheet's trace (s28fp-1901-b1) runs the north wall (local y -3322.9) and the stone main body's rear wall north of the brick rear (local x 1444.7). The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation 179.444 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -50,185 +51,722 @@
             0.0
           ],
           [
-            20.75,
+            22.4,
             0.0
           ],
           [
-            20.75,
-            14.5
+            22.4,
+            15.2
           ],
           [
             0.0,
-            14.5
+            15.2
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The stone main body read off the 1911 sheet's trace (s28fp-1901-b1) in the house's frame (u toward the street from the rear wall at local x 1444.7, v south from the north wall at local y -3322.9): the front at local x 1422.3 (u 22.4) and the south wall at y -3338.1 (v 15.2). The sheet's porch box, its flank bays and its brick rear stand on it as K01's door hood, K08 bays and a K01 rear wing; its small chamfer at the south-west corner is not built (the photographs' cut corner is far larger: the match record)."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
           ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two wall storeys over a raised basement under a dormered mansard, in both Chicagology photographs; the 1911 sheet's '3B' counts the mansard as the third storey."
         },
         "construction": {
-          "value": "stone_with_brick_rear",
+          "value": "stone",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "An all-stone house on K01: both photographs show the same light ashlar on the front and the south flank, and the 1911 sheet colours the house stone ('3B', blue). The sheet's brick rear (a pink strip along the east wall, which no picture shows) stands as K01's brick rear wing behind it."
+        },
+        "principal_floor_m": {
+          "value": 2.35,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The principal floor about 2.35 m over the house's grade through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the porch's floor at the stoop's head reads about 1.0 m over the base course's top (y 515 against 553 px), and the basement windows' foot (about y 598 px) puts the grade about 1.45 m under that course."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.5,
+            3.9
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The principal storey 4.5 m and the chamber storey 3.9 m, to a wall head at 10.8 m through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the principal windows' heads at about 5.6-6.0 m, the chamber windows' sills at about 7.0-7.5 m and heads at about 9.0-9.7 m, and the cornice's bed at about 10.6-10.9 m (the north and south window columns read about 0.6 m apart, the camera's own spread)."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "A stone front's thickness inside the K01 contract's range; no picture shows a reveal deep enough to read one."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "The flanks are faced in the same stone as the front in both photographs, so they take the front's thickness; no picture reads it."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "The K03 panel K01 keeps for what it lays in brick; on an all-stone house the stone's coursing covers every face. Which brick is reconstruction."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_bedford",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.25,
+            "corner_bond": []
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Smooth light ashlar laid in even courses on the front and the south flank, two deeper courses under the principal floor, in both Chicagology photographs. Which limestone is reconstruction: the prints say only light and smooth; K02's Bedford stone as 1823's."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Every street window under a moulded head with a small cornice on consoles, in both storeys, in both photographs; K09's lintel with a cornice hood. The consoles' carving is the kit's."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone",
+            "walls": [
+              "k01.wall.side.south",
+              "k01.wall.street_front",
+              "k01.wall.side.north"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "A deep cornice on large paired blocks over a frieze at the wall head, carried round the front and both flanks, in both photographs (the exterior view shows it turning the south-west corner and running the south flank's whole length). K10's moulded stone cornice; the blocks' pairing is the kit's spacing (the match record)."
+        },
+        "roof_form": {
+          "value": "mansard",
           "confidence": "attested",
           "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "A slated mansard with dormers over the front and the south flank, in both photographs."
+        },
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "The mansard's upper deck, above every view's sight line."
+        },
+        "eave_overhang_m": {
+          "value": 0.55,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The cornice stands about 0.5-0.6 m past the front through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the corner block at x 128-152 px over the north corner)."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Slate on the mansard's faces in both photographs; the deck above the sight line in K04's painted tin."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: K06's two-over-two flat sash and area lights. The photographs show tall single sash under blinds; the glazing pattern is not readable at their scale."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 0.6
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "K01's copper gutter and two downpipes, both out of the street front's sight; no picture shows them."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "The stoop's treads; the photographs show the flight end-on between its cheeks."
+        },
+        "stair_landing_depth_m": {
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The register reads the map's colours as 'stone with brick rear'."
+          "note": "The porch's floor at the stoop's head, about 2.0 m out from the wall through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the porch's front columns stand about 2 m before the front (the sheet's one-storey box is 2.2 m deep)."
         },
-        "draft_plan": {
+        "stoop_width_m": {
+          "value": 2.6,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The stoop runs between the porch's paired columns, about 2.6 m between its cheeks through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json)."
+        },
+        "door_clear_height_m": {
+          "value": 2.45,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The door about 2.45 m clear, under the porch's entablature through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the entablature's foot reads about 5.1 m over grade, so the door's head stands lower than the principal windows' beside it."
+        },
+        "entrance_bay": {
+          "value": "middle",
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "The door in the porch, in the front's middle window column between the north part's column and the south part's, in both photographs. K01 counts its bays from the front's north end (its 'south')."
+        },
+        "front_bays": {
+          "value": [
+            2.65,
+            6.6,
+            11.7
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The front's three window columns through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the north part's at x 200-235 px (v 2.65 m), the porch's door and the window over it at x 320-355 px (v about 6.6 m), and the south part's at x 455-500 px (v 11.7 m). The fourth column, on the canted south-west corner the photographs show, is not built (the match record)."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.35,
+              "width_m": 1.15,
+              "height_m": 3.0
+            },
+            {
+              "sill_above_floor_m": 0.5,
+              "width_m": 1.1,
+              "height_m": 2.1
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The principal windows about 1.15-1.2 x 3.0 m (K01's widest sash, 1.15 m) and the chamber windows about 1.1 x 2.1 m through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): the south part's principal window x 455-500 px between sill y 505 and head y 402, its chamber window between y 350 and 275."
+        },
+        "basement_lights": {
           "value": {
-            "parts": [
+            "sill_m": 0.3,
+            "width_m": 1.0,
+            "height_m": 0.9
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Basement windows under each principal window, about as wide as the sash above, behind the area fence in both photographs."
+        },
+        "side_bays": {
+          "value": [
+            3.0,
+            6.5
+          ],
+          "confidence": "reconstructed",
+          "note": "The north flank's windows west of its two-storey box (K01's 'south' wall, its s from the rear); no picture shows the north flank, which faces 1827's south flank across a narrow side yard."
+        },
+        "north_bays": {
+          "value": [
+            2.4,
+            5.6
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "The south flank's windows between the front and its canted bay (K01's 'north' wall, its s from the front): the exterior photograph shows two narrow window columns there in the chamber storey and a small light in the principal storey; K01 lays one window column each at their places. Their narrow width is the match record's."
+        },
+        "rear_bays": {
+          "value": [
+            3.0
+          ],
+          "confidence": "reconstructed",
+          "note": "The rear wall's window north of the brick rear range; no picture shows the rear."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "mansard",
-                "rect": [
-                  0.0,
-                  0.0,
-                  20.75,
-                  14.5
-                ],
-                "from": "s28fp-1901-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
+                "u_m": 19.7,
+                "v_m": 14.95,
+                "top_m": 17.0,
+                "on_cornice": true,
+                "fabric": "stone"
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  -2.75,
-                  5.75,
-                  0.0,
-                  14.5
-                ],
-                "from": "s28fp-1901-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
+                "u_m": 9.6,
+                "v_m": 14.95,
+                "top_m": 17.0,
+                "on_cornice": true,
+                "fabric": "stone"
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Two tall stone stacks on the south flank, one near its front corner and one just east of the dormer over the canted bay, rising over the mansard's curb in the exterior photograph, laid in the walls' own pale ashlar to the cap. Their places are read through that photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json): the front stack's shaft at x 1110-1180 px (u about 19.7) and the rear one's at x 1455-1500 px (u about 9.6), both on the cornice over the side wall; their heights are its proportions, not measured."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 9.35,
+              "hood": {
+                "soffit_m": 5.15,
+                "width_m": 4.4,
+                "out_m": 2.0,
+                "fascia_m": 0.7,
+                "cornice": {
+                  "height_m": 0.25,
+                  "proud_m": 0.2
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.9,
+                  "post_m": 0.3,
+                  "baluster_m": 0.1,
+                  "pitch_m": 0.22,
+                  "rail_m": [
+                    0.25,
+                    0.15
+                  ]
+                },
+                "columns": {
+                  "diameter_m": 0.32,
+                  "plinth_m": [
+                    0.4,
+                    0.5
+                  ],
+                  "capital_m": 0.45,
+                  "respond_m": 0.2,
+                  "at_v_m": [
+                    4.65,
+                    5.4,
+                    7.8,
+                    8.55
+                  ]
+                },
+                "railing_fabric": "stone",
+                "fabric": "stone"
+              },
+              "terrace": [
+                {
+                  "side": "left",
+                  "to_v_m": 4.4
+                },
+                {
+                  "side": "right",
+                  "to_v_m": 8.8
+                }
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The stone porch (portico) on columns over the stoop, its flat top a balcony with a balustrade before the window over the door, in both photographs through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): about 4.4 m wide (the 1911 sheet's one-storey stone box is 4.4 m by 2.2 m), its entablature from about 5.1 to 5.8 m and its balustrade to about 6.7 m over grade. K01's columned door hood carries it in stone, on two pairs of columns at its front corners (the photographs' paired Corinthian shafts, set 0.75 m apart where K01 keeps their plinths 0.3 m clear and the prints set them closer; K01's capital is a plain block, the match record) with responds at the wall, over stone terraces either side of the stoop at the landing's height, as 1729's portico stands. The front 9.35 m behind the street line (the sheet). WHERE: the photographs put the porch's columns at v about 5.3 and 9.0 m, about 1.5 m north of where the sheet draws its box (v 6.5-10.8); three pictures agree and the build follows them (docs/LIBERTIES.md)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 9.1,
+            "lot_s_m": [
+              -2.14,
+              22.54
+            ],
+            "fence": "k11.fence.scroll_band",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 0
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": -0.3,
+              "drawn_deg": 0
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m)."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.side.north",
+              "s_m": 12.8,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -4.43,
+                    0.0
+                  ],
+                  [
+                    -3.08,
+                    1.8
+                  ],
+                  [
+                    3.08,
+                    1.8
+                  ],
+                  [
+                    4.43,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 6.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 3.0,
+                      "sill_m": 2.75,
+                      "at": [
+                        0.08,
+                        0.92
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the canted bay's cheek lights, one a storey on its west cheek in both photographs (the 1898 one at x 735-765 px)"
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 3.0,
+                      "sill_m": 2.75,
+                      "at": [
+                        0.3,
+                        0.7
+                      ],
+                      "why_not_ordinary": "the bay's front lights, two a storey; the exterior photograph shows the front's west light"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.1,
+                      "sill_m": 0.5,
+                      "at": [
+                        0.08,
+                        0.92
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the cheek's chamber light over the principal one, in both photographs"
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.1,
+                      "sill_m": 0.5,
+                      "at": [
+                        0.3,
+                        0.7
+                      ],
+                      "why_not_ordinary": "the bay's front chamber lights"
+                    }
+                  ]
+                }
+              ],
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              },
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "slate_pennsylvania"
+              }
+            },
+            {
+              "id": "north_box",
+              "variant": "k08.bay.rectangular",
+              "wall": "k01.wall.side.south",
+              "s_m": 9.1,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -3.7,
+                    0.0
+                  ],
+                  [
+                    -3.68,
+                    1.6
+                  ],
+                  [
+                    3.68,
+                    1.6
+                  ],
+                  [
+                    3.7,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 6.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.8,
+                      "sill_m": 2.75,
+                      "at": [
+                        0.3,
+                        0.7
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the box's principal-storey lights, reconstructed: no picture shows the north flank"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.5,
+                      "at": [
+                        0.3,
+                        0.7
+                      ],
+                      "why_not_ordinary": "the box's chamber lights, reconstructed"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "slate_pennsylvania"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28",
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "Two K08 bays on the 1911 sheet's trace (s28fp-1901-b1) in the house's frame (u toward Prairie Avenue from the rear wall, v south from the north wall): the south flank's canted bay, 8.85 m along the wall from 8.35 to 17.2 m behind the front and 1.9 m out on the sheet (1.8 m built, K08's deepest), in the front's stone and carried through both storeys under the cornice in both photographs (its west cheek and front lights as they draw them; its cants made even, 1.43 m, where the sheet draws 1.65 and 1.2); and the north flank's box, 7.4 m long and 1.6 m out ('2B' on the sheet), whose openings no picture shows (reconstruction)."
+        },
+        "mansard": {
+          "value": {
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 4.5,
+            "bulge": 0.0,
+            "lower_pitch_deg": 74,
+            "dormers": [
+              {
+                "face": "street",
+                "along_m": 2.65,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.6,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               },
               {
-                "id": "r3",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -4.75,
-                  5.0,
-                  -2.75,
-                  14.0
-                ],
-                "from": "s28fp-1901-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+                "face": "street",
+                "along_m": 6.6,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 1.0,
+                  "height_m": 1.9,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               },
               {
-                "id": "r4",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -1.75,
-                  -0.5,
-                  -0.5,
-                  5.75
-                ],
-                "from": "s28fp-1901-b1 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
+                "face": "street",
+                "along_m": 11.7,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.6,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               },
               {
-                "id": "r5",
-                "role": "bay",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  20.75,
-                  5.75,
-                  23.75,
-                  9.75
-                ],
-                "from": "s28fp-1901-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  3.75,
-                  -2.25,
-                  8.75,
-                  0.0
-                ],
-                "from": "s28fp-1901-b1 p3 (range, stone), rectangle 1 of that part; the part's rectangles cover 72% of its fill"
+                "face": "north",
+                "along_m": 11.2,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.6,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               }
             ],
-            "lot_v": [
-              -2.841,
-              21.841
-            ],
-            "street_u": 30.113
+            "deck": {
+              "cresting": {
+                "height_m": 0.45,
+                "inset_m": 0.08
+              }
+            }
           },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_1898",
+            "chicagology_1901_ream_exterior"
+          ],
+          "note": "The slated mansard rising about 4.5 m over the wall head to its curb through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the deck's cresting at about y 100 px over the north part reads 14-15.5 m over grade), K05's most for a one-storey face; its faces steep and nearly straight. Three street dormers over the three window columns under pedimented heads, the middle one the largest, and an iron cresting along the curb, in both photographs. Their pediments low and triangular, about 30 deg (the kit's lowest), in the south-west view. A fourth dormer stands on the south flank's face over the canted bay's west end (K01's north face, 11.2 m from the rear wall), pedimented as the street's are, in the exterior photograph (x 1380-1450 px, read through its camera at about u 11.2, data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json). The dormer over the canted south-west corner is the match record's."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "brick_rear",
+              "rect": [
+                -3.1,
+                0.0,
+                5.6,
+                15.2
+              ],
+              "floor_m": 2.35,
+              "storey_heights_m": [
+                4.5,
+                3.9
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.9,
+                  "width_m": 0.9,
+                  "height_m": 2.4
+                },
+                {
+                  "sill_above_floor_m": 0.9,
+                  "width_m": 0.9,
+                  "height_m": 2.0
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.0,
+                  7.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1901-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1901-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s28fp-1901-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s28fp-1901-b1 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s28fp-1901-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1901-b1 p3 (range, stone), rectangle 1 of that part; the part's rectangles cover 72% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1576244021,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 6,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2330",
-              "refined_by": [
-                "T-1903"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's post-1887 phase: 'stone-faced Second Empire facade, post-fire upper floor, mansard/dormers, deep cornice, classical portico', the portico drawn as a central entrance. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1576244021 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2330",
-            "liberty": "L-draft-prairie-18-20-east-2330",
-            "register_row": "frontage-28-054",
-            "census_ids": [
-              "s28-1901-front"
-            ],
-            "trace_building": "s28fp-1901-b1",
-            "seed": 1576244021,
-            "replaceable_by": [
-              "T-1903"
-            ],
-            "card": "District draft — refined by T-1903."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The 1911 sheet's brick rear: the east wall stands 3.1 m further back south of v 5.6 (lot x 1444.7-1447.8 on the trace), coloured brick, at the main body's height; on K01's rear wings, laid in K03 brick, under a flat roof. Its windows are reconstruction: no picture shows the rear."
         }
       }
     }

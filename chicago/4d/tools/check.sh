@@ -51,6 +51,19 @@ step "Every building's reference views and match records read; where each stands
 
 step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
   node tools/image_gate.mjs --test
+step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
+  node tools/test_enclosure_points.mjs
+step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
+  node tools/test_photo_match_enclosures.mjs
+
+selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
+  node tools/test_dev_smoke_state.mjs --self-test
+
+selftest "Light GLB textures retain the device mip policy on initial decode and residency reload (T-2380)" \
+  node tools/test_ktx2_texture_policy.mjs --self-test
+
+selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
+  node tools/test_rail_geometry_lifecycle.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
@@ -1021,6 +1034,29 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 # refused.
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
+
+# T-1890. ...and a K08 round tower carries a corbelled upper stage, and a record sizes its cap's
+# finial (1801 Prairie's 18th Street tower, off the Taylor print and HABS photograph 2): the
+# shaft on its own ring, capped; the stage on the wider ring with the cone; its corbel courses
+# stepped back to the shaft within the kit's oversail; the ring closed above the wall head
+# across the shaft's junctions and then the stage's; a stage or finial out of range refused.
+step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
+  python3 tools/test_k08_tower_stage.py
+
+# T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
+# (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
+# under the storey line in place of its floor band, the corbels hung from it, the light tier
+# keeping the course only; the fan's wheel on the panel; a gable up to 1.5 m in from its front's
+# corners; a corbel table on the ground storey or out of range refused.
+step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1890)" \
+  python3 tools/test_k08_corbel_table.py
+
+# T-1890. ...and a K08 oriel may be round, on a rear wing's wall (1801 Prairie's gabled section,
+# off the Taylor print and HABS photograph 2): a bow's chord and rise in range, its corbel courses
+# reaching back from the crown and still bearing on the wall, on one of the wing's floors; a bay on a
+# wing, a bow past half its chord, or a bow beside a canted plan's points refused.
+step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
+  python3 tools/test_k08_round_oriel.py
 
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
@@ -4292,6 +4328,16 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 # drift guards that the workflow still asks at all.
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
+
+# T-3169. `ubuntu-latest` moved to 26.04 on 2026-10-26 and playwright@1.56.1 refuses
+# to install chromium there, so all eighteen content-build smoke legs died in
+# `Install Playwright` and no bake could open its PR. A job that installs Playwright
+# names an exact image — the one its timings and ceilings were measured on.
+step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+  python3 tools/check_runner_images.py --gate
+
+selftest "…and a job on a moving label is refused, read per job and not from prose" \
+  python3 tools/check_runner_images.py --self-test
 
 # T-2314. A whole-town bake derives only the masters the record says moved; deriving
 # all ~714 pushed the content-build job past its thirty-minute ceiling.

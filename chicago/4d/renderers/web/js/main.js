@@ -2280,6 +2280,9 @@ async function boot() {
   const railway = await createRailway({
     dataBase: layerBase('railway'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
+    // Newly reached rail zones are marked before their next draw. This only
+    // installs upload callbacks; it does not render from inside update().
+    onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined,
   });
   scene3d.add(railway.group);
   api.railway = railway;

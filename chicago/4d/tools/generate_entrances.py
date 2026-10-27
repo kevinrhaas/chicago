@@ -31,9 +31,11 @@ planted right up to every threshold in town.
 
 `facade_openings.front_wall` for every archetype it reads (frame_storefront,
 frame_dwelling since T-1984, log_dwelling, outbuilding): a `door`, `shop_door` or a
-ground-level `open_bay`. `frame_tavern` has no reader; both its schemes centre the
-front door on the front wall, 1.2 m wide (`frame_tavern.py`, "the front gable: centred
-door" and "four plus a centred door below"), and that is what is read here, by name.
+ground-level `open_bay`. `frame_tavern` remains UNREAD by the generic facade API. Its primary door is
+read separately from the pure shared resolved_front_ground_stations property after resolving
+the exact sidecar-selected source phase. Absent opt-in keeps the centred 1.2 m
+door and old read_by metadata; a declared gable-front layout moves only that door's
+native approach/clearance along the same front wall.
 Fort, palisade, bridge, pier and camp records carry no street door and are not read.
 
 `front_doors` remains the primary +Y front-wall reader. A declared additional
@@ -73,6 +75,7 @@ sys.path.insert(0, str(ROOT / "generators"))
 import generate_business_signboards as gbs  # noqa: E402
 import generate_frontage_works as gfw  # noqa: E402
 from archetypes.log_dwelling_params import side_access_faces as _log_side_access_faces  # noqa: E402
+from archetypes.frame_tavern_params import from_phase as _frame_tavern_params  # noqa: E402
 
 SIDECARS = ROOT / "data" / "sidecars" / "1835"
 OUT = ROOT / "data" / "enclosures" / "town_entrance_aprons.json"
@@ -85,7 +88,7 @@ ENTRANCE_KINDS = ("door", "shop_door", "open_bay")
 CORRIDOR_LINE = "drawn"
 CORRIDOR_LINE_WHY = ("Aprons use the committed1835 drawn travelled tracks; no survey-control recentering or historical coordinate is inferred.")
 GROUND_Z_M = 0.30          # an opening whose foot is above this is a loft or a window
-TAVERN_DOOR_W_M = 1.2      # frame_tavern.py's front door, w/2 +- 0.6, both schemes
+TAVERN_DOOR_W_M = 1.2      # shared stock front-door width; only the declared centre moves
 
 # THE WORN GROUND (reconstructed, L359). Two parts, one ring per front:
 #  * a STRIP the length of the front wall and a little past its corners — the drip
@@ -134,9 +137,19 @@ def front_doors(sc: dict) -> tuple[list[dict], str | None]:
         if len(poly) < 3:
             return [], None
         u0, u1, _v = gbs._front_edge(poly)
-        c = (u0 + u1) / 2.0
+        record = gbs._load(gbs.STRUCTURES / f"{sc['id']}.json")
+        phases = [ph for ph in record.get("phases", []) if ph.get("id") == sc.get("phase")]
+        if len(phases) != 1:
+            raise ValueError(f"{sc['id']}: front entrance needs exactly one selected phase")
+        params = _frame_tavern_params(phases[0], record)
+        c, _sash = params.resolved_front_ground_stations
+        reader = "frame_tavern centred front door"
+        if params.front_ground_layout is not None:
+            if poly != phases[0].get("footprint", {}).get("polygon"):
+                raise ValueError(f"{sc['id']}: front entrance sidecar footprint is stale")
+            reader = "frame_tavern.resolved_front_ground_stations (selected phase)"
         return ([{"kind": "door", "u0": c - TAVERN_DOOR_W_M / 2,
-                  "u1": c + TAVERN_DOOR_W_M / 2}], "frame_tavern centred front door")
+                  "u1": c + TAVERN_DOOR_W_M / 2}], reader)
     wall = gbs._front_wall(sc["id"])
     if wall is None:
         return [], None
@@ -345,7 +358,10 @@ def build() -> dict:
         "scene": "1835",
         "target_date": "1835-07-01",
         "generated_by": "tools/generate_entrances.py",
-        "generated_from": ["data/sidecars/1835/", "generators/archetypes/facade_openings.py"],
+        "generated_from": ["data/sidecars/1835/", "generators/archetypes/facade_openings.py"] + (
+            ["data/structures/", "generators/archetypes/frame_tavern_params.py"]
+            if any(x["read_by"] == "frame_tavern.resolved_front_ground_stations (selected phase)"
+                   for x in entrances) else []),
         "belongs_to": sorted({x["structure_id"] for x in entrances}),
         "documented_range": {
             "from": "1835-07-01", "to": "1835-07-01", "confidence": "reconstructed",

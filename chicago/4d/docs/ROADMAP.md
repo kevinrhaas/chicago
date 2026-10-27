@@ -5901,3 +5901,56 @@ The retained before-change mobile diagnostic records a 349.859 px grid track ins
 ### T-3088 — qualify the refined canonical horse anatomy
 
 Keep the source-bounded 925fac master as the selected candidate: rounded locally refined hooves and thinner eyelid margins, protected eye/maps/rig/clip, repeatable authored recipe and fresh all-face/expanded-contact Mixer129 proof. Finish actual selected-body yard support, mobile/desktop normal app review and the native whole preflight before delivery. Record the remaining resting-lid appearance honestly; complete the existing T-3089 material/LOD work sequentially from this exact accepted anatomy master. No gait/rider/driver acceptance is implied and no new photo follow-ups are opened.
+
+### T-2376 front-ground picture increment - 2026-10-25
+
+Adopted the reviewed V3 front-ground layout with its consumed/hash-covered
+parameter property and matching native primary entrance, without changing the
+legacy40 positional API or22 default physical assets. Genuine23 master/web
+refresh and source comparison are complete. Keep the visibly different annex
+and long-wall reading in the same match record; the T-3153 stopping rule treats
+camera/drawing disagreements within tolerance and creates no follow-up tickets.
+The original remains open while those larger discrepancies remain. App/current-
+base full qualification and actual merge are recorded separately when complete.
+
+
+### T-2380 — source-bounded jail palisade (2026-10-25)
+
+The actual Gale1902 p51 and complete plate/n79 support a high plank enclosure, absent from the previous scene. A compact palisade with pointed tops and a clear doorway-aligned passage is authored through the existing enclosure layer. Height, outline, stock, exact point and July continuity are reconstructed; the jail master, footprint, position, dates and population stay unchanged. Optional formal comparisons reuse the native enclosure renderer, hash its selected records/geometry dependencies/anchor placement, and retain legacy default views. The provisional cameras are compound diagnostics, not solved evidence of the mostly concealed original jail core; narrow not_pictured rulings preserve its existing inferred grade without denying the fence evidence. Keeper-house absence and unresolved cell/roof identity remain in the view discrepancy register. Actual source renders, published app grounding/access review, native reader pipeline and full preflight are still pending at this authored checkpoint. No image match or original ticket completion is claimed.
+
+The native grader retains its generic inferred wording, "no picture of it has been found"; here the two source-specific rulings refer to the concealed, ambiguous jail core. They do not deny the Gale compound picture or its palisade evidence. Provisional diagnostic camera poses are excluded from the historical From this spot reader action. Actual Images/Sources review remains pending.
+
+The finite native 61-step reader tail, owning package fixed point and publish passed on 25 October; 3,285 protected inputs and all 23 incoming workbooks remain byte-exact. On 26 October both official whole-source comparisons rendered the actual native pointed enclosure, with current picture, master, camera, selected enclosure, native geometry dependencies and anchor hashes verified. Both verdicts remain differs: the absent keeper house and unresolved compound/gate relationship are open; contradictory concealed-core roof depictions and provisional framing are recorded as source/camera limitations. Diagnostic cameras preserve picture credits without offering From this spot. Actual published mobile/desktop grounding, access and Sources review, fullcheck/preflight and latest-dev integration remain pending; this is not original-ticket completion.
+
+Published app review completed on 26 October at 390 x 780 and 1280 x 800: actual normal and By Grade views, pointed tops, credited Photos/Sources/Lib, core grade/placement/attributes, diagnostic spot absence, terrain grounding and all eight frame budgets passed. Each tested nine-step native walker path crossed the real gateway at E468.56 without a blocked movement sample; its ground and eye stayed correct. A separate coarse route-planning grid marks the final point near the core wall blocked; the original local-harness failure is preserved and actual-walker access was independently reviewed by root. This qualifies only the tested approach. The earlier 240-second readiness timeout and successful bounded retry are retained without a performance claim. Both formal views remain differs; the missing keeper house and compound/gate relationship remain open. Latest integrated cf25+88 owning native tail and fullcheck/preflight remain pending before code commit or PR.
+
+Combined cf25+88 native validation completed on 26 October: the owning 61-step tail converged in two native laps, the package tail and publish passed, and all 5,343 protected integrated source/asset files remained byte-exact. The single audit of every dirty XLSX/gzip/outside-4d path found two serialization-only changes, proved whole-artifact equality and restored exact incoming88 bytes. The earlier phone/desktop screenshots were captured on 9f7; their selected jail web GLB, native fence JSON/renderer and sidecar remain byte-identical in the combined published mirror. The incoming lighthouse change is preserved. Required wholecheck/preflight, code commit and PR remain pending; original T-2380 remains an unfinished image match.
+
+
+### T-2380 current-dev integration checkpoint — 2026-10-26
+
+Normal integration of foreign6b with actual dev ecfff retains the native palisade and strict independent placement/declared lighthouse-glass checks. Current native generation and all44 artifact audits passed. A real1904 phone overrun was repaired by applying the existing Light mip policy to initial/reloaded GLB textures and separating transient scalar-reader scopes:455.4→395.8MiB with the400MiB floor unchanged. Full desktop1168.7MiB is consciously re-budgeted1125→1300MiB by the existing measured+10%/25MiB rule; all other rows remain exact. Same-camera phone and desktop texture/reload reviews passed. Final checks and source-bound published coverage are on PR#1333. The original pictured jail compound remains DIFFERS; ship the useful enclosure without claiming that the keeper house or roof conflict is solved.
+
+
+T-2380 current ending: hosted1904 phone403.3/400 failure is retained. Deferred existing far-rail buffers recover exactly12,183,792 retained CPU bytes at spawn with identical measured GPU buffers/textures; actual local phone384.0/400. Native geometry/lifecycle regression coverage is added; final actual walk/picture, preflight and hosted qualification are still pending. Original jail compound image mismatch remains open.
+
+T-2380 rail headroom review is now complete: actual normal walk/upload/drop/rebuild/pick and Full→Light passed; five same-frame baseline/candidate pictures and visible rail geometry are exact. Baseline/current first-pose GL1281 remains explicitly qualified; page/network/console errors are zero. Final preflight and current hosted ending remain pending.
+
+
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original25 by35ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. Genuine271 masters/web, current native derived fixed point, source/app/grounded review and full gates remain owed. OriginalT2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving through the existing library/store path, use one canonical picture ID, and mark the undated provisional camera diagnostic_only. Geometry and solved camera are unchanged; the original sash-height discrepancy remains in T-2384. The separate optional sill API/family rebake is not adopted in this bounded ending.
+
+
+T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
+
+
+T-2382 (2026-10-26): select the existing blind dark doorway for Carpenter's log annex from the credited Andreas plate. The supported one-record choice leaves placement, dimensions, dates and former/current-use rulings unchanged. Actual selected master-to-WEB and same-camera comparisons are retained; the original image gate remains DIFFERS with broader massing and camera questions open. The existing pictured-grade ruling now uses the library ID of that same reproduction, so its legacy source alias does not count as a second picture on the visitor card; the attested grade and per-attribute grades remain. This is a reasoning checkpoint, not a new backlog item.
+
+
+
+
+

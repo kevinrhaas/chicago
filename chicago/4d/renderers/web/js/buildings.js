@@ -57,6 +57,16 @@ import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
 
+/** Readers own their short-lived closure scopes. A retained occlusion predicate in
+ * the batch loop must not keep a temporary source attribute through that loop's
+ * shared lexical context after the batch has copied it. */
+function packedScalarReader(attribute, toneScale) {
+  return (name, i) => unpackScalar(attribute, name, i, toneScale);
+}
+function packedConfidenceReader(scalar) {
+  return (i) => scalar('_confidence', i);
+}
+
 /** How the confidence view reads this batch's packed channel (T-2574). */
 const PACKED_CONFIDENCE = { read: SCALARS_GLSL.confidence, declare: SCALARS_GLSL.declare };
 
@@ -828,7 +838,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // Every reading below is of the bytes the shader decodes, not of the
       // floats they were packed from.
       const scalars = geo.getAttribute(SCALARS);
-      const scalar = (name, i) => unpackScalar(scalars, name, i, toneScale);
+      const scalar = packedScalarReader(scalars, toneScale);
       // The piece tone as the batch stores it, summed for facadeTones' readback.
       let toneSum = 0;
       for (let i = 0; i < scalars.count; i += 1) toneSum += scalar('_tone', i);
@@ -877,7 +887,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && !m.clippingPlanes?.length;
         };
         const ranges=new Map();
-        for(const triangle of backingTriangles(geo,placement,m.side,(k)=>scalar('_confidence',k))) {
+        for(const triangle of backingTriangles(geo,placement,m.side,packedConfidenceReader(scalar))) {
           // Small distant facade details are expensive candidates with little
           // coverage; the inspected house keeps its finer backing faces.
           if(record.id!=='glessner_house' && triangle.area<4)continue;

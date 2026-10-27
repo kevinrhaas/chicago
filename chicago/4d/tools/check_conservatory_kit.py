@@ -234,8 +234,9 @@ def rule_planting(h, data):
         out.append(f"planting: a plant rises to {top:.2f} m, within {st['below_eave_m']} m of the eave — a plant "
                    f"scene, not a backing")
     n = sum(len(h.prims[r].idx) // 3 for r in ("plant", "bench") if r in h.prims)
-    if n > st["max_triangles"]:
-        out.append(f"planting: {n} triangles of staging and plants, over its {st['max_triangles']}")
+    cap = max(st["max_triangles"], round(st.get("max_triangles_per_plan_m2", 0) * plan_area(h)))
+    if n > cap:
+        out.append(f"planting: {n} triangles of staging and plants, over its {cap}")
     return out
 
 
@@ -305,8 +306,18 @@ def rule_doubled(h, data):
     return []
 
 
+def plan_area(h):
+    """The closed plan's area in square metres (0 for a house open to its host wall): what the
+    kit's per-square-metre caps scale with (T-3164)."""
+    if not h.form["closed"]:
+        return 0.0
+    pl = h.form["plan"]
+    # T-3179: and what a dress stands on outside it (the Pullman conservatory's transept arms)
+    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2 + h.meta.get("plan_extra_m2", 0.0)
+
+
 def rule_costs(h, data):
-    cap = data["costs"]["max_triangles"]
+    cap = max(data["costs"]["max_triangles"], round(data["costs"].get("per_plan_m2", 0) * plan_area(h)))
     t = K.triangles(h)
     return [] if t <= cap else [f"costs: {h.v['id']} is {t} triangles, over its budget of {cap}"]
 

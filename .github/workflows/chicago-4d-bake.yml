@@ -742,7 +742,16 @@ jobs:
   # unchanged; content is unchanged; no check moved between parts.
   smoke:
     needs: bake
-    runs-on: ubuntu-latest
+    # T-3169: PINNED, NOT `ubuntu-latest`. On 2026-10-26 the label moved to
+    # ubuntu-26.04 and `playwright@1.56.1 install --with-deps chromium` refuses
+    # that image ("Playwright does not support chromium on ubuntu26.04-x64"), so
+    # all eighteen legs of run #2031 died in `Install Playwright` and no bake
+    # could reach `open-pr`. 24.04 is the image every leg cost, ceiling and
+    # SMOKE_TIMING reading in this file was measured on, so pinning keeps those
+    # numbers meaning what they say; moving Playwright AND the image together is
+    # a re-measurement, not a fix. `tools/check_runner_images.py` (check.sh)
+    # refuses a job that installs Playwright on a moving label.
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     strategy:
       fail-fast: false
