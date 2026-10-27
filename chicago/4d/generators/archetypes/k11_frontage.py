@@ -498,9 +498,19 @@ def coping_spec(params, t):
         raise ValueError("stone_coping_wall: thickness_m 0.2-0.6 m, chamfer_m 0-0.12 m")
     last = s0
     for r in t.get("runs") or ():
+        # T-3184: a run may be the walk's OPENING through the wall (1834's photograph: the walk
+        # passes through it at the north end), at least a walk's width and no wall laid in it
+        if r.get("opening"):
+            if set(r) != {"to_s_m", "opening"} or r["opening"] is not True or not last + 0.9 <= r["to_s_m"] <= s1 + 1e-6:
+                raise ValueError(f"stone_coping_wall run {r}: an opening takes to_s_m and opening: true, "
+                                 f"at least 0.9 m wide")
+            last = r["to_s_m"]
+            continue
         if not last + 0.3 <= r["to_s_m"] <= s1 + 1e-6 or not t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2:
             raise ValueError(f"stone_coping_wall run {r}: each runs on north at least 0.3 m, 0.2-1.2 m high")
         last = r["to_s_m"]
+    if not any(not r.get("opening") for r in t.get("runs") or ()):
+        raise ValueError("stone_coping_wall: every run is an opening; there is no wall to lay")
     if abs(last - s1) > 1e-6:
         raise ValueError(f"stone_coping_wall: the runs end at s {last}, not on the north lot line {s1}")
     sp = t.get("stair_pier")
@@ -554,9 +564,12 @@ def coping_wall(a, t):
     south, north = t["lot_s_m"]
     runs, s_a = [], south
     for r in t["runs"]:
-        runs.append((s_a, r["to_s_m"], r["height_m"]))
+        # T-3184: an opening lays nothing, and the runs either side of it end faced whole
+        runs.append((s_a, r["to_s_m"], None if r.get("opening") else r["height_m"]))
         s_a = r["to_s_m"]
     for i, (sa, sb, h) in enumerate(runs):
+        if h is None:
+            continue
         prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]      # (out, y), back to street
         zc, yc = -T / 2, h / 2
         for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
@@ -603,5 +616,5 @@ def coping_wall(a, t):
         piers.append([round(cheek, 4), round(foot - e / 2, 4)])
     a.boundary = {"line_x_m": line, "stoop_foot_x_m": None, "leaf_reach_m": 0, "entrance_s_m": [],
                   "side_gate_s_m": [], "fence_posts_s_m": [], "wall_piers_x_m": [],
-                  "coping_runs": [[round(x, 4) for x in r] for r in runs], "stair_piers": piers,
+                  "coping_runs": [[round(x, 4) for x in r] for r in runs if r[2] is not None], "stair_piers": piers,
                   **({"side_return": [round(sr["to_x_m"], 4), round(line - T, 4), sr["height_m"]]} if sr else {})}

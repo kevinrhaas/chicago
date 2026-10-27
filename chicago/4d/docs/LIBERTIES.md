@@ -33833,14 +33833,34 @@ before 1886 and are not built in 1904; the match records call them `not shown`. 
 the photograph, where the sheet's stone stoop stands about 1.5 m north of its axis. The body runs full
 width to the rear, where the sheet steps the north wall back 1.26 m behind the bay; the rear frame
 porches on the sheet are not built.
-**What is not built.** The door's hood; the iron balconettes under the two north principal windows; the
-stoop's iron railings (K07's stone cheeks stand in their place); the north flank's stone basement; the
-bay's round-headed lights and bracketed top; the cornice's full depth. And K01's stone front lays a belt
-at the second floor that the print does not show.
-**How to resolve:** T-3184 (piece 2 of T-1888) builds what is open and brings both match records to
-`matches`.
+**Built from the photograph by T-3184** (piece 2 of T-1888), each read through the solved camera: the
+door as a round-headed pair of leaves 1.4 by 3.3 m under a stone ring and key (K07's deep-arch door and
+K01's door arch); the two pierced iron balconettes on the basement's top under the north principal
+windows (v 5.36-6.39 m, 0.25 m proud; v 7.20-9.55 m, 0.6 m proud on two scrolled consoles); the stoop
+open-sided under cast-iron rails with scrolled panels, its landing carried south to the corner as a
+terrace behind a pierced guard; no stone belt across the brick (`stone_front.belts: []`); the north
+flank's basement faced in the front's stone to the water table (`side_base`), with a narrow
+round-headed light under the flank's window column, whose principal window is round-headed too; the
+basement lights tall round-headed windows (0.95 by 1.7 m) in a plain plinth; the bay under a bracketed
+hood with round-headed lights and a narrow round-headed light in its stone base; the cornice's paired
+brackets 0.8 m deep over a plain frieze 0.9 m deep, the eave raised to the print's cornice top (10.85 m;
+the wall head stays the frieze's foot at 9.75 m, so the upper storey reads 4.7 m to the eave); and the
+walk's opening through the stone wall at its north end (s 11.63 m to the lot line).
+**Invented by T-3184.** The pierced panels' pattern (the kit's scroll band: the print shows the
+panels but not their figure at this size), the consoles' profile, the slabs' depths, the frieze's
+plain face (the print's panels between the pairs are not built), the bay hood's flare and slates
+(K08's hooded canted bay), the plinth's top at 0.7 m (base_top_m) under the round lights, and the two
+downpipes moved clear of the paired corner brackets (south at s 20.9, rear at s 1.5): none is in the
+picture.
+**Ruled by T-3184.** The print shows sky beyond the north wall past the bay, where the 1904 body runs
+full height to the rear: the photograph is of before 1886, the sheet of 1911 draws a section there
+stepped back 1.26 m, and its height in 1904 is not known, so the picture is evidence of its own date and
+the match records call it `not shown` (rule 11). The iron reads light in the monochrome print; its 1904
+paint is not known and K01's iron is dark.
+**How to resolve:** a picture of the house after 1886, or of its rear, would settle the rear
+section's height and the step behind the bay.
 **Covers:** `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_front_m`, `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_side_m`, `jones_house_1834_prairie.as_mapped_1904.form.service_wall_brick`, `jones_house_1834_prairie.as_mapped_1904.form.street_front_brick`, `jones_house_1834_prairie.as_mapped_1904.form.roof_pitch_deg`, `jones_house_1834_prairie.as_mapped_1904.form.roof_covering`, `jones_house_1834_prairie.as_mapped_1904.form.stair_tread_m`, `jones_house_1834_prairie.as_mapped_1904.form.side_bays`, `jones_house_1834_prairie.as_mapped_1904.form.rear_bays`, `jones_house_1834_prairie.as_mapped_1904.form.chimneys`, `jones_house_1834_prairie.as_mapped_1904.form.rainwater`, `jones_house_1834_prairie.as_mapped_1904.form.mansard`
-**Ticket:** T-3183 (piece 1 of T-1888).
+**Ticket:** T-3183 (piece 1 of T-1888); T-3184 (piece 2).
 **Review:** `docs/RESEARCH/k01-1834-jones-1888/README.md`.
 **Recorded:** 2026-10-27 (T-3183).
 
