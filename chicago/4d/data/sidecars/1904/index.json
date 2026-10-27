@@ -139,9 +139,9 @@
     },
     {
       "id": "george_glessner_house_1706_prairie",
-      "name": "1706 Prairie Avenue — George Glessner Georgian townhouse (district draft; refined by T-1871)",
+      "name": "1706 Prairie Avenue — George Glessner Georgian townhouse, south of the pair, K01 frontage assembly",
       "sidecar": "sidecars/1904/george_glessner_house_1706_prairie.json",
-      "asset": "gltf/george_glessner_house_1706_prairie__draft_1904.glb"
+      "asset": "gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb"
     },
     {
       "id": "glessner_house",
@@ -151,9 +151,9 @@
     },
     {
       "id": "glessner_lee_house_1700_prairie",
-      "name": "1700 Prairie Avenue — Glessner-Lee Georgian townhouse (district draft; refined by T-1871)",
+      "name": "1700 Prairie Avenue — Glessner-Lee Georgian townhouse, north of the pair, K01 frontage assembly",
       "sidecar": "sidecars/1904/glessner_lee_house_1700_prairie.json",
-      "asset": "gltf/glessner_lee_house_1700_prairie__draft_1904.glb"
+      "asset": "gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb"
     },
     {
       "id": "glessner_lee_house_1700_prairie_coach_house",

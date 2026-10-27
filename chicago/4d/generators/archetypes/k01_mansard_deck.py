@@ -71,6 +71,12 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
             if not sd or set(sd) - set(SIDES) or len(set(sd)) != len(sd):
                 raise ParamError(f"mansard.deck.cresting.sides: some of {', '.join(SIDES)}, once each")
             out["cresting"]["sides"] = list(sd)
+        # T-1871: or the kit's pattern in the eave's painted timber, not iron (1700-1706's
+        # deck railing, a white fret in Chicagology's photograph)
+        if cr.get("painted") is not None:
+            if cr["painted"] is not True:
+                raise ParamError("mansard.deck.cresting.painted: true, or leave it out for the iron")
+            out["cresting"]["painted"] = True
     fn = deck.get("finials")
     if fn is not None:
         fh, fr = float(fn["height_m"]), float(fn["radius_m"])
@@ -218,6 +224,9 @@ def dress(a, dk, conf):
             _stretch(var.pieces, y_cap - 0.007, cr["height_m"] / (top - (y_cap - 0.007)))
             laid["cresting"].append({"side": side, "from_m": round(s0, 3), "to_m": round(s1, 3),
                                      "posts": len(posts)})
+            if cr.get("painted"):
+                for pc in var.pieces:
+                    pc.role = "timber"
             k10_frontage._lay(a, var.pieces, conf, CRESTING)
     if fn:
         from .k09_trim import lathe, Piece

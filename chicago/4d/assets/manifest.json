@@ -967,14 +967,14 @@
       "phase_id": "frame_1835",
       "structure_id": "frederick_thomas_shop"
     },
-    "george_glessner_house_1706_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "george_glessner_house_1706_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 176696,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "2d17f5f33f7b4685d77f2fb211f2216f4e3c09f15f5eded468e8da6ef3b452fc",
+      "bytes": 4027808,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "b224ec3075f9a1473152ca020f770c32bd43bc1baf7f611e46a7954eaa3a3047",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
@@ -997,14 +997,14 @@
       },
       "web_master_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203"
     },
-    "glessner_lee_house_1700_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "glessner_lee_house_1700_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 221636,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "fa2dab6d2bc78ad5ece8727fd2f9f4e565be93411f8133535cb5fdff415db094",
+      "bytes": 4032024,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "7b9698d5d24233331cc22811dc081e0f13f6c14bf76dd9c4965fc94da43dee9e",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "glessner_lee_house_1700_prairie"
     },
     "glessner_lee_house_1700_prairie_coach_house__draft_1904.glb": {

@@ -3240,7 +3240,7 @@ class Assembly:
         mat = "bay_stone" if h.get("fabric") == "stone" else "fascia"
         pr = self.prim(mat)
         tri0 = len(pr.idx) // 3
-        c, W, out = op.s_m, h["width_m"], h["out_m"]
+        c, W, out = op.s_m + h.get("offset_m", 0.0), h["width_m"], h["out_m"]   # T-1871: off the door's axis
         y0 = h["soffit_m"]
         y1 = y0 + h["fascia_m"]
         cp = h["cornice"]["proud_m"]
@@ -3252,6 +3252,8 @@ class Assembly:
         if y0 < op.head_m + 0.30 + 0.05:
             raise ValueError(f"the door hood's soffit ({y0} m) is not clear of the door's lintel")
         for o in p.openings:   # nothing on the front it stands before
+            if h.get("columns") and o.head_m + 0.30 <= y0:
+                continue   # T-1871: a window behind a porch on columns, its lintel under the soffit
             if o.wall == op.wall and o is not op and o.s_m + o.width_m / 2 + 0.08 > S0 \
                     and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
@@ -5028,6 +5030,11 @@ def build(params, structure_id: str):
             break
         (frame, t), mat = frames[op.wall]
         a.opening(op, frame, t, mat, "limestone_trim")
+    if not p.stone and p.street_iron:
+        # T-1871: a brick front with no stone front wears its iron too (1700's and 1706's
+        # balconettes, Chicagology's photograph), as stone_front lays it on 1834's
+        k01_arched_front.street_iron(a, frames["k01.wall.street_front"][0][0], p.street_iron,
+                                     p.worst_conf("footprint", "stories", "storey_heights_m", "construction"))
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
     # wall is a blank party wall against the Glessner court and carries none. A windowed

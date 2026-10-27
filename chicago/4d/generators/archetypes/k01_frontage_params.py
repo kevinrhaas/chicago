@@ -4043,6 +4043,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             return False
         reach = float(lsa["clear_width_m"]) / 2 + float(lsa["ring_m"]) + w / 2
         return abs(s - (depth - float(lsa["centre_m"]))) < reach
+    # T-1871: a porch on columns may stand off its door's axis (`centre_v_m`, the front's own v)
+    # and name the head of the principal-storey windows behind it (`under_head_m`)
+    hd_ = ((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("hood") or {}
+    under = None
+    if "under_head_m" in hd_:
+        uh = float(hd_["under_head_m"])
+        if "columns" not in hd_ or not floors[0] + 1.5 <= uh <= float(hd_["soffit_m"]) - 0.3:
+            raise ParamError("entrance_kit.hood.under_head_m: the head of the windows behind a porch on columns, "
+                             "1.5 m over the principal floor and 0.3 m under the soffit")
+        under = (float(hd_.get("centre_v_m", door_s)), float(hd_["width_m"]), uh)
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
@@ -4059,6 +4069,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("the top storey's lintels run into the soffit")
         for s in (() if sfo or sfw else fbs.get(k, front_bays)):
             if k == 0 and s == door_bay:
+                continue
+            # T-1871: a principal-storey window behind a porch on columns (1700's and 1706's,
+            # Chicagology's photograph) stands under the porch's soffit, square-headed
+            if k == 0 and under and abs(s - under[0]) < under[1] / 2 + w / 2:
+                openings.append(Opening("k01.opening.sash_flat", "k01.wall.street_front", s, round(sill, 4), w,
+                                        round(under[2] - sill, 4)))
                 continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
@@ -4838,7 +4854,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
-        extra = {"columns", "railing_fabric", "fabric"}
+        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -4878,7 +4894,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.hood.columns: the hood is too small to stand on two columns")
             # T-3159: or on a terrace either side of a narrower stoop, at the landing's height,
             # that carries the deck on to the hood's ends (1729's portico, its flight at the north end)
-            hs0, hs1 = door_s - hd["width_m"] / 2, door_s + hd["width_m"] / 2
+            hc = float(hd.get("centre_v_m", door_s))
+            hs0, hs1 = hc - hd["width_m"] / 2, hc + hd["width_m"] / 2
             sv, sh = float(door_kit_in.get("stoop_v_m", door_s)), float(val("stoop_width_m")) / 2
             ters = door_kit.get("terrace")
             ters = ters if isinstance(ters, list) else [ters] if ters else []
@@ -4897,6 +4914,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"entrance_kit.hood.columns.at_v_m {at}: two to eight columns under the hood "
                                      f"(v {hs0:.3f}-{hs1:.3f}), their plinths inside its ends and 0.3 m apart")
                 door_kit["hood"]["columns"]["at_s_m"] = [round(a - door_s, 4) for a in at]
+        if "centre_v_m" in hd:
+            # T-1871: the porch's centre along the front, the door under it but off its axis
+            off = float(hd["centre_v_m"]) - door_s
+            if "columns" not in hd or abs(off) > hd["width_m"] / 2 - 0.9:
+                raise ParamError("entrance_kit.hood.centre_v_m: a porch on columns, its door at least 0.9 m "
+                                 "inside its ends")
+            door_kit["hood"]["offset_m"] = round(off, 4)
         if "fabric" in hd:
             if hd["fabric"] != "stone" or "columns" not in hd:
                 raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "
