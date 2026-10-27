@@ -1,0 +1,26 @@
+{
+ "id": "chicagology_2140_photo_a",
+ "type": "photograph",
+ "citation": "[2140 S. Prairie Ave. (Tucker / Smith house).] Photograph from the south-east corner of Prairie Avenue and 22nd Street, looking north-west across the crossing; unknown photographer, undated (after 1890). Reproduced on chicagology.com, Prairie Avenue, 2140 S. Prairie (file '2140prairie1880').",
+ "author": "unknown photographer",
+ "date": "undated (after 1890: the 1890 house at 2130 stands at right)",
+ "describes_date": "1890s-1900s",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2140-photo-a (stream-2000-2100.json).",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2140prairie/",
+ "locator": "The roadway of 22nd Street in the foreground, with street-railway rails and overhead trolley wires across the frame, and a cast-iron street lamp at right on the south-east corner.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Only what stands in the street and where is read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2140-photo-a.jpg); the original host is not reachable from the build containers.",
+ "note": "Strong evidence for 22nd Street as a streetcar street with overhead trolley wire after 1890; the lamp in the foreground stands on the south-east corner, outside the drawn district.",
+ "what_it_supplies": [
+  "rails and overhead trolley wires in 22nd Street at Prairie Avenue",
+  "a cast-iron street lamp on the south-east corner of the crossing"
+ ],
+ "what_it_does_not_supply": [
+  "a date: undated, after 1890",
+  "the poles that carried the wire"
+ ]
+}
