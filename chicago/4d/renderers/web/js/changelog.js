@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2330, ts: '2026-10-27T07:59:44.015Z', date: 'Oct 27, 2026, 2:59 AM CT', title: '1827 Prairie stands at its true height', kind: 'improvement',
+    items: [
+      'The Doane house was standing about a third taller than its photograph. It is now measured off the photograph through its corrected camera: the cornice is at about 9.4 m, not 12.6 m, and the windows, the mansard, the pavilion\'s attic and roof, the corner tower and the porch\'s balcony have all come down with it, as the photograph shows them.',
+    ] },
   { v: 2329, ts: '2026-10-27T07:55:42.284Z', date: 'Oct 27, 2026, 2:55 AM CT', title: '1720 Prairie\'s porch built to its photograph: paired posts, arches, cresting', kind: 'feature',
     items: [
       'The Tyrrell/Walker house\'s porch now stands on paired posts under three shallow arches, as its undated photograph shows, with turned balustrades either side of the stair and raking rails up the stair\'s sides.',
