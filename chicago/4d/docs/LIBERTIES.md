@@ -24245,7 +24245,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24301,6 +24301,10 @@ outline, storeys, brick and window mark the sheet draws; its draft attributes ar
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
 outer ends.
+**1720 retired from this liberty by T-3180 (2026-10-26):** the Tyrrell/Walker Italianate frame
+now stands as the K16 timber record `walker_house_1720_prairie` (piece 1 of T-1873), read from the
+1911 sheet and the undated Tyrrell photograph and recorded as `L-k16-1720-frame-house-3180`, under
+the same id; its draft attributes are gone. Its coach house stays this draft's.
 **1620, the one house the 1911 sheet does not draw.** The T-1840 census stands the Robert Law house
 for 1904 on Robinson 1886 and the 1904 Blue Book (backcast_1886). Its outline is read off Robinson
 1886 plate 10 in the plate's own pixels and carried by the plate's T-1250 fit (4.54 m RMS, the
@@ -34026,6 +34030,45 @@ plan or the dome's specification settles its covering.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-26 (T-3165).
 
+### L-k16-1720-frame-house-3180 — 1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph
+
+**Decision:** the Tyrrell/Walker house at 1720 Prairie Avenue (Otis L. Wheelock, 1868; T-3180, piece 1
+of T-1873) is no longer a district draft. It stands, under the draft's own id
+`walker_house_1720_prairie`, as a `k16_timber` record built by `generators/k16_emit.py` from the K16
+timber kit, as 1630 does (`L-k16-1630-frame-house-2357`): kit clapboard walls on a water table,
+corner boards and returns, K06 sash in the kit's flat timber casings, a panelled door, a frieze
+under a boxed eave with scroll brackets, a low hip, a flat deck over the wing, one brick stack, and
+the kit's porch across the front. T-3180 taught the kit a long porch's posts between its ends
+(`porch.inner_posts_m`), a porch floor raised over a basement with steps solved to it
+(`porch.basement_m`), and a block's own frieze depth (`frieze_m`).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace
+(s20fp-1720-b1) and the T-1840 census (s20-1720-f): the main block's rectangle (22.25 m deep, 10 m
+along Prairie), the south wing's (u 10-21.5), the porch's 1.5 m depth, two storeys and frame. From
+the Tyrrell photograph (`glessner_blog_1720_tyrrell_photo`) through its camera
+(`data/reference_views/walker_house_1720_prairie/tyrrell_front.json`): the porch floor and door
+about 1.55 m over the walk, the eave about 10.6 m and the frieze about 1.5 m deep, the front's
+openings (below, a single round-headed light, the door and a pair; above, two single round-headed
+sash and a pair), the porch's span (v -1.65 to 9.85 m, against the sheet's -2.0 to 8.25), its
+stair at its middle, its posts at its ends and either side of its middle opening and its plate,
+and the wing standing only one storey where it meets the front (the photograph sees sky over the
+porch roof south of the bay, where a two-storey wing would stand).
+**What is invented.** Every opening on the flanks, the wing and the rear, and the kit's
+two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the
+hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main
+block's); one stack, placed over the south wall where the photograph shows one, the second it shows
+over the north wall not built; the tin roof and its colour; the pale body paint and the kit's
+trim and sash colours (the photograph is monochrome).
+**What is not built yet.** Owned by the pieces of T-1873: the porch's paired posts, three arches,
+turned balustrades, the stair's cheek walls and the iron cresting round its deck (T-3181); the
+upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired
+carved brackets, the wider eave and the central front gable (T-3182). The photograph's stone posts
+and iron fence along the street line are not this record's.
+**How to resolve:** T-3181 and T-3182 replace the kit's stand-ins in place from the same
+photograph; a plan, a second photograph or a description of the flanks replaces their openings.
+**Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
+**Ticket:** T-3180 (piece 1 of T-1873).
+**Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
+**Recorded:** 2026-10-26 (T-3180).
 
 ### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
 
