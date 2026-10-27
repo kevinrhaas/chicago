@@ -157,8 +157,49 @@ def rule_data(v, data, b):
     return fails
 
 
+def _across_inside(b, margin=1e-6):
+    """T-3176: inside the house a ring across its corner stands on: behind the wall's face and
+    inside its end (x < 0 for the right corner), by more than `margin` on both; None if the
+    bay is not across a corner."""
+    across = b.plan.get("across_corner")
+    if across is None:
+        return None
+    k = 1.0 if across == "right" else -1.0
+    return lambda x, z: z < -margin and k * x < -margin
+
+
 def rule_keyed(b, v):
     fails = []
+    inside = _across_inside(b)
+    if inside is not None:
+        # T-3176: a tower across its house's corner starts on the wall's face and ends on the end
+        # wall's plane (or the reverse, at a left corner); nothing of it but its cap, its deck's
+        # iron and finials and the soffit closing the cap stands inside the corner
+        right = b.plan["across_corner"] == "right"
+        a = b.runs[0].world(0.0, 0.0, 0.0)
+        e = b.runs[-1].world(b.runs[-1].L, 0.0, 0.0)
+        on_face, on_side = (a, e) if right else (e, a)
+        if abs(on_face[2]) > 1e-6 or (on_face[0] >= 0) == right:
+            fails.append(f"keyed: an across-corner tower's junction {on_face} is not on its wall's face inside its end")
+        if abs(on_side[0]) > 1e-6 or on_side[2] >= 0:
+            fails.append(f"keyed: an across-corner tower's junction {on_side} is not on its end wall's plane behind the face")
+        whole = ("roof", "finial", "iron", "soffit")
+        worst = [(role, p) for role, pr in b.prims.items() if role not in K.BOARD_ROLES and role not in whole
+                 for p in pr.pos if inside(p[0], p[2])]
+        if worst:
+            fails.append(f"behind: a {worst[0][0]} vertex stands inside the corner at {worst[0][1]}")
+        ring, (cx, cz) = b.plan["ring"], b.plan["centre"]
+        n = len(ring)
+        reach = math.hypot(ring[0][0] - cx, ring[0][1] - cz) + b.meta["overhang_m"] / math.cos(math.pi / n)
+        far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
+        if far > reach + 1e-6:
+            fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
+        off = 0.0
+        for p in b.prims["wall"].pos:
+            off = max(off, min(plan_distance(r, p) for r in b.runs))
+        if off > 2e-4:
+            fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
+        return fails
     # T-3048: a chamfered corner's run ends on its side wall's plane, behind the face, inside
     # the corner its host cuts away under it (k01_frontage_params.chamfer_spans); there, and
     # nowhere else, the bay stands behind the face
@@ -301,8 +342,9 @@ def rule_recesses(b, v, data):
     for w in b.windows:
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
+        inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         for p in w["footprint"]:
-            if p[1] < floor:
+            if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
             for i, r in enumerate(b.runs):

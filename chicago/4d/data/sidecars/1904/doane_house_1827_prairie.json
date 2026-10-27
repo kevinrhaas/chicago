@@ -67,7 +67,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main block read off the 1911 sheet's trace (s28fp-1827-b1 p2) in the house's frame: its west (Prairie) front at u 24.4-24.5 (the wall behind the porch and south of the pavilion), its north wall at v 0 (the trace at v -0.1), its south wall at v 15.5 (the trace at 15.46-15.71) and its east wall at u 0. The porch, the pavilion and the rear range stand on it; the rear part's 1.2 m and 1.6 m steps out on the north and south flanks (u 0-14.6) and the corner feature at the south-west corner are not built (the match record)."
+    "note": "The main block read off the 1911 sheet's trace (s28fp-1827-b1 p2) in the house's frame: its west (Prairie) front at u 24.4-24.5 (the wall behind the porch and south of the pavilion), its north wall at v 0 (the trace at v -0.1), its south wall at v 15.5 (the trace at 15.46-15.71) and its east wall at u 0. The porch, the pavilion and the rear range stand on it; the rear part's 1.2 m and 1.6 m steps out on the north and south flanks (u 0-14.6) are not built (the match record); the corner feature at the south-west corner is the corner tower (bays, T-3176)."
   },
   "attributes": {
     "stories": {
@@ -571,6 +571,97 @@
             "pitch": 0.0,
             "covering": "tin_flat_seam_painted"
           }
+        },
+        {
+          "id": "corner_tower",
+          "variant": "k08.tower.octagonal",
+          "wall": "k01.wall.street_front",
+          "s_m": 15.5,
+          "across_corner": "right",
+          "fabric": "front_stone",
+          "plan": {
+            "radius_m": 2.298,
+            "centre_proud_m": -0.42,
+            "sides": 4,
+            "turned_deg": 45
+          },
+          "eaves": {
+            "overhang_m": 0.45,
+            "fascia_m": 0.35
+          },
+          "storeys": [
+            {
+              "height_m": 7.5,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.65,
+                  "clear_height_m": 3.4,
+                  "sill_m": 2.8,
+                  "at": [
+                    0.145,
+                    0.418,
+                    0.518,
+                    0.773,
+                    0.872
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the principal floor's tall lights, as the front's and the pavilion's: the photograph's paired lights in the corner tower's broad face (x 925-985 and 1010-1060 px) run nearly the storey's height, level with the front's (y 1200-1430 against the front's 1215-1415)"
+                }
+              ]
+            },
+            {
+              "height_m": 5.1,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.65,
+                  "clear_height_m": 3.0,
+                  "sill_m": 0.8,
+                  "at": [
+                    0.145,
+                    0.418,
+                    0.518,
+                    0.773,
+                    0.872
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the upper storey's lights, level with the front's and the pavilion's (the photograph's y 900-1090 px on the tower's broad face)"
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.65,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.145,
+                    0.418,
+                    0.518,
+                    0.773,
+                    0.872
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the tower stage's paired lights over the main cornice (the photograph's x 925-975 and 1005-1050, y 560-730 px), read at the record's scale from grade at the tower's face (y 1577) and the main cornice's top there (y 758) to 12.6 m"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 3.46,
+            "covering": "slate_pennsylvania",
+            "finial": true,
+            "deck_rise_m": 5.45,
+            "cresting": {
+              "height_m": 0.6,
+              "thickness_m": 0.08
+            }
+          }
         }
       ],
       "confidence": "inferred",
@@ -578,7 +669,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "chicagology_1827_doane_exterior"
       ],
-      "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). The sheet's corner feature at the south-west corner, with the square tower over it, is T-3176's and not built here."
+      "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). And the corner tower (T-3176): the sheet's corner feature at the south-west corner is a square turned 45 degrees across the corner, its north-west face meeting the front at v 14.36, its angles at u 25.5, v 15.5 and u 24.0, v 17.1 and its south-east face meeting the flank at u 22.3 (2.27 m on a face, centred on u 23.98, v 15.55); the photograph's broad south-west face (x 857-1135 px) is about 3.2 m, 3.5 times the front's 1.15 m window beside it, and the camera re-fitted with the square's side free on the sheet's centre puts it at 3.25 m (4.4 px RMS; the sheet's own 2.27 m leaves 40-47 px). Built as K08's polygonal tower turned 45 degrees across the front's south corner (s_m 15.5, its centre 0.42 m inside the front and on the flank's plane, radius 2.298 m), its walls on the three faces outside the house: one light a storey on the north-west face and a pair on the south-west, read off the print, and a pair on the unseen south-east face, reconstructed. Its heights are read in proportion to the main cornice at its face (grade y 1577, the cornice's top y 758 px, taken as the record's 12.6 m): the bands at the front's string course (7.5) and cornice (12.6), its wall top 16.2 m (y 525), its eaves 0.45 m out, a slated hip at pitch 3.46 cut to a 1.0 m deck at 22.0 m (y 182), an iron crest 0.6 m tall round the deck (y 138-179) and a turned finial on each corner (the print shows the near two, y 88-130). What it does not carry (its bracketed cornice, its lights' hoods) is open on the match record."
     },
     "rear_wings": {
       "value": [
@@ -681,7 +772,7 @@
       ]
     }
   ],
-  "research_note": "The John W. Doane house (1882, reported architect Theodore V. Wadskier), moved off the district draft onto K01 by T-3171 (piece 1 of T-1895) under the draft's own id: the 1911 sheet's main block in coursed stone, two storeys over a raised basement under a slated mansard with pedimented dormers, the shallow pavilion on the front, the porch at the front's north end (the sheet's stone range) and the brick rear range, read through the solved camera of the Chicagology photograph (undated, after 1882). The corner feature at the south-west corner with its square tower and the pavilion's pyramidal roof are T-3172's. docs/RESEARCH/k01-1827-doane-3171/README.md.",
+  "research_note": "The John W. Doane house (1882, reported architect Theodore V. Wadskier), moved off the district draft onto K01 by T-3171 (piece 1 of T-1895) under the draft's own id: the 1911 sheet's main block in coursed stone, two storeys over a raised basement under a slated mansard with pedimented dormers, the shallow pavilion on the front, the porch at the front's north end (the sheet's stone range) and the brick rear range, read through the solved camera of the Chicagology photograph (undated, after 1882). The pavilion's pyramidal roof (T-3175) and the square tower turned across the south-west corner (T-3176) are T-3172's; T-3176 re-solved the photograph's camera on the tower. docs/RESEARCH/k01-1827-doane-3171/README.md.",
   "research_doc": "",
   "review_required": false,
   "called": "1827 Prairie Avenue — the John W. Doane house"
