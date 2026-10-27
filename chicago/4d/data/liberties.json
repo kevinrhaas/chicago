@@ -55980,6 +55980,198 @@
       ]
     },
     {
+      "id": "L-st-mary-chapel-front-2384",
+      "title": "A pictured chapel form for St Mary's",
+      "section": "per_subject",
+      "subjects": [
+        "st_marys_church"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.chimney_placement"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.tower"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Building",
+          "text": "St. Mary's Catholic Church."
+        },
+        {
+          "label": "Decision",
+          "text": "transfer the undated Moss engraving's five long-wall sash, end door, blank gable and open belfry/cross into the original 1835 range as **reconstructed** appearance (Saint Mary's Church — wood engraving in Andreas's History of Chicago, volume 1…, Andreas 1884 vol.1 p.291). Andreas p.290 says the church had no tower when built in 1833 and received a low open tower and bell \"some time afterwards\". That interval does not establish presence or absence in July 1835. This reconstruction chooses presence; it does not claim a dated installation, a date for the engraving or proof that its later appearance stood at the original site."
+        },
+        {
+          "label": "What is chosen",
+          "text": "five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71 of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the existing stud module. The six-opening count and transfer to 1835 are reconstructed. Existing sash size, glazing, casing, sill and threshold are retained. Both gables are blank: the near one is pictured; the unseen far one is reconstructed. The one existing stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged."
+        },
+        {
+          "label": "Belfry scantlings",
+          "text": "a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end straddles the body ridge. Its lower edge follows the roof slopes with 30 mm penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach 2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm high, hangs within the open frame. These sections, profiles, material assignments and placements are reconstructed, not measured schedules; the bell's dark appearance does not establish an alloy or a paint colour from a monochrome engraving."
+        },
+        {
+          "label": "What is retained",
+          "text": "the original 25 by 35 ft footprint, location, dates, storey, wall height, gabled body type and unpainted body finish. The reconstructed 30 degree body pitch replaces the older typological 38 degrees after the first actual comparison showed a conspicuously high ridge. It is a selected shape, not a measured roof angle. No later enlargement or relocation is adopted. This supersedes “The town's three worship buildings wear a dwelling's facade”'s generic house-front placeholder and the 2026-10-23 conservative tower omission for St Mary's only."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated original-site elevation or alteration account could replace the temporal reconstruction. The actual source comparison records remaining visible differences under the owner's stopping rule; no complete picture match is claimed by a field value or this entry alone."
+        },
+        {
+          "label": "Covers",
+          "text": "`st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-2384"
+      ]
+    },
+    {
+      "id": "L-wolf-point-roof-tone-2386",
+      "title": "A picture-bounded roof tone",
+      "section": "per_subject",
+      "subjects": [
+        "wolf_point_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wolf_point_tavern",
+          "phase": "log_frame_1828",
+          "aspect": "form.roof_colour"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`wolf_point_tavern.log_frame_1828.form.roof_colour`."
+        },
+        {
+          "label": "Decision",
+          "text": "Explicitly select the optional deep brown roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes."
+        },
+        {
+          "label": "Source and limits",
+          "text": "Wolf's Point in 1833. Hand-coloured lithograph, published by Rufus Blanchard…: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening."
+        },
+        {
+          "label": "Production",
+          "text": "The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0."
+        },
+        {
+          "label": "Verification owed",
+          "text": "The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and later work's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-2386)."
+        }
+      ],
+      "work_refs": [
+        "T-3153",
+        "T-2386"
+      ]
+    },
+    {
+      "id": "L-tremont-gale-envelope-2385",
+      "title": "two-storey default and picture alternative",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.first_story_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flag_anchor"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.shutters"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.wall_height_m"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the default first Tremont follows Gale's retrospective, 1835-framed 20x30 yellow two-storey description (printed p51; context p25 and p43). Feet and natural long/short axes are inferred, not surveyed. Working wall height is 5.45 m: the existing 3.1 m lower module plus one 2.35 m upper module. Exact stock yellow, roof pitch, fitting dates, hidden elevations, lettering, entry stock and flag pose remain liberties. Both street-facing planes are preserved when the smaller rectangle changes its northeast origin. The explicit flag anchor follows the native ridge/staff."
+        },
+        {
+          "label": "Alternative",
+          "text": "native gifford-reading retains the three-storey picture-led model, including reconstructed 50x30 ft scale and unpainted stock, explicitly disagreeing with Gale. No dated enlargement or pigment history is invented."
+        },
+        {
+          "label": "Limit",
+          "text": "Gifford genuinely shows three storeys; the two-storey default is not asserted to match it. The original picture case remains open for the source dispute."
+        },
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.flag_anchor`, `tremont_house_1.frame_1833.form.shutters`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on tremont house 1."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-2385)."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

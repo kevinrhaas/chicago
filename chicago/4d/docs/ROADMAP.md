@@ -5953,3 +5953,15 @@ T-2382 (2026-10-26): select the existing blind dark doorway for Carpenter's log 
 ### T-1789 source checkpoint — 26 October2026
 
 Reusable workwear construction and three explicit resident assemblies are authored; CPU source controls cover real geometry, UV surfaces, portable weights, unchanged bodies and meaningful negatives. No new canonical person or photographic-library acceptance is claimed. The full library, including the remaining garment families/base/head/hair options, canonical three-resident exports, posed/LOD/mobile inspection and Mark Beaubien assembly stop, remains T1789 and is tracked in docs/RESEARCH/portable-human-library-T-1789/README.md. Existing reasoning and all original bytes above are retained.
+
+### T-2385 checkpoint — first Tremont (2026-10-26)
+
+The default follows Gale's retrospective 1835-framed 20x30 yellow two-storey text.
+Native gifford-reading preserves the undated three-storey picture alternative.
+Original case remains open for that real source dispute; no dated enlargement is
+invented. Native exports/app/gates are pending at this authoring checkpoint; see STATUS.
+
+T-2385 checkpoint continuation (2026-10-26): exact native2masters+2WEB closed on
+publicGTcf25 plus incoming dev88; canonical single-asset comparison remainsDIF,
+with the original case OPEN. Native scene/tail/app/fixed-point/finalgates are still
+pending. The old three-storey version retains exact incoming model bytes; see STATUS.

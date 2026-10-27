@@ -34724,3 +34724,22 @@ gaits, tack, riders, teams and interactions retain their existing tickets.
 
 **Ticket:** T-1789.
 **Recorded:** 2026-10-26.
+
+### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
+
+**Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
+20x30 yellow two-storey description (printed p51; context p25 and p43). Feet and
+natural long/short axes are inferred, not surveyed. Working wall height is 5.45 m:
+the existing 3.1 m lower module plus one 2.35 m upper module. Exact stock yellow,
+roof pitch, fitting dates, hidden elevations, lettering, entry stock and flag pose
+remain liberties. Both street-facing planes are preserved when the smaller rectangle
+changes its northeast origin. The explicit flag anchor follows the native ridge/staff.
+**Alternative:** native gifford-reading retains the three-storey picture-led model,
+including reconstructed 50x30 ft scale and unpainted stock, explicitly disagreeing
+with Gale. No dated enlargement or pigment history is invented.
+**Limit:** Gifford genuinely shows three storeys; the two-storey default is not
+asserted to match it. The original picture case remains open for the source dispute.
+**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.flag_anchor`, `tremont_house_1.frame_1833.form.shutters`
+**Ticket:** T-2385.
+**Review:** `docs/RESEARCH/tremont_house_1.md`.
+**Recorded:** 2026-10-26 (T-2385).

@@ -293,7 +293,7 @@
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 4,
+    "beds_ordinary": 5,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -303,9 +303,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 6,
-      "beds_ordinary": 4,
+      "beds_ordinary": 5,
       "empty": 0,
-      "statement": "6 on this card against an ordinary night's 4 beds: 6 the residents layer already housed here.",
+      "statement": "6 on this card against an ordinary night's 5 beds: 6 the residents layer already housed here.",
       "empty_note": "",
       "keeper_persons": 6,
       "keeper_owed": ""
