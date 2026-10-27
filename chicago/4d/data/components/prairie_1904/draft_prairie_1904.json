@@ -976,6 +976,7 @@
     "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s28-1824-front": "1824 Prairie now stands as the K01 stone-front house `marsh_house_1824_prairie` (T-3167, piece 2 of T-1887), Samuel B. Pomeroy's 1857 villa behind the stone front George B. Marsh gave it after 1880, read off the Pomeroy photograph and the right side of the automobile photograph of 1828 against this sheet, which refines this draft in place under the draft's own id: the main block on K01 under its hip with the front's canted bay on K08 and the porch on the door's columned hood, and the sheet's rear range on K01's rear wings; the draft stands no second building beside it.",
     "s28-1823-front": "1823 Prairie now stands as the K01 stone-front house `dent_house_1823_prairie` (T-3162, piece 1 of T-1894), read off the Chicagology engraving of the Thomas Dent house and the 1883 New Chicago Album vignette against this sheet, which refines this draft in place under the draft's own id: the front block on K01 under its mansard, the south pavilion on K08 under a steep hipped crown, and the sheet's two-storey rear range (s28-1823-wing) on K01's rear wings; the draft stands no second building beside it.",
+    "s28-1834-front": "1834 Prairie now stands as the K01 brick house `jones_house_1834_prairie` (T-3183, piece 1 of T-1888), Fernando Jones's 1866 Italianate house read off its one photograph (two prints of a reversed negative, before 1886) against this sheet, which refines this draft in place under the draft's own id: the body on K01 with a brick front over a stone basement under the reconstructed 1886 mansard, and the north flank's canted bay on K08; the draft stands no second building beside it, and its alley building stays the draft's.",
     "s28-1828-front": "1828 Prairie now stands as the K01 stone-front house `house_1828_prairie` (T-3166, piece 1 of T-1887), Daniel B. Shipman's house read off the automobile photograph and the Glessner House Museum's partial view against this sheet, which refines this draft in place under the draft's own id: the front block on K01 under its mansard with its canted bay on K08 and the porch on the door's columned hood, the round and canted bays on the south flank on K08, and the sheet's rear range on K01's rear wings; the draft stands no second building beside it.",
     "s28-1815-front": "1815 Prairie now stands as the K01 stone-front house `sears_meeker_house_1815_prairie` (T-3155, piece 1 of T-1893), read off the two Chicagology photographs of the Sears house against this sheet, which refines this draft in place under the draft's own id: the front block on K01 under its mansard, the north pavilion on K08 under a steep hipped crown, the corner bay with its stone balcony, the sheet's stair projection on the north flank and canted bay on the south flank, and its rear range on K01's rear wings; the draft stands no second building beside it.",
     "s28-1811-front": "1811 Prairie now stands as the K01 stone-front house coleman_ames_house_1811_prairie (T-2541, piece 1 of T-1891), Miner T. Ames's house read off the Inland Architect plate of October 1888 against this sheet, which refines this draft in place under the draft's own id: the front block on K01 with its north bay and its oriel on K08, and the brick range and the two-storey rear section behind it on K01's rear wings; the draft stands no second building beside it.",
@@ -992,7 +993,8 @@
     "s27w-1925-front": "1925-1929 Indiana: the 1911 sheet draws a one-storey brick post-office sub-station filling the lots to the street line, and T-3154 read a house on them in 1904 (households at 1927 in the 1902 Lakeside directory, and homes and furnished rooms there still in the 1911 one), so the census rules the frontage replaced_after_1904: the sub-station is not the 1904 building and no outline of the house is in hand, so the draft stands nothing rather than invent it.",
     "s27w-1935-front": "1935-1937 Indiana: the 1911 sheet draws a one-storey brick corner store, the Health Food Company's agency in the 1911 Lakeside directory, and T-3154 found nothing that dates the corner or puts anyone on it before 1910; the census keeps the frontage phase_unresolved, so the 1911 outline is traced and not drafted.",
     "s27w-1935-flats": "216-216a E. 20th Street, the 4B frame flats behind the 1935-1937 corner store: households in the Blue Book from 1910 and in none of 1902-1909, which points to flats of about 1909 but does not date them; on the same phase_unresolved frontage, traced and not drafted.",
-    "s28-pullman-garden-lodge": "The two-storey lodge between Pullman's glasshouse ranges at 1800 Calumet stands as `pullman_lodge_1800_calumet` (T-3164, piece 1 of T-1934): read off sheet 28 by hand with the glasshouses beside it, on this builder's archetype but from its own record, because the colour trace follows this copy's pink wash diagonally into the east range. T-3165 refines it."
+    "s28-pullman-garden-lodge": "The two-storey lodge between Pullman's glasshouse ranges at 1800 Calumet stands as `pullman_lodge_1800_calumet` (T-3164, piece 1 of T-1934): read off sheet 28 by hand with the glasshouses beside it, on this builder's archetype but from its own record, because the colour trace follows this copy's pink wash diagonally into the east range. T-3165 refines it.",
+    "s20-1720-f": "1720 Prairie, the Tyrrell/Walker Italianate frame, now stands whole as the K16 timber record walker_house_1720_prairie (T-3180, piece 1 of T-1873) — its main block, the one-storey wing on its south side and the porch across its front, read from the 1911 sheet and the Tyrrell photograph — which refines this draft in place under the draft's own id; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1036,6 +1038,8 @@
     },
     "frontage-28-042": {
       "slug": "jones_house",
+      "house_id": "jones_house_1834_prairie",
+      "house_address": "1834",
       "roof": "mansard",
       "entrance": "north",
       "why": "The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them.",
@@ -1355,7 +1359,9 @@
       "pitch_deg": 30,
       "brackets": true,
       "entrance": "centre",
-      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's."
+      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's.",
+      "house_id": "walker_house_1720_prairie",
+      "house_address": "1720"
     },
     "frontage-20-019": {
       "slug": "house",

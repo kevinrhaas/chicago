@@ -1291,9 +1291,9 @@
     },
     {
       "id": "jones_house_1834_prairie",
-      "name": "1834 Prairie Avenue — Jones villa with mansard addition (district draft; refined by T-1888)",
+      "name": "1834 Prairie Avenue — Fernando Jones house",
       "sidecar": "sidecars/1904/jones_house_1834_prairie.json",
-      "asset": "gltf/jones_house_1834_prairie__draft_1904.glb"
+      "asset": "gltf/jones_house_1834_prairie__as_mapped_1904.glb"
     },
     {
       "id": "jones_house_1834_prairie_coach_house",
@@ -1669,9 +1669,9 @@
     },
     {
       "id": "walker_house_1720_prairie",
-      "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame (district draft; refined by T-1873)",
+      "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame, K16 clapboard",
       "sidecar": "sidecars/1904/walker_house_1720_prairie.json",
-      "asset": "gltf/walker_house_1720_prairie__draft_1904.glb"
+      "asset": "gltf/walker_house_1720_prairie__as_mapped_1904.glb"
     },
     {
       "id": "walker_house_1720_prairie_coach_house",
