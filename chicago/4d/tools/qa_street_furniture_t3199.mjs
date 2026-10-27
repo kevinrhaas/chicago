@@ -31,9 +31,9 @@ const STANDS=[
  ['glessner-stable-18th',[1336.0,-3201.0,1.7],[1352.0,-3215.0,4.0],50],
  // A long look south down Prairie from 18th: the file of lamps on both parkways.
  ['prairie-south',[1402.0,-3222.0,1.7],[1405.0,-3420.0,4.0],62],
- // T-3201: Pullman's hydrant, from the Prairie roadway south-west of it, the corner lamp behind
+ // T-3201: Pullman's hydrant, from the walk north of it looking south, the corner lamp beyond
  // (the owner's crop of the Detroit Publishing view).
- ['pullman-hydrant',[1401.0,-3194.0,1.6],[1409.4,-3187.9,0.45],34],
+ ['pullman-hydrant',[1411.0,-3178.5,1.5],[1408.8,-3192.0,0.4],42],
  // Tucker's hydrant toward 22nd Street, from the south-east as in the second 2140 photograph.
  ['tucker-hydrant',[1408.0,-3750.0,1.6],[1400.5,-3741.8,0.45],40],
 ];

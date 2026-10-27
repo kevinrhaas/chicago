@@ -34703,15 +34703,15 @@ the walk 8 m north of the corner at 18th Street; Tucker's on the Prairie Avenue 
 its corners taken in turn (NE, SW, NW, SE, west to east and north to south), on the avenue's parkway
 3.5 m from the corner and 0.45 m inside the curb; and every block face 150 m long or more has one
 mid-block on one side of its street. Each is moved along the parkway clear of a lamp (2 m), an elm
-(1.2 m), a carriage walk, an alley mouth and a corner crossing (0.5 m). Every hydrant is the same:
+(1.8 m), a carriage walk, an alley mouth and a corner crossing (0.5 m). Every hydrant is the same:
 a barrel on a flared foot, a band under a domed bonnet with an operating nut, two side nozzles with
-caps, about 0.85 m, in the lamps' dark painted iron.
+caps, about 0.85 m, painted a mid grey.
 **What it stands on:** the hydrant's form and the two places from the Detroit Publishing Pullman view
 (`loc_det_4a08065_pullman_residence`), the Glessner House Museum's halftone of the finished Pullman
 house (`ghm_blog_pullman_completed`) and the second 2140 photograph (`chicagology_2140_photo_b`).
 **What is invented:** every hydrant's place but the two pictured; one per intersection and the turn
 of corners; the 3.5-m and 0.45-m measures; the mid-block hydrant on faces of 150 m or more; one form
-for the district at the measures read off three pictures; the paint (the prints are monochrome).
+for the district at the measures read off three pictures; the paint (the prints are monochrome; the Detroit view prints it lighter than the lamp posts).
 **How to resolve:** a city water department record of hydrants by street (an annual report's
 hydrant list) would place them; Sanborn insurance sheets mark hydrants, so a Sanborn sheet of the
 district near 1904 would place them too.

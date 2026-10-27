@@ -132,7 +132,7 @@ HYDRANT_CURB_INSET_M = 0.45    # a hydrant's centre, inside the parkway's curb e
 HYDRANT_WALK_OFFSET_M = 0.35   # ...or off the walk's outer edge, where a picture puts it there
 HYDRANT_LONG_FACE_M = 150.0    # a face at least this long takes a mid-block hydrant as well
 HYDRANT_LAMP_CLEAR_M = 2.0     # plan distance from a lamp
-HYDRANT_TREE_CLEAR_M = 1.2     # plan distance from an elm's trunk
+HYDRANT_TREE_CLEAR_M = 1.8     # plan distance from an elm's trunk
 CROSSING_CLEAR_M = 0.5         # beyond a corner crossing's strip (T-3200)
 # Which corner of an intersection takes its hydrant, by the intersection's place in the
 # district (west to east, then north to south): the four quadrants in turn.
@@ -631,7 +631,8 @@ def build():
                                  "chicagology_2140_photo_b"],
                 "form_note": ("Read off the owner's crop of the Detroit Publishing Pullman view, the museum's halftone "
                               "of the same corner and the second 2140 photograph, which show one type. The prints are "
-                              "monochrome, so the paint is reconstructed: the lamps' dark iron."),
+                              "monochrome; the Detroit view prints the hydrant lighter than the lamp posts, so it is "
+                              "drawn a mid grey, and its colour is reconstructed."),
                 "model_m": HYDRANT,
                 "what": "A cast-iron post fire hydrant",
                 "ticket": "T-3201",

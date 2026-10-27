@@ -285,14 +285,15 @@ export async function createStreetFurniture({
     iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
     glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
+    // The Detroit view prints the hydrant lighter than the lamp posts: a mid-grey paint.
+    hydrant: new THREE.MeshStandardMaterial({ color: 0x6f6e66, roughness: 0.6, metalness: 0.25 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
     { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
-    // The hydrant shares the lamps' painted iron (the prints are monochrome).
-    { name: 'hydrant', geo: hydrant, key: null, mat: mats.iron, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
+    { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
   ];
 
   /* ---- where each lamp stands, once ------------------------------------- */

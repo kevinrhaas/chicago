@@ -50,10 +50,16 @@ the corner lamp at 18th Street: a post hydrant, a barrel on a flared foot, a ban
 with an operating nut on top, and a nozzle cap on each side, read as about 0.85 m tall. The museum's halftone of the finished house (`ghm_blog_pullman_completed`)
 has the same hydrant at the same place. The second 2140 photograph (`chicagology_2140_photo_b`) has
 one of the same type in its left foreground, on the Prairie Avenue parkway toward 22nd Street, near
-the curb. The prints are monochrome; the paint is drawn in the lamps' dark iron.
+the curb. The prints are monochrome. The Detroit view prints the hydrant lighter than the lamp posts, so it is drawn a mid grey.
 
 **Where the rest stand.** No other picture places one, so the rest are a reconstructed spacing: one
 at each intersection, at a corner taken in turn, on the avenue's parkway a few metres from the corner near the curb, and one
 mid-block on the long blocks (the faces of 150 m or more), on one side of the street. Every hydrant is
 in the grass, never in a walk, a corner crossing or a carriage walk, and is kept clear of the lamps and
 the elms. The inventions are `docs/LIBERTIES.md` L-prairie-hydrants-3201.
+
+**Stills.** `street-furniture-3201/`: Pullman's hydrant against a crop of the Detroit view, on the desktop
+(full) and on a phone (light), the Detroit view's whole stand, and Tucker's hydrant from the south-east;
+`readings.json` holds each stand's frame triangles and draw calls with the layer hidden and shown. The
+lamps' stills are in `street-furniture-3199/` (Glessner's corner against Taylor 2135, Pullman's against
+the Detroit view).
