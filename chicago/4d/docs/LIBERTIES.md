@@ -34021,6 +34021,7 @@ the house and brings the match record to `matches`.
 **Review:** `docs/RESEARCH/k01-1827-doane-3171/README.md`.
 **Recorded:** 2026-10-26 (T-3171).
 **Revised:** 2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176.
+**Revised:** 2026-10-27 (T-3176, piece 2 of T-3172) — **the corner tower is built, and the camera re-solved.** The 1911 sheet draws the south-west corner as a square turned 45 degrees across the corner (2.27 m on a face); the photograph's broad face is about 3.2 m (3.5 times the front's own window beside it), and no level camera holds the sheet's square on the print. The camera is re-fitted with the square's side free on the sheet's centre (3.25 m, 4.4 px RMS over 23 readings of five plan edges), and the tower built to it on K08's polygonal tower turned 45 degrees across the front's south corner, carried a storey past the main cornice under a slated hip cut to a crested deck with finials. Read: its plan, its faces' lights a storey (paired on the south-west face, one on the north-west), and its heights in proportion to the main cornice at its face. Invented: the side's 3.25 m between the sheet's 2.27 and the print (the sheet's own square is refused by the print, so the photograph wins the size and the sheet keeps the centre); the south-east face, which no picture sees, given the south-west face's paired lights; the plain soffit and fascia 0.45 m out for the print's bracketed cornice; flat stone heads for the print's hoods; the hip's single pitch (3.46) where the print's flares at its foot; the crest as a solid iron band 0.6 m tall where the print's is pierced; a finial on each of the deck's four corners, where the print shows the near two. The re-solved camera reads the house's own heights about a third lower than the record's (the main cornice about 9.4 m against 12.6): open on the match record, and the tower's heights, taken in proportion to the record's cornice, come down with them.
 
 
 
@@ -34268,3 +34269,45 @@ a field value or this entry alone.
 **How to resolve:** a separately dated original-site view or account could establish a leaf/state; no complete image match is claimed by this selected shadow.
 **Ticket:** T-2382.
 **Recorded:** 2026-10-26.
+
+### L-pullman-conservatory-3179 — Pullman's glasshouses worked to the 1894 Inland plate and the c. 1897 Lowe photograph: Beman's pointed conservatory, the masonry range and its domed colonnade
+
+**Decision:** the Pullman estate's glasshouse ground across 18th Street stops being four K13 ranges read off
+the 1911 sheet alone and is worked to the two pictures of it from 18th Street, the 1894 Inland Architect
+plate "Conservatory of Geo. M. Pullman" (`inland_1894_pullman_conservatory`) and the c. 1897 photograph in
+the Lowe collection (`aic_lowe_pullman_conservatory_c1897`), through solved cameras in
+`data/reference_views/pullman_glasshouse_1800_calumet_pavilion/`. **What is read.** Through the plate's
+camera (49.5 px/m on the conservatory's north front, scaled by its 8.34 m width; 25.8 px/m at the range):
+the conservatory a glass nave on a pointed section, its north end the great pointed arch with a broad frame
+and a bar up its middle, springing at about 3.6 m over a band of upright glazing on a stone podium about
+2.3 m high, its apex about 9.45 m; the arched stone entrance in that end, about 2.1 m wide and 3.5 m to its
+crown; a transept crossing it, its north face rising upright and turning level at a crest about 9.35 m;
+an octagonal glazed drum to about 10.0 m and a ribbed dome about 4 m across, its crown about 13.1 m with a
+finial over it. The east range a masonry wall about 6.0 m to its coping, eight square-headed windows high
+in it between pilasters, and no roof seen over its parapet. Its round east end a glazed colonnade under an
+entablature level with that coping and a low ribbed dome, crown about 7.3 m. The north range's north end a
+low curved glass roof, eave about 1.9 m and crown about 4.2 m. **What is invented.** The transept's plan
+and its hipped end: the 1911 sheet's cross arms (1.35 m out over 7 m of the nave) are kept, with a curved
+hip whose run (1.5 m) puts its crest's end where the plate does; the plate shows a narrow upright end
+where that plan shows a curved one about 1.5 m further east, and the plan is held to the sheet. The
+transept, drum and domes are glazed in an opaque substitute toned as the pictures show the glass (pale),
+because they stand outside the nave's one transparent envelope (the K13 kit's rule). The vault's four
+facets a half and the kit's bays, bars and staging; the stone tone; the walls' thickness, the windows'
+even spacing and the range's glass roof at a low 14 degrees behind its parapet (the sheet letters a
+glass roof, which no picture sees); a column at every joint of the round end and one midway along its
+straight sides; the domes' profiles. The north range's curvilinear section along its whole length, which
+the pictures see only at its north end. **What is not.** The plan of every range is the sheet's. **The
+north range and the pictures' date.** Both pictures (1894 and c. 1897) show garden and the lodge's front
+where the 1911 sheet draws a 23.7 m glass range from the conservatory's south end to the lodge, with only
+a short curved glass link beside the conservatory: the range was lengthened between about 1897 and 1911.
+Nothing dates it inside that span, so the 1904 scene keeps the sheet's range, and the match records say
+so rather than copying an earlier state. The lodge (`pullman_lodge_1800_calumet`), which both pictures show
+as a two-storey stone building with a bowed front, a recessed columned porch under a balcony and a
+crested mansard roof, is outside this entry and still the draft's reconstruction. Supersedes the forms
+and heights (not the plans) of L-pullman-glasshouses-1800-calumet-3164 for the four glasshouse records.
+**How to resolve:** a plan of the conservatory or a third picture from the east settles the transept's
+end; a dated view or permit between 1897 and 1911 dates the north range's lengthening.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.conservatory`
+**Ticket:** T-3179 (piece of T-3165).
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-27 (T-3179).

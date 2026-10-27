@@ -2644,7 +2644,8 @@ class Assembly:
         if built.host_holes:
             self.bay_holes.setdefault(b["wall"], []).extend(
                 (b["s_m"] + x0, b["s_m"] + x1, y0, y1) for x0, x1, y0, y1 in built.host_holes)
-        if (v["kind"] == "tower" and not b.get("corner")) or past:
+        # T-3176: a tower across its corner closes its own back on both planes (K08's _corner_back)
+        if (v["kind"] == "tower" and not b.get("corner") and not b.get("across_corner")) or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
             pr = self.prim(body)
