@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2329, ts: '2026-10-27T07:55:42.284Z', date: 'Oct 27, 2026, 2:55 AM CT', title: '1720 Prairie\'s porch built to its photograph: paired posts, arches, cresting', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house\'s porch now stands on paired posts under three shallow arches, as its undated photograph shows, with turned balustrades either side of the stair and raking rails up the stair\'s sides.',
+      'An iron cresting runs round the porch roof\'s deck, and the porch is a little shorter and taller than before, measured where it stands rather than at the wall behind it.',
+    ] },
   { v: 2328, ts: '2026-10-27T07:13:31.771Z', date: 'Oct 27, 2026, 2:13 AM CT', title: '1901 Prairie Avenue — the Ream house built from its 1898 photograph', kind: 'feature',
     items: [
       'Norman B. Ream\'s house at 1901 Prairie, a generic draft block until now, stands as the light stone house of its 1898 photograph: two tall storeys over a raised basement under a slated mansard with dormers and an iron cresting.',
