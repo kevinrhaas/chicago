@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2343, ts: '2026-10-27T16:03:54.777Z', date: 'Oct 27, 2026, 11:03 AM CT', title: '1708 Prairie built from the Glessner townhouse photographs', kind: 'feature',
+    items: [
+      '1708 Prairie Avenue, next door to the Glessner townhouses, is no longer a draft box. It is now a three-storey brick front under a deep plain cornice, with a stone string course under the frieze, hooded windows, a canted bay rising two storeys on the south, and the entrance at the north end under a bracketed hood.',
+      'Two photographs of the townhouses show 1708 at their edge, and both are now on the house\'s card. Their cameras are solved against the townhouses\' front, and the house is built to match what they show. The plan behind the front, a long brick range and a narrow wing toward the alley, comes from the 1911 Sanborn map.',
+    ] },
+  { v: 2342, ts: '2026-10-27T15:31:37.543Z', date: 'Oct 27, 2026, 10:31 AM CT', title: '1801 Prairie\'s gabled section gets its round oriel and arched windows', kind: 'improvement',
+    items: [
+      'On the W. W. Kimball house\'s 18th Street side, the gabled section now matches its c. 1895 and 1965 photographs: a round oriel window stands on a deep stepped stone corbel, with a stone balustrade around its top and three round-arched windows below it, where the wall had a plain stack of paired windows.',
+    ] },
   { v: 2341, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: 'Pullman\'s stable: arcade onto the court, a bay on its corner', kind: 'improvement',
     items: [
       '1729 Prairie: the Pullman stable\'s three-arch carriage arcade now faces the court beside the palm house, as the 1894 Inland Architect plate shows, instead of 18th Street.',
