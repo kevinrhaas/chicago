@@ -1061,6 +1061,14 @@ step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1
 step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
   python3 tools/test_k08_round_oriel.py
 
+# T-1890. ...and a K08 cap's finial may be turned over a crocketed collar, in zinc sheet, and a
+# hooded dormer's face slated round a pale frame (1801 Prairie's tower and dormers, off the Taylor
+# print and HABS photograph 1): the tower's tip at the print's 19.6 m, its collar down the cone,
+# the plain spike unchanged; a collar off a cone, an unknown form or fabric, a frame on a stone
+# face or as wide as its surround refused.
+step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
+  python3 tools/test_k08_turned_finial.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
