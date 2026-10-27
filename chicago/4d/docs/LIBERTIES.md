@@ -34510,3 +34510,30 @@ round). This supersedes the flank section's top and the stack's place in
 L-kimball-1801-deck-cresting-3000.
 **How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
 section's top.
+
+### L-kimball-1801-gable-oriel-1890 — 1801 Prairie's gabled section on 18th Street given its round oriel on corbels and its three round-arched lights
+**Recorded:** 2026-10-27.
+
+**Decision:** the face of the W. W. Kimball house's gabled section on 18th Street (`p_gable`, T-1890)
+is rebuilt to the Taylor photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`) and Harold
+Allen's HABS photograph 2 of June 1965 (`habs_kimball_photo_02_nw_1965`), read through their solved
+cameras, where T-3001 had laid one mullioned and transomed pair a storey on the pavilion and bowed a
+floor balcony out from it. **What is read, not invented.** Both pictures show a round oriel on the
+section's face over its principal storey, carried on a deep stepped corbel, with two lights under a
+transom on its front and a balustrade round its top; and, under it, three round-arched lights across
+the section. Through the cameras the oriel stands from the r3 range's 5.0 m floor to a wall top of
+about 9.2 m, its corbel's foot about 3.8 m, its front about 2.7 m across and 0.6 m out, its lights
+from about 5.4 to 8.0 m; the balustrade on its top renders within about 8 px of the Taylor print's,
+and the arched lights, about 0.5-0.6 m across in the pictures, are built 0.5 m clear on 2.0 m sills (their frames fill the face). **What is invented or held by the kit.**
+The bow's exact curve (a segmental arc on that chord and rise), the six corbel courses' coursing,
+the cornice's section (K10's moulded stone), the balusters' square section and spacing (T-3001's),
+the lights' frames and the transom's place (K06's) are the kit's or reconstructed to the pictures'
+outlines; the carved panel the Taylor print shows over the oriel's lights is not modelled. The
+pictures disagree about the balustrade's plan (straight across the section in the Taylor print,
+round on the oriel in HABS photograph 2); the build follows the oriel, and the Taylor match record
+carries it within tolerance. The loggia behind the balustrade, open on slender posts in the Taylor
+print, is still built as a glazed pair, and the pier at the section's east edge is not built (both
+open in that record). This supersedes the gabled section's lights and its floor balcony in
+L-kimball-1801-gabled-section-3001.
+**How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
+gabled section.
