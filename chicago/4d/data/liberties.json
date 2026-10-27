@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 814,
+  "count": 815,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56744,6 +56744,10 @@
         {
           "label": "Revised",
           "text": "2026-10-27 (T-3196, piece 1 of T-3195) — **the basement grilles, the tower's corbel blocks, and the window bay's and the pavilion's lights put back where the print has them.** Read off the photograph through its re-solved camera: an iron grille in the basement light under the pavilion's centre light, in the one under the window bay south of it and in a tall one in the tower's narrow north-west face, each running from about grade to about 1.0 m; a row of corbel blocks under the tower's crown, about eleven to its broad face; the window bay at v 12.05 (T-3171's 12.9 came from the camera since re-solved), and the pavilion's narrow lights close beside its wide one. Invented: the grilles' pattern, K08's four uprights and a ring under the head (three in the tower's narrow light) for the print's bars scrolling from a centre stem into an arch; the lights' sills held at 0.17 m and heads at 1.02 m (the kit's head stone under the pavilion's and the tower's band at 1.3 m, the band their basement storey's, for the print's water table), over a plinth lowered to 0.05 m on the pavilion and the tower; the tower's narrow light the width of the light over it, the print seeing it nearly edge on; the blocks plain, 0.16 m across, 0.35 m deep and 0.2 m out, where the print's are stepped under; and the dormer over the window bay held at v 12.25, about 0.25 m south of the print's, by the kit's clearance from the pavilion's crown. The carved tympana, the crown's slated cheeks and the porch's arches and steps are T-3197's."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-27 (T-3209, piece 1 of T-3197) — **the carved tympana and the crown's slated cheeks.** Read off the photograph through its re-solved camera: a carved panel over every light of the pavilion and of the window bay south of it, under one segmental arch over the pavilion's three principal-floor lights (the centre's own arch over it), an arched one over its second floor's centre light and level ones over the narrow lights beside it, a carved segmental tympanum and a shallow segmental hood over the window bay's two; the attic's outer parts slated as cheeks either side of a stone face that carries its three lights; the crown's cornice about at the pavilion's face. Invented: the carving, a row of stone lozenges and bosses on each panel standing for the print's foliage, which is finer than its pixels; the panels' and hoods' sizes (a 0.12 m lintel, arches rising 0.2-0.45 m, hoods 0.06-0.08 m deep), fitted to where the render's edges fall on the print's; the window bay's second-floor hood's dentilled band, the same row of leaves; the cheeks 1.0 m wide each side and plumb, where the print's south cheek flares a little at its foot; and the crown's cornice at 0.2 m past the pavilion. The colonnettes between the pavilion's lights and the porch's arches and steps are not built (T-3210 owns the porch)."
         }
       ],
       "work_refs": [
@@ -58088,6 +58092,44 @@
       "work_refs": [
         "T-1890",
         "T-3000"
+      ]
+    },
+    {
+      "id": "L-prairie-street-lamps-3199",
+      "title": "The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "a cast-iron gas lamp post stands at every intersection corner of the district's drawn streets (28 corners) and along every block face's parkway (the 1904 street furniture data, written by the lay prairie 1904 street furniture tool). A corner lamp stands in the corner square where the two sidewalk spaces meet, 1.5 ft inside both curbs, on a small stone footing, between the two corner crossings. Seven lamps stand where a photograph shows them in front of a house (1801/1811, 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the same: a fluted column on a moulded base, a ladder bar, a four-sided lantern tapering out to its top, a pyramidal cap and a finial, about 3.1 m. The scene has no night, so none is lit."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the post's form from the 1811 photograph ([1811 S. Prairie Ave. (Coleman / Ames house).] Photograph of the house from the…), J. W. Taylor's no. 2135 (J. W. Taylor, Glessner Residence (2135), c.1887–1889) and the second 2140 photograph ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph of the house from the…); the corner lamps from those and from the Detroit Publishing Pullman view (Detroit Publishing Co. The Pullman residence, Chicago), the Glessner House Museum's halftone of the finished Pullman house ([George M. Pullman residence, 1729 S. Prairie Avenue, completed.] Halftone of a…), the Ward Bros. engraving of 1887 ('Prairie Avenue.' Wood engraving in Souvenir of Chicago (Columbus, Ohio: Ward…) and the Greene stereograph of the Tucker house (P. B. Greene, 'Residence of William F. Tucker. 1010 Prairie Avenue, Chicago.'…); the mid-block lamps from the photographs of the houses they stand before. That 1904 is gas: every electric standard in the Prairie library is in a picture dated after it."
+        },
+        {
+          "label": "What is invented",
+          "text": "every lamp's place but the eleven pictured; the 160-ft spacing and the stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where the pictures show four; the footing at every corner, where Taylor 2135 shows one; one post for the whole district, at the measures read off three pictures; a lantern drawn as plain glass."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a city record of the lamps (a gas-lighting contract or a list of lamp posts by street), or more dated photographs of the faces, would place them; a picture of another corner without a lamp removes that one."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on prairie 1904 street furniture."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3199)."
+        }
+      ],
+      "work_refs": [
+        "T-3199"
       ]
     },
     {

@@ -315,7 +315,8 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
              "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
              "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
-             "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
+             "iron": "iron",        # T-2525: a bow's balcony rail and a light's grille
+             "cheek": "mansard_slate"}  # T-3197: a storey's slated cheeks, the mansard's slate (1827's attic)
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 
 
@@ -1281,6 +1282,11 @@ class Assembly:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
+            return
+        # T-3197: a carved tympanum on a stone lintel where the record names one for this light
+        ty = self.front_tympanum(op)
+        if ty is not None:
+            self.tympanum_head(op, frame, ty, stone_trim, seed, max(conf, p.conf("street_front_trim")))
             return
         # T-2310: a K09 head where the record names one; else a flat lintel
         if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))) or coursed:
@@ -2489,6 +2495,31 @@ class Assembly:
         if head:   # T-2410: the kit's arch band is this head's hood
             roles["head"] = head_mat or stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
+
+    def front_tympanum(self, op):
+        """T-3197: the `street_front_trim.tympana` entry that dresses this street light, or None."""
+        p = self.p
+        if op.wall != "k01.wall.street_front" or op.component != "k01.opening.sash_flat":
+            return None
+        k = k09_frontage._storey(p, op)
+        return next((e for e in (p.street_front_trim or {}).get("tympana", ())
+                     if abs(e["s_m"] - op.s_m) < 1e-6 and k in e["storeys"]), None)
+
+    def tympanum_head(self, op, frame, e, stone_trim, seed, conf):
+        """T-3197: a light's head as 1827's window bay has it in the Doane photograph: a stone
+        lintel `lintel_m` deep and `lintel_proud_m` out, reaching K01's 0.12 m past each jamb,
+        and on it K08's carved tympanum (`k08_bays.tympanum`), laid as a kit is."""
+        from . import k06_windows, k08_bays
+        ext = 0.12
+        a, b = -op.width_m / 2 - ext, op.width_m / 2 + ext
+        self.proud_box(stone_trim, frame, op.s_m + a, op.s_m + b, op.head_m, op.head_m + e["lintel_m"],
+                       e["lintel_proud_m"], seed, conf)
+        self.seat(frame, [(op.s_m + a, op.head_m, 0.0), (op.s_m + b, op.head_m + e["lintel_m"], e["lintel_proud_m"])],
+                  "K01.lintel")
+        o = k06_windows.Opening({"id": f"{op.component}|tympanum"}, k06_windows.load())
+        k08_bays.tympanum(o, e["tympanum"], a, b, op.height_m + e["lintel_m"], 0.0, "full")
+        self.graft(o, "K08.tympanum", {"head": stone_trim, "carving": "carved_trim"}, frame, op,
+                   lambda role: (seed, conf), head=True)
 
     def graft(self, o, kit, roles, frame, op, seed_conf, skip=(), head=False):
         """Carry a kit's built opening into this assembly. A kit's frame is +X along the

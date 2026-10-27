@@ -740,7 +740,12 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
     if c.get("form", "mansard") == "mansard" and not 0.3 <= up <= 2.0:
         raise ParamError(f"mansard.crown.rise_above_curb_m {up}: a crown stands 0.3-2.0 m over the main curb")
     co = float(c.get("overhang_m", overhang))
-    if not overhang < co <= overhang + 0.5:
+    # T-3197: a hipped crown over an attic has its eave a storey over the main one, so the
+    # two fascias never meet on a corner, and it stands as little past the pavilion as its
+    # picture draws (1827's, about at the pavilion's sides in the Doane photograph)
+    if c.get("form") == "hip" and float(c.get("attic_m", 0.0)) and 0.1 <= co <= overhang + 0.5:
+        pass
+    elif not overhang < co <= overhang + 0.5:
         raise ParamError(f"mansard.crown.overhang_m {co}: past the main cornice's {overhang} m, by at most 0.5 m "
                          f"(an equal one would lay the two fascias in one plane on the corner)")
     if c.get("form", "mansard") == "hip":
@@ -942,6 +947,27 @@ MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 #: T-1890: the sheet metals a K08 cap's finial may be laid in, each a K01 slot (the default,
 #: no fabric named, is the cap's own covering)
 FINIAL_FABRICS = {"zinc_sheet": "k04_zinc_sheet"}
+
+
+def tympanum_spec(ty, what: str, lintel_proud: float) -> dict:
+    """T-3197: a carved tympanum on a light's lintel (1827's, from the Doane photograph;
+    k08_bays.tympanum builds it): a panel springing `spring_m` (0-0.6 m) over the lintel and
+    rising `rise_m` (0-0.6 m, 0 a level top) at its crown, `proud_m` out, under a hood band
+    `band_m` deep and `band_proud_m` out (prouder than the panel, no prouder than the lintel
+    it stands on), its leaves `relief_m` proud of the panel; `span_m` (optional) names one
+    arc over a group, centred on the run, whose part over each light is that light's."""
+    need, opt = {"spring_m", "rise_m", "proud_m", "band_m", "band_proud_m", "relief_m"}, {"span_m"}
+    if not isinstance(ty, dict) or not need <= set(ty) <= need | opt:
+        raise ParamError(f"{what} takes {sorted(need)} and optionally span_m, not {ty}")
+    t = {k: float(ty[k]) for k in sorted(ty)}
+    if not (0.0 <= t["spring_m"] <= 0.6 and 0.0 <= t["rise_m"] <= 0.6 and 0.02 <= t["proud_m"] <= 0.1
+            and 0.04 <= t["band_m"] <= 0.2 and t["proud_m"] < t["band_proud_m"] <= lintel_proud
+            and 0.01 <= t["relief_m"] <= 0.05 and 0.1 <= t["spring_m"] + t["rise_m"]
+            and ("span_m" not in t or 1.0 <= t["span_m"] <= 8.0)):
+        raise ParamError(f"{what}: spring_m and rise_m 0-0.6 m (together at least 0.1), proud_m 0.02-0.1 m, "
+                         f"band_m 0.04-0.2 m, band_proud_m prouder than the panel and at most the lintel's "
+                         f"{lintel_proud} m, relief_m 0.01-0.05 m, span_m 1-8 m; not {ty}")
+    return t
 
 
 #: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
@@ -2168,6 +2194,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"than the jambs, at most 0.12 m), on a flat-headed stone light without "
                                      f"voussoirs, not {su}")
                 w["surround"] = {k: float(su[k]) for k in sorted(keys)}
+                ty = w.get("tympanum")
+                if ty is not None:
+                    w["tympanum"] = tympanum_spec(ty, f"bays: {e['id']}'s tympanum", float(su["head_proud_m"]))
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                if "tympanum" in w and "surround" not in w:
+                    raise ParamError(f"bays: {e['id']}'s tympanum stands on a moulded surround's lintel; name one")
         # T-2531: a light's dressed head of splayed voussoirs, up to the string course over it
         for st in v["storeys"]:
             for w in st["windows"]:
@@ -2204,6 +2237,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"and a guilloche of {sorted(gk)}, not {cb}")
             v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
                              "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
+        # T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
+        # photograph): the front run's outer width_m at each end and every other run, in slate
+        for st in v["storeys"]:
+            ch = st.get("cheeks")
+            if ch is None:
+                continue
+            if not isinstance(ch, dict) or set(ch) != {"front_run", "width_m", "proud_m"} \
+                    or not (0 <= int(ch["front_run"]) and 0.3 <= float(ch["width_m"]) <= 2.0
+                            and 0.01 <= float(ch["proud_m"]) <= 0.06):
+                raise ParamError(f"bays: {e['id']}'s cheeks take front_run, width_m (0.3-2.0 m) and proud_m "
+                                 f"(0.01-0.06 m), not {ch}")
+            st["cheeks"] = {"front_run": int(ch["front_run"]), "width_m": float(ch["width_m"]),
+                            "proud_m": float(ch["proud_m"])}
         # T-3002: a dressed band across one run over a storey's windows, under its top, with a
         # roundel on it (1801's south pavilion under its gable's shelf, the Taylor photograph)
         for st in v["storeys"]:
@@ -5504,6 +5550,28 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if trim.get("brick_heads") and construction != "brick":
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
+    # T-3197: a front bay's lights under a carved tympanum on a stone lintel, in place of the
+    # K09 head its storey names (1827's window bay south of the pavilion, the Doane photograph)
+    if "tympana" in trim:
+        tys = []
+        bays_v = [float(x) for x in (val("front_bays") or [])]
+        for e in trim["tympana"]:
+            keys = {"s_m", "storeys", "lintel_m", "lintel_proud_m", "tympanum"}
+            if not isinstance(e, dict) or set(e) != keys or not 0.1 <= float(e["lintel_m"]) <= 0.4 \
+                    or not 0.03 <= float(e["lintel_proud_m"]) <= 0.15:
+                raise ParamError(f"street_front_trim.tympana takes {sorted(keys)} (a lintel 0.1-0.4 m deep, "
+                                 f"0.03-0.15 m proud), not {e}")
+            if not any(abs(float(e["s_m"]) - b) < 1e-6 for b in bays_v):
+                raise ParamError(f"street_front_trim.tympana: s_m {e['s_m']} is not one of front_bays {bays_v}")
+            st = sorted({int(k) for k in e["storeys"]})
+            if not st or not all(0 <= k < int(val("stories")) for k in st):
+                raise ParamError(f"street_front_trim.tympana: storeys {e['storeys']} are not this front's "
+                                 f"storeys (0-{int(val('stories')) - 1}, as by_storey counts them)")
+            tys.append({"s_m": float(e["s_m"]), "storeys": st, "lintel_m": float(e["lintel_m"]),
+                        "lintel_proud_m": float(e["lintel_proud_m"]),
+                        "tympanum": tympanum_spec(e["tympanum"], "street_front_trim.tympana",
+                                                  float(e["lintel_proud_m"]))})
+        trim["tympana"] = tys
 
     # T-2360: the K14 yard's age is the house's own: the year its phase was built in
     yard = dict(val("yard", {}) or {})
