@@ -1,0 +1,81 @@
+{
+  "structure_id": "ream_house_1901_prairie",
+  "view": "chicagology_1898_front",
+  "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
+  "glb_sha256": "c2adc6498a23415a47adfbe6764764feeec8a9bf60f11ee9796c17ebdbedac0c",
+  "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
+  "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
+  "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic block is now the photograph's: a light ashlar house two storeys over a raised basement, 15.2 m of front, its wall head at about 10.75 m and the mansard's curb near 15.3 m; the house fills the print's x 130-820 px and the render's x 125-865 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch on columns at the stoop's head, its entablature from about 5.1 m and its balustraded balcony before the window over the door, where the photograph puts it (x 230-400 px), about 1.5 m north of the 1911 sheet's box",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's three window columns on both storeys (x 200-235, 320-355 and 455-500 px), each window under a moulded head with a cornice",
+      "status": "fixed"
+    },
+    {
+      "what": "the slated mansard with three pedimented-in-place dormers over the window columns and an iron cresting on its curb",
+      "status": "fixed"
+    },
+    {
+      "what": "the south flank's canted bay through both storeys under the cornice, its cheek and front lights",
+      "status": "fixed"
+    },
+    {
+      "what": "basement lights under the principal windows and an iron fence on a stone curb before the front",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's south-west corner: the photograph cuts it on a canted face about 2.5 m each way, with its own window column and pedimented dormer (x 510-600 px); the render's corner is square (K01's chamfer runs at most 1.0 m)",
+      "status": "open"
+    },
+    {
+      "what": "the cornice: the photograph's is deep, on large paired blocks over a frieze about 0.6-0.8 m high; the render's K10 moulded cornice is thinner, its blocks single",
+      "status": "open"
+    },
+    {
+      "what": "the dormers: the photograph's have triangular pediments and carved cheeks, the middle one the largest; a fourth dormer over the canted corner and one over the flank's canted bay; the render's are plain gabled",
+      "status": "open"
+    },
+    {
+      "what": "the porch's columns: Corinthian capitals on paired shafts set close; the render's plain shafts under block capitals stand 0.75 m apart in each pair",
+      "status": "open"
+    },
+    {
+      "what": "the stoop's cheeks: the photograph's curve down and out to the walk in stone; the render's are straight",
+      "status": "open"
+    },
+    {
+      "what": "the fence: scrolled iron panels between tall square stone posts at the gate and the corner; the render's is K11's spear fence on iron posts",
+      "status": "open"
+    },
+    {
+      "what": "the stacks over the south flank are stone in the exterior view; the render's are K15's red brick",
+      "status": "open"
+    },
+    {
+      "what": "the windows' heights: the photograph's north and south columns read about 0.6 m apart through the camera, and the build sits between them",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the front's projecting middle block (x 265-400 px), a shallow break in the wall plane the sheet does not draw; under about 0.2 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: the print is monochrome; the stone's buff and the slate's grey are the kit's",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank, the rear and the brick rear range",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

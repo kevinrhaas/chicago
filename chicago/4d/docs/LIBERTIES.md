@@ -24200,7 +24200,7 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24237,6 +24237,9 @@ and its coach house keeps `sears_meeker_house_1815_prairie_coach_house` here.
 stone-front house under `L-k01-1823-dent-1894`, under the same id; its draft attributes are gone.
 **1827 retired from this liberty by T-3171 (2026-10-26):** the Doane house's main block now stands as the K01 stone house
 read off the Chicagology photograph, under `L-k01-1827-doane-3171`, under the same id; its draft attributes are gone. Its coach
+house stays this draft's.
+**1901 retired from this liberty by T-3185 (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house
+read off the 1898 Chicagology photograph, under `L-k01-1901-ream-1903`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
@@ -34127,3 +34130,44 @@ a field value or this entry alone.
 **Recorded:** 2026-10-26 (T-2386).
 
 **Ticket:** T-2386.
+
+
+### L-k01-1901-ream-1903 — 1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs
+
+**Decision:** the house at 1901 Prairie Avenue, Norman B. Ream's (T-3185, piece 1 of T-1903), is no
+longer a district draft. It stands, under the draft's own id `ream_house_1901_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, against the 1898 Chicagology photograph
+(`chicagology_1901_ream_1898`) and the undated exterior view (`chicagology_1901_ream_exterior`), both
+rights check_required (forms and proportions only): a light ashlar house two storeys over a raised
+basement, a deep blocked cornice and a slated mansard with three street dormers and a cresting, a stone
+porch on paired columns at the stoop's head carrying a balustraded balcony before the window over the
+door, the south flank's canted bay through both storeys, the north flank's box, a brick rear range, and
+an iron fence on a stone curb.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1901-b1, census
+s28-1901-front): the main body's place and plan (22.4 by 15.2 m), the porch box's width and depth, the
+south flank's canted bay, the north flank's two-storey box, the brick rear. From the 1898 photograph,
+through its solved camera (`data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json`):
+the principal floor, both storeys and their windows' heights and columns, the porch's place, height,
+entablature and balustrade, the door's height, the cornice, the mansard's rise and its street dormers.
+From the exterior view: the south flank's windows and stone facing, its stacks, the cornice carried round
+it. Every height rests on the camera's distance (its `solve`).
+**Where the pictures and the sheet disagree.** The photographs put the porch about 1.5 m north of the
+sheet's one-storey box (columns at v about 4.7-8.6 m against the box's 6.5-10.8 m); three pictures agree
+and the porch stands where they put it. The photographs cut the front's south-west corner on a canted
+face about 2.5 m each way, where the sheet draws a small chamfer; K01 cannot cut a corner that far, so
+the corner stands square (open on the match record).
+**What is invented.** The walls' thickness; the brick and its tone (the prints are monochrome); the
+mansard's deck and its pitch; the treads; the north flank's, the box's and the rear's windows (no
+picture sees them); the rainwater; the sash pattern; the brick rear's storeys, windows and flat deck;
+the side gate.
+**What is not built.** The canted south-west corner and its window column; the cornice's paired
+brackets and its depth; the dormers' pediments and the south flank's dormers; the porch's Corinthian
+capitals and its columns' close pairing; the stoop's curved stone cheeks; the stacks' stone (they are
+K15's brick); the fence's scrolled panels and its tall stone gate posts: open on the match record for
+T-3186.
+**How to resolve:** T-3186 builds those, solves the exterior view's and the 1893 Pictorial Chicago
+plate's cameras, and brings every 1901 match record to `matches`.
+**Covers:** `ream_house_1901_prairie.as_mapped_1904.form.wall_thickness_front_m`, `ream_house_1901_prairie.as_mapped_1904.form.wall_thickness_side_m`, `ream_house_1901_prairie.as_mapped_1904.form.service_wall_brick`, `ream_house_1901_prairie.as_mapped_1904.form.roof_pitch_deg`, `ream_house_1901_prairie.as_mapped_1904.form.window_kit`, `ream_house_1901_prairie.as_mapped_1904.form.rainwater`, `ream_house_1901_prairie.as_mapped_1904.form.stair_tread_m`, `ream_house_1901_prairie.as_mapped_1904.form.side_bays`, `ream_house_1901_prairie.as_mapped_1904.form.rear_bays`
+**Ticket:** T-3185 (piece 1 of T-1903).
+**Review:** `docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg`.
+**Recorded:** 2026-10-27 (T-3185).
