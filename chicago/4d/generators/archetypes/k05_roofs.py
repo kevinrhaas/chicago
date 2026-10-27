@@ -470,14 +470,19 @@ def hip_crown_element(x0, x1, z0, z1, E, side_deg, end_deg, o, f):
     return ring_stack(rings, ["fascia", "covering"], "soffit"), E - f, {"ridge_m": round(E + rise, 4)}
 
 
-def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f):
+def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f, cut=None):
     """A mansard over the wall rectangle x0..x1 by z0..z1 as one ring stack (T-2304's
     variant, factored out by T-2370 so a K01 house is roofed by the same code): the fascia
     out `o` past the wall line with its top at E (a mansard's eave is its cornice), the
     lower faces on a quadratic curve through their `lower_deg` chord to the curb `rise`
     above E, bowed out (convex) or in (concave) by `bulge` of the chord, in `n` rings, then
     a low hip at `upper_deg` to the ridge. Returns the solid, the soffit's height and the
-    curb and ridge heights."""
+    curb and ridge heights.
+
+    T-3186: `cut`, (ring_fn, gone_at), cuts a corner of every ring on a canted face:
+    ring_fn(ring, out) takes inset_rect's ring and how far out of the wall line it stands,
+    and `gone_at` is the inset where the cut runs out of the low hip, which takes a ring
+    of its own so every face stays planar."""
     lt = math.tan(math.radians(lower_deg))
     ut = math.tan(math.radians(upper_deg))
     run = rise / lt
@@ -497,9 +502,18 @@ def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, pro
         y = (1 - u) ** 2 * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]
         rings.append((y, inset_rect(X0, X1, Z0, Z1, ins)))
     d = min(X1 - X0, Z1 - Z0) / 2
+    if cut is not None and run < cut[1] < d:
+        rings.append((E + rise + (cut[1] - run) * ut, inset_rect(X0, X1, Z0, Z1, cut[1])))
     rings.append((E + rise + (d - run) * ut, inset_rect(X0, X1, Z0, Z1, d)))
+    if cut is not None:
+        rings = [(y, cut[0](ring, o - _ins(ring, X0, Z1))) for y, ring in rings]
     roof = ring_stack(rings, ["fascia"] + ["covering"] * (len(rings) - 2), "soffit")
     return roof, hs, {"curb_m": round(E + rise, 4), "ridge_m": round(rings[-1][0], 4)}
+
+
+def _ins(ring, X0, Z1):
+    """T-3186: how far an inset_rect ring stands inside the rectangle it was inset from."""
+    return min(ring[0][0] - X0, Z1 - ring[2][1])
 
 
 def gable_element(u0, u1, w0, w1, eave_y, t, o, v, f, base_y, axis, verge_ends=("lo", "hi"),
