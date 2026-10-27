@@ -1,0 +1,32 @@
+{
+ "structure_id": "pullman_house_1729_prairie_conservatory",
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie",
+  "pullman_house_1729_prairie_ranges"
+ ],
+ "library_image": "a16-inland-1894-pullman-palm-house-stable",
+ "photo": "../../sources/assets/pullman_1729_stable_t3193/inland_1894_pullman_palm_house_stable.jpg",
+ "image_px": [
+  2000,
+  1384
+ ],
+ "principal_px": [
+  985,
+  815.7
+ ],
+ "focal_px": 3694,
+ "eye": [
+  -16.64,
+  -57.38,
+  2.44
+ ],
+ "yaw_deg": 24.06,
+ "solve": "Fitted by T-3193 to the plate (the image store's 2000 x 1384 px copy, mount and caption included) in this record's frame (u east along the wing's south face, v north, the origin the palm house's centre on that face), level, with the principal point's x at the photograph's centre (985) and its height free (a view camera's rising front). READ FIRST FOR WHAT THE PLATE SAYS ABOUT THE PLAN: the stable's arcade face and its 18th Street front recede to OPPOSITE sides (the arcade's upper cornice, x 1090-1440, falls toward the left; the front's, x 1658-1900, toward the right; the 18th Street wall's pier bases and tops, x 265-1825, meet near y 748 far to the right), so the arcade is not on the 18th Street front, as T-3192 had built it from 16555, but on the stable's west face, across the court from the drum; and the upper cornice turns a short diagonal between them (x 1500-1658), the corner cut over the bay. FITTED ON: the cut corner's two ends at the 6.0 m cornice (x 1500 and 1658), the west face's 6.0 m and 3.95 m lines (four points), the front's 6.0 m line, the 18th Street wall's foot on the lot line (v -28.0, two pier bases), the drum's balustrade silhouette (r 3.8 m at 8.05 m: x 255 and 702) and its dome's (x 320 and 615, its springing at y 473). 12.9 px rms over 15 readings: the eye 2.4 m up at u -16.6, v -57.4 (in the yard across 18th Street, about 30 m south of the lot line), heading 24.1 degrees east of north, focal 3694 px, horizon y 816. CHECKS IT WAS NOT FITTED ON: back-projected onto the west face, the upper storey's sills come out at 4.3-4.4 m and its heads 5.0-5.2 m, the arcade's crowns 3.0-3.1 m and the first-floor cornice 4.07 m, the heights T-3192 read through Taylor's 18th Street camera; the front's first sash lands where 16555's re-solved camera puts it. WHAT IT DOES NOT SETTLE: it reads the drum's balustrade about 0.6 m lower and its dome broader than 16555 does, and the north block's roof is read from this picture alone; both are weighed in the match record.",
+ "source_id": "inland_1894_pullman_palm_house_stable",
+ "sun_uvy": [
+  -0.6,
+  -1.0,
+  1.4
+ ]
+}
