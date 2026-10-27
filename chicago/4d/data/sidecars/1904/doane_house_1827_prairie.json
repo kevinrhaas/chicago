@@ -491,7 +491,7 @@
       "sources": [
         "chicagology_1827_doane_exterior"
       ],
-      "note": "The photograph's low iron fence of scrolled bars on a stone curb along the Prairie Avenue line (y 1630-1700 px), ending at a stone pier south of the house (x 1165-1200 px), where the walk turns back along the south flank: K11's scroll-band fence; the side passage's gate at the lot's north end, beside 1823, which no picture sees, is reconstructed. The lot runs v -1.97 to 22.47 on the 1904 parcel. T-3206: the run ends on a stone pier, as the photograph's does (x 1165-1200 px, through its camera at the lot's south corner), not on an iron post: the kit's 0.5 m pier, its cap plain, at s 21.95-22.45. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206). T-3206: the run ends on a stone pier, as the photograph's does (x 1165-1200 px, through its camera at the lot's south corner), not on an iron post: the kit's 0.5 m pier, its cap plain, at s 21.95-22.45. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+      "note": "The photograph's low iron fence of scrolled bars on a stone curb along the Prairie Avenue line (y 1630-1700 px), ending at a stone pier south of the house (x 1165-1200 px), where the walk turns back along the south flank: K11's scroll-band fence; the side passage's gate at the lot's north end, beside 1823, which no picture sees, is reconstructed. The lot runs v -1.97 to 22.47 on the 1904 parcel. T-3206: the run ends on a stone pier, as the photograph's does (x 1165-1200 px, through its camera at the lot's south corner), not on an iron post: the kit's 0.5 m pier, its cap plain, at s 21.95-22.45. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
     },
     "bays": {
       "value": [
@@ -840,6 +840,12 @@
           "surface": "cinder",
           "to_u_m": 0.0,
           "wear_tone": 0.78
+        },
+        "grade_m": {
+          "front": 0.047,
+          "street": 0.052,
+          "per_m_s": 0.0038,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",

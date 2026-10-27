@@ -470,7 +470,7 @@
         "chicagology_1901_ream_exterior",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+      "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
     },
     "bays": {
       "value": [
@@ -787,6 +787,12 @@
           "surface": "cinder",
           "to_u_m": 0.0,
           "wear_tone": 0.78
+        },
+        "grade_m": {
+          "front": 0.062,
+          "street": 0.067,
+          "per_m_s": 0.001,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",

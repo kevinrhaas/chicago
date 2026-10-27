@@ -34679,7 +34679,11 @@ the kit.** The walks' widths (1.2-2.2 m), their flags and joints, the cinder or 
 walks, the copings' sections, chamfers and exact heights, and where an opening falls within about
 0.5 m are the kit's or reconstructed; through 1811's camera the opening sits about 1 m south of
 where it is laid, and 1815's posts 0.2-0.45 m off, both recorded in their match records. 1828's two
-pictures disagree (an iron fence on the curb, a low solid stone wall); the fence is kept. Each walk
+pictures disagree (an iron fence on the curb, a low solid stone wall); the fence is kept. The app stands each house on the lowest ground under
+its walls, and at 1827, 1828, 1834 and 1901 the ground rises 26-88 mm toward the street, enough to
+bury a yard laid at the base's grade; each yard is lifted onto that ground (`yard.grade_m`, a front
+rise, a street rise and a cross-fall measured in the published app), which is the app's ground, not
+evidence of a graded lawn. Each walk
 is checked by `tools/check_house_walks.py`: it must start at the stoop, reach the public walk, pass
 through an opening in the front boundary and cross no building.
 **How to resolve:** nearer or earlier photographs of each front at the walk, or a survey plat

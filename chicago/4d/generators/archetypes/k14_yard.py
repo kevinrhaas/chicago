@@ -148,13 +148,71 @@ def _bay_feet(a, D, s_lo, s_hi):
     return [sp for sp in spans if len(sp) > 1 and max(u for _, u in sp) > D + 0.05]
 
 
+YARD_MATS = ("yard_turf", "yard_earth", "yard_cinder", "stoop_stone")
+
+
+def _grade_spec(y: dict) -> dict | None:
+    """`yard.grade_m` (T-3206): how far the ground the app lays rises over the house's own
+    base under its front yard, measured in the published app (tools/qa_house_walks_t3206.mjs).
+    The app stands a house on the LOWEST ground under its walls (building-feet.js), so where
+    the lot rises toward the street a yard laid at the base's grade is under the ground: at
+    1834 Prairie the ground is 67-88 mm over the base and the 60 mm flags never showed.
+    `front` is the rise at the street front on the stoop's axis, `street` at the public
+    walk's inner edge, `per_m_s` how it changes per metre along s; between the front and
+    the rear (u 0) it falls linearly to nothing, where the walls' feet are."""
+    g = y.get("grade_m")
+    if g is None:
+        return None
+    if set(g) - {"front", "street", "per_m_s", "note"}:
+        raise ValueError(f"yard.grade_m takes front, street, per_m_s and a note; {sorted(g)}")
+    for k in ("front", "street"):
+        if not 0.0 <= float(g[k]) <= 0.3:
+            raise ValueError(f"yard.grade_m.{k} {g[k]} is a rise over the house's base, 0-0.3 m")
+    if not abs(float(g.get("per_m_s", 0.0))) <= 0.02:
+        raise ValueError("yard.grade_m.per_m_s is a cross-fall, no more than 0.02 m a metre")
+    return g
+
+
+def _lift(a, g, marks, axis, public):
+    """Raise every vertex the yard laid by the ground's rise under it (`_grade_spec`)."""
+    D = a.p.depth_m
+    f, s_, k = float(g["front"]), float(g["street"]), float(g.get("per_m_s", 0.0))
+    for m, n0 in marks.items():
+        pr = a.prims.get(m)
+        if pr is None:
+            continue
+        for i in range(n0, len(pr.pos)):
+            x, yy, z = pr.pos[i]
+            s = -z
+            if x <= D:
+                w = max(0.0, x / D)
+                rise = w * (f + k * (s - axis))
+            else:
+                t = min(1.0, (x - D) / max(1e-6, public - D))
+                rise = f + (s_ - f) * t + k * (s - axis)
+            pr.pos[i] = (x, round(yy + max(0.0, rise), 5), z)
+
+
 def dress(a):
     """Lay the record's yard on the assembly: the lawn and its bare strip, the earth under
-    the stoop, the front walk's flags and the service walk's cinder."""
+    the stoop, the front walk's flags and the service walk's cinder; then lift it onto the
+    ground the app lays, where the record measures that (`yard.grade_m`)."""
     p = a.p
     y = spec(p)
     if not y:
         return
+    g = _grade_spec(y)
+    if g is None:
+        return _dress(a, y)
+    marks = {m: len(a.prims[m].pos) if m in a.prims else 0 for m in YARD_MATS}
+    out = _dress(a, y)
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == k11_frontage.STREET_FRONT)
+    _lift(a, g, marks, p.stoop_s_m(door.s_m), p.depth_m + p.entrance_kit["front_yard_m"])
+    return out
+
+
+def _dress(a, y):
+    p = a.p
     if not getattr(a, "boundary", None):
         raise ValueError("the yard is laid after the K11 boundary, and none was built")
     if p.boundary.get("layout") == k11_frontage.COPING:

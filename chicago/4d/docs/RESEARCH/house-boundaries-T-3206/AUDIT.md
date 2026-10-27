@@ -28,6 +28,20 @@ footprints are solid. The "can't enter" was visual:
   wall (before, a K14 yard needed a fence). K11's coping wall gained a south-end side return, and
   the fence gained an optional `fence_end` pier.
 - **Gates open.** Entrance leaves stand at 70° on the five iron-fence houses.
+- **Yards lifted onto the app's ground.** The first "after" stills showed walks at Marsh and
+  Henderson, but grass where the walk should be at 1834 and 1901. The cause is in
+  `buildings.js`/`building-feet.js`: the app stands a house on the lowest ground under its
+  walls. Measured in the app (terrain sampled along each footprint's edges against the yard),
+  the ground under the front yard rises over that base by:
+  - 8-24 mm at 1801-1815, 1823 and 1824;
+  - 26-68 mm at 1816 and 1827;
+  - 36-77 mm at 1828;
+  - 49-71 mm at 1901;
+  - 67-88 mm at 1834.
+
+  The 60 mm flags were under the ground. `yard.grade_m` (front rise, street rise, cross-fall)
+  now lifts every vertex the yard lays onto that ground. It falls to nothing at the rear wall,
+  where the feet are.
 - **The gate step** `tools/check_house_walks.py`, in `tools/check.sh` with a 13-case self-test.
   For every worked 1904 house, it reads the K14 walk from the GLB and checks four things. The walk
   must start at the stoop, reach the public walk, and have legs that meet. No leg may cross a
@@ -39,19 +53,20 @@ footprints are solid. The "can't enter" was visual:
 
 Boundary heights are above the walk. "Walker" is the closest the in-app walker came to the stoop's
 foot, walking forward from the public walk, at 390×780 after the change (no blocked frames
-anywhere). Pairs: `pairs/<house>.jpg`, before (left) and after (right) from the public walk,
-1280×800.
+anywhere). Pairs: `pairs/<house>.jpg`, before (left) and after (right) at 1280×800, from the public walk
+and from just outside the gate (Dent's gate view was aimed at s 3.5 before and at its side-stoop
+walk, s 0.65, after). Walk readings for both widths are in `stills/walks-*.json`.
 
 | House | Picture(s) read | Walk | Front boundary (built) | Opening / gate | Side | Walker | Remaining gap |
 |---|---|---|---|---|---|---|---|
 | 1800 Glessner | — | own bake route | unchanged | unchanged | — | (not in the K14 gate) | left as built: no picture shows its walk, gate or coping wrong |
 | 1801 Kimball | Taylor c1895 | 2.2 m flags, straight | stone coping 0.35 m on the street line, returned along 18th St | cut at the walk | coping return on 18th | 0.33 m | none; the HABS 1965 views postdate the coping (not shown) |
 | 1808 Keith | (T-1883) | existing K14 walk | stone posts and rails (T-1883) | existing | — | 0.13 m | unchanged; already passed |
-| 1811 Coleman-Ames | Chicagology, Glessner blog print, Inland Architect plate | 2.2 m flags, turned behind the coping | rock-faced coping 0.45 m: long run, opening s 7.6-10.0, 0.4 m block, gap, long run | open 2.4 m, a little south of the stair, as all three prints show | — (the prints show no opening at the passage) | 0.0x m | within tolerance (≤0.3 m registered on the stair) |
+| 1811 Coleman-Ames | Chicagology, Glessner blog print, Inland Architect plate | 2.2 m flags, turned behind the coping | rock-faced coping 0.45 m: long run, opening s 7.6-10.0, 0.4 m block, gap, long run | open 2.4 m, a little south of the stair, as all three prints show | — (the prints show no opening at the passage) | 0.09 m | within tolerance (≤0.3 m registered on the stair) |
 | 1812 Wheeler | Levy; c1888 view down the block | 2.0 m flags, straight | low pale coping 0.35 m | open across the stair's foot | — (house fills lot) | 0.31 m | none |
-| 1815 Sears-Meeker | Chicagology square-on and oblique | 1.5 m flags, straight | coping 0.25 m with two 0.9 m square posts | 1.8 m between the posts | — | 0.0x m | posts 0.2-0.45 m off the camera's reading; **open**: a low set-back iron railing north of the walk, unexplained, not built |
+| 1815 Sears-Meeker | Chicagology square-on and oblique | 1.5 m flags, straight | coping 0.25 m with two 0.9 m square posts | 1.8 m between the posts | — | 0.02 m | posts 0.2-0.45 m off the camera's reading; **open**: a low set-back iron railing north of the walk, unexplained, not built |
 | 1816 Henderson | Chicagology | flags, straight; cinder service walk | scroll iron fence on curb (kept) | entrance gate now open | side gate, cinder walk | 0.23 m | the fence's scroll pattern (pre-existing, in its match record) |
-| 1823 Dent | 1883 album; Chicagology engraving | 1.5 m flags from the side stoop | coping 0.3 m with 0.75 m posts | between the posts at the side stoop | — | 0.03 m | none |
+| 1823 Dent | 1883 album; Chicagology engraving | 1.5 m flags from the side stoop | coping 0.3 m with 0.75 m posts | between the posts at the side stoop | — | 0.22 m | none |
 | 1824 Marsh | Chicagology automobile | flags, straight; cinder service walk | iron fence on curb (kept) | entrance open; side leaf 5.45 m → 1.6 m gate | side gate, cinder walk | 0.04 m | none |
 | 1827 Doane | Chicagology exterior | flags from the 5 m porch flight; service walk | low iron fence (kept), now ending at a stone pier at the lot's south corner | entrance open | side gate | 0.31 m | the fence's scroll pattern (pre-existing) |
 | 1828 | Chicagology automobile; Glessner partial | flags, straight; cinder service walk | iron fence on curb (kept) | entrance open | side gate, cinder walk | 0.26 m | within tolerance: the two pictures disagree (fence on curb vs low solid wall); the fence is kept |

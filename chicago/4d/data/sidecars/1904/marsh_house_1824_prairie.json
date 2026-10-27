@@ -427,7 +427,7 @@
       "sources": [
         "chicagology_1828_shipman_automobile"
       ],
-      "note": "Stone posts and an iron fence on a curb before the house at the right edge of the automobile photograph (about 1897-1906); the Pomeroy photograph's ornamental iron fence before it is older. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates are reconstructed. T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206). T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+      "note": "Stone posts and an iron fence on a curb before the house at the right edge of the automobile photograph (about 1897-1906); the Pomeroy photograph's ornamental iron fence before it is older. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates are reconstructed. T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
     },
     "bays": {
       "value": [
@@ -607,6 +607,12 @@
           "to_u_m": 0.0,
           "wear_tone": 0.78,
           "band": "gate"
+        },
+        "grade_m": {
+          "front": 0.022,
+          "street": 0.024,
+          "per_m_s": -0.0035,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",

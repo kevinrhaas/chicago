@@ -26,7 +26,7 @@ const HOUSES=[
  ['wheeler_house_1812_prairie',15.1,6.1,18.66,21.1],
  ['sears_meeker_house_1815_prairie',17.46,3.36,21.96,26.79],
  ['henderson_house_1816_prairie',12.0,8.98,17.3,19.66],
- ['dent_house_1823_prairie',12.05,3.5,12.6,22.3],
+ ['dent_house_1823_prairie',12.05,0.65,12.35,22.3],
  ['marsh_house_1824_prairie',12.1,7.15,16.95,21.35],
  ['doane_house_1827_prairie',24.4,2.55,29.2,33.87],
  ['house_1828_prairie',19.4,6.1,25.1,27.04],

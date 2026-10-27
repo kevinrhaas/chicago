@@ -1786,6 +1786,12 @@
           "top_m": 0.06,
           "wear_tone": 0.9,
           "width_m": 2.2
+        },
+        "grade_m": {
+          "front": 0.016,
+          "street": 0.021,
+          "per_m_s": 0.0,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
         }
       },
       "confidence": "reconstructed",

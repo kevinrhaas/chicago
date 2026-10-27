@@ -471,7 +471,7 @@
               "variant": "k11.gate.walk_gate_on_piers",
               "leaves": 2,
               "clear_m": 1.3,
-              "drawn_deg": 0
+              "drawn_deg": 70
             },
             "side_gate": {
               "variant": "k11.gate.walk_gate_on_piers",
@@ -481,13 +481,16 @@
             "posts": {
               "section_m": 0.12,
               "height_m": 1.55
+            },
+            "fence_end": {
+              "s_m": 21.95
             }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The photograph's low iron fence of scrolled bars on a stone curb along the Prairie Avenue line (y 1630-1700 px), ending at a stone pier south of the house (x 1165-1200 px), where the walk turns back along the south flank: K11's scroll-band fence; the side passage's gate at the lot's north end, beside 1823, which no picture sees, is reconstructed. The lot runs v -1.97 to 22.47 on the 1904 parcel."
+          "note": "The photograph's low iron fence of scrolled bars on a stone curb along the Prairie Avenue line (y 1630-1700 px), ending at a stone pier south of the house (x 1165-1200 px), where the walk turns back along the south flank: K11's scroll-band fence; the side passage's gate at the lot's north end, beside 1823, which no picture sees, is reconstructed. The lot runs v -1.97 to 22.47 on the 1904 parcel. T-3206: the run ends on a stone pier, as the photograph's does (x 1165-1200 px, through its camera at the lot's south corner), not on an iron post: the kit's 0.5 m pier, its cap plain, at s 21.95-22.45. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
         },
         "bays": {
           "value": [
@@ -818,6 +821,38 @@
             "sanborn_1911_chicago_v3_sheet_28"
           ],
           "note": "The sheet's brick rear range behind the main body (s28fp-1827-b1 p3, u -3.8 to 0, v 0.85-11.6), two storeys under a flat tin deck; its windows, which no picture sees, are reconstructed. T-3189: its floor and storeys brought down with the main block's (1.3 m, and 3.6 and 3.7 m, so its deck stands about 1 m under the main cornice, as T-3171 set it); no picture sees it, so its heights are inferred from the main block's."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "turf",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            },
+            "service_walk": {
+              "surface": "cinder",
+              "to_u_m": 0.0,
+              "wear_tone": 0.78
+            },
+            "grade_m": {
+              "front": 0.047,
+              "street": 0.052,
+              "per_m_s": 0.0038,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicagology_1827_doane_exterior",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the porch's foot through the entrance gate to the public walk; the cinder service walk from the side gate down the north passage beside 1823 to the house's rear corner. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
         }
       }
     }
