@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_1898_front",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c2adc6498a23415a47adfbe6764764feeec8a9bf60f11ee9796c17ebdbedac0c",
+  "glb_sha256": "541086a1701a76fd69f273b848c616ff98a608e24c1378f1ff49f226b396cbe2",
   "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
   "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
@@ -33,7 +33,7 @@
       "status": "fixed"
     },
     {
-      "what": "the front's south-west corner: the photograph cuts it on a canted face about 2.5 m each way, with its own window column and pedimented dormer (x 510-600 px); the render's corner is square (K01's chamfer runs at most 1.0 m)",
+      "what": "the front's south-west corner: the photograph cuts it on a canted face with its own window column and pedimented dormer (x 510-600 px); the render's corner is square. The south-west view's camera reads the cut about 1.83 m each way (chicagology_exterior_southwest.match.json), K01 has no main-body cut carried through the cornice and the mansard",
       "status": "open"
     },
     {
@@ -41,8 +41,8 @@
       "status": "open"
     },
     {
-      "what": "the dormers: the photograph's have triangular pediments and carved cheeks, the middle one the largest; a fourth dormer over the canted corner and one over the flank's canted bay; the render's are plain gabled",
-      "status": "open"
+      "what": "the dormers: the photograph's have low triangular pediments with carved cheeks, the middle one the largest, and a fourth over the canted corner; the render's three street dormers now stand at K01's lowest pediment, 30 deg, and the dormer over the flank's canted bay is built (the south-west view). The canted corner's dormer stands with the corner",
+      "status": "within tolerance"
     },
     {
       "what": "the porch's columns: Corinthian capitals on paired shafts set close; the render's plain shafts under block capitals stand 0.75 m apart in each pair",
@@ -53,12 +53,12 @@
       "status": "open"
     },
     {
-      "what": "the fence: scrolled iron panels between tall square stone posts at the gate and the corner; the render's is K11's spear fence on iron posts",
-      "status": "open"
+      "what": "the fence: scrolled iron panels between tall square stone posts at the gate and the corner; now K11's scroll-band fence on the kit's stone piers",
+      "status": "fixed"
     },
     {
-      "what": "the stacks over the south flank are stone in the exterior view; the render's are K15's red brick",
-      "status": "open"
+      "what": "the stacks over the south flank are stone in the exterior view; now laid in the walls' pale stone, at the places the south-west view's camera reads",
+      "status": "fixed"
     },
     {
       "what": "the windows' heights: the photograph's north and south columns read about 0.6 m apart through the camera, and the build sits between them",

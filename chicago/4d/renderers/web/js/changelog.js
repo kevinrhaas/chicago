@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2338, ts: '2026-10-27T12:57:23.899Z', date: 'Oct 27, 2026, 7:57 AM CT', title: '1834 Prairie, the Jones house, now matches its photograph', kind: 'improvement',
+    items: [
+      'The front door is a tall round-arched doorway with a stone hood and keystone, and its front steps have open sides under scrolled cast-iron railings. The landing runs on south to the corner behind a pierced iron guard.',
+      'Two pierced iron balconettes stand under the north windows of the main floor. The wider one rests on carved stone brackets.',
+      'The basement windows are tall and round-headed. The light stone basement now wraps round the north side, and the bay window there has arched windows under a bracketed hood.',
+      'The cornice is deep, with paired brackets over a plain frieze, and the stone band across the brick front is gone.',
+      'A gap in the low stone wall at the street lets the front walk through, as in the photograph.',
+    ] },
+  { v: 2337, ts: '2026-10-27T12:22:40.546Z', date: 'Oct 27, 2026, 7:22 AM CT', title: '1720 Prairie\'s upper storey now matches its photograph', kind: 'feature',
+    items: [
+      '1720 Prairie Avenue\'s upper storey now matches the Tyrrell photograph: a canted bay with a hipped cap stands on the porch roof at the south end, and a low gable rises over the middle of the front.',
+      'Every front window now has a round-arched casing under a hood moulding, and the middle upper window has a flat hood on scroll brackets.',
+      'The deeper eave now rests on paired brackets, with two oval lights and a paired attic window in the frieze. The porch\'s skirt is open and dark, as the picture shows.',
+    ] },
+  { v: 2336, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1901 Prairie: stone chimneys, a flank dormer and a scrolled fence', kind: 'feature',
+    items: [
+      'The Ream house at 1901 Prairie now matches its south-west photograph more closely: its two tall chimneys are pale stone like its walls, not red brick, and they stand where the photograph puts them.',
+      'A pedimented dormer now sits on the south side\'s mansard over the bay window, and the street dormers have lower pediments.',
+      'The iron fence is a band of scrolls on a stone curb, and its gate hangs on stone piers.',
+    ] },
+  { v: 2335, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1827 Prairie\'s window hoods, arched attic lights and tower cornice', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie now matches its photograph more closely: every front, pavilion and tower window carries a moulded hood, the attic\'s three lights are round-headed, the corner tower is capped by a deep moulded cornice at the print\'s height, and the stone front is laid in alternating high and low courses.',
+    ] },
   { v: 2334, ts: '2026-10-27T10:23:38.289Z', date: 'Oct 27, 2026, 5:23 AM CT', title: 'Kimball\'s 18th Street tower rebuilt to its photographs', kind: 'improvement',
     items: [
       '1801 Prairie\'s round tower is now a slim shaft under a wider corbelled top stage with small square windows, as the c. 1895 Taylor print and the 1965 HABS photograph both show it. It used to be one tall, narrow cylinder.',

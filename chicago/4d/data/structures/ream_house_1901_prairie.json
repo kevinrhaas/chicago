@@ -358,16 +358,18 @@
             "cap_depth_m": 0.15,
             "stacks": [
               {
-                "u_m": 19.0,
+                "u_m": 19.7,
                 "v_m": 14.95,
                 "top_m": 17.0,
-                "on_cornice": true
+                "on_cornice": true,
+                "fabric": "stone"
               },
               {
-                "u_m": 4.0,
+                "u_m": 9.6,
                 "v_m": 14.95,
                 "top_m": 17.0,
-                "on_cornice": true
+                "on_cornice": true,
+                "fabric": "stone"
               }
             ]
           },
@@ -375,7 +377,7 @@
           "sources": [
             "chicagology_1901_ream_exterior"
           ],
-          "note": "Two tall stone stacks on the south flank, one near its front corner and one behind the canted bay, rising over the mansard's curb in the exterior photograph; their heights are its proportions, not measured."
+          "note": "Two tall stone stacks on the south flank, one near its front corner and one just east of the dormer over the canted bay, rising over the mansard's curb in the exterior photograph, laid in the walls' own pale ashlar to the cap. Their places are read through that photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json): the front stack's shaft at x 1110-1180 px (u about 19.7) and the rear one's at x 1455-1500 px (u about 9.6), both on the cornice over the side wall; their heights are its proportions, not measured."
         },
         "entrance_kit": {
           "value": {
@@ -447,7 +449,7 @@
               -2.14,
               22.54
             ],
-            "fence": "k11.fence.spear_on_curb",
+            "fence": "k11.fence.scroll_band",
             "entrance_gate": {
               "variant": "k11.gate.walk_gate_on_piers",
               "leaves": 2,
@@ -458,10 +460,6 @@
               "variant": "k11.gate.walk_gate_on_piers",
               "pier_s_m": -0.3,
               "drawn_deg": 0
-            },
-            "posts": {
-              "section_m": 0.22,
-              "height_m": 1.6
             }
           },
           "confidence": "inferred",
@@ -470,7 +468,7 @@
             "chicagology_1901_ream_exterior",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "A low iron fence on a stone curb along the street line, with tall square stone posts at its gates and at the south corner, in both photographs (its scrolled panels are K11's spear fence in the match record). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m)."
+          "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m)."
         },
         "bays": {
           "value": [
@@ -664,7 +662,7 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.05,
                 "head": "gable",
-                "gable_pitch_deg": 40
+                "gable_pitch_deg": 30
               },
               {
                 "face": "street",
@@ -678,7 +676,7 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.05,
                 "head": "gable",
-                "gable_pitch_deg": 40
+                "gable_pitch_deg": 30
               },
               {
                 "face": "street",
@@ -692,7 +690,21 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.05,
                 "head": "gable",
-                "gable_pitch_deg": 40
+                "gable_pitch_deg": 30
+              },
+              {
+                "face": "north",
+                "along_m": 11.2,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 0.9,
+                  "height_m": 1.6,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               }
             ],
             "deck": {
@@ -707,7 +719,7 @@
             "chicagology_1901_ream_1898",
             "chicagology_1901_ream_exterior"
           ],
-          "note": "The slated mansard rising about 4.5 m over the wall head to its curb through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the deck's cresting at about y 100 px over the north part reads 14-15.5 m over grade), K05's most for a one-storey face; its faces steep and nearly straight. Three street dormers over the three window columns under pedimented heads, the middle one the largest, and an iron cresting along the curb, in both photographs. The dormers on the south flank (over the canted bay and toward the front) are the match record's."
+          "note": "The slated mansard rising about 4.5 m over the wall head to its curb through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the deck's cresting at about y 100 px over the north part reads 14-15.5 m over grade), K05's most for a one-storey face; its faces steep and nearly straight. Three street dormers over the three window columns under pedimented heads, the middle one the largest, and an iron cresting along the curb, in both photographs. Their pediments low and triangular, about 30 deg (the kit's lowest), in the south-west view. A fourth dormer stands on the south flank's face over the canted bay's west end (K01's north face, 11.2 m from the rear wall), pedimented as the street's are, in the exterior photograph (x 1380-1450 px, read through its camera at about u 11.2, data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json). The dormer over the canted south-west corner is the match record's."
         },
         "rear_wings": {
           "value": [

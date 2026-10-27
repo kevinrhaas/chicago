@@ -33833,14 +33833,34 @@ before 1886 and are not built in 1904; the match records call them `not shown`. 
 the photograph, where the sheet's stone stoop stands about 1.5 m north of its axis. The body runs full
 width to the rear, where the sheet steps the north wall back 1.26 m behind the bay; the rear frame
 porches on the sheet are not built.
-**What is not built.** The door's hood; the iron balconettes under the two north principal windows; the
-stoop's iron railings (K07's stone cheeks stand in their place); the north flank's stone basement; the
-bay's round-headed lights and bracketed top; the cornice's full depth. And K01's stone front lays a belt
-at the second floor that the print does not show.
-**How to resolve:** T-3184 (piece 2 of T-1888) builds what is open and brings both match records to
-`matches`.
+**Built from the photograph by T-3184** (piece 2 of T-1888), each read through the solved camera: the
+door as a round-headed pair of leaves 1.4 by 3.3 m under a stone ring and key (K07's deep-arch door and
+K01's door arch); the two pierced iron balconettes on the basement's top under the north principal
+windows (v 5.36-6.39 m, 0.25 m proud; v 7.20-9.55 m, 0.6 m proud on two scrolled consoles); the stoop
+open-sided under cast-iron rails with scrolled panels, its landing carried south to the corner as a
+terrace behind a pierced guard; no stone belt across the brick (`stone_front.belts: []`); the north
+flank's basement faced in the front's stone to the water table (`side_base`), with a narrow
+round-headed light under the flank's window column, whose principal window is round-headed too; the
+basement lights tall round-headed windows (0.95 by 1.7 m) in a plain plinth; the bay under a bracketed
+hood with round-headed lights and a narrow round-headed light in its stone base; the cornice's paired
+brackets 0.8 m deep over a plain frieze 0.9 m deep, the eave raised to the print's cornice top (10.85 m;
+the wall head stays the frieze's foot at 9.75 m, so the upper storey reads 4.7 m to the eave); and the
+walk's opening through the stone wall at its north end (s 11.63 m to the lot line).
+**Invented by T-3184.** The pierced panels' pattern (the kit's scroll band: the print shows the
+panels but not their figure at this size), the consoles' profile, the slabs' depths, the frieze's
+plain face (the print's panels between the pairs are not built), the bay hood's flare and slates
+(K08's hooded canted bay), the plinth's top at 0.7 m (base_top_m) under the round lights, and the two
+downpipes moved clear of the paired corner brackets (south at s 20.9, rear at s 1.5): none is in the
+picture.
+**Ruled by T-3184.** The print shows sky beyond the north wall past the bay, where the 1904 body runs
+full height to the rear: the photograph is of before 1886, the sheet of 1911 draws a section there
+stepped back 1.26 m, and its height in 1904 is not known, so the picture is evidence of its own date and
+the match records call it `not shown` (rule 11). The iron reads light in the monochrome print; its 1904
+paint is not known and K01's iron is dark.
+**How to resolve:** a picture of the house after 1886, or of its rear, would settle the rear
+section's height and the step behind the bay.
 **Covers:** `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_front_m`, `jones_house_1834_prairie.as_mapped_1904.form.wall_thickness_side_m`, `jones_house_1834_prairie.as_mapped_1904.form.service_wall_brick`, `jones_house_1834_prairie.as_mapped_1904.form.street_front_brick`, `jones_house_1834_prairie.as_mapped_1904.form.roof_pitch_deg`, `jones_house_1834_prairie.as_mapped_1904.form.roof_covering`, `jones_house_1834_prairie.as_mapped_1904.form.stair_tread_m`, `jones_house_1834_prairie.as_mapped_1904.form.side_bays`, `jones_house_1834_prairie.as_mapped_1904.form.rear_bays`, `jones_house_1834_prairie.as_mapped_1904.form.chimneys`, `jones_house_1834_prairie.as_mapped_1904.form.rainwater`, `jones_house_1834_prairie.as_mapped_1904.form.mansard`
-**Ticket:** T-3183 (piece 1 of T-1888).
+**Ticket:** T-3183 (piece 1 of T-1888); T-3184 (piece 2).
 **Review:** `docs/RESEARCH/k01-1834-jones-1888/README.md`.
 **Recorded:** 2026-10-27 (T-3183).
 
@@ -34207,7 +34227,7 @@ newel at the foot, and an iron cresting about 0.5 m high on the porch roof's dec
 and the wing standing only one storey where it meets the front (the photograph sees sky over the
 porch roof south of the bay, where a two-storey wing would stand).
 **What is invented.** Every opening on the flanks, the wing and the rear, and the kit's
-two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the
+two-over-two sash there; the K06 round-headed sash on the front; the
 hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main
 block's); one stack, placed over the south wall where the photograph shows one, the second it shows
 over the north wall not built; the tin roof and its colour; the pale body paint and the kit's
@@ -34217,17 +34237,26 @@ photograph's turned and ringed ones' places, the cresting's cast panels drawn as
 between posts with pointed knobs (the print shows the band, its posts and its height, not a pattern
 it would be honest to copy), the cresting's return along the porch roof's north end, and the
 newels at the stair's foot where the print's rails end in scrolls behind the street fence.
-**What is not built yet.** Owned by T-3182, the last piece of T-1873: the
-upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired
-carved brackets, the wider eave and the central front gable (T-3182). The photograph's stone posts
-and iron fence along the street line are not this record's.
-**How to resolve:** T-3182 replaces the kit's stand-ins on the upper storey in place from the
-same photograph; a sharper print of the porch replaces the balusters' turning and the cresting's
-pattern; a plan, a second photograph or a description of the flanks replaces their openings.
+T-3182's upper storey (read from the same photograph: the 0.75 m eave on paired brackets, two
+oval frieze lights and a paired attic window, the low front gable, the round-arched casings and
+hood moulds on every front window, the bracketed hood over the middle window with a panel on it,
+the canted bay on the porch deck, and the porch's open, dark skirt): the bay's 0.55 m depth and
+its plan, its south end carried about 1 m past the front's corner as the print shows it although
+the sheet's main rectangle stops there, and its back closed in plain clapboard; the kit's scroll
+brackets for the print's stacked consoles; the frieze lights glazed; the gable's tympanum boarded;
+the attic window kept under the soffit where the print's head rises about 0.3 m into the gable;
+the hood's fringe of drops not built; the lower lights' hood moulds not built, the porch roof's
+shade hiding whether they have them. The photograph's stone posts and iron fence along the street
+line are not this record's.
+**How to resolve:** a sharper print of the front replaces the brackets' carving, the hood's fringe,
+the balusters' turning and the cresting's pattern; a plan or a view from the south replaces the
+bay's depth and its end past the corner; a plan, a second photograph or a description of the
+flanks replaces their openings.
 **Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
-**Ticket:** T-3180 (piece 1 of T-1873); the porch T-3181 (piece 2).
+**Ticket:** T-3180 (piece 1 of T-1873); the porch T-3181 (piece 2); the upper storey T-3182 (piece 3).
 **Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
 **Recorded:** 2026-10-26 (T-3180).
+**Revised:** 2026-10-27 (T-3182).
 
 ### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
 
@@ -34412,6 +34441,7 @@ plate's cameras, and brings every 1901 match record to `matches`.
 **Ticket:** T-3185 (piece 1 of T-1903).
 **Review:** `docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3185).
+**Revised:** 2026-10-27 (T-3186) — **the exterior view's camera is solved** (`data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json`, 9.2 px RMS on its 1928 px copy, the eye about 2 m up across the avenue to the south-west), and through it: the two south-flank stacks are laid in the walls' stone and stand where it puts them (u about 19.7 and 9.6 m), a pedimented dormer stands on the south flank's mansard face over the canted bay's west end, the street dormers' pediments drop to K01's lowest pitch (30 deg), and the fence becomes K11's scroll band on the kit's stone piers at the gate. **Still invented there:** the scrolls' pattern (the prints draw paired loops; the band is the kit's) and the piers' caps and urns (the prints' posts are tall and square, their carved heads not readable). **Where the pictures and the sheet disagree, newly:** this camera reads the canted south-west corner about 1.83 m back each way (its face about 2.6 m across), where the 1898 camera's weaker fit read 2.5 m and the sheet draws a small chamfer; and the flank bay's west cheek about 3 m across where the sheet gives it 2.25 m. The bay keeps the sheet's plan. **Still not built:** the canted corner (new K01 geometry: a main-body cut carried through the cornice and the mansard), the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records.
 
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 

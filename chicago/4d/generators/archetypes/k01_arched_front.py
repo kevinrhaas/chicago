@@ -886,6 +886,27 @@ def _rails(a, frame, sr, conf):
                     continue
                 _box(a, "iron", frame, x - bm / 2, x + bm / 2, tread(d), rail_top(d), d - bm / 2, d + bm / 2,
                      seed, conf, skip=("bottom",))
+        # T-3184: a panel of scrolls along the rake under the handrail (1834's photograph: the
+        # rails are scrolled cast-iron panels on newels), between it and a bar `panel_m` below
+        pm = sr.get("panel_m")
+        if pm:
+            lo = lambda d: rail_top(d) - pm
+            _beam(a, "iron", frame, x, rw, (lo(d_top), d_top), (lo(d_foot), d_foot), rm * 0.6, seed, conf)
+            n_c = max(2, round((d_foot - d_top) / 0.24))
+            cell = (d_foot - d_top) / n_c
+            rc = min(cell, pm) / 2 - 0.015
+            for c in range(n_c):
+                dc = d_top + cell * (c + 0.5)
+                yc = rail_top(dc) - pm / 2
+                hand = 1 if c % 2 == 0 else -1
+                pts = []
+                for j in range(SCROLL_SEGMENTS + 1):
+                    t = j / SCROLL_SEGMENTS
+                    ang = math.pi / 2 * (1 - hand) + hand * (math.pi * 0.25 + 2 * math.pi * 1.5 * t)
+                    rr_ = rc * (1 - 0.65 * t)
+                    pts.append((yc + rr_ * math.sin(ang), dc + rr_ * math.cos(ang)))
+                for p0, p1 in zip(pts, pts[1:]):
+                    _beam(a, "iron", frame, x, rw * 0.6, p0, p1, IRON_BAR_M, seed, conf)
         # the scroll: the handrail carried past the foot newel and turned down in a half turn
         cy, cd = rail_top(d_foot) - sc / 2, d_foot
         pts = [(cy + sc / 2 * math.cos(t), cd + sc / 2 * math.sin(t))
@@ -911,6 +932,15 @@ def _landing_guard(a, frame, gd, cs, R, y0, d, g, seed, conf):
     _box(a, "iron", frame, xb - nm / 2, xb + nm / 2, y0, top + 0.1, d - nm / 2, d + nm / 2, seed, conf, skip=("bottom",))
     _box(a, "iron", frame, lo, hi, top - rm, top, d - rw / 2, d + rw / 2, seed, conf)
     _box(a, "iron", frame, lo, hi, foot, foot + b, d - b / 2, d + b / 2, seed, conf)
+    if gd.get("scrolled"):
+        # T-3184: a guard pierced along its whole length (1834's photograph), the stoop's own
+        # scrolled panel laid flat: two rows of scrolls on a middle bar, no balusters
+        ym = (foot + b + top - rm) / 2
+        _box(a, "iron", frame, lo, hi, ym - b / 2, ym + b / 2, d - b / 2, d + b / 2, seed, conf)
+        count = max(2, round((hi - lo) / max(0.12, ym - foot - b)))
+        for y_a, y_b in ((foot + b, ym - b / 2), (ym + b / 2, top - rm)):
+            _scrolls(a, frame, {"count": count}, lo, hi, y_a, y_b, d - b / 2, d + b / 2, seed, conf)
+        return
     pa, pb = sorted(gd["panel_v_m"])
     pitch = g / R["per_tread"]
     n = max(1, round((hi - lo) / pitch))
@@ -1093,6 +1123,58 @@ def side_arch(a, frame, g):
     conf = a.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front",
                           "entrance_kit")
     _voussoirs(a, frame, g, conf, k["wall"]["recess_m"])
+
+
+def street_iron(a, frame, si, conf):
+    """T-3184: a brick front's iron (k01_frontage_params._street_iron), read off 1834's
+    photograph: the stoop's rails as `_rails` lays them on an arched front, and each
+    balconette."""
+    if si.get("stoop_rails"):
+        _rails(a, frame, si["stoop_rails"], conf)
+    for b in si.get("balconettes", ()):
+        _balconette(a, frame, b, conf)
+
+
+def _balconette(a, frame, bc, conf):
+    """T-3184: a balconette before a street window, as 1834's photograph shows two: a dressed
+    stone slab out from the front at the floor, on scrolled consoles where it stands clear of
+    the basement's top, and on it a pierced iron guard — a top rail and a foot bar, a newel at
+    each front corner, returns to the wall, and between them the band of C-scrolls a grille
+    is filled with (`_scrolls`), standing for the print's pierced panels."""
+    s0, s1, fl, d, h, sl, n = (bc[k] for k in ("from_s_m", "to_s_m", "floor_m", "proud_m", "height_m",
+                                              "slab_m", "consoles"))
+    seed = a.instance("k01.opening.balconette", "opening",
+                      {"length_m": s1 - s0, "height_m": h, "proud_m": d, "slab_m": sl, "consoles": n},
+                      {"floor": _P(frame, (s0 + s1) / 2, fl, 0.0)})
+    _box(a, "limestone_trim", frame, s0, s1, fl - sl, fl, 0.0, d, seed, conf, skip=("back",))
+    # the consoles: a scrolled block under the slab, deep at its head and dying into the wall
+    cw, drop = 0.16, min(0.55, 2.4 * d)
+    for i in range(n):
+        x = s0 + 0.12 + (s1 - s0 - 0.24) * i / max(1, n - 1)
+        steps = 5
+        for k in range(steps):
+            t0, t1 = k / steps, (k + 1) / steps
+            reach = (d - 0.04) * (1.0 - t0) ** 1.6
+            _box(a, "limestone_trim", frame, x - cw / 2, x + cw / 2, fl - sl - drop * t1, fl - sl - drop * t0,
+                 0.0, max(0.05, reach), seed, conf, skip=("back",))
+    b = IRON_BAR_M
+    g0, g1 = s0 + 0.04, s1 - 0.04
+    f0 = d - 0.06                                   # the guard's face, in from the slab's edge
+    y0, y1 = fl, fl + h
+    _bar(a, frame, g0, g1, y1 - 0.035, y1, f0 - 0.03, f0 + 0.01, seed, conf)       # the top rail
+    _bar(a, frame, g0, g1, y0 + 0.02, y0 + 0.05, f0 - b, f0, seed, conf)            # the foot bar
+    _bar(a, frame, g0, g1, y0 + 0.14, y0 + 0.14 + b, f0 - b, f0, seed, conf)        # the scroll band's foot
+    for x in (g0, g1 - 0.04):                                                       # the corner newels
+        _bar(a, frame, x, x + 0.04, y0, y1, f0 - 0.04, f0, seed, conf)
+    for x in (g0, g1 - b):                                                          # the returns
+        for yy in (y1 - 0.035, y0 + 0.02):
+            _bar(a, frame, x, x + b, yy, yy + 0.03, 0.0, f0 - 0.04, seed, conf)
+    # the pierced panel: two rows of scrolls between the scroll band's foot and the top rail
+    ym = (y0 + 0.14 + b + y1 - 0.035) / 2
+    _bar(a, frame, g0, g1, ym - b / 2, ym + b / 2, f0 - b, f0, seed, conf)
+    count = max(2, round((g1 - g0) / max(0.12, ym - y0 - 0.14)))
+    for lo_, hi_ in ((y0 + 0.14 + b, ym - b / 2), (ym + b / 2, y1 - 0.035)):
+        _scrolls(a, frame, {"count": count}, g0 + 0.04, g1 - 0.04, lo_, hi_, f0 - b, f0, seed, conf)
 
 
 def lay(a, frame, yf, length, conf, recess):
