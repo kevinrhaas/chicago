@@ -1,6 +1,5 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
-  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__draft_1904.glb": "e0e660dd4d59fad53946a89cb7131babd9d202ae183bab58695ce2638e197477",
@@ -1006,7 +1005,7 @@
     "thomas_church_store__frame_1834.glb": "d3c9efcc66b86233dcf710a6ff78ea9fa60633599f86673f2cd2e0ffbff525a1",
     "tolman_house_2031_prairie__draft_1904.glb": "dcf223696f3441a3893b36281d703b1089c7a95c595433b819823b85725e698b",
     "tolman_house_2031_prairie_coach_house__draft_1904.glb": "622227d9cafcbb4687f3586a10fed2ae1db0474fe984a428dc963160a8c849e7",
-    "tremont_house_1__frame_1833.glb": "35976a58a4b5911cf663df9d95efc0ad751ebda49ec3390eb43442800e5d09f9",
+    "tremont_house_1__frame_1833.glb": "5621bb14b76916ce1cb7bdef3a0ff3973d73ac1e062390bf886bc4c8af180ef7",
     "tremont_house_1_stable__stable_1833.glb": "accfa38470395931b23aa7639484ae0b8d136eb411dd618b77ca50c388310930",
     "tucker_smith_house_2140_prairie__draft_1904.glb": "e42479eb5b2725b6aace80d3c370b571c917362140f0268a42dd7be01587f993",
     "tucker_smith_house_2140_prairie_alley_building__draft_1904.glb": "2a5dc5ee962fc1f690540f29f0bc271af86dc4e6c42ce385c6c53bb705305e24",

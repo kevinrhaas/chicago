@@ -1,0 +1,49 @@
+{
+  "schema": "standing-horse-source-bounded-anatomy-recipe-v1",
+  "ticket": "T-3088",
+  "status": "First source candidate; full anatomy/reference/deformation/native acceptance pending",
+  "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "frame": {
+    "units": "metres",
+    "up": "+Y",
+    "forward": "+Z",
+    "anatomical_left": "+X"
+  },
+  "maximum_displacement_m": 0.008,
+  "minimum_local_jacobian": 0.5,
+  "protected_ground_band_max_y_m": 0.2,
+  "reference_bindings": [
+    {
+      "source_id": "ellenberger_baum_dittrich_equine_plates",
+      "file": "Horse anatomy head.jpg",
+      "sha256": "f3d694329c0a91275a244dda190f5ce81588bdecde561a95389613b8716712e3",
+      "observation": "Tafel 6, especially Fig.36: the external eyelid forms a continuous thin almond margin around the exposed eye. The anatomical plate is not a calibrated living individual or a neutral pose measurement."
+    },
+    {
+      "source_id": "joselodos_2025_horse_anatomy",
+      "file": "reference-view-164516842.jpg",
+      "sha256": "85a741dffd00e17e9508a33da276da76e35dbaf8a32dda69d04917cb45ed87cc",
+      "observation": "Actual 1920x1280 CC0 rendition: the turned head exposes an open eye bounded by a thin upper lid, rather than the selected mesh's heavy drooping fold. The alert expression is a reconstructed choice; the photograph supplies no millimetre measurement or historical breed/coat evidence."
+    }
+  ],
+  "controls": [
+    {
+      "id": "left_upper_eyelid_open_expression",
+      "centre_m": [0.105, 1.531, 1.342],
+      "radii_m": [0.03, 0.028, 0.044],
+      "delta_m": [0.0, 0.005, 0.0],
+      "source_ids": ["ellenberger_baum_dittrich_equine_plates", "joselodos_2025_horse_anatomy"],
+      "confidence": "reconstructed",
+      "reason": "Lift the selected rest mesh's heavy upper fold into a more open almond aperture. The 5mm maximum control lift and compact falloff are bounded authored choices, not measurements from either source. The eye globes, repaired eye UV10, all source texture pixels and accepted standing rig remain exact. Inspect native front/lateral/quarter/head-detail before acceptance."
+    },
+    {
+      "id": "right_upper_eyelid_open_expression",
+      "centre_m": [-0.1057, 1.531, 1.342],
+      "radii_m": [0.03, 0.028, 0.044],
+      "delta_m": [0.0, 0.005, 0.0],
+      "source_ids": ["ellenberger_baum_dittrich_equine_plates", "joselodos_2025_horse_anatomy"],
+      "confidence": "reconstructed",
+      "reason": "The same bounded open-eye expression on the opposite side, following the source globe's existing asymmetric centre; no symmetry replacement, duplicated body, source pupil repaint, rig change or facial photographic completion is asserted."
+    }
+  ]
+}

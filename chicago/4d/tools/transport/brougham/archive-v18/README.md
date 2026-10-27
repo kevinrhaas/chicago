@@ -1,0 +1,3 @@
+# Historical accepted T3083 V18 lamp baseline
+
+These source, contract and metadata bytes are preserved unchanged from accepted DEV cb93ad9cd5ea38654737e05002b1f1904be14e54. The actual V18 GLBs remain in that Git tree (raw near SHA99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a), without duplicating assets here. Historical checks describe V18 and must not be run against V19 or relabelled as V19 photographic acceptance. T3084 owns body/material refinement; its native differential gate retains all V18 lamp P/N and shared optical/iron materials, running gear, pole, steps, contacts and interfaces.
