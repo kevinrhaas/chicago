@@ -27353,6 +27353,31 @@ two read as one casting. The paved crossings stay: pictures show them (1815, 211
 HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
 crossings exist where no picture reaches.
 
+### L-prairie-corner-crossings-3200 — A stone ramp down to the roadway at every corner crossing
+
+**Decision:** at every 1904 corner where two faces of a block meet (28 corners; Calumet's curve at
+18th is a bend and has none), each face's walk is carried straight on across the other street's
+parkway and curb at its own width (6 ft; 5 ft on 16th Street), and its last 1.35 m (0.92 m on 16th
+Street's narrower parkway) is a dressed stone slab ramping from the walk's level down to the
+roadway. The curb's face is broken where the ramp runs through it. 56 crossings
+(`corner_crossings` in `data/street_section/1904.json`, laid by
+`tools/lay_prairie_1904_street_section.py`); the corner lamp's grass plot stands between each pair.
+**What it stands on:** J. W. Taylor's photograph no. 2135 of the Glessner corner, 18th and Prairie
+south-west (`taylor_2135_glessner_exterior_1887_1889`): two broad stone slabs slope from the curb's
+top to the roadway, one each way across, the lamp's footing between them. The Detroit Publishing
+view of the Pullman corner, north-east (`loc_det_4a08065_pullman_residence`): the walks carried
+across the parkway either side of a curbed grass corner, down to the roadway. These four crossings
+are attested; the owner, 2026-10-27: "there are ramps down into the street. they appear to be stone".
+**What is invented:** the crossings at the other 26 corners; the ramp's run and its plain dressed
+face; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
+across the roadway itself.
+**How to resolve:** a photograph of any other corner of the district shows whether it had the same
+crossings; a Board of Local Improvements order or a city sidewalk specification of 1890-1905 fixes
+the ramp's slope and stone.
+**Ticket:** T-3200.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-27 (T-3200).
+
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
 **Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
