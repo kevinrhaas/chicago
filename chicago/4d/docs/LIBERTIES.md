@@ -34059,6 +34059,7 @@ the house and brings the match record to `matches`.
 **Revised:** 2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176.
 **Revised:** 2026-10-27 (T-3176, piece 2 of T-3172) — **the corner tower is built, and the camera re-solved.** The 1911 sheet draws the south-west corner as a square turned 45 degrees across the corner (2.27 m on a face); the photograph's broad face is about 3.2 m (3.5 times the front's own window beside it), and no level camera holds the sheet's square on the print. The camera is re-fitted with the square's side free on the sheet's centre (3.25 m, 4.4 px RMS over 23 readings of five plan edges), and the tower built to it on K08's polygonal tower turned 45 degrees across the front's south corner, carried a storey past the main cornice under a slated hip cut to a crested deck with finials. Read: its plan, its faces' lights a storey (paired on the south-west face, one on the north-west), and its heights in proportion to the main cornice at its face. Invented: the side's 3.25 m between the sheet's 2.27 and the print (the sheet's own square is refused by the print, so the photograph wins the size and the sheet keeps the centre); the south-east face, which no picture sees, given the south-west face's paired lights; the plain soffit and fascia 0.45 m out for the print's bracketed cornice; flat stone heads for the print's hoods; the hip's single pitch (3.46) where the print's flares at its foot; the crest as a solid iron band 0.6 m tall where the print's is pierced; a finial on each of the deck's four corners, where the print shows the near two. The re-solved camera reads the house's own heights about a third lower than the record's (the main cornice about 9.4 m against 12.6): open on the match record, and the tower's heights, taken in proportion to the record's cornice, come down with them.
 **Revised:** 2026-10-27 (T-3194, piece 1 of T-3190) — **the window heads, the attic's arched lights, the tower's crown and the coursing.** Read off the photograph: a hood over every light of both storeys on the front, the pavilion and the tower; the attic's three lights round-headed; the tower's cornice line (its crown's top about 12.9 m, the corbel frieze's top about 12.5 m); and the front's stone laid high and low in turn. Invented: the hoods' form, K09's level moulded cornice hood on its consoles over the front's windows and a moulded surround whose lintel stands 0.12 m proud over the pavilion's and the tower's, for the print's segmental and carved hoods and tympana; the course heights (the low course Lemont's least, 0.2 m, half the high, the ratio read on the tower's face where the print's joints are sharpest); K10's moulded stone eave as the tower's crown; and the frieze under it left plain where the print has a row of corbel blocks. The carving, the corbels, the crown's slated cheeks, the porch's arches and steps and the basement grilles are T-3195's.
+**Revised:** 2026-10-27 (T-3196, piece 1 of T-3195) — **the basement grilles, the tower's corbel blocks, and the window bay's and the pavilion's lights put back where the print has them.** Read off the photograph through its re-solved camera: an iron grille in the basement light under the pavilion's centre light, in the one under the window bay south of it and in a tall one in the tower's narrow north-west face, each running from about grade to about 1.0 m; a row of corbel blocks under the tower's crown, about eleven to its broad face; the window bay at v 12.05 (T-3171's 12.9 came from the camera since re-solved), and the pavilion's narrow lights close beside its wide one. Invented: the grilles' pattern, K08's four uprights and a ring under the head (three in the tower's narrow light) for the print's bars scrolling from a centre stem into an arch; the lights' sills held at 0.17 m and heads at 1.02 m (the kit's head stone under the pavilion's and the tower's band at 1.3 m, the band their basement storey's, for the print's water table), over a plinth lowered to 0.05 m on the pavilion and the tower; the tower's narrow light the width of the light over it, the print seeing it nearly edge on; the blocks plain, 0.16 m across, 0.35 m deep and 0.2 m out, where the print's are stepped under; and the dormer over the window bay held at v 12.25, about 0.25 m south of the print's, by the kit's clearance from the pavilion's crown. The carved tympana, the crown's slated cheeks and the porch's arches and steps are T-3197's.
 
 
 
@@ -34482,6 +34483,65 @@ pullman-addition`, not in the image store) would date the east section against 1
 **Ticket:** T-3192 (piece 1 of T-3178).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-27 (T-3192).
+
+### L-pullman-stable-3193 — Pullman's stable re-planned through three solved cameras: the arcade on the court face, a bay and a cut corner at the south-west corner, the front's sash moved west with it
+
+**Decision:** T-3193 solved cameras on the 1894 Inland Architect plate (`inland_1894_pullman_palm_house_stable`)
+and Taylor's 16554 (`aic_taylor_16554_pullman_from_sw`), and re-solved Taylor's 16555 with its distance free;
+all three now stand in `data/reference_views/pullman_house_1729_prairie_conservatory/`. **What is read.** The
+plate's stable faces recede to opposite sides, so the three-arch arcade T-3192 had put on the 18th Street front
+is on the stable's west face, across the court from the drum (16555's "3.2 m" was that face foreshortened by a
+camera standing too far off); its arches, a broad open one between two narrower, sit 2.9, 7.2 and 10.9 m along
+the face with crowns about 3.0-3.1 m and heads flatter than half-circles. The upper storey runs along that face
+with two small sash and turns the south-west corner on a diagonal of about 2.1 m, over a polygonal bay of three
+round-headed lights with its cornice at about 4.5 m; the 18th Street front's three bays of sash follow the bay
+west (4.7, 8.3 and 11.2 m east of the corner, which puts the stack past the last of them, as 16554 shows). The
+belvedere moves 1.2 m west and its top to 9.3 m; the lantern is smaller (0.8 m radius) under a flat dome; the
+deck stands 6.1 m over the eave. **What is invented.** The bay's exact plan: the plate places it about 0.8 m
+further east along the corner and 16554 about 1.4 m further west, and the build stands between them, enclosing
+the building's corner; the 1911 sheet's corner polygon (about 2.3 m) lies between both. The north block's
+roof is now a hipped roof to a low crested deck at the stable's eave, as the plate's one oblique glimpse of it
+reads (its place there is uncertain by about 1.5 m); the arches' depth and the bay's return to the west face.
+**What is not.** The 1911 sheet's walls and the east section stand as T-3192 left them; the heights are the
+three pictures'. **How to resolve:** the c. 1905 CHM negative i70232 is online only as a ~375 px contact-sheet
+thumbnail (CHM's Clark collection Buildings sheet, read by T-3193's earlier claim), too small to solve; a
+full-size copy would place the bay.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-3193 (piece 2 of T-3178).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-27 (T-3193).
+
+### L-kimball-1801-flank-top-1890 — 1801 Prairie's 18th Street section carried on a corbel table under a coped fan gable, and its flank stack moved to where both pictures put it
+**Recorded:** 2026-10-27.
+
+**Decision:** the three-storey section of the W. W. Kimball house's 18th Street wall between the
+gabled section and the tower (`p_flank`, T-1890) is rebuilt to the Taylor photograph of c. 1895
+(`taylor_c1895_kimball_residence_1801`, the period view the phase guard prefers) and Harold
+Allen's HABS photograph 2 of June 1965 (`habs_kimball_photo_02_nw_1965`), read through their
+solved cameras, where the build had carried the section's wall to 13.9 m under a low hip.
+**What is read, not invented.** Both pictures put a corbel table's top at about 9.45 m (9.36 and
+9.5-9.6 m), the section's third storey over it to a wall top of about 12.4 m (12.35 and 12.5 m),
+a pair of lights in two tiers on the section's axis from about 9.8 to 11.9 m and about 1.85 m
+across, a single light at its west end, and over the middle a coped wall dormer about 3.2 m across
+(the Taylor print's pilasters at u 6.4-9.6, HABS's at u 6.8-9.8) whose tympanum is a carved fan,
+its coping's apex about 14.2 m (14.1 and 14.3 m), its finial's top about 15.15 m and a pinnacle on
+each shoulder about 14.1 m. The flank's tall stone stack stands where both cameras' lines of sight
+cross near the main block's north-east corner, not over the section: at u 1.8, v 1.0 it renders
+within about 10 px of both prints' shafts (x 611 on HABS 2, x 498 on Taylor), where T-3000's u 5.0
+rendered about 90 and 50 px west of them; its cap is built to 16.0 m, the Taylor print's (HABS 2
+reads about 15.5 m, and the kit holds a mansard stack 0.6 m over its 15.3 m curb). It is laid in
+the walls' pale stone, as both pictures show it, not in brick. **What is invented or held by the
+kit.** The corbel table's section (a 0.25 m course 0.4 m proud on corbels 0.28 m wide at 0.5 m,
+each two steps down to 0.85 m under the line), the gable's 1.15 pitch, its coping, kneelers and
+pinnacles' sizes, the fan's thirteen rays, ring and hub, the frame round the paired lights, and
+the stack's 0.9 m shaft and 0.3 m cap are the kit's or reconstructed to the pictures' outlines;
+the pinnacles' crockets and the fan's carving are not modelled. The section's west corner, which
+both pictures round, stays square (an open difference in both match records), and the stack's
+flared bell cap is laid as a square slab (within tolerance: HABS 2 reads the shaft square, Taylor
+round). This supersedes the flank section's top and the stack's place in
+L-kimball-1801-deck-cresting-3000.
+**How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
+section's top.
 
 ### L-k01-1721-dress-1879 — 1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank
 

@@ -268,22 +268,26 @@ def plan_distance(r, p):
 
 def inside_point(b):
     """A point inside the bay's solid and outside every recess, one per storey."""
-    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1))
+    # T-1890: a window centred on a deep projection (1801's p_flank) has its recess's back on
+    # z 0.05 under every one of the first four, so a point ON a footprint's edge counts as in
+    # it, and the last stands behind every recess (they all end 0.05 m in front of the wall)
+    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1), (0.0, 0.025))
     if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
         (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
         cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
     for cand in cands:
-        if not any(in_hull(cand, w["footprint"]) for w in b.windows):
+        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows):
             break
     lv = b.meta["levels_m"]
     return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
            [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
 
 
-def in_hull(p, h):
+def in_hull(p, h, edge=False):
     n = len(h)
+    lim = -1e-9 if edge else 0.0
     return n >= 3 and all((h[(i + 1) % n][0] - h[i][0]) * (p[1] - h[i][1])
-                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > 0 for i in range(n))
+                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > lim for i in range(n))
 
 
 def rule_closed(b, tracer):

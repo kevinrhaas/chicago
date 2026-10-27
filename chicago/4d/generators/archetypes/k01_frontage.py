@@ -2472,6 +2472,11 @@ class Assembly:
         o.seed = seed                      # the blind's drop follows this instance, not the kit's
         o.build()
         roles = {r: (stone_trim if m == "stone" else (m or body_mat)) for r, m in self.K06_ROLES.items()}
+        g = self.p.window_kit.get(op.component, {}).get("grille")
+        if g:   # T-3195: a basement light's bars, K08's grille in the K06 reveal
+            from . import k08_bays
+            k08_bays.grille(o, g)
+            roles["iron"] = "iron"
         if head:   # T-2410: the kit's arch band is this head's hood
             roles["head"] = head_mat or stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)

@@ -1230,7 +1230,9 @@ class Bay:
                 hf = v["storeys"][k].get("head_frieze")
                 if hf and i == hf["run"]:
                     self._head_frieze(flat, run, levels[k], hf)
-                if 0 < k:
+                if 0 < k and v["storeys"][k].get("corbel_table"):
+                    self._corbel_table(flat, run, levels[k], v["storeys"][k]["corbel_table"])
+                elif 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
             if v.get("pilasters"):
@@ -1258,6 +1260,8 @@ class Bay:
                 flat.plane("fascia", K6.box(er.s_start(ov), er.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
+            if v.get("corbel_table"):
+                self._eave_corbel_table(flat, run, y_top, ov)
             if v.get("balcony"):
                 self._balcony(flat, run, y_e, ov, first=i == 0, idx=i)
             if v.get("floor_balcony"):
@@ -1484,6 +1488,67 @@ class Bay:
                                   flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta.setdefault("brackets", {})["modillions"] = self.meta.get("brackets", {}).get("modillions", 0) + n
 
+    def _corbel_table(self, flat, run, y_floor, ct):
+        """T-1890: a corbel table carrying a storey (1801's 18th Street section, the Taylor
+        print and HABS photograph 2): in place of the floor band, a stone course `course_m`
+        deep and `proud_m` out under the storey's floor line, and under it a row of corbels
+        `block_m` wide at `pitch_m`, each two steps down to `height_m` under the line, the
+        upper as proud as the course less a tenth, the lower half as proud, kept `margin_m`
+        clear of the run's ends. The light tier keeps the course."""
+        h, cm, out, w, pm, mg = (float(ct[k]) for k in ("height_m", "course_m", "proud_m", "block_m",
+                                                         "pitch_m", "margin_m"))
+        proud(flat, "band", run, y_floor - cm, y_floor, out)
+        if self.tier == "light":
+            return
+        a, b = run.s_start(0.0) + mg, run.s_end(0.0) - mg
+        n = math.floor((b - a - w) / pm + 1e-9) + 1 if b - a >= w else 0
+        if n <= 0:
+            return
+        gap = (b - a - n * w) / max(n - 1, 1) if n > 1 else 0.0
+        x0 = a if n > 1 else (a + b - w) / 2
+        y_c, y_m, y_f = y_floor - cm, y_floor - cm - (h - cm) / 2, y_floor - h
+        for k in range(n):
+            s0 = x0 + k * (w + gap)
+            s1 = s0 + w
+            for ya, yb, o in ((y_m, y_c, out * 0.9), (y_f, y_m, out * 0.45)):
+                flat.plane("corbel", K6.box(s0, s1, ya, yb), -o)
+                for s_, hx in ((s0, -1.0), (s1, 1.0)):
+                    flat.face("corbel", [flat.P(s_, ya, 0.0), flat.P(s_, yb, 0.0), flat.P(s_, yb, -o),
+                                         flat.P(s_, ya, -o)], (hx, 0.0, 0.0))
+                flat.face("corbel", [flat.P(s0, ya, 0.0), flat.P(s1, ya, 0.0), flat.P(s1, ya, -o),
+                                     flat.P(s0, ya, -o)], (0.0, -1.0, 0.0))
+        self.meta["corbel_table"] = self.meta.get("corbel_table", 0) + n
+
+    def _eave_corbel_table(self, flat, run, y_top, ov):
+        """T-3195: a row of plain stone blocks under a moulded eave along every run (1827's
+        tower, from the Doane photograph): blocks `width_m` across, `drop_m` deep under the
+        wall top and `out_m` before the face, as many as fit at `spacing_m` between `margin_m`
+        from each of the run's ends (so a polygon's corners stand clear), spread evenly there. Each block's back and top stand
+        against the face and the moulding's bed and are not drawn."""
+        if self.tier == "light":
+            return    # a far view's copy: the moulding carries the eave's outline, the row is detail
+        m = self.v["corbel_table"]
+        w, drop, out = m["width_m"], m["drop_m"], m["out_m"]
+        if out > ov:
+            raise ValueError(f"{self.v['id']}: a corbel {out} m out reaches past its eave at {ov} m")
+        a, b = run.s_start(0.0) + m["margin_m"], run.s_end(0.0) - m["margin_m"]
+        n = math.floor((b - a - w) / m["spacing_m"] + 1e-9) + 1 if b - a >= w else 0
+        if n <= 0:
+            return    # a run too short for one block (a return the host wall all but closes)
+        gap = (b - a - n * w) / max(n - 1, 1) if n > 1 else 0.0
+        x0 = a if n > 1 else (a + b - w) / 2
+        y0 = y_top - drop
+        for k in range(n):
+            s0 = x0 + k * (w + gap)
+            s1 = s0 + w
+            flat.plane("corbel", K6.box(s0, s1, y0, y_top), -out)
+            for s_, hx in ((s0, -1.0), (s1, 1.0)):
+                flat.face("corbel", [flat.P(s_, y0, 0.0), flat.P(s_, y_top, 0.0), flat.P(s_, y_top, -out),
+                                     flat.P(s_, y0, -out)], (hx, 0.0, 0.0))
+            flat.face("corbel", [flat.P(s0, y0, 0.0), flat.P(s1, y0, 0.0), flat.P(s1, y0, -out),
+                                 flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
+        self.meta["corbel_table"] = self.meta.get("corbel_table", 0) + n
+
     def _consoles(self, world, y_top, ov):
         """A console under the soffit at every corner of the plan, on the corner's bisector:
         its top on the soffit from the corner out `reach_m`, its underside a quarter ellipse
@@ -1646,8 +1711,9 @@ class Bay:
         pts = self.v["plan"]["points"]
         xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
         il, ir = (float(a) for a in g.get("inset_m", (0.0, 0.0)))
-        if not (0.0 <= il <= 1.0 and 0.0 <= ir <= 1.0):
-            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1 m in from the front's")
+        # T-1890: up to 1.5 m (1801's 18th Street section, its wall dormer about 3.2 m across a 6 m front)
+        if not (0.0 <= il <= 1.5 and 0.0 <= ir <= 1.5):
+            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1.5 m in from the front's")
         gl, gr = xl + il, xr - ir             # the gable's own corners (the front's unless inset)
         xc = (gl + gr) / 2
         up = float(g["upstand_m"])
@@ -1752,10 +1818,14 @@ class Bay:
         standing the relief's `proud_m` past the panel. The light tier keeps the panel."""
         keys = {"border_m", "base_m", "proud_m", "relief"}
         rk = {"proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"}
+        fk = {"kind", "proud_m", "rays", "ring_m", "hub_m", "margin_m"}   # T-1890: a fan
         rl = pn.get("relief") if isinstance(pn, dict) else None
-        if not isinstance(rl, dict) or set(pn) != keys or set(rl) != rk:
+        fan = isinstance(rl, dict) and rl.get("kind") == "fan"
+        if not isinstance(rl, dict) or set(pn) != keys or set(rl) != (fk if fan else rk):
             raise ValueError(f"{self.v['id']}: a gable panel takes {sorted(keys)}, its relief {sorted(rk)}")
         b, base, pr = float(pn["border_m"]), float(pn["base_m"]), float(pn["proud_m"])
+        if fan:
+            return self._fan_panel(world, b, base, pr, rl, xa, xb, xc, y_top, under, p, pitch)
         rp, sw, lm, pm, mg = (float(rl[k]) for k in ("proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"))
         if not (0.05 <= b <= 0.3 and 0.0 <= base <= 0.5 and 0.01 <= pr <= 0.06 and 0.01 <= rp <= 0.06
                 and 0.04 <= sw <= 0.2 and 0.15 <= lm <= 0.8 and 0.15 <= pm <= 0.8 and 0.02 <= mg <= 0.15):
@@ -1808,6 +1878,58 @@ class Bay:
             n += 1
             y += pm
         meta["leaves"] = 2 * n
+        return meta
+
+    def _fan_panel(self, world, b, base, pr, rl, xa, xb, xc, y_top, under, p, pitch):
+        """T-1890: a gable panel carved as a FAN (1801's 18th Street wall dormer, a sunburst in
+        both the Taylor print and HABS photograph 2): the dressed panel as `_gable_panel` lays
+        it, and on it a half wheel standing on the panel's foot on its axis, as large as the
+        panel holds `margin_m` clear of its sides and rakes: a RING `ring_m` deep round its
+        arc, `rays` RAYS between it and a half-disc HUB `hub_m` across, each narrowing to the
+        hub, all standing the relief's `proud_m` past the panel. The light tier keeps the panel."""
+        rp, n, rm, hm, mg = (float(rl["proud_m"]), int(rl["rays"]), float(rl["ring_m"]), float(rl["hub_m"]),
+                             float(rl["margin_m"]))
+        if not (0.05 <= b <= 0.3 and 0.0 <= base <= 0.5 and 0.01 <= pr <= 0.06 and 0.01 <= rp <= 0.06
+                and 5 <= n <= 31 and 0.03 <= rm <= 0.2 and 0.05 <= hm <= 0.4 and 0.0 <= mg <= 0.15):
+            raise ValueError(f"{self.v['id']}: a fan panel's border 0.05-0.3 m, base 0-0.5 m, proud 0.01-0.06 m; "
+                             f"its relief 0.01-0.06 m proud, 5-31 rays, ring 0.03-0.2 m, hub 0.05-0.4 m, "
+                             f"margin 0-0.15 m")
+        dn = b * math.sqrt(1.0 + pitch * pitch)
+        left = lambda x: under(xa) - dn + pitch * (x - xa)
+        right = lambda x: under(xb) - dn + pitch * (xb - x)
+        y_b, apex = y_top + base, left(xc)
+        poly = [(xa + b, y_b), (xb - b, y_b), (xb - b, apex + 1.0), (xa + b, apex + 1.0)]
+        poly = clip_half(clip_half(poly, lambda q: left(q[0]) - q[1]), lambda q: right(q[0]) - q[1])
+        if apex - y_b < 1.0:
+            raise ValueError(f"{self.v['id']}: a gable panel needs a metre over its base")
+        world.plane("band", poly, -(p + pr))
+        world.tube("band", poly, -p, -(p + pr), inward=False)
+        R = min(xc - (xa + b), (apex - y_b) / math.sqrt(1.0 + pitch * pitch)) - mg
+        if R < hm + rm + 0.1:
+            raise ValueError(f"{self.v['id']}: a fan panel's wheel ({R:.3f} m) does not clear its hub and ring")
+        meta = {"y_m": [round(y_b, 4), round(apex, 4)], "fan": {"radius_m": round(R, 4), "rays": n}}
+        if self.tier == "light":
+            return meta
+        z0 = -(p + pr)
+
+        def lay(q, k=1.0):
+            world.plane("band", q, z0 - k * rp)
+            world.tube("band", q, z0, z0 - k * rp, inward=False)
+
+        at = lambda r, t: (xc + r * math.cos(t), y_b + r * math.sin(t))
+        seg = 2 * n
+        z1 = z0 - rp
+        for j in range(seg):   # the ring: its face a quad a step round the arc, its sides once round
+            t0, t1 = math.pi * j / seg, math.pi * (j + 1) / seg
+            world.plane("band", [at(R - rm, t0), at(R, t0), at(R, t1), at(R - rm, t1)], z1)
+        world.tube("band", [at(R, math.pi * j / seg) for j in range(seg + 1)]
+                   + [at(R - rm, math.pi * j / seg) for j in range(seg, -1, -1)], z0, z1, inward=False)
+        lay([at(hm, math.pi * j / seg) for j in range(seg + 1)])   # the hub
+        half = math.pi / n * 0.3                       # a ray's half-width at the ring, in angle
+        for i in range(n):   # each ray clear of the hub and the ring by 5 mm, so no side is shared
+            t = math.pi * (i + 0.5) / n
+            r0, r1 = hm + 0.005, R - rm - 0.005
+            lay([at(r0, t - half * 0.25), at(r1, t - half), at(r1, t + half), at(r0, t + half * 0.25)], 0.7)
         return meta
 
     def _block(self, world, role, x0, x1, y0, y1, z0, z1, back_from=None, under=True):

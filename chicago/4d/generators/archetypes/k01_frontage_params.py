@@ -2276,6 +2276,22 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             st["head_frieze"] = {"run": int(hf["run"]), "at": float(hf["at"]), "roundel": {
                 "radius_m": float(rd["radius_m"]), "ring_m": float(rd["ring_m"]), "proud_m": float(rd["proud_m"]),
                 "segments": int(rd["segments"])}, **{k: float(hf[k]) for k in ("from_m", "to_m", "border_m", "proud_m")}}
+        # T-1890: a corbel table carrying a storey in place of its floor band (1801's 18th Street
+        # section, the Taylor print and HABS photograph 2): a stone course on a row of corbels
+        for k, st in enumerate(v["storeys"]):
+            ct = st.get("corbel_table")
+            if ct is None:
+                continue
+            keys = {"height_m", "course_m", "proud_m", "block_m", "pitch_m", "margin_m"}
+            if k == 0 or not isinstance(ct, dict) or set(ct) != keys \
+                    or not (0.1 <= float(ct["course_m"]) <= 0.4 and float(ct["course_m"]) + 0.2 <= float(ct["height_m"]) <= 1.5
+                            and 0.05 <= float(ct["proud_m"]) <= 0.5 and 0.1 <= float(ct["block_m"]) <= 0.6
+                            and float(ct["block_m"]) + 0.05 <= float(ct["pitch_m"]) <= 1.5
+                            and 0.0 <= float(ct["margin_m"]) <= 0.5):
+                raise ParamError(f"bays: {e['id']}'s corbel_table takes {sorted(keys)} (on a storey over another: a "
+                                 f"0.1-0.4 m course 0.05-0.5 m proud, corbels 0.1-0.6 m wide, 0.05 m apart at "
+                                 f"least, down to 1.5 m under the line), not {ct}")
+            st["corbel_table"] = {k_: float(ct[k_]) for k_ in sorted(keys)}
         if "pilasters" in e:
             # T-2931: carved pilasters at the ends of a stone bay's runs (1801's bow and its south
             # pavilion, from the Taylor photograph), one a storey on a base, under a capital
@@ -2365,6 +2381,23 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     if not lo <= float(x) <= hi:
                         raise ParamError(f"bays: {e['id']}'s brackets.{k}.{kk} {x} is outside [{lo}, {hi}]")
                     kb[k][kk] = int(x) if kk == "segments" else float(x)
+        # T-3195: a row of plain stone blocks under a moulded eave (1827's tower, from the Doane
+        # photograph), on every run: only under a K10 moulded cornice, never beside the brackets
+        if "corbel_table" in e:
+            ct = e["corbel_table"]
+            need = {"spacing_m", "width_m", "drop_m", "out_m", "margin_m"}
+            ok = isinstance(ct, dict) and set(ct) == need and not v.get("brackets") \
+                and bool(v["overrides"].get("eaves", {}).get("profile"))
+            if ok:
+                ct = {k: float(ct[k]) for k in sorted(need)}
+                ok = 0.05 <= ct["width_m"] < ct["spacing_m"] <= 1.5 and 0.05 <= ct["drop_m"] <= 0.6 \
+                    and 0.05 <= ct["out_m"] <= 0.5 and 0.0 <= ct["margin_m"] <= 0.5
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s corbel_table stands under eaves naming a K10 moulded "
+                                 f"cornice, with no brackets, and takes width_m (at least 0.05) under spacing_m "
+                                 f"(at most 1.5), drop_m (0.05-0.6), out_m (0.05-0.5) and margin_m (0-0.5), "
+                                 f"not {e['corbel_table']}")
+            v["corbel_table"] = ct
         # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall;
         # T-2780: or a stone balustrade round a flat-topped canted bay's (1637's south bay);
         # T-2888: or an iron rail round a flat-topped projection's front and cheeks (1812's)
@@ -4384,6 +4417,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # put a basement light's sill above grade and so leave its area well out
         entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
         kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+        # T-3195: a plain front's basement lights barred as a bay's are (1827's, from the Doane
+        # photograph): K08's bar grille in each light's reveal (k08_bays.grille), on the area
+        # lights only, and only where no well is dug, so the bars stand in a reveal above grade
+        g = entry.get("grille")
+        if g is not None:
+            ok = comp == "k01.opening.area_light" and not kit[comp]["well"] and isinstance(g, dict) \
+                and set(g) == {"bars", "set_back_m", "ring_radius_m"} and 2 <= int(g["bars"]) <= 16 \
+                and 0.0 < float(g["set_back_m"]) <= 0.08
+            if not ok:
+                raise ParamError(f"window_kit: {comp}'s grille is a basement light's, out of its well "
+                                 f"(\"well\": false), and takes bars (2-16), set_back_m (at most 0.08 m) "
+                                 f"and ring_radius_m, not {g}")
+            kit[comp]["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
+                                   "ring_radius_m": float(g["ring_radius_m"])}
     for comp in sorted({o.component for o in openings} - {"k01.opening.door_leaf"}):
         vid = kit.get(comp, {}).get("variant")
         if vid not in variants:
