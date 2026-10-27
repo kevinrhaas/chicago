@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "52b77ac5c1cdf7636f9e0192481fc2c944ee27ef50ed53f4368270bf41d6af3d",
+  "glb_sha256": "4f7801c879ff17842e3db2787f3f25c8db9e8f3b9f2e34a3e5fcd4e531367f9b",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -21,7 +21,7 @@
     {
       "what": "the basement windows under the principal ones, about y 505-580 px (about 0.25-1.45 m over grade)",
       "status": "open",
-      "how": "built 0.8 m high to 1.05 m, where K02's two Lemont base courses (0.2-0.41 m each) put the coping the lights' heads must meet; the print's stand about 0.4 m taller"
+      "how": "built 0.8 m high to 1.05 m, where K02's two Lemont base courses (0.2-0.41 m each) put the coping the lights' heads must meet; the print's stand about 0.4 m taller; T-3168 tried the print's 1.2 m and K02's Lemont profile refuses it (at most two base courses of 0.41 m under the coping the lights' heads meet), so it is K02 work"
     },
     {
       "what": "the porch: columns at the stoop's head, a deep carved entablature (y 140-215 px) under a cornice, a balustrade on its top (y 100-140), its floor at the principal floor",
@@ -31,27 +31,27 @@
     {
       "what": "the porch's round arches on its front and its south side, springing from the columns, and the third column at its south-rear corner (x 440 px)",
       "status": "open",
-      "how": "built as a flat soffit on two front columns with responds at the wall"
+      "how": "built as a flat soffit on two front columns with responds at the wall (T-3168: K01's door hood carries no arch or rear column; kit work)"
     },
     {
       "what": "the porch's carving: the entablature's carved frieze, the spandrels over the arches, the columns' capitals",
-      "status": "open",
-      "how": "built plain: K01's hood fascia and square capital blocks"
+      "status": "within tolerance",
+      "how": "T-3168: built plain: K01's hood fascia and square capital blocks under the entablature; carving is relief of a few centimetres on the right members, the entablature's and the capitals' places and sizes within about 10 px, under the T-3153 bar"
     },
     {
       "what": "the porch's balustrade in stone with turned balusters, heavier than the build's",
-      "status": "open",
-      "how": "built as K01's painted joinery railing, 0.6 m"
+      "status": "fixed",
+      "how": "T-3168: the porch laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), its balustrade 0.65 m high on 0.3 m posts with 0.1 m balusters under a 0.25 m rail; the balusters are square where the print's are turned, under a foot (the partial view reads the same balustrade as solid panels: the two prints disagree on its fill)"
     },
     {
       "what": "the stoop's cheeks: solid stone parapets carried down beside the flight with turned balusters on their tops, and a newel at the foot",
-      "status": "open",
-      "how": "built as K07's plain stone cheeks"
+      "status": "fixed",
+      "how": "T-3168: a turned stone balustrade on both cheeks' tops, 0.9 m over the nosings, with newels at the landing and at the foot (entrance_kit.balustrade); the partial view reads the cheeks as solid parapets with blocks at the foot, so the two prints disagree on the fill over the cheek"
     },
     {
       "what": "the panelled stone pilasters framing the bay's faces (x 145-160, 285-300, 385-400 px), and the carved panels between the storeys",
-      "status": "open",
-      "how": "built as plain ashlar"
+      "status": "within tolerance",
+      "how": "built as plain ashlar on the bay's angles and between its storeys at the print's places; the panels and the carved panels are surface relief of a few centimetres, under the T-3153 bar"
     },
     {
       "what": "the light stone face south of the bay's cheek at the print's left edge (x 0-150 px) with a pilaster at x 40-60: the print shows front wall south of the bay, where the 1911 sheet's trace starts the bay's cheek at the house's south corner",
