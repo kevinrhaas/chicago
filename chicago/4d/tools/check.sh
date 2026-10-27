@@ -1077,6 +1077,13 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
 
+# T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
+# front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the
+# Taylor print): the foot and shelf flare_m wider and further out, the top unmoved, the slating
+# box spanning it; a hood without it as before; a flare under 0.05 or over 0.3 m refused.
+step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
+  python3 tools/test_k01_hood_flare.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
