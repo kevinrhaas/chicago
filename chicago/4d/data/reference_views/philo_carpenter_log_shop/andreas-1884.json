@@ -1,0 +1,28 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "source_id": "andreas_1884_sauganash_hotel_plate",
+  "photo": "../../../../reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+  "image_px": [
+    2017,
+    1296
+  ],
+  "principal_px": [
+    4129.395927696468,
+    856.404866199997
+  ],
+  "focal_px": 4730.352526721041,
+  "eye": [
+    32.83817160861065,
+    57.588560531852394,
+    1.869951965172664
+  ],
+  "yaw_deg": 246.33520855106465,
+  "sky": "overcast",
+  "solve": "PROVISIONAL RESEARCH FRAMING, NOT AN ACCEPTED WHOLE-BUILDING CAMERA. Exact re-anchoring of the held five-main-wall-corner Andreas fit: unchanged focal4730.352526721041, principal[4129.395927696468,856.404866199997], yaw246.33520855106465 and lighting. Both scene bearings are0 degrees; eye is translated by the independently compiled Sauganash-to-annex placement delta[9.92,3.10]m, without changing either building. Thus the old genuine before and new after retain the same rays and scene relation. The historical main-wall fit had RMS16.28px/max30.15px on approximate corner picks and an unresolved roof-apex residual; its off-image principal point is poorly constrained. It does not calibrate the annex size, placement, July1835 fittings, or hotel roof. Use this view to review the explicit doorway treatment; the broader massing/opening/source-camera case remains DIFFERS. No camera adjustment or coordinate was chosen to conceal the changed doorway. Andreas1884 is retrospective, depicting the Sauganash before1834, not a dated July1835 observation. Monochrome hatching does not establish pigment or photometric reflectance; overcast neutral review follows the source lack of consistent cast shadows.",
+  "scene": "1835",
+  "also_render": [
+    "sauganash_hotel"
+  ],
+  "diagnostic_only": true,
+  "library_image": "early-andreas-1884-sauganash"
+}
