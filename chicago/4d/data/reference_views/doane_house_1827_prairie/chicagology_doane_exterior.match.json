@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7297304f25293c982a5b0895633ffa9849e60713ad2cf7e298318262fac33840",
+  "glb_sha256": "e76bb061ee1c3304f77a7b97fa8e6b2ee89d7cc9849e46bd5a789c6f34c2285c",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -21,7 +21,7 @@
     {
       "what": "the porch at the front's north end: columns carrying a balustraded balcony at the second floor (x 0-275 px, y 1126-1170)",
       "status": "fixed",
-      "how": "T-3171: the sheet's 2.7 x 5.0 m stone range built as the door's hood on columns with a railing, its soffit 6.3 m"
+      "how": "T-3171: the sheet's 2.7 x 5.0 m stone range built as the door's hood on columns with a railing, its soffit 6.3 m; T-3189: its soffit brought down to 4.7 m (the print's entablature foot at y 1175, about 4.85 m), a 0.2 m fascia and cornice and a 0.45 m railing over it, the balcony standing under the second storey's sills over the door's bay"
     },
     {
       "what": "the dormer under a pediment over the window bay south of the pavilion (x 650-770 px) and the dormer over the porch (x 190-250 px)",
@@ -45,7 +45,7 @@
     {
       "what": "the corner block at the south-west corner, a square tower turned 45 degrees across the corner (its narrow north-west face x 818-857 px, its broad south-west face x 857-1135), carried up a storey past the main cornice under a tall slated hip, a crested deck and finials (x 790-1150 px, y 88-1581)",
       "status": "fixed",
-      "how": "T-3176: the 1911 sheet draws a square turned 45 degrees across the corner (2.27 m on a face, centred on u 23.98, v 15.55), the photograph a broad face about 3.2 m across (3.5 times the front's 1.15 m window beside it); re-solving the camera with the square's side free on the sheet's centre gives 3.25 m at 4.4 px RMS, where the sheet's 2.27 m leaves 40-47 px. Built as K08's polygonal tower turned 45 degrees across the front's south corner (centre 0.42 m inside the front, on the flank's plane), its north-west, south-west and south-east faces outside the walls, the storey bands at 7.5 and 12.6 m, its wall top 16.2 m, a hip at pitch 3.46 cut to a 1.0 m deck at 22.0 m, an iron crest 0.6 m tall round the deck and a finial on each of its corners; the render's tower edges stand within about 10 px of the print's"
+      "how": "T-3176: the 1911 sheet draws a square turned 45 degrees across the corner (2.27 m on a face, centred on u 23.98, v 15.55), the photograph a broad face about 3.2 m across (3.5 times the front's 1.15 m window beside it); re-solving the camera with the square's side free on the sheet's centre gives 3.25 m at 4.4 px RMS, where the sheet's 2.27 m leaves 40-47 px. Built as K08's polygonal tower turned 45 degrees across the front's south corner (centre 0.42 m inside the front, on the flank's plane), its north-west, south-west and south-east faces outside the walls, the storey bands at 7.5 and 12.6 m, its wall top 16.2 m, a hip at pitch 3.46 cut to a 1.0 m deck at 22.0 m, an iron crest 0.6 m tall round the deck and a finial on each of its corners; the render's tower edges stand within about 10 px of the print's T-3189: its heights now read through the re-solved camera rather than in proportion to T-3171's cornice: wall top 12.1 m (y 522 px), deck 16.5 m (y 175), crest and finials to about 17.0 and 17.6 m; the render puts them at y 522, about 170 and about 55-75 px against the print's 522, 175 and 88"
     },
     {
       "what": "the pavilion's steep pyramidal roof over the cornice, with its finial and its triple attic lights (x 330-560 px, y 350-830); the render showed the pavilion's low hip under the main mansard. T-3175 carries the pavilion up an attic storey from the main eave to its own cornice at the main curb's height (y about 605 px, 16.8 m), three tall lights in its wall, under a slated crown hipped on every side at 47 degrees to a point (about 20.5 m) and a turned iron finial",
@@ -69,13 +69,14 @@
       "status": "open"
     },
     {
-      "what": "the barred basement lights' full height, about 1.5 m (K02's two base courses hold them to 0.75 m)",
-      "status": "open"
+      "what": "the barred basement lights' height: T-3171's camera read about 1.5 m; the re-solved one reads about 1.0 m",
+      "status": "within tolerance",
+      "how": "T-3189: through the re-solved camera the print's lights run from about grade to about 1.0 m (y 1475-1553 px beside the pavilion), under the 1.3 m water table; the build's stand 0.3-1.05 m, their heads level with the print's and about 0.2 m shorter"
     },
     {
       "what": "the window heights and places on the front and in the pavilion, read through the camera",
       "status": "within tolerance",
-      "how": "they render within about 0.3 m of the print's"
+      "how": "T-3189: through the re-solved camera they render within about 10 px (about 0.1 m) of the print's: the pavilion's at y 1230-1420 and 960-1115 against 1225-1428 and 960-1122, the front's beside it at 1210-1425 against 1210-1432"
     },
     {
       "what": "the stone's colour",
@@ -100,8 +101,9 @@
       "status": "open"
     },
     {
-      "what": "the crown's pitch: the print's rise of about 3.4 m over a half-width of about 3.4 m reads 45 degrees, the build's 47 (the kit's steep range starts over 45), its point about 0.3 m higher",
-      "status": "within tolerance"
+      "what": "the crown's pitch: through the re-solved camera (T-3189) the print's crown rises about 3.0 m (its cornice at y 588 px, 12.1 m, its point at y 407, 15.1 m) over a half-width of about 3.4 m, about 41 degrees; the build's stands at 47, the nearest the kit's slated crown allows (over 45), so its point renders at y about 347 px, about 0.75 m over the print's",
+      "status": "open",
+      "how": ""
     },
     {
       "what": "the crown's finial: the print's is a wrought iron cross-like finial about 1 m tall (y 355-410 px); the build turns the deck's iron finial (T-3000) to the same height",
@@ -109,7 +111,8 @@
     },
     {
       "what": "the heights: through the re-solved camera, read with the sheet's widths, the print puts the water table at about 1.2 m, the string course at 5.2 m and the main cornice's top at 9.4 m over grade, where the record has 2.0, 7.5 and 12.6 m (read through T-3171's camera, which stood on an assumed corner point); the render's house and tower stand about a third taller than the print's, the main cornice at about y 580 against the print's 800 px. The tower's own heights are read from the print in proportion to the main cornice there (its wall top 1.29 times it, its deck 1.75), so they come down with the house's",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3189: the record brought to the re-solved camera's readings, taken on the front beside the pavilion with grade at y 1556-1561: the water table at 1.3 m (y 1452), the string course at 5.3 m (y 1128) and the main cornice's top at 9.4 m (y 790), so the storeys are 4.0 and 4.1 m over a 1.3 m principal floor; the windows (1.6-4.3 and 5.6-8.0 m), the mansard's curb (12.3 m, y 553), the pavilion's attic and crown cornice (12.1 m, y 588) and the tower's wall top (12.1 m, y 522) and deck (16.5 m, y 175) came down with them. The render now puts the main cornice at y 795-805 on the pavilion against the print's 806 px, the string course at 1140-1150 against 1150, and the tower's wall top at 522 against 522"
     },
     {
       "what": "the tower's cornice: the print's deep moulded cornice over a row of brackets (y 485-525 px); the build's plain soffit and fascia 0.45 m out stand in",
@@ -124,7 +127,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the deck's crest: the print's band is pierced by four round holes a face and carries two finials (crossed iron tops) on its near corners; the build's band is solid, and carries a turned finial on each of its four corners, the far two standing behind the near two from this camera",
+      "what": "the deck's crest: the print's band is pierced by four round holes a face and carries two finials (crossed iron tops) on its near corners; the build's band is solid, and carries a turned finial on each of its four corners, the far two standing behind the near two from this camera; and the build's band stands 0.6 m against the print's about 0.42 m (y 140-175 px)",
       "status": "within tolerance"
     },
     {
