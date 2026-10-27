@@ -11,7 +11,7 @@ holds the kit and the record to what the ticket says:
   * a cap's finial may name `form: turned`, a `collar_m` 0.2-0.8 m out on a cone only, and a
     `fabric` from FINIAL_FABRICS; a spike's collar, a collar on a pyramid, an unknown form or
     fabric are refused;
-  * 1801's tower builds its turned finial to 19.59 m over a collar 0.45 m out, ringed with
+  * 1801's tower builds its turned finial to 20.02 m over a collar 0.45 m out, ringed with
     crockets, every face of it the `finial` role, and the plain spike is unchanged;
   * a hooded dormer's face may be `slate` with a `frame_m` 0.05 m wide up to 0.05 m short of its
     surround; a frame on a stone face is refused; 1801's three dormers are slated and framed.
@@ -69,7 +69,7 @@ def tower_checks():
           f"and laid in zinc sheet, not the cap's slate ({b.get('finial_fabric')})")
     bay = built(b["variant"])
     m = bay.meta["finial"]
-    check(m["form"] == "turned" and abs(m["top_m"] - 19.59) < 0.01, f"its tip at 19.59 m, the print's about 19.6 ({m})")
+    check(m["form"] == "turned" and abs(m["top_m"] - 20.02) < 0.01, f"its tip at 20.02 m, on the cone T-1890 raised to both pictures ({m})")
     check(m.get("collar_m") == 0.45 and m.get("crockets") == K8.Bay.CROCKETS * len(K8.Bay.CROCKET_TIERS),
           f"its collar ringed with {m.get('crockets')} crockets")
     apex = bay.meta["roof"]["apex"]

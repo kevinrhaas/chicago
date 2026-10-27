@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0ca92f3ef671b621e60192f1f9a3be9837a2e83dbda38282c14c96435dd93ece",
+  "glb_sha256": "813c37762f2793e8333f9cf4e0ea5520f0958eff4c7db132b387f035970868a3",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -232,8 +232,8 @@
     },
     {
       "what": "the tower's cone top: the finial's collar renders with its rim at about y 299 against the print's 277 and its visible tip at about y 119 against 92, so the whole finial stands about 20-25 px (about 0.4-0.5 m) under the print's while its own height from collar to tip is the print's; the cone's apex is what stands low (T-3074's camera reads it at about 17.8 m, built 16.69 m from its eaves at pitch 2.5)",
-      "status": "open",
-      "how": "T-1890 (seen laying the turned finial). Raising the apex is the cone's pitch or its eaves, which the tower's form fixed above; re-read both through the current camera before working it."
+      "status": "fixed",
+      "how": "T-1890 (seen laying the turned finial). Raising the apex is the cone's pitch or its eaves, which the tower's form fixed above; re-read both through the current camera before working it. T-1890: re-read through T-3074's camera, the eave band and the cornice stand on the print's (about y 496-508) and only the cone's rise is short, so the cone is pitched 2.7 where it was 2.5: its apex at 17.12 m (16.69), the finial's tip at 20.02 m. Re-rendered, the collar's rim stands at about y 285-290 against the print's 277 and the finial's tip at about 99 against 92, about 8-10 px (about 0.2 m) under the print's, within tolerance; HABS photograph 2, which read the apex about 15 px under its own, now puts the collar within about 3 px, so the two pictures bracket the build"
     },
     {
       "what": "the flank section's west corner (T-1890): the print rounds it under the cornice (x 480-530 px, a light in the round), the build stands it square",
