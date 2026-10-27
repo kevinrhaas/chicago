@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2338, ts: '2026-10-27T12:57:23.899Z', date: 'Oct 27, 2026, 7:57 AM CT', title: '1834 Prairie, the Jones house, now matches its photograph', kind: 'improvement',
+    items: [
+      'The front door is a tall round-arched doorway with a stone hood and keystone, and its front steps have open sides under scrolled cast-iron railings. The landing runs on south to the corner behind a pierced iron guard.',
+      'Two pierced iron balconettes stand under the north windows of the main floor. The wider one rests on carved stone brackets.',
+      'The basement windows are tall and round-headed. The light stone basement now wraps round the north side, and the bay window there has arched windows under a bracketed hood.',
+      'The cornice is deep, with paired brackets over a plain frieze, and the stone band across the brick front is gone.',
+      'A gap in the low stone wall at the street lets the front walk through, as in the photograph.',
+    ] },
   { v: 2337, ts: '2026-10-27T12:22:40.546Z', date: 'Oct 27, 2026, 7:22 AM CT', title: '1720 Prairie\'s upper storey now matches its photograph', kind: 'feature',
     items: [
       '1720 Prairie Avenue\'s upper storey now matches the Tyrrell photograph: a canted bay with a hipped cap stands on the porch roof at the south end, and a low gable rises over the middle of the front.',
