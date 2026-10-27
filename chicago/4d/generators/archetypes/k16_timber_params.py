@@ -382,6 +382,13 @@ def frame_house_errors(fh: dict) -> list[str]:
     if po is not None and (po.get("kind") != "porch" or not _num(po.get("half_width_m"))
                            or not _num(po.get("centre_m"))):
         out.append("porch must be a kit 'porch' variant with half_width_m and centre_m")
+    elif po is not None:
+        ip = po.get("inner_posts_m")     # T-3180: posts between a long porch's ends, each half's
+        if ip is not None and not (isinstance(ip, list) and all(_num(x) and 0.3 <= x <= po["half_width_m"] - 0.6 for x in ip)):
+            out.append("porch.inner_posts_m must list posts 0.3 m out from the porch's middle to 0.6 m short of its end")
+        bm = po.get("basement_m")
+        if bm is not None and not (_num(bm) and 0.0 <= bm <= 2.5):
+            out.append("porch.basement_m (the floor raised over the kit's) must lie in 0-2.5 m")
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
