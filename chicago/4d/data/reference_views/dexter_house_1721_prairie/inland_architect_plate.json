@@ -1,0 +1,27 @@
+{
+ "structure_id": "dexter_house_1721_prairie",
+ "source_id": "inland_architect_1891_06_dexter_plate",
+ "library_image": "a16-inland-1891-dexter-residence",
+ "photo": "../../sources/assets/dexter_1721_plate_t1879/inland_architect_1891_dexter_1721.jpg",
+ "image_px": [
+  2000,
+  1388
+ ],
+ "principal_px": [
+  993.0,
+  1149.3
+ ],
+ "focal_px": 1641.9,
+ "eye": [
+  36.11,
+  -4.75,
+  -0.04
+ ],
+ "yaw_deg": 296.11,
+ "sun_uvy": [
+  1.0,
+  0.5,
+  0.9
+ ],
+ "solve": "Solved by T-1879 on the 1911 sheet's plan as T-1878 traced it (s20fp-1721-b1) and the plate alone, the image store's 2000 x 1388 px copy of the Art Institute's IIIF file. The footprint frame's u runs toward Prairie Avenue (west) and v runs SOUTH from the main block's north wall; the recessed street wall is u 7.75, the forward block's face u 10.65 from v 3.55 to 17.6, the main block u 0-7.75, v 0-17.6. WHICH WAY IT LOOKS: south-east, from the roadway of Prairie Avenue north-west of the house: the recessed front, the porch and the whole forward block are seen, and the north flank narrowly (x 432-513 px). FIT: a least-squares fit of eye, heading, focal length and horizon, with the main cornice's crown and the forward block's dentil band left free as two heights, to 14 readings: the vertical edges of the main block's north-west corner (u 7.75, v 0; x 513), its north-east corner (u 0, v 0; x 433), the forward block's north-west corner (u 10.65, v 3.55; x 760) and south-west corner (v 17.6; x 1442); the main cornice's crown at its two north corners (x 487, y 374 and x 417, y 545); the forward block's dentil band at its two ends (x 762, y 372 and x 1440, y 528); and the porch's landing edge at the principal floor, 1.3 m (x 640, y 1063). The principal point's x is held at the photograph's centre (993 px; the plate's verticals are vertical, so the camera is level and a rising front only moves the horizon). RESULT: the eye at u 36.1, v -4.75, at the house's grade (-0.04 m), heading 296.1 degrees in the frame, f 1642 px, the horizon at y 1149 px; the main cornice's crown at 12.7 m and the dentil band at 12.4 m over grade, against the record's 13.0 and 12.25. RESIDUALS: 5.5 px RMS, 12.7 px at most (the porch landing); the corners within 10 px. THE EYE'S HEIGHT: the fit puts the lens at the house's own grade. The plate shows the house's walk and lawn raised over the roadway behind a kerb (y 1150-1190 px), so a camera on a tripod in the roadway stands at about the walk's level; an eye-height prior of 1.6 m costs 18 px at the north-east corner and was dropped. UNCERTAINTY: the distance and the focal length trade along one valley, held by the north flank's foreshortening against the forward block's 14 m face. LIGHT: the street faces lit from the west and south-west, the forward block's north return and the north flank in shade, the street trees' leaf shadows on the front (sun_uvy)."
+}
