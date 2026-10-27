@@ -33679,12 +33679,16 @@ distance (its `solve`).
 monochrome); the mansard's deck and its pitch; the treads; the flank, north and rear walls' windows,
 and the flank bays' storeys, windows and roofs (no picture sees them); the stacks' places; the
 rainwater; the sash pattern; the rear range's storeys, windows and flat deck; the side gate.
-**What is not built.** The porch's round arches and its third column, its carving and its stone
-balustrade; the stoop's balustered cheeks; the bay's panelled pilasters; the basement windows' full
-height; the bay carried up into the mansard with its own dormer; and the print's stretch of front
-wall south of the bay, which the sheet does not draw: open on the match record for T-3168.
-**How to resolve:** T-3168 builds those, solves the partial view's camera, and brings both match
-records to `matches`.
+**What is not built.** The porch's round arches and its third column; the basement windows' full
+height (K02's Lemont profile holds the coping they meet to two 0.41 m courses); the bay carried up
+into the mansard with its own dormer; the mansard's last metre of rise (K01's one-storey face stops at
+4.5 m); and the print's stretch of front wall south of the bay, which the sheet does not draw: open
+on the match records. T-3168 laid the porch in the front's stone, its balustrade heavier, and put a
+turned stone balustrade with newels on the stoop's cheeks; the porch's carving and the bay's
+panelled pilasters are surface relief left within tolerance (T-3153). Invented there: the
+balusters' turning and pitch, the newels' size, and the square section of the porch's balusters.
+**How to resolve:** K01/K02 kit work for the arches, the third column, the basement's height and the
+bay's carry into the mansard; a placement ruling for the wall south of the bay.
 **Covers:** `house_1828_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1828_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1828_prairie.as_mapped_1904.form.service_wall_brick`, `house_1828_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1828_prairie.as_mapped_1904.form.stair_tread_m`, `house_1828_prairie.as_mapped_1904.form.side_bays`, `house_1828_prairie.as_mapped_1904.form.north_bays`, `house_1828_prairie.as_mapped_1904.form.rear_bays`, `house_1828_prairie.as_mapped_1904.form.chimneys`, `house_1828_prairie.as_mapped_1904.form.rainwater`, `house_1828_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-3166 (piece 1 of T-1887).
 **Review:** `docs/RESEARCH/k01-1828-shipman-1887/README.md`.

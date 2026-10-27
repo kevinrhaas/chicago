@@ -373,13 +373,13 @@
             },
             "brackets": "k08.bay.canted_hooded",
             "railing": {
-              "height_m": 0.6,
-              "post_m": 0.2,
-              "baluster_m": 0.08,
+              "height_m": 0.65,
+              "post_m": 0.3,
+              "baluster_m": 0.1,
               "pitch_m": 0.2,
               "rail_m": [
-                0.2,
-                0.12
+                0.25,
+                0.15
               ]
             },
             "columns": {
@@ -390,7 +390,66 @@
               ],
               "capital_m": 0.35,
               "respond_m": 0.15
-            }
+            },
+            "railing_fabric": "stone",
+            "fabric": "stone"
+          },
+          "balustrade": {
+            "height_m": 0.9,
+            "pitch_m": 0.2,
+            "newel_m": 0.36,
+            "newel_cap_m": 0.12,
+            "rail_m": [
+              0.2,
+              0.12
+            ],
+            "segments": 8,
+            "profile": [
+              [
+                0.07,
+                0.0
+              ],
+              [
+                0.07,
+                0.06
+              ],
+              [
+                0.05,
+                0.1
+              ],
+              [
+                0.045,
+                0.18
+              ],
+              [
+                0.07,
+                0.35
+              ],
+              [
+                0.075,
+                0.45
+              ],
+              [
+                0.05,
+                0.65
+              ],
+              [
+                0.036,
+                0.78
+              ],
+              [
+                0.05,
+                0.86
+              ],
+              [
+                0.06,
+                0.94
+              ],
+              [
+                0.06,
+                1.0
+              ]
+            ]
           }
         }
       },
@@ -399,7 +458,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch: its round arches, its carving and the stone of its balustrade are open in the match record."
+      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. The porch's round arches and third column are open in the match records; its carving is within tolerance (relief under a foot)."
     },
     "boundary": {
       "value": {
