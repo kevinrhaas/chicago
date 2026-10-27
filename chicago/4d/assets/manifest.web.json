@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__draft_1904.glb": "e0e660dd4d59fad53946a89cb7131babd9d202ae183bab58695ce2638e197477",
@@ -426,10 +427,10 @@
     "potawatomi_camp_1812_mouth__camp_1812.glb": "678bcc0813d8e2902e19d27e0b58172573e38047ae6581ed4044b9e140de6ff3",
     "potawatomi_camp_1812_upper__camp_1812.glb": "e5d0f9d13349faf7d780e7eb342830121b8b03efdfd7ebd06c147e8818921bc1",
     "pruyne_kimball_drugstore__frame_1830s.glb": "408ff1e6e386e04cc2487eedf5c731b76ca4d52fa5b9ffbb08fa425764913bc5",
-    "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": "72785b791b8b5ca72db751ca34c5c889365adef77e6e354c6ef7300a44ca2ac9",
-    "pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb": "f236d877970a4abc4f0da0d646459152b3a3e127098211a08050088c26a8a9e2",
-    "pullman_glasshouse_1800_calumet_north__as_standing_1904.glb": "2e60cf2516491dc1f770625c108b1328115e7558fc9699d3f7099dbc39108222",
-    "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": "9fa8f8489955f01ec95d7776a68969f556a790e91be7f26cc7ad42df3c5b3710",
+    "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": "4699a5cc737f95cbdf9d65d1a2297a52a40439abbbd3cd769ba25744bea8390e",
+    "pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f",
+    "pullman_glasshouse_1800_calumet_north__as_standing_1904.glb": "90ecaa7328e04d6c3da52efb09fe4475df0195fce7925a199b0c1eab8812b2c1",
+    "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": "1893b2098fa4b31daa98a452095ebeccb3ab857ac059b2286df5d13dbe1f1464",
     "pullman_house_1729_prairie__as_mapped_1904.glb": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
     "pullman_house_1729_prairie_conservatory__as_standing_1904.glb": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
     "pullman_house_1729_prairie_ranges__draft_1904.glb": "f90f1211a87638e2bbf3ac21ab6b639bdad02428e9119a1e6de818198e9cf8d0",
@@ -1031,6 +1032,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "394c965b3637b16fc5b35b7a169d4ef95ce7c2c3805bcb50abb20f8e1912f75f",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }

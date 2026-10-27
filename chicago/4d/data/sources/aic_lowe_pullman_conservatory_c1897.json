@@ -1,0 +1,27 @@
+{
+ "id": "aic_lowe_pullman_conservatory_c1897",
+ "type": "photograph",
+ "citation": "Unknown photographer. Pullman, George M., Residence [the conservatory from 18th Street]. Photograph, c. 1897 (holder's view date). Chicago History Museum original; copy in the David Garrard Lowe Historic Chicago Photograph Collection, Art Institute of Chicago, Ryerson and Burnham Archives, 201602_170420-1229.",
+ "author": "unknown (Chicago History Museum original)",
+ "date": "c. 1897 (holder's view date)",
+ "describes_date": "c. 1895-1900",
+ "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/76204), courtesy Chicago History Museum. Prairie library image a16-aic-lowe-pullman-conservatory-c1897, recorded there as 'link only' with a reference copy the owner directed on 2026-10-11; the copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-aic-lowe-pullman-conservatory-c1897.jpg), committed since T-3179 at data/sources/assets/pullman_1800_glasshouses_t3179/ with its attribution.",
+ "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/76204",
+ "locator": "The whole print: from 18th Street, three children on the walk by the drive's west gate pier, the conservatory at right, the east range, its domed round end and the lodge behind at left, a large tree in leaf at centre.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The holder's statement: contact the archives for publication information (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset, and the copy committed for the image gate (T-3179) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3179) from the image store's reference copy, 1200 x 798 px, sha256 0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560, the holder's IIIF 1200 px derivative.",
+ "note": "A second view from almost the plate's spot, a few years later: the same conservatory, range, round end and lodge, unchanged, and the same garden where the 1911 sheet later draws the north range. T-3179 solved a diagnostic camera on it (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory.json) as the plate's cross-check.",
+ "what_it_supplies": [
+  "a cross-check of the plate's heights and forms a few years later",
+  "that nothing in the view changed between 1894 and c. 1897"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state",
+  "colour",
+  "its own camera distance: the print is cropped, so its fit is diagnostic"
+ ]
+}

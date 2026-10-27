@@ -128,7 +128,8 @@
                 "reach_m": 1.35,
                 "rise_m": 5.75,
                 "section": "elliptic",
-                "rib_spacing_m": 0.9
+                "rib_spacing_m": 0.9,
+                "hip_m": 1.5
               },
               "drum": {
                 "radius_m": 2.05,
@@ -143,11 +144,13 @@
                 "rise_m": 3.1,
                 "rib_m": 0.06,
                 "finial_m": 0.5
-              }
+              },
+              "arch_frame_m": 0.35,
+              "mullion_m": 0.15
             },
             "facets": 4
           },
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28",
             "inland_1894_pullman_conservatory",

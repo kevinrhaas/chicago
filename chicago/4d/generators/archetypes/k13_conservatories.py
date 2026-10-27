@@ -1692,7 +1692,8 @@ def pavilion(h: House, ps: dict):
     for sgn, zw in ((-1.0, 0.0), (1.0, W)):           # the east arm (z < 0) and the west
         ze = zw + sgn * reach
         zin = lambda y: zw - sgn * into(y)
-        hip = lambda q: ze - sgn * q                   # the hip line's z at a run q in from the eave
+        kf = tr.get("hip_m", tw / 2) / (tw / 2)        # the end's run, as a share of the sides'
+        hip = lambda q: ze - sgn * q * kf              # the hip line's z at a run q in from the eave
         for x in (xa, xb):
             h.face("sky_glass", [(x, 0.0, ze), (x, 0.0, zw), (x, he, zw), (x, he, ze)], (x - xc, 0.0, 0.0))
         h.face("sky_glass", [(xa, 0.0, ze), (xb, 0.0, ze), (xb, he, ze), (xa, he, ze)], (0.0, 0.0, sgn))
@@ -1720,6 +1721,22 @@ def pavilion(h: House, ps: dict):
         h.face("stonework", [(so, ya, za), (so, yb, zb), (so, yc, zc_), (so, yd, zd)], (-1.0, 0.0, 0.0))
     for z0, z1 in ((zc - r - sw, zc - r), (zc + r, zc + r + sw)):
         h.face("stonework", [(so, 0.0, z0), (so, 0.0, z1), (so, ht - r, z1), (so, ht - r, z0)], (-1.0, 0.0, 0.0))
+    # the north end's broad arched frame round the glass, and the bar up its middle (the plate's)
+    fw, fo = ps.get("arch_frame_m", 0.0), -0.05
+    if fw:
+        out = [(W - z, y) for z, y in nave] + [(z, y) for z, y in reversed(nave[:-1])]   # (z, y), eave to eave
+        inner = []
+        for i, (z, y) in enumerate(out):
+            a, b = out[max(i - 1, 0)], out[min(i + 1, len(out) - 1)]
+            dz, dy = b[0] - a[0], b[1] - a[1]
+            ln = math.hypot(dz, dy)
+            nz, ny = dy / ln, -dz / ln                 # inward: the outline runs west to east over the top
+            inner.append((z + nz * fw, y + ny * fw))
+        for (za, ya), (zb, yb), (zc_, yc), (zd, yd) in zip(out, out[1:], inner[1:], inner):
+            h.face("dome_rib", [(fo, ya, za), (fo, yb, zb), (fo, yc, zc_), (fo, yd, zd)], (-1.0, 0.0, 0.0))
+        m = ps.get("mullion_m", 0.15)
+        h.face("dome_rib", [(fo, he, W / 2 - m / 2), (fo, he, W / 2 + m / 2), (fo, nave[-1][1] - fw, W / 2 + m / 2),
+                            (fo, nave[-1][1] - fw, W / 2 - m / 2)], (-1.0, 0.0, 0.0))
     # the drum and dome over the crossing
     dr = ps["drum"]
     _prism(h, "sky_glass", [(xc + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),

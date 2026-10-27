@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 798,
+  "count": 799,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1719,7 +1719,7 @@
     },
     {
       "id": "pullman_glasshouse_1800_calumet_pavilion",
-      "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range"
+      "name": "Pullman estate (1800 S. Calumet Avenue): Beman's conservatory at the head of the north range"
     },
     {
       "id": "pullman_house_1729_prairie",
@@ -56262,7 +56262,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue, across 18th Street from the house, which the district draft left as open grass because the sheet-28 trace never drew it (`“The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate”`; this entry supersedes that paragraph's note that the ground is left to). Five records: the cross-shaped pavilion at the head of the north range (Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range), the north-south range (`_north`), the east-west range (`_east`) and its narrower rounded end (_east end), all built by the k13 emit generator from the K13 kit (`“The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed”`), and the two-storey brick lodge at the angle (Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges) on the district draft's builder. **What is read.** Each outline, between the drawn lines' centres on the committed sheet 28 raster, carried by the sheet's fitted similarity (1.47 m RMS on independent houses): the pavilion's long arm 8.34 by 12.59 m, the north range 8.90 by 23.71 m, the east range 7.13 by 16.83 m, the end 5.56 m wide ending in a semicircle, the lodge 8.95 by 11.58 m; one storey on every glasshouse and two on the lodge, as printed; 'GREEN HO.' and 'GLASS ROOF' as lettered. Inferred for 1904 on the sheet-28 census's allocation (`s28-pullman-service-garden`), which rests on the image research placing Beman's conservatory across 18th Street, toward Calumet. **What is invented.** Every size above the plan: the eaves (3.4 m on the pavilion, 2.6 m on the north range, 2.4 m on the east range and its end), the 30 degree glass roofs, the pavilion's lantern, the bay counts, the ridge ventilators, the plinths, gutters and staging of the kit, and the pavilion's door in its north end. The rounded end is the kit's new span apse form: seven planar facets under a half-cone of glass, its apex carried 0.7 m past the springing. The lodge is a hipped two-storey brick block with three bays on its alley front, a door at its south end and one stack, the draft rules' brick-family values; nothing describes it beyond the sheet's '2' and 'D', and the census itself grades it reconstructed. **What is not built.** The pavilion's middle arms (the cross is built as its long arm alone, 1.3 m and 1.4 m short of the drawn width over 7 m of its length), the quarter-round one-storey piece in the angle north of the east range, and the dashed partition across the east range. Where two houses meet, one end wall stands for both (the kit's `abuts`), so no line of sight crosses a second glass envelope; the pavilion stops 5 cm short of the north range's end for the same reason. **Two readings of the sheet.** This copy washes the lodge pink in a triangle that runs diagonally into the east range; the lodge is read as the rectangle its lines and the dashed east line bound, and the wash as the colourist's. That is also why the outlines are read by hand at named pixels (as `“A glazed conservatory bay on the Pullman house's east wing, read from a semicircle on the 1911 sheet”` read the house's bay off sheet 20) and not by the trace prairie 1904 footprints tool, whose colour rule would follow the wash."
+          "text": "the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue, across 18th Street from the house, which the district draft left as open grass because the sheet-28 trace never drew it (`“The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate”`; this entry supersedes that paragraph's note that the ground is left to). Five records: the cross-shaped pavilion at the head of the north range (Pullman estate (1800 S. Calumet Avenue): Beman's conservatory at the head of the north range), the north-south range (`_north`), the east-west range (`_east`) and its narrower rounded end (_east end), all built by the k13 emit generator from the K13 kit (`“The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed”`), and the two-storey brick lodge at the angle (Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges) on the district draft's builder. **What is read.** Each outline, between the drawn lines' centres on the committed sheet 28 raster, carried by the sheet's fitted similarity (1.47 m RMS on independent houses): the pavilion's long arm 8.34 by 12.59 m, the north range 8.90 by 23.71 m, the east range 7.13 by 16.83 m, the end 5.56 m wide ending in a semicircle, the lodge 8.95 by 11.58 m; one storey on every glasshouse and two on the lodge, as printed; 'GREEN HO.' and 'GLASS ROOF' as lettered. Inferred for 1904 on the sheet-28 census's allocation (`s28-pullman-service-garden`), which rests on the image research placing Beman's conservatory across 18th Street, toward Calumet. **What is invented.** Every size above the plan: the eaves (3.4 m on the pavilion, 2.6 m on the north range, 2.4 m on the east range and its end), the 30 degree glass roofs, the pavilion's lantern, the bay counts, the ridge ventilators, the plinths, gutters and staging of the kit, and the pavilion's door in its north end. The rounded end is the kit's new span apse form: seven planar facets under a half-cone of glass, its apex carried 0.7 m past the springing. The lodge is a hipped two-storey brick block with three bays on its alley front, a door at its south end and one stack, the draft rules' brick-family values; nothing describes it beyond the sheet's '2' and 'D', and the census itself grades it reconstructed. **What is not built.** The pavilion's middle arms (the cross is built as its long arm alone, 1.3 m and 1.4 m short of the drawn width over 7 m of its length), the quarter-round one-storey piece in the angle north of the east range, and the dashed partition across the east range. Where two houses meet, one end wall stands for both (the kit's `abuts`), so no line of sight crosses a second glass envelope; the pavilion stops 5 cm short of the north range's end for the same reason. **Two readings of the sheet.** This copy washes the lodge pink in a triangle that runs diagonally into the east range; the lodge is read as the rectangle its lines and the dashed east line bound, and the wash as the colourist's. That is also why the outlines are read by hand at named pixels (as `“A glazed conservatory bay on the Pullman house's east wing, read from a semicircle on the 1911 sheet”` read the house's bay off sheet 20) and not by the trace prairie 1904 footprints tool, whose colour rule would follow the wash."
         },
         {
           "label": "How to resolve",
@@ -56953,6 +56953,72 @@
       "work_refs": [
         "T-3153",
         "T-2386"
+      ]
+    },
+    {
+      "id": "L-pullman-conservatory-3179",
+      "title": "Pullman's glasshouses worked to the 1894 Inland plate and the c. 1897 Lowe photograph: Beman's pointed conservatory, the masonry range and its domed colonnade",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_east",
+        "pullman_glasshouse_1800_calumet_east_end",
+        "pullman_glasshouse_1800_calumet_north",
+        "pullman_glasshouse_1800_calumet_pavilion",
+        "pullman_lodge_1800_calumet"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_east",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_east_end",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_north",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman estate's glasshouse ground across 18th Street stops being four K13 ranges read off the 1911 sheet alone and is worked to the two pictures of it from 18th Street, the 1894 Inland Architect plate \"Conservatory of Geo. M. Pullman\" (inland 1894 pullman conservatory) and the c. 1897 photograph in the Lowe collection (aic lowe pullman conservatory c1897), through solved cameras in the pullman glasshouse 1800 calumet pavilion data. **What is read.** Through the plate's camera (49.5 px/m on the conservatory's north front, scaled by its 8.34 m width; 25.8 px/m at the range): the conservatory a glass nave on a pointed section, its north end the great pointed arch with a broad frame and a bar up its middle, springing at about 3.6 m over a band of upright glazing on a stone podium about 2.3 m high, its apex about 9.45 m; the arched stone entrance in that end, about 2.1 m wide and 3.5 m to its crown; a transept crossing it, its north face rising upright and turning level at a crest about 9.35 m; an octagonal glazed drum to about 10.0 m and a ribbed dome about 4 m across, its crown about 13.1 m with a finial over it. The east range a masonry wall about 6.0 m to its coping, eight square-headed windows high in it between pilasters, and no roof seen over its parapet. Its round east end a glazed colonnade under an entablature level with that coping and a low ribbed dome, crown about 7.3 m. The north range's north end a low curved glass roof, eave about 1.9 m and crown about 4.2 m. **What is invented.** The transept's plan and its hipped end: the 1911 sheet's cross arms (1.35 m out over 7 m of the nave) are kept, with a curved hip whose run (1.5 m) puts its crest's end where the plate does; the plate shows a narrow upright end where that plan shows a curved one about 1.5 m further east, and the plan is held to the sheet. The transept, drum and domes are glazed in an opaque substitute toned as the pictures show the glass (pale), because they stand outside the nave's one transparent envelope (the K13 kit's rule). The vault's four facets a half and the kit's bays, bars and staging; the stone tone; the walls' thickness, the windows' even spacing and the range's glass roof at a low 14 degrees behind its parapet (the sheet letters a glass roof, which no picture sees); a column at every joint of the round end and one midway along its straight sides; the domes' profiles. The north range's curvilinear section along its whole length, which the pictures see only at its north end. **What is not.** The plan of every range is the sheet's. **The north range and the pictures' date.** Both pictures (1894 and c. 1897) show garden and the lodge's front where the 1911 sheet draws a 23.7 m glass range from the conservatory's south end to the lodge, with only a short curved glass link beside the conservatory: the range was lengthened between about 1897 and 1911. Nothing dates it inside that span, so the 1904 scene keeps the sheet's range, and the match records say so rather than copying an earlier state. The lodge (Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges), which both pictures show as a two-storey stone building with a bowed front, a recessed columned porch under a balcony and a crested mansard roof, is outside this entry and still the draft's reconstruction. Supersedes the forms and heights (not the plans) of “Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit” for the four glasshouse records."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plan of the conservatory or a third picture from the east settles the transept's end; a dated view or permit between 1897 and 1911 dates the north range's lengthening."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3179)."
+        }
+      ],
+      "work_refs": [
+        "T-3179",
+        "T-3165"
       ]
     },
     {
