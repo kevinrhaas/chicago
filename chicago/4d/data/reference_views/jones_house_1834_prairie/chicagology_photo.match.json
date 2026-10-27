@@ -1,123 +1,178 @@
 {
- "structure_id": "jones_house_1834_prairie",
- "view": "chicagology_photo",
- "glb": "assets/gltf/jones_house_1834_prairie__as_mapped_1904.glb",
- "glb_sha256": "fe36331e7f2c3d5b57571f8e1a2c6c6589e7c3672ac509a53109559195449764",
- "camera_sha256": "b4e3db30dc1ca24563f8f0d7b1c293d1d1b77adcc7df81462bc57c8272f310af",
- "photo_sha256": "b56b80160679f820ed88e84b46eaf9a96c838b317fe1791ebf78d2773156fe52",
- "side_by_side": "docs/RESEARCH/photo-match/jones_house_1834_prairie/chicagology_photo-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "massing: a front about 9.6 m wide of two storeys over a high basement, the north flank receding to a one-storey canted bay",
-   "status": "fixed",
-   "how": "T-1888: the 1911 sheet's 22.25 x 9.58 m body on K01, the principal floor 2.2 m and the storeys 3.95 and 3.6 m read through this camera; the front's corners, wall head and water table render within about 2 px"
-  },
-  {
-   "what": "the street front's four opening columns, the door in the second from the south (the print turned back)",
-   "status": "fixed",
-   "how": "T-1888: front_bays 1.18, 3.50, 5.88, 8.37 m and entrance_bay 2; every window renders on its column within about 5 px"
-  },
-  {
-   "what": "every street window segmental-headed under a light hood with a key at its crown, the principal storey's taller than the upper's",
-   "status": "fixed",
-   "how": "T-1888: street_front_round_heads (segmental, key) over K06's one-over-one segmental sash, 0.95 x 2.15 m and 0.9 x 2.05 m; sills and crowns within about 5 px"
-  },
-  {
-   "what": "the high basement of smooth light ashlar on the front to a water table at the principal floor, the front's brick over it far darker",
-   "status": "fixed",
-   "how": "T-1888: K02 Lemont limestone stopped at the principal floor (stone_front.brick_above_m 2.2) and the front's brick toned red-brown apart from the flanks"
-  },
-  {
-   "what": "the basement lights under the two north principal windows",
-   "status": "fixed",
-   "how": "T-1888: K06 area lights at 0.25-1.1 m on their columns"
-  },
-  {
-   "what": "the north flank: blank brick from the corner, one window a storey, the round-headed pair over the bay",
-   "status": "fixed",
-   "how": "T-1888: north_bays read off this camera at s 6.6 (both storeys) and the pair at s 9.0 and 10.15; they render on the print's"
-  },
-  {
-   "what": "the one-storey canted bay of light stone on the north flank, about 9-12 m back from the front",
-   "status": "fixed",
-   "how": "T-1888: K08 canted bay, stone, 3.0 m along the wall and 1.2 m proud, its top 5.7 m; its edges render within about 10 px"
-  },
-  {
-   "what": "the bracketed cornice round the front and the north flank",
-   "status": "fixed",
-   "how": "T-1888: K10's bracketed timber cornice at the 9.75 m wall head, 0.9 m out"
-  },
-  {
-   "what": "the low stone wall on the street line before the lawn, no fence on it",
-   "status": "fixed",
-   "how": "T-1888: K11's stone coping wall, 0.45 m high"
-  },
-  {
-   "what": "the door's height: a tall doorway, its head level with the principal windows'",
-   "status": "fixed",
-   "how": "T-1888: door_clear_height_m 3.0 read through this camera"
-  },
-  {
-   "what": "the door's segmental stone hood and key over a pair of leaves, as the windows' hoods; built as a plain K07 door in a square hole",
-   "status": "open"
-  },
-  {
-   "what": "the iron balconettes under the two north principal windows (the north one broader, on scrolled consoles); not built: the kit lays a balcony only on a bay",
-   "status": "open"
-  },
-  {
-   "what": "the stoop's cast-iron railings, scrolled panels on newels, over open steps; built with K07's solid stone cheeks",
-   "status": "open"
-  },
-  {
-   "what": "a stone belt across the front at the second floor and a thin band at the principal heads, which K01's stone front lays and the print does not show",
-   "status": "open"
-  },
-  {
-   "what": "the north flank's basement is light stone in the print, like the front's; built in the flank's common brick to grade",
-   "status": "open"
-  },
-  {
-   "what": "the north wall ends at the bay's far side in the print (sky beyond; the 1911 sheet steps the wall back 1.26 m behind the bay); built running on to the rear at full width",
-   "status": "open"
-  },
-  {
-   "what": "the bay's lights round-headed, its stone base with a round-headed basement light, and its top a bracketed cornice; built square-headed under a plain cap",
-   "status": "open"
-  },
-  {
-   "what": "the cornice's depth: a tall plain frieze with panels between paired carved brackets about 1.1 m deep; K10's cornice is shallower and its brackets smaller",
-   "status": "open"
-  },
-  {
-   "what": "the basement lights are round-headed in the print; K06's area light is square-headed",
-   "status": "open"
-  },
-  {
-   "what": "the walk passes through the stone wall in the print; K11's coping wall is unbroken",
-   "status": "open"
-  },
-  {
-   "what": "the roof: a low hipped roof with a broad centre gable and an oculus over the front, two tall stacks; the 1904 house carries the mansard storey of 1886 the photograph predates (the register; the 1911 sheet's 3 storeys), built reconstructed over the same cornice. A picture before 1886 is evidence of its date (AGENTS.md rule 11), so its roof is not copied into 1904",
-   "status": "not shown"
-  },
-  {
-   "what": "colour: the print is monochrome; only the front's brick reading darker than its stone and the sunlit flank is read",
-   "status": "not shown"
-  },
-  {
-   "what": "the south flank and the rear, which the camera does not see",
-   "status": "not shown"
-  },
-  {
-   "what": "the hoods' short ears at their springing, which K06's band does not carve",
-   "status": "within tolerance"
-  },
-  {
-   "what": "the round-headed pair's lights set 0.4 m apart, the kit's least between read windows, where the print shows a narrow mullion",
-   "status": "within tolerance"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "jones_house_1834_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/jones_house_1834_prairie__as_mapped_1904.glb",
+  "glb_sha256": "c4e87cd7ff6080e30883d77c61eb21f4b325911150f33c761ccf9b6bb8926af2",
+  "camera_sha256": "b4e3db30dc1ca24563f8f0d7b1c293d1d1b77adcc7df81462bc57c8272f310af",
+  "photo_sha256": "b56b80160679f820ed88e84b46eaf9a96c838b317fe1791ebf78d2773156fe52",
+  "side_by_side": "docs/RESEARCH/photo-match/jones_house_1834_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: a front about 9.6 m wide of two storeys over a high basement, the north flank receding to a one-storey canted bay",
+      "status": "fixed",
+      "how": "T-1888: the 1911 sheet's 22.25 x 9.58 m body on K01, the principal floor 2.2 m and the storeys 3.95 and 3.6 m read through this camera; the front's corners, wall head and water table render within about 2 px"
+    },
+    {
+      "what": "the street front's four opening columns, the door in the second from the south (the print turned back)",
+      "status": "fixed",
+      "how": "T-1888: front_bays 1.18, 3.50, 5.88, 8.37 m and entrance_bay 2; every window renders on its column within about 5 px"
+    },
+    {
+      "what": "every street window segmental-headed under a light hood with a key at its crown, the principal storey's taller than the upper's",
+      "status": "fixed",
+      "how": "T-1888: street_front_round_heads (segmental, key) over K06's one-over-one segmental sash, 0.95 x 2.15 m and 0.9 x 2.05 m; sills and crowns within about 5 px"
+    },
+    {
+      "what": "the high basement of smooth light ashlar on the front to a water table at the principal floor, the front's brick over it far darker",
+      "status": "fixed",
+      "how": "T-1888: K02 Lemont limestone stopped at the principal floor (stone_front.brick_above_m 2.2) and the front's brick toned red-brown apart from the flanks"
+    },
+    {
+      "what": "the basement lights under the two north principal windows: tall round-headed windows, about 0.95 m by 1.7 m from about 0.15 m over grade",
+      "status": "fixed",
+      "how": "T-1888 placed them on their columns; T-3184: basement_lights head round, 0.95 x 1.7 m at 0.15 m, cut in the stone (ROUND_PLAIN) with their spandrels filled, under a plain plinth; sills, jambs and crowns render within about 6 px"
+    },
+    {
+      "what": "the north flank: blank brick from the corner, one window a storey, the round-headed pair over the bay",
+      "status": "fixed",
+      "how": "T-1888: north_bays read off this camera at s 6.6 (both storeys) and the pair at s 9.0 and 10.15; they render on the print's"
+    },
+    {
+      "what": "the one-storey canted bay of light stone on the north flank, about 9-12 m back from the front",
+      "status": "fixed",
+      "how": "T-1888: K08 canted bay, stone, 3.0 m along the wall and 1.2 m proud, its top 5.7 m; its edges render within about 10 px"
+    },
+    {
+      "what": "the bracketed cornice round the front and the north flank",
+      "status": "fixed",
+      "how": "T-1888: K10's bracketed timber cornice at the 9.75 m wall head, 0.9 m out"
+    },
+    {
+      "what": "the low stone wall on the street line before the lawn, no fence on it",
+      "status": "fixed",
+      "how": "T-1888: K11's stone coping wall, 0.45 m high"
+    },
+    {
+      "what": "the door's height: a tall doorway, its head level with the principal windows'",
+      "status": "fixed",
+      "how": "T-1888: door_clear_height_m 3.0 read through this camera"
+    },
+    {
+      "what": "the door's segmental stone hood and key over a pair of leaves, as the windows' hoods; built as a plain K07 door in a square hole",
+      "status": "fixed",
+      "how": "T-3184: a round-headed doorway 1.4 x 3.3 m over the landing under K01's door arch (a stone ring with its key to 5.85 m) and K07's pair of leaves in a 0.4 m reveal; the ring and key stand on the print's hood within about 8 px"
+    },
+    {
+      "what": "the iron balconettes under the two north principal windows (the north one broader, on scrolled consoles); not built: the kit lays a balcony only on a bay",
+      "status": "fixed",
+      "how": "T-3184: street_front_iron.balconettes, read off this camera: v 5.36-6.39 m 0.25 m proud, and v 7.20-9.55 m 0.6 m proud on two scrolled consoles, each a pierced iron guard 0.8 m high on a stone slab at the water table; their ends render within about 6 px"
+    },
+    {
+      "what": "the stoop's cast-iron railings, scrolled panels on newels, over open steps; built with K07's solid stone cheeks",
+      "status": "fixed",
+      "how": "T-3184: entrance_kit cheeks false and street_front_iron.stoop_rails: K11's stoop rail each side, a scrolled panel 0.5 m deep under the handrail, the scroll at the foot"
+    },
+    {
+      "what": "a stone belt across the front at the second floor and a thin band at the principal heads, which K01's stone front lays and the print does not show",
+      "status": "fixed",
+      "how": "T-3184: stone_front.belts [] - the brick runs unbroken from the water table to the frieze"
+    },
+    {
+      "what": "the north flank's basement is light stone in the print, like the front's; built in the flank's common brick to grade",
+      "status": "fixed",
+      "how": "T-3184: side_base, the front's stone faced on the north flank to the water table at 2.2 m, round the flank's basement light"
+    },
+    {
+      "what": "the bay's lights round-headed, its stone base with a round-headed basement light, and its top a bracketed cornice; built square-headed under a plain cap",
+      "status": "fixed",
+      "how": "T-3184: K08's hooded canted bay (a hood on consoles), its lights round-headed (K06 round fanlight sash), the near cheek's 0.8 m wide, and a narrow round-headed light in its 2.2 m stone base; the hood's line within about 10 px; re-rendered after the base light was set on the kit's 0.6 m plinth (0.72-1.92 m) and each cheek's light centred on its cheek, as K08's storey and pier rules require: no change a visitor would notice"
+    },
+    {
+      "what": "the cornice's depth: a tall plain frieze with panels between paired carved brackets about 1.1 m deep; K10's cornice is shallower and its brackets smaller",
+      "status": "fixed",
+      "how": "T-3184: the eave raised to the print's cornice top (10.85 m), K10's brackets paired and sized 0.8 m deep and 0.7 m out (wall_head.bracket_m), over a plain frieze 0.9 m deep from the wall head; the crown and the brackets' feet render within about 6 px at both corners"
+    },
+    {
+      "what": "the basement lights are round-headed in the print; K06's area light is square-headed",
+      "status": "fixed",
+      "how": "T-3184: the basement lights are cut round-headed (see above)"
+    },
+    {
+      "what": "the walk passes through the stone wall in the print; K11's coping wall is unbroken",
+      "status": "fixed",
+      "how": "T-3184: the wall's run ends at s 11.63 m (x 630 px on the street line) and the walk's opening runs on to the north lot line (the K11 coping wall's opening run)"
+    },
+    {
+      "what": "the roof: a low hipped roof with a broad centre gable and an oculus over the front, two tall stacks; the 1904 house carries the mansard storey of 1886 the photograph predates (the register; the 1911 sheet's 3 storeys), built reconstructed over the same cornice. A picture before 1886 is evidence of its date (AGENTS.md rule 11), so its roof is not copied into 1904",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: the print is monochrome; only the front's brick reading darker than its stone and the sunlit flank is read",
+      "status": "not shown"
+    },
+    {
+      "what": "the south flank and the rear, which the camera does not see",
+      "status": "not shown"
+    },
+    {
+      "what": "the hoods' short ears at their springing, which K06's band does not carve",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the round-headed pair's lights set 0.4 m apart, the kit's least between read windows, where the print shows a narrow mullion",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the north wall ends at the bay's far side in the print (sky beyond; the 1911 sheet steps the wall back 1.26 m behind the bay): the print shows the full-height body ending about where the sheet's step is (its cornice to x 984 px, about u 8.5 m) and no wall over the step; the 1904 body runs on to the rear at full height",
+      "status": "not shown",
+      "how": "T-3184: the photograph is of before 1886 and the sheet of 1911, which draws a section stepped back there; its height in 1904 is not in any picture held, so the print is evidence of its own date (AGENTS.md rule 11) and the 1904 body follows K01 to the rear (L-k01-1834-jones-1888)"
+    },
+    {
+      "what": "the stoop's landing carried south to the front's south corner as a terrace behind a pierced iron guard (x 177-302 px at the landing's height)",
+      "status": "fixed",
+      "how": "T-3184: entrance_kit terrace (left, to the corner) and the stoop rails' guard along it, pierced its whole length"
+    },
+    {
+      "what": "the flank's principal window on its column (s 6.6) is round-headed, and under it in the stone base a narrow round-headed light",
+      "status": "fixed",
+      "how": "T-3184: north_bays: the window's head round, and a light 0.5 x 1.45 m at 0.3 m, round-headed; both on the print's within about 6 px"
+    },
+    {
+      "what": "the doorway's leaves: dark in the print (in shadow, or open), lighter in the render",
+      "status": "within tolerance",
+      "how": "the leaves' paint is not readable in a monochrome print and the opening's size and head match"
+    },
+    {
+      "what": "the iron reads light in the print; K01's iron is dark",
+      "status": "not shown",
+      "how": "the print is monochrome and the 1904 paint is not known (L-k01-1834-jones-1888)"
+    },
+    {
+      "what": "the frieze's panels between the bracket pairs and the brackets' carving; the frieze is built plain and the brackets are the kit's scroll",
+      "status": "within tolerance",
+      "how": "the band, its depth and the pairs' places stand on the print's; the panels are moulding relief under a foot"
+    },
+    {
+      "what": "the pierced panels' figure (balconettes, stoop rails, guard): the kit's scroll band",
+      "status": "within tolerance",
+      "how": "the panels stand where and as large as the print's; their figure is not readable at this size"
+    },
+    {
+      "what": "the stoop's foot newel is a tall turned post in the print, K11's an iron newel",
+      "status": "within tolerance",
+      "how": "a post about 0.3 m across, in place"
+    },
+    {
+      "what": "the upper storey's crowns stand about 10-15 px (0.2-0.25 m) higher in the print than in the render",
+      "status": "within tolerance",
+      "how": "under the 0.3 m bar"
+    },
+    {
+      "what": "K03's projecting brick course at the second floor on the north flank, which the print does not draw",
+      "status": "within tolerance",
+      "how": "one brick course proud by a few centimetres"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

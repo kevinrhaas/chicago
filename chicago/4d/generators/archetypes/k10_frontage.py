@@ -127,6 +127,18 @@ def spec(params) -> dict | None:
     dp = t.get("depth_m")
     if dp is not None and (t.get("cornice") != STONE or not 0.15 <= float(dp) <= 0.36):
         raise ValueError(f"wall_head.depth_m scales {STONE!r}'s section to 0.15-0.36 m deep (the kit's is 0.36)")
+    fz = t.get("frieze")
+    if fz is not None and (t.get("cornice") != CORNICE or set(fz) != {"height_m", "proud_m"}
+                           or not 0.3 <= float(fz["height_m"]) <= 1.2 or not 0.01 <= float(fz["proud_m"]) <= 0.06):
+        raise ValueError(f"wall_head.frieze runs under {CORNICE!r}: height_m 0.3-1.2 under the soffit, proud_m 0.01-0.06")
+    # T-3184: the timber cornice's brackets sized off a picture (1834's photograph: deep carved
+    # brackets, paired, under a cornice about 1.1 m deep), the kit's shape at the read size
+    bm = t.get("bracket_m")
+    if bm is not None and (t.get("cornice") != CORNICE or set(bm) != {"height_m", "projection_m", "width_m"}
+                           or not 0.3 <= float(bm["height_m"]) <= 1.2 or not 0.08 <= float(bm["width_m"]) <= 0.3
+                           or not 0.2 <= float(bm["projection_m"]) <= float(params.eave_overhang_m) - 0.02):
+        raise ValueError(f"wall_head.bracket_m sizes {CORNICE!r}'s brackets: height_m 0.3-1.2, width_m 0.08-0.3, "
+                         f"projection_m 0.2 m up to 0.02 m short of the eave's overhang")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
@@ -381,7 +393,7 @@ def _dormer(a, K, data, conf):
 
 def _cornice(a, K, data, bays, conf):
     p = a.p
-    B = data["parts"]["bracket"]
+    B = dict(data["parts"]["bracket"], **{k: float(x) for k, x in (p.wall_head.get("bracket_m") or {}).items()})   # T-3184
     bed = [tuple(q) for q in data["parts"]["profiles"]["bed_mould"]["points"]]
     y_s = a.soffit_m                                  # K05's soffit, flat all round
     hb = max(u for _, u in bed)
@@ -502,6 +514,30 @@ def _cornice(a, K, data, bays, conf):
         path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]
         pc = var.piece(f"bed moulding {k + 1}", "timber", "open")
         K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
+    # T-3184: a plain frieze read off a picture (1834's photograph), from `height_m` under the
+    # soffit up to the bed moulding, `proud_m` before the wall and swept round every corner
+    # behind the brackets, in the cornice's painted timber; the heads stand clear under it
+    fz = spec(p).get("frieze")
+    if fz:
+        y_f = y_s - float(fz["height_m"])
+        for o in p.openings:
+            if o.head_m + HEAD_RISE_M > y_f - 0.005 and o.wall in {r.name for r in rr}:
+                raise ValueError(f"wall_head.frieze: the head over {o.wall} s {o.s_m} reaches the frieze at {y_f:.3f} m")
+        fp = float(fz["proud_m"])
+        prof = [(0.0, 0.0), (fp, 0.0), (fp, y_bed - y_f)]
+        fspans = [(0.0, perim)]
+        for c0, c1 in [(c0 + m, c1 + m) for c0, c1 in cut for m in (0.0, perim)]:
+            fspans = [q for s0, s1 in fspans for q in ((s0, min(s1, c0)), (max(s0, c1), s1)) if q[1] - q[0] > 1e-6]
+
+        def fpoint(ps):
+            ps = min(ps, perim) if flat else (ps if abs(ps - perim) < 1e-9 else ps % perim)
+            i = max(j for j in range(len(rr)) if cum[j] <= ps + 1e-9 and j < len(rr))
+            return rr[i].at(ps - cum[i], y_f)
+        for k, (s0, s1) in enumerate(fspans):
+            corners = [c + m * perim for m in (0, 1) for c in cum[:len(rr)] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
+            path = [fpoint(s0)] + [fpoint(c) for c in sorted(corners)] + [fpoint(s1)]
+            pc = var.piece(f"frieze {k + 1}", "timber", "open")
+            K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0)
     if crown:
         _crown_cornice(a, K, var, B, bed, y_s, y_bed, crown)
     a.wall_head = {"brackets": [round(s, 3) for s in (st[2] for st in stations)], "paired": paired,

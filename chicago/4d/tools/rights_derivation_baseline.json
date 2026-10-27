@@ -1370,15 +1370,6 @@
       "sole_support": false,
       "confidence": "inferred"
     },
-    "jones_house_1834_prairie/as_mapped_1904/form.door_clear_height_m": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_1834_jones_photo",
-        "glessner_blog_2015_08_van_osdel"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
     "jones_house_1834_prairie/as_mapped_1904/form.eave_overhang_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -1450,6 +1441,15 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "jones_house_1834_prairie/as_mapped_1904/form.side_base": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "jones_house_1834_prairie/as_mapped_1904/form.stair_landing_depth_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -1503,6 +1503,15 @@
       ],
       "sole_support": true,
       "confidence": "reconstructed"
+    },
+    "jones_house_1834_prairie/as_mapped_1904/form.street_front_iron": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1834_jones_photo",
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
     },
     "jones_house_1834_prairie/as_mapped_1904/form.street_front_round_heads": {
       "kind": "structure",
