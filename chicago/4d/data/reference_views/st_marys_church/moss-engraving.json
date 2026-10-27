@@ -1,0 +1,41 @@
+{
+  "structure_id": "st_marys_church",
+  "source_id": "andreas_1884_st_marys_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_st_marys_church_1843.jpg",
+  "image_px": [
+    2671,
+    3110
+  ],
+  "principal_px": [
+    1335.5,
+    1555.0
+  ],
+  "focal_px": 4206.923209570947,
+  "eye": [
+    -14.565655385750087,
+    16.982661800124934,
+    0.9962677354344135
+  ],
+  "yaw_deg": 0,
+  "basis_right_up_forward": [
+    [
+      -0.590509648551417,
+      -0.8069370113205498,
+      0.012288805016784976
+    ],
+    [
+      -0.10109899501764891,
+      0.08907346285352345,
+      0.9908808765041857
+    ],
+    [
+      0.8006730594781514,
+      -0.583882332303642,
+      0.1341792601319446
+    ]
+  ],
+  "sky": "overcast",
+  "solve": "Provisional diagnostic camera for the complete Moss engraving (Andreas 1884, vol. 1, p. 291). Its depicted year is unknown; the held filename ending in 1843 does not establish a date. Nine coarse manually read body and cross landmarks were fitted with the original 35 by 25 ft footprint and body dimensions fixed. The initial same-camera fit had 72.87 px RMS and 160.42 px maximum residual. The engraved body proportions and groundline do not establish sub-metre calibration. Eye, focal length and basis are retained unchanged for the first and corrected actual native comparisons, so silhouette changes can be assessed together. No surveyed placement or geometry was moved to fit. Overcast review is selected because the engraved hatching does not establish consistent cast shadows. The open belfry and cross, five-sash/end-door topology, far stack and 30 degree pitch are reconstructed for 1835 within an undated alteration interval, rather than a dated original-site elevation. The quoted residual belongs to the initial steeper-roof model; the corrected 30 degree roof is deliberately compared from that unchanged camera, rather than fitted anew. The nine labelled points and original fit are preserved in docs/RESEARCH/photo-match/st_marys_church/moss-initial-camera-fit.json.",
+  "diagnostic_only": true,
+  "library_image": "early-moss-1884-st-marys"
+}
