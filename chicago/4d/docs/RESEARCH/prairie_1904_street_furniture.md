@@ -5,7 +5,8 @@ streetlamps at the corners of major streets, and also from the photo"*. The brie
 repo's `evidence/streetscape-1904-2026-10-27/BRIEF.md` § 2. This page is the reading behind
 `data/street_furniture/1904.json` (written by `tools/lay_prairie_1904_street_furniture.py`, drawn by
 `renderers/web/js/street-furniture.js`); the inventions are `docs/LIBERTIES.md`
-L-prairie-street-lamps-3199 (the lamps) and L-prairie-hydrants-3201 (the hydrants). Every picture below was read from the image store's copy
+L-prairie-street-lamps-3199 (the lamps), L-prairie-hydrants-3201 (the hydrants) and
+L-prairie-utility-poles-3202 (the poles and wires). Every picture below was read from the image store's copy
 (`kevinrhaas/chicago-images`, `prairie-1904/files/<id>.jpg`).
 
 ## 1. Gas lamps (T-3199)
@@ -63,3 +64,30 @@ the elms. The inventions are `docs/LIBERTIES.md` L-prairie-hydrants-3201.
 `readings.json` holds each stand's frame triangles and draw calls with the layer hidden and shown. The
 lamps' stills are in `street-furniture-3199/` (Glessner's corner against Taylor 2135, Pullman's against
 the Detroit view).
+
+## 3. Utility poles and wires (T-3202)
+
+**Glessner's pole.** The c. 1887 photograph of the stable from the north-west
+(`cornell_adw_glessner_stable_1887`, the museum's "Cornell rear") has a wooden pole on the 18th Street
+parkway at the stable's north-west corner, by the alley. It carries one crossarm of about six pins.
+It is the only pole any picture of the district shows. Taylor no. 2135, looking along Glessner's 18th
+Street front east of the stable, shows none; neither does the Detroit Publishing view of 18th Street
+east of Prairie. So the drawn line runs west from Glessner's pole, not east, and turns into the alley
+behind it.
+
+**The alleys.** No picture of an alley in the district has been found. Lines down the alleys are the
+reconstruction: one on each alley's east side, about every 34 m, joined across the cross streets where
+alleys meet. No pole stands on a Prairie Avenue parkway, where the pictures show the lamps and elms and
+no pole.
+
+**22nd Street's trolley.** The photograph from the south-east corner of 22nd and Prairie
+(`chicagology_2140_photo_a`) shows street-railway rails and overhead trolley wires across 22nd Street.
+It is undated, but taken after 1890. The two maps that would date the line,
+`st-uchicago-1902-surface-street-railroads` and `st-uchicago-blanchard-1897-street-car-lines-se`, are
+catalogued in the Prairie library, but their images could not be reached from the build containers.
+So the overhead is inferred from the photograph, and its form is reconstructed: paired plain poles, a
+span wire between them and two contact wires over the tracks. The poles are not in the photograph.
+The inventions are `docs/LIBERTIES.md` L-prairie-utility-poles-3202.
+
+**Stills.** `street-furniture-3202/`: Glessner's stable from 18th Street, the alley behind Glessner's,
+and 22nd Street's overhead, each on the desktop and on a phone, and `readings.json`.
