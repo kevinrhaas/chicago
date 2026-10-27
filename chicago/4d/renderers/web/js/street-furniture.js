@@ -349,7 +349,14 @@ export async function createStreetFurniture({
   const isHydrant = (it) => it.kind === 'fire_hydrant';
   const isPole = (it) => it.kind === 'utility_pole';
   const poleModels = doc.kinds?.utility_pole?.model_m ?? {};
-  const poles = Object.fromEntries(POLE_CLASSES.filter((c) => poleModels[c]).map((c) => [c, poleGeometry(poleModels[c])]));
+  // Classes built alike share one geometry, so they share their draws.
+  const poleKey = (c) => JSON.stringify(poleModels[c]);
+  const poles = {};
+  for (const c of POLE_CLASSES.filter((x) => poleModels[x])) {
+    const k = poleKey(c);
+    if (!poles[k]) poles[k] = { classes: [], geo: poleGeometry(poleModels[c]) };
+    poles[k].classes.push(c);
+  }
   const mats = {
     iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
     glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
@@ -366,9 +373,9 @@ export async function createStreetFurniture({
     { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
-    ...Object.entries(poles).flatMap(([c, g]) => [
-      { name: `pole-${c}-wood`, geo: g, key: 'wood', mat: mats.wood, lift: () => 0, on: (it) => isPole(it) && it.class === c },
-      { name: `pole-${c}-glass`, geo: g, key: 'glass', mat: mats.insulator, lift: () => 0, on: (it) => isPole(it) && it.class === c },
+    ...Object.values(poles).flatMap(({ classes, geo }) => [
+      { name: `pole-${classes.join('-')}-wood`, geo, key: 'wood', mat: mats.wood, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
+      { name: `pole-${classes.join('-')}-glass`, geo, key: 'glass', mat: mats.insulator, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
     ]),
   ];
 
@@ -403,7 +410,7 @@ export async function createStreetFurniture({
   }
   for (const g of [lamp.near.iron, lamp.near.glass, lamp.far.iron, lamp.far.glass, footing.near, footing.far,
     hydrant.near, hydrant.far]) g.dispose();
-  for (const g of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
+  for (const { geo: g } of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
 
   /* ---- the wires (T-3202): one static set of line segments, off on light -- */
   const byId = new Map(placed.map((p) => [p.it.id, p]));

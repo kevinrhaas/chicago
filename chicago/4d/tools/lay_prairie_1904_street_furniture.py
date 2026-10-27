@@ -594,8 +594,9 @@ ALLEY_LINE_JOIN_M = 12.0       # two alley ends this near across a street are on
 POLE = {
     "street": {"height_m": 10.5, "butt_d_m": 0.30, "top_d_m": 0.19, "arms": 1, "pins": 6,
                "arm_len_m": 2.4, "arm_below_top_m": 0.45},
-    "alley": {"height_m": 9.5, "butt_d_m": 0.28, "top_d_m": 0.18, "arms": 1, "pins": 4,
-              "arm_len_m": 1.8, "arm_below_top_m": 0.4},
+    # The alley poles are drawn as Glessner's, the one line pole pictured (and so share its draws).
+    "alley": {"height_m": 10.5, "butt_d_m": 0.30, "top_d_m": 0.19, "arms": 1, "pins": 6,
+              "arm_len_m": 2.4, "arm_below_top_m": 0.45},
     "trolley": {"height_m": 9.0, "butt_d_m": 0.28, "top_d_m": 0.19, "arms": 0, "pins": 0,
                 "span_at_m": 6.6},
 }

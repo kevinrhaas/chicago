@@ -34731,8 +34731,8 @@ its east side, its end poles 2.5 m in from the mouths, spanned across the street
 meets the next one's head (reconstructed). On 22nd Street, pairs of plain poles at about 34 m, one in
 the north parkway by the curb and one opposite it across the street, hold a span wire at 6.6 m, and two
 contact wires run along the street over the tracks at 5.6 m (the wires inferred, the poles
-reconstructed). No pole stands on a Prairie Avenue parkway. Line poles are 10.5 m on 18th Street and 9.5 m in the
-alleys, each with one crossarm (six pins on 18th Street, four in the alleys) and green glass insulators.
+reconstructed). No pole stands on a Prairie Avenue parkway. Every line pole is drawn as Glessner's: 10.5 m, one
+crossarm of six pins with green glass insulators; the trolley poles are plain, 9 m.
 The wires sag about 1.2 % of their span and are hidden on the phone's light tier. Every pole is
 moved clear of an elm, a lamp or a hydrant (1.5 m), a carriage walk and an alley mouth.
 **What it stands on:** the c. 1887 photograph of Glessner's stable from the north-west

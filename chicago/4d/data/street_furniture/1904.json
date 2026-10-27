@@ -91,13 +91,13 @@
      "arm_below_top_m": 0.45
     },
     "alley": {
-     "height_m": 9.5,
-     "butt_d_m": 0.28,
-     "top_d_m": 0.18,
+     "height_m": 10.5,
+     "butt_d_m": 0.3,
+     "top_d_m": 0.19,
      "arms": 1,
-     "pins": 4,
-     "arm_len_m": 1.8,
-     "arm_below_top_m": 0.4
+     "pins": 6,
+     "arm_len_m": 2.4,
+     "arm_below_top_m": 0.45
     },
     "trolley": {
      "height_m": 9.0,
