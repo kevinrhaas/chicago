@@ -126,6 +126,39 @@ ATTESTED_MIDBLOCK = [
              "Avenue porch."},
 ]
 
+# ---- the hydrants (T-3201) ----
+HYDRANT_CORNER_ALONG_M = 3.5   # a corner hydrant's distance along its face from the block corner
+HYDRANT_CURB_INSET_M = 0.45    # a hydrant's centre, inside the parkway's curb edge
+HYDRANT_WALK_OFFSET_M = 0.35   # ...or off the walk's outer edge, where a picture puts it there
+HYDRANT_LONG_FACE_M = 150.0    # a face at least this long takes a mid-block hydrant as well
+HYDRANT_LAMP_CLEAR_M = 2.0     # plan distance from a lamp
+HYDRANT_TREE_CLEAR_M = 1.2     # plan distance from an elm's trunk
+CROSSING_CLEAR_M = 0.5         # beyond a corner crossing's strip (T-3200)
+# Which corner of an intersection takes its hydrant, by the intersection's place in the
+# district (west to east, then north to south): the four quadrants in turn.
+CORNER_CYCLE = ["NE", "SW", "NW", "SE"]
+
+HYDRANT = {
+    "height_m": 0.85, "barrel_d_m": 0.21, "foot_d_m": 0.34, "band_at_m": 0.62,
+    "nozzles_at_m": 0.5, "nozzle_d_m": 0.09,
+}
+
+# The pictured hydrants: on a face, `along_m` from its end at the street `end`, on the
+# parkway's walk or curb side.
+ATTESTED_HYDRANTS = [
+    {"key": "pullman", "face": "prairie__prairie_ic_16_18", "end": "e18th", "along_m": 8.0, "side": "walk",
+     "sources": ["loc_det_4a08065_pullman_residence", "ghm_blog_pullman_completed"],
+     "note": ("Pullman's: the Detroit Publishing view and the Glessner House Museum's halftone of the finished "
+              "house show a post hydrant on the Prairie Avenue parkway beside the walk, a few metres north of "
+              "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
+              "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
+              "hitching post: none is shown at Pullman's.")},
+    {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
+     "sources": ["chicagology_2140_photo_b"],
+     "note": ("Tucker's: the second 2140 photograph has a post hydrant of the same type in its left foreground, "
+              "on the Prairie Avenue parkway toward 22nd Street.")},
+]
+
 STREET_ORDER = ["indiana", "prairie", "calumet", "e16th", "e18th", "e20th", "e21st", "e22nd"]
 
 
@@ -416,23 +449,157 @@ def lay_lamps(grid, section, trees_doc):
     return items
 
 
+def poly_dist(q, poly):
+    """Plan distance from q to a polygon: 0 inside it."""
+    inside = False
+    for i in range(len(poly)):
+        a, b = poly[i - 1], poly[i]
+        if (a[1] > q[1]) != (b[1] > q[1]) and q[0] < a[0] + (q[1] - a[1]) * (b[0] - a[0]) / ((b[1] - a[1]) or 1e-12):
+            inside = not inside
+    if inside:
+        return 0.0
+    best = float("inf")
+    for i in range(len(poly)):
+        a, b = poly[i - 1], poly[i]
+        v = sub(b, a)
+        L2 = dot(v, v) or 1.0
+        u = max(0.0, min(1.0, dot(sub(q, a), v) / L2))
+        best = min(best, math.dist(q, (a[0] + v[0] * u, a[1] + v[1] * u)))
+    return best
+
+
+def crossing_polys(section):
+    """The corner crossings' strips (T-3200), flat and ramp, when the section carries them."""
+    out = []
+    for c in (section or {}).get("corner_crossings", []) or []:
+        for k in ("flat", "ramp"):
+            q = c.get(k)
+            if q and len(q) >= 3:
+                out.append([tuple(p) for p in q])
+    return out
+
+
+def face_end_s(face, corner):
+    """Distance along `face` of its end at a corner, and the sign that walks away from it."""
+    if math.dist(face.line[0], corner["O"]) <= math.dist(face.line[-1], corner["O"]):
+        return 0.0, 1.0
+    return face.length, -1.0
+
+
+def lay_hydrants(grid, section, trees_doc, lamps):
+    xs = grid["cross_sections"]
+    faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
+    walks = {}
+    for w in (section or {}).get("carriage_walks", {}).get("walks", []):
+        walks.setdefault(w["face"], []).append(w)
+    trees = [(t["e"], t["n"]) for t in (trees_doc or {}).get("trees", [])]
+    lamp_at = [(i["e"], i["n"]) for i in lamps]
+    crossings = crossing_polys(section)
+    alleys = grid.get("alleys", [])
+    cs = corners(faces)
+
+    def clear(face, s, across, blocked, lo, hi, step_sign=0):
+        """The nearest clear spot along the face to s (or only away from a corner, step_sign)."""
+        k = 0
+        while k * NUDGE_STEP_M <= NUDGE_MAX_M:
+            cands = (s,) if k == 0 else ((s + step_sign * k * NUDGE_STEP_M,) if step_sign
+                                         else (s + k * NUDGE_STEP_M, s - k * NUDGE_STEP_M))
+            for x in cands:
+                if not lo <= x <= hi or any(a < x < b for a, b, _ in blocked):
+                    continue
+                p, _ = face.at(x, across)
+                if any(math.dist(p, t) < HYDRANT_TREE_CLEAR_M for t in trees):
+                    continue
+                if any(math.dist(p, t) < HYDRANT_LAMP_CLEAR_M for t in lamp_at):
+                    continue
+                if any(poly_dist(p, c) < CROSSING_CLEAR_M for c in crossings):
+                    continue
+                return x
+            k += 1
+        return None
+
+    def item(hid, f, s, across, **kw):
+        P, t = f.at(s, across)
+        return {"id": hid, "kind": "fire_hydrant", "e": r2(P[0]), "n": r2(P[1]),
+                "heading_deg": round(bearing(t), 1), **kw}
+
+    items = []
+    taken = set()
+    # 1. The pictured ones.
+    for h in ATTESTED_HYDRANTS:
+        face = faces[h["face"]]
+        c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
+        s0, sign = face_end_s(face, c)
+        across = (face.walk_to + HYDRANT_WALK_OFFSET_M) if h["side"] == "walk" else (face.park_to - HYDRANT_CURB_INSET_M)
+        blocked = blocked_intervals(face, walks, alleys)
+        s = clear(face, s0 + sign * h["along_m"], across, blocked, 0.0, face.length)
+        if s is None:
+            raise SystemExit(f"street furniture: no clear spot for the pictured hydrant {h['key']}")
+        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, place="corner",
+                          streets=c["streets"], corner=c["quadrant"], face=face.id, grade="attested",
+                          sources=h["sources"], note=h["note"],
+                          moved_m=r2(abs(s - (s0 + sign * h["along_m"])))))
+        taken.add(frozenset(c["streets"]))
+    # 2. One per intersection, at a corner taken in turn, along the avenue's face.
+    by_x = {}
+    for c in cs:
+        by_x.setdefault(tuple(c["streets"]), []).append(c)
+    order = sorted(by_x, key=lambda k: (STREET_ORDER.index(k[1]), STREET_ORDER.index(k[0])))
+    for idx, key in enumerate(order):
+        if frozenset(key) in taken:
+            continue
+        here = {c["quadrant"]: c for c in by_x[key]}
+        want = next((q for j in range(4) for q in [CORNER_CYCLE[(idx + j) % 4]] if q in here), None)
+        c = here[want]
+        A, B = c["faces"]
+        face = A if A.street == key[0] else B          # the avenue's face (Indiana, Prairie, Calumet)
+        s0, sign = face_end_s(face, c)
+        across = face.park_to - HYDRANT_CURB_INSET_M
+        blocked = blocked_intervals(face, walks, alleys)
+        lo, hi = (0.0, face.length)
+        s = clear(face, s0 + sign * HYDRANT_CORNER_ALONG_M, across, blocked, lo, hi, step_sign=sign)
+        if s is None:
+            continue
+        items.append(item(f"hydrant.corner.{key[0]}.{key[1]}.{want.lower()}", face, s, across, place="corner",
+                          streets=list(key), corner=want, face=face.id, grade="reconstructed", sources=[],
+                          liberty="L-prairie-hydrants-3201"))
+    # 3. Mid-block on the long faces, one side of each street.
+    for fid in sorted(faces):
+        face = faces[fid]
+        if face.length < HYDRANT_LONG_FACE_M:
+            continue
+        _, _, n0 = face.frame(face.length / 2)
+        if not (n0[0] < -0.5 or n0[1] < -0.5):
+            continue
+        across = face.park_to - HYDRANT_CURB_INSET_M
+        blocked = blocked_intervals(face, walks, alleys)
+        s = clear(face, face.length / 2, across, blocked, CORNER_CLEAR_M, face.length - CORNER_CLEAR_M)
+        if s is None:
+            continue
+        items.append(item(f"hydrant.mid.{fid}", face, s, across, place="mid-block", face=fid,
+                          grade="reconstructed", sources=[], liberty="L-prairie-hydrants-3201"))
+    return items
+
+
 def build():
     grid = json.loads(GRID.read_text())
     section = json.loads(SECTION.read_text()) if SECTION.exists() else None
     trees = json.loads(TREES.read_text()) if TREES.exists() else None
     items = lay_lamps(grid, section, trees)
+    items += lay_hydrants(grid, section, trees, items)
     order = {"corner": 0, "mid-block": 1}
     items.sort(key=lambda i: (i["kind"], order.get(i["place"], 9), i["id"]))
     cited = [s for i in items for s in i["sources"]]
     lamps = [i for i in items if i["kind"] == "gas_lamp"]
+    hydrants = [i for i in items if i["kind"] == "fire_hydrant"]
     return {
-        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps on the parkways. GENERATED by "
+        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps and (T-3201) the fire hydrants on the parkways. GENERATED by "
                  "tools/lay_prairie_1904_street_furniture.py from data/street_grid/1904.json, "
                  "data/street_section/1904.json and data/street_trees/1904.json -- do not hand-edit; re-run the "
                  "tool. Local ENU metres of data/datum.json; heading_deg is the compass bearing of the street "
                  "line the item stands along. Drawn by renderers/web/js/street-furniture.js. "
                  "docs/RESEARCH/prairie_1904_street_furniture.md is the reading; docs/LIBERTIES.md "
-                 "L-prairie-street-lamps-3199 the inventions."),
+                 "L-prairie-street-lamps-3199 and L-prairie-hydrants-3201 the inventions."),
         "scene": "1904",
         "target_date": "1904-07-01",
         "ticket": "T-3199",
@@ -451,6 +618,23 @@ def build():
                               "is gas: electric standards appear only in pictures dated after it. The scene is a "
                               "July morning with no night, so no lamp is lit."),
                 "model_m": LAMP,
+                "what": "A cast-iron gas lamp post",
+                "rule_note": "The pictures show such lamps at the district's corners and along its parkways",
+            },
+            "fire_hydrant": {
+                "name": "fire hydrant",
+                "form": ("A post fire hydrant: a cast-iron barrel about 0.85 m tall on a flared foot, a band under a "
+                         "domed bonnet with an operating nut on top, and two side nozzles with caps; painted iron."),
+                "form_grade": "attested",
+                "form_sources": ["loc_det_4a08065_pullman_residence", "ghm_blog_pullman_completed",
+                                 "chicagology_2140_photo_b"],
+                "form_note": ("Read off the owner's crop of the Detroit Publishing Pullman view, the museum's halftone "
+                              "of the same corner and the second 2140 photograph, which show one type. The prints are "
+                              "monochrome, so the paint is reconstructed: the lamps' dark iron."),
+                "model_m": HYDRANT,
+                "what": "A cast-iron post fire hydrant",
+                "rule_note": ("The pictures show post hydrants on the parkway at Pullman's corner and at 22nd Street; "
+                              "the city's hydrants stood at its corners and along its long blocks"),
             },
         },
         "placement": {
@@ -468,14 +652,28 @@ def build():
                          "each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner "
                          "where a face meets a curved return (Calumet at 18th) has no corner of its own."),
             },
+            "fire_hydrant": {
+                "liberty": "L-prairie-hydrants-3201",
+                "corner_along_m": HYDRANT_CORNER_ALONG_M,
+                "curb_inset_m": HYDRANT_CURB_INSET_M,
+                "long_face_m": HYDRANT_LONG_FACE_M,
+                "note": ("The two pictured hydrants where their pictures put them (Pullman's on the Prairie Avenue "
+                         "parkway beside the walk north of 18th Street, Tucker's near the curb toward 22nd Street); "
+                         "then one at every other intersection, at its corners taken in turn, on the avenue's "
+                         "parkway 3.5 m from the corner and 0.45 m inside the curb; and one mid-block on one side "
+                         "of every block face 150 m long or more. Each stands in the grass, clear of the walks, the "
+                         "corner crossings, the carriage walks, the lamps and the elms."),
+            },
         },
         "street_names": {k: v.get("name_1904", k) for k, v in grid["streets"].items()},
         "sources": source_lines(cited + ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
-                                         "chicagology_2140_photo_b"]),
+                                         "chicagology_2140_photo_b", "loc_det_4a08065_pullman_residence",
+                                         "ghm_blog_pullman_completed"]),
         "summary": {
             "items": len(items),
             "gas_lamps": len(lamps),
-            "corner": sum(i["place"] == "corner" for i in lamps),
+            "fire_hydrants": len(hydrants),
+            "corner_lamps": sum(i["place"] == "corner" for i in lamps),
             "attested": sum(i["grade"] == "attested" for i in items),
             "reconstructed": sum(i["grade"] == "reconstructed" for i in items),
         },
