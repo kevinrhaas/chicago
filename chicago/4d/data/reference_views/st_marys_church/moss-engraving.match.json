@@ -1,0 +1,43 @@
+{
+  "structure_id": "st_marys_church",
+  "view": "moss-engraving",
+  "glb": "assets/gltf/st_marys_church__frame_1833.glb",
+  "glb_sha256": "f3e78bf91b68e95b0eee1200e5b006729bd4a0d33fc73e8968fba18c382d26f7",
+  "camera_sha256": "944c60cee23e516513a287648ab488d9e08308eafad7940f3331f373d584d49a",
+  "photo_sha256": "e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+  "side_by_side": "docs/RESEARCH/photo-match/st_marys_church/moss-engraving-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The five long-wall sash and far-end door replace the generic house opening order; the pictured near gable is now blank. These count/topology differences are fixed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The missing open four-post belfry, arches, crossed lower rails, concave cap, bell and cross are present. The body roof is lower, the belfry slimmer and taller, and the single stack is at the far roof end. Their presence and shapes are reconstructed for 1835, not attested to that date.",
+      "status": "fixed"
+    },
+    {
+      "what": "Vertical sash setout remains plausibly above the T3153 street-noticeable bar. The generic opening sill is 0.95 m and head 2.382 m, leaving 0.818 m below the 3.2 m wall plate. In the engraving the window heads sit much nearer the eaves and the sills appear higher. Wall-relative proportions suggest roughly 0.4\u20130.6 m of upward displacement is still needed, but this is a qualitative estimate rather than a calibrated metric reading. The existing sash dimensions/vertical setout were retained in this bounded improvement. Keep this on original T-2384; no follow-up ticket.",
+      "status": "open"
+    },
+    {
+      "what": "The coarse camera/body-groundline mismatch is not a separate geometry defect. The initial steeper-roof fit had 72.87 px RMS/160.42 px maximum residual; the corrected roof is shown from the same camera. Pixel offsets and disagreements between camera fits are within tolerance under T3153. No surveyed placement or ground anchor was moved to fit the retrospective drawing.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "A held unattributed sepia photograph appears to show three sash rather than five, but its identity, depicted date and rights have not been established. No geometry or licensed comparison asset was derived from it. The conflicting opening counts are disclosed as a picture/state disagreement; they do not independently create another OPEN geometry gap under T3153. The credited Moss engraving supplies the chosen five-sash topology.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The engraving is undated. Its filename ending in 1843 does not date it, and the text dates only the original 1833 tower absence and an undated later addition. The 1835 presence, profiles, scantlings and pitch remain reconstructed choices. The picture cannot establish the unseen far gable, interior, precise paint/metal colours, original-site installation date or relocation. These are disclosed limits, not automatic OPEN geometry gaps.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_review": {
+    "reviewed_at": "2026-10-26T22:27:39.151136+00:00",
+    "method": "Freshly viewed the whole held Moss engraving and newly generated same-camera native side-by-side after adding diagnostic_only and library_image. The open belfry/cross, five-sash/end-door topology and far stack are present. The sash heads and sills remain visibly lower than the engraving, preserving the existing original-ticket OPEN discrepancy. Exact paint/metal colours are not established by the engraving.",
+    "original_ticket": "T-2384 remains OPEN/DIFFERS; no follow-up ticket or claimed match.",
+    "metadata_correction": "Only camera metadata changed: pose, basis, focal length, principal point, source photograph and MASTER/WEB geometry remain exact. The provisional undated view is not offered as a historical From this spot. The new JPEG was freshly viewed; no byte/pixel equality claim is made."
+  }
+}

@@ -1,0 +1,27 @@
+{
+ "structure_id": "dent_house_1823_prairie",
+ "source_id": "newberry_new_chicago_album_1883_residences",
+ "library_image": "a19-nby-newchicagoalbum-1883-residences",
+ "photo": "../../sources/assets/dent_1823_album_1883_t3163/dent_1823_album_1883.jpg",
+ "image_px": [
+  390,
+  425
+ ],
+ "principal_px": [
+  522,
+  280
+ ],
+ "focal_px": 648,
+ "eye": [
+  64.29,
+  -22.65,
+  1.76
+ ],
+ "yaw_deg": 324.66,
+ "sun_uvy": [
+  0.6,
+  -1.0,
+  1.1
+ ],
+ "solve": "Fitted by T-3163 to the 'Thomas Dent' vignette of the New Chicago Album's 'Private Residences of Chicago' plate (1883), cut unaltered from the Prairie library's 2400 x 1480 px copy (a19-nby-newchicagoalbum-1883-residences) at x 545-935 and y 465-890 px, the box the source record's locator names; pixel places here are in that 390 x 425 px cut. A drawn perspective, so solved as a LEVEL camera (its verticals are drawn vertical) with the eye fixed at 1.76 m, the same height as the engraving's. TEN READINGS, least squares over the eye's plan place, the heading, the focal length and the principal point: the north flank's rear corner (x 33 px), the front's north corner (x 125 px) and the pavilion's two front corners (x 250 and 292 px), each at grade (y 298-300 px) and at the cornice's top (11.6 m, the engraving's reading: y 152, 165 and 180 px), every plan place from the 1911 sheet's trace (s28fp-1823-b1). Residuals 5.5 px RMS (the worst 11 px, the pavilion's north corner, which the vignette draws a little narrower than the sheet). SCALE: about 13 px a metre on the front, so a reading here holds to about half a metre; the vignette is a cross-check on the engraving, not a measurement. The eye at u 64.3, v -22.7 (well out across Prairie Avenue to the north-west), heading 325, the same quarter as the engraving's. LIGHT: the front lit and the north flank in shade, so the sun from the west-south-west, as on the engraving."
+}
