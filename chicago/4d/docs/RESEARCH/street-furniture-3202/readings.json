@@ -1,0 +1,327 @@
+{
+  "method": "published /1904/ app, animation loop stopped after readiness, each stand rendered with the street-furniture layer hidden (before) and shown (after); heap after a forced GC",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "js_heap_used_bytes": 81697744,
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "glessner-stable-18th",
+          "before": {
+            "info": {
+              "triangles": 5093213,
+              "calls": 350
+            },
+            "furniture": {
+              "near": 8,
+              "far": 81,
+              "hydrants": 6,
+              "poles": 41,
+              "wires": true,
+              "triangles": 15170,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 5115443,
+              "calls": 367
+            },
+            "furniture": {
+              "near": 8,
+              "far": 81,
+              "hydrants": 6,
+              "poles": 41,
+              "wires": true,
+              "triangles": 15170,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "glessner-pole-18th",
+          "before": {
+            "info": {
+              "triangles": 5294321,
+              "calls": 348
+            },
+            "furniture": {
+              "near": 7,
+              "far": 82,
+              "hydrants": 4,
+              "poles": 41,
+              "wires": true,
+              "triangles": 14546,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 5315251,
+              "calls": 364
+            },
+            "furniture": {
+              "near": 7,
+              "far": 82,
+              "hydrants": 4,
+              "poles": 41,
+              "wires": true,
+              "triangles": 14546,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "alley-18-20",
+          "before": {
+            "info": {
+              "triangles": 3133347,
+              "calls": 245
+            },
+            "furniture": {
+              "near": 8,
+              "far": 83,
+              "hydrants": 5,
+              "poles": 41,
+              "wires": true,
+              "triangles": 15286,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 3155693,
+              "calls": 262
+            },
+            "furniture": {
+              "near": 8,
+              "far": 83,
+              "hydrants": 5,
+              "poles": 41,
+              "wires": true,
+              "triangles": 15286,
+              "drawCalls": 12,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "e22nd-trolley",
+          "before": {
+            "info": {
+              "triangles": 624882,
+              "calls": 66
+            },
+            "furniture": {
+              "near": 4,
+              "far": 67,
+              "hydrants": 3,
+              "poles": 48,
+              "wires": true,
+              "triangles": 10290,
+              "drawCalls": 14,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 638508,
+              "calls": 85
+            },
+            "furniture": {
+              "near": 4,
+              "far": 67,
+              "hydrants": 3,
+              "poles": 48,
+              "wires": true,
+              "triangles": 10290,
+              "drawCalls": 14,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "js_heap_used_bytes": 120134816,
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "glessner-stable-18th",
+          "before": {
+            "info": {
+              "triangles": 989037,
+              "calls": 224
+            },
+            "furniture": {
+              "near": 2,
+              "far": 32,
+              "hydrants": 2,
+              "poles": 18,
+              "wires": false,
+              "triangles": 5104,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 994141,
+              "calls": 233
+            },
+            "furniture": {
+              "near": 2,
+              "far": 32,
+              "hydrants": 2,
+              "poles": 18,
+              "wires": false,
+              "triangles": 5104,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "glessner-pole-18th",
+          "before": {
+            "info": {
+              "triangles": 1058880,
+              "calls": 203
+            },
+            "furniture": {
+              "near": 2,
+              "far": 30,
+              "hydrants": 1,
+              "poles": 18,
+              "wires": false,
+              "triangles": 5172,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 1064016,
+              "calls": 211
+            },
+            "furniture": {
+              "near": 2,
+              "far": 30,
+              "hydrants": 1,
+              "poles": 18,
+              "wires": false,
+              "triangles": 5172,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "alley-18-20",
+          "before": {
+            "info": {
+              "triangles": 444450,
+              "calls": 156
+            },
+            "furniture": {
+              "near": 1,
+              "far": 33,
+              "hydrants": 2,
+              "poles": 18,
+              "wires": false,
+              "triangles": 4808,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 448630,
+              "calls": 163
+            },
+            "furniture": {
+              "near": 1,
+              "far": 33,
+              "hydrants": 2,
+              "poles": 18,
+              "wires": false,
+              "triangles": 4808,
+              "drawCalls": 9,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "e22nd-trolley",
+          "before": {
+            "info": {
+              "triangles": 202759,
+              "calls": 43
+            },
+            "furniture": {
+              "near": 1,
+              "far": 27,
+              "hydrants": 2,
+              "poles": 28,
+              "wires": false,
+              "triangles": 3772,
+              "drawCalls": 11,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 205619,
+              "calls": 50
+            },
+            "furniture": {
+              "near": 1,
+              "far": 27,
+              "hydrants": 2,
+              "poles": 28,
+              "wires": false,
+              "triangles": 3772,
+              "drawCalls": 11,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        }
+      ]
+    }
+  ]
+}

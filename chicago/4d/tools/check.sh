@@ -846,8 +846,9 @@ step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
 
 # T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
 # the faces, the pictured ones at their lots; T-3201 the fire hydrants, Pullman's and Tucker's where
-# their pictures put them), laid clear of the elms and the carriage walks: the committed file is
-# what the tool writes, item for item.
+# their pictures put them; T-3202 the poles and wires on 18th Street, the alleys and 22nd Street's
+# trolley overhead), laid clear of the elms and the carriage walks: the committed file is what the
+# tool writes, item for item.
 step "the 1904 street furniture re-lays from the street grid (T-3199)" \
   python3 tools/lay_prairie_1904_street_furniture.py --check
 
