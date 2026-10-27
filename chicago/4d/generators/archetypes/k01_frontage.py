@@ -2509,7 +2509,8 @@ class Assembly:
         v = b["variant"]
         # T-3108: a bow on a chamfered pavilion's canted face: the cant is its wall, so its frame
         # is the cant's (R along it, N out of it) and its s_m is measured along the cant
-        cant = b.get("on_chamfer")
+        # T-1878: or a bay on a forward block's front, the same frame with no cant
+        cant = b.get("on_chamfer") or b.get("on_face")
         s_at = b["s_m"]
         if cant:
             (ox, oz), (ex, ez), (nx, nz) = cant["origin"], cant["along"], cant["out"]
@@ -2542,7 +2543,8 @@ class Assembly:
                              {"k08_variant": b["id"], "plan": v["plan"]["kind"], "storeys": len(v["storeys"]),
                               "wall_top_m": built.meta["wall_top_m"], "projection_m": built.meta["plan"]["projection_m"],
                               "windows": len(built.windows), "wall": b["wall"],
-                              **({"on_chamfer": cant["host"]} if cant else {})},
+                              **({"on_chamfer": cant["host"]} if b.get("on_chamfer") else {}),
+                              **({"on_front": cant["host"]} if b.get("on_face") else {})},
                              {"junction_left": _add(O, _mul(R, s_at + lo_ if cant else b["span_m"][0])),
                               "junction_right": _add(O, _mul(R, s_at + hi_ if cant else b["span_m"][1]))})
         base = _add(O, _mul(R, s_at))
