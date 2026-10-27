@@ -13,6 +13,7 @@
   "stream-chicagology-north.json",
   "stream-chicagology-south.json",
   "stream-drawings.json",
+  "stream-early-chicago-reference.json",
   "stream-glessner-courtyard-2024.json",
   "stream-glessner-recovery.json",
   "stream-newspapers-north-owners.json",
@@ -22,9 +23,9 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 947,
-  "local": 683,
-  "in_period": 603,
+  "images": 948,
+  "local": 684,
+  "in_period": 604,
   "buildings_with_images": 62,
   "buildings": 63,
   "lots_with_images": 160,
@@ -52600,6 +52601,49 @@
    "parcel_ids": [
     "prairie_1608"
    ]
+  },
+  {
+   "id": "early-andreas-1884-sauganash",
+   "kind": "engraving",
+   "title": "THE SAUGANASH HOTEL.",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1884 publication; retrospective depiction before 1834",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "Braunhold (signed surname; initial unresolved); published by A. T. Andreas",
+   "repository": "A. T. Andreas, History of Chicago, volume 1; digitized at Internet Archive",
+   "collection": "History of Chicago, volume 1 (1884), printed page 632",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/historyofchicago01andr/page/n1297/mode/1up",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+   "rights": "public domain",
+   "rights_basis": "Published 1884 in the United States, so the volume and its plates are out of copyright by age; the parent record `andreas_1884_v1` is already graded `public_domain` on the same ground. The Sauganash plate carries an in-plate copyright line naming A. T. Andreas — a claim made in 1884 and long expired, and it is recorded because it is on the plate, not because it bites. This is what going to the volume buys over an aggregator: the rights question is settled by the imprint instead of left open.",
+   "local": {
+    "display": "research/images/files/early-andreas-1884-sauganash.jpg",
+    "display_bytes": 398547,
+    "thumb": "research/images/files/early-andreas-1884-sauganash-thumb.jpg",
+    "thumb_bytes": 24718,
+    "original_px": [
+     2017,
+     1296
+    ],
+    "original_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+    "original_bytes": 542712,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/1290a23271b2771c77201fd17fed7cfa857ade14/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+    "fetched": "2026-10-26"
+   },
+   "verified": "viewed",
+   "found_via": "Existing project-held reproduction, source andreas_1884_sauganash_hotel_plate; held file SHA256 3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+   "notes": "Early-Chicago reference image for the separately recorded log annex beside the Sauganash (T-2382), linked through its reference camera; no Prairie building identity is invented. Publication date1884 is not a July1835 observation: the existing source identifies a retrospective scene before1834. This copy is the unchanged project-held reproduction at its immutable Git URL, not a newly recovered original scan. The source documents the printed-page identity and its archive derivative mirroring hazard; no new scan manipulation or attribution is made here. The held reproduction was viewed at full size: the lower-left surname BRAUNHOLD is legible, while its given-name initial remains unresolved. This updates the earlier archive-derivative legibility limit without inventing a full identity. The annex identity/date, compound camera and broader geometry fit remain qualified in the structure and match records. The provisional camera is diagnostic_only and offers no invented historical From this spot.",
+   "measurements": [],
+   "stream": "early-chicago-reference",
+   "parcel_ids": []
   },
   {
    "id": "early-moss-1884-st-marys",

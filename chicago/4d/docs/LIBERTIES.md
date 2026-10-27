@@ -34257,3 +34257,13 @@ its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m bac
 block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and
 says why in its record: the plate draws it taller than the lights above, and its size is read only
 in proportion to the 5.6 m storey.
+
+### L-carpenter-blind-doorway-2382 — A pictured dark doorway
+
+**Decision:** the log annex uses the existing `front_door_state: recess` instead of the generic closed board leaf. Its 0.30m depth, returned casing and dark back are reconstructed exterior geometry; the picture does not measure them or establish an interior, leaf angle, hinge position or passable portal. The original doorway station and dimensions remain unchanged.
+**Source:** `andreas_1884_sauganash_hotel_plate`, printed p632 / scan n1297: the directly inspected public-domain1884 plate shows a dark occupied opening in the log wing. Petford and the dependent Trowbridge1902 depiction share this silhouette, but are cross-checks, not independent evidence of the door state on1July1835. No rights finding is changed.
+**Limits:** retain the disputed annex identification, former uses, unattested current function and date qualifications. The paired neutral render retains the original provisional framing and the unmodified hotel context; it does not settle their massing or source-camera differences.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.front_door_state`.
+**How to resolve:** a separately dated original-site view or account could establish a leaf/state; no complete image match is claimed by this selected shadow.
+**Ticket:** T-2382.
+**Recorded:** 2026-10-26.
