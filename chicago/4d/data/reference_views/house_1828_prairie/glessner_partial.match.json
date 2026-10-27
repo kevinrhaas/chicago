@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "glessner_partial",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "52b77ac5c1cdf7636f9e0192481fc2c944ee27ef50ed53f4368270bf41d6af3d",
+  "glb_sha256": "4f7801c879ff17842e3db2787f3f25c8db9e8f3b9f2e34a3e5fcd4e531367f9b",
   "camera_sha256": "8f9167ca5a55f920dd6ede2b7a979f0e261e05fbd0e457e4d755c1c6d41d17a5",
   "photo_sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/glessner_partial-side-by-side.jpg",
@@ -56,17 +56,17 @@
     {
       "what": "the porch's round arch on its front and its south side, the carved spandrels and capitals, and the third column",
       "status": "open",
-      "how": "built as a flat soffit on two square-capped columns (the automobile view's match record carries the same difference)"
+      "how": "built as a flat soffit on two columns, now in the front's stone (T-3168); the arches and the third column are kit work K01's door hood does not carry, and the carving is within tolerance (the automobile view's record)"
     },
     {
       "what": "the porch's balustrade: solid stone panels, heavier than the build's joinery railing",
-      "status": "open",
-      "how": "built as K01's painted railing, 0.6 m; as in the automobile view"
+      "status": "fixed",
+      "how": "T-3168: laid in the front's stone, 0.65 m on 0.3 m posts, heavier than the joinery railing it replaced; this print reads its fill as solid panels where the automobile print reads balusters, a disagreement between the two pictures"
     },
     {
       "what": "the stoop's cheeks: massive stone parapets sloping out to blocks at the foot (x 95-140 and 200-245)",
-      "status": "open",
-      "how": "built as K07's plain stone cheeks; as in the automobile view"
+      "status": "within tolerance",
+      "how": "T-3168: the cheeks carry a turned stone balustrade with a newel block at the foot, as the dated automobile print shows them; this undated print reads them as solid sloping parapets to blocks at the foot, a disagreement between the two pictures (T-3153)"
     },
     {
       "what": "the boundary: a low solid stone wall along the walk (y 545-590), no iron fence over it",
