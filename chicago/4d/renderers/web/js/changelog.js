@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2333, ts: '2026-10-27T09:45:34.781Z', date: 'Oct 27, 2026, 4:45 AM CT', title: 'Pullman\'s stable, as its 1890s photographs show it', kind: 'feature',
+    items: [
+      'The stable at the east end of 1729 Prairie, beside the palm house, is no longer a plain draft box. Its steep slate roof rises from the first-floor cornice to a flat deck ringed with iron cresting, with a domed lantern on top. The upper storey on 18th Street rises through the roof as one long wall of small windows. Below it are an arcade of round arches and a polygonal bay of round-headed windows, with a tall chimney at the east end. A square belvedere with a balustrade stands where the palm-house range meets the stable.',
+    ] },
   { v: 2332, ts: '2026-10-27T09:41:13.175Z', date: 'Oct 27, 2026, 4:41 AM CT', title: '1828 Prairie\'s porch and front steps in stone', kind: 'improvement',
     items: [
       'The porch of the Shipman house at 1828 Prairie is now light stone like the rest of its front, columns and all, as both photographs show it. The railing on its roof is heavier, with stone posts and a broad top rail.',
