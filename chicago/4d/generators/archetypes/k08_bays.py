@@ -1378,6 +1378,10 @@ class Bay:
         K = v["corbel"]["courses"]
         # T-1890: a staged tower's corbel steps back to its shaft, not to the wall
         reach = v["corbel"].get("reach_m") or max(r.world(s, 0, 0)[2] for r in self.runs for s in (0.0, r.L))
+        # T-1890: a round oriel's run is one arc whose ends are both on the wall, so its reach
+        # is the bow's crown, not its ends' (1801's gabled section)
+        if not v["corbel"].get("reach_m") and self.plan["kind"] == "arc":
+            reach = self.plan["centre"][1] + self.plan["R"]
         step = reach / (K + 1)
         h = cb["course_height_m"]
         return K, step, h, reach

@@ -1884,6 +1884,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s apron takes one fabric, front_stone (the front's "
                                      f"K02 walling), and the record must name a stone_front")
             q = e.get("plan")
+            # T-1890: or ROUND, a segmental bow on its chord and rise (1801's gabled section on
+            # 18th Street, its oriel bowed on its corbels in the Taylor print and HABS photograph
+            # 2), its front at most 1.2 m out as a canted one's
+            if q is not None and q.get("kind") == "bow":
+                if set(q) != {"kind", "chord_m", "rise_m"} \
+                        or not 1.0 <= float(q["chord_m"]) <= 4.0 \
+                        or not 0.2 <= float(q["rise_m"]) <= min(float(q["chord_m"]) / 2, 1.2):
+                    raise ParamError(f"bays: {e['id']} sizes a round oriel's plan by chord_m (1.0-4.0 m) and "
+                                     f"rise_m (0.2 m to half its chord, at most 1.2 m), not {q}")
+                v["plan"] = {"kind": "bow", "chord_m": float(q["chord_m"]), "rise_m": float(q["rise_m"])}
+                q = None
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
                 # T-3007: or, saying so (`asymmetric`), returns of their own (1811's on its 1888
@@ -3654,8 +3665,8 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
     the wing's own eave with its cap whole over the wing's roof, and the wing's lights behind
     it are dropped; the wing's eave is not cut for it and runs into its ring, as the main
     eave does. T-3001: a full-height projection too, standing to the wing's wall top with its
-    gable over it (1801's gabled section); a bay or an oriel on a wing is still the main walls'
-    kit.
+    gable over it (1801's gabled section); T-1890: an oriel too, on one of the wing's floors
+    (that section's round oriel); a bay on a wing is still the main walls' kit.
     Refused where the wing's walling stands in the tower's back above its wall top (a gable
     end), and where a later wing stands on the same stretch of the wall."""
     wings = list(wings)
@@ -3668,11 +3679,14 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
         # T-3001: or a full-height projection, to the wing's own wall top (1801's gabled
         # section on 18th Street, its coped gable and balcony over a shallow pavilion as the
         # front's south one is, in the Taylor photograph); a bay or an oriel still is not
+        # T-1890: or an oriel on its corbels from one of the wing's floors, its wall top under the
+        # wing's as a main-wall oriel's is under the main eave (1801's gabled section, its round
+        # oriel on the shallow pavilion's face)
         kind = kinds.get(e["variant"])
-        if kind != "tower" and e["variant"] != "k08.projection.full_height":
+        if kind not in ("tower", "oriel") and e["variant"] != "k08.projection.full_height":
             raise ParamError(f"bays: {e['id']} is a {kind or e['variant']} on {e['wall']}; a "
-                             f"rear wing's wall carries a K08 tower, past the wing's eave, or a full-height "
-                             f"projection")
+                             f"rear wing's wall carries a K08 tower, past the wing's eave, a full-height "
+                             f"projection or an oriel")
         j, side = at[e["wall"]]
         w = wings[j]
         if side in _gable_walls(w["roof"]):
