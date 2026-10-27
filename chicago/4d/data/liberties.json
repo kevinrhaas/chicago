@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 807,
+  "count": 808,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -57710,6 +57710,33 @@
         "T-3193",
         "T-3192",
         "T-3178"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-flank-top-1890",
+      "title": "1801 Prairie's 18th Street section carried on a corbel table under a coped fan gable, and its flank stack moved to where both pictures put it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-27."
+        },
+        {
+          "label": "Decision",
+          "text": "the three-storey section of the W. W. Kimball house's 18th Street wall between the gabled section and the tower (p flank) is rebuilt to the Taylor photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…, the period view the phase guard prefers) and Harold Allen's HABS photograph 2 of June 1965 (Harold Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…), read through their solved cameras, where the build had carried the section's wall to 13.9 m under a low hip. **What is read, not invented.** Both pictures put a corbel table's top at about 9.45 m (9.36 and 9.5-9.6 m), the section's third storey over it to a wall top of about 12.4 m (12.35 and 12.5 m), a pair of lights in two rows on the section's axis from about 9.8 to 11.9 m and about 1.85 m across, a single light at its west end, and over the middle a coped wall dormer about 3.2 m across (the Taylor print's pilasters at u 6.4-9.6, HABS's at u 6.8-9.8) whose tympanum is a carved fan, its coping's apex about 14.2 m (14.1 and 14.3 m), its finial's top about 15.15 m and a pinnacle on each shoulder about 14.1 m. The flank's tall stone stack stands where both cameras' lines of sight cross near the main block's north-east corner, not over the section: at u 1.8, v 1.0 it renders within about 10 px of both prints' shafts (x 611 on HABS 2, x 498 on Taylor), where later work's u 5.0 rendered about 90 and 50 px west of them; its cap is built to 16.0 m, the Taylor print's (HABS 2 reads about 15.5 m, and the kit holds a mansard stack 0.6 m over its 15.3 m curb). It is laid in the walls' pale stone, as both pictures show it, not in brick. **What is invented or held by the kit.** The corbel table's section (a 0.25 m course 0.4 m proud on corbels 0.28 m wide at 0.5 m, each two steps down to 0.85 m under the line), the gable's 1.15 pitch, its coping, kneelers and pinnacles' sizes, the fan's thirteen rays, ring and hub, the frame round the paired lights, and the stack's 0.9 m shaft and 0.3 m cap are the kit's or reconstructed to the pictures' outlines; the pinnacles' crockets and the fan's carving are not modelled. The section's west corner, which both pictures round, stays square (an open difference in both match records), and the stack's flared bell cap is laid as a square slab (within tolerance: HABS 2 reads the shaft square, Taylor round). This supersedes the flank section's top and the stack's place in “1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed”."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured elevation of the 18th Street front, or a nearer photograph of the section's top."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3000"
       ]
     },
     {

@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fd1cbb0f256d452bf79ed932d075cd04cf044dd3086bc757900da7add71bd7a5",
+  "glb_sha256": "ef2d302bcac6181069bc91898fd08df250571a902b7047e81c8ccbe31b022ad6",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -49,12 +49,12 @@
       "status": "open"
     },
     {
-      "what": "the flank section's top: the print's third storey of paired lights under a cornice, a gabled wall dormer with a fan (sunburst) panel and a finial (x 700-800, y 400-520) and the corbel table under them (x 630-900, y 650-700); the build carries the section's wall up under K08's low hip. The Taylor print's match record carries the same difference",
-      "status": "open"
+      "what": "the flank section's top: the print's third storey of paired lights under a cornice, a gabled wall dormer with a fan (sunburst) panel and a finial (x 700-800, y 400-520) and the corbel table under them (x 630-900, y 650-700); the build carries the section's wall up under K08's low hip. The Taylor print's match record carries the same difference. Built (T-1890, bays.p_flank): the second storey carried up to a corbel table whose top stands at 9.45 m (a 0.25 m course on stepped corbels down to 8.6 m; the print's at about 9.5-9.6 m), the third storey over it to a 12.4 m wall top (the print's cornice about 12.5 m) with a pair of lights in two tiers on the axis and a single light at the west end, and a coped wall dormer 1.4 m in from each corner with a carved fan in its tympanum, a pinnacle on each shoulder and a finial to 15.2 m (the print's about 15.15 m); the dormer's apex renders within about 10 px of the print's, the corbel table within about 15 px",
+      "status": "fixed"
     },
     {
-      "what": "the main block's flank stack: the print's square stack with its heavy cap stands at x 611 (its cap at y 490), about 90 px (about 3 m) east of where the build's (u 5.0) renders; the Taylor print also puts it about 2-2.5 m east of the build's",
-      "status": "open"
+      "what": "the main block's flank stack: the print's square stack with its heavy cap stands at x 611 (its cap at y 490), about 90 px (about 3 m) east of where the build's (u 5.0) renders; the Taylor print also puts it about 2-2.5 m east of the build's. Moved (T-1890): to u 1.8, v 1.0, where this camera's and the Taylor print's lines of sight cross, in the walls' pale stone, 0.9 m square, its cap at 16.0 m (the Taylor print's; this one reads about 15.5 m); its shaft renders within about 10-30 px of the print's (x 611)",
+      "status": "fixed"
     },
     {
       "what": "the round tower: the print's cone is broader and lower than the build's (its eave about y 520 across x 765-1005, its finial's tip at y 183), where the build's narrow cone rises far over it; and its axis renders about 37 px west of the print's (the Taylor print holds it within 16 px). The Taylor match record's open 'tower's form' item T-1890 rebuilds it to this photograph and the Taylor print: a shaft 2.2 m across (this print's about 110 px at about 54 px a metre) blank over its principal storey, five corbel courses from 7.9 to 8.9 m (this print's 8.03-8.89 m), a stage 3.7 m across (about 200-210 px here) with its two lights where this print has them (x 835-860 and 920-945; rendered within about 5 px), its cornice to 11.26 m and its cone to 16.69 m (this print's eave about 11.1 m and apex about 16.4 m); its axis renders within about 2 px of the print's",
@@ -78,6 +78,22 @@
     },
     {
       "what": "the tower's finial: this print's stands about 1.6 m over a crocketed collar at the cone's apex (its tip y 183, about 17.95 m), shorter than the Taylor print's c. 1895 one (about 19.6 m), which the build follows at 19.29 m as the earlier evidence for 1904; the two pictures disagree by about 1.6 m (T-1890)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flank section's west corner (T-1890): the print rounds it from the corbel table up (x 620-700 px), with a light in the round and a low railed roof behind its cornice; the build's p_flank stands square there, the wall dormer's kneeler run out over its shoulder",
+      "status": "open"
+    },
+    {
+      "what": "the flank stack's head (T-1890): the print's cap flares out as a bell over the shaft (x 580-650, y 480-520 px); the build lays a slab 0.3 m proud, the outline within about 0.3 m and the Taylor print reading the shaft round where this one reads it square",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the frontispiece's paired lights (T-1890): the print's transom divides the two tiers about equally (at about 10.9 m); K06's transomed pair puts its bar about 0.3 m higher, the two lights and two tiers as the print has them",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the wall dormer's carving (T-1890): the print's fan is finely ribbed in a moulded arch and its pinnacles crocketed; the build lays thirteen plain rays, a ring and a hub, and plain pinnacles, at the print's size",
       "status": "within tolerance"
     }
   ],
