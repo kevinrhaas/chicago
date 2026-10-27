@@ -2,8 +2,8 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "44f90ddd847f45a215dbdd34e0255fae8f43dc76036fb070330810750eb9d3c2",
-  "camera_sha256": "f3b653e96ff02a983e1779b9b0ef6576e93cdb97be9e753647feb7b149a3d7c6",
+  "glb_sha256": "7297304f25293c982a5b0895633ffa9849e60713ad2cf7e298318262fac33840",
+  "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
   "verdict": "differs",
@@ -43,9 +43,9 @@
       "how": "T-3171: K11's scroll-band fence on the Prairie line"
     },
     {
-      "what": "the corner block at the south-west corner, with its narrow cant, carried up a storey past the cornice as a square tower under a tall slated hip with a crested top and two finials (x 610-1135 px, y 80-1600). T-3175 measured it against the 1911 sheet: the photograph's turned square reads a face about 4-4.7 m across (its broad south-west face x 860-1130 px, its narrow north-west face x 820-860, at the scale of the cornice and storeys), where the sheet's bump is a square of about 2.4 m on a face centred on the main block's corner; through this camera a tower of the photograph's size would stand about 2.8 m out of the front, and no camera fitted to the sheet's plan holds both (the best leaves about 165 px). The camera itself misses the pavilion's north edge by about 90 px (x 371 against the print's 277). T-3176 owns the reconciliation, the re-solve and the tower",
-      "status": "open",
-      "how": "T-3172"
+      "what": "the corner block at the south-west corner, a square tower turned 45 degrees across the corner (its narrow north-west face x 818-857 px, its broad south-west face x 857-1135), carried up a storey past the main cornice under a tall slated hip, a crested deck and finials (x 790-1150 px, y 88-1581)",
+      "status": "fixed",
+      "how": "T-3176: the 1911 sheet draws a square turned 45 degrees across the corner (2.27 m on a face, centred on u 23.98, v 15.55), the photograph a broad face about 3.2 m across (3.5 times the front's 1.15 m window beside it); re-solving the camera with the square's side free on the sheet's centre gives 3.25 m at 4.4 px RMS, where the sheet's 2.27 m leaves 40-47 px. Built as K08's polygonal tower turned 45 degrees across the front's south corner (centre 0.42 m inside the front, on the flank's plane), its north-west, south-west and south-east faces outside the walls, the storey bands at 7.5 and 12.6 m, its wall top 16.2 m, a hip at pitch 3.46 cut to a 1.0 m deck at 22.0 m, an iron crest 0.6 m tall round the deck and a finial on each of its corners; the render's tower edges stand within about 10 px of the print's"
     },
     {
       "what": "the pavilion's steep pyramidal roof over the cornice, with its finial and its triple attic lights (x 330-560 px, y 350-830); the render showed the pavilion's low hip under the main mansard. T-3175 carries the pavilion up an attic storey from the main eave to its own cornice at the main curb's height (y about 605 px, 16.8 m), three tall lights in its wall, under a slated crown hipped on every side at 47 degrees to a point (about 20.5 m) and a turned iron finial",
@@ -87,8 +87,9 @@
       "status": "not shown"
     },
     {
-      "what": "the pavilion's crown and attic render about 60-90 px east of the print's (the attic's lights at about x 440-560 against the print's 357-500), with the pavilion under them; the camera's misfit along the front (the corner block's entry above), not the crown's",
-      "status": "within tolerance"
+      "what": "the pavilion's north edge (x 270 px) and its crown and attic, which T-3171's camera put 98 px and 60-90 px east of the print's",
+      "status": "fixed",
+      "how": "T-3176's re-solved camera: the pavilion's edges are two of the plan readings it is fitted to, and render within about 10 px of the print's"
     },
     {
       "what": "the crown's cornice stands 0.65 m past the pavilion's sides, the kit's least past the main cornice's 0.6 m, where the print's stands about at them (its eave x 350-597 px against the pavilion's face to x 600), and the attic's wall is stone across the pavilion's whole width, where the print slates its outer parts as cheeks (x 535-600 on its south side) and sets the lights between stone piers",
@@ -105,6 +106,30 @@
     {
       "what": "the crown's finial: the print's is a wrought iron cross-like finial about 1 m tall (y 355-410 px); the build turns the deck's iron finial (T-3000) to the same height",
       "status": "within tolerance"
+    },
+    {
+      "what": "the heights: through the re-solved camera, read with the sheet's widths, the print puts the water table at about 1.2 m, the string course at 5.2 m and the main cornice's top at 9.4 m over grade, where the record has 2.0, 7.5 and 12.6 m (read through T-3171's camera, which stood on an assumed corner point); the render's house and tower stand about a third taller than the print's, the main cornice at about y 580 against the print's 800 px. The tower's own heights are read from the print in proportion to the main cornice there (its wall top 1.29 times it, its deck 1.75), so they come down with the house's",
+      "status": "open"
+    },
+    {
+      "what": "the tower's cornice: the print's deep moulded cornice over a row of brackets (y 485-525 px); the build's plain soffit and fascia 0.45 m out stand in",
+      "status": "open"
+    },
+    {
+      "what": "the tower's lights: the print's carry segmental hoods over the principal floor's pair and a roundel between the second floor's (y 1130-1160 px); the build's flat stone heads stand in",
+      "status": "open"
+    },
+    {
+      "what": "the tower's slated hip: the print's flares a little at its foot (a bellcast about 0.2 m out over the bottom metre); the build's runs straight at one pitch",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the deck's crest: the print's band is pierced by four round holes a face and carries two finials (crossed iron tops) on its near corners; the build's band is solid, and carries a turned finial on each of its four corners, the far two standing behind the near two from this camera",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the tower's south-east face: not seen; built with the south-west face's paired lights (L-k01-1827-doane-3171)",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
