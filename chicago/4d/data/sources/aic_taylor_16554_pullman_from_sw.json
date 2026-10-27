@@ -1,0 +1,27 @@
+{
+ "id": "aic_taylor_16554_pullman_from_sw",
+ "type": "photograph",
+ "citation": "J. W. Taylor (Chicago), photographer. Pullman, George M., Residence [from the south-west, showing the palm house and stable]. Photograph, c. 1890-1910 (holder's view date). Art Institute of Chicago, Ryerson and Burnham Archives, Architecture Photograph Collection (Historic Architecture and Landscape Image Collection), no. 16554.",
+ "author": "J. W. Taylor (Chicago)",
+ "date": "c. 1890-1910 (holder's view date)",
+ "describes_date": "after the 1892 range and stable (they stand in it); before the 1911 sheet",
+ "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/29313). Prairie library image a16-aic-taylor-pullman-from-sw-palm-house, recorded there as 'link only'; the image store's copy is kevinrhaas/chicago-images, prairie-1904/files/a16-aic-taylor-pullman-from-sw-palm-house.jpg.",
+ "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29313",
+ "locator": "The whole print: from across the corner of Prairie Avenue and 18th Street, looking north-east, trees bare: the house at left, the palm house's drum and dome at centre, and the stable's south front at right with its polygonal bay at its west end, three bays of sash in two storeys, the tall stack at its east end, the hipped roof with its deck's cresting and the lantern.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The holder's statement: contact the archives for publication information (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset, and no copy is committed to this repository by T-3192.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3192) from the image store's copy, 1200 x 927 px with its border and grey scale, sha256 f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa, the holder's IIIF 1200 px derivative.",
+ "note": "The one winter view of the Pullman estate's 18th Street side as a whole. It shows the stable's south front whole: the polygonal bay at its west end next to the palm house, three bays of sash east of it on both storeys, a tall stack at the east end rising past the roof's deck, and the roof's deck with its iron cresting and an octagonal lantern with a dome and finial toward the west. T-3192 read forms and counts from it; its camera is T-3193's.",
+ "what_it_supplies": [
+  "the stable's window count east of the bay (three bays, two storeys) and the stack at its east end",
+  "the lantern's form (octagonal drum with lights, a dome and a finial) and its place toward the deck's west end"
+ ],
+ "what_it_does_not_supply": [
+  "a solved camera yet (T-3193)",
+  "colour",
+  "the arcade, which the bay and the planting hide from this side"
+ ]
+}
