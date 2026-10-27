@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2334, ts: '2026-10-27T10:23:38.289Z', date: 'Oct 27, 2026, 5:23 AM CT', title: 'Kimball\'s 18th Street tower rebuilt to its photographs', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s round tower is now a slim shaft under a wider corbelled top stage with small square windows, as the c. 1895 Taylor print and the 1965 HABS photograph both show it. It used to be one tall, narrow cylinder.',
+      'Its broad slate cone now springs and peaks about 2 m lower than before, under a heavy stone cornice and a tall finial. The blank stretch of shaft between the main windows and the corbels now matches the pictures, and so does the small corner turret\'s tall finial.',
+    ] },
   { v: 2333, ts: '2026-10-27T09:45:34.781Z', date: 'Oct 27, 2026, 4:45 AM CT', title: 'Pullman\'s stable, as its 1890s photographs show it', kind: 'feature',
     items: [
       'The stable at the east end of 1729 Prairie, beside the palm house, is no longer a plain draft box. Its steep slate roof rises from the first-floor cornice to a flat deck ringed with iron cresting, with a domed lantern on top. The upper storey on 18th Street rises through the roof as one long wall of small windows. Below it are an arcade of round arches and a polygonal bay of round-headed windows, with a tall chimney at the east end. A square belvedere with a balustrade stands where the palm-house range meets the stable.',

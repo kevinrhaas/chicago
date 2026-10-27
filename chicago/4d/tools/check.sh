@@ -1031,6 +1031,14 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
 
+# T-1890. ...and a K08 round tower carries a corbelled upper stage, and a record sizes its cap's
+# finial (1801 Prairie's 18th Street tower, off the Taylor print and HABS photograph 2): the
+# shaft on its own ring, capped; the stage on the wider ring with the cone; its corbel courses
+# stepped back to the shaft within the kit's oversail; the ring closed above the wall head
+# across the shaft's junctions and then the stage's; a stage or finial out of range refused.
+step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
+  python3 tools/test_k08_tower_stage.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main

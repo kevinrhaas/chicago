@@ -55,6 +55,11 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                a fleuron near the apex and over a boss at the foot (the light tier keeps the panel)
   head frieze  (T-3002) a dressed band across one run over a storey's windows, under the wall
                top, with a roundel on it (1801's south pavilion under its gable's shelf)
+  stage        (T-1890) a tower's corbelled upper stage (1801's, in the Taylor print and HABS
+               photograph 2): from one of its storey lines up, its ring is `radius_m` across
+               where the shaft's below is the plan's, carried out over the shaft on `corbel_courses`
+               stepped stone courses, and its eaves and cone are the stage's; the shaft is
+               capped under it, with no eaves or roof of its own
   shallow      (T-3047) a full-height projection too thin for its windows' recesses or its
                gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
                recesses run back through the wall plane (`host_holes`, which its host opens
@@ -1079,8 +1084,11 @@ class Bay:
         self.host_holes: list[tuple] = []
         self.seed = seed_of(v["id"], 0 if tier == "full" else 1)
         self.runs, self.plan = plan_of(v)
+        self.stage_runs: list = []   # T-1890: a staged tower's upper ring, numbered on from `runs`
 
     def build(self, board: bool = True):
+        if self.v.get("stage"):
+            return self._build_staged(board)
         v, data = self.v, self.data
         cv = data["curves"][self.tier]
         wall_t = part(v, data, "wall")["thickness_m"]
@@ -1184,7 +1192,9 @@ class Bay:
             # T-2998: under a gable the face has no eaves (it is carried up as the gable), and
             # the returns' eaves stop square on the face's plane, inside the kneelers
             er = _Cut(run, start=gi is not None and i == gi + 1, end=gi is not None and i == gi - 1)
-            if gi is not None and i == gi:
+            if v.get("capped"):
+                pass   # T-1890: a staged tower's shaft, its top inside the stage's corbel courses
+            elif gi is not None and i == gi:
                 pass
             elif gi is not None and "side" in (run.start, run.end):
                 pass   # T-3048: a chamfer's head is under its kneeler, which closes over it
@@ -1214,7 +1224,8 @@ class Bay:
             self._apron_bottom(world, y0, cv)
         elif not grade:
             self._corbel_bottom(world, y0, cv)
-        self._roof(world, y_e, ov, cv)
+        if not v.get("capped"):
+            self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
             self._back(world, float(v["back_from_m"]), y_top, y_e)
         if v.get("corner_back_m") is not None:
@@ -1227,6 +1238,57 @@ class Bay:
         self._sockets(y0, y_e)
         if board:
             self._board(y_e)
+        return self
+
+    def _build_staged(self, board):
+        """T-1890: a tower with a corbelled upper stage, as two of the kit's own builds in one
+        frame. The shaft is the plan's ring, its storeys under `from_storey`, capped (no eaves,
+        no roof): its top stands inside the stage's corbel courses. The stage is the same
+        tower on a ring `radius_m` about the same centre, standing on that storey line as an
+        oriel stands on its floor, its corbel courses stepped from its face back to the shaft's
+        (their reach the two radii's difference, so the lowest course bears on the shaft), and
+        its eaves, cone and finial are the tower's."""
+        import copy
+        v, st = self.v, self.v["stage"]
+        k, R2, K = int(st["from_storey"]), float(st["radius_m"]), int(st["corbel_courses"])
+        R1 = float(v["plan"]["radius_m"])
+        if v["kind"] != "tower" or v["plan"]["kind"] != "circle" or v["base"] != "grade":
+            raise ValueError(f"{v['id']}: only a round tower on grade takes a corbelled stage")
+        if not 0 < k < len(v["storeys"]) or not R1 < R2 or K < 1:
+            raise ValueError(f"{v['id']}: its stage stands on one of its storey lines, wider than its shaft, "
+                             f"on at least one corbel course")
+        cb = part(v, self.data, "corbel")
+        if (R2 - R1) / (K + 1) > cb["max_oversail_ratio"] * cb["course_height_m"] + 1e-9:
+            raise ValueError(f"{v['id']}: {K} corbel courses cannot carry its stage {R2 - R1:.3f} m out "
+                             f"(each oversails at most {cb['max_oversail_ratio']} of its height)")
+        lo = copy.deepcopy(v)
+        lo.pop("stage")
+        lo["storeys"], lo["capped"] = lo["storeys"][:k], True
+        lower = Bay(lo, self.data, self.tier).build(board=False)
+        y_s = lower.meta["wall_top_m"]
+        hi = copy.deepcopy(v)
+        hi.pop("stage")
+        hi["storeys"], hi["base"] = hi["storeys"][k:], y_s
+        hi["plan"] = {**v["plan"], "radius_m": R2}
+        hi["corbel"] = {"courses": K, "reach_m": R2 - R1}
+        upper = Bay(hi, self.data, self.tier).build(board=False)
+        merge(self.prims, lower.prims)
+        merge(self.prims, upper.prims)
+        # the stage's windows on the stage's ring, numbered on from the shaft's runs and storeys
+        n = len(lower.runs)
+        for w in upper.windows:
+            w["run"], w["storey"] = w["run"] + n, w["storey"] + k
+        self.stage_runs = upper.runs
+        self.windows = lower.windows + upper.windows
+        self.meta = dict(upper.meta)
+        self.meta.update({"base_m": 0.0, "levels_m": lower.meta["levels_m"] + upper.meta["levels_m"][1:],
+                          "stage": {"base_m": round(y_s, 4), "radius_m": R2, "shaft_radius_m": R1,
+                                    "junctions_x": [round(upper.runs[0].world(0.0, 0, 0)[0], 4),
+                                                    round(upper.runs[-1].world(upper.runs[-1].L, 0, 0)[0], 4)],
+                                    **upper.meta["corbel"]}})
+        self._sockets(0.0, upper.meta["eave_m"])
+        if board:
+            self._board(upper.meta["eave_m"])
         return self
 
     # windows ---------------------------------------------------------------------------
@@ -1259,7 +1321,8 @@ class Bay:
         v, data = self.v, self.data
         cb = part(v, data, "corbel")
         K = v["corbel"]["courses"]
-        reach = max(r.world(s, 0, 0)[2] for r in self.runs for s in (0.0, r.L))
+        # T-1890: a staged tower's corbel steps back to its shaft, not to the wall
+        reach = v["corbel"].get("reach_m") or max(r.world(s, 0, 0)[2] for r in self.runs for s in (0.0, r.L))
         step = reach / (K + 1)
         h = cb["course_height_m"]
         return K, step, h, reach
