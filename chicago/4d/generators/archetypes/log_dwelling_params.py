@@ -148,7 +148,7 @@ CONSUMED = frozenset({
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
     "ridge_stack_w_m", "ridge_stack_head_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
-    "roof_condition", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
+    "roof_condition", "roof_colour", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
 })
 
 #: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
@@ -392,6 +392,9 @@ class LogDwellingParams:
     # per-attribute confidence, keyed by the attribute name in the record
     confidence: dict = field(default_factory=dict)
 
+    # T-2386: optional reconstructed tone; keyword-only preserves the positional API.
+    roof_colour: str | None = field(default=None, kw_only=True)
+
     def conf(self, attr: str, default: str = "reconstructed") -> float:
         """The _CONFIDENCE float for one attribute."""
         return CONFIDENCE_VALUE[self.confidence.get(attr, default)]
@@ -494,6 +497,11 @@ class LogDwellingParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
+        if self.roof_colour not in (None, "deep_brown"):
+            raise ParamError(f"roof_colour {self.roof_colour!r} not in (None, 'deep_brown')")
+        if self.roof_colour == "deep_brown" and self.conf("roof_colour") != 1.0:
+            raise ParamError("deep_brown roof_colour is an explicitly reconstructed tonal proxy, "
+                             "not an attested pigment or weathering history")
         if self.sign is not None and not str(self.sign).strip():
             raise ParamError("sign is present but empty — omit it or say what it showed")
         if self.sign_mount not in SIGN_MOUNTS:
@@ -865,6 +873,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         # A record that states its roof's condition (T-2511: a picture draws it dark)
         # outranks the programme's deal, which no named building carries anyway.
         roof_condition=val("roof_condition", recon.get("roof_condition")),
+        roof_colour=val("roof_colour"),
         confidence=confidences,
     )
     p.validate()
