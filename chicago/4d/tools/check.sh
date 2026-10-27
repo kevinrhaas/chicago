@@ -844,6 +844,12 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
+# the faces, the pictured ones at their lots), laid clear of the elms and the carriage walks: the
+# committed file is what the tool writes, lamp for lamp.
+step "the 1904 street furniture re-lays from the street grid (T-3199)" \
+  python3 tools/lay_prairie_1904_street_furniture.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
@@ -1053,6 +1059,14 @@ step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1
 # wing, a bow past half its chord, or a bow beside a canted plan's points refused.
 step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
   python3 tools/test_k08_round_oriel.py
+
+# T-1890. ...and a K08 cap's finial may be turned over a crocketed collar, in zinc sheet, and a
+# hooded dormer's face slated round a pale frame (1801 Prairie's tower and dormers, off the Taylor
+# print and HABS photograph 1): the tower's tip at the print's 19.6 m, its collar down the cone,
+# the plain spike unchanged; a collar off a cone, an unknown form or fabric, a frame on a stone
+# face or as wide as its surround refused.
+step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
+  python3 tools/test_k08_turned_finial.py
 
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).

@@ -1,0 +1,26 @@
+{
+ "id": "ghm_blog_pullman_completed",
+ "type": "photograph",
+ "citation": "[George M. Pullman residence, 1729 S. Prairie Avenue, completed.] Halftone of a photograph of the finished house from the south-west, across the crossing of Prairie Avenue and 18th Street; unknown photographer, undated (after the 1892 additions). Reproduced by the Glessner House Museum, 'Prairie Avenue in 1874' (blog, 2014-06-16).",
+ "author": "unknown photographer",
+ "date": "undated (after 1892; probably 1890s)",
+ "describes_date": "1890s",
+ "repository": "Glessner House Museum blog (secondary reproduction; the original publication is not named). Prairie library image a16-ghm-blog-pullman-completed (chicago/prairie_1904_v1/research/images/stream-1600-1700.json).",
+ "url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+ "locator": "The foreground: the north-east corner of the crossing, where a cast-iron lamp post stands in a curbed grass plot at the curb corner, and, left of it on the Prairie Avenue parkway beside the walk, a post fire hydrant.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Only what stands in the street and where is read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-pullman-completed.jpg); the original host is not reachable from the build containers.",
+ "note": "The same corner as the Detroit Publishing view (loc_det_4a08065_pullman_residence) from a little further west: the lamp in its curbed corner plot and the hydrant on the Prairie Avenue parkway north of it stand in both.",
+ "what_it_supplies": [
+  "a gas lamp post at the north-east corner of Prairie Avenue and 18th Street, in a curbed grass plot at the curb corner",
+  "a post fire hydrant on the Prairie Avenue parkway beside the walk, north of that corner"
+ ],
+ "what_it_does_not_supply": [
+  "a date: undated, after 1892",
+  "any size as a measurement"
+ ]
+}

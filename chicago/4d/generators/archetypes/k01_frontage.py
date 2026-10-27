@@ -315,7 +315,8 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
              "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
              "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
-             "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
+             "iron": "iron",        # T-2525: a bow's balcony rail and a light's grille
+             "cheek": "mansard_slate"}  # T-3197: a storey's slated cheeks, the mansard's slate (1827's attic)
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 
 
@@ -1281,6 +1282,11 @@ class Assembly:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
+            return
+        # T-3197: a carved tympanum on a stone lintel where the record names one for this light
+        ty = self.front_tympanum(op)
+        if ty is not None:
+            self.tympanum_head(op, frame, ty, stone_trim, seed, max(conf, p.conf("street_front_trim")))
             return
         # T-2310: a K09 head where the record names one; else a flat lintel
         if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))) or coursed:
@@ -2490,6 +2496,31 @@ class Assembly:
             roles["head"] = head_mat or stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
+    def front_tympanum(self, op):
+        """T-3197: the `street_front_trim.tympana` entry that dresses this street light, or None."""
+        p = self.p
+        if op.wall != "k01.wall.street_front" or op.component != "k01.opening.sash_flat":
+            return None
+        k = k09_frontage._storey(p, op)
+        return next((e for e in (p.street_front_trim or {}).get("tympana", ())
+                     if abs(e["s_m"] - op.s_m) < 1e-6 and k in e["storeys"]), None)
+
+    def tympanum_head(self, op, frame, e, stone_trim, seed, conf):
+        """T-3197: a light's head as 1827's window bay has it in the Doane photograph: a stone
+        lintel `lintel_m` deep and `lintel_proud_m` out, reaching K01's 0.12 m past each jamb,
+        and on it K08's carved tympanum (`k08_bays.tympanum`), laid as a kit is."""
+        from . import k06_windows, k08_bays
+        ext = 0.12
+        a, b = -op.width_m / 2 - ext, op.width_m / 2 + ext
+        self.proud_box(stone_trim, frame, op.s_m + a, op.s_m + b, op.head_m, op.head_m + e["lintel_m"],
+                       e["lintel_proud_m"], seed, conf)
+        self.seat(frame, [(op.s_m + a, op.head_m, 0.0), (op.s_m + b, op.head_m + e["lintel_m"], e["lintel_proud_m"])],
+                  "K01.lintel")
+        o = k06_windows.Opening({"id": f"{op.component}|tympanum"}, k06_windows.load())
+        k08_bays.tympanum(o, e["tympanum"], a, b, op.height_m + e["lintel_m"], 0.0, "full")
+        self.graft(o, "K08.tympanum", {"head": stone_trim, "carving": "carved_trim"}, frame, op,
+                   lambda role: (seed, conf), head=True)
+
     def graft(self, o, kit, roles, frame, op, seed_conf, skip=(), head=False):
         """Carry a kit's built opening into this assembly. A kit's frame is +X along the
         wall, +Y up, +Z out of it, its origin at the opening's socket on the outer face (a
@@ -2583,6 +2614,8 @@ class Assembly:
         if b["fabric"] == "frame" and self.p.stone.get("all_round"):
             roles = roles | {"plinth": "bay_stone"}   # T-2788: the house's stone carried out under it
         cover = K08_COVERS[v["roof"]["covering"]]
+        if b.get("finial_fabric"):   # T-1890: a finial in a sheet metal of its own, not the cap's slate
+            roles = roles | {"finial": k01_frontage_params.FINIAL_FABRICS[b["finial_fabric"]]}
         for role, src in built.prims.items():
             if role not in roles:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
@@ -4087,8 +4120,10 @@ class Assembly:
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
         # T-2866: a hipped dormer's cheeks are its face's (1625's print draws both pale, where
         # its slates read dark); the others' are slated, as the K01 dormer's are
+        slated = (d.get("hood") or {}).get("face") == "slate"   # T-1890: 1801's slated faces
         body = k5.extrude(outline, min(back, nf), max(back, nf), P,
-                          "dormer_face" if d.get("head") in HIPPED_HEADS + ("hood",) else "cheek", *ends)
+                          "dormer_face" if d.get("head") in HIPPED_HEADS + ("hood",) and not slated else "cheek",
+                          *(("hidden", "cheek") if sg > 0 else ("cheek", "hidden")) if slated else ends)
         if d.get("head") == "gable":
             # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
             # reads a cheek inside this box as one of them), its plan box in the K01 frame
@@ -4115,6 +4150,8 @@ class Assembly:
         if d.get("head") == "hood":
             hood = self.dormer_hood(d, k5, axis, sg, nf, back, centre, r, eaves, top)
             top = eaves   # the face, as the K01 dormer face is registered, stops under the shelf
+            if slated:
+                hood += self.dormer_frame(d, k5, axis, sg, nf, centre, sill)
         return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
@@ -4163,6 +4200,24 @@ class Assembly:
         box = (a0, a1, centre - rh, centre + rh) if axis == "x" else (centre - rh, centre + rh, a0, a1)
         self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
         return [shelf, hood]
+
+    FRAME_PROUD_M = 0.04   # T-1890: a slated face's stone frame stands this far out of it
+    FRAME_BED_M = 0.02     # ... and is bedded this far into it
+
+    def dormer_frame(self, d, k5, axis, sg, nf, centre, sill):
+        """T-1890: a slated dormer face's pale stone frame round its light, as closed solids for
+        the roof's union: a sill, a head and two jambs `frame_m` wide, standing FRAME_PROUD_M
+        out of the face round the sash's square outline (1801's, the Taylor print and HABS 1)."""
+        fm, sw, sht = d["hood"]["frame_m"], d["sash_width_m"], d["sash_height_m"]
+        a, b = sorted((nf - sg * self.FRAME_BED_M, nf + sg * self.FRAME_PROUD_M))
+        P = k5.frame(axis)
+        x0, x1, y0, y1 = centre - sw / 2, centre + sw / 2, sill, sill + sht
+        bars = ([(x0 - fm, y0 - fm), (x1 + fm, y0 - fm), (x1 + fm, y0), (x0 - fm, y0)],     # its sill
+                [(x0 - fm, y1), (x1 + fm, y1), (x1 + fm, y1 + fm), (x0 - fm, y1 + fm)],     # its head
+                [(x0 - fm, y0), (x0, y0), (x0, y1), (x0 - fm, y1)],                         # a jamb
+                [(x1, y0), (x1 + fm, y0), (x1 + fm, y1), (x1, y1)])                         # the other
+        ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
+        return [k5.extrude(q, a, b, P, "dormer_face", *ends) for q in bars]
 
     def crown_dormer_body(self, cr, E, f):
         """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
