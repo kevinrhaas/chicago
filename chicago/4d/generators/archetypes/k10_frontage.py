@@ -774,8 +774,25 @@ def _mansard_cornice(a, K, data, bays, conf):
     seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
     var.seed, var.rng = seed, random.Random(seed)
+    # T-3186: a canted corner's face stands in place of the corner its two walls met at, so the
+    # course turns it on two mitres; it is never cut there (k01_frontage_params._cant_corner)
+    cc = getattr(p, "cant_corner", None) or {}
+    cant = {}
+    if cc:
+        from .k01_frontage_params import cant_corner_plan
+        plan = cant_corner_plan(cc, p.depth_m, p.width_m)
+        pair = list(plan["walls"])
+        j = next((i for i in range(1, len(names)) if {names[i - 1], names[i]} == set(pair)), None)
+        if j is None:
+            raise ValueError("a canted corner's cornice turns it inside one run of the named walls")
+        cant[j] = [(u, y_c, -v) for u, v in plan["ends"]]
+        lo_, hi_ = cum[j] - plan["walls"][names[j - 1]][1] + plan["walls"][names[j - 1]][0], cum[j] + \
+            plan["walls"][names[j]][1] - plan["walls"][names[j]][0]
+        if any(lo_ - 1e-6 < x < hi_ + 1e-6 for sp in spans for x in sp):
+            raise ValueError("the stone cornice stops on a canted corner's cut")
     for k, (s0, s1) in enumerate(spans):
-        path = [point(s0)] + [point(c) for c in cum[1:-1] if s0 + 1e-6 < c < s1 - 1e-6] + [point(s1)]
+        path = [point(s0)] + [q for j, c in enumerate(cum[1:-1], 1) if s0 + 1e-6 < c < s1 - 1e-6
+                              for q in cant.get(j, [point(c)])] + [point(s1)]
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=names)
         ends = (s0 < 1e-9, s1 > cum[-1] - 1e-9)       # capped where the named walls end; dying into a bay
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=ends)
