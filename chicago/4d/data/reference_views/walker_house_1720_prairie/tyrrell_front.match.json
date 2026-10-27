@@ -2,7 +2,7 @@
   "structure_id": "walker_house_1720_prairie",
   "view": "tyrrell_front",
   "glb": "assets/gltf/walker_house_1720_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8f192b87e4f439b7aae9ebad797af3ae1dfe82d930fac564c0ab9efba45b661c",
+  "glb_sha256": "f9bf9caf8cbbb37fbfdee4544ace3cd9a64b005e75d7a1ea6012ebadb8787700",
   "camera_sha256": "52c93c6040c8c508e4bd10739e18ee995b829eadc9d5727d4efe755c529da3ad",
   "photo_sha256": "8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81",
   "side_by_side": "docs/RESEARCH/photo-match/walker_house_1720_prairie/tyrrell_front-side-by-side.jpg",
@@ -26,17 +26,17 @@
     {
       "what": "the porch across the front from x 55 to 975 px, its plate and fascia at y 490-525",
       "status": "fixed",
-      "how": "T-3180: the kit porch 11.5 m long centred on its stair, plate clear 3.6 m, fascia 0.35 m; within 5-10 px"
+      "how": "T-3180: the kit porch centred on its stair, fascia 0.35 m; T-3181: 10.9 m long (925 px read at the porch's own 85 px a metre, not the wall's 80), the plate raised to y 518 px (clear 3.88 m) under a 0.13 m fascia to the deck at y 482; the ends within about 10 px"
     },
     {
       "what": "posts at the porch's ends and either side of its middle opening (x 65-100, 390-425, 615-645, 930-965)",
       "status": "fixed",
-      "how": "T-3180: end posts and inner posts 1.3 m either side of the middle; single kit posts stand where the photograph pairs them"
+      "how": "T-3180: end posts and inner posts 1.3 m either side of the middle; T-3181: every post paired, 0.26 m between centres, the pairs within about 10 px of x 65-100, 385-430, 610-655 and 928-980"
     },
     {
       "what": "the central stair from the porch floor to the walk, x 415-570 px",
       "status": "fixed",
-      "how": "T-3180: kit steps 1.6 m wide on the stair's line, eight risers to the raised floor"
+      "how": "T-3180: kit steps on the stair's line, eight risers to the raised floor; T-3181: 2.24 m broad, the middle opening's width, its cheeks rising to the inner posts as the print's do"
     },
     {
       "what": "the front's openings: below a single light, the door and a pair; above two single sash and a pair",
@@ -55,13 +55,13 @@
     },
     {
       "what": "the porch's posts in pairs, the three segmental arches between them, the turned balustrades either side of the stair, the stair's cheek walls",
-      "status": "open",
-      "owner": "T-3181"
+      "status": "fixed",
+      "how": "T-3181: posts paired; a segmental arch over each of the three openings, springing at y 556 px and crowned at 538 (the middle 543), within about 5-10 px; a turned balustrade 0.7 m high in each side opening, its rails at y 800 and 855 within about 10 px, sixteen balusters a side against the print's fifteen or sixteen; raking balustrades on closed strings up the stair's sides to the inner posts"
     },
     {
       "what": "the iron cresting round the porch deck at y 430-480 px",
-      "status": "open",
-      "owner": "T-3181"
+      "status": "fixed",
+      "how": "T-3181: an iron band 0.5 m high on the deck, its base at the deck's edge and its top bar at about y 437 px, posts with pointed knobs about 0.37 m apart, round the front and back along the north end"
     },
     {
       "what": "the canted bay on the upper storey at the south end, x 107-333 px, under its hipped cap",
@@ -96,6 +96,33 @@
       "what": "the upper and lower window heads 15-30 px off the photograph's arch tops",
       "status": "within tolerance",
       "how": "under 0.4 m and inside the arched casings T-3182 replaces"
+    },
+    {
+      "what": "the cresting's cast openwork panels between its posts, drawn as plain square bars",
+      "status": "within tolerance",
+      "how": "the band, its height, its posts and their spacing are the print's; the panels' pattern is below what the print resolves to copy honestly (L-k16-1720-frame-house-3180)"
+    },
+    {
+      "what": "the balusters' and posts' turning: the print's posts are turned and ringed, its balusters fuller",
+      "status": "within tolerance",
+      "how": "count, place, height and outline within about 1 ft; the turning is the kit's (L-k16-1720-frame-house-3180)"
+    },
+    {
+      "what": "the stair's foot: the print's cheeks end about 60-100 px south (left) of the render's at the foot while their tops meet at the inner posts",
+      "status": "open",
+      "owner": "T-3182",
+      "how": "read at the stair's foot behind the street fence; heights at the foot agree with the stair's 2.1 m run, so this is the camera's across-the-street placement (eye v 7.0, principal x 764) rather than the stair — the sign-off weighs a re-solve"
+    },
+    {
+      "what": "the skirt under the porch floor reads dark in the print where the render's kit lattice reads light",
+      "status": "open",
+      "owner": "T-3182",
+      "how": "the print shows the floor's rim and a dark void with posts under it; the sign-off weighs the lattice against an open, shadowed skirt"
+    },
+    {
+      "what": "the porch floor's edge at y 860 px against the render's 848 (about 0.14 m)",
+      "status": "within tolerance",
+      "how": "under 1 ft; the balustrade's 0.7 m over it is read from its own rails"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -381,23 +381,66 @@
           "kind": "porch",
           "use": "porch",
           "side": "east",
-          "half_width_m": 5.75,
+          "half_width_m": 5.45,
           "depth_m": 1.5,
           "centre_m": 4.1,
           "basement_m": 0.95,
           "post_m": 0.18,
           "plate": {
-            "clear_m": 3.6
+            "clear_m": 3.88
           },
-          "roof_m": 0.35,
+          "roof_m": 0.13,
           "inner_posts_m": [
             1.3
           ],
           "steps": {
             "centre_m": 4.1,
-            "width_m": 1.6,
+            "width_m": 2.24,
             "going_m": 0.3,
-            "max_riser_m": 0.2
+            "max_riser_m": 0.2,
+            "cheek": {
+              "width_m": 0.14,
+              "string_above_m": 0.14,
+              "height_m": 0.65,
+              "rail_m": 0.08,
+              "rail_width_m": 0.11,
+              "baluster_m": 0.07,
+              "pitch_m": 0.17,
+              "newel_m": 0.2,
+              "newel_above_m": 0.12
+            }
+          },
+          "pair_m": 0.26,
+          "arcade": {
+            "spring_below_plate_m": 0.45,
+            "rise_m": 0.21,
+            "middle_rise_m": 0.15
+          },
+          "balustrade": {
+            "height_m": 0.7,
+            "pitch_m": 0.21,
+            "baluster_m": 0.1,
+            "bottom_rail_m": [
+              0.07,
+              0.08
+            ],
+            "top_rail_m": [
+              0.08,
+              0.11
+            ]
+          },
+          "cresting": {
+            "height_m": 0.5,
+            "inset_m": 0.06,
+            "return_to_m": 0.25,
+            "base_bar_m": 0.04,
+            "top_bar_m": 0.03,
+            "bar_m": 0.016,
+            "bar_pitch_m": 0.12,
+            "post_m": 0.035,
+            "post_pitch_m": 0.37,
+            "post_above_m": 0.06,
+            "knob_m": 0.07
           }
         },
         "chimney": {
@@ -420,7 +463,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "glessner_blog_1720_tyrrell_photo"
       ],
-      "note": "The whole house from the K16 kit (T-3180, piece 1 of T-1873), refined from the district draft in place. READ from the 1911 sheet through the T-2328 trace s20fp-1720-b1 and the draft's fit of it: the main block's rectangle (22.25 m deep, 10 m along Prairie), the two-storey south wing (u 10-21.5, standing 0.75 m back from the front) and the one-storey range across the front, here the porch, 1.5 m deep. READ from the Tyrrell photograph through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json), at about 80 px a metre on the front: the porch floor and the door 1.55 m over the walk (a 1.4 m foundation under the clapboard, the porch floor raised 0.95 m over the kit's), the frieze about 1.1 m deep under the eave at about 10.2 m, the upper sash between about 6.4 and 8.4 m and the lower between 2.2 and 4.5 m; the front's openings where the photograph puts them, measured from the south corner: below, a single round-headed light at 2.0 m, the door at 4.8 m, a pair at 8.0 m; above, single round-headed sash at 2.5 and 5.0 m and a pair at 7.9 m; the porch across the front from about v -1.65 to 9.85 m (the sheet's range runs -2.0 to 8.25; the photograph is preferred where it shows the porch reaching nearly to the north corner), centred on its stair at 4.1 m, with posts at its ends and either side of its middle opening, 1.3 m out, its plate about 3.6 m over its floor. RECONSTRUCTED and recorded as L-k16-1720-frame-house-3180: every opening on the flanks, the wing and the rear; the kit's two-over-two sash there and the kit's sash and casings on the front (the photograph's arched casings and hoods are T-3182's); the hip's 20-degree pitch; the one brick stack (the draft rules gave two; the photograph shows two stacks over the roof, the second not built); the paint. NOT YET BUILT, each owned by a piece of T-1873: the porch's paired posts, arches, balustrades, stair cheeks and deck cresting (T-3181); the upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired brackets and the central front gable (T-3182)."
+      "note": "The whole house from the K16 kit (T-3180, piece 1 of T-1873), refined from the district draft in place. READ from the 1911 sheet through the T-2328 trace s20fp-1720-b1 and the draft's fit of it: the main block's rectangle (22.25 m deep, 10 m along Prairie), the two-storey south wing (u 10-21.5, standing 0.75 m back from the front) and the one-storey range across the front, here the porch, 1.5 m deep. READ from the Tyrrell photograph through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json), at about 80 px a metre on the front: the porch floor and the door 1.55 m over the walk (a 1.4 m foundation under the clapboard, the porch floor raised 0.95 m over the kit's), the frieze about 1.1 m deep under the eave at about 10.2 m, the upper sash between about 6.4 and 8.4 m and the lower between 2.2 and 4.5 m; the front's openings where the photograph puts them, measured from the south corner: below, a single round-headed light at 2.0 m, the door at 4.8 m, a pair at 8.0 m; above, single round-headed sash at 2.5 and 5.0 m and a pair at 7.9 m; the porch across the front from about v -1.35 to 9.55 m (the sheet's range runs -2.0 to 8.25; the photograph is preferred where it shows the porch reaching nearly to the north corner; T-3181 measured its 925 px at the porch's own depth, about 85 px a metre, where T-3180 had used the wall's 80), centred on its stair at 4.1 m. T-3181 (piece 2 of T-1873) READ from the same photograph, at the porch's depth: the posts paired, 0.26 m between centres, at its ends and either side of its middle opening, 1.3 m out (x 65-100, 385-430, 610-655 and 928-980 px); the plate's underside at y 518 px, about 3.9 m over the floor, under a fascia 0.13 m deep to the deck at about y 482; a segmental arch over each opening, springing at about y 556 px (0.45 m under the plate) and crowned at y 538 over the side openings and 543 over the middle (rises of 0.21 and 0.15 m); a turned balustrade 0.7 m high (top rail y 800, bottom rail y 855) in each side opening, about sixteen balusters to a side (0.21 m apart); the stair as broad as the middle opening (2.24 m, its cheeks rising to the inner posts), each side a raking balustrade on a closed string; and iron cresting about 0.5 m high on the deck (y 437-482 px) with posts about 0.37 m apart. RECONSTRUCTED and recorded as L-k16-1720-frame-house-3180: every opening on the flanks, the wing and the rear; the kit's two-over-two sash there and the kit's sash and casings on the front (the photograph's arched casings and hoods are T-3182's); the hip's 20-degree pitch; the one brick stack (the draft rules gave two; the photograph shows two stacks over the roof, the second not built); the paint. RECONSTRUCTED by T-3181 and recorded under the same liberty: the balusters' vase profile, the kit's chamfered posts for the print's turned ones, the cresting's cast panels as plain bars between knobbed posts and its return along the porch roof's north end, and newels where the print's stair rails end in scrolls. NOT YET BUILT, owned by T-3182, the last piece of T-1873: the upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired brackets and the central front gable (T-3182)."
     },
     "roof_covering": {
       "value": {
