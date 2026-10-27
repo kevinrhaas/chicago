@@ -1,0 +1,163 @@
+{
+  "method": "published /1904/ app, animation loop stopped after readiness, each stand rendered with the street-furniture layer hidden (before) and shown (after); heap after a forced GC",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "js_heap_used_bytes": 81480068,
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "pullman-hydrant",
+          "before": {
+            "info": {
+              "triangles": 4891050,
+              "calls": 367
+            },
+            "furniture": {
+              "near": 10,
+              "far": 77,
+              "hydrants": 4,
+              "triangles": 13110,
+              "drawCalls": 8,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 4911070,
+              "calls": 379
+            },
+            "furniture": {
+              "near": 10,
+              "far": 77,
+              "hydrants": 4,
+              "triangles": 13110,
+              "drawCalls": 8,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "tucker-hydrant",
+          "before": {
+            "info": {
+              "triangles": 652914,
+              "calls": 52
+            },
+            "furniture": {
+              "near": 8,
+              "far": 64,
+              "hydrants": 4,
+              "triangles": 10818,
+              "drawCalls": 8,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 669362,
+              "calls": 64
+            },
+            "furniture": {
+              "near": 8,
+              "far": 64,
+              "hydrants": 4,
+              "triangles": 10818,
+              "drawCalls": 8,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "js_heap_used_bytes": 119927736,
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "pullman-hydrant",
+          "before": {
+            "info": {
+              "triangles": 1052859,
+              "calls": 231
+            },
+            "furniture": {
+              "near": 3,
+              "far": 31,
+              "hydrants": 1,
+              "triangles": 4894,
+              "drawCalls": 7,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 1057753,
+              "calls": 238
+            },
+            "furniture": {
+              "near": 3,
+              "far": 31,
+              "hydrants": 1,
+              "triangles": 4894,
+              "drawCalls": 7,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "tucker-hydrant",
+          "before": {
+            "info": {
+              "triangles": 195262,
+              "calls": 38
+            },
+            "furniture": {
+              "near": 4,
+              "far": 30,
+              "hydrants": 1,
+              "triangles": 5518,
+              "drawCalls": 7,
+              "detail": "light"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 200780,
+              "calls": 45
+            },
+            "furniture": {
+              "near": 4,
+              "far": 30,
+              "hydrants": 1,
+              "triangles": 5518,
+              "drawCalls": 7,
+              "detail": "light"
+            },
+            "problems": []
+          }
+        }
+      ]
+    }
+  ]
+}

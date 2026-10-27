@@ -126,6 +126,39 @@ ATTESTED_MIDBLOCK = [
              "Avenue porch."},
 ]
 
+# ---- the hydrants (T-3201) ----
+HYDRANT_CORNER_ALONG_M = 3.5   # a corner hydrant's distance along its face from the block corner
+HYDRANT_CURB_INSET_M = 0.45    # a hydrant's centre, inside the parkway's curb edge
+HYDRANT_WALK_OFFSET_M = 0.35   # ...or off the walk's outer edge, where a picture puts it there
+HYDRANT_LONG_FACE_M = 150.0    # a face at least this long takes a mid-block hydrant as well
+HYDRANT_LAMP_CLEAR_M = 2.0     # plan distance from a lamp
+HYDRANT_TREE_CLEAR_M = 1.8     # plan distance from an elm's trunk
+CROSSING_CLEAR_M = 0.5         # beyond a corner crossing's strip (T-3200)
+# Which corner of an intersection takes its hydrant, by the intersection's place in the
+# district (west to east, then north to south): the four quadrants in turn.
+CORNER_CYCLE = ["NE", "SW", "NW", "SE"]
+
+HYDRANT = {
+    "height_m": 0.85, "barrel_d_m": 0.21, "foot_d_m": 0.34, "band_at_m": 0.62,
+    "nozzles_at_m": 0.5, "nozzle_d_m": 0.09,
+}
+
+# The pictured hydrants: on a face, `along_m` from its end at the street `end`, on the
+# parkway's walk or curb side.
+ATTESTED_HYDRANTS = [
+    {"key": "pullman", "face": "prairie__prairie_ic_16_18", "end": "e18th", "along_m": 8.0, "side": "walk",
+     "sources": ["loc_det_4a08065_pullman_residence", "ghm_blog_pullman_completed"],
+     "note": ("Pullman's: the Detroit Publishing view and the Glessner House Museum's halftone of the finished "
+              "house show a post hydrant on the Prairie Avenue parkway beside the walk, a few metres north of "
+              "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
+              "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
+              "hitching post: none is shown at Pullman's.")},
+    {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
+     "sources": ["chicagology_2140_photo_b"],
+     "note": ("Tucker's: the second 2140 photograph has a post hydrant of the same type in its left foreground, "
+              "on the Prairie Avenue parkway toward 22nd Street.")},
+]
+
 STREET_ORDER = ["indiana", "prairie", "calumet", "e16th", "e18th", "e20th", "e21st", "e22nd"]
 
 
@@ -416,23 +449,369 @@ def lay_lamps(grid, section, trees_doc):
     return items
 
 
+def poly_dist(q, poly):
+    """Plan distance from q to a polygon: 0 inside it."""
+    inside = False
+    for i in range(len(poly)):
+        a, b = poly[i - 1], poly[i]
+        if (a[1] > q[1]) != (b[1] > q[1]) and q[0] < a[0] + (q[1] - a[1]) * (b[0] - a[0]) / ((b[1] - a[1]) or 1e-12):
+            inside = not inside
+    if inside:
+        return 0.0
+    best = float("inf")
+    for i in range(len(poly)):
+        a, b = poly[i - 1], poly[i]
+        v = sub(b, a)
+        L2 = dot(v, v) or 1.0
+        u = max(0.0, min(1.0, dot(sub(q, a), v) / L2))
+        best = min(best, math.dist(q, (a[0] + v[0] * u, a[1] + v[1] * u)))
+    return best
+
+
+def crossing_polys(section):
+    """The corner crossings' strips (T-3200), flat and ramp, when the section carries them."""
+    out = []
+    for c in (section or {}).get("corner_crossings", []) or []:
+        for k in ("flat", "ramp"):
+            q = c.get(k)
+            if q and len(q) >= 3:
+                out.append([tuple(p) for p in q])
+    return out
+
+
+def face_end_s(face, corner):
+    """Distance along `face` of its end at a corner, and the sign that walks away from it."""
+    if math.dist(face.line[0], corner["O"]) <= math.dist(face.line[-1], corner["O"]):
+        return 0.0, 1.0
+    return face.length, -1.0
+
+
+def lay_hydrants(grid, section, trees_doc, lamps):
+    xs = grid["cross_sections"]
+    faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
+    walks = {}
+    for w in (section or {}).get("carriage_walks", {}).get("walks", []):
+        walks.setdefault(w["face"], []).append(w)
+    trees = [(t["e"], t["n"]) for t in (trees_doc or {}).get("trees", [])]
+    lamp_at = [(i["e"], i["n"]) for i in lamps]
+    crossings = crossing_polys(section)
+    alleys = grid.get("alleys", [])
+    cs = corners(faces)
+
+    def clear(face, s, across, blocked, lo, hi, step_sign=0):
+        """The nearest clear spot along the face to s (or only away from a corner, step_sign)."""
+        k = 0
+        while k * NUDGE_STEP_M <= NUDGE_MAX_M:
+            cands = (s,) if k == 0 else ((s + step_sign * k * NUDGE_STEP_M,) if step_sign
+                                         else (s + k * NUDGE_STEP_M, s - k * NUDGE_STEP_M))
+            for x in cands:
+                if not lo <= x <= hi or any(a < x < b for a, b, _ in blocked):
+                    continue
+                p, _ = face.at(x, across)
+                if any(math.dist(p, t) < HYDRANT_TREE_CLEAR_M for t in trees):
+                    continue
+                if any(math.dist(p, t) < HYDRANT_LAMP_CLEAR_M for t in lamp_at):
+                    continue
+                if any(poly_dist(p, c) < CROSSING_CLEAR_M for c in crossings):
+                    continue
+                return x
+            k += 1
+        return None
+
+    def item(hid, f, s, across, **kw):
+        P, t = f.at(s, across)
+        return {"id": hid, "kind": "fire_hydrant", "e": r2(P[0]), "n": r2(P[1]),
+                "heading_deg": round(bearing(t), 1), **kw}
+
+    items = []
+    taken = set()
+    # 1. The pictured ones.
+    for h in ATTESTED_HYDRANTS:
+        face = faces[h["face"]]
+        c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
+        s0, sign = face_end_s(face, c)
+        across = (face.walk_to + HYDRANT_WALK_OFFSET_M) if h["side"] == "walk" else (face.park_to - HYDRANT_CURB_INSET_M)
+        blocked = blocked_intervals(face, walks, alleys)
+        s = clear(face, s0 + sign * h["along_m"], across, blocked, 0.0, face.length)
+        if s is None:
+            raise SystemExit(f"street furniture: no clear spot for the pictured hydrant {h['key']}")
+        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, place="corner",
+                          streets=c["streets"], corner=c["quadrant"], face=face.id, grade="attested",
+                          sources=h["sources"], note=h["note"],
+                          moved_m=r2(abs(s - (s0 + sign * h["along_m"])))))
+        taken.add(frozenset(c["streets"]))
+    # 2. One per intersection, at a corner taken in turn, along the avenue's face.
+    by_x = {}
+    for c in cs:
+        by_x.setdefault(tuple(c["streets"]), []).append(c)
+    order = sorted(by_x, key=lambda k: (STREET_ORDER.index(k[1]), STREET_ORDER.index(k[0])))
+    for idx, key in enumerate(order):
+        if frozenset(key) in taken:
+            continue
+        here = {c["quadrant"]: c for c in by_x[key]}
+        want = next((q for j in range(4) for q in [CORNER_CYCLE[(idx + j) % 4]] if q in here), None)
+        c = here[want]
+        A, B = c["faces"]
+        face = A if A.street == key[0] else B          # the avenue's face (Indiana, Prairie, Calumet)
+        s0, sign = face_end_s(face, c)
+        across = face.park_to - HYDRANT_CURB_INSET_M
+        blocked = blocked_intervals(face, walks, alleys)
+        lo, hi = (0.0, face.length)
+        s = clear(face, s0 + sign * HYDRANT_CORNER_ALONG_M, across, blocked, lo, hi, step_sign=sign)
+        if s is None:
+            continue
+        items.append(item(f"hydrant.corner.{key[0]}.{key[1]}.{want.lower()}", face, s, across, place="corner",
+                          streets=list(key), corner=want, face=face.id, grade="reconstructed", sources=[],
+                          liberty="L-prairie-hydrants-3201"))
+    # 3. Mid-block on the long faces, one side of each street.
+    for fid in sorted(faces):
+        face = faces[fid]
+        if face.length < HYDRANT_LONG_FACE_M:
+            continue
+        _, _, n0 = face.frame(face.length / 2)
+        if not (n0[0] < -0.5 or n0[1] < -0.5):
+            continue
+        across = face.park_to - HYDRANT_CURB_INSET_M
+        blocked = blocked_intervals(face, walks, alleys)
+        s = clear(face, face.length / 2, across, blocked, CORNER_CLEAR_M, face.length - CORNER_CLEAR_M)
+        if s is None:
+            continue
+        items.append(item(f"hydrant.mid.{fid}", face, s, across, place="mid-block", face=fid,
+                          grade="reconstructed", sources=[], liberty="L-prairie-hydrants-3201"))
+    return items
+
+
+# --------------------------------------------------------------------------- the poles and wires (T-3202)
+
+POLE_SPACING_M = 34.0          # about 110 ft between poles on a line
+POLE_CURB_INSET_M = 0.35       # a street pole's centre, inside the parkway's curb edge
+POLE_ALLEY_INSET_M = 0.45      # an alley pole's centre, inside the alley's edge
+POLE_MOUTH_IN_M = 2.5          # an alley line's end pole, in from the alley's mouth
+POLE_TREE_CLEAR_M = 1.5        # plan distance from an elm's trunk
+POLE_ITEM_CLEAR_M = 1.5        # plan distance from a lamp or a hydrant
+ALLEY_LINE_JOIN_M = 12.0       # two alley ends this near across a street are one line, spanned over it
+
+POLE = {
+    "street": {"height_m": 10.5, "butt_d_m": 0.30, "top_d_m": 0.19, "arms": 1, "pins": 6,
+               "arm_len_m": 2.4, "arm_below_top_m": 0.45},
+    # The alley poles are drawn as Glessner's, the one line pole pictured (and so share its draws).
+    "alley": {"height_m": 10.5, "butt_d_m": 0.30, "top_d_m": 0.19, "arms": 1, "pins": 6,
+              "arm_len_m": 2.4, "arm_below_top_m": 0.45},
+    "trolley": {"height_m": 9.0, "butt_d_m": 0.28, "top_d_m": 0.19, "arms": 0, "pins": 0,
+                "span_at_m": 6.6},
+}
+WIRE_SAG_FRAC = 0.012          # a line wire's sag, as a share of its span
+TROLLEY = {"contact_h_m": 5.6, "contact_gap_m": 3.0, "span_sag_m": 0.35}
+
+# Glessner's pole: the c. 1887 photograph from the north-west shows a pole with a crossarm of
+# about six pins on the 18th Street parkway at the stable's north-west corner, by the alley.
+GLESSNER_POLE = {"face": "e18th__indiana_prairie_18_20", "alley": "alley_indiana_prairie_18_20",
+                 "past_alley_m": 2.0, "sources": ["cornell_adw_glessner_stable_1887"]}
+# 18th Street's line runs west from Glessner's pole to Indiana Avenue; Taylor 2135 and the
+# Detroit view show no pole on 18th Street east of the alley.
+POLE_18TH_NOTE_SOURCES = ["taylor_2135_glessner_exterior_1887_1889", "loc_det_4a08065_pullman_residence"]
+TROLLEY_SOURCES = ["chicagology_2140_photo_a"]
+TROLLEY_FACES = ["e22nd__indiana_prairie_21_22", "e22nd__prairie_calumet_21_22"]
+STREET_WIDTH_FT = {"row_66": 66.0, "row_50": 50.0}
+
+
+def alley_edges(al):
+    """The alley's two long edges as polylines, north to south: (west, east)."""
+    qs = al["quads_local_m"]
+    west = [tuple(qs[0][0])] + [tuple(q[1]) for q in qs]
+    east = [tuple(qs[0][3])] + [tuple(q[2]) for q in qs]
+    if west[0][1] < west[-1][1]:
+        west.reverse(); east.reverse()
+    return west, east
+
+
+def poly_len(pl):
+    return sum(math.dist(a, b) for a, b in zip(pl, pl[1:]))
+
+
+def poly_at(pl, s):
+    """Point and unit tangent at distance s along a polyline."""
+    acc = 0.0
+    for a, b in zip(pl, pl[1:]):
+        L = math.dist(a, b)
+        if s <= acc + L or b == pl[-1]:
+            f = (s - acc) / (L or 1.0)
+            return (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f), unit(sub(b, a))
+        acc += L
+    return pl[-1], unit(sub(pl[-1], pl[-2]))
+
+
+def lay_poles(grid, section, trees_doc, items):
+    xs = grid["cross_sections"]
+    faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
+    alleys = {a["id"]: a for a in grid.get("alleys", [])}
+    walks = {}
+    for w in (section or {}).get("carriage_walks", {}).get("walks", []):
+        walks.setdefault(w["face"], []).append(w)
+    trees = [(t["e"], t["n"]) for t in (trees_doc or {}).get("trees", [])]
+    others = [(i["e"], i["n"]) for i in items]
+    crossings = crossing_polys(section)
+
+    def free(p):
+        return (all(math.dist(p, t) >= POLE_TREE_CLEAR_M for t in trees)
+                and all(math.dist(p, o) >= POLE_ITEM_CLEAR_M for o in others)
+                and all(poly_dist(p, c) >= CROSSING_CLEAR_M for c in crossings))
+
+    def on_face(face, s, across, lo, hi):
+        blocked = blocked_intervals(face, walks, list(alleys.values()))
+        k = 0
+        while k * NUDGE_STEP_M <= NUDGE_MAX_M:
+            for x in ((s,) if k == 0 else (s + k * NUDGE_STEP_M, s - k * NUDGE_STEP_M)):
+                if lo <= x <= hi and not any(a < x < b for a, b, _ in blocked):
+                    p, t = face.at(x, across)
+                    if free(p):
+                        return x, p, t
+            k += 1
+        return None
+
+    poles, wires = [], []
+
+    def pole(pid, p, t, cls, grade, sources, line, liberty=None, **kw):
+        rec = {"id": pid, "kind": "utility_pole", "e": r2(p[0]), "n": r2(p[1]), "heading_deg": round(bearing(t), 1),
+               "place": line, "class": cls, "grade": grade, "sources": sources}
+        if liberty:
+            rec["liberty"] = liberty
+        rec.update(kw)
+        poles.append(rec)
+        others.append(p)
+        return rec
+
+    # 1. 18th Street: Glessner's pole by the alley, then west to Indiana.
+    face = faces[GLESSNER_POLE["face"]]
+    al = alleys[GLESSNER_POLE["alley"]]
+    ss = [face.project(tuple(q))[0] for q in al["polygon_local_m"] if abs(face.project(tuple(q))[1]) < 8.0]
+    # The face runs east to west; "past the alley" is toward Prairie, the smaller s.
+    s0 = min(ss) - ALLEY_CLEAR_M - GLESSNER_POLE["past_alley_m"]
+    across = face.park_to - POLE_CURB_INSET_M
+    hit = on_face(face, s0, across, 0.0, face.length)
+    if not hit:
+        raise SystemExit("street furniture: no clear spot for Glessner's pole")
+    names = {k: v.get("name_1904", k) for k, v in grid["streets"].items()}
+    w18 = f"on the south parkway of {names['e18th']}"
+    line18 = [pole("pole.18th.glessner", hit[1], hit[2], "street", "attested", GLESSNER_POLE["sources"], "e18th",
+                   where=f"{w18}, at the north-west corner of Glessner's stable by the alley",
+                   note=("Glessner's: the c. 1887 photograph of the stable from the north-west shows a wooden pole "
+                         "with a crossarm of about six pins on the 18th Street parkway at the stable's corner, "
+                         "by the alley."))]
+    s = hit[0] + POLE_SPACING_M
+    k = 1
+    while s <= face.length - 6.0:
+        h = on_face(face, s, across, s - 4.0, face.length - 4.0)
+        if h:
+            line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
+                               GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
+                               liberty="L-prairie-utility-poles-3202", where=w18))
+            k += 1
+        s += POLE_SPACING_M
+    # ...and one more short of Indiana Avenue's corner, where the line goes on beyond the district.
+    last_s = face.project((line18[-1]["e"], line18[-1]["n"]))[0]
+    if face.length - 8.0 - last_s > 0.5 * POLE_SPACING_M:
+        h = on_face(face, face.length - 8.0, across, last_s + 10.0, face.length - 4.0)
+        if h:
+            line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
+                               GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
+                               liberty="L-prairie-utility-poles-3202", where=w18))
+    # 2. The alleys: a line down each, on its east side, an end pole in from each mouth.
+    ends = []
+    for aid in sorted(alleys):
+        west, east = alley_edges(alleys[aid])
+        edge = east
+        L = poly_len(edge)
+        n = max(1, round((L - 2 * POLE_MOUTH_IN_M) / POLE_SPACING_M))
+        step = (L - 2 * POLE_MOUTH_IN_M) / n
+        line = []
+        for j in range(n + 1):
+            s = POLE_MOUTH_IN_M + j * step
+            got = None
+            for dk in [0] + [d * sgn for d in (0.5, 1.0, 1.5, 2.0, 2.5, 3.0) for sgn in (1, -1)]:
+                x = min(max(s + dk, 1.0), L - 1.0)
+                q, t = poly_at(edge, x)
+                inward = (t[1], -t[0])   # walking south on the east edge, west is to the right
+                p = (q[0] + inward[0] * POLE_ALLEY_INSET_M, q[1] + inward[1] * POLE_ALLEY_INSET_M)
+                if free(p):
+                    got = (p, t)
+                    break
+            if got:
+                line.append(pole(f"pole.{aid.replace('alley_', 'alley.')}#{j:02d}", got[0], got[1], "alley",
+                                 "reconstructed", [], "alley", liberty="L-prairie-utility-poles-3202",
+                                 alley=aid, where=f"in the alley {alleys[aid]['where']}"))
+        if line:
+            ends.append((aid, line[0], line[-1]))
+        for a, b in zip(line, line[1:]):
+            wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "reconstructed"})
+    # The alley lines run on across the cross streets where one alley's foot meets the next one's head.
+    for aid, head, foot in ends:
+        for bid, head2, _ in ends:
+            if bid != aid and math.dist((foot["e"], foot["n"]), (head2["e"], head2["n"])) < 2 * POLE_MOUTH_IN_M + 66 * FT + ALLEY_LINE_JOIN_M \
+                    and abs(foot["e"] - head2["e"]) < ALLEY_LINE_JOIN_M and head2["n"] < foot["n"]:
+                wires.append({"from": foot["id"], "to": head2["id"], "kind": "line", "grade": "reconstructed"})
+    # 18th Street's line: along the parkway, and from Glessner's pole into the alley behind it.
+    for a, b in zip(line18, line18[1:]):
+        wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "inferred"})
+    head = next((h for aid, h, _ in ends if aid == GLESSNER_POLE["alley"]), None)
+    if head:
+        wires.append({"from": line18[0]["id"], "to": head["id"], "kind": "line", "grade": "inferred"})
+    # 3. 22nd Street's trolley: poles on both curbs, a span wire between each pair, two contact
+    #    wires along the street over the tracks.
+    pairs = []
+    for fid in TROLLEY_FACES:
+        face = faces[fid]
+        width = STREET_WIDTH_FT[face.rec["cross_section"]] * FT
+        across = face.park_to - POLE_CURB_INSET_M
+        far_across = width - across        # the far side's parkway, measured from this face's line
+        n = max(1, round((face.length - 12.0) / POLE_SPACING_M))
+        step = (face.length - 12.0) / n
+        for j in range(n + 1):
+            s = 6.0 + j * step
+            h = on_face(face, s, across, 4.0, face.length - 4.0)
+            if not h:
+                continue
+            q, t = face.at(h[0], far_across)
+            a = pole(f"pole.trolley.{fid.split('__')[1]}.n#{j:02d}", h[1], h[2], "trolley", "reconstructed",
+                     [], "e22nd", liberty="L-prairie-utility-poles-3202",
+                     where=f"on the north parkway of {names['e22nd']}")
+            b = pole(f"pole.trolley.{fid.split('__')[1]}.s#{j:02d}", q, t, "trolley", "reconstructed",
+                     [], "e22nd", liberty="L-prairie-utility-poles-3202", beyond_district=True,
+                     where=f"on the south side of {names['e22nd']}, across from the district")
+            pairs.append((h[0] + (0 if fid == TROLLEY_FACES[0] else 1000), a, b))
+    pairs.sort(key=lambda x: (x[1]["e"]))
+    for _, a, b in pairs:
+        wires.append({"from": a["id"], "to": b["id"], "kind": "trolley_span", "grade": "inferred",
+                      "sources": TROLLEY_SOURCES})
+    for (_, a1, b1), (_, a2, b2) in zip(pairs, pairs[1:]):
+        wires.append({"between_spans": [[a1["id"], b1["id"]], [a2["id"], b2["id"]]], "kind": "trolley_contact",
+                      "grade": "inferred", "sources": TROLLEY_SOURCES})
+    return poles, wires
+
+
 def build():
     grid = json.loads(GRID.read_text())
     section = json.loads(SECTION.read_text()) if SECTION.exists() else None
     trees = json.loads(TREES.read_text()) if TREES.exists() else None
     items = lay_lamps(grid, section, trees)
+    items += lay_hydrants(grid, section, trees, items)
+    poles, wires = lay_poles(grid, section, trees, items)
+    items += poles
     order = {"corner": 0, "mid-block": 1}
     items.sort(key=lambda i: (i["kind"], order.get(i["place"], 9), i["id"]))
     cited = [s for i in items for s in i["sources"]]
     lamps = [i for i in items if i["kind"] == "gas_lamp"]
+    hydrants = [i for i in items if i["kind"] == "fire_hydrant"]
+    poles = [i for i in items if i["kind"] == "utility_pole"]
     return {
-        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps on the parkways. GENERATED by "
+        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps, (T-3201) the fire hydrants and (T-3202) the poles and wires. GENERATED by "
                  "tools/lay_prairie_1904_street_furniture.py from data/street_grid/1904.json, "
                  "data/street_section/1904.json and data/street_trees/1904.json -- do not hand-edit; re-run the "
                  "tool. Local ENU metres of data/datum.json; heading_deg is the compass bearing of the street "
                  "line the item stands along. Drawn by renderers/web/js/street-furniture.js. "
                  "docs/RESEARCH/prairie_1904_street_furniture.md is the reading; docs/LIBERTIES.md "
-                 "L-prairie-street-lamps-3199 the inventions."),
+                 "L-prairie-street-lamps-3199, L-prairie-hydrants-3201 and L-prairie-utility-poles-3202 the "
+                 "inventions. `wires` join poles by id; the renderer hangs them from the poles' pins."),
         "scene": "1904",
         "target_date": "1904-07-01",
         "ticket": "T-3199",
@@ -451,6 +830,47 @@ def build():
                               "is gas: electric standards appear only in pictures dated after it. The scene is a "
                               "July morning with no night, so no lamp is lit."),
                 "model_m": LAMP,
+                "what": "A cast-iron gas lamp post",
+                "ticket": "T-3199",
+                "rule_note": "The pictures show such lamps at the district's corners and along its parkways",
+            },
+            "fire_hydrant": {
+                "name": "fire hydrant",
+                "form": ("A post fire hydrant: a cast-iron barrel about 0.85 m tall on a flared foot, a band under a "
+                         "domed bonnet with an operating nut on top, and two side nozzles with caps; painted iron."),
+                "form_grade": "attested",
+                "form_sources": ["loc_det_4a08065_pullman_residence", "ghm_blog_pullman_completed",
+                                 "chicagology_2140_photo_b"],
+                "form_note": ("Read off the owner's crop of the Detroit Publishing Pullman view, the museum's halftone "
+                              "of the same corner and the second 2140 photograph, which show one type. The prints are "
+                              "monochrome; the Detroit view prints the hydrant lighter than the lamp posts, so it is "
+                              "drawn a mid grey, and its colour is reconstructed."),
+                "model_m": HYDRANT,
+                "what": "A cast-iron post fire hydrant",
+                "ticket": "T-3201",
+                "rule_note": ("The pictures show post hydrants on the parkway at Pullman's corner and at 22nd Street; "
+                              "the city's hydrants stood at its corners and along its long blocks"),
+            },
+            "utility_pole": {
+                "name": "utility pole",
+                "name_by_class": {"street": "utility pole", "alley": "utility pole", "trolley": "trolley-wire pole"},
+                "form": ("A wooden pole, 9 to 11 m, tapering from its butt; a line pole carries a crossarm with "
+                         "pins and glass insulators, a trolley-wire pole carries the span wire over the street."),
+                "form_grade": "inferred",
+                "form_sources": ["cornell_adw_glessner_stable_1887"],
+                "form_note": ("Glessner's pole in the c. 1887 photograph is a plain wooden pole with one crossarm of "
+                              "about six pins; every line pole is drawn after it. The trolley poles' form is not "
+                              "pictured: drawn as plain wooden poles."),
+                "model_m": POLE,
+                "what": "A wooden pole carrying overhead wires",
+                "what_by_class": {"trolley": "A pole holding the span wire of the street railway's overhead"},
+                "ticket": "T-3202",
+                "rule_note": "Glessner's pole is pictured on 18th Street; the lines down the alleys are drawn by rule",
+                "rule_note_by_class": {
+                    "street": "The photograph of Glessner's stable shows the line's pole at the alley",
+                    "trolley": ("A photograph at 22nd and Prairie shows rails and trolley wires in 22nd Street; "
+                                "the poles that carried them are not pictured"),
+                },
             },
         },
         "placement": {
@@ -468,28 +888,66 @@ def build():
                          "each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner "
                          "where a face meets a curved return (Calumet at 18th) has no corner of its own."),
             },
+            "fire_hydrant": {
+                "liberty": "L-prairie-hydrants-3201",
+                "corner_along_m": HYDRANT_CORNER_ALONG_M,
+                "curb_inset_m": HYDRANT_CURB_INSET_M,
+                "long_face_m": HYDRANT_LONG_FACE_M,
+                "note": ("The two pictured hydrants where their pictures put them (Pullman's on the Prairie Avenue "
+                         "parkway beside the walk north of 18th Street, Tucker's near the curb toward 22nd Street); "
+                         "then one at every other intersection, at its corners taken in turn, on the avenue's "
+                         "parkway 3.5 m from the corner and 0.45 m inside the curb; and one mid-block on one side "
+                         "of every block face 150 m long or more. Each stands in the grass, clear of the walks, the "
+                         "corner crossings, the carriage walks, the lamps and the elms."),
+            },
+            "utility_pole": {
+                "liberty": "L-prairie-utility-poles-3202",
+                "spacing_m": POLE_SPACING_M,
+                "note": ("Glessner's pole where the photograph shows it, on 18th Street's south parkway at the "
+                         "stable's corner by the alley; the line on west from it to Indiana Avenue at about 34 m "
+                         "(Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley), and "
+                         "into the alley behind it; a line down every alley on its east side, its end poles 2.5 m in "
+                         "from the mouths and spanned across the cross streets where alleys meet; none on the "
+                         "Prairie Avenue parkways. Each pole clear of the elms, lamps, hydrants, carriage walks "
+                         "and alley mouths."),
+                "note_by_class": {
+                    "trolley": ("22nd Street's overhead: a pair of plain poles at about 34 m, one in the north "
+                                "parkway by the curb and one opposite it across the street, a span wire between "
+                                "them at 6.6 m and two contact wires along the street over the tracks at 5.6 m."),
+                },
+            },
         },
+        "wire_model": {"sag_frac": WIRE_SAG_FRAC, "trolley": TROLLEY},
         "street_names": {k: v.get("name_1904", k) for k, v in grid["streets"].items()},
         "sources": source_lines(cited + ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
-                                         "chicagology_2140_photo_b"]),
+                                         "chicagology_2140_photo_b", "loc_det_4a08065_pullman_residence",
+                                         "ghm_blog_pullman_completed", "cornell_adw_glessner_stable_1887",
+                                         "chicagology_2140_photo_a"]),
         "summary": {
             "items": len(items),
             "gas_lamps": len(lamps),
-            "corner": sum(i["place"] == "corner" for i in lamps),
+            "fire_hydrants": len(hydrants),
+            "utility_poles": len(poles),
+            "wires": len(wires),
+            "corner_lamps": sum(i["place"] == "corner" for i in lamps),
             "attested": sum(i["grade"] == "attested" for i in items),
+            "inferred": sum(i["grade"] == "inferred" for i in items),
             "reconstructed": sum(i["grade"] == "reconstructed" for i in items),
         },
         "items": items,
+        "wires": wires,
     }
 
 
 def dump(doc):
     """Indented, one item to a line: the file diffs by item."""
     items = doc.pop("items")
+    wires = doc.pop("wires", [])
     head = json.dumps(doc, indent=1, ensure_ascii=False)[:-2]
-    body = ",\n".join("  " + json.dumps(x, separators=(", ", ": "), ensure_ascii=False) for x in items)
+    line = lambda xs: ",\n".join("  " + json.dumps(x, separators=(", ", ": "), ensure_ascii=False) for x in xs)
     doc["items"] = items
-    return head + f',\n "items": [\n{body}\n ]\n}}\n'
+    doc["wires"] = wires
+    return head + f',\n "items": [\n{line(items)}\n ],\n "wires": [\n{line(wires)}\n ]\n}}\n'
 
 
 def main():
