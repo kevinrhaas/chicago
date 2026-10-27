@@ -133,3 +133,16 @@ defensible.
 | Size and position of the frame element | Unattested in anything reached |
 | What the wolf sign looked like | Unattested; probably unknowable |
 | The building's fate after 1836 | No source reached gives one — which is why the phase closes at the end of Walters's tenancy rather than at a demolition |
+
+
+## T-2386 — Explicit reconstructed roof tone, 2026-10-26
+
+The current physical L, two outward-facing gables, two dark entries, one right-gable sash, roof head plus pipe, sign and georeferenced placement remain. This record supersedes the dossier's older placeholder prose about a rectangular/inline model. The earlier existing `darkened` preset was genuinely built and inspected in a normal native mobile load with shingle normal/ORM maps, live fly mode, credited source/liberty and both native door approaches. Technical checks passed but the roof still looked pale; those actual receipts remain preserved as history, with no matches claim.
+
+Choose only explicit reconstructed `roof_colour=deep_brown`, the local FrameTavern option of one quarter of existing darkened linear RGB, with unchanged alpha/roughness and the new colour's confidence on every roof face. The optional LogDwelling parameter is keyword-only; all legacy defaults and the common material sheet remain. The genuine canonical refresh must cover all 82 LogDwelling masters and their 82 pinned WEB derivatives, controlling every unselected asset/record and actual default geometry/material/confidence before any restoration. No roof geometry or variant loop is introduced.
+
+Source `blanchard_shober_1867_wolf_point`: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, *Wolf's Point in 1833*, NYPL I. N. Phelps Stokes Collection, existing Commons surrogate. The actual printed year supports its existing public-domain-by-age status. The retrospective 1833 scene neither proves unchanged July 1835 appearance nor attests pigment, weather-blackening or calibrated reflectance. L-wolf-point-roof-tone-2386 declares this liberty.
+
+All eight actual files contain nine compositions; most share motifs but are not exact camera crops. The composite has two distinct plates, Hammon changes viewpoint/crop, and Herriott's tiny birdseye lacks a confidently identified measurable Wolf target. The poster's old1892/Newberry1935 rights/date conflict remains inspection-only, without a clearance upgrade or geometry derived from it. Current per-picture camera/render coverage and T-3153 classifications are still required before original signoff; no invented cameras or matches are supplied by the tone change.
+
+Actual deep-brown production: the strict native82 wrote guard passed. All81 unselected canonical masters and all81 WEB derivatives are byte-identical. The new Wolf master225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59 and WEBfdc5ef22a440636e35e4cec15818661f4351f0f4d0c9e506ef36b00422a45210 preserve binary geometry, normals, confidence, counts, UVs and placement; only roof_shingle baseColorFactor differs. The actual roofconfidence remains1.0. Native invalid-stock/false-attestation checks reject unsupported declarations and the old positional API is unchanged. These are production/control facts, not an appearance or original image-match verdict.

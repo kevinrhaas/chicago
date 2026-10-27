@@ -34110,3 +34110,20 @@ a field value or this entry alone.
 **Covers:** `st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`.
 **Ticket:** T-2384.
 **Recorded:** 2026-10-25.
+
+
+### L-wolf-point-roof-tone-2386 — A picture-bounded roof tone
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.roof_colour`.
+
+**Decision:** Explicitly select the optional `deep_brown` roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening.
+
+**Production:** The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0.
+
+**Verification owed:** The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and T-3153's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here.
+
+**Recorded:** 2026-10-26 (T-2386).
+
+**Ticket:** T-2386.
