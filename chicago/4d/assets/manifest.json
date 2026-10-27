@@ -1823,9 +1823,9 @@
     "house_1828_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5355636,
+      "bytes": 8339820,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "f2726174b4efa4de45acba8cd30b8efc7c569c07fe6701d3719fe0b3c009bc8b",
+      "inputs_sha256": "8fcab1e7ef1ce9c224ad5304a8fb6fa7111b0feb6c490b52d507e5cfb585e038",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1828_prairie"
@@ -4020,8 +4020,8 @@
     "philo_carpenter_log_shop__log_1832.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 48268,
-      "inputs_sha256": "6225ea996afa72744c37c3bd5c21b67c4a78d4331fc9bd46bddd4de7e191bf27",
+      "bytes": 46604,
+      "inputs_sha256": "bd49464da8a9b04c2930bb4088f076ec5a60bdefc75ed26b671a6afdc20c0b4c",
       "kind": "generated",
       "phase_id": "log_1832",
       "structure_id": "philo_carpenter_log_shop"

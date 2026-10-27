@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 801,
+  "count": 802,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56131,6 +56131,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-26 (T-3166)."
+        },
+        {
+          "label": "Revised 2026-10-26",
+          "text": "the partial view's camera is solved (the glessner partial data, from the south-east, its copy read at a pixel aspect of 1.52 against the automobile print). Through it the mansard's face is raised from 3.6 to 4.5 m, the most a one-storey face takes, and still reads about 1 m short of the print's curb; the two street dormers' lights are 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15), still round-headed where the print's are square under a curved hood; and iron cresting 0.5 m high runs along the curb. Still not built, as above: the porch's arches, carving and stone balustrade, the stoop's stone cheeks, the bay's pilasters, the bay carried into the mansard, the basement lights' full height (K02's Lemont base takes two courses of at most 0.41 m) and the print's front wall south of the bay. Both match records say `differs`."
         }
       ],
       "work_refs": [
@@ -57097,6 +57101,54 @@
       "work_refs": [
         "T-3153",
         "T-2386"
+      ]
+    },
+    {
+      "id": "L-carpenter-blind-doorway-2382",
+      "title": "A pictured dark doorway",
+      "section": "per_subject",
+      "subjects": [
+        "philo_carpenter_log_shop",
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "philo_carpenter_log_shop",
+          "phase": "log_1832",
+          "aspect": "form.front_door_state"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the log annex uses the existing front door state: recess instead of the generic closed board leaf. Its 0.30m depth, returned casing and dark back are reconstructed exterior geometry; the picture does not measure them or establish an interior, leaf angle, hinge position or passable portal. The original doorway station and dimensions remain unchanged."
+        },
+        {
+          "label": "Source",
+          "text": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, printed p632 / scan n1297: the directly inspected public-domain1884 plate shows a dark occupied opening in the log wing. Petford and the dependent Trowbridge1902 depiction share this silhouette, but are cross-checks, not independent evidence of the door state on1July1835. No rights finding is changed."
+        },
+        {
+          "label": "Limits",
+          "text": "retain the disputed annex identification, former uses, unattested current function and date qualifications. The paired neutral render retains the original provisional framing and the unmodified hotel context; it does not settle their massing or source-camera differences."
+        },
+        {
+          "label": "Covers",
+          "text": "`philo_carpenter_log_shop.log_1832.form.front_door_state`."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a separately dated original-site view or account could establish a leaf/state; no complete image match is claimed by this selected shadow."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26."
+        }
+      ],
+      "work_refs": [
+        "T-2382"
       ]
     },
     {
