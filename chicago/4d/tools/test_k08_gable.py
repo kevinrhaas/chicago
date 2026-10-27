@@ -213,8 +213,8 @@ def main() -> int:
     check(all(a.prims[k].pos == b.prims[k].pos for k in b.prims) and a.prims.keys() == b.prims.keys(),
           "an inset of nothing builds the square gable exactly")
     bad = copy.deepcopy(shallow)
-    bad["roof"]["gable"]["inset_m"] = [0.0, 1.5]
-    refused(bad, "a gable inset past a metre", "stands its corners 0-1 m in")
+    bad["roof"]["gable"]["inset_m"] = [0.0, 1.6]
+    refused(bad, "a gable inset past 1.5 m (T-1890 widened the bound from a metre)", "stands its corners 0-1.5 m in")
 
     print(f"\n{'FAIL' if failures else 'ok'}: {len(failures)} failure(s)")
     return 1 if failures else 0

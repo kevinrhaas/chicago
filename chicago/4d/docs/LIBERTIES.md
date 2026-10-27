@@ -34448,3 +34448,35 @@ pullman-addition`, not in the image store) would date the east section against 1
 **Ticket:** T-3192 (piece 1 of T-3178).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-27 (T-3192).
+
+### L-kimball-1801-flank-top-1890 — 1801 Prairie's 18th Street section carried on a corbel table under a coped fan gable, and its flank stack moved to where both pictures put it
+**Recorded:** 2026-10-27.
+
+**Decision:** the three-storey section of the W. W. Kimball house's 18th Street wall between the
+gabled section and the tower (`p_flank`, T-1890) is rebuilt to the Taylor photograph of c. 1895
+(`taylor_c1895_kimball_residence_1801`, the period view the phase guard prefers) and Harold
+Allen's HABS photograph 2 of June 1965 (`habs_kimball_photo_02_nw_1965`), read through their
+solved cameras, where the build had carried the section's wall to 13.9 m under a low hip.
+**What is read, not invented.** Both pictures put a corbel table's top at about 9.45 m (9.36 and
+9.5-9.6 m), the section's third storey over it to a wall top of about 12.4 m (12.35 and 12.5 m),
+a pair of lights in two tiers on the section's axis from about 9.8 to 11.9 m and about 1.85 m
+across, a single light at its west end, and over the middle a coped wall dormer about 3.2 m across
+(the Taylor print's pilasters at u 6.4-9.6, HABS's at u 6.8-9.8) whose tympanum is a carved fan,
+its coping's apex about 14.2 m (14.1 and 14.3 m), its finial's top about 15.15 m and a pinnacle on
+each shoulder about 14.1 m. The flank's tall stone stack stands where both cameras' lines of sight
+cross near the main block's north-east corner, not over the section: at u 1.8, v 1.0 it renders
+within about 10 px of both prints' shafts (x 611 on HABS 2, x 498 on Taylor), where T-3000's u 5.0
+rendered about 90 and 50 px west of them; its cap is built to 16.0 m, the Taylor print's (HABS 2
+reads about 15.5 m, and the kit holds a mansard stack 0.6 m over its 15.3 m curb). It is laid in
+the walls' pale stone, as both pictures show it, not in brick. **What is invented or held by the
+kit.** The corbel table's section (a 0.25 m course 0.4 m proud on corbels 0.28 m wide at 0.5 m,
+each two steps down to 0.85 m under the line), the gable's 1.15 pitch, its coping, kneelers and
+pinnacles' sizes, the fan's thirteen rays, ring and hub, the frame round the paired lights, and
+the stack's 0.9 m shaft and 0.3 m cap are the kit's or reconstructed to the pictures' outlines;
+the pinnacles' crockets and the fan's carving are not modelled. The section's west corner, which
+both pictures round, stays square (an open difference in both match records), and the stack's
+flared bell cap is laid as a square slab (within tolerance: HABS 2 reads the shaft square, Taylor
+round). This supersedes the flank section's top and the stack's place in
+L-kimball-1801-deck-cresting-3000.
+**How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
+section's top.
