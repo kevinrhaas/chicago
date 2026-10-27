@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 815,
+  "count": 816,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42734,6 +42734,44 @@
       ],
       "work_refs": [
         "T-2474"
+      ]
+    },
+    {
+      "id": "L-prairie-corner-crossings-3200",
+      "title": "A stone ramp down to the roadway at every corner crossing",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "at every 1904 corner where two faces of a block meet (28 corners; Calumet's curve at 18th is a bend and has none), each face's walk is carried straight on across the other street's parkway and curb at its own width (6 ft; 5 ft on 16th Street), and its last 1.35 m (0.92 m on 16th Street's narrower parkway) is a dressed stone slab ramping from the walk's level down to the roadway. The curb's face is broken where the ramp runs through it. 56 crossings (corner crossings in the 1904 street section data, laid by the lay prairie 1904 street section tool); the corner lamp's grass plot stands between each pair."
+        },
+        {
+          "label": "What it stands on",
+          "text": "J. W. Taylor's photograph no. 2135 of the Glessner corner, 18th and Prairie south-west (J. W. Taylor, Glessner Residence (2135), c.1887–1889): two broad stone slabs slope from the curb's top to the roadway, one each way across, the lamp's footing between them. The Detroit Publishing view of the Pullman corner, north-east (Detroit Publishing Co. The Pullman residence, Chicago): the walks carried across the parkway either side of a curbed grass corner, down to the roadway. These four crossings are attested; the owner, 2026-10-27: \"there are ramps down into the street. they appear to be stone\"."
+        },
+        {
+          "label": "What is invented",
+          "text": "the crossings at the other 26 corners; the ramp's run and its plain dressed face; a crossing in line with the walk rather than turned toward the corner; no flagged crossing across the roadway itself."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of any other corner of the district shows whether it had the same crossings; a Board of Local Improvements order or a city sidewalk specification of 1890-1905 fixes the ramp's slope and stone."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on prairie 1904 street section."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3200)."
+        }
+      ],
+      "work_refs": [
+        "T-3200"
       ]
     },
     {
