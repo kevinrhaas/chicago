@@ -240,7 +240,7 @@ export async function createStreetFurniture({
   const footH = model.footing_m?.h ?? 0.16;
   const mats = {
     iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
-    glass: new THREE.MeshStandardMaterial({ color: 0xd9e0da, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
+    glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
