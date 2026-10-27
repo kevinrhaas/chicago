@@ -547,14 +547,14 @@
          "windows": [
           {
            "opening": "k06.opening.sash_2over2_flat",
-           "clear_width_m": 0.75,
+           "clear_width_m": 0.65,
            "clear_height_m": 2.85,
            "sill_m": 2.55,
            "at": [
-            0.137,
-            0.863
+            0.165,
+            0.835
            ],
-           "recess_m": 0.4,
+           "recess_m": 0.35,
            "why_not_ordinary": "the photograph's principal light in the bay's south-east cheek, about 2.55-5.4 m over grade through its camera like the front's"
           },
           {
@@ -574,14 +574,14 @@
          "windows": [
           {
            "opening": "k06.opening.sash_2over2_flat",
-           "clear_width_m": 0.75,
-           "clear_height_m": 2.45,
+           "clear_width_m": 0.65,
+           "clear_height_m": 2.35,
            "sill_m": 0.85,
            "at": [
-            0.137,
-            0.863
+            0.165,
+            0.835
            ],
-           "recess_m": 0.4,
+           "recess_m": 0.35,
            "why_not_ordinary": "the photograph's chamber light in the bay's south-east cheek, about 6.85-9.2 m over grade through its camera"
           },
           {
@@ -651,8 +651,8 @@
            "clear_height_m": 2.85,
            "sill_m": 2.55,
            "at": [
-            0.3,
-            0.7
+            0.38,
+            0.62
            ],
            "why_not_ordinary": "the front's principal sash, two lights in the bay's face (reconstructed: no picture shows the flank's bay whole)"
           }
@@ -667,8 +667,8 @@
            "clear_height_m": 2.35,
            "sill_m": 0.85,
            "at": [
-            0.3,
-            0.7
+            0.38,
+            0.62
            ],
            "why_not_ordinary": "the front's chamber sash, two lights in the bay's face (reconstructed)"
           }
