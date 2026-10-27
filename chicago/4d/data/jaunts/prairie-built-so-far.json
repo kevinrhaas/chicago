@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 256996382,
+  "content_version": 461991079,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: 49 buildings in 2 areas. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: 50 buildings in 2 areas. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 19
   },
   "stops": [
@@ -151,7 +151,7 @@
         "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
       },
-      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 4 of the pictures on the Images tab show it. Next: Doane House, 1827 Prairie.",
+      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 4 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-7",
@@ -170,9 +170,9 @@
       "id": "stop-8",
       "destination": {
         "kind": "structure",
-        "id": "doane_house_1827_prairie"
+        "id": "pullman_house_1729_prairie"
       },
-      "text": "Doane House, 1827 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
+      "text": "Pullman House, 1729 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 21 of the pictures on the Images tab show it. Next: W. W. Kimball House, 1801 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-8",
@@ -181,7 +181,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "doane_house_1827_prairie",
+          "id": "pullman_house_1729_prairie",
           "label": "About this building"
         }
       ],
@@ -191,9 +191,9 @@
       "id": "stop-9",
       "destination": {
         "kind": "structure",
-        "id": "dent_house_1823_prairie"
+        "id": "kimball_house_1801_prairie"
       },
-      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Sears-Meeker House, 1815 Prairie.",
+      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 3 solved pictures, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Sears-Meeker House, 1815 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-9",
@@ -202,7 +202,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "dent_house_1823_prairie",
+          "id": "kimball_house_1801_prairie",
           "label": "About this building"
         }
       ],
@@ -214,7 +214,7 @@
         "kind": "structure",
         "id": "sears_meeker_house_1815_prairie"
       },
-      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. Next: W. W. Kimball House, 1801 Prairie.",
+      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-10",
@@ -233,9 +233,9 @@
       "id": "stop-11",
       "destination": {
         "kind": "structure",
-        "id": "kimball_house_1801_prairie"
+        "id": "dent_house_1823_prairie"
       },
-      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 3 solved pictures, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
+      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Doane House, 1827 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-11",
@@ -244,7 +244,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "kimball_house_1801_prairie",
+          "id": "dent_house_1823_prairie",
           "label": "About this building"
         }
       ],
@@ -254,9 +254,9 @@
       "id": "stop-12",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie"
+        "id": "doane_house_1827_prairie"
       },
-      "text": "Pullman House, 1729 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 21 of the pictures on the Images tab show it. Next: Tyrrell-Walker House, 1720 Prairie.",
+      "text": "Doane House, 1827 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Ream House, 1901 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-12",
@@ -265,7 +265,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie",
+          "id": "doane_house_1827_prairie",
           "label": "About this building"
         }
       ],
@@ -275,9 +275,9 @@
       "id": "stop-13",
       "destination": {
         "kind": "structure",
-        "id": "walker_house_1720_prairie"
+        "id": "ream_house_1901_prairie"
       },
-      "text": "Tyrrell-Walker House, 1720 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Henderson House, 1816 Prairie.",
+      "text": "Ream House, 1901 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 5 of the pictures on the Images tab show it. Next: Jones House, 1834 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-13",
@@ -286,7 +286,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "walker_house_1720_prairie",
+          "id": "ream_house_1901_prairie",
           "label": "About this building"
         }
       ],
@@ -296,75 +296,12 @@
       "id": "stop-14",
       "destination": {
         "kind": "structure",
-        "id": "henderson_house_1816_prairie"
-      },
-      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
-      "read_s": 16,
-      "evidence": [
-        "stood-14",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "henderson_house_1816_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-15"
-    },
-    {
-      "id": "stop-15",
-      "destination": {
-        "kind": "structure",
-        "id": "marsh_house_1824_prairie"
-      },
-      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: 1828 Prairie.",
-      "read_s": 15,
-      "evidence": [
-        "stood-15",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "marsh_house_1824_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-16"
-    },
-    {
-      "id": "stop-16",
-      "destination": {
-        "kind": "structure",
-        "id": "house_1828_prairie"
-      },
-      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Jones House, 1834 Prairie.",
-      "read_s": 15,
-      "evidence": [
-        "stood-16",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "house_1828_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-17"
-    },
-    {
-      "id": "stop-17",
-      "destination": {
-        "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "Jones House, 1834 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
-      "read_s": 16,
+      "text": "Jones House, 1834 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: 1828 Prairie.",
+      "read_s": 15,
       "evidence": [
-        "stood-17",
+        "stood-14",
         "tour"
       ],
       "links": [
@@ -374,16 +311,79 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-15"
+    },
+    {
+      "id": "stop-15",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1828_prairie"
+      },
+      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
+      "read_s": 15,
+      "evidence": [
+        "stood-15",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1828_prairie",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-16"
+    },
+    {
+      "id": "stop-16",
+      "destination": {
+        "kind": "structure",
+        "id": "marsh_house_1824_prairie"
+      },
+      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: Henderson House, 1816 Prairie.",
+      "read_s": 16,
+      "evidence": [
+        "stood-16",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "marsh_house_1824_prairie",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-17"
+    },
+    {
+      "id": "stop-17",
+      "destination": {
+        "kind": "structure",
+        "id": "henderson_house_1816_prairie"
+      },
+      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Tyrrell-Walker House, 1720 Prairie.",
+      "read_s": 16,
+      "evidence": [
+        "stood-17",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "henderson_house_1816_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-18"
     },
     {
       "id": "stop-18",
       "destination": {
         "kind": "structure",
-        "id": "wheeler_house_1812_prairie_coach_house"
+        "id": "walker_house_1720_prairie"
       },
-      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Coach house, 1736 Prairie.",
-      "read_s": 14,
+      "text": "Tyrrell-Walker House, 1720 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-18",
         "tour"
@@ -391,7 +391,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "wheeler_house_1812_prairie_coach_house",
+          "id": "walker_house_1720_prairie",
           "label": "About this building"
         }
       ],
@@ -401,10 +401,10 @@
       "id": "stop-19",
       "destination": {
         "kind": "structure",
-        "id": "house_1736_prairie_coach_house"
+        "id": "wheeler_house_1812_prairie_coach_house"
       },
-      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
-      "read_s": 13,
+      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Coach house, 1736 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-19",
         "tour"
@@ -412,7 +412,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1736_prairie_coach_house",
+          "id": "wheeler_house_1812_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -422,10 +422,10 @@
       "id": "stop-20",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
+        "id": "house_1736_prairie_coach_house"
       },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
-      "read_s": 10,
+      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-20",
         "tour"
@@ -433,7 +433,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1730_prairie",
+          "id": "house_1736_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -443,10 +443,10 @@
       "id": "stop-21",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "house_1730_prairie"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13.",
-      "read_s": 16,
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-21",
         "tour"
@@ -454,7 +454,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "house_1730_prairie",
           "label": "About this building"
         }
       ],
@@ -464,10 +464,10 @@
       "id": "stop-22",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_north"
+        "id": "house_1726_prairie"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13.",
-      "read_s": 21,
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13.",
+      "read_s": 16,
       "evidence": [
         "stood-22",
         "tour"
@@ -475,7 +475,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_north",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -485,9 +485,9 @@
       "id": "stop-23",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_east_end"
+        "id": "pullman_glasshouse_1800_calumet_north"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13.",
+      "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13.",
       "read_s": 21,
       "evidence": [
         "stood-23",
@@ -496,7 +496,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_east_end",
+          "id": "pullman_glasshouse_1800_calumet_north",
           "label": "About this building"
         }
       ],
@@ -506,10 +506,10 @@
       "id": "stop-24",
       "destination": {
         "kind": "structure",
-        "id": "pullman_glasshouse_1800_calumet_east"
+        "id": "pullman_glasshouse_1800_calumet_east_end"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Dexter House, 1721 Prairie.",
-      "read_s": 17,
+      "text": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13.",
+      "read_s": 21,
       "evidence": [
         "stood-24",
         "tour"
@@ -517,7 +517,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_glasshouse_1800_calumet_east",
+          "id": "pullman_glasshouse_1800_calumet_east_end",
           "label": "About this building"
         }
       ],
@@ -527,10 +527,10 @@
       "id": "stop-25",
       "destination": {
         "kind": "structure",
-        "id": "dexter_house_1721_prairie"
+        "id": "pullman_glasshouse_1800_calumet_east"
       },
-      "text": "Dexter House, 1721 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: 5 of the pictures on the Images tab show it. Next: 1729 Prairie.",
-      "read_s": 12,
+      "text": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Dexter House, 1721 Prairie.",
+      "read_s": 17,
       "evidence": [
         "stood-25",
         "tour"
@@ -538,7 +538,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "dexter_house_1721_prairie",
+          "id": "pullman_glasshouse_1800_calumet_east",
           "label": "About this building"
         }
       ],
@@ -548,10 +548,10 @@
       "id": "stop-26",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie_ranges"
+        "id": "dexter_house_1721_prairie"
       },
-      "text": "1729 Prairie. DETAIL 1/5: a first rough model, reshaped from a picture. Pictured: a picture on the Images tab shows it. Next: Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges.",
-      "read_s": 15,
+      "text": "Dexter House, 1721 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: 5 of the pictures on the Images tab show it. Next: 1729 Prairie.",
+      "read_s": 12,
       "evidence": [
         "stood-26",
         "tour"
@@ -559,7 +559,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie_ranges",
+          "id": "dexter_house_1721_prairie",
           "label": "About this building"
         }
       ],
@@ -569,10 +569,10 @@
       "id": "stop-27",
       "destination": {
         "kind": "structure",
-        "id": "pullman_lodge_1800_calumet"
+        "id": "pullman_house_1729_prairie_ranges"
       },
-      "text": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges. DETAIL 1/5: a first rough model, reshaped from a picture. Known from maps or written records; no picture of it has been found. Next: walk on to the 1600-1638 Prairie area, starting at Spalding House, 1637 Prairie.",
-      "read_s": 21,
+      "text": "1729 Prairie. DETAIL 1/5: a first rough model, reshaped from a picture. Pictured: a picture on the Images tab shows it. Next: Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges.",
+      "read_s": 15,
       "evidence": [
         "stood-27",
         "tour"
@@ -580,7 +580,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_lodge_1800_calumet",
+          "id": "pullman_house_1729_prairie_ranges",
           "label": "About this building"
         }
       ],
@@ -590,10 +590,10 @@
       "id": "stop-28",
       "destination": {
         "kind": "structure",
-        "id": "spalding_house_1637_prairie"
+        "id": "pullman_lodge_1800_calumet"
       },
-      "text": "Spalding House, 1637 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: McBirney House, 1625 Prairie.",
-      "read_s": 14,
+      "text": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges. DETAIL 1/5: a first rough model, reshaped from a picture. Known from maps or written records; no picture of it has been found. Next: walk on to the 1600-1638 Prairie area, starting at Spalding House, 1637 Prairie.",
+      "read_s": 21,
       "evidence": [
         "stood-28",
         "tour"
@@ -601,7 +601,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "spalding_house_1637_prairie",
+          "id": "pullman_lodge_1800_calumet",
           "label": "About this building"
         }
       ],
@@ -611,9 +611,9 @@
       "id": "stop-29",
       "destination": {
         "kind": "structure",
-        "id": "house_1625_prairie"
+        "id": "spalding_house_1637_prairie"
       },
-      "text": "McBirney House, 1625 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Farwell House, 1623 Prairie.",
+      "text": "Spalding House, 1637 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: McBirney House, 1625 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-29",
@@ -622,7 +622,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1625_prairie",
+          "id": "spalding_house_1637_prairie",
           "label": "About this building"
         }
       ],
@@ -632,10 +632,10 @@
       "id": "stop-30",
       "destination": {
         "kind": "structure",
-        "id": "house_1623_prairie"
+        "id": "house_1625_prairie"
       },
-      "text": "Farwell House, 1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Hamline House, 1621 Prairie.",
-      "read_s": 13,
+      "text": "McBirney House, 1625 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Farwell House, 1623 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-30",
         "tour"
@@ -643,7 +643,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1623_prairie",
+          "id": "house_1625_prairie",
           "label": "About this building"
         }
       ],
@@ -653,9 +653,9 @@
       "id": "stop-31",
       "destination": {
         "kind": "structure",
-        "id": "house_1621_prairie"
+        "id": "house_1623_prairie"
       },
-      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Goodman House, 1612 Prairie.",
+      "text": "Farwell House, 1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Hamline House, 1621 Prairie.",
       "read_s": 13,
       "evidence": [
         "stood-31",
@@ -664,7 +664,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1621_prairie",
+          "id": "house_1623_prairie",
           "label": "About this building"
         }
       ],
@@ -674,9 +674,9 @@
       "id": "stop-32",
       "destination": {
         "kind": "structure",
-        "id": "goodman_house_1612_prairie"
+        "id": "house_1621_prairie"
       },
-      "text": "Goodman House, 1612 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Law House, 1620 Prairie.",
+      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Goodman House, 1612 Prairie.",
       "read_s": 13,
       "evidence": [
         "stood-32",
@@ -685,7 +685,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "goodman_house_1612_prairie",
+          "id": "house_1621_prairie",
           "label": "About this building"
         }
       ],
@@ -695,10 +695,10 @@
       "id": "stop-33",
       "destination": {
         "kind": "structure",
-        "id": "law_house_1620_prairie"
+        "id": "goodman_house_1612_prairie"
       },
-      "text": "Law House, 1620 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Shortall-Gregory House, 1638 Prairie.",
-      "read_s": 14,
+      "text": "Goodman House, 1612 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Law House, 1620 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-33",
         "tour"
@@ -706,7 +706,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "law_house_1620_prairie",
+          "id": "goodman_house_1612_prairie",
           "label": "About this building"
         }
       ],
@@ -716,10 +716,10 @@
       "id": "stop-34",
       "destination": {
         "kind": "structure",
-        "id": "shortall_gregory_house_1638_prairie_front"
+        "id": "law_house_1620_prairie"
       },
-      "text": "Shortall-Gregory House, 1638 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1616 Prairie.",
-      "read_s": 13,
+      "text": "Law House, 1620 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Shortall-Gregory House, 1638 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-34",
         "tour"
@@ -727,7 +727,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "shortall_gregory_house_1638_prairie_front",
+          "id": "law_house_1620_prairie",
           "label": "About this building"
         }
       ],
@@ -737,9 +737,9 @@
       "id": "stop-35",
       "destination": {
         "kind": "structure",
-        "id": "house_1616_prairie"
+        "id": "shortall_gregory_house_1638_prairie_front"
       },
-      "text": "1616 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 1600 Prairie.",
+      "text": "Shortall-Gregory House, 1638 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1616 Prairie.",
       "read_s": 13,
       "evidence": [
         "stood-35",
@@ -748,7 +748,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1616_prairie",
+          "id": "shortall_gregory_house_1638_prairie_front",
           "label": "About this building"
         }
       ],
@@ -758,10 +758,10 @@
       "id": "stop-36",
       "destination": {
         "kind": "structure",
-        "id": "house_1600_prairie"
+        "id": "house_1616_prairie"
       },
-      "text": "1600 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1604 Prairie.",
-      "read_s": 12,
+      "text": "1616 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 1600 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-36",
         "tour"
@@ -769,7 +769,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1600_prairie",
+          "id": "house_1616_prairie",
           "label": "About this building"
         }
       ],
@@ -779,9 +779,9 @@
       "id": "stop-37",
       "destination": {
         "kind": "structure",
-        "id": "house_1604_prairie"
+        "id": "house_1600_prairie"
       },
-      "text": "1604 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1608 Prairie.",
+      "text": "1600 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1604 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-37",
@@ -790,7 +790,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1604_prairie",
+          "id": "house_1600_prairie",
           "label": "About this building"
         }
       ],
@@ -800,9 +800,9 @@
       "id": "stop-38",
       "destination": {
         "kind": "structure",
-        "id": "house_1608_prairie"
+        "id": "house_1604_prairie"
       },
-      "text": "1608 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1626 Prairie.",
+      "text": "1604 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1608 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-38",
@@ -811,7 +811,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1608_prairie",
+          "id": "house_1604_prairie",
           "label": "About this building"
         }
       ],
@@ -821,9 +821,9 @@
       "id": "stop-39",
       "destination": {
         "kind": "structure",
-        "id": "house_1626_prairie"
+        "id": "house_1608_prairie"
       },
-      "text": "1626 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1628 Prairie.",
+      "text": "1608 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1626 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-39",
@@ -832,7 +832,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1626_prairie",
+          "id": "house_1608_prairie",
           "label": "About this building"
         }
       ],
@@ -842,9 +842,9 @@
       "id": "stop-40",
       "destination": {
         "kind": "structure",
-        "id": "house_1628_prairie"
+        "id": "house_1626_prairie"
       },
-      "text": "1628 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1630 Prairie.",
+      "text": "1626 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1628 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-40",
@@ -853,7 +853,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1628_prairie",
+          "id": "house_1626_prairie",
           "label": "About this building"
         }
       ],
@@ -863,9 +863,9 @@
       "id": "stop-41",
       "destination": {
         "kind": "structure",
-        "id": "house_1630_prairie"
+        "id": "house_1628_prairie"
       },
-      "text": "1630 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
+      "text": "1628 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1630 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-41",
@@ -874,7 +874,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1630_prairie",
+          "id": "house_1628_prairie",
           "label": "About this building"
         }
       ],
@@ -884,9 +884,9 @@
       "id": "stop-42",
       "destination": {
         "kind": "structure",
-        "id": "house_1634_prairie"
+        "id": "house_1630_prairie"
       },
-      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1636 Prairie.",
+      "text": "1630 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-42",
@@ -895,7 +895,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1634_prairie",
+          "id": "house_1630_prairie",
           "label": "About this building"
         }
       ],
@@ -905,9 +905,9 @@
       "id": "stop-43",
       "destination": {
         "kind": "structure",
-        "id": "house_1636_prairie"
+        "id": "house_1634_prairie"
       },
-      "text": "1636 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1619 Prairie.",
+      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1636 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-43",
@@ -916,7 +916,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1636_prairie",
+          "id": "house_1634_prairie",
           "label": "About this building"
         }
       ],
@@ -926,10 +926,10 @@
       "id": "stop-44",
       "destination": {
         "kind": "structure",
-        "id": "house_1619_prairie"
+        "id": "house_1636_prairie"
       },
-      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1615 Prairie.",
-      "read_s": 10,
+      "text": "1636 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1619 Prairie.",
+      "read_s": 12,
       "evidence": [
         "stood-44",
         "tour"
@@ -937,7 +937,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1619_prairie",
+          "id": "house_1636_prairie",
           "label": "About this building"
         }
       ],
@@ -947,10 +947,10 @@
       "id": "stop-45",
       "destination": {
         "kind": "structure",
-        "id": "house_1615_prairie"
+        "id": "house_1619_prairie"
       },
-      "text": "1615 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1613 Prairie.",
-      "read_s": 12,
+      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1615 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-45",
         "tour"
@@ -958,7 +958,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1615_prairie",
+          "id": "house_1619_prairie",
           "label": "About this building"
         }
       ],
@@ -968,9 +968,9 @@
       "id": "stop-46",
       "destination": {
         "kind": "structure",
-        "id": "house_1613_prairie"
+        "id": "house_1615_prairie"
       },
-      "text": "1613 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1611 Prairie.",
+      "text": "1615 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1613 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-46",
@@ -979,7 +979,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1613_prairie",
+          "id": "house_1615_prairie",
           "label": "About this building"
         }
       ],
@@ -989,9 +989,9 @@
       "id": "stop-47",
       "destination": {
         "kind": "structure",
-        "id": "house_1611_prairie"
+        "id": "house_1613_prairie"
       },
-      "text": "1611 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1609 Prairie.",
+      "text": "1613 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1611 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-47",
@@ -1000,7 +1000,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1611_prairie",
+          "id": "house_1613_prairie",
           "label": "About this building"
         }
       ],
@@ -1010,9 +1010,9 @@
       "id": "stop-48",
       "destination": {
         "kind": "structure",
-        "id": "house_1609_prairie"
+        "id": "house_1611_prairie"
       },
-      "text": "1609 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1601 Prairie.",
+      "text": "1611 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1609 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-48",
@@ -1021,7 +1021,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1609_prairie",
+          "id": "house_1611_prairie",
           "label": "About this building"
         }
       ],
@@ -1031,12 +1031,33 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
+        "id": "house_1609_prairie"
+      },
+      "text": "1609 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1601 Prairie.",
+      "read_s": 12,
+      "evidence": [
+        "stood-49",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1609_prairie",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-50"
+    },
+    {
+      "id": "stop-50",
+      "destination": {
+        "kind": "structure",
         "id": "house_1601_prairie"
       },
       "text": "1601 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Last stop of the walk so far; it grows as more buildings are built out.",
       "read_s": 17,
       "evidence": [
-        "stood-49",
+        "stood-50",
         "tour"
       ],
       "links": [
@@ -1142,21 +1163,22 @@
     },
     {
       "id": "stood-8",
-      "text": "Doane House, 1827 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (undated, after the house's completion in 1882) shows the same main block. Its building and loss dates are not read here."
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
     },
     {
       "id": "stood-9",
-      "text": "Dent House, 1823 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "W. W. Kimball House, 1801 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "taylor_c1895_kimball_residence_1801"
       ],
       "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904."
+      "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
     },
     {
       "id": "stood-10",
@@ -1169,43 +1191,51 @@
     },
     {
       "id": "stood-11",
-      "text": "W. W. Kimball House, 1801 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "taylor_c1895_kimball_residence_1801"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
-    },
-    {
-      "id": "stood-12",
-      "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
-    },
-    {
-      "id": "stood-13",
-      "text": "Tyrrell-Walker House, 1720 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
-      "id": "stood-14",
-      "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Dent House, 1823 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904."
+    },
+    {
+      "id": "stood-12",
+      "text": "Doane House, 1827 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (undated, after the house's completion in 1882) shows the same main block. Its building and loss dates are not read here."
+    },
+    {
+      "id": "stood-13",
+      "text": "Ream House, 1901 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The 1893 plate, the 1898 photograph and the undated exterior view draw the same composition, the post-1887 rebuilding; nothing read so far records an alteration before 1904."
+    },
+    {
+      "id": "stood-14",
+      "text": "Jones House, 1834 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1866 and given its mansard storey in 1886 (the marker); the photograph shows it before 1886."
     },
     {
       "id": "stood-15",
+      "text": "1828 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904."
+    },
+    {
+      "id": "stood-16",
       "text": "Pomeroy-Marsh House, 1824 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1215,25 +1245,25 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front."
     },
     {
-      "id": "stood-16",
-      "text": "1828 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904."
-    },
-    {
       "id": "stood-17",
-      "text": "Jones House, 1834 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1866 and given its mansard storey in 1886 (the marker); the photograph shows it before 1886."
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
     },
     {
       "id": "stood-18",
+      "text": "Tyrrell-Walker House, 1720 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-19",
       "text": "Wheeler coach house, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1242,7 +1272,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
     },
     {
-      "id": "stood-19",
+      "id": "stood-20",
       "text": "Coach house, 1736 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1251,7 +1281,7 @@
       "reasoning": "STANDING IN 1904 rests on the 1911 sheet carried back seven years, as every building on sheets 20, 28 and 35 is read (the T-1840 census rules it present_as_mapped, census row s20-1736-r1). FROM: nothing read here dates the building, so the record claims the 1904 target and no earlier day; the house was built in 1864 or 1875 (house_1736_prairie.built) and its stable is not dated with it. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date."
     },
     {
-      "id": "stood-20",
+      "id": "stood-21",
       "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1260,7 +1290,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-21",
+      "id": "stood-22",
       "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1269,7 +1299,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-22",
+      "id": "stood-23",
       "text": "Pullman estate (1800 S. Calumet Avenue): the north-south glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1278,7 +1308,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-23",
+      "id": "stood-24",
       "text": "Pullman estate (1800 S. Calumet Avenue): the rounded east end of the glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1287,7 +1317,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-24",
+      "id": "stood-25",
       "text": "Pullman estate (1800 S. Calumet Avenue): the east-west glasshouse range, K13 stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1296,7 +1326,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-25",
+      "id": "stood-26",
       "text": "Dexter House, 1721 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
@@ -1306,7 +1336,7 @@
       "reasoning": "The 1891 plate shows Arthur Little's front of 1889; the 1911 sheet draws the same plan and the T-1840 census rules it present in 1904 (present_as_mapped). The c. 1888 photographs show the house before that front and are not this phase."
     },
     {
-      "id": "stood-26",
+      "id": "stood-27",
       "text": "1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1315,7 +1345,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-27",
+      "id": "stood-28",
       "text": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1324,7 +1354,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building and the sheet-28 census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, allocation s28-pullman-service-garden) rules the Pullman estate's glasshouse ground and its lodge present in 1904. Its building date, which the census reads off the 1894 conservatory plate, is T-3165's to read from the pictures themselves."
     },
     {
-      "id": "stood-28",
+      "id": "stood-29",
       "text": "Spalding House, 1637 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1333,7 +1363,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-29",
+      "id": "stood-30",
       "text": "McBirney House, 1625 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1342,7 +1372,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-30",
+      "id": "stood-31",
       "text": "Farwell House, 1623 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1351,7 +1381,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-31",
+      "id": "stood-32",
       "text": "Hamline House, 1621 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1360,7 +1390,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-32",
+      "id": "stood-33",
       "text": "Goodman House, 1612 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1369,7 +1399,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped; the 1904 Blue Book lists a household here). FROM and TO are the T-1837 register's reported chronology (built 1869, lost circa 1960); the register is not a source record here, so each is the year's first or last day and the confidence inferred. Bishop Anderson's ownership begins in 1905, after the target, and changes nothing drawn."
     },
     {
-      "id": "stood-33",
+      "id": "stood-34",
       "text": "Law House, 1620 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "robinson_1886_chicago_plate_10"
@@ -1378,7 +1408,7 @@
       "reasoning": "The 1904 target and no more, the draft's claim kept: Robinson 1886 draws the house and the T-1840 census carries it to 1904 on the 1904 Blue Book's listing at 1620. The 1911 sheet shows the frontage open, so the house was gone by then; when it was built and when it went are not read."
     },
     {
-      "id": "stood-34",
+      "id": "stood-35",
       "text": "Shortall-Gregory House, 1638 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1387,7 +1417,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day."
     },
     {
-      "id": "stood-35",
+      "id": "stood-36",
       "text": "1616 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1396,7 +1426,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-36",
+      "id": "stood-37",
       "text": "1600 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1405,7 +1435,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-37",
+      "id": "stood-38",
       "text": "1604 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1414,7 +1444,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-38",
+      "id": "stood-39",
       "text": "1608 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1423,7 +1453,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-39",
+      "id": "stood-40",
       "text": "1626 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1432,7 +1462,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-40",
+      "id": "stood-41",
       "text": "1628 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1441,7 +1471,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-41",
+      "id": "stood-42",
       "text": "1630 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1450,7 +1480,7 @@
       "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). The register's 'Civil War era' is a chronology no source here states for 1630, so no building date is claimed."
     },
     {
-      "id": "stood-42",
+      "id": "stood-43",
       "text": "1634 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1459,7 +1489,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-43",
+      "id": "stood-44",
       "text": "1636 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1468,7 +1498,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-44",
+      "id": "stood-45",
       "text": "1619 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1477,7 +1507,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-45",
+      "id": "stood-46",
       "text": "1615 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1486,7 +1516,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-46",
+      "id": "stood-47",
       "text": "1613 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1495,7 +1525,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-47",
+      "id": "stood-48",
       "text": "1611 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "robinson_1886_chicago_plate_10"
@@ -1504,7 +1534,7 @@
       "reasoning": "The house claims the 1904 target and no more: Robinson 1886 plate 10 draws the pair and the T-1840 census carries it to 1904 on the supplied expert guidance (backcast_1886). The 1911 sheet draws the 1607-1611 loft in its place, so the pair was gone by then; when it was built and when it came down are not read, and no building date is claimed."
     },
     {
-      "id": "stood-48",
+      "id": "stood-49",
       "text": "1609 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "robinson_1886_chicago_plate_10"
@@ -1513,7 +1543,7 @@
       "reasoning": "The house claims the 1904 target and no more: Robinson 1886 plate 10 draws the pair and the T-1840 census carries it to 1904 on the supplied expert guidance (backcast_1886). The 1911 sheet draws the 1607-1611 loft in its place, so the pair was gone by then; when it was built and when it came down are not read, and no building date is claimed."
     },
     {
-      "id": "stood-49",
+      "id": "stood-50",
       "text": "1601 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
