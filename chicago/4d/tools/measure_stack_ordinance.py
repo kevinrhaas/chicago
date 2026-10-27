@@ -37,8 +37,9 @@ That is the conservative reading in the two ways it can be wrong:
   builds each stack with one helper, relative to the ridge it is handed. Said plainly
   here rather than left for a reader to assume.
 
-The declared `slope_offsets` scheme is measured separately: it has no stack above
-the global ridge, so that bound cannot answer this question. Decode the actual
+The declared `slope_offsets` and `far_gable` schemes are measured separately:
+an offset stack or a separate belfry roof makes the global ridge an unsuitable
+reference for the roof the stack passes through. Decode the actual
 brick/chimney and upward roof triangles, recover every shaft and cap, and use the
 highest roof point under the entire cap footprint for each stack. All stacks must
 clear the same eighteen-inch floor; no generator heights or named-building
@@ -117,7 +118,7 @@ EPS_M = 0.0005
 def local_stack_clearances(js, bins, expected):
     """Actual uncompressed, identity-node mesh: each stack over its own roof.
 
-    Bounded to the declared slope_offsets path. Unsupported layouts fail closed;
+    Bounded to declared local-roof paths. Unsupported layouts fail closed;
     no generator heights, accessor bounds or structure-name exemptions are used.
     glTF is Y-up, so the horizontal footprint is X/Z. Shaft/cap mesh islands are
     welded by positions, then merged only when their XY footprints and Z ranges
@@ -339,18 +340,20 @@ def readings():
         rec = json.loads(path.read_text())
         for phase in rec.get("phases", []):
             n = chimney_count(phase)
-            slope_offsets = (phase.get("form", {}).get("chimney_placement", {}) or {}).get("value") == "slope_offsets"
-            if n <= 0 and not slope_offsets:
+            placement = (phase.get("form", {}).get("chimney_placement", {}) or {}).get("value")
+            local_roof = placement in ("slope_offsets", "far_gable")
+            if n <= 0 and not local_roof:
                 continue
             key = (rec["id"], phase.get("id"))
             if key not in by_key:
-                if slope_offsets:
-                    raise ValueError(f"{key}: slope_offsets has no committed master")
+                if local_roof:
+                    raise ValueError(f"{key}: {placement} has no committed master")
                 continue
             glb = read_glb(ROOT / "assets" / "gltf" / by_key[key])
-            if slope_offsets:
-                if arch_of[key] != "frame_tavern":
-                    raise ValueError(f"{key}: unsupported slope_offsets archetype")
+            if local_roof:
+                expected_archetype = {"slope_offsets": "frame_tavern", "far_gable": "frame_dwelling"}[placement]
+                if arch_of[key] != expected_archetype:
+                    raise ValueError(f"{key}: unsupported {placement} archetype")
                 measured = local_stack_clearances(*glb, n)
                 worst = min(measured, key=lambda row: row["above"])
                 names = {m.get("name") for m in glb[0].get("materials", [])}
@@ -453,7 +456,7 @@ def local_stack_self_test():
 
     failures = []
 
-    def fixture(rises=(0.8, 0.8, 0.8, 0.8), ridge=False):
+    def fixture(rises=(0.8, 0.8, 0.8, 0.8), ridge=False, distant_roof=False):
         if ridge:
             # A ridge inside the cap but away from its centre. Five samples
             # alone miss its maximum; the clipped triangle vertices must catch it.
@@ -465,6 +468,12 @@ def local_stack_self_test():
         else:
             a,b,c,d = (0,5,0),(0,7.4,8),(20,7.4,8),(20,5,0)
             roof, foot = [(a,b,c),(a,c,d)], 5.9
+        if distant_roof:
+            # A tall roof outside every stack footprint (a belfry, for example).
+            # Its global maximum must neither condemn a compliant local stack
+            # nor excuse a short one on the roof it actually penetrates.
+            a,b,c,d = (18,20,0),(18,20,2),(20,20,2),(20,20,0)
+            roof.extend(((a,b,c),(a,c,d)))
         brick = []
 
         def box(x0,y0,z0,x1,y1,z1):
@@ -521,6 +530,13 @@ def local_stack_self_test():
     low = local_stack_clearances(*fixture((.8,.2,.8,.8)),4)
     check("one short offset stack fails while three taller stacks remain compliant",
           len(offenders(low))==1 and sum(r['above']>=MINIMUM_M for r in low)==3)
+    distant = local_stack_clearances(*fixture(distant_roof=True),4)
+    check("a distant higher roof does not replace each stack's actual roof",
+          distant == rows)
+    near_floor = local_stack_clearances(*fixture(
+        (MINIMUM_M+.015-.001,.8,.8,.8), distant_roof=True),4)
+    check("a stack one millimetre below the local floor still fails beside a higher roof",
+          len(offenders(near_floor))==1 and abs(near_floor[0]['above']-(MINIMUM_M-.001))<1e-5)
     ridge = local_stack_clearances(*fixture(ridge=True),4)
     check("clipped triangles catch off-centre ridge missed by five point samples",
           all(abs(r['roof_top']-5.31)<1e-5 and r['roof_top']>max(r['roof_samples'])+.009 for r in ridge))
