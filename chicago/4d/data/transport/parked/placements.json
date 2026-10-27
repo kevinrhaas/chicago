@@ -95,7 +95,7 @@
       ]
     },
     "studebaker_brougham_1893": {
-      "file": "transport/parked-brougham/brougham-near.glb",
+      "file": "transport/parked-brougham/brougham-near-delivery-v1.glb",
       "type": "Brougham \u2014 after the 1893 Studebaker catalogue",
       "basis": "Original empty, unhitched Brougham reconstruction guided by Studebaker's 1893 catalogue illustration, leaf 0095. The shaped roof, curved door, separate footplates, fine step supports and dark rear quarters follow the depicted design. Metric dimensions, unseen construction, paint and surface materials, and this particular vehicle's presence, ownership and stop in 1904 are reconstructed. The catalogue does not identify the dark rear surface as glass or a curtain. Photographic refinement continues.",
       "design_reference": {
@@ -147,8 +147,8 @@
         ]
       ],
       "delivery_lods": {
-        "near": "transport/parked-brougham/brougham-near.glb",
-        "mid": "transport/parked-brougham/brougham-mid.glb",
+        "near": "transport/parked-brougham/brougham-near-delivery-v1.glb",
+        "mid": "transport/parked-brougham/brougham-mid-delivery-v1.glb",
         "runtime_distance_selection_enabled": true
       }
     }

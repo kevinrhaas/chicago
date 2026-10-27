@@ -1,21 +1,766 @@
 {
-  "scope": "Exact source-tessellated V18 ring16 distance-mid11706; rounded lamp surfaces retain strict native/winding/seam guards",
+  "scope": "Exact V19 source body/finish delivery; photographic/world/phone acceptance pending",
+  "detail": "mid",
   "raw_file": "brougham-mid-source.glb",
-  "raw_sha256": "f184d0fc96ecca92ae4ed51a57c468e9cf7e689264865ae45b23ccb007236f0d",
-  "raw_bytes": 909556,
   "indexed_file": "brougham-mid.glb",
-  "indexed_sha256": "65eec8b7e04e636c90e2d797f5e7e8c1d2695f0f45c6fb5c7f340f73e5616fa1",
-  "indexed_bytes": 642428,
-  "triangles": 11706,
-  "expanded_triangle_PN_sha256": "eccfc45c413f84145d873d9c73b929d04c166db7ba991852c63afddcac56ce34",
-  "recipe": "ring16-mid-lods.json",
-  "recipe_sha256": "89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159",
-  "unchanged_near_sha256": "bce1ecc757a7175cb193b1263fc8dbcdf1ce76a263916d3cff5e41dc4a835938",
-  "license": "GPL-3.0-or-later",
-  "subdivision_records_near": 480,
-  "subdivision_records_mid": 314,
+  "triangles": 23062,
+  "parts": 315,
+  "meshes": 26,
+  "nodes": 43,
+  "materials": 8,
+  "bounds_m": {
+    "min": [
+      -0.8600000143051147,
+      0.0,
+      -1.8365528583526611
+    ],
+    "max": [
+      0.8600000143051147,
+      2.1882998943328857,
+      3.825000047683716
+    ]
+  },
+  "protected": {
+    "protected_occurrences": 309,
+    "changed_body_occurrences": 5,
+    "added_piping_occurrences": 1,
+    "accepted_V18_lamps_exact": true,
+    "contacts_frames_proxy_exact": true
+  },
+  "source_bytes": 1731404,
+  "indexed_bytes": 845700,
+  "expanded_triangle_PN_sha256": "3644ca1f10e2e5ebdf278fd70905de66ab9fd65961d813add5f4cffeff21e33d",
+  "source_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+  "indexed_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d",
+  "lossless_indexing": true,
+  "meshopt_or_quantization": false,
+  "raw_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+  "raw_bytes": 1731404,
+  "expanded_PN_sha256": "3644ca1f10e2e5ebdf278fd70905de66ab9fd65961d813add5f4cffeff21e33d",
+  "source_files": {
+    "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "generate.py": "d861b30bb48558485fdae5f2b1144a56d49c3e8dba481e86456356424496e1c1",
+    "parameters.json": "5a97df41beb93f6f3a543242074adde2cdeb7940402f27c0900885382b001b59",
+    "body_finish.py": "3f1c7b86dce00a519f26d03b1fe5d346a34dd7e824ddff80d75f0dcd51ce6411",
+    "body_geometry.py": "6f4daf959a624b6c2d38fd19a2edbda9b04cb71bd82941cc049f25450d8192df",
+    "build_body.py": "69c362d4fb6659c2124362a54944c26d5359bbde26e2854786f5ebda49b3f665",
+    "index_streams.py": "7b1b2efc904b0b6f87d21006d68578066fcd9095037f921e16e50f25852ca661",
+    "lods.json": "e7d731860724c1155d4d807dfe44f2e128dca4bd527cfbbd9ffac8e2fee34842",
+    "ring16-mid-lods.json": "89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159",
+    "quarter_surface.py": "1538652107efd831f6f854107dcc69fbb76916faf55707d5d7bc04a9e5b2187f",
+    "rear-quarter.json": "557f59335c4aeaf442416473a928219baea08fc4603ad97bf6197774d275deac",
+    "source_details.py": "8856788e8535d9388b912306d63c90ee81d487368d20da5610bc570fc12206a0",
+    "static_master.py": "c78f54922759bc5b8d61d6106c6bd29696dcdb74e59d8e11bcadd61f44259be5",
+    "lamp_geometry.py": "ffc3737bd443898f90c6c5696f2d25beb91bf28728de3534db1295b698183d00",
+    "v18-protected-body-baseline.json": "68e7df0430340c0ca62b556c22ec2bf7ac4cbb54cb51709974f81926fc4177a3",
+    "analytical-normal-only-baseline.json": "c6ef969ab6446ac0e03f567fa65773bf8db1e3776ad325660c940e2557e1bb46"
+  },
+  "delivery_metadata_files": {
+    "BUILD-RECEIPT.json": "d352f7e314c61893647b76f9ea09e49720754b2df1f0294bd720b8b831443bbd",
+    "MID-BUILD-RECEIPT.json": "2a9f61783772e2b5f89a54ac3e3c55f86366fef91609fff6486649089daf95c8",
+    "brougham.json": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f"
+  },
+  "native_contacts": {
+    "wheels": [
+      {
+        "node": "vehicle_wheel_rear_right",
+        "center_root_m": [
+          -0.67,
+          0.65,
+          -1.15
+        ],
+        "bounds_root_m": {
+          "min": [
+            -0.766000000923872,
+            2.384185793236071e-08,
+            -1.799999976158142
+          ],
+          "max": [
+            -0.6059999969601632,
+            1.299999976158142,
+            -0.5000000238418578
+          ]
+        },
+        "lowest_points_root_m": [
+          [
+            -0.67,
+            2.384185793236071e-08,
+            -1.15
+          ]
+        ]
+      },
+      {
+        "node": "vehicle_wheel_rear_left",
+        "center_root_m": [
+          0.67,
+          0.65,
+          -1.15
+        ],
+        "bounds_root_m": {
+          "min": [
+            0.6059999969601632,
+            2.384185793236071e-08,
+            -1.799999976158142
+          ],
+          "max": [
+            0.766000000923872,
+            1.299999976158142,
+            -0.5000000238418578
+          ]
+        },
+        "lowest_points_root_m": [
+          [
+            0.67,
+            2.384185793236071e-08,
+            -1.15
+          ]
+        ]
+      },
+      {
+        "node": "vehicle_wheel_front_right",
+        "center_root_m": [
+          -0.67,
+          0.528,
+          1.15
+        ],
+        "bounds_root_m": {
+          "min": [
+            -0.766000000923872,
+            2.8610229740877458e-09,
+            0.6220000028610229
+          ],
+          "max": [
+            -0.6059999969601632,
+            1.055999997138977,
+            1.677999997138977
+          ]
+        },
+        "lowest_points_root_m": [
+          [
+            -0.67,
+            2.8610229740877458e-09,
+            1.15
+          ]
+        ]
+      },
+      {
+        "node": "vehicle_wheel_front_left",
+        "center_root_m": [
+          0.67,
+          0.528,
+          1.15
+        ],
+        "bounds_root_m": {
+          "min": [
+            0.6059999969601632,
+            2.8610229740877458e-09,
+            0.6220000028610229
+          ],
+          "max": [
+            0.766000000923872,
+            1.055999997138977,
+            1.677999997138977
+          ]
+        },
+        "lowest_points_root_m": [
+          [
+            0.67,
+            2.8610229740877458e-09,
+            1.15
+          ]
+        ]
+      }
+    ],
+    "full_fixed_pole_bounds_root_m": {
+      "min": [
+        -0.11500000208616257,
+        0.0,
+        1.1447440385818481
+      ],
+      "max": [
+        0.11500000208616257,
+        0.5805000066757202,
+        3.825000047683716
+      ]
+    },
+    "shoe_bounds_root_m": {
+      "min": [
+        -0.032499998807907104,
+        0.0,
+        3.7249999046325684
+      ],
+      "max": [
+        0.032499998807907104,
+        0.03400000184774399,
+        3.825000047683716
+      ]
+    },
+    "shoe_bottom_corners_root_m": [
+      [
+        -0.032499998807907104,
+        0.0,
+        3.7249999046325684
+      ],
+      [
+        -0.032499998807907104,
+        0.0,
+        3.825000047683716
+      ],
+      [
+        0.032499998807907104,
+        0.0,
+        3.7249999046325684
+      ],
+      [
+        0.032499998807907104,
+        0.0,
+        3.825000047683716
+      ]
+    ],
+    "parked_hitch_root_m": [
+      0.0,
+      0.037,
+      3.8
+    ],
+    "has_tongue_hinge": false
+  },
+  "static_master": {
+    "revision": "static_master_interfaces_v1",
+    "source_master_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d",
+    "frame": {
+      "units": "m",
+      "up": "+Y",
+      "forward": "+Z",
+      "root": "vehicle_root"
+    },
+    "grade": "reconstructed",
+    "named_targets": [
+      {
+        "name": "vehicle_step_reference_left",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          0.7199999988079071,
+          0.4368000030517578,
+          -0.06499999016523361
+        ],
+        "rotation_xyzw": [
+          0,
+          -0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Source tread-bounds upper-plane datum only; not a validated foot contact or traversable tread",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_boarding_left",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          1.1600000143051148,
+          0,
+          -0.06499999016523361
+        ],
+        "rotation_xyzw": [
+          0,
+          -0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Original ground approach300mm outside source step extent; not an obstacle-cleared route",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_rein_left",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          0.16200000643730164,
+          1.9758499999999997,
+          1.06
+        ],
+        "rotation_xyzw": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "grade": "reconstructed",
+        "basis": "Original prospective driver hand target200mm above/300mm forward of seat datum; no rein fitting or human pose attested",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_door_entry_left",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          0.5439538359642029,
+          0.9845610857009888,
+          -0.06223532557487488
+        ],
+        "rotation_xyzw": [
+          0,
+          -0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Closed lower-leaf bounds center facing inward; no door pivot or open passage",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_step_reference_right",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          -0.7199999988079071,
+          0.4368000030517578,
+          -0.06499999016523361
+        ],
+        "rotation_xyzw": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Source tread-bounds upper-plane datum only; not a validated foot contact or traversable tread",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_boarding_right",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          -1.1600000143051148,
+          0,
+          -0.06499999016523361
+        ],
+        "rotation_xyzw": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Original ground approach300mm outside source step extent; not an obstacle-cleared route",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_rein_right",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          -0.16200000643730164,
+          1.9758499999999997,
+          1.06
+        ],
+        "rotation_xyzw": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "grade": "reconstructed",
+        "basis": "Original prospective driver hand target200mm above/300mm forward of seat datum; no rein fitting or human pose attested",
+        "dynamic_binding_supported": false
+      },
+      {
+        "name": "vehicle_door_entry_right",
+        "parent": "vehicle_root",
+        "translation_root_m": [
+          -0.5439538359642029,
+          0.9845610857009888,
+          -0.06223532557487488
+        ],
+        "rotation_xyzw": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865476
+        ],
+        "grade": "reconstructed",
+        "basis": "Closed lower-leaf bounds center facing inward; no door pivot or open passage",
+        "dynamic_binding_supported": false
+      }
+    ],
+    "seats": [
+      {
+        "node": "vehicle_seat_driver",
+        "pelvis_reference_root_m": [
+          0,
+          1.7758499999999997,
+          0.76
+        ],
+        "prospective_feet_root_m": [
+          [
+            -0.16,
+            1.0893750190734863,
+            1.2600000500679016
+          ],
+          [
+            0.16,
+            1.0893750190734863,
+            1.2600000500679016
+          ]
+        ],
+        "feet_reference_surface_bounds_root_m": {
+          "min": [
+            -0.5199999809265137,
+            1.0498249530792236,
+            1.0800000429153442
+          ],
+          "max": [
+            0.5199999809265137,
+            1.0893750190734863,
+            1.440000057220459
+          ]
+        },
+        "fit_validated": false,
+        "basis": "Existing seat datum; original prospective foot placement on measured floor/footboard only, not a portable-human pose"
+      },
+      {
+        "node": "vehicle_seat_passenger_01",
+        "pelvis_reference_root_m": [
+          0.23,
+          1.3068999999999997,
+          -0.72
+        ],
+        "prospective_feet_root_m": [
+          [
+            0.15000000000000002,
+            0.9226999878883362,
+            -0.16999999999999993
+          ],
+          [
+            0.31,
+            0.9226999878883362,
+            -0.16999999999999993
+          ]
+        ],
+        "feet_reference_surface_bounds_root_m": {
+          "min": [
+            -0.48112088441848755,
+            0.8774999976158142,
+            -0.5136300325393677
+          ],
+          "max": [
+            0.48112088441848755,
+            0.9226999878883362,
+            0.35499998927116394
+          ]
+        },
+        "fit_validated": false,
+        "basis": "Existing seat datum; original prospective foot placement on measured floor/footboard only, not a portable-human pose"
+      },
+      {
+        "node": "vehicle_seat_passenger_02",
+        "pelvis_reference_root_m": [
+          -0.23,
+          1.3068999999999997,
+          -0.72
+        ],
+        "prospective_feet_root_m": [
+          [
+            -0.31,
+            0.9226999878883362,
+            -0.16999999999999993
+          ],
+          [
+            -0.15000000000000002,
+            0.9226999878883362,
+            -0.16999999999999993
+          ]
+        ],
+        "feet_reference_surface_bounds_root_m": {
+          "min": [
+            -0.48112088441848755,
+            0.8774999976158142,
+            -0.5136300325393677
+          ],
+          "max": [
+            0.48112088441848755,
+            0.9226999878883362,
+            0.35499998927116394
+          ]
+        },
+        "fit_validated": false,
+        "basis": "Existing seat datum; original prospective foot placement on measured floor/footboard only, not a portable-human pose"
+      }
+    ],
+    "entries": [
+      {
+        "side": "left",
+        "door_part_index": 17,
+        "closed_door_bounds_root_m": {
+          "min": [
+            0.4509076476097107,
+            0.49352574348449707,
+            -0.4138569235801697
+          ],
+          "max": [
+            0.6370000243186951,
+            1.4755964279174805,
+            0.2893862724304199
+          ]
+        },
+        "step_part_index": 29,
+        "step_bounds_root_m": {
+          "min": [
+            0.5799999833106995,
+            0.4142000079154968,
+            -0.26499998569488525
+          ],
+          "max": [
+            0.8600000143051147,
+            0.4368000030517578,
+            0.13500000536441803
+          ]
+        },
+        "floor_bounds_root_m": {
+          "min": [
+            -0.48112088441848755,
+            0.8774999976158142,
+            -0.5136300325393677
+          ],
+          "max": [
+            0.48112088441848755,
+            0.9226999878883362,
+            0.35499998927116394
+          ]
+        },
+        "ground_to_step_top_m": 0.4368000030517578,
+        "step_top_to_floor_top_m": 0.48589998483657837,
+        "entry_aperture_available": false,
+        "door_operation_supported": false,
+        "hinge_and_sweep_clearance_validated": false,
+        "note": "Closed door blocks entry; profile bounds and vertical rises are source geometry measurements, not an open aperture or feasible human passage"
+      },
+      {
+        "side": "right",
+        "door_part_index": 1,
+        "closed_door_bounds_root_m": {
+          "min": [
+            -0.6370000243186951,
+            0.49352574348449707,
+            -0.4138569235801697
+          ],
+          "max": [
+            -0.4509076476097107,
+            1.4755964279174805,
+            0.2893862724304199
+          ]
+        },
+        "step_part_index": 13,
+        "step_bounds_root_m": {
+          "min": [
+            -0.8600000143051147,
+            0.4142000079154968,
+            -0.26499998569488525
+          ],
+          "max": [
+            -0.5799999833106995,
+            0.4368000030517578,
+            0.13500000536441803
+          ]
+        },
+        "floor_bounds_root_m": {
+          "min": [
+            -0.48112088441848755,
+            0.8774999976158142,
+            -0.5136300325393677
+          ],
+          "max": [
+            0.48112088441848755,
+            0.9226999878883362,
+            0.35499998927116394
+          ]
+        },
+        "ground_to_step_top_m": 0.4368000030517578,
+        "step_top_to_floor_top_m": 0.48589998483657837,
+        "entry_aperture_available": false,
+        "door_operation_supported": false,
+        "hinge_and_sweep_clearance_validated": false,
+        "note": "Closed door blocks entry; profile bounds and vertical rises are source geometry measurements, not an open aperture or feasible human passage"
+      }
+    ],
+    "collision_proxy": {
+      "kind": "compound_conservative_root_AABBs",
+      "components": [
+        {
+          "source_frame": "vehicle_body",
+          "bounds_root_m": {
+            "min": [
+              -0.8600000143051147,
+              0.4142000079154968,
+              -1.1150000095367432
+            ],
+            "max": [
+              0.8600000143051147,
+              2.1882998943328857,
+              1.440000057220459
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_root",
+          "bounds_root_m": {
+            "min": [
+              -0.722000002861023,
+              0.4124999940395355,
+              -1.8365528583526611
+            ],
+            "max": [
+              0.722000002861023,
+              1.3338412046432495,
+              1.4989999532699585
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_running_gear_rear",
+          "bounds_root_m": {
+            "min": [
+              -0.7300000190734863,
+              0.6274999991059304,
+              -1.1725000008940696
+            ],
+            "max": [
+              0.7300000190734863,
+              0.6725000008940697,
+              -1.1274999991059302
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_steer_front",
+          "bounds_root_m": {
+            "min": [
+              -0.7300000190734863,
+              0.5054999991059304,
+              1.1274999991059302
+            ],
+            "max": [
+              0.7300000190734863,
+              0.5505000008940697,
+              1.1725000008940696
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_team_pole",
+          "bounds_root_m": {
+            "min": [
+              -0.11500000208616257,
+              0.0,
+              1.1447440385818481
+            ],
+            "max": [
+              0.11500000208616257,
+              0.5805000066757202,
+              3.825000047683716
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_wheel_front_left",
+          "bounds_root_m": {
+            "min": [
+              0.6059999969601632,
+              2.8610229740877458e-09,
+              0.6220000028610229
+            ],
+            "max": [
+              0.766000000923872,
+              1.055999997138977,
+              1.677999997138977
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_wheel_front_right",
+          "bounds_root_m": {
+            "min": [
+              -0.766000000923872,
+              2.8610229740877458e-09,
+              0.6220000028610229
+            ],
+            "max": [
+              -0.6059999969601632,
+              1.055999997138977,
+              1.677999997138977
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_wheel_rear_left",
+          "bounds_root_m": {
+            "min": [
+              0.6059999969601632,
+              2.384185793236071e-08,
+              -1.799999976158142
+            ],
+            "max": [
+              0.766000000923872,
+              1.299999976158142,
+              -0.5000000238418578
+            ]
+          }
+        },
+        {
+          "source_frame": "vehicle_wheel_rear_right",
+          "bounds_root_m": {
+            "min": [
+              -0.766000000923872,
+              2.384185793236071e-08,
+              -1.799999976158142
+            ],
+            "max": [
+              -0.6059999969601632,
+              1.299999976158142,
+              -0.5000000238418578
+            ]
+          }
+        }
+      ],
+      "all_source_vertices_covered": true,
+      "runtime_enabled": false,
+      "purpose": "Coarse static obstacle candidate for later validation; includes closed glass/cabin and fills spoke/underbody gaps; not occupied containment, picking or physics"
+    },
+    "hitch": {
+      "node": "vehicle_hitch_team",
+      "parked_translation_root_m": [
+        0.0,
+        0.037,
+        3.8
+      ],
+      "hitch_ready_pose_available": false,
+      "team_coupling_supported": false,
+      "note": "Measured static parked-down pole tip, not working-height coupling; no invented pole pivot or horse binding"
+    },
+    "door_geometry": {
+      "owned_parts": [
+        "deep_U_closed_door",
+        "side_door_glass"
+      ],
+      "independent_door_node_available": false,
+      "hinge_axis_known": false
+    },
+    "capabilities": {
+      "driver_passenger_fit": false,
+      "boarding": false,
+      "rein_binding": false,
+      "door_operation": false,
+      "hitch_team_coupling": false,
+      "runtime_collision": false,
+      "steering_wheel_animation": false,
+      "traffic": false
+    },
+    "limits": [
+      "All coordinates and dimensions not attested by catalogue remain reconstruction",
+      "No actual human, entry sweep, continuous clearance, animated collision or horse force/profile qualification",
+      "Metadata does not enable a visitor interaction or replace final static and photographic acceptance"
+    ]
+  },
+  "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
   "physical_category_triangle_counts": {
-    "deep_curved_lower_body": 456,
+    "deep_curved_lower_body": 4512,
     "deep_U_closed_door": 552,
     "door_edge_lining": 1120,
     "side_door_glass": 48,
@@ -28,7 +773,7 @@
     "small_door_hardware": 72,
     "door_step": 176,
     "step_support": 592,
-    "cabin_front_lower": 20,
+    "cabin_front_lower": 6968,
     "front_glass": 12,
     "front_sill_connector": 2,
     "front_window_stile": 36,
@@ -36,8 +781,8 @@
     "rounded_rear_bulkhead": 48,
     "interior_floor": 12,
     "passenger_bench_base": 12,
-    "passenger_cushion": 12,
-    "passenger_back": 12,
+    "passenger_cushion": 124,
+    "passenger_back": 124,
     "swept_crowned_roof": 168,
     "roof_underside": 168,
     "roof_edge_fascia": 80,
@@ -47,6 +792,7 @@
     "closed_end_crown_header": 24,
     "driver_perch_base": 12,
     "rounded_empty_driver_cushion": 92,
+    "driver_cushion_edge_piping": 128,
     "driver_backboard": 12,
     "driver_footboard": 12,
     "perch_support": 24,
@@ -86,14 +832,17 @@
     "source_near_central_fitting_prong": 132,
     "source_near_fitting_attachment_inferred": 24
   },
-  "materials": 7,
-  "nodes": 42,
-  "runtime_anchors": 13,
-  "static_named_targets": 8,
-  "archived_current_validator_reports": {
-    "V18-mid-raw.json": "705329f27b4df5be96ec2dfc5400fe3efe923b7ab25955d24e0b8f09a5788159",
-    "V18-mid-indexed.json": "b27ec07d4fde4529d2af5984901064d5382b6c1fd2b142d30561b554b2a99bfa"
-  },
-  "build_receipt_sha256": "aefaacaba01b0475ef2e9b519a174abfcbf67cbcbf004c3a44231bf2ce9ff670",
-  "native_variant": "V18_rounded_coach_lamps"
+  "validator_reports": [
+    {
+      "report": "V19-mid-raw.json",
+      "report_sha256": "4d13da99030611b54ba331ac678f2ba10ea82136cfc3bfd4b84a6bada079f331",
+      "actual_input_sha256": "560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d"
+    },
+    {
+      "report": "V19-mid-indexed.json",
+      "report_sha256": "af1feaaee894a0799f5a90b7596fe91d0c6557e7fd4531448dfa5ae9402b5cc5",
+      "actual_input_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d"
+    }
+  ],
+  "native_variant": "V19_catalogue_body_and_finish"
 }

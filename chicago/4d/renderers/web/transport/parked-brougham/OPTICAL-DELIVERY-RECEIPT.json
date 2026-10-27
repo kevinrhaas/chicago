@@ -1,0 +1,33 @@
+{
+  "scope": "External unadopted optical-only delivery; no geometry simplification or app mutation",
+  "producer_sha256": "8ba09b8e97ca1bfd987f88738a48cad427bc1c7c13c470aba3ae3cbd3d2b3ea5",
+  "rows": [
+    {
+      "detail": "near",
+      "file": "brougham-near-delivery-v1.glb",
+      "sha256": "b5b183b4f115c5c7779ba0cb4ccba83fbffb62349647a9a6487f50cde49aef77",
+      "bytes": 1474652,
+      "triangles": 45338,
+      "source_file": "brougham-near.glb",
+      "source_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+      "binary_chunk_sha256": "f6ad9f93730fe6e22af9570f7236f87aab67925bafa80a7f2a69cabda471c8a3",
+      "all_geometry_and_BIN_bytes_exact_source": true,
+      "materials0_through6_exact_source": true
+    },
+    {
+      "detail": "mid",
+      "file": "brougham-mid-delivery-v1.glb",
+      "sha256": "16daaf1d5003aae3ea64de9d037962aaabf2a5c8638ac77a5a2e037564ef2d63",
+      "bytes": 846056,
+      "triangles": 23062,
+      "source_file": "brougham-mid.glb",
+      "source_sha256": "d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d",
+      "binary_chunk_sha256": "9f0b9dc337495c2aa101099f82782da4dd7f7d42917049139cc0ed6692803024",
+      "all_geometry_and_BIN_bytes_exact_source": true,
+      "materials0_through6_exact_source": true
+    }
+  ],
+  "independent_structure_loader_Khronos": "UNRUN",
+  "photographic_accepted": false,
+  "world_budget_accepted": false
+}

@@ -1,9 +1,9 @@
 {
   "schema": "standing_horse_placements_v1",
-  "status": "Same1835 development horse placement with versioned eye-UV-v1 appearance correction and fresh current-SHA production clone/Mixer129 CPU pass. App/yard/mobile/native/GPU/photo qualification remains pending.",
+  "status": "Same reconstructed1835 horse placement selects the source-bounded anatomy master; fresh current-SHA native views and canonical physical proof, with app/yard/phone and full static surface/LOD photographic qualification pending.",
   "models": {
     "sevket_horse_standing_development_01": {
-      "file": "transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+      "file": "transport/standing-horse/horse-sevket-anatomy-v2.glb",
       "sidecar": "transport/parked/horse-sevket-sidecar.json"
     }
   },
@@ -27,7 +27,7 @@
           0.9999940245193165
         ],
         "support_confidence": "reconstructed",
-        "support_note": "Same whole-root rigid0.396145-degree support fit at unchanged canonical neutral hoof coordinates. Support placement adds no per-leg offset or mesh adjustment; new26rig/V16skin and planted clip are declared separately.",
+        "support_note": "Retained reconstructed whole-root0.396145-degree support transform; selected-source contact samples are regenerated. No per-leg placement offset; fresh actual-yard qualification required.",
         "support_limits": {
           "status": "Root accepted development-placement1mm per-foot sampled MINIMUM and no sampled penetration; not continuous-contact/anatomy/photo approval",
           "maximum_per_hoof_minimum_gap_m": 0.001,
