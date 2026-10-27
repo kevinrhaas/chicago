@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2352, ts: '2026-10-27T22:12:23.059Z', date: 'Oct 27, 2026, 5:12 PM CT', title: '1721 Prairie matches its 1891 photograph', kind: 'feature',
+    items: [
+      'The Dexter house at 1721 Prairie Avenue now matches the 1891 Inland Architect plate seen from the plate\'s own camera: balustrades on both bows and along the parapets, louvred shutters at the front\'s windows, iron balconettes at the ground floor, a round-headed window between the bows and the tall chimney at its full height.',
+    ] },
   { v: 2351, ts: '2026-10-27T21:45:30.328Z', date: 'Oct 27, 2026, 4:45 PM CT', title: 'Wooden poles and wires on 18th Street, the alleys and 22nd', kind: 'feature',
     items: [
       'Glessner\'s pole stands by the stable on 18th Street, where an 1887 photograph shows it, with its crossarm and glass insulators.',
