@@ -505,8 +505,11 @@ def dress_open(a, y):
         if strip(mid) > 0:
             earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (inner, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
-    lawn_tris = sum(_up_grid(a, SURFACES["turf"], r, conf) for r in lawn_rows)
-    earth_tris = sum(_up_grid(a, SURFACES["earth"], r, conf) for r in earth_rows + under_rows)
+    lawn_tris = earth_tris = 0          # integer counts, added left to right (T-2363)
+    for r in lawn_rows:
+        lawn_tris += _up_grid(a, SURFACES["turf"], r, conf)
+    for r in earth_rows + under_rows:
+        earth_tris += _up_grid(a, SURFACES["earth"], r, conf)
     widths = [strip(s) for s in edges if 0.0 <= s <= p.width_m and not st0 <= s <= st1] or [0.0]
 
     # -- the front walk: each leg its flags, worn along its centre -------------------------
