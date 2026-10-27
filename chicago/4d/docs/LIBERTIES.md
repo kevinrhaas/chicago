@@ -34227,7 +34227,7 @@ newel at the foot, and an iron cresting about 0.5 m high on the porch roof's dec
 and the wing standing only one storey where it meets the front (the photograph sees sky over the
 porch roof south of the bay, where a two-storey wing would stand).
 **What is invented.** Every opening on the flanks, the wing and the rear, and the kit's
-two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the
+two-over-two sash there; the K06 round-headed sash on the front; the
 hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main
 block's); one stack, placed over the south wall where the photograph shows one, the second it shows
 over the north wall not built; the tin roof and its colour; the pale body paint and the kit's
@@ -34237,17 +34237,26 @@ photograph's turned and ringed ones' places, the cresting's cast panels drawn as
 between posts with pointed knobs (the print shows the band, its posts and its height, not a pattern
 it would be honest to copy), the cresting's return along the porch roof's north end, and the
 newels at the stair's foot where the print's rails end in scrolls behind the street fence.
-**What is not built yet.** Owned by T-3182, the last piece of T-1873: the
-upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired
-carved brackets, the wider eave and the central front gable (T-3182). The photograph's stone posts
-and iron fence along the street line are not this record's.
-**How to resolve:** T-3182 replaces the kit's stand-ins on the upper storey in place from the
-same photograph; a sharper print of the porch replaces the balusters' turning and the cresting's
-pattern; a plan, a second photograph or a description of the flanks replaces their openings.
+T-3182's upper storey (read from the same photograph: the 0.75 m eave on paired brackets, two
+oval frieze lights and a paired attic window, the low front gable, the round-arched casings and
+hood moulds on every front window, the bracketed hood over the middle window with a panel on it,
+the canted bay on the porch deck, and the porch's open, dark skirt): the bay's 0.55 m depth and
+its plan, its south end carried about 1 m past the front's corner as the print shows it although
+the sheet's main rectangle stops there, and its back closed in plain clapboard; the kit's scroll
+brackets for the print's stacked consoles; the frieze lights glazed; the gable's tympanum boarded;
+the attic window kept under the soffit where the print's head rises about 0.3 m into the gable;
+the hood's fringe of drops not built; the lower lights' hood moulds not built, the porch roof's
+shade hiding whether they have them. The photograph's stone posts and iron fence along the street
+line are not this record's.
+**How to resolve:** a sharper print of the front replaces the brackets' carving, the hood's fringe,
+the balusters' turning and the cresting's pattern; a plan or a view from the south replaces the
+bay's depth and its end past the corner; a plan, a second photograph or a description of the
+flanks replaces their openings.
 **Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
-**Ticket:** T-3180 (piece 1 of T-1873); the porch T-3181 (piece 2).
+**Ticket:** T-3180 (piece 1 of T-1873); the porch T-3181 (piece 2); the upper storey T-3182 (piece 3).
 **Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
 **Recorded:** 2026-10-26 (T-3180).
+**Revised:** 2026-10-27 (T-3182).
 
 ### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
 

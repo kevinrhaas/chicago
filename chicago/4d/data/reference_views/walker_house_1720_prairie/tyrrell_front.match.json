@@ -2,11 +2,11 @@
   "structure_id": "walker_house_1720_prairie",
   "view": "tyrrell_front",
   "glb": "assets/gltf/walker_house_1720_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f9bf9caf8cbbb37fbfdee4544ace3cd9a64b005e75d7a1ea6012ebadb8787700",
+  "glb_sha256": "5c867eb131d923acb48b1071f81a4c48e947864a1fea5b448fa76e2bcc767d14",
   "camera_sha256": "52c93c6040c8c508e4bd10739e18ee995b829eadc9d5727d4efe755c529da3ad",
   "photo_sha256": "8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81",
   "side_by_side": "docs/RESEARCH/photo-match/walker_house_1720_prairie/tyrrell_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a two-storey clapboard front 10 m wide, its north corner at x 990 px",
@@ -65,23 +65,23 @@
     },
     {
       "what": "the canted bay on the upper storey at the south end, x 107-333 px, under its hipped cap",
-      "status": "open",
-      "owner": "T-3182"
+      "status": "fixed",
+      "how": "T-3182: a three-faced bay on the porch deck, its plan from v -0.95 to 1.6 m and 0.55 m out, a round-headed light in each face; its cornice's ends at x 93 and 376 px against the print's 107 and 350, the cornice and cap within about 10 px of y 235-300"
     },
     {
       "what": "the round-arched casings and hood mouldings over every front window, and the ground storey's taller arched lights",
-      "status": "open",
-      "owner": "T-3182"
+      "status": "fixed",
+      "how": "T-3182: every front casing carried round its round head (twin heads over each pair); over the upper storey's a hood mould dropping 0.25 m down the jambs, the lower lights' hoods left in the porch roof's shade (L-k16-1720-frame-house-3180); the upper arches' crowns within about 5 px, the lower lights' heads within about 15 px"
     },
     {
       "what": "the frieze's small attic lights between paired carved brackets, and the eave projecting about 0.6-1.0 m against the kit's 0.42 m",
-      "status": "open",
-      "owner": "T-3182"
+      "status": "fixed",
+      "how": "T-3182: the eave 0.75 m deep on brackets 0.75 m tall in pairs, the pairs within about 5 px of x 185-230, 460-500, 685-725 and 950-990; oval frieze lights over the outer bays within about 5-10 px of x 325-405 and 780-865, y 150-192"
     },
     {
       "what": "the low central gable over the middle of the front, its paired attic window and the hood over the middle window below it",
-      "status": "open",
-      "owner": "T-3182"
+      "status": "fixed",
+      "how": "T-3182: a gable 4.6 m across at 26 degrees on the eave, its apex and feet within about 5 px; the paired round-headed attic window within about 5 px across; the flat hood 2.5 m across on scroll brackets within about 10 px, a plain panel on it"
     },
     {
       "what": "the body's colour: the photograph is monochrome",
@@ -95,7 +95,7 @@
     {
       "what": "the upper and lower window heads 15-30 px off the photograph's arch tops",
       "status": "within tolerance",
-      "how": "under 0.4 m and inside the arched casings T-3182 replaces"
+      "how": "under 0.4 m; T-3182's arched casings now follow the photograph's arch tops within about 5-15 px"
     },
     {
       "what": "the cresting's cast openwork panels between its posts, drawn as plain square bars",
@@ -109,20 +109,38 @@
     },
     {
       "what": "the stair's foot: the print's cheeks end about 60-100 px south (left) of the render's at the foot while their tops meet at the inner posts",
-      "status": "open",
-      "owner": "T-3182",
-      "how": "read at the stair's foot behind the street fence; heights at the foot agree with the stair's 2.1 m run, so this is the camera's across-the-street placement (eye v 7.0, principal x 764) rather than the stair — the sign-off weighs a re-solve"
+      "status": "within tolerance",
+      "how": "T-3182 weighed the re-solve: both cheeks' feet read about 45-50 px south of the render's while their tops at the inner posts and the bottom step's height agree, so the stair is not misplaced; the two camera fits disagree. Moving the eye across the street far enough to close it (about v 10.4, principal x about 1034) would bring the north flank into view, which the print does not show, and move the porch posts about 18 px off their fitted places, so the T-3180 camera stands"
     },
     {
       "what": "the skirt under the porch floor reads dark in the print where the render's kit lattice reads light",
-      "status": "open",
-      "owner": "T-3182",
-      "how": "the print shows the floor's rim and a dark void with posts under it; the sign-off weighs the lattice against an open, shadowed skirt"
+      "status": "fixed",
+      "how": "T-3182: the skirt built open (porch.skirt), the frame and the dark crawl space under the floor's rim and no laths"
     },
     {
       "what": "the porch floor's edge at y 860 px against the render's 848 (about 0.14 m)",
       "status": "within tolerance",
       "how": "under 1 ft; the balustrade's 0.7 m over it is read from its own rails"
+    },
+    {
+      "what": "the brackets' carving: the print's are stacked consoles with drops, the render's the kit's scroll",
+      "status": "within tolerance",
+      "how": "count, pairing, place, height and reach as the print's; the carving is below what the print resolves to copy honestly (L-k16-1720-frame-house-3180)"
+    },
+    {
+      "what": "the paired attic window's head rises about 0.3 m into the gable over the soffit; the render keeps it under the soffit",
+      "status": "within tolerance",
+      "how": "about 1 ft at the head of a window 1.1 m tall seen 10 m up; its place, width and pairing are the print's"
+    },
+    {
+      "what": "the hood's fringe of small drops under its slab, and the small paired vents under the soffit",
+      "status": "within tolerance",
+      "how": "each under 0.15 m deep; the hood's slab, brackets, panel and outline are the print's"
+    },
+    {
+      "what": "the bay's angles read dark in the print where the render's posts are painted with its trim",
+      "status": "within tolerance",
+      "how": "the print is monochrome and the bands fall where the cresting's and the tree's shadows cross the bay; its posts, faces and lights are where the print puts them"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
