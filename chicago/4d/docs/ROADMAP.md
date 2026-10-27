@@ -5931,3 +5931,11 @@ Normal integration of foreign6b with actual dev ecfff retains the native palisad
 T-2380 current ending: hosted1904 phone403.3/400 failure is retained. Deferred existing far-rail buffers recover exactly12,183,792 retained CPU bytes at spawn with identical measured GPU buffers/textures; actual local phone384.0/400. Native geometry/lifecycle regression coverage is added; final actual walk/picture, preflight and hosted qualification are still pending. Original jail compound image mismatch remains open.
 
 T-2380 rail headroom review is now complete: actual normal walk/upload/drop/rebuild/pick and Full→Light passed; five same-frame baseline/candidate pictures and visible rail geometry are exact. Baseline/current first-pose GL1281 remains explicitly qualified; page/network/console errors are zero. Final preflight and current hosted ending remain pending.
+
+
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original25 by35ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. Genuine271 masters/web, current native derived fixed point, source/app/grounded review and full gates remain owed. OriginalT2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving through the existing library/store path, use one canonical picture ID, and mark the undated provisional camera diagnostic_only. Geometry and solved camera are unchanged; the original sash-height discrepancy remains in T-2384. The separate optional sill API/family rebake is not adopted in this bounded ending.

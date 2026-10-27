@@ -1,0 +1,222 @@
+{
+  "status": "HISTORICAL_INITIAL_CAMERA_FIT_PERSISTED_AFTER_ACTUAL_PRIVATE_PREVIEWS",
+  "source_id": "andreas_1884_st_marys_engraving",
+  "source_image_px": [
+    2671,
+    3110
+  ],
+  "note": "These are coarse manually read picture coordinates and the initial steeper-roof geometry used to choose the camera. The reported 72.87 px RMS and 160.42 px maximum residual belong to that initial fit, rather than the corrected 30 degree roof. Both actual private previews used the same camera. The corrected canonical master is byte-identical to the second preview. This is a historical fit record; it provides neither metric calibration nor an acceptance verdict or a dated 1835 elevation. No new fit was computed.",
+  "landmarks": [
+    {
+      "label": "near side-wall base corner",
+      "pixel": [
+        1060.0,
+        2329.0
+      ],
+      "initial_model_uvy_m": [
+        0.0,
+        7.62,
+        0.0
+      ]
+    },
+    {
+      "label": "near blank-gable outer base corner",
+      "pixel": [
+        2417.0,
+        2366.0
+      ],
+      "initial_model_uvy_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "far side-wall base corner",
+      "pixel": [
+        136.0,
+        2146.0
+      ],
+      "initial_model_uvy_m": [
+        10.668,
+        7.62,
+        0.0
+      ]
+    },
+    {
+      "label": "near side-wall eave corner",
+      "pixel": [
+        1060.0,
+        1548.0
+      ],
+      "initial_model_uvy_m": [
+        0.0,
+        7.62,
+        3.2
+      ]
+    },
+    {
+      "label": "near blank-gable outer eave corner",
+      "pixel": [
+        2417.0,
+        1614.0
+      ],
+      "initial_model_uvy_m": [
+        0.0,
+        0.0,
+        3.2
+      ]
+    },
+    {
+      "label": "far side-wall eave corner",
+      "pixel": [
+        136.0,
+        1748.0
+      ],
+      "initial_model_uvy_m": [
+        10.668,
+        7.62,
+        3.2
+      ]
+    },
+    {
+      "label": "near ridge end",
+      "pixel": [
+        1731.0,
+        1137.0
+      ],
+      "initial_model_uvy_m": [
+        0.0,
+        3.81,
+        6.372019643617273
+      ]
+    },
+    {
+      "label": "far ridge end",
+      "pixel": [
+        605.0,
+        1434.0
+      ],
+      "initial_model_uvy_m": [
+        10.668,
+        3.81,
+        6.372019643617273
+      ]
+    },
+    {
+      "label": "cross top",
+      "pixel": [
+        1625.0,
+        135.0
+      ],
+      "initial_model_uvy_m": [
+        1.2,
+        3.81,
+        11.232019643617273
+      ]
+    }
+  ],
+  "initial_fit": {
+    "eye": [
+      -14.565655385750087,
+      16.982661800124934,
+      0.9962677354344135
+    ],
+    "basis_right_up_forward": [
+      [
+        -0.590509648551417,
+        -0.8069370113205498,
+        0.012288805016784976
+      ],
+      [
+        -0.10109899501764891,
+        0.08907346285352345,
+        0.9908808765041857
+      ],
+      [
+        0.8006730594781514,
+        -0.583882332303642,
+        0.1341792601319446
+      ]
+    ],
+    "focal_px": 4206.923209570947,
+    "rms_px": 72.8742939231014,
+    "max_px": 160.41806307142528,
+    "projected": [
+      [
+        1073.5287794348092,
+        2370.307450292432
+      ],
+      [
+        2334.1460806743917,
+        2334.3054326484353
+      ],
+      [
+        123.37105520144837,
+        2275.2785366399544
+      ],
+      [
+        1089.4783837867978,
+        1584.6726729438444
+      ],
+      [
+        2322.1062288061466,
+        1709.1766296544797
+      ],
+      [
+        149.7856811482925,
+        1749.6487041164198
+      ],
+      [
+        1774.4067809296428,
+        993.2040547497995
+      ],
+      [
+        717.2997844302724,
+        1319.445587703912
+      ],
+      [
+        1615.8966635068916,
+        124.39068368817607
+      ]
+    ],
+    "residuals": [
+      [
+        13.528779434809167,
+        41.307450292431895
+      ],
+      [
+        -82.85391932560833,
+        -31.69456735156473
+      ],
+      [
+        -12.628944798551629,
+        129.27853663995438
+      ],
+      [
+        29.47838378679785,
+        36.67267294384442
+      ],
+      [
+        -94.89377119385335,
+        95.17662965447971
+      ],
+      [
+        13.785681148292497,
+        1.6487041164198217
+      ],
+      [
+        43.406780929642764,
+        -143.79594525020048
+      ],
+      [
+        112.29978443027244,
+        -114.554412296088
+      ],
+      [
+        -9.103336493108372,
+        -10.609316311823932
+      ]
+    ]
+  }
+}

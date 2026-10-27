@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c538efdfd3189e72b8711bf34361f365a6dd9fc65caf7ac9b3870842e1bcc0e0",
+  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
   "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
@@ -132,6 +132,16 @@
       "what": "the low hip-roofed building beyond the flank's east end (x 687-753) and the glass house behind it",
       "status": "not shown",
       "how": "the conservatory and the sheet's south-east block; not compared here"
+    },
+    {
+      "what": "the tall stack rising behind the cresting just west of the south-west corner pier (x 528-545 px, its top at y 222), where the build stood a short deck stack at (18, 12.5)",
+      "status": "fixed",
+      "how": "T-3161: the deck stack moved to (20, 13.3) and raised to 19.5 m (top_m), on the line of sight this print and the Albertype plate share, where Taylor's photograph 1445 hides it behind the flank stack; the render's at x 532-552, its cap at y 215-222"
+    },
+    {
+      "what": "the flank's great stack on the 18th Street cornice (T-3161, read off Taylor's photograph 1445) renders at x 577-591, its cap at y 203; the print shows cresting and branches there, with a thin upright at x 575-580, y 225-250",
+      "status": "within tolerance",
+      "how": "T-3161: a gap two pictures disagree about (T-3153): Taylor's photograph shows the stack on the cornice at 18 px a metre, where this print would draw it about 6 px wide among the branches; the stack stands, and L-pullman-1729-flank-stack-3161 says so"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
