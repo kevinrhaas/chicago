@@ -31,6 +31,14 @@ building; inside an area the walk takes the detail levels from the top down, and
 level nearest-first from where the last stop left off. So the route crosses between areas
 once per area and never doubles back across the district for one building.
 
+HOW LONG IT GROWS. A jaunt holds at most the schema's `stops.maxItems` (50, in
+data/jaunts/schema.json). Once more buildings than that are worked, the walk takes the most
+detailed of them by the same ranking that orders it, routes only those, and says in its
+opening how many less detailed buildings wait outside it; each joins as it gains detail
+over the walk's least detailed stop. Measured 2026-10-27: dev's walk reached exactly 50 with
+1901 Prairie (#1361), and the next building worked (1712 Prairie, T-3187) made 51, which the
+jaunt compiler refused, so every building PR on the avenue stopped there.
+
     python3 tools/jaunt_built_so_far.py           # rewrite the walk
     python3 tools/jaunt_built_so_far.py --check   # fail if the committed walk is stale
     python3 tools/jaunt_built_so_far.py --list    # print the order and each level
@@ -51,6 +59,7 @@ OUT = DATA / 'jaunts/prairie-built-so-far.json'
 SCENE = '1904'
 AREA_LINK_M = 60.0
 LIBERTY = 'L-jaunt-prairie-built-so-far'
+MAX_STOPS = json.loads((DATA / 'jaunts/schema.json').read_text())['properties']['stops']['maxItems']
 BESPOKE = {'masonry_house'}
 LEVELS = {
     5: 'its own model, built piece by piece rather than from a kit',
@@ -199,8 +208,10 @@ def claim(n, row):
 
 
 def build():
-    order = route(rows())
+    worked_rows = rows()
+    order = route(sorted(worked_rows, key=rank)[:MAX_STOPS])
     count, area_count = len(order), len({r['area'] for r in order})
+    waiting = len(worked_rows) - count
     stops, evidence = [], [dict(id='tour', confidence='reconstructed', sources=[], liberty=LIBERTY,
         text='Which buildings the walk includes, their detail levels, its grouping and order, reading times and keepsake are this project\'s own description of its models, rewritten from the records by tools/jaunt_built_so_far.py; no historical visit is asserted.')]
     for n, row in enumerate(order, 1):
@@ -210,8 +221,13 @@ def build():
                           links=[dict(kind='structure', id=row['id'], label='About this building')],
                           next=f'stop-{n + 1}' if n < count else 'finish'))
         evidence.append(claim(n, row))
-    opening = (f'WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: {plural(count, "building")} in '
-               f'{plural(area_count, "area")}. Most detailed first, one area at a time, so the route does not double back. '
+    scope = (f'Every Prairie Avenue building modelled past its first rough model: {plural(count, "building")} in '
+             f'{plural(area_count, "area")}.') if not waiting else (
+        f'The {count} most detailed of the {len(worked_rows)} Prairie Avenue buildings modelled past their first rough model, '
+        f'in {plural(area_count, "area")}. A walk holds {MAX_STOPS} stops, so ' + (
+            'one less detailed building waits outside it until it gains detail.' if waiting == 1 else
+            f'{waiting} less detailed buildings wait outside it until they gain detail.'))
+    opening = (f'WALK: BUILT SO FAR. {scope} Most detailed first, one area at a time, so the route does not double back. '
                'It is rewritten from the building records whenever one gains detail.')
     ending = 'End of the walk so far. As more buildings are built out they join it, in their place by detail and area.'
     doc = dict(schema_version=1, content_version=1, category='Build log', featured=True, review_required=False,
