@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2352, ts: '2026-10-27T22:12:23.059Z', date: 'Oct 27, 2026, 5:12 PM CT', title: '1721 Prairie matches its 1891 photograph', kind: 'feature',
+    items: [
+      'The Dexter house at 1721 Prairie Avenue now matches the 1891 Inland Architect plate seen from the plate\'s own camera: balustrades on both bows and along the parapets, louvred shutters at the front\'s windows, iron balconettes at the ground floor, a round-headed window between the bows and the tall chimney at its full height.',
+    ] },
+  { v: 2351, ts: '2026-10-27T21:45:30.328Z', date: 'Oct 27, 2026, 4:45 PM CT', title: 'Wooden poles and wires on 18th Street, the alleys and 22nd', kind: 'feature',
+    items: [
+      'Glessner\'s pole stands by the stable on 18th Street, where an 1887 photograph shows it, with its crossarm and glass insulators.',
+      'A line of poles runs from it to Indiana Avenue and down every alley, the wires sagging between them.',
+      '22nd Street has its streetcar overhead: span wires on paired poles and two trolley wires over the tracks.',
+      'No pole stands on Prairie Avenue, where the pictures show none.',
+      'On a phone the wires are left off to save the frame.',
+    ] },
   { v: 2350, ts: '2026-10-27T21:11:00.302Z', date: 'Oct 27, 2026, 4:11 PM CT', title: 'Fire hydrants stand on the 1904 parkways', kind: 'feature',
     items: [
       'A cast-iron post fire hydrant stands at Pullman\'s corner, beside the walk north of 18th Street, where the Detroit Publishing view shows it.',
