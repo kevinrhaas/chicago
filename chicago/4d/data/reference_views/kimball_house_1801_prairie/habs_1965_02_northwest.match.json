@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ef2d302bcac6181069bc91898fd08df250571a902b7047e81c8ccbe31b022ad6",
+  "glb_sha256": "02e30838d5260dba9e2dd47c4f0c5198c64f45c353571dbaa9c990afe81cce58",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -45,8 +45,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there)",
-      "status": "open"
+      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) — T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
+      "status": "fixed"
     },
     {
       "what": "the flank section's top: the print's third storey of paired lights under a cornice, a gabled wall dormer with a fan (sunburst) panel and a finial (x 700-800, y 400-520) and the corbel table under them (x 630-900, y 650-700); the build carries the section's wall up under K08's low hip. The Taylor print's match record carries the same difference. Built (T-1890, bays.p_flank): the second storey carried up to a corbel table whose top stands at 9.45 m (a 0.25 m course on stepped corbels down to 8.6 m; the print's at about 9.5-9.6 m), the third storey over it to a 12.4 m wall top (the print's cornice about 12.5 m) with a pair of lights in two tiers on the axis and a single light at the west end, and a coped wall dormer 1.4 m in from each corner with a carved fan in its tympanum, a pinnacle on each shoulder and a finial to 15.2 m (the print's about 15.15 m); the dormer's apex renders within about 10 px of the print's, the corbel table within about 15 px",
