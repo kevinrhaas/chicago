@@ -5950,7 +5950,6 @@ T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-i
 
 T-2382 (2026-10-26): select the existing blind dark doorway for Carpenter's log annex from the credited Andreas plate. The supported one-record choice leaves placement, dimensions, dates and former/current-use rulings unchanged. Actual selected master-to-WEB and same-camera comparisons are retained; the original image gate remains DIFFERS with broader massing and camera questions open. The existing pictured-grade ruling now uses the library ID of that same reproduction, so its legacy source alias does not count as a second picture on the visitor card; the attested grade and per-attribute grades remain. This is a reasoning checkpoint, not a new backlog item.
 
+### T-1789 source checkpoint — 26 October2026
 
-
-
-
+Reusable workwear construction and three explicit resident assemblies are authored; CPU source controls cover real geometry, UV surfaces, portable weights, unchanged bodies and meaningful negatives. No new canonical person or photographic-library acceptance is claimed. The full library, including the remaining garment families/base/head/hair options, canonical three-resident exports, posed/LOD/mobile inspection and Mark Beaubien assembly stop, remains T1789 and is tracked in docs/RESEARCH/portable-human-library-T-1789/README.md. Existing reasoning and all original bytes above are retained.

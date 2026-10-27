@@ -338,6 +338,9 @@ step "CC0 adult preparation preserves source UVs, metric frame and bounded rig w
 step "Bardwell waistcoat shoulder panels connect without changing default source (T-1789)" \
   python3 tools/test_human_workwear_shoulders.py
 
+step "Modular adult dress consumes cleared source and preserves existing resident bounds (T-1789)" \
+  python3 tools/test_human_dress_components.py
+
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
 
