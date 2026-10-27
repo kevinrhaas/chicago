@@ -34447,3 +34447,30 @@ pullman-addition`, not in the image store) would date the east section against 1
 **Ticket:** T-3192 (piece 1 of T-3178).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-27 (T-3192).
+
+### L-pullman-stable-3193 — Pullman's stable re-planned through three solved cameras: the arcade on the court face, a bay and a cut corner at the south-west corner, the front's sash moved west with it
+
+**Decision:** T-3193 solved cameras on the 1894 Inland Architect plate (`inland_1894_pullman_palm_house_stable`)
+and Taylor's 16554 (`aic_taylor_16554_pullman_from_sw`), and re-solved Taylor's 16555 with its distance free;
+all three now stand in `data/reference_views/pullman_house_1729_prairie_conservatory/`. **What is read.** The
+plate's stable faces recede to opposite sides, so the three-arch arcade T-3192 had put on the 18th Street front
+is on the stable's west face, across the court from the drum (16555's "3.2 m" was that face foreshortened by a
+camera standing too far off); its arches, a broad open one between two narrower, sit 2.9, 7.2 and 10.9 m along
+the face with crowns about 3.0-3.1 m and heads flatter than half-circles. The upper storey runs along that face
+with two small sash and turns the south-west corner on a diagonal of about 2.1 m, over a polygonal bay of three
+round-headed lights with its cornice at about 4.5 m; the 18th Street front's three bays of sash follow the bay
+west (4.7, 8.3 and 11.2 m east of the corner, which puts the stack past the last of them, as 16554 shows). The
+belvedere moves 1.2 m west and its top to 9.3 m; the lantern is smaller (0.8 m radius) under a flat dome; the
+deck stands 6.1 m over the eave. **What is invented.** The bay's exact plan: the plate places it about 0.8 m
+further east along the corner and 16554 about 1.4 m further west, and the build stands between them, enclosing
+the building's corner; the 1911 sheet's corner polygon (about 2.3 m) lies between both. The north block's
+roof is now a hipped roof to a low crested deck at the stable's eave, as the plate's one oblique glimpse of it
+reads (its place there is uncertain by about 1.5 m); the arches' depth and the bay's return to the west face.
+**What is not.** The 1911 sheet's walls and the east section stand as T-3192 left them; the heights are the
+three pictures'. **How to resolve:** the c. 1905 CHM negative i70232 is online only as a ~375 px contact-sheet
+thumbnail (CHM's Clark collection Buildings sheet, read by T-3193's earlier claim), too small to solve; a
+full-size copy would place the bay.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-3193 (piece 2 of T-3178).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-27 (T-3193).

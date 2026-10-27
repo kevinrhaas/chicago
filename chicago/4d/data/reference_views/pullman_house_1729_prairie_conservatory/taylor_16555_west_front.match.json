@@ -3,7 +3,7 @@
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
   "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
-  "camera_sha256": "749333feccf72a64b981e9ec138d1c857d8ecefeb3b36871f753a8866d9fa406",
+  "camera_sha256": "d3d76dbbff22c2b16908df9297525e07aaeceb6a984adc477c2922cf0ca86250",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "8caa6d00fabb9fd692f14f42016c04d855ba5e53ed6960161509ac76185027d7"
+      "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "173426141c3404d22737d417e077b62fbcb2df908adc91073c103cab369f97b1",
+  "group_sha256": "978e273ae0c42ec7612618b04dd4c8561ffb6a8db31256f062f71a5be918ef2a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -124,40 +124,39 @@
       "how": "the camera stands south of the range"
     },
     {
-      "what": "the stable's hipped roof (T-3192): springing from the first-floor cornice at the west end (x 640-690 px, about 4 m) and rising steeply to a flat deck inside iron cresting, its west corner finial near x 720 px and the deck about 10.2 m up; the district draft's mansard box had none of it",
-      "status": "fixed"
+      "what": "the stable's arcade on its west face, receding toward the drum, its arches between the corner bay and the range (x 640-700 px)",
+      "status": "fixed",
+      "how": "T-3193: what T-3192 read as a 3.2 m arcade on the 18th Street front is the west face foreshortened; the camera re-solved nearer (see its solve) shows the face at the print's angle, and the arcade moved onto it"
     },
     {
-      "what": "the stable's upper storey on 18th Street carried up through the roof as one long wall with small square lights under its own cornice at about 6.0 m (y 520-525 px), with a low attic band and two small lights over the arcade",
-      "status": "fixed"
+      "what": "the polygonal bay at the stable's south-west corner (x 690-800 px), its cornice at about 4.5 m, round-headed lights",
+      "status": "fixed",
+      "how": "T-3193: the bay across the corner; within about 20 px"
     },
     {
-      "what": "the stable's polygonal bay west of the front's middle, about 4.8 m across (x 690-815 px), its cornice at about 4.9 m and round-headed lights in its faces",
-      "status": "fixed"
+      "what": "the stable's front east of the bay: three bays of sash in two storeys",
+      "status": "fixed",
+      "how": "T-3193: the sash at 4.7, 8.3 and 11.2 m east of the corner; the render's at x 860, 955 and 1023 against the print's 864, 951 and 1020"
     },
     {
-      "what": "the stable's arcade of round arches between its west wall and the bay, crowns about 3.0-3.2 m (y 590 px)",
-      "status": "fixed"
+      "what": "the stable's hipped roof springing from the first-floor cornice to a crested deck, the upper storey carried up through it",
+      "status": "fixed",
+      "how": "T-3192's forms, carried round the cut corner by T-3193"
     },
     {
-      "what": "the stable's front east of the bay: ground-storey sash (sills about 1.2 m, heads 3.2 m) and small upper sash at about 4.3-5.2 m, in three bays, the third on a section that runs on about 4 m past the hipped roof (to x 1090 px), which the 1911 sheet does not draw (liberty L-pullman-stable-3192)",
-      "status": "fixed"
+      "what": "the square belvedere over the range's parapet at the wing's east end",
+      "status": "fixed",
+      "how": "T-3192; moved 1.2 m west by T-3193 from the plate"
     },
     {
-      "what": "the square belvedere over the range's parapet at the wing's east end, its balustrade's top about 10.3 m (y 455-470 px)",
-      "status": "fixed"
+      "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course",
+      "status": "within tolerance",
+      "how": "T-3192's ruling, unchanged: the line is in place; the difference is in relief"
     },
     {
-      "what": "the stable's arcade: the photograph shows two arches and a narrow light west of the bay where the 1894 Inland plate shows three arches, a broad open one between two narrower; the model takes the plate's three, fitted into the 3.2 m this view reads (T-3193 weighs the stretch through the plate's camera)",
-      "status": "within tolerance"
-    },
-    {
-      "what": "the stable's roof meets its front below the upper storey's wall as a projecting band about 0.4 m deep where the print shows a moulded belt course; the hood mouldings over the ground-storey sash and the bay's string courses are not modelled",
-      "status": "within tolerance"
-    },
-    {
-      "what": "the stable's lantern, the stack at the front's east end, the deck's east end and the east section's roof: the tree crowns cover the roof's east half and the deck's middle (the lantern and stack are read from the south-west view and the Inland plate)",
-      "status": "not shown"
+      "what": "the stable's lantern, the stack at the front's east end and the deck's east end",
+      "status": "not shown",
+      "how": "the tree crowns cover the roof's east half; the plate and 16554 show them"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
