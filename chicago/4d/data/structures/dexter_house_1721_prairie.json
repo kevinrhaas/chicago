@@ -1,11 +1,11 @@
 {
   "id": "dexter_house_1721_prairie",
-  "name": "1721 Prairie Avenue — Dexter house, post-1889 phase (district draft; refined by T-1878, T-1879)",
+  "name": "1721 Prairie Avenue — Wirt Dexter house, Arthur Little's front of 1889, K01 frontage assembly",
   "aka": [
     "1719 Prairie Avenue",
     "1721 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -23,30 +23,31 @@
     "note": "The marker: 'Wirt Dexter Residence. Built 1863'. The house was remodelled later."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1878, T-1879 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1721-b1), the T-1840 census (s20-1721-f, s20-1721-a1) and the T-1837 register row frontage-20-034 (Dexter house, post-1889 phase); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "T-1878 (package N18A of T-1837) refines the district draft (T-2335) in place under this id onto the K01 kit: the 1911 sheet's plan (the main block with its north part recessed behind an entrance porch, the forward block with two bows, the long 2B rear wing and its frame end) read against the 1891 Inland Architect plate of Arthur Little's front. Its carving, the balustraded parapet and the bows' balconies, shutters, balconettes and the image gate are T-1879's. docs/RESEARCH/k01-1721-dexter-1878/README.md is the reading.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
         "confidence": "inferred",
         "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
+          "sanborn_1911_chicago_v3_sheet_20",
+          "inland_architect_1891_06_dexter_plate"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The 1891 plate shows Arthur Little's front of 1889; the 1911 sheet draws the same plan and the T-1840 census rules it present in 1904 (present_as_mapped). The c. 1888 photographs show the house before that front and are not this phase.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448505.5,
-        "utm_n": 4634259.827,
+        "utm_e": 448505.526,
+        "utm_n": 4634263.627,
         "rotation_deg": 179.607,
         "symbolic_location": "1721 S. Prairie Avenue, parcel prairie_1721 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 57.250, v -5.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.607 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear north corner of the K01 main body: the draft's origin carried 3.8 m north to the main block's north wall (the trace at draft v -3.75 to -3.9), through the T-1250 fit of the sheet, whose own residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.607 degrees turns the plan's u axis onto the lot's rear-to-street line; v runs SOUTH, from the north wall toward 1729.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -59,175 +60,609 @@
             0.0
           ],
           [
-            10.75,
+            7.75,
             0.0
           ],
           [
-            10.75,
-            12.75
+            7.75,
+            17.6
           ],
           [
             0.0,
-            12.75
+            17.6
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main block read off the 1911 sheet's trace (s20fp-1721-b1 p1) in the house's frame: its rear wall at u 0, the recessed wall behind the porch at u 7.7-7.75, its north wall at v 0 (the trace at -0.05 to 0.1 once carried), its south wall at v 17.6 (the trace at 17.6-17.8). The forward block, its bows and the rear wing stand on it (form.bays, form.rear_wings)."
       },
       "form": {
         "stories": {
           "value": 3,
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
           ],
-          "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
+          "note": "'3B' printed on the 1911 sheet; the 1891 plate shows three storeys over a low basement."
         },
         "construction": {
           "value": "brick",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The 1911 sheet colours the main block and its rear wing brick. The plate shows the wall light and smooth."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 1.3,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's porch stands six or so risers over the walk and its basement lights are at the walk: about 1.3 m."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.3,
+            3.9,
+            3.3
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "Read off the plate in proportion to the porch's columns and the ground-floor windows: a tall principal storey, a second a little lower, a third under the cornice lower again."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "The rules' brick front."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "The rules' brick side wall."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "A buff brick: the plate shows the walls light, much lighter than the red and brown brick of the houses beside it. Its exact colour is not read."
+        },
+        "wall_finish": {
           "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  10.75,
-                  12.75
-                ],
-                "from": "s20fp-1721-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "hip",
-                "rect": [
-                  -19.75,
-                  -3.0,
-                  0.0,
-                  1.5
-                ],
-                "from": "s20fp-1721-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.25,
-                  -3.75,
-                  7.5,
-                  0.0
-                ],
-                "from": "s20fp-1721-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 81% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -22.25,
-                  -2.0,
-                  -20.0,
-                  2.25
-                ],
-                "from": "s20fp-1721-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 74% of its fill"
-              },
-              {
-                "id": "r5",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  7.75,
-                  -3.5,
-                  10.75,
-                  -0.75
-                ],
-                "from": "s20fp-1721-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-              }
-            ],
-            "lot_v": [
-              -5.042,
-              15.542
-            ],
-            "street_u": 21.586
+            "paint": {
+              "color": [
+                0.62,
+                0.56,
+                0.44
+              ],
+              "opaque": true
+            }
           },
+          "confidence": "reconstructed",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate draws every face light and smooth, with no brick courses on a print sharp enough to show the shutters' slats and the neighbours' brick, so the brick is taken as painted (or laid in a pale brick the kit does not carry). The plate is monochrome: the pale buff is chosen, not read."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood",
+              "k01.flat_lintel"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The plate's windows have small carved tablets over their heads; a cornice hood stands for them until T-1879 carves them."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's deep moulded cornice. Its modillions and the balustraded parapet over it are T-1879's."
+        },
+        "roof_form": {
+          "value": "flat",
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate shows no roof over the parapet from the street: a flat deck behind it."
+        },
+        "roof_pitch_deg": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "A tin deck's fall."
+        },
+        "eave_overhang_m": {
+          "value": 0.45,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's cornice stands well out of the wall."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_flat_seam_painted",
+            "flashing": "painted_tin_sheet"
+          },
+          "confidence": "reconstructed",
+          "note": "A flat deck's tin."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The kit's sash; the plate's windows are many-paned sash, T-1879's to glaze."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "The rules' tread."
+        },
+        "stair_landing_depth_m": {
+          "value": 2.9,
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The porch's floor fills the recess to the front's line, as the 1911 sheet draws the porch (2.9 m by 3.5 m) and the plate shows it."
+        },
+        "stoop_width_m": {
+          "value": 3.1,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's steps run the porch's width between its columns."
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The door is in the recessed north part of the front (K01's low-v end: v runs south here, from the north wall), under the porch, on the plate."
+        },
+        "front_bays": {
+          "value": [
+            1.8
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The recessed wall's one bay: the door, and a window over it in each upper storey (the plate)."
+        },
+        "side_bays": {
+          "value": [
+            2.0,
+            5.75
+          ],
+          "confidence": "reconstructed",
+          "note": "The north wall of the main block: the plate shows a window a storey near its front; the rest is hidden by the house to the north."
+        },
+        "north_bays": {
+          "value": [
+            2.0,
+            5.75
+          ],
+          "confidence": "reconstructed",
+          "note": "The south wall toward 1729: no picture shows it."
+        },
+        "rear_bays": {
+          "value": [
+            8.6,
+            12.6
+          ],
+          "confidence": "reconstructed",
+          "note": "The rear wall beside the rear wing: no picture shows it."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 1.1,
+              "height_m": 2.6
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.05,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.7
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's tall ground-floor and second-storey windows and the shorter third."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.25,
+            "width_m": 0.9,
+            "height_m": 0.6
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's low basement lights at the walk."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              1.2,
+              0.9
+            ],
+            "top_above_ridge_m": 2.6,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 6.85,
+                "v_m": 4.2
+              },
+              {
+                "u_m": 1.2,
+                "v_m": 12.0
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's tall plain stack rising past the parapet at the forward block's north return, stood on the main block's front wall behind it; the second stack is the rules' and no picture shows it."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 13.7,
+              "hood": {
+                "soffit_m": 4.6,
+                "width_m": 3.1,
+                "out_m": 2.9,
+                "fascia_m": 0.5,
+                "cornice": {
+                  "height_m": 0.25,
+                  "proud_m": 0.15
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.85,
+                  "post_m": 0.22,
+                  "baluster_m": 0.08,
+                  "pitch_m": 0.2,
+                  "rail_m": [
+                    0.2,
+                    0.12
+                  ]
+                },
+                "columns": {
+                  "diameter_m": 0.36,
+                  "plinth_m": [
+                    0.45,
+                    0.4
+                  ],
+                  "capital_m": 0.35,
+                  "respond_m": 0.15
+                }
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The plate's porch: two round columns at its front corners, a flat roof under a deep fascia and cornice, railed as a balcony at the second floor, filling the recess to the front block's line. The rail is balustered on the plate; the kit's railing stands for it."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "forward_block",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.street_front",
+              "s_m": 10.575,
+              "flush_corner": "right",
+              "fabric": "brick",
+              "plan": {
+                "width_m": 14.05,
+                "proud_m": 2.9,
+                "block": true
+              },
+              "storeys": [
+                {
+                  "height_m": 5.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.5,
+                      "sill_m": 2.1,
+                      "at": [
+                        0.53
+                      ],
+                      "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.75,
+                      "at": [
+                        0.53
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 2.724,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 1.6,
+                      "sill_m": 0.6,
+                      "at": [
+                        0.253,
+                        0.53,
+                        0.8
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              }
+            },
+            {
+              "id": "north_bow",
+              "variant": "k08.bay.bowed",
+              "wall": "k01.wall.street_front",
+              "on_front": "forward_block",
+              "s_m": 3.55,
+              "fabric": "brick",
+              "plan": {
+                "kind": "bow",
+                "chord_m": 4.6,
+                "rise_m": 1.2
+              },
+              "storeys": [
+                {
+                  "height_m": 5.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.5,
+                      "sill_m": 2.1,
+                      "at_deg": [
+                        -35,
+                        0,
+                        35
+                      ],
+                      "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.75,
+                      "at_deg": [
+                        -35,
+                        0,
+                        35
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 0.05,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              }
+            },
+            {
+              "id": "south_bow",
+              "variant": "k08.bay.bowed",
+              "wall": "k01.wall.street_front",
+              "on_front": "forward_block",
+              "s_m": 11.25,
+              "fabric": "brick",
+              "plan": {
+                "kind": "bow",
+                "chord_m": 4.4,
+                "rise_m": 1.1
+              },
+              "storeys": [
+                {
+                  "height_m": 5.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.5,
+                      "sill_m": 2.1,
+                      "at_deg": [
+                        -35,
+                        0,
+                        35
+                      ],
+                      "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.9,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.75,
+                      "at_deg": [
+                        -35,
+                        0,
+                        35
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 0.05,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "The 1911 sheet's front (trace s20fp-1721-b1 p1 in this frame): the forward block's face at u 10.6, 2.9 m before the recessed wall at u 7.7, from v 3.55 (its north return, beside the porch) to the south wall at v 17.6; the north bow from v 4.8 to 9.4, 1.2 m out, the south bow from v 12.6 to 17.0, 1.1 m out. The plate shows the block, both bows rising through the ground and second storeys and each roofed at the third floor (its balustrade is T-1879's); the windows' places on the bows and between them are read off the plate, their count to a face reconstructed. Each bow's outer lights stand 35 degrees round its curve from the middle one, which keeps their recesses in front of the forward block's face (at 40 they ran up to 0.09 m back onto it)."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_wing",
+              "rect": [
+                -19.9,
+                0.0,
+                0.0,
+                6.2
+              ],
+              "floor_m": 1.3,
+              "storey_heights_m": [
+                4.3,
+                3.9
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.8,
+                  "width_m": 1.0,
+                  "height_m": 2.3
+                },
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 1.0,
+                  "height_m": 2.0
+                }
+              ],
+              "windows": {
+                "north": [
+                  3.0,
+                  7.0,
+                  11.0,
+                  15.0
+                ],
+                "south": [
+                  3.0,
+                  7.0,
+                  11.0,
+                  15.0
+                ],
+                "rear": [
+                  3.1
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.3,
+                "fascia_m": 0.35,
+                "covering": "painted_tin_sheet"
+              }
+            },
+            {
+              "id": "rear_frame_piece",
+              "fabric": "frame",
+              "rect": [
+                -22.4,
+                -19.9,
+                0.0,
+                6.0
+              ],
+              "floor_m": 1.3,
+              "storey_heights_m": [
+                3.4
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.8,
+                  "width_m": 0.9,
+                  "height_m": 1.7
+                }
+              ],
+              "windows": {
+                "rear": [
+                  3.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.25,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1721-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 81% of its fill; s20fp-1721-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 81% of its fill; s20fp-1721-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 81% of its fill; s20fp-1721-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 74% of its fill; s20fp-1721-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3618930970,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2335",
-              "refined_by": [
-                "T-1878",
-                "T-1879"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Dexter house in its post-1889 phase (the register's 'flat classical front, rusticated base, entry portico, upper balcony, cornice and chimneys'): flat behind a cornice, a central entrance. The sheet prints 1721 where the register read 1719; the census rules them one property (study ruling 3), so one house stands and 1719 is its alias. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3618930970 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-034",
-            "census_ids": [
-              "s20-1721-f",
-              "s20-1721-a1"
-            ],
-            "trace_building": "s20fp-1721-b1",
-            "seed": 3618930970,
-            "replaceable_by": [
-              "T-1878",
-              "T-1879"
-            ],
-            "card": "District draft — refined by T-1878, T-1879."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The 1911 sheet's 'long 2B brick rear wing with 1-storey frame pieces at both ends' (census s20-1721-a1): the brick wing from the main rear wall to u -19.9, from the north wall (v 0) to v 6.2; the frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. Its windows are reconstructed: no picture shows it."
         }
       }
     }

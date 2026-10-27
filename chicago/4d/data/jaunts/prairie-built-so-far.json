@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 482173250,
+  "content_version": 457003756,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: 49 buildings in 1 area. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: 50 buildings in 1 area. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 19
   },
   "stops": [
@@ -991,8 +991,8 @@
         "kind": "structure",
         "id": "house_1619_prairie"
       },
-      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1729 Prairie.",
-      "read_s": 10,
+      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: Dexter House, 1721 Prairie.",
+      "read_s": 11,
       "evidence": [
         "stood-47",
         "tour"
@@ -1010,10 +1010,10 @@
       "id": "stop-48",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie_ranges"
+        "id": "dexter_house_1721_prairie"
       },
-      "text": "1729 Prairie. DETAIL 1/5: a first rough model, reshaped from a picture. Pictured: a picture on the Images tab shows it. Next: Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges.",
-      "read_s": 15,
+      "text": "Dexter House, 1721 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: 5 of the pictures on the Images tab show it. Next: 1729 Prairie.",
+      "read_s": 12,
       "evidence": [
         "stood-48",
         "tour"
@@ -1021,7 +1021,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie_ranges",
+          "id": "dexter_house_1721_prairie",
           "label": "About this building"
         }
       ],
@@ -1031,12 +1031,33 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
+        "id": "pullman_house_1729_prairie_ranges"
+      },
+      "text": "1729 Prairie. DETAIL 1/5: a first rough model, reshaped from a picture. Pictured: a picture on the Images tab shows it. Next: Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges.",
+      "read_s": 15,
+      "evidence": [
+        "stood-49",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "pullman_house_1729_prairie_ranges",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-50"
+    },
+    {
+      "id": "stop-50",
+      "destination": {
+        "kind": "structure",
         "id": "pullman_lodge_1800_calumet"
       },
       "text": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges. DETAIL 1/5: a first rough model, reshaped from a picture. Known from maps or written records; no picture of it has been found. Last stop of the walk so far; it grows as more buildings are built out.",
       "read_s": 22,
       "evidence": [
-        "stood-49",
+        "stood-50",
         "tour"
       ],
       "links": [
@@ -1504,6 +1525,16 @@
     },
     {
       "id": "stood-48",
+      "text": "Dexter House, 1721 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "inland_architect_1891_06_dexter_plate"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1891 plate shows Arthur Little's front of 1889; the 1911 sheet draws the same plan and the T-1840 census rules it present in 1904 (present_as_mapped). The c. 1888 photographs show the house before that front and are not this phase."
+    },
+    {
+      "id": "stood-49",
       "text": "1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1512,7 +1543,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-49",
+      "id": "stood-50",
       "text": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
