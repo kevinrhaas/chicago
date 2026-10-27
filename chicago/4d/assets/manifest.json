@@ -282,9 +282,9 @@
     "dexter_house_1721_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4586804,
+      "bytes": 4587088,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ee87c36de986f9ab5bb9958e97f058eb7de64495de9a14272766428eac18d09a",
+      "inputs_sha256": "1130fbbcda81386627e2b405517f5411f19864632f02e6413ec094ee351d0bf9",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "dexter_house_1721_prairie"

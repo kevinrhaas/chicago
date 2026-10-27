@@ -34068,6 +34068,12 @@ paint; T-1879 builds the detail above and solves the cameras.
 **Ticket:** T-1878.
 **Review:** `docs/RESEARCH/k01-1721-dexter-1878/README.md`.
 **Recorded:** 2026-10-26 (T-1878).
+**Kit fit (2026-10-27, T-1878):** the K08 bay kit's gate refused two of the reconstructed window
+choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round
+its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward
+block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and
+says why in its record: the plate draws it taller than the lights above, and its size is read only
+in proportion to the 5.6 m storey.
 
 ### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
 
