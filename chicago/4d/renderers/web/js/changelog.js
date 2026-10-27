@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2318, ts: '2026-10-27T00:49:38.262Z', date: 'Oct 26, 2026, 7:49 PM CT', title: 'The Pullman house\'s great chimney stack on 18th Street', kind: 'feature',
+    items: [
+      'A tall stone stack now stands on the 18th Street cornice, just east of the south-west corner. It runs up past the mansard to a capped top, as an 1890s photograph by J. W. Taylor shows it.',
+      'The roof\'s other tall stack has moved to the spot two more pictures agree on, and it now rises about a metre and a half higher.',
+      'The 1890 Albertype plate of the house is now one of the pictures it is checked against.',
+    ] },
   { v: 2317, ts: '2026-10-27T00:42:20.416Z', date: 'Oct 26, 2026, 7:42 PM CT', title: 'St Mary\'s gains its pictured belfry', kind: 'improvement',
     items: [
       'An open belfry and cross now rise over St Mary\'s. A lower roof, five windows and an end door replace the house form, and its one chimney stands toward the far end. These features are reconstructed for 1835 from an undated engraving; the original footprint and dates are retained.',

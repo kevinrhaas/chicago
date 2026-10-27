@@ -5939,3 +5939,6 @@ The original25 by35ft range now opts into a reconstructed open belfry/cross, fiv
 
 
 T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving through the existing library/store path, use one canonical picture ID, and mark the undated provisional camera diagnostic_only. Geometry and solved camera are unchanged; the original sash-height discrepancy remains in T-2384. The separate optional sill API/family rebake is not adopted in this bounded ending.
+
+
+T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
