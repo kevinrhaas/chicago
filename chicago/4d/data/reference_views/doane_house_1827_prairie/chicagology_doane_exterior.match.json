@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e76bb061ee1c3304f77a7b97fa8e6b2ee89d7cc9849e46bd5a789c6f34c2285c",
+  "glb_sha256": "e7eb1c87fd07bf5b40e77772fbdbe6f8fe6333fee9c1f564e91f50273f2b3348",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -57,11 +57,21 @@
       "status": "open"
     },
     {
-      "what": "the carved hoods over the pavilion's lights and the segmental hoods over the window bay's (plain lintels stand in)",
+      "what": "a hood over each of the front's, the pavilion's and the tower's lights: the print stands one over every light of both storeys (the window bay's at y 925-960 and 1170-1210 px, the pavilion's at 945-975 and 1170-1215); plain lintels stood in",
+      "status": "fixed",
+      "how": "T-3194: the front's windows under K09's moulded cornice hood on its consoles (street_front_trim), and the pavilion's and the tower's lights in a moulded surround, jambs on the sill's horns under a lintel 0.3 m deep standing 0.12 m proud as the hood; the render puts the window bay's hoods at y about 930 and 1180 px against the print's 925-960 and 1170-1210"
+    },
+    {
+      "what": "the hoods' shape and carving: the print's over the window bay are segmental, and over the pavilion's lights carved tympana under segmental and arched hoods between colonnettes; the build's hoods are level and plainly moulded",
       "status": "open"
     },
     {
-      "what": "the alternating light and dark stone courses of the front and flank",
+      "what": "the alternating high and low stone courses of the front and flank",
+      "status": "fixed",
+      "how": "T-3194: the stone front laid high and low in turn (K02's alternating rhythm, the low course half the high, 0.2 and about 0.4 m) to the main cornice's top, read on the tower's broad face where the print's joints are sharpest"
+    },
+    {
+      "what": "the same coursing on the pavilion's and the tower's faces: the build's bays carry the front's smooth stone uncoursed (K08 courses a bay only as rock-faced ashlar)",
       "status": "open"
     },
     {
@@ -98,7 +108,8 @@
     },
     {
       "what": "the attic's three lights: the print's carry arched transom heads under carved hoods (y about 627-690 px); the build's flat transoms stand in",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3194: the three lights round-headed, a fanlight over the sashes (K06's round fanlight sash), their heads at the print's y about 627-690 px"
     },
     {
       "what": "the crown's pitch: through the re-solved camera (T-3189) the print's crown rises about 3.0 m (its cornice at y 588 px, 12.1 m, its point at y 407, 15.1 m) over a half-width of about 3.4 m, about 41 degrees; the build's stands at 47, the nearest the kit's slated crown allows (over 45), so its point renders at y about 347 px, about 0.75 m over the print's",
@@ -115,11 +126,16 @@
       "how": "T-3189: the record brought to the re-solved camera's readings, taken on the front beside the pavilion with grade at y 1556-1561: the water table at 1.3 m (y 1452), the string course at 5.3 m (y 1128) and the main cornice's top at 9.4 m (y 790), so the storeys are 4.0 and 4.1 m over a 1.3 m principal floor; the windows (1.6-4.3 and 5.6-8.0 m), the mansard's curb (12.3 m, y 553), the pavilion's attic and crown cornice (12.1 m, y 588) and the tower's wall top (12.1 m, y 522) and deck (16.5 m, y 175) came down with them. The render now puts the main cornice at y 795-805 on the pavilion against the print's 806 px, the string course at 1140-1150 against 1150, and the tower's wall top at 522 against 522"
     },
     {
-      "what": "the tower's cornice: the print's deep moulded cornice over a row of brackets (y 485-525 px); the build's plain soffit and fascia 0.45 m out stand in",
+      "what": "the tower's cornice: the print's deep moulded crown (y 448-485 px) over a frieze of corbel blocks (y 485-522); the build's plain soffit and fascia 0.45 m out stood in, its top about 0.45 m under the print's",
+      "status": "fixed",
+      "how": "T-3194: the tower's wall carried to the blocks' top (12.5 m) under K10's moulded stone eave (0.36 m, 0.32 m out) to about 12.86 m against the print's 12.9; the hip re-pitched to 2.52 so its deck stays 1.0 m across at 16.5 m"
+    },
+    {
+      "what": "the tower's row of corbel blocks under its crown (about eleven to the broad face, y 485-522 px); the build's frieze there is plain stone",
       "status": "open"
     },
     {
-      "what": "the tower's lights: the print's carry segmental hoods over the principal floor's pair and a roundel between the second floor's (y 1130-1160 px); the build's flat stone heads stand in",
+      "what": "the tower's lights: the print's carry segmental hoods over the principal floor's pair and a roundel between the second floor's (y 1130-1160 px); T-3194's moulded surrounds and level hoods stand in",
       "status": "open"
     },
     {
