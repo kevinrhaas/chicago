@@ -997,7 +997,8 @@
     "s28-pullman-garden-lodge": "The two-storey lodge between Pullman's glasshouse ranges at 1800 Calumet stands as `pullman_lodge_1800_calumet` (T-3164, piece 1 of T-1934): read off sheet 28 by hand with the glasshouses beside it, on this builder's archetype but from its own record, because the colour trace follows this copy's pink wash diagonally into the east range. T-3165 refines it.",
     "s20-1720-f": "1720 Prairie, the Tyrrell/Walker Italianate frame, now stands whole as the K16 timber record walker_house_1720_prairie (T-3180, piece 1 of T-1873) — its main block, the one-storey wing on its south side and the porch across its front, read from the 1911 sheet and the Tyrrell photograph — which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1712-f": "1712 Prairie, the stone-front house, now stands as the K01 stone-front frontage house_1712_prairie (T-3187, piece 1 of T-1872), which refines this draft in place under the draft's own id: the '2\u00bdB' main body on K01 with the sheet's stone front across its whole street face under a hip and dormer, the small frame porch on its south wall on K08, and the sheet's '2B' rear wing and one-storey frame end on K01's rear wings; the draft stands no second building beside it.",
-    "s20-1709-f": "1709 Prairie, the Palmer Kellogg successor, now stands as the K01 frontage kellogg_house_1709_prairie (T-1877, package N17 of T-1837), which refines this draft in place under the draft's own id: the '3B' main body on K01 with the sheet's diagonal corner bay on its south-west corner, the canted bay on its south wall and the frame bay on its north wall on K08, and the sheet's '2B', '2B' and '1B' rear pieces on K01's rear wings, its elevation read off the 1893 Rand McNally drawing; the draft stands no second building beside it."
+    "s20-1709-f": "1709 Prairie, the Palmer Kellogg successor, now stands as the K01 frontage kellogg_house_1709_prairie (T-1877, package N17 of T-1837), which refines this draft in place under the draft's own id: the '3B' main body on K01 with the sheet's diagonal corner bay on its south-west corner, the canted bay on its south wall and the frame bay on its north wall on K08, and the sheet's '2B', '2B' and '1B' rear pieces on K01's rear wings, its elevation read off the 1893 Rand McNally drawing; the draft stands no second building beside it.",
+    "s20-1708-f": "1708 Prairie, the three-storey brick house attached to 1706, now stands as the K01 frontage house_1708_prairie (T-3188, piece 2 of T-1872), which refines this draft in place under the draft's own id: the sheet's front block with its canted bay on the south part of the front, the three-storey range behind it and the '2-storey brick wing running west toward the alley', its front read off the Christmas print and Chicagology's photograph of 1700-1706; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1351,7 +1352,9 @@
       "slug": "house",
       "roof": "flat",
       "entrance": "north",
-      "why": "The register's 'three-storey/basement brick townhouse with separate entry, cornice, regular sash': flat behind a cornice, attached by a party wall to 1706."
+      "why": "The register's 'three-storey/basement brick townhouse with separate entry, cornice, regular sash': flat behind a cornice, attached by a party wall to 1706.",
+      "house_id": "house_1708_prairie",
+      "house_address": "1708"
     },
     "frontage-20-017": {
       "slug": "house",
