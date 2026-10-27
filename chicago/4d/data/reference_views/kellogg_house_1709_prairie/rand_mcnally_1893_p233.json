@@ -1,0 +1,28 @@
+{
+ "structure_id": "kellogg_house_1709_prairie",
+ "source_id": "rand_mcnally_1893_views_prairie_east_1701_1815",
+ "library_image": "st-randmcnally-1893-p233-east-1700-1800",
+ "photo": "../../sources/assets/rand_mcnally_1893_p233_east_t1877/p233_east_1701_1815_upright.jpg",
+ "image_px": [
+  2400,
+  883
+ ],
+ "principal_px": [
+  1755.0,
+  -382.6
+ ],
+ "focal_px": 4380.0,
+ "eye": [
+  315.13,
+  96.4,
+  70.5
+ ],
+ "yaw_deg": 270.0,
+ "near_m": 250,
+ "sun_uvy": [
+  0.7,
+  0.7,
+  1.0
+ ],
+ "solve": "Fitted by T-1877 to the drawing alone: the strip over '1709' on p. 233 of Rand, McNally & Co.'s 1893 Bird's-Eye Views and Guide to Chicago, the image store's 883 x 2400 px copy turned upright (2400 x 883 px; the unturned copy beside it). The footprint frame's u runs toward Prairie Avenue (west) from the main body's rear wall and v along the front from its north wall (v 0) to its south wall (v 12.87); the front stands at u 15.13. A GUIDEBOOK DRAWING IN OBLIQUE PROJECTION, NOT A PHOTOGRAPH: every front on the strip is drawn square to the page (its storey bands and cornices run level across it), while the ground and the side walls recede up and to the right (the front walks run off to the upper right; the flank of each house shows past its south corner). So the camera is LEVEL and SQUARE TO THE FRONT (yaw 270, looking east in the house's frame, -u), set far off (300 m) with a long lens and its principal point shifted far off the frame, which is a pinhole's way of drawing that projection: a point 1 m behind the front moves 0.30 m right and 0.22 m up at the front's scale. SCALE: 14.6 px/m at the front, from heights (the cornice's bed about y 512 px over the front's foot at y 645 px, a 9.1 m wall head) and checked across: the porch's columns (x about 351 and 393 px) and the three window columns (x about 377, 418 and 473 px) stand where the record's porch and its 1.9, 4.75 and 8.4 m columns put them, within about 5 px. f = 14.6 x 300 = 4380 px. THE RECEDING RATES: 0.22 up a metre of depth from the walks' foot (the front's foot at y 645 px, the curb's hatched line at y 685, about 12 m out toward the street from the front) and 0.30 to the right from the south flank's lit stretch past the corner bay (about 4.5 m of a 15 m deep flank, x 520-590 px); neither is a measurement, and the drawing's own depths are not consistent from house to house. The principal point is where those rates put the vanishing direction: the front's point v 6.4 m, 4.5 m over grade projects to x 441, y 581 px. UNCERTAINTY: about 3 px (0.2 m) along the front, 5 px in height; depth is drawn and not measured, so a difference behind the front plane is read against the 1911 sheet's plan, not the drawing. LIGHT: the fronts and the south flanks are drawn lit, the corner bay's north-west face and the porch's recess hatched, so the light comes from the south-west and high (sun_uvy)."
+}

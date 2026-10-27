@@ -433,9 +433,9 @@
     },
     {
       "id": "house_1708_prairie",
-      "name": "1708 Prairie Avenue — Thorne-associated map-led brick house (district draft; refined by T-1872)",
+      "name": "1708 Prairie Avenue — three-storey brick front with a canted bay (Thorne-associated), K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1708_prairie.json",
-      "asset": "gltf/house_1708_prairie__draft_1904.glb"
+      "asset": "gltf/house_1708_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1712_prairie",
@@ -1309,9 +1309,9 @@
     },
     {
       "id": "kellogg_house_1709_prairie",
-      "name": "1709 Prairie Avenue — Palmer Kellogg successor (district draft; refined by T-1877)",
+      "name": "1709 Prairie Avenue — Palmer Kellogg successor, K01 frontage assembly from the 1893 drawing and the 1911 sheet",
       "sidecar": "sidecars/1904/kellogg_house_1709_prairie.json",
-      "asset": "gltf/kellogg_house_1709_prairie__draft_1904.glb"
+      "asset": "gltf/kellogg_house_1709_prairie__as_mapped_1904.glb"
     },
     {
       "id": "kellogg_house_1709_prairie_coach_house",
