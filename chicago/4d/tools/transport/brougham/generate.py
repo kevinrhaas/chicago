@@ -16,6 +16,7 @@ import numpy as np
 
 from source_details import feature_plan
 from quarter_surface import quarter_surface
+from body_finish import finished_materials, rounded_pad, curved_coach_panel, coach_front_wrap
 
 
 def main():
@@ -26,7 +27,10 @@ def main():
     cli.add_argument('--lod-recipe',type=Path,default=Path(__file__).with_name('lods.json'))
     cli.add_argument('--rear-quarter-recipe',type=Path,default=None)
     a=cli.parse_args();p=json.loads(a.parameters.read_text())
+    if a.rear_quarter_recipe is None and p.get('photo_finish_v19'):
+        a.rear_quarter_recipe=Path(__file__).with_name('rear-quarter.json')
     quarter_recipe=None if a.rear_quarter_recipe is None else json.loads(a.rear_quarter_recipe.read_text())
+    cabin_glass=7 if p.get('photo_finish_v19') else 5
     if a.output.exists():raise ValueError('Fresh output required')
     detail=json.loads(a.lod_recipe.read_text())['details'][a.detail]
     def lod_n(original,key):
@@ -43,7 +47,7 @@ def main():
         if parent is not None:nodes[parent]['children'].append(i)
         return i
     root=node('vehicle_root');body=node('vehicle_body',root)
-    def geometry(name,parent,vertices,faces,mat,smooth=False):
+    def geometry(name,parent,vertices,faces,mat,smooth=False,normals_override=None):
         vs=np.array(vertices,dtype=np.float64,copy=True)
         if parent==body:
             shape=p['body_vertical_affine'];vs[:,1]=vs[:,1]*shape['scale_y']+shape['offset_y_m']
@@ -52,9 +56,27 @@ def main():
             for k in range(1,len(face)-1):tri.append([face[0],face[k],face[k+1]])
         tri=np.asarray(tri,dtype=int);tt=vs[tri];nn=np.cross(tt[:,1]-tt[:,0],tt[:,2]-tt[:,0]);length=np.linalg.norm(nn,axis=1)
         if np.any(length<1e-13):raise ValueError('Degenerate original surface '+name)
-        if smooth:
+        if normals_override is not None:
+            vn=np.array(normals_override,dtype=np.float64,copy=True)
+            if vn.shape!=vs.shape:raise ValueError('Analytical normal inventory differs')
+            if parent==body:vn[:,1]/=p['body_vertical_affine']['scale_y']
+            lengths=np.linalg.norm(vn,axis=1)
+            if np.any(lengths<1e-12)or not np.isfinite(vn).all():raise ValueError('Invalid analytical normal')
+            vn/=lengths[:,None];normals=vn[tri]
+        elif smooth:
             vn=np.zeros_like(vs)
-            for k in range(3):np.add.at(vn,tri[:,k],nn)
+            if smooth=='angle':
+                # The coach shell has irregular source-outline samples. Area
+                # weights bias its normals toward the largest strip triangles;
+                # corner angles keep a smooth surface independent of that fan.
+                unit=nn/length[:,None]
+                for k in range(3):
+                    u=tt[:,(k+1)%3]-tt[:,k];v=tt[:,(k+2)%3]-tt[:,k]
+                    cos=np.sum(u*v,axis=1)/(np.linalg.norm(u,axis=1)*np.linalg.norm(v,axis=1))
+                    angle=np.arccos(np.clip(cos,-1.,1.))
+                    np.add.at(vn,tri[:,k],unit*angle[:,None])
+            else:
+                for k in range(3):np.add.at(vn,tri[:,k],nn)
             vn/=np.linalg.norm(vn,axis=1)[:,None];normals=vn[tri]
         else:normals=np.repeat((nn/length[:,None])[:,None,:],3,axis=1)
         key=(parent,mat);entry=batches.setdefault(key,{'positions':[],'normals':[]})
@@ -176,14 +198,17 @@ def main():
     width=lambda y:half-.18*max(0,min(1,(1.26-y)/.91))
     door=catmull(p['door_profile_z_y_m'],p['door_profile_sampling']['steps'],True).tolist()
     for side in [-1,1]:
-        profile_solid('deep_curved_lower_body',body,lower,side,width,.026,0)
+        # T-3084: triangulate a sampled curved shell, not a warped side-cap fan.
+        shell_vertices,shell_faces=curved_coach_panel(lower,side,width,.026,earclip,
+                                                     segments=lod_n(4,'body_subdivisions'))
+        geometry('deep_curved_lower_body',body,shell_vertices,shell_faces,0,smooth='angle')
         profile_solid('deep_U_closed_door',body,door,side,lambda y:width(y)+.034,.018,0)
         # Fine bright trim follows the actual newly authored U, not an old box.
         trace=[[side*(width(y)+.055),y,z]for z,y in door]
         trace.append(trace[0]);tube('door_edge_lining',body,trace,.0032,3,6)
         # Main glazed door with narrow central division and shaped upper rail.
         glassprof=p['side_door_glass_profile_z_y_m']
-        profile_solid('side_door_glass',body,glassprof,side,half+.010,.009,5)
+        profile_solid('side_door_glass',body,glassprof,side,half+.010,.009,cabin_glass)
         outline=[[side*(half+.027),y,z]for z,y in glassprof];outline.append(outline[0])
         tube('side_window_frame',body,outline,.013,1,8)
         dy0,dy1,dz=p['side_glass_division_y_y_z_m']
@@ -245,19 +270,10 @@ def main():
     # Front and rear cabin surfaces and original empty interior.
     # V13: close on the existing inner shell, including width()'s1.26m breakpoint.
     # Same Y/Z envelope, material and part; three rows avoid a tiny open join.
-    closure_levels=[.97,1.26,1.27]
-    front_closure=[[closure_side*width(closure_y),closure_y,closure_z]
-                   for closure_z in [.4125,.4475] for closure_y in closure_levels
-                   for closure_side in [-1,1]]
-    closure_faces=[[0,1,7,6],[4,10,11,5]]
-    for closure_i in [0,2]:
-        closure_a,closure_b,closure_c,closure_d=closure_i,closure_i+1,closure_i+2,closure_i+3
-        closure_faces.extend([[closure_a,closure_c,closure_d,closure_b],
-                              [closure_a+6,closure_b+6,closure_d+6,closure_c+6],
-                              [closure_a,closure_a+6,closure_c+6,closure_c],
-                              [closure_b,closure_d,closure_d+6,closure_b+6]])
-    geometry('cabin_front_lower',body,front_closure,closure_faces,0)
-    box('front_glass',body,(0,1.55,.255),(1.12,.46,.009),5)
+    wrap_vertices,wrap_faces,wrap_normals=coach_front_wrap(lower,width,rows=lod_n(28,'body_rows'),
+                                             columns=lod_n(20,'body_columns'))
+    geometry('cabin_front_lower',body,wrap_vertices,wrap_faces,0,normals_override=wrap_normals)
+    box('front_glass',body,(0,1.55,.255),(1.12,.46,.009),cabin_glass)
     geometry('front_sill_connector',body,[[-half,1.27,.43],[half,1.27,.43],[half,1.34,.27],[-half,1.34,.27]],[[0,1,2,3]],0)
     for x in [-half,0,half]:beam('front_window_stile',body,(x,1.31,.27),(x,1.81,.27),.022,1)
     for y in [1.31,1.81]:beam('front_window_rail',body,(-half,y,.27),(half,y,.27),.025,1)
@@ -291,8 +307,13 @@ def main():
     if not(floor_z1>floor_z0 and floor_half>0):raise ValueError('Empty inset floor section')
     box('interior_floor',body,(0,.77,(floor_z0+floor_z1)/2),(2*floor_half,.04,floor_z1-floor_z0),1)
     box('passenger_bench_base',body,(0,.94,-.72),(1.01,.22,.36),1)
-    box('passenger_cushion',body,(0,1.08,-.72),(1.00,.08,.36),2)
-    box('passenger_back',body,(0,1.28,-.94),(.99,.37,.045),2)
+    # T-3084: original soft pads stay inside the old seat boxes. The occupied
+    # lithograph supplies no hidden upholstery pattern; do not invent tufting.
+    for name,center,size,axis in [('passenger_cushion',(0,1.08,-.72),(1.00,.08,.36),1),
+                                  ('passenger_back',(0,1.28,-.94),(.99,.37,.045),2)]:
+        pad_vertices,pad_faces=rounded_pad(center,size,axis=axis,
+                                         samples=lod_n(32,'cushion_sections'))
+        geometry(name,body,pad_vertices,pad_faces,2,smooth=True)
     # Longitudinally shaped closed roof and a softly crowned cross section.
     roof=catmull(p['roof_longitudinal_profile_z_y_m'],lod_n(5,'roof_longitudinal_steps'));nx=lod_n(20,'roof_cross_steps');v=[]
     roof_thickness=p['roof_sheet_thickness_m']
@@ -334,6 +355,10 @@ def main():
     for j in range(2):
         for i in range(n):k=(i+1)%n;fs.append([j*n+i,j*n+k,(j+1)*n+k,(j+1)*n+i])
     geometry('rounded_empty_driver_cushion',body,vv,[list(reversed(f))for f in fs],2,smooth=True)
+    # A restrained sewn edge, not a source-attested upholstery design. It sits
+    # within the previous cushion envelope; the seat reference does not move.
+    seam=[[x*.91,sy+.045,sz+z*.91]for x,z in section]
+    seam.append(seam[0]);tube('driver_cushion_edge_piping',body,seam,.0025,2,6)
     box('driver_backboard',body,(0,sy+.14,sz-.19),(sw,.25,.035),1)
     fy,fz=p['driver_footboard_y_z_m'];box('driver_footboard',body,(0,fy,fz),(1.04,.035,.36),1)
     for side in [-1,1]:
@@ -480,6 +505,8 @@ def main():
         {'name':'reconstructed_clear_glass','pbrMetallicRoughness':{'baseColorFactor':[.38,.49,.50,.25],'metallicFactor':0,'roughnessFactor':.10},'alphaMode':'BLEND'},
     ]
     if quarter_recipe is not None:materials.append(quarter_recipe['material'])
+    if p.get('photo_finish_v19'):
+        materials=finished_materials(materials,p['photo_finish_v19'])
     binary=bytearray();views=[];access=[];meshes=[]
     def append(arr,kind):
         arr=np.asarray(arr,dtype='<f4');off=len(binary);binary.extend(arr.tobytes());vi=len(views);views.append({'buffer':0,'byteOffset':off,'byteLength':arr.nbytes,'target':34962});ai=len(access);access.append({'bufferView':vi,'componentType':5126,'count':len(arr),'type':kind,'min':arr.min(axis=0).tolist(),'max':arr.max(axis=0).tolist()});return ai
@@ -489,7 +516,7 @@ def main():
         ai=append(positions,'VEC3');ni=append(normals,'VEC3');mi=len(meshes);meshes.append({'name':'surface_'+nodes[parent]['name']+'_'+str(mat),'primitives':[{'attributes':{'POSITION':ai,'NORMAL':ni},'material':mat}]});n=node(meshes[-1]['name'],parent);nodes[n]['mesh']=mi
     extra={'asset_id':p['asset_id'],'license':'GPL-3.0-or-later','units':'m','up_axis':'+Y','forward_axis':'+Z','root_datum':'ground midpoint between axles','source_id':p['source_id'],'source_reference':{'scan_leaf':p['reference_scan_leaf'],'sha256':p['reference_sha256'],'actually_viewed':True,'usage':'Appearance-guided original geometry with manually estimated source landmarks; no image pixels embedded as textures','claim':'Catalogmaker/type1893; specific1904specimen/owner/placement reconstructed'},'scene_year':1904,'confidence':'reconstructed','status':'Original1893StudebakerBrougham appearance reconstruction; static empty closed specimen; photographic acceptance pending actual source comparison','dimensions_tier':p['dimension_tier'],'parameters':p,'statistics':{'triangles':sum(len(b['positions'])//3 for b in batches.values()),'meshes':len(meshes),'nodes':len(nodes)},'parts':parts,'door_interaction_enabled':False,'boarding_enabled':False,'traffic_enabled':False,'occupants':False,'liberties':p['limits']}
     nodes=[{k:v for k,v in n.items()if k!='children'or v}for n in nodes]
-    doc={'asset':{'version':'2.0','generator':'Chicago4D original StudebakerBrougham source reconstruction'},'scene':0,'scenes':[{'nodes':[root]}],'nodes':nodes,'meshes':meshes,'materials':materials,'bufferViews':views,'accessors':access,'buffers':[{'byteLength':len(binary)}],'extensionsUsed':['KHR_materials_clearcoat'],'extras':extra}
+    doc={'asset':{'version':'2.0','generator':'Chicago4D original StudebakerBrougham source reconstruction'},'scene':0,'scenes':[{'nodes':[root]}],'nodes':nodes,'meshes':meshes,'materials':materials,'bufferViews':views,'accessors':access,'buffers':[{'byteLength':len(binary)}],'extensionsUsed':['KHR_materials_clearcoat','KHR_materials_transmission','KHR_materials_ior'],'extras':extra}
     if quarter_recipe is not None:
         doc['extras']['rear_quarter_study']={'recipe_sha256':hashlib.sha256(a.rear_quarter_recipe.read_bytes()).hexdigest(),'interpretation':quarter_recipe['interpretation'],'appearance_accepted':False}
     j=json.dumps(doc,separators=(',',':')).encode();j+=b' '*((-len(j))%4);binary+=b'\0'*((-len(binary))%4)

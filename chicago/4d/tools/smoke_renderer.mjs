@@ -4083,8 +4083,26 @@ for (const [label, viewport, touch] of [
     // grid or drop the threshold: at 3.5 m the same measurement reads worst 11 /
     // mean 0.55 on desktop and 17 / 0.72 on mobile, against the SAME bar the two
     // fence gates above use.
-    await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 678.5, local_n: -104.06, yaw_deg: 0, pitch_deg: 8 }));
+    // T-2385 — the evidenced smaller footprint moves this facade's anchor.
+    // Keep the same 3.5 m reading distance and face the actual facade; a stale
+    // absolute town coordinate would test the space beside the hotel's board.
+    await page.evaluate(() => {
+      const app = window.__chicago4d;
+      const sign = app.signage.signs.find((s) => s.structure_id === 'tremont_house_1');
+      if (!sign || !Array.isArray(sign.anchor_local_enu_m)
+          || sign.anchor_local_enu_m.length !== 2
+          || !sign.anchor_local_enu_m.every(Number.isFinite)
+          || !Number.isFinite(sign.facade_bearing_deg)) {
+        throw new Error('Tremont reading stand needs its native sign anchor and facade bearing');
+      }
+      const bearing = sign.facade_bearing_deg * Math.PI / 180;
+      app.walker.teleport({
+        local_e: sign.anchor_local_enu_m[0] + 3.5 * Math.sin(bearing),
+        local_n: sign.anchor_local_enu_m[1] + 3.5 * Math.cos(bearing),
+        yaw_deg: ((sign.facade_bearing_deg + 180) % 360 + 360) % 360,
+        pitch_deg: 8,
+      });
+    });
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const signWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -6141,8 +6159,12 @@ for (const [label, viewport, touch] of [
           // T-2195 — the wedge brought the exact top-face census to 111472.
           // T-3029 — blk_west_randolph_canal_north_walk_1 shortened from
           // 21.070685798 to 20.840614194 m: 66 to 65 boards at 0.32 m pitch,
-          // hence two fewer top faces; check_far_plank_tops independently reads 111470.
-          && m.candidates === 111470
+          // hence two fewer top faces: 111470.
+          // T-2385 — the native Dearborn street-edge closure lengthens
+          // blk_south_water_clark_east_walk_1 from 30.97058 to 36.13067 m:
+          // 97 to 113 board tops (+32 triangles), 15 to 17 stringer bays
+          // (+8 triangles). check_far_plank_tops independently reads 111510.
+          && m.candidates === 111510
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the

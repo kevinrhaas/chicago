@@ -16,7 +16,9 @@ STEP = ['python3', 'tools/compile_source_use.py']
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
-# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013 — see outputs().
+# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013; 192 000 from
+# T-2385 (dev's new Prairie sources and the Tremont's Gale record together read 184 255);
+# 200 000 from T-3188 — see outputs().
 INDEX_BUDGET = 200_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',

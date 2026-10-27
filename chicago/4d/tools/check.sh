@@ -338,6 +338,9 @@ step "CC0 adult preparation preserves source UVs, metric frame and bounded rig w
 step "Bardwell waistcoat shoulder panels connect without changing default source (T-1789)" \
   python3 tools/test_human_workwear_shoulders.py
 
+step "Modular adult dress consumes cleared source and preserves existing resident bounds (T-1789)" \
+  python3 tools/test_human_dress_components.py
+
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
 
@@ -370,7 +373,7 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
-step "Catalogue Brougham preserves registered near and genuine11706mid, contacts and inert interfaces (T-2794)" \
+step "Catalogue Brougham preserves physical masters, exact optical delivery, lamps, contacts and scoped Full/HEAD policy (T-3084)" \
   python3 tools/check_brougham_near.py
 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
@@ -381,6 +384,10 @@ step "Canonical planted-standing horse preserves metre scale, allowed clip, cloc
 
 step "Horse eye-UV derivative preserves original geometry, rig, clip, materials and image bytes (T-3086)" \
   python3 tools/test_standing_horse_eye_uv_boundary.py
+
+# Local derivation/boundary checks take under one second; no browser/bake.
+step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
+  python3 tools/test_standing_horse_anatomy_v2.py
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py

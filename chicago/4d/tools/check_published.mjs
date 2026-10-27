@@ -258,6 +258,56 @@ const transformed = [];
 let identical = 0;
 const unmapped = [];
 
+// T-2793: omit only declared source masters, never a live vehicle or public
+// demo. Partial mirror fixtures have no transport manifest; a complete app
+// must carry its policy and retain the authoring originals in the source tree.
+const transportPolicyFile = path.join(REPO, 'tools/transport-source-only.json');
+const transportManifestFiles = [
+  'data/transport/parked/placements.json',
+  'data/transport/parked/standing-horses.json',
+];
+if (!existsSync(transportPolicyFile) && transportManifestFiles.some((f) => existsSync(path.join(REPO, f)))) {
+  problems.push('The transport source-only publication policy is missing.');
+}
+if (existsSync(transportPolicyFile)) {
+  const policy = JSON.parse(readFileSync(transportPolicyFile, 'utf8'));
+  const files = policy.files;
+  if (policy.schema !== 1 || !policy.reason || !Array.isArray(files) || new Set(files).size !== files.length) {
+    problems.push('The transport source-only publication policy is invalid.');
+  } else {
+    const strings = (value) => typeof value === 'string' ? [value]
+      : Array.isArray(value) ? value.flatMap(strings)
+      : value && typeof value === 'object' ? Object.values(value).flatMap(strings) : [];
+    const liveModels = transportManifestFiles.filter((f) => existsSync(path.join(REPO, f)))
+      .flatMap((f) => strings(JSON.parse(readFileSync(path.join(REPO, f), 'utf8')).models));
+    const rendererSource = path.join(REPO, 'renderers/web');
+    const scripts = walk(rendererSource).filter((f) => !f.startsWith('vendor/') && /\.(?:html|m?js)$/.test(f))
+      .map((f) => [f, readFileSync(path.join(rendererSource, f), 'utf8')]);
+    for (const file of files) {
+      if (typeof file !== 'string' || !file.startsWith('transport/') || !file.endsWith('.glb')
+          || file.split('/').some((part) => part === '..' || part === '.' || !part)) {
+        problems.push(`Invalid transport source-only path: ${file}`);
+        continue;
+      }
+      if (!existsSync(path.join(rendererSource, file))) problems.push(`Authoring source is missing: ${file}`);
+      if (existsSync(path.join(SITE, 'walk', file))) problems.push(`Source-only master is still published: walk/${file}`);
+      if (liveModels.includes(file)) problems.push(`Source-only master is a live transport model: ${file}`);
+      for (const [script, text] of scripts) {
+        // Demos in wagon/ and wagon-driver/ each have their OWN wagon-w01.glb.
+        // Resolve relative literals; an identical basename is not the same URL.
+        const relativeReferences = [...text.matchAll(/(['"`])([^'"`\r\n]*\.glb(?:[?#][^'"`\r\n]*)?)\1/g)]
+          .map((match) => match[2].split(/[?#]/)[0])
+          .filter((value) => !value.includes('${') && !/^(?:[a-z]+:|\/)/i.test(value))
+          .map((value) => path.posix.normalize(path.posix.join(path.posix.dirname(script), value)));
+        if (text.includes(file) || relativeReferences.includes(file)) {
+          problems.push(`Source-only master is referenced by renderer ${script}: ${file}`);
+        }
+      }
+    }
+    console.log(`transport publication: ${files.length} declared source masters retained outside the mirror`);
+  }
+}
+
 for (const rel of walk(SITE)) {
   const t = TRANSFORMED.find((x) => x.re.test(rel));
   if (t) { transformed.push({ rel, ...t }); continue; }

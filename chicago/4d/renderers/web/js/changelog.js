@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2357, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'The Kimball house\'s tower cone rises to its photographs', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s corner tower now has a steeper slate cone, its tip about half a metre higher, so the tower\'s finial stands where the c. 1895 Taylor photograph and the 1965 HABS photograph both put it.',
+    ] },
+  { v: 2356, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'Rounded horse hoof contours', kind: 'change',
+    items: [
+      'The horse in the Western Hotel wagon yard has smoother hoof walls, coronets and toe contours while retaining its body proportions and standing stance.',
+    ] },
+  { v: 2355, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'A smaller yellow first Tremont House', kind: 'change',
+    items: [
+      'The first Tremont now follows an 1835-framed account: two storeys, a smaller footprint and yellow walls. Its corner stays on both street frontages.',
+      'An alternate version preserves the three-storey Gifford picture reading. The sources disagree, and no dated enlargement is claimed.',
+    ] },
+  { v: 2354, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'Curved Brougham coachwork and clearer cabin glass', kind: 'improve',
+    items: [
+      'The reconstructed Brougham has a continuous curved lower front, darker green and black coachwork, clearer cabin glass and softer empty seat pads. Its accepted lamps, wheels, springs, steps and parked contacts stay in place.',
+      'The1893 catalogue guides this one design; hidden upholstery and material optics remain reconstruction. Final photographic and published phone/desktop qualification are still pending.',
+    ] },
+  { v: 2353, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'Extend the modular resident wardrobe', kind: 'change',
+    items: [
+      'Nothing you can see yet: reusable workwear sources assemble distinct waistcoat, short-jacket and hat outfits for existing reconstructed residents. The optional adult dress study adds a reusable bodice, gathered skirt, separate apron and closed shoes to the same canonical authoring path. Canonical exports, appearance and visual acceptance remain pending.',
+    ] },
   { v: 2352, ts: '2026-10-27T22:12:23.059Z', date: 'Oct 27, 2026, 5:12 PM CT', title: '1721 Prairie matches its 1891 photograph', kind: 'feature',
     items: [
       'The Dexter house at 1721 Prairie Avenue now matches the 1891 Inland Architect plate seen from the plate\'s own camera: balustrades on both bows and along the parapets, louvred shutters at the front\'s windows, iron balconettes at the ground floor, a round-headed window between the bows and the tall chimney at its full height.',

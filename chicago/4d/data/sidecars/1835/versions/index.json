@@ -11,6 +11,16 @@
         "sidecar": "sidecars/1835/versions/bates_auction_room/fixture.json",
         "asset": "gltf/versions/bates_auction_room/fixture/bates_auction_room__frame_1834.glb"
       }
+    ],
+    "tremont_house_1": [
+      {
+        "label": "gifford-reading",
+        "summary": "Undated Gifford three-storey picture reading; reconstructed larger scale and colour disagree with Gale’s 1835-framed text.",
+        "test_fixture": false,
+        "phase": "frame_1833",
+        "sidecar": "sidecars/1835/versions/tremont_house_1/gifford-reading.json",
+        "asset": "gltf/versions/tremont_house_1/gifford-reading/tremont_house_1__frame_1833.glb"
+      }
     ]
   }
 }

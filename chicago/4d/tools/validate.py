@@ -6814,6 +6814,11 @@ def run_license_check(sources: dict, rep: Report) -> None:
         if p.is_dir() or p.name in ("LICENSES.md", "manifest.json") or p.name.startswith("."):
             continue
         rel = p.relative_to(ROOT / "assets").as_posix()
+        # T-3088: assets/authored/transport/horse_standing/ holds Python the gate's own
+        # tests import, and CI writes their bytecode beside them. A .pyc is the
+        # interpreter's cache of a file already licensed here, not an asset.
+        if "__pycache__" in p.parts:
+            continue
 
         # Build output under gltf/ and web/ is provenance-tracked by the manifest
         # (which records its input hash and the Blender that made it), not by a

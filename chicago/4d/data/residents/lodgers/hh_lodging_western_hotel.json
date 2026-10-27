@@ -11,7 +11,7 @@
   "place": "western_hotel",
   "place_name": "Western Hotel",
   "class": "inn_tavern",
-  "beds_ordinary": 14,
+  "beds_ordinary": 16,
   "beds_crowded": 35,
   "on_the_house_before_this_stage": 4,
   "seated_from_the_layer": [
@@ -20,7 +20,7 @@
    "rc_gilbert_samuel"
   ],
   "minted_here": 8,
-  "stands_on": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 14, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
+  "stands_on": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 16, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
   "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
   "note": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof."
  },
@@ -52,11 +52,11 @@
    "undated": true,
    "tier": "reconstructed",
    "source_id": null,
-   "note": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 14, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
+   "note": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 16, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
    "basis": {
     "kind": "model",
     "id": "1835_lodging_model",
-    "note": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 14, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation."
+    "note": "This group was reconstructed using an earlier estimate of 15 ordinary-night beds. The current estimate is 16, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation."
    },
    "replaceable_by": {
     "kind": "person",
@@ -123,7 +123,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/20_29/south/lodging/none",
-    "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:female:20_29:001:forename",
    "replaceable_by": {
@@ -142,7 +142,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_woodruff_lydia",
@@ -188,7 +188,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/20_29/south/lodging/none",
-    "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:female:20_29:002:forename",
    "replaceable_by": {
@@ -207,7 +207,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_thayer_abigail",
@@ -253,7 +253,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/female/30_39/south/lodging/none",
-    "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:female:30_39:003:forename",
    "replaceable_by": {
@@ -272,7 +272,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_newell_alvah",
@@ -318,7 +318,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:male:20_29:004:forename",
    "replaceable_by": {
@@ -337,7 +337,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_parmelee_lemuel",
@@ -383,7 +383,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:male:20_29:005:forename",
    "replaceable_by": {
@@ -402,7 +402,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_nash_otis",
@@ -448,7 +448,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/20_29/south/lodging/none",
-    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:male:20_29:006:forename",
    "replaceable_by": {
@@ -467,7 +467,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_marcotte_toussaint",
@@ -513,7 +513,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/30_39/south/lodging/none",
-    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:male:30_39:007:forename",
    "replaceable_by": {
@@ -532,7 +532,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_eastman_joseph",
@@ -578,7 +578,7 @@
     "kind": "model",
     "id": "1835_reconstruction_order_book",
     "bucket": "persons/male/30_39/south/lodging/none",
-    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 14."
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the committed allocation basis's ordinary-night figure of 15; the current model reports 16."
    },
    "seed": "lodgers:western_hotel:male:30_39:008:forename",
    "replaceable_by": {
@@ -597,7 +597,7 @@
     "confidence": "reconstructed",
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 14) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 15 ordinary-night beds here (the current model reports 16) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

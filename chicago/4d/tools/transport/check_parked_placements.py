@@ -48,12 +48,12 @@ def validate(record):
         assert all(len(p) == 2 and all(math.isfinite(x) for x in p) for p in model['wheel_contacts_m'])
     if 'studebaker_brougham_1893' in record['models']:
         spec = record['models']['studebaker_brougham_1893']
-        assert spec['file'] == 'transport/parked-brougham/brougham-near.glb'
+        assert spec['file'] == 'transport/parked-brougham/brougham-near-delivery-v1.glb'
         assert spec['wheel_contacts_m'] == [[-.67,-1.15],[.67,-1.15],[-.67,1.15],[.67,1.15]]
         assert spec['static_support_contacts_m'] == [[-.0325,0,3.725],[.0325,0,3.725],[-.0325,0,3.825],[.0325,0,3.825]]
         ref = spec['design_reference']
         assert ref['confidence'] == 'attested' and ref['sources'] == ['studebaker_1893_illustrated_souvenir']
-        assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near.glb','mid':'transport/parked-brougham/brougham-mid.glb','runtime_distance_selection_enabled':True}
+        assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near-delivery-v1.glb','mid':'transport/parked-brougham/brougham-mid-delivery-v1.glb','runtime_distance_selection_enabled':True}
         assert (ROOT/'renderers/web'/spec['delivery_lods']['mid']).is_file(), 'Missing genuine Brougham mid'
         assert sum(r['model'] == 'studebaker_brougham_1893' for r in record['scenes']['1904']) == 1
         # The obsolete display is intentionally removed; its model and assets remain.
