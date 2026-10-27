@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1901_ream_exterior",
+ "type": "photograph",
+ "citation": "1901 S. Prairie Ave. [O. R. Keith / Norman B. Ream house, exterior from the south-west.] Unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 1901 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library: c. 1890s?)",
+ "describes_date": "c. 1890s",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a19-cgy-1901-exterior, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1901-exterior.jpg), committed since T-1903 at data/sources/assets/ream_1901_photos_t1903/ with its attribution.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1901prairie/",
+ "locator": "The street front from the porch to the canted south-west corner, and the south flank to and past its canted bay, from the south-west; 1827 Prairie's corner tower at the left edge; the fence and a gate post at the right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1903) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3185, piece 1 of T-1903) from the image store's reference copy, 1928 x 1176 px greyscale, sha256 f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3.",
+ "note": "The same house as the 1898 photograph, nearer and from further south: the canted south-west corner seen square-on, with one window column under a pedimented dormer; the south flank faced in the same ashlar, with two narrow window columns and a small light between the corner and its canted bay, a carved ornament on its wall, and the cornice and mansard carried round it; two tall stone stacks over the flank; the porch's paired Corinthian columns and responds and the stoop's curved cheeks; basement windows under the principal ones behind the fence.",
+ "what_it_supplies": [
+  "the south flank: its facing, windows, stacks, cornice and mansard",
+  "the canted south-west corner's face and its window column",
+  "the porch's columns, capitals and the stoop's cheeks"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date",
+  "the north part of the front, the north flank and the rear"
+ ]
+}
