@@ -33943,6 +33943,7 @@ the house and brings the match record to `matches`.
 **Ticket:** T-3171 (piece 1 of T-1895).
 **Review:** `docs/RESEARCH/k01-1827-doane-3171/README.md`.
 **Recorded:** 2026-10-26 (T-3171).
+**Revised:** 2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176.
 
 
 
@@ -33969,6 +33970,41 @@ the house and brings the match record to `matches`.
 **How to resolve:** A future texture/device policy may choose a different tradeoff with measured memory and same-camera review; the full source maps remain available in the same native assets.
 **Ticket:** T-2380, required to clear the current integration memory failure for the visible jail enclosure.
 **Recorded:** 2026-10-26.
+
+### L-pullman-palm-house-3165 — Pullman's palm house rebuilt to J. W. Taylor's photograph: a columned glass drum under a ribbed dome, moved 3 m east of the 1911 sheet's semicircle
+
+**Decision:** `pullman_house_1729_prairie_conservatory` stops being a small conservatory bay read off a
+semicircle and becomes the palm house Solon S. Beman added in 1892, as J. W. Taylor's photograph of the
+range from 18th Street (AIC 16555, `aic_taylor_16555_pullman_west_front`, 1892 to May 1894) shows it, worked
+to that picture through a solved camera until the side-by-side matches. **What is read.** Through the
+camera, scaled by the range's own two ends (the house's east wall and the wing's east end under the
+belvedere, which stand in one plane with the drum): the drum's size (its entablature about 7.6 m across),
+its place (its centre about 12.1 m east of the house's wall line), seven columns on a stone base with glass
+between them, an entablature, a balustrade level with the range's parapet, a ribbed dome with a finial
+behind it, the range's parapet height, an arched door east of the drum and an arched window west of it,
+and a raised terrace with a broad central flight of steps; every height through the camera within about
+0.3 m. **What is invented.** That the 1911 sheet's semicircle (3.45 m across, 9.1 m east of the house's
+wall) is this drum drawn short and 3 m west of its place: the photograph and the sheet disagree, and the
+picture governs (AGENTS.md rule 11); the record's place moves 3.0 m east along the wing's own line, the
+wing's line and depth stay the sheet's. That the rotunda is a full circle whose north half lies inside the
+4.42 m wing (the photograph sees only the south half). The dome's covering: the kit's opaque glass
+substitute, so no line of sight crosses two glass envelopes (the kit's rule for a lantern); glass or metal
+sheets are not legible in the print. The column shafts drawn octagonal, the balustrades as solid
+parapets and the wall as plain ashlar in a light stone tone (the 1894 Inland plate shows the range light;
+colour is not shown); the terrace's depth (6 m), its height (1.4 m) and its flight's width (6 m), read
+roughly and kept within the picture's tolerance; the wing carried on east at the sheet's wall line to the
+belvedere, past the sheet's 0.66 m step, which the print does not separate. The garden bench and pot
+plants inside the drum stay the kit's. Both blocks stay at the reconstructed tier as a whole for those parts; the place and the plan are inferred (the record's notes give the reasoning). **What is not.** The sheet's wing line, depth and storeys; the
+drum's place, size, columns, dome and the range's openings are the photograph's. This supersedes the
+form, place and sizes of L-k13-pullman-bay-2306 (its bay, eave, half-cone roof, brownstone block and
+5.4 m height); that entry's reading of the wing off the sheet stands. **How to resolve:** the 1894 Inland
+Architect plate of the palm house and stable, the c. 1905 CHM negative i70232 and Taylor's south-west view
+solved into this record's folder (T-3165's second piece) either confirm the drum's place or move it; a
+plan or the dome's specification settles its covering.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
+**Ticket:** T-3165 (piece of T-1934).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-26 (T-3165).
 
 
 ### L-farm-box-licensed-master-2793 — licensed work-wagon development master (2026-10-26)

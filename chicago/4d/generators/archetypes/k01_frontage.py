@@ -5071,6 +5071,10 @@ def build(params, structure_id: str):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck
         k01_mansard_deck.dress(a, p.mansard["deck"], max(p.conf("mansard"), p.conf("roof_form")))
+    if ((p.mansard or {}).get("crown") or {}).get("finial"):
+        # T-3175: a hipped crown's finial on its ridge's street end (1827's pavilion)
+        from . import k01_mansard_deck
+        k01_mansard_deck.crown_finial(a, p.mansard["crown"], max(p.conf("mansard"), p.conf("roof_form")))
     # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
     # walk to the stoop, a gate across the side passage, the south boundary wall
     from . import k01_stone_finish
