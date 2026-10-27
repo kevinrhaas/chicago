@@ -175,6 +175,32 @@ def _turn(pieces, uc, zc):
         m.nrm = [(-n[2], n[1], n[0]) for n in m.nrm]
 
 
+def _cant_cut(p, dk, ins):
+    """T-3186: where a canted corner's face crosses the cresting's lines, `ins` inside the curb:
+    the side runs it stops ({side: (end, where)}), and the face's own run from the street
+    side's line to the side wall's, as (u, v) points."""
+    from .k01_frontage_params import cant_corner_plan
+    plan = cant_corner_plan(p.cant_corner, p.depth_m, p.width_m)
+    (fu, fv), _ = plan["ends"]
+    nu, nv = plan["normal"]
+    u0, u1, v0, v1 = dk["curb"]
+    k = nu * fu + nv * fv + (u1 - p.depth_m) - ins     # the face's line, moved out to the curb, in
+    north = p.cant_corner["corner"] == "north"
+    us, vside = u1 - ins, (v1 - ins if north else v0 + ins)
+    vs, uside = (k - nu * us) / nv, (k - nv * vside) / nu
+    return {"stops": {"street": ("hi" if north else "lo", vs), ("north" if north else "south"): ("hi", uside)},
+            "ends": ((us, vs), (uside, vside)) if north else ((uside, vside), (us, vs))}
+
+
+def _aim(pieces, x, z, d):
+    """T-3186: pieces built along X about the origin turned onto the plan direction d = (dx, dz)
+    and moved to (x, z): a rotation about the vertical, as _turn's, so winding stays true."""
+    for pc in pieces:
+        m = pc.mesh
+        m.pos = [(x + q[0] * d[0] - q[2] * d[1], q[1], z + q[0] * d[1] + q[2] * d[0]) for q in m.pos]
+        m.nrm = [(n[0] * d[0] - n[2] * d[1], n[1], n[0] * d[1] + n[2] * d[0]) for n in m.nrm]
+
+
 def dress(a, dk, conf):
     """The cresting along each side of the curb and a finial at every corner (module doc)."""
     from . import k10_frontage
@@ -201,9 +227,12 @@ def dress(a, dk, conf):
                  ("north", "u", v1 - ins, u0, u1, "rear_north", "street_north"),
                  ("street", "v", u1 - ins, v0, v1, "street_south", "street_north"),
                  ("rear", "v", u0 + ins, v0, v1, "rear_south", "rear_north"))
+        cant = _cant_cut(a.p, dk, ins) if getattr(a.p, "cant_corner", None) else None
         for side, along, at, lo, hi, c_lo, c_hi in sides:
             if side not in cr.get("sides", SIDES):
                 continue
+            end, where = (cant or {"stops": {}})["stops"].get(side, (None, None))
+            lo, hi = (where, hi) if end == "lo" else (lo, where) if end == "hi" else (lo, hi)
             s0, s1 = lo + stop(c_lo), hi - stop(c_hi)
             L = s1 - s0
             if L < k10_frontage.MIN_CRESTING_M:
@@ -227,6 +256,23 @@ def dress(a, dk, conf):
             if cr.get("painted"):
                 for pc in var.pieces:
                     pc.role = "timber"
+            k10_frontage._lay(a, var.pieces, conf, CRESTING)
+        if cant:   # T-3186: and along the canted corner's curb, between the two runs it stopped
+            (ua, va), (ub, vb) = cant["ends"]
+            span = math.hypot(ub - ua, vb - va)
+            L = span - 2 * stop(None)
+            d = ((ub - ua) / span, -(vb - va) / span)        # in the plan's (x, z) = (u, -v)
+            mid = ((ua + ub) / 2, -(va + vb) / 2)
+            seed = a.instance(CRESTING, "cresting", {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4),
+                                                     "height_m": cr["height_m"], "host": "mansard deck",
+                                                     "side": "cant"}, {"ridge": (mid[0], y_cap, mid[1])})
+            var = K.Variant(dict(next(v for v in data["variants"] if v["id"] == CRESTING)), data)
+            var.seed, var.rng = seed, random.Random(seed)
+            posts = var.cresting(0.0, L, y_cap, 0.0, host="mansard deck")
+            _aim(var.pieces, mid[0], mid[1], d)
+            top = max(q[1] for pc in var.pieces for q in pc.mesh.pos)
+            _stretch(var.pieces, y_cap - 0.007, cr["height_m"] / (top - (y_cap - 0.007)))
+            laid["cresting"].append({"side": "cant", "from_m": 0.0, "to_m": round(L, 3), "posts": len(posts)})
             k10_frontage._lay(a, var.pieces, conf, CRESTING)
     if fn:
         from .k09_trim import lathe, Piece

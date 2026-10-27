@@ -2315,6 +2315,15 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "ream_house_1901_prairie/as_mapped_1904/form.cant_corner": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1901_ream_1898",
+        "chicagology_1901_ream_exterior"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "ream_house_1901_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
