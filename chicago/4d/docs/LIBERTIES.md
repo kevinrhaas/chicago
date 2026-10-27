@@ -33674,6 +33674,7 @@ records to `matches`.
 **Ticket:** T-3166 (piece 1 of T-1887).
 **Review:** `docs/RESEARCH/k01-1828-shipman-1887/README.md`.
 **Recorded:** 2026-10-26 (T-3166).
+**Revised 2026-10-26 (T-3168):** the partial view's camera is solved (`data/reference_views/house_1828_prairie/glessner_partial.json`, from the south-east, its copy read at a pixel aspect of 1.52 against the automobile print). Through it the mansard's face is raised from 3.6 to 4.5 m, the most a one-storey face takes, and still reads about 1 m short of the print's curb; the two street dormers' lights are 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15), still round-headed where the print's are square under a curved hood; and iron cresting 0.5 m high runs along the curb. Still not built, as above: the porch's arches, carving and stone balustrade, the stoop's stone cheeks, the bay's pilasters, the bay carried into the mansard, the basement lights' full height (K02's Lemont base takes two courses of at most 0.41 m) and the print's front wall south of the bay. Both match records say `differs`.
 
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
