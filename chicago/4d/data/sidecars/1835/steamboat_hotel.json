@@ -281,7 +281,7 @@
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 10,
+    "beds_ordinary": 12,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -291,9 +291,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 8,
-      "beds_ordinary": 10,
-      "empty": 2,
-      "statement": "8 on this card against an ordinary night's 10 beds: 8 the residents layer already housed here.",
+      "beds_ordinary": 12,
+      "empty": 4,
+      "statement": "8 on this card against an ordinary night's 12 beds: 8 the residents layer already housed here.",
       "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
       "keeper_persons": 8,
       "keeper_owed": ""

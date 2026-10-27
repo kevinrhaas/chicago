@@ -1,0 +1,371 @@
+{
+  "asset_id": "studebaker_1893_brougham_reconstruction_01",
+  "scene_year": 1904,
+  "source_id": "studebaker_1893_illustrated_souvenir",
+  "reference_file": "studebaker-brougham-cdn.jpg",
+  "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+  "reference_scan_leaf": "0095",
+  "dimension_tier": "reconstructed; unscaled oblique catalog lithograph supplies appearance, not metres",
+  "wheelbase_m": 2.3,
+  "track_m": 1.34,
+  "front_wheel_radius_m": 0.528,
+  "rear_wheel_radius_m": 0.65,
+  "spokes_per_wheel": 16,
+  "body_half_width_m": 0.585,
+  "lower_side_profile_z_y_m": [
+    [
+      0.43,
+      1.26
+    ],
+    [
+      0.5280575100541398,
+      1.0591465801570792
+    ],
+    [
+      0.496780337124207,
+      0.8772129243411678
+    ],
+    [
+      0.4553104748672183,
+      0.6864381152612931
+    ],
+    [
+      0.39090975165809994,
+      0.5430084138369865
+    ],
+    [
+      0.2738140250729799,
+      0.44239685127065936
+    ],
+    [
+      0.11911137520969106,
+      0.39343290602753783
+    ],
+    [
+      -0.059207553332271345,
+      0.37459685128737663
+    ],
+    [
+      -0.24155798690054553,
+      0.3817361566267804
+    ],
+    [
+      -0.387426955038336,
+      0.4412175414622753
+    ],
+    [
+      -0.4666334665002765,
+      0.566283934070431
+    ],
+    [
+      -0.51,
+      0.74
+    ],
+    [
+      -0.67,
+      0.92
+    ],
+    [
+      -0.86,
+      1.0
+    ],
+    [
+      -1.05,
+      1.01
+    ],
+    [
+      -1.08,
+      1.26
+    ]
+  ],
+  "door_profile_z_y_m": [
+    [
+      0.28160730754447627,
+      1.2572208976871815
+    ],
+    [
+      0.2603279827530116,
+      0.8807656132243503
+    ],
+    [
+      0.23674693456738538,
+      0.6424896735903629
+    ],
+    [
+      0.17244072363815377,
+      0.5033623525510104
+    ],
+    [
+      0.061174756321300094,
+      0.4287787870923288
+    ],
+    [
+      -0.08751912283720031,
+      0.41019976820229775
+    ],
+    [
+      -0.23496040300814514,
+      0.426305065288164
+    ],
+    [
+      -0.3409702331025741,
+      0.49477643883881905
+    ],
+    [
+      -0.4004108638597259,
+      0.6199678188267599
+    ],
+    [
+      -0.4104904434028356,
+      0.8754589751260531
+    ],
+    [
+      -0.39594490922028314,
+      1.2607571620641722
+    ],
+    [
+      -0.22984665014682548,
+      1.2187615150751292
+    ],
+    [
+      -0.057911955588160424,
+      1.2027642970338166
+    ],
+    [
+      0.1154176261062787,
+      1.2257008567431873
+    ]
+  ],
+  "roof_longitudinal_profile_z_y_m": [
+    [
+      -1.1,
+      1.74
+    ],
+    [
+      -0.9,
+      1.77
+    ],
+    [
+      -0.65,
+      1.77
+    ],
+    [
+      -0.38,
+      1.78
+    ],
+    [
+      -0.12,
+      1.85
+    ],
+    [
+      -0.04,
+      1.865
+    ],
+    [
+      0.12,
+      1.85
+    ],
+    [
+      0.33,
+      1.82
+    ]
+  ],
+  "roof_cross_crown_m": 0.045,
+  "driver_bench_center_y_z_m": [
+    1.48,
+    0.76
+  ],
+  "driver_bench_width_m": 1.08,
+  "driver_bench_depth_m": 0.39,
+  "driver_footboard_y_z_m": [
+    0.92,
+    1.26
+  ],
+  "pole_length_m": 2.65,
+  "pole_parked_tip_y_m": 0.037,
+  "limits": [
+    "One source view; opposite side, width, interior, exact suspension, spoke count, dimensions and paint optics reconstructed",
+    "Maker and catalog type are documented1893; no particular1904 household ownership or exact specimen presence",
+    "Driver and passengers omitted; their source clothing is not converted into empty-seat upholstery evidence",
+    "Closed static specimen only, no animation, steering, boarding or forces acceptance",
+    "Original solid hub cores/buttons correct an exposed torus-center defect; cap/nut dimensions/shape are unmeasured reconstruction, not source-measured mechanics",
+    "Wheelbase/radius ratio revised using corrected informal plate controls front810,820 +/-3px radius106 +/-5px; rear1277,795 +/-4px radius137 +/-5px. Absolute metres remain nonunique reconstruction; cabin and hub shapes preserved from v6; all prior approximate calibration controls withdrawn.",
+    "V8 uses rounded ratio hypothesis WB2.30/RF.528/RR.65 with positive-Z front-oblique comparison. Original body vertically reshaped and roof crown deepened against source appearance; hidden cross-width/seat details remain reconstruction. No claim of exact lithograph calibration or photographic acceptance.",
+    "V9 narrows/shapes glazed door, moves only upper-front cabin/roof rearward, and adds a black rear window pillar/front sill connector. New profiles are original 3D reconstruction guided by manual visible source contours; hidden framing and exact thickness are not attested. Transverse crown eased while near longitudinal crown rises to match observed contour. Running gear and solid hubs retain v8 geometry.",
+    "Closed original trim paths remove duplicate coincident end caps; one stable reference axis per path avoids frame flips. Tiny tube surfaces use geometric face normals rather than averaging sharp caps into the barrel. Door depth offset increases6mm to remove sampled internal body overlap; this is a construction repair, not a measured historical dimension.",
+    "V10 bounded UNRENDERED roof proposal: retain front/back ends, roof width/cross-crown and maximum profile height, move the front longitudinal crown peak rearward0.16m and ease its approach to reduce the exaggerated leading curl; reduce original roof sheet35to25mm, drip radius15to10mm, end lip12to9mm. Numerical dimensions are original reconstruction guided by the broad plate contour; source camera is nonunique and coachmen obscure the far front. All other parts/materials/guards retained. No actual render/source-match/photo acceptance.",
+    "V11 source-visible near-side latch/central fitting proposal UNGENERATED/UNRENDERED; metric size, attachment depth and exact outline reconstructed. Extra bead deferred pending owned door/waist contour correction. Ambiguous lower mark and opposite-side fittings unmodeled; step count unchanged.",
+    "V12 UNGENERATED source-guided lower-door waist/roundedU and lowerbody-front contour proposal. Only six named panel/lining instances may change P/N; all other component P/N inclnineV11fittings remain protected. Door operation, opposite-side exactness and hidden rearwing remain unqualified."
+  ],
+  "revision": 12,
+  "hub_core_profile_axial_radial_m": [
+    [
+      -0.064,
+      0.034
+    ],
+    [
+      -0.05,
+      0.042
+    ],
+    [
+      0.05,
+      0.042
+    ],
+    [
+      0.064,
+      0.034
+    ]
+  ],
+  "hub_core_segments": 16,
+  "hub_button_profile_axial_radial_m": [
+    [
+      -0.017,
+      0.03
+    ],
+    [
+      -0.012,
+      0.035
+    ],
+    [
+      0.009,
+      0.035
+    ],
+    [
+      0.017,
+      0.025
+    ]
+  ],
+  "hub_button_segments": 24,
+  "body_vertical_affine": {
+    "scale_y": 1.13,
+    "offset_y_m": 0.03,
+    "scope": "All original vehicle_body surfaces and seat sockets; running gear and solid hubs unchanged",
+    "basis": "Coordinated source-guided silhouette: approximately +.078m at lower U, +.196m at window sill and +.303m at crowned roof; engineering reconstruction, not historic metres"
+  },
+  "side_door_glass_profile_z_y_m": [
+    [
+      0.22,
+      1.34
+    ],
+    [
+      0.22,
+      1.78
+    ],
+    [
+      0.07,
+      1.82
+    ],
+    [
+      -0.12,
+      1.8
+    ],
+    [
+      -0.35,
+      1.74
+    ],
+    [
+      -0.35,
+      1.315
+    ],
+    [
+      -0.07,
+      1.27
+    ]
+  ],
+  "side_glass_division_y_y_z_m": [
+    1.27,
+    1.81,
+    -0.07
+  ],
+  "roof_sheet_thickness_m": 0.025,
+  "roof_drip_edge_radius_m": 0.01,
+  "roof_end_lip_radius_m": 0.009,
+  "source_detail_v11": {
+    "state": "PROPOSED_UNGENERATED_UNRENDERED; metric dimensions are reconstruction, not historical measurements",
+    "source_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+    "observed_side_x_sign": 1,
+    "forward_oval_latch": {
+      "native_region_px": [
+        981,
+        630,
+        1009,
+        646
+      ],
+      "native_center_px": [
+        995,
+        638
+      ],
+      "center_producer_y_z_m": [
+        1.2134723533159713,
+        0.2134952751100272
+      ],
+      "radii_producer_y_z_m": [
+        0.031,
+        0.065
+      ],
+      "tube_radius_m": 0.004,
+      "ring_samples": 32,
+      "claim": "Visible oval loop location/outline only; lock action/backplate/attachment depth not attested"
+    },
+    "central_pronged_fitting": {
+      "native_region_px": [
+        1039,
+        651,
+        1068,
+        671
+      ],
+      "native_center_px": [
+        1053,
+        661
+      ],
+      "center_producer_y_z_m": [
+        1.1117885736543536,
+        -0.07609885452975362
+      ],
+      "cup_offsets_z_y_m": [
+        [
+          -0.06,
+          0.01
+        ],
+        [
+          -0.048,
+          -0.02
+        ],
+        [
+          0,
+          -0.023
+        ],
+        [
+          0.048,
+          -0.02
+        ],
+        [
+          0.06,
+          0.01
+        ]
+      ],
+      "tube_radius_m": 0.0038,
+      "claim": "Visible open pronged/bar-like fitting; no crown/heraldic/household/maker identity. Smaller lower mark remains unresolved and omitted"
+    },
+    "steps": "UNCHANGED: two visible source tread images may be a near/far pair; no new treads or new side identity claim",
+    "hidden_construction": "Two small original attachment pins per fitting inferred only to avoid floating hardware; no historic lock/mechanism/fastener identity asserted",
+    "geometry_policy": "Additive source-visible fittings only after all existing geometry. Inner bead DEFERRED after independent source review: current flat upperdoor edge must not be reinforced. No existing door/body/roof/window/trim/wheel/pole/step/seat/anchor/material changes; depth artifact fixed in preview instrument only."
+  },
+  "door_profile_sampling": {
+    "kind": "closed_catmull",
+    "steps": 5,
+    "scope": "All near-source appearance controls, mirrored for opposite-side reconstruction; no operation claim"
+  },
+  "large_forms_v12": {
+    "state": "PROPOSED_UNGENERATED_UNRENDERED",
+    "owned_part_families": [
+      "deep_curved_lower_body",
+      "deep_U_closed_door",
+      "door_edge_lining"
+    ],
+    "owned_instances": 6,
+    "source_edge_landmarks": "witnesses/SOURCE-EDGE-LANDMARKS.json",
+    "preserved": "V11fittings9/componentP-N,glass/frame,roof/runninggear/pole/steps/anchors/materials/camera/fullbounds",
+    "source_limits": "Multiple bright edges/door operation/hidden rear/opposite side remain partly inferred. These contours guide appearance rather than measured historic metres or construction."
+  }
+}

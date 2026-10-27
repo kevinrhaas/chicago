@@ -33846,6 +33846,25 @@ hood, and a brick tone a picture can carry on a house with no stone front.
 **Ticket:** T-2964 (piece 2 of T-1886).
 **Recorded:** 2026-10-25 (T-2964).
 
+### L-brougham-body-finish-3084 — catalogue-guided curved coach shell and reconstructed finishes
+
+**Decision:** Refine the one empty1893-design Brougham's lower shell and optical finish, preserving the accepted V18 lamp geometry/materials, running gear, pole, steps, anchors and conservative proxy. The original source-profile outline is retained; subdivided curved side skins replace large warped cap triangles, and a continuous front wrap closes the previous partial lower front. Angle-weighted normals avoid weighting the appearance toward the largest outline triangles. The18mm side roll,20mm front crown,15mm shell thickness, smooth empty passenger pads and fine driver-seat edge piping are original reconstructed construction.
+**Source:** `studebaker_1893_illustrated_souvenir`, public-domain US1893 catalogue, Brougham leaf0095, untouched plate SHA256 `b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe`. Its depicted colour families support very dark green coachwork, black painted timber and fine pale lining. The plate does not measure modern colour-space values, pigments, varnish coefficients, wood species, metal composition or glass optics. No source pixels are embedded.
+**Reconstructed:** the dark warm leather of the EMPTY seats, hidden cabin pads, seam placement and thickness; the catalogue's coachmen/passengers hide upholstery and their clothing is not evidence for the seat finish. The rear quarter remains an unidentified recessed opaque dark surface, not newly identified as glazing or a curtain. Separate cabin glazing uses portable physical transmission0.98/IOR1.5 as an appearance reconstruction; the accepted V18 lamp glazing and iron materials stay exact. No particular owner, household, actual Chicago specimen or unchanged1904 manufacture is attested by this catalogue design.
+**Delivery and limits:** current V19 near is45,338triangles and mid23,062; both are source-generated and losslessly indexed. Actual decoded V18 protections cover475near/309mid unaffected source occurrences, full wheel/pole/shoe/hitch contacts, named transforms, thirteen runtime anchors, eight inert static targets and the original conservative proxy. The8material batches include separate cabin glass; that count is not a render-pass or whole-scene budget claim. Existing24m selection,5% hysteresis, Full/Balanced/Light reach, placement and all runtime budget caps stay unchanged. T-3085 owns later physical-interface/portable-LOD/published phone-desktop qualification.
+**Review:** actual native GLTFLoader front/side/rear/quarter/detail studies of predecessor geometry show the body/finish change; final angle-weighted source views, source-camera discrepancy review, world/published budget and photographic acceptance remain pending. All four freshly validated final raw/indexed near/mid assets have0Khronos errors and warnings. A source/geometry gate does not qualify a photograph.
+**Unsupported:** occupants, boarding, door operation, animated steering, rein/horse coupling, collision physics, traffic and riding remain false. All absolute dimensions and hidden/opposite construction stay reconstructed.
+**Ticket:** T-3084.
+**Recorded:** 2026-10-26.
+
+**T-3084 final-source native study update (2026-10-26):** Actual GLTFLoader17image study of near master fbe0f9b3... closed0/44.408s/cleanup0/errors[]. The source-wheel-control camera reproduces its two declared informal centres within0.005px but has+2.24/-3.75px vertical-radius residuals and is nonunique. The untouched-source pair, body detail and390px native study were inspected. Curved closure and finish/glazing improve; residual belly shade bands and catalogue contours stay open. Native studio draw counters include105calls/181300triangle submissions at the source view, versus baseline76/100124; these include extra physical-transmission/shadow passes and are not merged production-budget measurements. Full photographic, published and whole-world acceptance remain false.
+
+**T-3084 C1-front candidate update (2026-10-26):** Piecewise-linear max-profile slopes are replaced with shape-preserving C1 Hermite interpolation through the same front-bearing values; limited tangents prohibit interval overshoot and extrapolation. The owned side skin follows the same front curve while its rear boundary bearing and global width stay exact.15source-height bearings/462independent interval samples retain the control values and a finite-difference slope jump below0.00001. Near raw SHA256 `50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635`, mid raw `d2e2452b04f63c366a8debac88833d7ca21ef9f6a8031d57c240b600e3740b0a`; unchanged45,338/23,062triangle counts and V18 protections. Earlier fbe0 native images remain separate PRE-C1 evidence; current native appearance and photographic acceptance are pending.
+
+**T-3084 analytical-normal-only update (2026-10-26):** A controlled same-close shadow-off image retained the broad bands. Actual1,410interior front vertices showed up to4.209degrees of disagreement with the C1surface derivative. Explicit analytical front normals reduce actual error below0.000532degrees. ALL481C1triangle POSITION streams, all other NORMAL streams/materials/nodes/extras stay exact; no extra geometry/knot/subdivision change is made to erase a light artifact. Current near raw `206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4`, mid raw `560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d`; same45,338/23,062triangles and V18/C1protections. Actual shadow-enabled same-close image closed0/10.393s/cleanup0/errors[] and shows improved highlight flow, with faint broad shade variation still declared. Full photographic/published/whole-world acceptance remains false.
+
+
+**T-3084 optical-delivery amendment (2026-10-26):** The parked near/mid paths now select separate thin-sheet optical derivatives. All geometry/BIN bytes, UV/normal/index streams, hierarchy, physical interfaces, material0–6 and the45,338/23,062 triangle counts remain exact to the retained physical indexed masters. The original physical raw/indexed files remain unchanged. Cabin glass material7 alone uses reconstructed BLEND/opacity0.14/transmission0/IOR1.5, avoiding an additional whole-scene transmission pass; these are delivery coefficients, not historic-glass measurements. Actual24-row e97 phone/desktop Full/Light diagnosis completed with no runtime errors but returned NONPASS: desktop Full quarter4,654,565 exceeded4.6M, and both Light aerial stands exceeded their unchanged1.27M floor while the carriage was hidden. The explicitly measured selected-inspection Full allowance becomes4.7M with45,435 triangles reserve. Ordinary Full/Balanced/Light, all draw/shadow/reach/LOD limits and all memory limits remain exact. The Light floor and inherited memory failures remain open; no complete photographic, shipping-source, occupied or T-3085 qualification follows. Exact readings are preserved in `docs/measurements/brougham-optical-delivery-3084.json`.
 
 ### L-k01-1834-jones-1888 — 1834 Prairie refined from the district draft to a K01 house off its reversed photograph: the 1866 Italianate front and north flank as the print shows them, the 1886 mansard reconstructed over them
 
@@ -34742,6 +34761,91 @@ open in that record). This supersedes the gabled section's lights and its floor 
 L-kimball-1801-gabled-section-3001.
 **How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
 gabled section.
+
+### L-horse-anatomy-master-3088 — source-bounded canonical horse anatomy and local hoof refinement
+
+**Recorded:** 2026-10-26. **Ticket:** T-3088.
+
+**Sources:** `ellenberger_baum_dittrich_equine_plates`,
+`seton_1892_equine_skeleton`, `vassil_2014_konik_horse_anatomy`,
+`joselodos_2025_horse_anatomy`; original licensed model
+`sevketkabatas_2021_horse_model`.
+
+**Decision:** refine the licensed sevketkabatas standing horse's near anatomical
+surface rather than replacing it with the rejected procedural regression horse.
+The canonical metre frame, reconstructed 26-joint rig, original source credit and
+the completed eye-UV repair remain the starting point. This is one generic working
+animal; no Chicago individual, owner, breed, sex, coat or absolute historical
+dimension is established by the modern model or the anatomical reference plates.
+
+**What bounds the changes:** actual pixels of Ellenberger/Baum/Dittrich Tafel6
+(external head/eyelid and jaw-to-muzzle relationships), Tafel15 (rounded hoof wall,
+toe, coronet and pastern), Tafel12 (posterior muscle/limb relationships), Seton's
+skeletal plate, and the cleared Vassil/Joselodos CC0 living-animal views. The source
+records retain their dates, rights and limits. None is a calibrated surface of an
+1835 Chicago horse. Modern markings and breed proportions are not copied as history.
+
+**What is reconstructed:** a more open, continuous upper eyelid margin; the compact
+control centres/radii and millimetre displacements; and one local hoof-wall/coronet/
+toe subdivision with bounded horizontal fairing. The first 5mm-control trial moved
+the actual surface by only 1.686mm and remained visibly heavy-lidded in native close
+views; it is not treated as a completed master. V2 retains the lower eyelid and
+separately bounds the upper fold. Its hoof fairing replaces visible coarse facets,
+without arbitrary torso inflation or a claim that source hair conceals the hoof.
+
+The named support anchors and canonical ground datum are preserved. The old toe
+outline and contact patch may change; old whole-body/standing results therefore
+do not qualify the new mesh. New vertices carry explicit source-edge UV/skin
+interpolation, and all original rig/clip/image/eye-UV provenance remains explicit.
+Fresh loaded deformation/contact/negative-control and native whole-master views
+must qualify the actual selected bytes before this work is accepted. The recipes'
+source-only boundary checks are not substitutes for those gates.
+
+**How to resolve:** a calibrated original animal/master survey and corresponding
+multi-view anatomical study would tighten the dimensions and unseen geometry.
+Surface/PBR/portable LOD qualification remains the existing sequential T-3089;
+gaits, tack, riders, teams and interactions retain their existing tickets.
+
+
+### L-human-modular-workwear-1789 — Reconstructed modular workwear for three existing residents
+
+**Decision:** Original source construction adds 1.5mm garment edge returns, closed surface-fitted horn-like buttons, optional short round jackets with folded front edges and uncreased felt-hat crown/brim variants for the existing reconstructed Otis Bardwell, Joseph Dufresne and Martin Flynn study assignments. Cut, ease, thickness, lapel/brim/crown dimensions, button counts, colors and roughness are reconstructed choices, not measured patterns, depicted possessions, fibers or recovered material scans. The connected waistcoat construction admitted by L418 is reused on the unchanged adult35 base, with continuous vertical ease near cut planes to avoid folded hem fans. Existing body anatomy, rig and cleared skin/hair inputs are unchanged. Cloth returns and lapels intentionally reuse adjacent cloth texels through nonzero corner UV strips; no exclusive atlas or baked surface-texture claim is made.
+**Basis:** L418 remains the umbrella for the cleared base and resident workwear studies. The registered Mount1835 genre paintings remain qualitative comparisons only: their year-only dates do not establish pre-July1Chicago wardrobes, patterns, named outfits or likenesses. These additions are independently constructed geometry and restrained original material choices, without image tracing or rights-pending asset derivation.
+**Applies to:** The original modular wardrobe recipe and canonical builder, and the `bardwell_otis_1835`, `dufresne_joseph_1835` and `flynn_martin_1835` study assemblies. The canonical workflow still supplies L418 as the master umbrella; the recipe and assembly metadata separately name this component liberty. Existing exported models are not relabeled as the new output.
+**How to resolve:** Build new canonical masters and inspect the actual source and published outputs, continuous posed fit, all distance levels, period/material comparisons and desktop/mobile images. Full T-1789 library acceptance remains open, including the remaining garment/base/head/hair families, three qualified resident demonstrations and the Mark Beaubien assembly stop. The same-ticket plan is in `docs/RESEARCH/portable-human-library-T-1789/README.md`.
+**Ticket:** T-1789.
+**Recorded:** 2026-10-26.
+
+
+### L-human-modular-dress-1789 - Original modular adult dress study (T-1789)
+
+**Decision:** The existing reconstructed Mary Flynn (rc_flynn_mary, adult20-29, domestic, present1835) is an optional reference for a reusable original bodice, skirt, apron and low-shoe assembly on the shared portable rig. This does not attest her personal outfit, appearance, ancestry, height or exact age. The cleared MakeHuman female-young graphical blend is an engineering base, not an archival portrait. The source body, source UVs and56-joint skeleton remain complete beneath clothing.
+
+**Basis:** Actually viewed John Caspar Wild, Third and Vine Northside (1835), source `wild_1835_third_vine`, supplies only tiny female full-skirt/bodice/head-covering silhouettes as a same-year Cincinnati regional analogue. Its completion before1July is unknown. It does not attest Chicago clothing, the named resident, measurements, garment cuts, closures, colors, materials, undergarments or seams. No painting pixels or traced garment contours enter the mesh. All numerical cuts, drape, layers, folds, thickness, colors, material roughness and outfit combinations are reconstructed choices.
+
+**How to resolve:** The skirt/apron are pelvis-bound standing source constructions; walking, sitting and driving cloth fit are unqualified. Source-array support calculations are not Blender readback, all-pose clipping, LOD, texture, photographic or world-placement acceptance. Opt-in canonical authoring uses the existing human builder and exporter with their unchanged body normals, skeleton, facial morph, source-foot, hierarchy, material and actual loaded-browser gates. No scene instance or production eligibility is supplied by this source assembly.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-10-26.
+
+### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
+
+**Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
+20x30 yellow two-storey description (printed p51; context p25 and p43). Feet and
+natural long/short axes are inferred, not surveyed. Working wall height is 5.45 m:
+the existing 3.1 m lower module plus one 2.35 m upper module. Exact stock yellow,
+roof pitch, fitting dates, hidden elevations, lettering, entry stock and flag pose
+remain liberties. Both street-facing planes are preserved when the smaller rectangle
+changes its northeast origin. The explicit flag anchor follows the native ridge/staff.
+**Alternative:** native gifford-reading retains the three-storey picture-led model,
+including reconstructed 50x30 ft scale and unpainted stock, explicitly disagreeing
+with Gale. No dated enlargement or pigment history is invented.
+**Limit:** Gifford genuinely shows three storeys; the two-storey default is not
+asserted to match it. The original picture case remains open for the source dispute.
+**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.flag_anchor`, `tremont_house_1.frame_1833.form.shutters`
+**Ticket:** T-2385.
+**Review:** `docs/RESEARCH/tremont_house_1.md`.
+**Recorded:** 2026-10-26 (T-2385).
 
 ### L-kimball-1801-tower-finial-1890 — 1801 Prairie's tower given a turned finial on a crocketed collar, in pale sheet metal
 **Recorded:** 2026-10-27.
