@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fd1cbb0f256d452bf79ed932d075cd04cf044dd3086bc757900da7add71bd7a5",
+  "glb_sha256": "ef2d302bcac6181069bc91898fd08df250571a902b7047e81c8ccbe31b022ad6",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -178,8 +178,8 @@
       "status": "open"
     },
     {
-      "what": "the flank section's top: over the corbel table (about 9.5 m) the print's section carries a third storey of paired lights under a cornice, a gabled wall dormer with a finial (x 520-600) and the tall round-topped stack (x 467-530); the build carries the section's wall to 13.9 m under K08's low hip",
-      "status": "open"
+      "what": "the flank section's top: over the corbel table (about 9.5 m) the print's section carries a third storey of paired lights under a cornice, a gabled wall dormer with a finial (x 520-600) and the tall round-topped stack (x 467-530); the build carries the section's wall to 13.9 m under K08's low hip. Built (T-1890, bays.p_flank): the corbel table's top at 9.45 m (the print's about 9.36 m), the third storey to a 12.4 m wall top (the print's cornice about 12.35 m) with the paired lights in two tiers on the axis (about 9.85-11.9 m) and a single light at the west end, a coped wall dormer about 3.2 m across with a carved fan, pinnacles on its shoulders and a finial to 15.2 m (the print's about 15.15 m); and the stack moved to u 1.8, v 1.0, in the walls' stone, its cap at 16.0 m, its shaft within about 15 px of the print's (x 467-530). The dormer renders about 20 px east of the print's, within about 0.5 m",
+      "status": "fixed"
     },
     {
       "what": "the second storey's windows on the avenue front and the 18th Street flank: with the main cornice raised to the bow's, about 1.2 m of wall stands between their heads (7.4 m) and the cornice's foot (8.34 m); the print's heads stand about 25 px higher than the build's at the front (y 625 against 650 between the corner and the bow), so the build's lights read short, or low, under the cornice",
@@ -215,6 +215,14 @@
     {
       "what": "the tower's finial: the print's is a turned and knobbed pinnacle, pale against the slate, over a crocketed collar at the cone's apex, its tip about 19.6 m; the build sizes the kit's spike to it (2.6 m over the apex, its tip 19.29 m, within about 12 px) but lays it plain, in the cap's slate, with no collar (T-1890)",
       "status": "open"
+    },
+    {
+      "what": "the flank section's west corner (T-1890): the print rounds it under the cornice (x 480-530 px, a light in the round), the build stands it square",
+      "status": "open"
+    },
+    {
+      "what": "the flank stack's head (T-1890): the print's shaft reads round under a flared cap; the build's is square under a slab, its outline within about 0.3 m (HABS photograph 2 reads the shaft square)",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

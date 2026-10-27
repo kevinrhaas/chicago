@@ -1039,6 +1039,14 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
   python3 tools/test_k08_tower_stage.py
 
+# T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
+# (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
+# under the storey line in place of its floor band, the corbels hung from it, the light tier
+# keeping the course only; the fan's wheel on the panel; a gable up to 1.5 m in from its front's
+# corners; a corbel table on the ground storey or out of range refused.
+step "a K08 storey stands on a corbel table and a gable panel carries a fan (T-1890)" \
+  python3 tools/test_k08_corbel_table.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
