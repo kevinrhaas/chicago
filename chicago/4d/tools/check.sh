@@ -851,6 +851,12 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
+# the faces, the pictured ones at their lots), laid clear of the elms and the carriage walks: the
+# committed file is what the tool writes, lamp for lamp.
+step "the 1904 street furniture re-lays from the street grid (T-3199)" \
+  python3 tools/lay_prairie_1904_street_furniture.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps

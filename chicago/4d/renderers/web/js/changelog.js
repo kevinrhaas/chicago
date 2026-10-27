@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2346, ts: '2026-10-27T19:19:34.707Z', date: 'Oct 27, 2026, 2:19 PM CT', title: 'Gas lamps stand at every corner and along the 1904 parkways', kind: 'feature',
+    items: [
+      'A cast-iron gas lamp post stands at each of the district\'s 28 street corners, on a stone footing at the curb corner.',
+      'More stand along every parkway, about every 160 ft, the two sides of a street staggered.',
+      'The eleven lamps a photograph or print shows (Glessner\'s and Pullman\'s corners, 1811, 1905, 2140 and others) stand where those pictures put them.',
+      'Tap a post for its card: what it is, its grade and its pictures.',
+    ] },
+  { v: 2345, ts: '2026-10-27T19:19:34.707Z', date: 'Oct 27, 2026, 2:19 PM CT', title: '1901 Prairie turns its south-west corner on a canted face', kind: 'feature',
+    items: [
+      'The Ream house at 1901 Prairie now cuts its south-west corner on a canted face, about 1.8 m back each way, as both of its photographs show.',
+      'The face has its own window on each storey under the front\'s moulded heads, and a basement light under them.',
+      'The stone cornice, the copper gutter, the slate mansard and the iron cresting on its curb all turn the corner with it.',
+      'A fifth pedimented dormer stands on the canted face over its windows.',
+    ] },
+  { v: 2344, ts: '2026-10-27T19:19:34.707Z', date: 'Oct 27, 2026, 2:19 PM CT', title: '1709 Prairie stands as the house in its 1893 drawing', kind: 'feature',
+    items: [
+      '1709 Prairie Avenue is no longer a draft box: two tall storeys of brick over a raised basement under a slated mansard with two dormers, a columned porch at its north end with a stoop up to the door, and a deep cornice.',
+      'On its south-west corner stands the square corner bay the 1911 Sanborn map draws set diagonally, with its own steep slated roof, as Rand McNally\'s 1893 guidebook drawing shows it. A canted bay on the south side and rear wings come from the same map.',
+      'The 1893 drawing is now its picture, so the house is built to it and compared against it from the drawing\'s own viewpoint. The card says what the drawing shows and what is reconstructed, such as the window hoods: the drawing gives them small pediments, built here flat.',
+    ] },
   { v: 2343, ts: '2026-10-27T16:03:54.777Z', date: 'Oct 27, 2026, 11:03 AM CT', title: '1708 Prairie built from the Glessner townhouse photographs', kind: 'feature',
     items: [
       '1708 Prairie Avenue, next door to the Glessner townhouses, is no longer a draft box. It is now a three-storey brick front under a deep plain cornice, with a stone string course under the frieze, hooded windows, a canted bay rising two storeys on the south, and the entrance at the north end under a bracketed hood.',

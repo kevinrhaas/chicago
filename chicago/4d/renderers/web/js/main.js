@@ -94,6 +94,7 @@ import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
+import { createStreetFurniture } from './street-furniture.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -2282,6 +2283,15 @@ async function boot() {
   });
   scene3d.add(streetTrees.group);
   api.streetTrees = streetTrees;
+  // T-3199 — the district's street furniture (data/street_furniture/<scene>.json): the gas
+  // lamps at every corner and along the parkways, instanced, standing on the parkway's fall
+  // toward the curb. Only a scene listing `street_furniture` is handed a data base.
+  const streetFurniture = await createStreetFurniture({
+    dataBase: layerBase('street_furniture'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_furniture'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+  });
+  scene3d.add(streetFurniture.group);
+  api.streetFurniture = streetFurniture;
 
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
@@ -3090,6 +3100,7 @@ async function boot() {
       // they land, after this commit; a phone lets go of their page arrays then.
       const streetsRebuilt = streets.setDetail?.(level);
       void streetTrees.setDetail(level);
+      streetFurniture.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
@@ -3140,6 +3151,7 @@ async function boot() {
     enclosures.setDetail?.(level);
     // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
     void streetTrees.setDetail(level);
+    streetFurniture.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     // T-2600: cut on the job pool; awaited in the serialised run below, before
@@ -4050,6 +4062,11 @@ async function boot() {
     const treeHit = streetTrees.pickAt(ndc, camera);
     if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
       hit = { ...treeHit };
+    }
+    // And a street lamp's post (T-3199), with its own card: what it is, its grade, its pictures.
+    const furnitureHit = streetFurniture.pickAt(ndc, camera);
+    if (furnitureHit && furnitureHit.record && (!hit || furnitureHit.distance < hit.distance)) {
+      hit = { ...furnitureHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -5082,6 +5099,7 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt, camera);
+    streetFurniture.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
