@@ -18,16 +18,17 @@
   "stream-newspapers-north-owners.json",
   "stream-newspapers-north.json",
   "stream-newspapers-south.json",
+  "stream-st-mary-reference.json",
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 946,
-  "local": 682,
-  "in_period": 602,
+  "images": 947,
+  "local": 683,
+  "in_period": 603,
   "buildings_with_images": 62,
   "buildings": 63,
-  "lots_with_images": 137,
-  "lots": 156
+  "lots_with_images": 160,
+  "lots": 182
  },
  "by_building": {
   "pa-1720-55": [
@@ -2416,6 +2417,322 @@
    "a20-aic-ryerson-building-index-monographs",
    "cgs-2010-robinson-1886"
   ],
+  "indiana_1801": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-kimball-lot-c1888",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-kimball-habs-photo-03",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-inland-architect-1890-10-kimball-notice",
+   "a18-cgy-1801-kimball-early",
+   "a18-chicago-and-its-makers-1929-kimball",
+   "a18-rba-taylor-1801-kimball-c1895",
+   "dw-rb-inland-kimball-1801-entrance-plate",
+   "cgn-1801-randmcnally-1893-strip",
+   "dw-inland-1893-01-kimball-entrance-plate-listing",
+   "cgn-1801-tribune-1904-kimball-headline",
+   "cgn-1801-tribune-1924-kimball-auction-ad",
+   "dw-rb-architects-club-house-kimball-1801",
+   "a18-cgy-1801-kimball-1945",
+   "a18-cgy-1801-kimball-doorway-1961",
+   "cgn-1801-tribune-1961-kimball-headline",
+   "cgn-1801-tribune-1961-kimball-subheadline",
+   "a18-kimball-habs-photo-01",
+   "a18-kimball-habs-photo-02",
+   "a18-kimball-habs-data",
+   "a18-gho-simmerling-kimball-1994",
+   "a18-cgy-1801-1811-modern",
+   "a18-gh-kimball-exterior-2013",
+   "a18-gh-kimball-porch-north-2013"
+  ],
+  "indiana_1803": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1805": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-landowner-1874-plate",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1812-first-house-1874",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-gh-hitchcock-galloway-1874-sketch"
+  ],
+  "indiana_1807": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-landowner-1874-plate",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a18-gh-1812-first-house-1874",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-landowner-1874-glessner-site",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-gh-hitchcock-galloway-1874-sketch"
+  ],
+  "indiana_1809": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "st-randmcnally-1893-p233-west-1700-1800",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1813": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "a18-gh-1911-map-west-1800-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1815": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p233-east-1700-1800",
+   "a18-gh-1800-block-sw-george-glessner",
+   "a18-rba-taylor-9974-prairie-south-from-18th",
+   "a18-gh-1911-map-west-1800-block",
+   "dw-tribune-1898-12-31-sears-1815-lowden-1912-sales",
+   "a19-gh-prairie-1800-1900-elevations",
+   "dw-aabn-1879-sears-1815-burnham-root-plans",
+   "a18-cgy-1815-sears-two-views",
+   "a18-gh-sears-house-exterior",
+   "a18-gh-sears-house-interior",
+   "cgn-1815-sears-dining-room",
+   "cgn-1815-robinson-1886",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "cgn-1815-sears-log-cabin-playhouse",
+   "cgn-1815-text",
+   "a18-cgy-1815-meeker-sold-1915",
+   "cgn-1815-tribune-1949-among-the-authors",
+   "a18-gh-sears-interpretive-panel",
+   "a18-gh-1815-office-building-1981",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1819": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1821": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1825": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-cl1973-p23-kimball-corner-18th-looking-se",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1829": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1833": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-1911-map-west-1800-block",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a18-gh-nickel-prairie-nw-after-1968",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1837": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1839": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-nrhp-1972-district-p24-ownership-lot-map"
+  ],
+  "indiana_1901": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "dw-inland-1883-03-moulton-keith-interiors",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "dw-aabn-1881-keith-1901-permit",
+   "a19-rebj-1886-ream-purchase",
+   "cgs-1901-robinson-1886",
+   "a19-moore-1921-burnham-works-ream",
+   "dw-inland-1887-05-ream-1901-interior-contract",
+   "a19-pictorial-1893-ream",
+   "a19-pictorial-1896-ream",
+   "a19-cgy-1923-randmcnally-1893",
+   "a19-cgy-1901-ream-1898",
+   "nps-1901-tribune-1929-10-27-crerar-mansion-torn-down",
+   "a19-cgy-1901-exterior"
+  ],
+  "indiana_1909": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1913": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1915": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1917": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893",
+   "dw-aabn-1882-03-murray-1919-barn-permit",
+   "a19-cgy-1919-before-1902",
+   "a19-rebj-1884-murray-permit",
+   "dw-aabn-1884-murray-1919-beman-permit",
+   "dw-inland-1884-06-murray-beman-plans",
+   "dw-inland-1885-06-murray-1919-beman-report",
+   "cgs-1919-robinson-1886",
+   "dw-aabn-1887-schwartz-1919-added-storey",
+   "cgs-1919-text",
+   "cgs-1919-inter-ocean-1905-field-jr-headline",
+   "cgs-1919-inter-ocean-1905-field-jr-portrait",
+   "a19-bluebook-1912-gatlin-1919",
+   "a19-cdnalmanac-1913-gatlin-1919",
+   "nps-1919-tribune-1910-12-18-field-residence-lot-60x177",
+   "cgs-1919-gatlin-program-1919",
+   "a19-cgy-1919-later",
+   "a19-gh-1981-fieldjr-1919",
+   "a19-commons-fieldjr-2004",
+   "cgs-1919-tribune-2004-1",
+   "cgs-1919-tribune-2004-2",
+   "cgs-1919-tribune-2004-3",
+   "cgs-1919-tribune-2004-4"
+  ],
+  "indiana_1921": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893",
+   "cgs-tribune-1898-01-09-death-strip",
+   "cgs-1923-robinson-1886"
+  ],
+  "indiana_1925": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1931": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
+  "indiana_1935": [
+   "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "st-randmcnally-1893-p269-west-1800-1900",
+   "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-gh-prairie-1800-1900-elevations",
+   "st-randmcnally-1893-p269-east-1800-1900",
+   "a19-cgy-1923-randmcnally-1893"
+  ],
   "indiana_2007": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
    "a16-newberry-conzen-prairie-elite-1886-map",
@@ -4182,6 +4499,29 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "indiana_2001",
     "indiana_2007",
     "indiana_2009",
@@ -4481,6 +4821,29 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "indiana_2001",
     "indiana_2007",
     "indiana_2009",
@@ -5573,6 +5936,13 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1700",
     "prairie_1701",
     "prairie_1708",
@@ -6790,6 +7160,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1729",
     "prairie_1808",
     "prairie_1816",
@@ -7544,6 +7916,7 @@
    "rights_request": "research/images/rights-requests/ghm-george-glessner-2026-10.md",
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1729",
     "prairie_1801"
    ]
@@ -10237,6 +10610,13 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -11448,6 +11828,13 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -11639,6 +12026,11 @@
     "indiana_1703",
     "indiana_1713",
     "indiana_1727",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
     "prairie_1700",
     "prairie_1708",
     "prairie_1709",
@@ -11816,6 +12208,18 @@
     "calumet_1830",
     "calumet_1832",
     "calumet_1900",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -12929,6 +13333,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1808",
     "prairie_1812"
    ]
@@ -13621,6 +14027,20 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1816",
     "prairie_1823",
     "prairie_1824",
@@ -14764,6 +15184,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901",
     "prairie_1912"
    ]
@@ -14826,6 +15247,15 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1900",
     "prairie_1901",
     "prairie_1905",
@@ -14987,6 +15417,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815",
     "prairie_1912"
    ]
@@ -15308,6 +15739,29 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -15877,6 +16331,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -15938,6 +16393,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -15999,6 +16455,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16060,6 +16517,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16121,6 +16579,7 @@
    },
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16170,6 +16629,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16210,6 +16670,16 @@
    "measurements": [],
    "stream": "streetscape",
    "parcel_ids": [
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
     "prairie_1801",
     "prairie_1808",
     "prairie_1811",
@@ -16279,6 +16749,7 @@
    },
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16326,6 +16797,7 @@
    ],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16375,6 +16847,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16411,6 +16884,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16603,6 +17077,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -16664,6 +17139,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1815",
     "prairie_1815"
    ]
   },
@@ -17031,6 +17507,20 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1823",
     "prairie_1824",
     "prairie_1827",
@@ -18121,6 +18611,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18163,6 +18654,7 @@
    ],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18212,6 +18704,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18248,6 +18741,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18297,6 +18791,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18346,6 +18841,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18395,6 +18891,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18451,6 +18948,15 @@
     "calumet_1922",
     "calumet_1928",
     "calumet_1932",
+    "indiana_1901",
+    "indiana_1909",
+    "indiana_1913",
+    "indiana_1915",
+    "indiana_1917",
+    "indiana_1921",
+    "indiana_1925",
+    "indiana_1931",
+    "indiana_1935",
     "prairie_1901",
     "prairie_1905",
     "prairie_1906",
@@ -18520,6 +19026,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18562,6 +19069,7 @@
    "period": "near-period",
    "stream": "newspapers-south",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -18623,6 +19131,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1901",
     "prairie_1901"
    ]
   },
@@ -19409,6 +19918,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1921",
     "indiana_2029",
     "prairie_1905",
     "prairie_1906",
@@ -22608,6 +23118,10 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808"
@@ -31226,6 +31740,7 @@
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
+    "indiana_1801",
     "prairie_1800",
     "prairie_1801"
    ]
@@ -31644,6 +32159,18 @@
     "calumet_1800",
     "calumet_1830",
     "calumet_1832",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -31763,6 +32290,20 @@
     "calumet_1836",
     "calumet_1840",
     "calumet_1900",
+    "indiana_1801",
+    "indiana_1803",
+    "indiana_1805",
+    "indiana_1807",
+    "indiana_1809",
+    "indiana_1813",
+    "indiana_1815",
+    "indiana_1819",
+    "indiana_1821",
+    "indiana_1825",
+    "indiana_1829",
+    "indiana_1833",
+    "indiana_1837",
+    "indiana_1839",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -33492,6 +34033,7 @@
    ],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33553,6 +34095,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33602,6 +34145,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33651,6 +34195,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33700,6 +34245,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33749,6 +34295,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33798,6 +34345,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33847,6 +34395,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33896,6 +34445,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -33945,6 +34495,7 @@
    "measurements": [],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34006,6 +34557,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34042,6 +34594,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34078,6 +34631,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34114,6 +34668,7 @@
    "measurements": [],
    "stream": "chicagology-north",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34165,6 +34720,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801",
     "prairie_1811"
    ]
@@ -34215,6 +34771,7 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34261,6 +34818,7 @@
    ],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34322,6 +34880,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34384,6 +34943,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801",
     "prairie_1811"
    ]
@@ -34457,6 +35017,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -34518,6 +35079,7 @@
    },
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1801",
     "prairie_1801"
    ]
   },
@@ -35931,6 +36493,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36043,6 +36606,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36098,6 +36662,7 @@
    ],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36153,6 +36718,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36213,6 +36779,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36283,6 +36850,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36332,6 +36900,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36392,6 +36961,7 @@
    ],
    "stream": "drawings",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36434,6 +37004,7 @@
    ],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36483,6 +37054,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36532,6 +37104,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36581,6 +37154,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36630,6 +37204,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36672,6 +37247,7 @@
    "period": "in-period",
    "stream": "newspapers-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36721,6 +37297,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36782,6 +37359,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36849,6 +37427,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36910,6 +37489,7 @@
    },
    "stream": "1900",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36946,6 +37526,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -36982,6 +37563,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -37018,6 +37600,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -37054,6 +37637,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1917",
     "prairie_1919"
    ]
   },
@@ -44156,6 +44740,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "indiana_1921",
     "prairie_1923"
    ]
   },
@@ -46051,6 +46636,8 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
+    "indiana_1805",
+    "indiana_1807",
     "prairie_1808"
    ]
   },
@@ -52013,6 +52600,49 @@
    "parcel_ids": [
     "prairie_1608"
    ]
+  },
+  {
+   "id": "early-moss-1884-st-marys",
+   "kind": "engraving",
+   "title": "Saint Mary's Church.",
+   "building_ids": [],
+   "addresses": [],
+   "streetscape": true,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "1884 publication; depicted year undated",
+   "date_earliest": 1884,
+   "date_latest": 1884,
+   "period": "in-period",
+   "creator": "Moss Engraving Co., New York (engraver); A. T. Andreas (publisher)",
+   "repository": "A. T. Andreas, History of Chicago, volume 1; digitized at Internet Archive",
+   "collection": "History of Chicago, volume 1 (1884), printed page 291",
+   "call_number": null,
+   "catalog_url": "https://archive.org/details/historyofchicago01andr",
+   "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/bffc4cff33670bde34e718751ea8712e087eef8b/chicago/reference/images/chicago/chicago_st_marys_church_1843.jpg",
+   "rights": "public domain",
+   "rights_basis": "Exact engraving located in the 1884 US publication, not inferred solely from the modern reproduction's label. The 1884 printed illustration is public domain in the United States; no modern editorial text is reused as an asset.",
+   "local": {
+    "display": "research/images/files/early-moss-1884-st-marys.jpg",
+    "display_bytes": 570620,
+    "thumb": "research/images/files/early-moss-1884-st-marys-thumb.jpg",
+    "thumb_bytes": 22068,
+    "original_px": [
+     2671,
+     3110
+    ],
+    "original_sha256": "e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+    "original_bytes": 1974915,
+    "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/bffc4cff33670bde34e718751ea8712e087eef8b/chicago/reference/images/chicago/chicago_st_marys_church_1843.jpg",
+    "fetched": "2026-10-26"
+   },
+   "verified": "viewed",
+   "found_via": "Existing project-held reproduction, source andreas_1884_st_marys_engraving; held SHA256 e0c28e377dce83fe936cf74a2fd76186269ce6e6ec864182f5f49f37d0f7a1f2",
+   "notes": "The whole engraving shows the long low wooden St Mary's with five long-wall sash, an end door, open belfry/cross and one far stack. This is the existing held reproduction of the independently verified Andreas 1884 printed p.291, not a newly recovered original scan. The file's 1843 suffix is not a printed depiction date. Publication 1884 does not establish its appearance, tower installation or location in July 1835. Andreas p.290 dates initial tower absence to 1833 and a low open tower only to some time afterwards. The existing 1835 belfry choice remains reconstructed. The provisional solved camera is diagnostic_only, so the undated engraving offers no invented historical From this spot. The original image-match ticket remains open for the noticeable sash-height discrepancy.",
+   "measurements": [],
+   "stream": "st-mary-reference",
+   "parcel_ids": []
   },
   {
    "id": "dw-aabn-1885-hamlin-1621-farwell-1626-treat-foltz",

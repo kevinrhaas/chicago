@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 160012788,
+ "bytes": 160605476,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4780,6 +4780,14 @@
   "dw-rb-sketch-club-second-presbyterian-shaw-interior.jpg": {
    "bytes": 175446,
    "sha256": "ffb8718a0ce6ec0f45a1799f9878c0d15a6b4ad9fc0af83cd2704b403b788729"
+  },
+  "early-moss-1884-st-marys-thumb.jpg": {
+   "bytes": 22068,
+   "sha256": "87c44065a3250f88008a4621e2cda22d896d2e6a81672b4242895cfeba539b67"
+  },
+  "early-moss-1884-st-marys.jpg": {
+   "bytes": 570620,
+   "sha256": "f8e09b8e14f3d0ae56ae7664233b631b142f92009d09f0e0f2c6c11e88730571"
   },
   "np-1630-school-directory-1905-06-louisa-brust-thumb.jpg": {
    "bytes": 26992,

@@ -56,3 +56,44 @@ how it was fitted and how far it holds.
 No generator rule was changed: every part is the K01, K02, K05 and K08 kits as they stand. The front
 is K02's Bedford limestone because the Lemont profile cannot course a base under a 2.35 m principal
 floor.
+
+## T-3163 (piece 2 of T-1894) — the pictures worked down
+
+**The engraving's camera, re-solved.** Read again with a pixel ruler, the pavilion's front corners
+stand at x 1035 and 1232 px, not the 990 and 1155 px T-3162 fitted to, so its camera put the pavilion
+about 60 px left of the print and its cornice about 65 px low, and every front opening read through
+it came out 0.5-1.4 m north of its place. The new fit (eleven readings, 11 px RMS; its `solve` says
+which) moves the eye back across the avenue to u 55.5, v -24.8 and lands the mansard's curb, which
+it was not fitted to, on the print's. Through it:
+
+| what | T-3162 | T-3163 |
+|---|---|---|
+| the triple group's lights (v) | 0.88, 1.9, 2.92 m | 1.6, 2.75, 3.9 m |
+| the door (v) | 4.85 m | 6.2 m |
+| the north flank's columns (u) | 2.1, 4.3, 8.4, 10.9 m | 0.25, 2.15, 5.0 (chamber storey), 7.35, 11.0 m |
+| the rear range's columns on the flank | three | one (the wall from x 140 to 225 px is blank) |
+| the north stack (u, top) | 7.6 m, 18.3 m | 7.8 m, 17.5 m, on the cornice |
+
+**The vignette's camera, solved.** `album_1883.json`, on a cut of the plate committed with its
+attribution at `data/sources/assets/dent_1823_album_1883_t3163/`: ten readings, 5.5 px RMS at
+about 13 px a metre, so a cross-check rather than a measurement. It agrees with the engraving's
+places within about 5 px, and with the curb's height where the engraving draws it higher.
+
+**Built from the pictures:** the north flank's box bay under its hood (K08's rectangular bay; its foot
+carried to grade 0.5 m proud, since K08's corbelled oriel stands only on an upper floor: open); the
+pavilion carried up an attic with paired lights under a coped stone gable and finial (K08's gable,
+1801's), replacing the hipped crown, which is what lets the deck carry its iron cresting (K10's);
+paired-light gabled dormers on the street face and the north flank; K09 cornice hoods over the front's
+windows and surrounds on the pavilion's; the stoop climbing from the north along the front (K01's side
+stoop, 1621's). One generator fix, in the parameter module only: the side stoop's check against a
+street-front bay read a bow's `chord_m` and failed on a projection sized by `width_m`.
+
+**Still open** (the match records): the triple group's broad dormer, whose pediment rises over the
+curb in both pictures; the stack over the rear range; the grilled arched doorway under the landing;
+the narrow light beside the door on the principal storey; the box bay's corbelled foot; and, on the vignette, the slated cheeks
+either side of the pavilion's pedimented attic. Each needs K01 to do something it does not, so the
+ticket is released with the records saying so (T-3153: no photo follow-up tickets from a run).
+
+- before: `before-t3162-chicagology_engraving.jpg` (T-3162's build through T-3162's camera)
+- after: `../photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg` and
+  `album_1883-side-by-side.jpg`

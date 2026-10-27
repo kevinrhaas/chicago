@@ -24706,7 +24706,7 @@ done by this increment. New-head checks are pending until their receipts exist.
 ## T-3056 — early-building image credits and evidence limits (2026-10-23)
 
 St Mary's exact1884 engraving and mediated May1844 diary are credited without
-inventing an1843 picture date or a tower addition day. Current July1835 form stays;
+inventing an1843 picture date or a tower addition day. Current July 1835 form stays;
 tower absence becomes an inference, and the whole-building picture is graded
 separately. Beaubien's card corrects the unsupported pre1817/oldest-house rationale
 and labels the panorama's building identity unresolved. The jail inventories
@@ -24719,7 +24719,7 @@ until actually run; isolated studies are not canonical scene phases.
 Loading-card follow-through: the first complete local preflight found one stale
 claim among 1,049 checks: loading_009 called no steeple in1835 attested and cited
 the old indirect source. The card now says St Mary's gained a steeple after it
-was built but its addition year is uncertain, uses Andreas1884 and preserves
+was built but its addition year is uncertain, uses Andreas 1884 and preserves
 the inferred grade. The existing160-card check and five negative fixtures pass.
 Source-use backlinks are being regenerated; the final full gate and combined
 published mobile/desktop card checks remain pending. The first failed run is
@@ -24825,7 +24825,7 @@ or final shared/source-ticket closure is claimed by this checkpoint.
 
 The first current-M strict run failed six of1056 checks; its complete failed transcript is retained. The version fixture now copies the real flag reader rather than omitting the runtime contract. Its unchanged assertions pass. The three new steps and changed version/stack tools have measured isolation rows; the native audit passes all1029 keyed steps. Native rights remeasurement removes only the repaired Sauganash shutter citation and refreshes existing1736 Prairie corroboration metadata; no unresolved-source population grows. The native lodging model now follows Tremont's three storeys, redistributing ordinary-night capacities within the same total and35-person ceiling; it creates or moves nobody.
 
-The offset Tremont stacks already clear their local roof. The old highest-stack/global-ridge bound could not measure that scheme faithfully. The bounded new path decodes actual GLB shaft/cap and roof triangles, checks complete roof coverage under every cap and tests every stack against the unchanged18-inch minimum. All441 old-scheme readings are exact. The four actual local clearances are1.63754,0.48754,0.88754 and1.08754m; a single shortened stack fails independently, and malformed/missing mesh data fail closed. Geometry, camera, phase and surveyed placement are unchanged. The ordinance remains the existing dimensional ratchet, not evidence of a dated July1835 fitting.
+The offset Tremont stacks already clear their local roof. The old highest-stack/global-ridge bound could not measure that scheme faithfully. The bounded new path decodes actual GLB shaft/cap and roof triangles, checks complete roof coverage under every cap and tests every stack against the unchanged18-inch minimum. All441 old-scheme readings are exact. The four actual local clearances are1.63754,0.48754,0.88754 and1.08754m; a single shortened stack fails independently, and malformed/missing mesh data fail closed. Geometry, camera, phase and surveyed placement are unchanged. The ordinance remains the existing dimensional ratchet, not evidence of a dated July 1835 fitting.
 
 Fresh derived output/published mirror, the complete corrected strict run and final-head published smoke remain pending. The earlier12-card acceptance and later failure are separate recorded checkpoints; no final merge readiness or original image-match completion is claimed.
 
@@ -25053,6 +25053,45 @@ The adopted correction defers the existing far-rail sections until their unchang
 The new native lifecycle fixture holds the production rail geometry, all three tiers, boundaries, drop/rebuild identity and upload marking. Current actual walking/picture checks, final native/preflight and current hosted qualification remain pending on PR#1333. The source hash changes, but neither1835 nor1812 contains a railway consumer; their physical inputs and the reviewed selected12 plus dated8cd parts5–11 plan remain explicit. No current whole18 or global equality is claimed. Original T-2380 remains DIFFERS.
 
 Actual published phone review completed at19:55UTC: walking north/south, flying, leaving and returning correctly upload, drop and rebuild rail zones; a vertical pick resolves the actual track; the app switches Full and back to Light. Native baseline and deferred layers on the same terrain/camera/world have identical visible rail attribute/index bytes and zero differing pixels in five304,200-pixel held frames, including after rebuild. Hiding the rails changes19,587/18,380 pixels in the two street controls. Page, network and console-error lists are empty. An extra raw GL diagnostic1281 occurs at the first pose in BOTH the exact b3fb baseline and candidate; later pose queues are empty. It is retained as an existing qualified diagnostic, not described as zero GL errors. Final preflight/current hosted qualification still remains required.
+
+
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original 25 by 35 ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared 1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed 30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. The genuine 271 masters and 271 pinned web derivatives are complete; all 270 default web files are byte-identical, with exact actual-master physical/material/normal/confidence/node controls. The current native derived fixed point, official source record, app/grounded review and full gates remain owed. Original T-2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 source comparison update (2026-10-26): the actual canonical Moss comparison
+is registered as **differs**. The major chapel-form corrections are visible, while
+the retained generic sash sill/head appear about 0.4–0.6 m too low by wall-relative
+proportion, an uncertain but plausibly noticeable remaining difference. The record
+keeps that OPEN; date/identity and camera/source disagreements are disclosed limits
+or within tolerance, not additional automatic geometry blockers. No new geometry
+variant or follow-up ticket is added. After the bounded PR passes its actual app/code
+gates and merges, original T-2384 is to be released for that remaining setout.
+
+
+T-2384 carrier update (2026-10-26): PR #1334 also carries the four checked strict smoke-oracle repairs from 6a61ab6e after actual merged/folded dev a575ddde. The five opaque plus one source-bound lighthouse glass batches, independently transformed data-footprint reference, and exact 1904 rear-range set require fresh terminal full eighteen-part coverage on this combined head. The donor opacity runtime predicate is not accepted from old scoped passes. No new model geometry, placement, bake or source-date claim is introduced by these gate repairs. The Moss vertical sash setout remains OPEN.
+
+
+T-2384 cumulative draft checkpoint (2026-10-26): checked Jail PR #1333 head 8cd2db60 is integrated as an upstream dependency while this PR remains based on dev. The earlier Mary 3f74a551 source passed all eighteen native published groups; that old-base result does not certify the combined world. Supported native regeneration, current all-three preflight and a fresh exact-head eighteen-group matrix are pending for this cumulative candidate. Jail must land first; before ready/merge, actual dev must be integrated and the native global smoke-input hash compared with the frozen tested candidate, with a fresh stage 13 at both viewports when only the separately hashed changelog changes. The original Moss vertical sash setout remains open; no original image-match completion is claimed.
+
+
+### T-2384: credited engraving on the Images card (2026-10-26)
+
+The existing public-domain Moss engraving is now linked through one canonical library record for an inline card image and thumbnail. Publication 1884 is not a depicted year; the filename 1843 remains non-evidence. The same provisional camera is explicitly diagnostic_only, removing the invented historical From this spot. The original footprint, body, sash, belfry and all MASTER/WEB geometry are unchanged. The source and library aliases count one physical picture, preserving the attested structure grade and every per-attribute grade. Original T-2384 remains OPEN/DIFFERS for the noticeable sash-height gap; the optional sill API proposal is not adopted. The fresh native same-camera comparison remains DIFFERS for the existing sash gap; geometry, pose and source image are unchanged. The first metadata tail stopped on scratch storage exhaustion at step197, with its failure retained. The serialized 57-step retry, package and publish have now passed, including all 44 binary artifacts and all protected source/model bytes. The current full gate and both-viewport inline-image checks remain pending.
+
+
+## T-2386 — Wolf Point roof tone, 2026-10-26
+
+The first genuine stock-darkened roof/mobile comparison passed technical native checks but remained visibly pale; desktop was canceled before launch, not reported as passed. Replace only that provisional new condition field with explicit reconstructed `roof_colour=deep_brown`, a keyword-only LogDwelling opt-in using one quarter of existing darkened stock linear RGB. All default outputs/common finishes remain unchanged; its uncertainty reaches every roof face. Native 82-master/82-WEB refresh, default/nonfamily protection, final candidate mobile/desktop and all-picture source acceptance are pending. No geometry change, source-rights upgrade, new ticket or matches claim. Original T-2386 remains open.
+
+T-2386 native production: exactly82 genuine canonical masters and82 real pinned WEB outputs completed; all81 default master/WEB pairs are individually byte-identical, all nonfamily/source/people controls exact, and Wolf changes only roof basecolour with its roofconfidence1.0 preserved. Final native metadata closure, source comparison and actual candidate app remain pending; no matches or commit claimed.
+
+T-2386 integration: the genuine deep-brown82 source/assets were preserved before normal fast-forward to dev a575. Exact checked shared strict smoke/drawn-placement repairs from 6a61 are included; incoming source, records, changelog and registry entries are retained. Native closure, final app checks and full preflight on this combined tree remain pending.
+
+T-2386 cumulative draft checkpoint (2026-10-26): checked Jail PR #1333 head 8cd2db60 and checked Mary PR #1334 head bffc4cff are upstream dependencies while this PR remains based on dev. The earlier Wolf 4fe7d4ba passed all eighteen native published groups; that old-base result does not certify this cumulative world. Supported native regeneration, the complete binary audit, current all-three preflight and a fresh exact-head eighteen-group matrix are required for this candidate. Jail and Mary must land first. Before ready/merge, integrate actual dev and compare the native global smoke-input hash with this tested candidate; rerun stage 13 at both viewports when only the separately hashed changelog changes. All eight original picture acceptances remain unfinished; no original image-match completion is claimed.
+
+T-2386 current-dev ending (2026-10-27): the genuine checked 562 roof-tone increment is retained byte-for-byte on actual Mary merge d210 and current dev ed250, including the new 1904 Pullman work. Jail and Mary have landed; their original picture gaps remain open. The earlier 562 eighteen-group results are dated coverage, not a current whole-suite claim. Current native validation, targeted published phone/desktop roof/card/ground review and named affected smoke groups are to be bound to this candidate, with exact active-1835 physical and renderer input comparisons used to carry unaffected dated coverage. The source card retains its credited Blanchard/Shober/NYPL link: the existing non-1904 inline-library join requires a genuine solved camera, and no Wolf camera or historical From this spot is invented to create one. The roof colour remains reconstructed, not sampled authentic colour, and all eight original picture acceptances remain unfinished.
 
 
 ### T-2793 — source-guided farm-box master in preparation (2026-10-26)

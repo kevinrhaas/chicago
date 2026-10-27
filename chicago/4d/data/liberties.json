@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 796,
+  "count": 799,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -41571,15 +41571,23 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": null,
+      "revised": "2026-10-26",
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown; a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top. From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The pavilion's pediment of paired lights in front of its steep roof, which stands about 2 m higher than K05's steepest hipped crown reaches; the mansard's cresting; the broad carved pediment over the triple group (K05's gable head over one sash); the north flank's paired lights under one pediment; the north flank's one-storey box bay under a hood; the stack at the north flank's rear, over the rear range, where K01 stands no stack; the stoop that climbs from the north; the narrow light beside the door; the grilled arched basement doorway under the landing; the moulded window heads and surrounds: open on the match record."
+          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing; the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-26 (T-3163, piece 2 of T-1894). The engraving's camera is re-solved (its pavilion corners had been read about 60 px out) and the front's and the north flank's openings re-read through it; the 1883 vignette's camera is solved, from a cut of the plate committed at `data/sources/assets/dent_1823_album_1883_t3163/`. Built from the pictures: the north flank's box bay under its hood; the pavilion carried up an attic with paired lights under a coped gable and finial (T-3162's hipped crown is gone); the deck's iron cresting; paired-light dormers; K09 cornice hoods over the front's windows and surrounds on the pavilion's; the stoop climbing from the north; the north stack on the cornice."
+        },
+        {
+          "label": "Invented by later work",
+          "text": "the box bay's 0.5 m depth and its foot carried to grade (the pictures corbel it out at about 1.8 m); the pavilion attic's height and the gable's pitch; the cresting's pattern (K10's kit) and height; the dormers' sash sizes; the cornice hoods' profiles; the stoop's landing length and its cheek's stone."
         },
         {
           "label": "How to resolve",
-          "text": "Later work builds those, solves the 1883 vignette's camera, and brings the match records to `matches`."
+          "text": "the remaining open items need K01 to stand a stack over a rear wing, a dormer through the curb, an opening under a side stoop's landing and a light between the door and a pavilion, and a pavilion crown with slated cheeks round a pedimented attic; only the owner opens new work on a photo-gated house."
         },
         {
           "label": "Covers",
@@ -41591,13 +41599,14 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-26 (T-3162)."
+          "text": "2026-10-26 (T-3162); revised the same day by T-3163."
         }
       ],
       "work_refs": [
         "T-3162",
         "T-1894",
-        "T-3163"
+        "T-3163",
+        "T-3153"
       ]
     },
     {
@@ -56504,6 +56513,38 @@
       ]
     },
     {
+      "id": "L-pullman-1729-flank-stack-3161",
+      "title": "1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows standing on the 18th Street flank's cornice just east of the south-west corner pier and carried up in front of the mansard's face to a moulded cap well over the deck (`chimneys.stacks[2]`, on cornice). The camera is solved in the research notes on photo match (the album print `a16-aic-taylor-album-pullman-p69`; the print `a16-aic-taylor-pullman-from-nw` is the same negative). **What is read, not invented.** The stack's place on the flank, its base on the cornice at x 487-522 px (y 272-292) against the corner pier at x 447, so its 1.1 m face at u 24.25-25.35 with its west side seen beside it; its cap at y 160, 18.7 m through the camera, against the curb's 16.9 m. The 1890 Albertype plate (albertype 1890 camera) shows a tall stack rising behind the tree just east of the corner pier, where this one falls through that camera. **What is invented.** Its depth across the wall line (0.8 m, its outer face 0.47 m out inside the 0.6 m cornice, its inner face clear of the deck's curb so the cresting runs behind it), its cap's projection and depth (0.15 and 0.4 m), and its stone, laid in the walls' own. The photograph shows a band under the cap and a sunk panel on the shaft that are not built. The two deck stacks at (10, 5.5) and (18, 12.5) stay reconstructed: the Detroit print shows a stack near where the second falls, and Taylor's does not show it, and the two are left to a picture that settles it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a larger copy of either Taylor print, or the CHM 1905 views, reads the stack's depth and its cap; the rights question on this work decides whether the Taylor prints can be committed as reference copies, so the camera can join the image gate."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3161)."
+        }
+      ],
+      "work_refs": [
+        "T-3161"
+      ]
+    },
+    {
       "id": "L-kimball-1801-east-frontispiece-3110",
       "title": "1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows",
       "section": "per_subject",
@@ -56785,6 +56826,133 @@
       "work_refs": [
         "T-3165",
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-st-mary-chapel-front-2384",
+      "title": "A pictured chapel form for St Mary's",
+      "section": "per_subject",
+      "subjects": [
+        "st_marys_church"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.chimney_placement"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.tower"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Building",
+          "text": "St. Mary's Catholic Church."
+        },
+        {
+          "label": "Decision",
+          "text": "transfer the undated Moss engraving's five long-wall sash, end door, blank gable and open belfry/cross into the original 1835 range as **reconstructed** appearance (Saint Mary's Church — wood engraving in Andreas's History of Chicago, volume 1…, Andreas 1884 vol.1 p.291). Andreas p.290 says the church had no tower when built in 1833 and received a low open tower and bell \"some time afterwards\". That interval does not establish presence or absence in July 1835. This reconstruction chooses presence; it does not claim a dated installation, a date for the engraving or proof that its later appearance stood at the original site."
+        },
+        {
+          "label": "What is chosen",
+          "text": "five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71 of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the existing stud module. The six-opening count and transfer to 1835 are reconstructed. Existing sash size, glazing, casing, sill and threshold are retained. Both gables are blank: the near one is pictured; the unseen far one is reconstructed. The one existing stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged."
+        },
+        {
+          "label": "Belfry scantlings",
+          "text": "a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end straddles the body ridge. Its lower edge follows the roof slopes with 30 mm penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach 2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm high, hangs within the open frame. These sections, profiles, material assignments and placements are reconstructed, not measured schedules; the bell's dark appearance does not establish an alloy or a paint colour from a monochrome engraving."
+        },
+        {
+          "label": "What is retained",
+          "text": "the original 25 by 35 ft footprint, location, dates, storey, wall height, gabled body type and unpainted body finish. The reconstructed 30 degree body pitch replaces the older typological 38 degrees after the first actual comparison showed a conspicuously high ridge. It is a selected shape, not a measured roof angle. No later enlargement or relocation is adopted. This supersedes “The town's three worship buildings wear a dwelling's facade”'s generic house-front placeholder and the 2026-10-23 conservative tower omission for St Mary's only."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated original-site elevation or alteration account could replace the temporal reconstruction. The actual source comparison records remaining visible differences under the owner's stopping rule; no complete picture match is claimed by a field value or this entry alone."
+        },
+        {
+          "label": "Covers",
+          "text": "`st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-2384"
+      ]
+    },
+    {
+      "id": "L-wolf-point-roof-tone-2386",
+      "title": "A picture-bounded roof tone",
+      "section": "per_subject",
+      "subjects": [
+        "wolf_point_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wolf_point_tavern",
+          "phase": "log_frame_1828",
+          "aspect": "form.roof_colour"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`wolf_point_tavern.log_frame_1828.form.roof_colour`."
+        },
+        {
+          "label": "Decision",
+          "text": "Explicitly select the optional deep brown roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes."
+        },
+        {
+          "label": "Source and limits",
+          "text": "Wolf's Point in 1833. Hand-coloured lithograph, published by Rufus Blanchard…: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening."
+        },
+        {
+          "label": "Production",
+          "text": "The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0."
+        },
+        {
+          "label": "Verification owed",
+          "text": "The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and later work's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-2386)."
+        }
+      ],
+      "work_refs": [
+        "T-3153",
+        "T-2386"
       ]
     },
     {

@@ -5933,6 +5933,17 @@ T-2380 current ending: hosted1904 phone403.3/400 failure is retained. Deferred e
 T-2380 rail headroom review is now complete: actual normal walk/upload/drop/rebuild/pick and Full→Light passed; five same-frame baseline/candidate pictures and visible rail geometry are exact. Baseline/current first-pose GL1281 remains explicitly qualified; page/network/console errors are zero. Final preflight and current hosted ending remain pending.
 
 
+### T-2384: St Mary pictured chapel form (authored 2026-10-25)
+
+The original25 by35ft range now opts into a reconstructed open belfry/cross, five long-wall sash and an end door. The existing one stack moves to the far gable; chapel ends are blank. Tower presence, dimensions and shape are a declared1835 choice within the text's undated addition interval, not dated evidence or a backdated enlargement/relocation. Original footprint/position/dates/body height/gabled type/finish are retained. The first actual private comparison exposed an oversteep body ridge and broad/squat belfry; a reconstructed30 degree body pitch and slimmer frame/taller cap correct those visible shapes, without claiming metric calibration from the provisional camera. Genuine271 masters/web, current native derived fixed point, source/app/grounded review and full gates remain owed. OriginalT2384 remains unfinished; actual comparisons will determine acceptance under the visitor-noticeable stopping rule.
+
+
+T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving through the existing library/store path, use one canonical picture ID, and mark the undated provisional camera diagnostic_only. Geometry and solved camera are unchanged; the original sash-height discrepancy remains in T-2384. The separate optional sill API/family rebake is not adopted in this bounded ending.
+
+
+T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
+
+
 ### T-2793 licensed farm-box master continuation — 2026-10-26
 
 Concrete separate source now preserves the licensed Old Cart's weathered boards, shaped hubs, iron fittings and UV/maps while reconstructing W01 metre scale, independent wheel radii, neutral steering, single-pole attachment and portable interfaces. Finish on actual matched native images, full turn/ground/contact checks, meaningful near/mid/far deliveries and measured current published desktop/mobile qualification. Preserve the original80 wagons and three fine-wood placements until new exact-source acceptance; no photographic or occupied/traffic closure from the development model.

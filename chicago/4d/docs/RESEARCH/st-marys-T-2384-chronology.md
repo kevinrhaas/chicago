@@ -58,3 +58,97 @@ No canonical phase or incomplete builder is enrolled in this source-only patch. 
 ## Validation and blast radius
 
 The proposal contains three source records, the picture ledger correction, this report, and record-only disclosure corrections in `st_marys_church.json`. The phase dates, position, footprint and all consumed generator attributes retain their values. The tower confidence changes to `inferred`, so a recipe that serializes all attribute confidences may stale the St Mary's asset despite unchanged geometry; parent integration must measure freshness rather than restamp a manifest by hand. No generator, other structure, GLB, scene, camera or match record is changed. Light checks validate the JSON schemas, unchanged geometry fields and existing frame parameters. No Blender, browser, export, full gate or image-match review was run for this proposal.
+
+## 2026-10-25: picture-bounded original-site chapel reconstruction
+
+The original-site model now chooses the engraving's recognizable open belfry, cap,
+cross and five-sash/end-door frontage for 1835. This is an explicit reconstruction
+within the unresolved addition interval; the sources do not establish a dated 1835
+belfry or date the engraving. The source chronology above remains valid. The earlier
+no-tower choice is superseded by a different declared reconstruction, not by a newly
+discovered installation date. No later enlargement, relocation or new phase is
+selected through the 1835 sidecar. The original 25 by 35 ft footprint, position,
+documented range, storey and body wall height remain unchanged. The gabled type is
+retained, while a reconstructed 30 degree pitch replaces the earlier typological 38
+degrees: the first actual private comparison showed the body ridge conspicuously too
+high. The provisional camera is not a metric calibration; this is a bounded visual
+shape choice. The narrower belfry and taller cap likewise address the actual visible
+proportions rather than being presented as measured scantlings.
+
+The opt-in `plan: chapel_side` has six bays: five sash followed by an end door.
+Resolved stations live in a hashed property shared by the builder and native entrance
+reader. Both gables are blank; the near one is pictured and the unseen far one is
+reconstructed. The existing single stack moves to the far end through an explicit
+reconstructed placement attribute. The open tower has a boarded plinth, four posts,
+low crossed rails, curved braces, a small hanging bell, concave pointed cap and cross.
+All new presence, positions, sections and profiles are reconstructed; see the liberty.
+
+The existing 12-over-12 sash is 0.766 m wide and 1.432 m high. Its oblique projection
+will be compared with the engraving before choosing any different reconstructed glass
+size. No source pixel or foreshortened opening is treated as a measured pane schedule.
+
+Every other frame dwelling retains its prior geometry by default. Actual exports and
+web derivatives for all 271 phases, native derived fixed point, source/app comparison
+and complete gates are still pending at the authored checkpoint. The external coarse
+body-camera fit is provisional, not rendered or accepted; it does not date the picture
+or move geometry/placement to fit. Acceptance will use the actual comparison and
+discrepancy register under the owner's good-enough bar.
+
+### Other held pictures checked during the frontage work
+
+The complete `chicago_st_marys_cathedral_1848.jpg` is captioned FIRST CATHOLIC
+CATHEDRAL and shows a different Greek-front building, not this small wooden range.
+The complete `chicago_panorama_st_marys_college_1849.jpg` is a view *from* the college,
+not an elevation of the wooden church. Neither supplies geometry for this change.
+
+A further held file, `chicago/reference/photos/old-st-marys-church-woldstmarys_CONTRAST.jpg`,
+is a 696 by 530 sepia photographic view of a similar small wooden church with a blank
+gable, open belfry and end entrance. It appears to have three long-wall sash rather
+than the Moss engraving's five. Its creator, holder, original date, depicted building
+identity and publication provenance have not been located in the held source records;
+the filename and visual resemblance do not establish them. It is an unattributed
+diagnostic, not a new geometry source or a licensed comparison asset in this work.
+The differing opening count is therefore recorded as an unresolved picture/state
+question, without claiming a new date, identity or independent corroboration.
+
+### Native export checkpoint, 2026-10-25
+
+The corrected shape has now been emitted by Blender 4.5.3 LTS for all 271 frame
+phases, with every genuine web derivative refreshed by the pinned 4.5.0 pipeline.
+St Mary's actual canonical master is byte-identical to the corrected private
+comparison: 206,184 bytes and 2,542 triangles. The same provisional camera rendered
+both versions. The lower roof and narrower, taller belfry were independently viewed
+and approved for the family build, which is not an image-match verdict.
+
+All 270 other actual master exports preserve exact oriented triangle positions,
+normals, confidence values and non-UV attributes, plus node, scene and material
+metadata. Fifty-seven masters are byte-identical; the other 213 differ only in
+unused UV or binary ordering. All 270 genuine web controls are byte-identical and
+also passed an independent meshopt-decoded comparison. The selected master hashes
+are current; unselected registry rows and the nine frozen authored files remained
+unchanged throughout the commands.
+
+The batch driver's final audit initially compared the wrong web-registry level
+(the outer object instead of `masters`). The original failed receipt is retained.
+A separate audit of the actual per-master schema passed without rerunning or
+changing any export. Native derived fixed point, the official reference-view
+record, published app review, complete check, PR and merge are still pending.
+
+### Official source comparison, 2026-10-26
+
+The single registered `moss-engraving` comparison now binds the actual canonical
+master and the unchanged numerical camera. It records **differs**, with one plausible
+street-noticeable remaining gap: vertical sash setout. The generic opening sill is
+0.95 m and its head is 2.382 m, leaving 0.818 m below the 3.2 m plate. The engraving
+shows higher window heads close beneath the eaves and higher sills. Wall-relative
+proportions suggest an upward shift around 0.4–0.6 m, with substantial uncertainty;
+that is not a surveyed or calibrated metric reading. No further geometry variant
+was built for this bounded PR. The remaining setout belongs in original T-2384's
+register, with no new follow-up ticket.
+
+The corrected chapel topology, open belfry and lower roof are fixed differences.
+Date and identity uncertainty are disclosed limits. Pixel, camera/groundline and
+conflicting-picture gaps are within tolerance under T3153, rather than being
+automatically classified OPEN. In particular, the unattributed three-sash diagnostic
+does not establish a different 1835 count or license a new derived comparison.
+Published app review and the complete code/PR gates remain separate requirements.
