@@ -100,23 +100,23 @@
           "note": "RECONSTRUCTED as to the stone: the print is monochrome and shows a light ashlar with darker courses between lighter ones; Lemont limestone, K02's light Chicago stone, stands for it. Laid in smooth courses over a two-course base to the basement lights' heads. The alternating course heights the photograph shows are not laid (open in the match record)."
         },
         "principal_floor_m": {
-          "value": 2.0,
+          "value": 1.3,
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "Read through the photograph's camera (data/reference_views/doane_house_1827_prairie/chicagology_doane_exterior.json): the water table over the raised basement stands about 2.0-2.2 m over the house's grade at the corner (y 1450 px against grade at y 1580 and the cornice at y 840)."
+          "note": "T-3189: read through the photograph's camera (data/reference_views/doane_house_1827_prairie/chicagology_doane_exterior.json) as T-3176 re-solved it on the 1911 sheet's plan: the water table's top over the raised basement stands at y 1452 px on the front beside the pavilion, grade there at y 1556-1561, about 1.3 m over grade (T-3171 had 2.0-2.2 m through a camera that stood on an assumed corner point and set the house about a third too tall). The pavilion's reads the same (y 1455 px, 1.24 m)."
         },
         "storey_heights_m": {
           "value": [
-            5.5,
-            5.1
+            4.0,
+            4.1
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "Through the photograph's camera: the string course between the storeys about 7.5 m over grade (y 1140 px) and the cornice's top about 12.6 m (y 840 px), over a frieze above the second-storey windows' heads."
+          "note": "T-3189, through the re-solved camera: the string course between the storeys at y 1128 px on the front (about 5.3 m over grade; 5.1 m on the pavilion's face), and the main cornice's top at y 790 px (about 9.4 m; 9.5 m on the pavilion), over a frieze and bed moulding at y 855 px (8.6 m) above the second storey's heads. So 4.0 and 4.1 m over the 1.3 m water table; T-3171's 5.5 and 5.1 m put the cornice at 12.6 m."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -180,7 +180,7 @@
         "mansard": {
           "value": {
             "variant": "k05.roof.mansard_convex",
-            "lower_rise_m": 4.2,
+            "lower_rise_m": 2.9,
             "lower_pitch_deg": 75,
             "bulge": 0.0,
             "dormers": [
@@ -196,7 +196,7 @@
                   "sill_m": 0.15
                 },
                 "surround_m": 0.25,
-                "face_setback_m": 0.1
+                "face_setback_m": 0.05
               },
               {
                 "face": "street",
@@ -210,7 +210,7 @@
                   "sill_m": 0.15
                 },
                 "surround_m": 0.25,
-                "face_setback_m": 0.1
+                "face_setback_m": 0.05
               }
             ],
             "storeys": 1,
@@ -221,7 +221,7 @@
               "overhang_m": 0.65,
               "pitch_deg": 47,
               "end_pitch_deg": 47,
-              "attic_m": 4.2,
+              "attic_m": 2.9,
               "finial": {
                 "height_m": 1.0,
                 "radius_m": 0.15
@@ -232,7 +232,7 @@
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "Through the photograph's camera: the slated lower faces rise steeply from the cornice (about 12.6 m) to the curb (about 16.8 m); a dormer under a pediment stands on the front over the window bay south of the pavilion (x 650-770 px) and another over the porch at the north end (x 190-250 px). T-3175: the pavilion's crown, read off the photograph through its camera: the pavilion is carried up an attic from the main eave (12.6 m, y 845 px) to its own cornice at about y 605 px (16.8 m, the main curb's height; attic_m 4.2), under a steep slated roof hipped on every side from that cornice (x 350-597 px) to a point at about y 410 px (about 20.2 m) with a turned iron finial to about y 355 px (about 1 m). Built as K05's hipped crown: 47 degrees on the sides and the street end (the photograph's rise of about 3.4 m over a half-width of about 3.4 m reads 45 degrees; 47 is the nearest the kit's steep range allows, its ridge about 20.5 m), the cornice 0.65 m past the pavilion's face and sides (the kit's least past the main cornice's 0.6 m; the photograph's stands about at the pavilion's sides), run 6.0 m back into the main roof so its ridge is about 0.5 m long (the photograph sees it end on, as a point). How far it runs back, which no picture shows, is reconstructed."
+          "note": "T-3189, through the re-solved camera: the slated lower faces rise steeply from the cornice (about 9.4 m) to the curb, its crest at y 553 px over the window bay south of the pavilion (about 12.3 m), a rise of about 2.9 m; a dormer under a pediment stands on the front over that bay (x 650-770 px, its light from about 9.6 to 11.1 m, y 775-655, its peak at the curb, so it stands 0.05 m up the face rather than 0.1) and another over the porch at the north end (x 190-250 px). The pavilion's crown (T-3175), read the same way: the pavilion carried up an attic from the main eave to its own cornice at about y 588 px on its face (about 12.1 m, the main curb's height; attic_m 2.9), under a steep slated roof hipped on every side from that cornice (x 350-597 px) to a point at about y 407 px (about 15.1 m) with a turned iron finial to about y 352 px (about 0.8-1 m). Built as K05's hipped crown at 47 degrees on the sides and the street end, the nearest the kit's steep range (over 45) allows: the print's rise of about 3.0 m over a half-width of about 3.4 m reads 41 degrees, so the build's point stands about 0.7 m over the print's (open in the match record). The cornice 0.65 m past the pavilion's face and sides (the kit's least past the main cornice's 0.6 m), run 6.0 m back into the main roof so its ridge is short (the photograph sees it end on, as a point). How far it runs back, which no picture shows, is reconstructed."
         },
         "roof_covering": {
           "value": {
@@ -320,21 +320,21 @@
         "sash_by_storey": {
           "value": [
             {
-              "sill_above_floor_m": 0.8,
+              "sill_above_floor_m": 0.3,
               "width_m": 1.15,
-              "height_m": 3.4
+              "height_m": 2.7
             },
             {
-              "sill_above_floor_m": 0.8,
+              "sill_above_floor_m": 0.3,
               "width_m": 1.15,
-              "height_m": 3.0
+              "height_m": 2.4
             }
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "Through the photograph's camera: the front's principal-storey window from about 2.8 to 6.2 m over grade (y 1415 and 1215 px) and the second storey's from about 8.3 to 11.3 m (y 1090 and 910 px), each about 1.15-1.2 m wide (K01's widest sash, 1.15 m)."
+          "note": "T-3189, through the re-solved camera: the front's principal-storey window beside the pavilion from about 1.6 to 4.3 m over grade (sill y 1432 px, head y 1210) and the second storey's from about 5.6 to 8.0 m (y 1105 and 910 px), each about 1.15 m wide (K01's widest sash, 1.15 m; 77 px through the camera at the front's angle, the print's 80 px with its frame)."
         },
         "basement_lights": {
           "value": {
@@ -346,7 +346,7 @@
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The raised basement's barred lights under the front's windows (x 290-370 and 565-650 px); held under K02's two base courses, so shorter than the photograph's (open in the match record)."
+          "note": "The raised basement's barred lights under the front's windows (x 290-370 and 565-650 px). T-3189: through the re-solved camera the print's run from about grade to about 1.0 m (y 1475-1553 px beside the pavilion), under the 1.3 m water table; K02's two base courses hold the build's to 0.3-1.05 m, within about 0.2 m of them."
         },
         "chimneys": {
           "value": {
@@ -409,17 +409,17 @@
               "variant": "k07.entrance.panel_door_stoop",
               "front_yard_m": 9.47,
               "hood": {
-                "soffit_m": 6.3,
+                "soffit_m": 4.7,
                 "width_m": 5.0,
                 "out_m": 2.7,
-                "fascia_m": 0.5,
+                "fascia_m": 0.2,
                 "cornice": {
-                  "height_m": 0.25,
+                  "height_m": 0.12,
                   "proud_m": 0.15
                 },
                 "brackets": "k08.bay.canted_hooded",
                 "railing": {
-                  "height_m": 0.8,
+                  "height_m": 0.45,
                   "post_m": 0.2,
                   "baluster_m": 0.08,
                   "pitch_m": 0.2,
@@ -445,7 +445,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The sheet's stone range at the front's north end (u 24.4-27.2, v 0.05-5.05) is the porch the photograph shows there behind the street tree: columns carrying a balustraded balcony at the second floor (y 1130-1170 px, about 7.3 m over grade), built as the door's hood on columns with a railing over it. Its round arches are not built (open in the match record)."
+          "note": "The sheet's stone range at the front's north end (u 24.4-27.2, v 0.05-5.05) is the porch the photograph shows there behind the street tree: columns carrying a balustraded balcony at the second floor, built as the door's hood on columns with a railing over it. T-3189, through the re-solved camera: the entablature's foot at y 1175 px at the porch's south side (about 4.85 m over grade), its balcony's railing over it to y 1130 (about 5.4 m), its floor on the columns' bases at about y 1422 (about 1.6 m). Built with its soffit at 4.7 m, a 0.2 m fascia, a 0.12 m cornice and a 0.45 m railing (to about 5.5 m), so the balcony stops under the second storey's sills over the door's bay, which the kit will not stand a railing in front of; the print's entablature reads about 0.2 m and its railing about 0.45-0.5 m. Its round arches are not built (open in the match record)."
         },
         "boundary": {
           "value": {
@@ -491,76 +491,76 @@
               },
               "storeys": [
                 {
-                  "height_m": 7.5,
+                  "height_m": 5.3,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.75,
-                      "clear_height_m": 3.4,
-                      "sill_m": 2.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.6,
                       "at": [
                         0.17,
                         0.83
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the principal floor's tall lights: the photograph shows the pavilion's three lights a storey (x 330-530 px) running nearly the storey's height, taller than the rules' ordinary sash"
+                      "why_not_ordinary": "the principal floor's tall lights: through the re-solved camera (T-3189) the pavilion's three lights a storey (x 330-530 px) run from about 1.6 to 4.2 m over grade (y 1428 and 1225 px), taller than the rules' ordinary sash"
                     },
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 1.3,
-                      "clear_height_m": 3.4,
-                      "sill_m": 2.8,
+                      "clear_height_m": 2.6,
+                      "sill_m": 1.6,
                       "at": [
                         0.5
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the principal floor's tall lights: the photograph shows the pavilion's three lights a storey (x 330-530 px) running nearly the storey's height, taller than the rules' ordinary sash"
+                      "why_not_ordinary": "the principal floor's tall lights: through the re-solved camera (T-3189) the pavilion's three lights a storey (x 330-530 px) run from about 1.6 to 4.2 m over grade (y 1428 and 1225 px), taller than the rules' ordinary sash"
                     }
                   ]
                 },
                 {
-                  "height_m": 5.1,
+                  "height_m": 4.1,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.75,
-                      "clear_height_m": 3.0,
-                      "sill_m": 0.8,
+                      "clear_height_m": 2.05,
+                      "sill_m": 0.2,
                       "at": [
                         0.17,
                         0.83
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the upper storey's lights, read off the photograph (x 330-530 px) as nearly as tall as the principal floor's, taller than the rules' ordinary sash"
+                      "why_not_ordinary": "the upper storey's lights: through the re-solved camera (T-3189) about 5.5 to 7.55 m over grade (y 1122 and 960 px), taller than the rules' ordinary sash"
                     },
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 1.3,
-                      "clear_height_m": 3.0,
-                      "sill_m": 0.8,
+                      "clear_height_m": 2.05,
+                      "sill_m": 0.2,
                       "at": [
                         0.5
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the upper storey's lights, read off the photograph (x 330-530 px) as nearly as tall as the principal floor's, taller than the rules' ordinary sash"
+                      "why_not_ordinary": "the upper storey's lights: through the re-solved camera (T-3189) about 5.5 to 7.55 m over grade (y 1122 and 960 px), taller than the rules' ordinary sash"
                     }
                   ]
                 },
                 {
-                  "height_m": 4.0,
+                  "height_m": 2.75,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_transom_flat",
                       "clear_width_m": 0.7,
-                      "clear_height_m": 2.9,
-                      "sill_m": 0.85,
+                      "clear_height_m": 2.15,
+                      "sill_m": 0.25,
                       "at": [
                         0.33,
                         0.5,
                         0.67
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the attic's three tall lights, read off the Doane photograph through its camera (T-3175): three lights about 40 px across at x 357-400, 413-457 and 463-500 px on the pavilion's face (277-600 px for its 5.46 m), about 0.7 m each, their sills just over the main cornice's top (y about 800 px, about 13.4 m) and their heads under the crown's cornice (y about 627 px, about 16.4 m), centred on the pavilion; the photograph's lights have arched transom heads, which the kit's flat transom stands for"
+                      "why_not_ordinary": "the attic's three tall lights, read off the Doane photograph through its re-solved camera (T-3175, T-3189): three lights about 40 px across at x 357-400, 413-457 and 463-500 px on the pavilion's face (269-601 px for its 5.46 m), about 0.7 m each, their sills just over the main cornice's top (y about 795 px, about 9.65 m) and their heads under the crown's cornice (y about 625 px, about 11.8 m), centred on the pavilion; the photograph's lights have arched transom heads, which the kit's flat transom stands for"
                     }
                   ]
                 }
@@ -590,13 +590,13 @@
               },
               "storeys": [
                 {
-                  "height_m": 7.5,
+                  "height_m": 5.3,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.65,
-                      "clear_height_m": 3.4,
-                      "sill_m": 2.8,
+                      "clear_height_m": 2.7,
+                      "sill_m": 1.6,
                       "at": [
                         0.145,
                         0.418,
@@ -605,18 +605,18 @@
                         0.872
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the principal floor's tall lights, as the front's and the pavilion's: the photograph's paired lights in the corner tower's broad face (x 925-985 and 1010-1060 px) run nearly the storey's height, level with the front's (y 1200-1430 against the front's 1215-1415)"
+                      "why_not_ordinary": "the principal floor's tall lights, as the front's and the pavilion's: the photograph's paired lights in the corner tower's broad face (x 925-985 and 1010-1060 px) run nearly the storey's height, level with the front's (about 1.6 to 4.3 m over grade through the re-solved camera, T-3189)"
                     }
                   ]
                 },
                 {
-                  "height_m": 5.1,
+                  "height_m": 4.1,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.65,
-                      "clear_height_m": 3.0,
-                      "sill_m": 0.8,
+                      "clear_height_m": 2.4,
+                      "sill_m": 0.3,
                       "at": [
                         0.145,
                         0.418,
@@ -625,18 +625,18 @@
                         0.872
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the upper storey's lights, level with the front's and the pavilion's (the photograph's y 900-1090 px on the tower's broad face)"
+                      "why_not_ordinary": "the upper storey's lights, level with the front's and the pavilion's (the photograph's y 900-1090 px on the tower's broad face; about 5.6 to 8.0 m over grade through the re-solved camera, T-3189)"
                     }
                   ]
                 },
                 {
-                  "height_m": 3.6,
+                  "height_m": 2.7,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.65,
-                      "clear_height_m": 2.6,
-                      "sill_m": 0.45,
+                      "clear_height_m": 1.8,
+                      "sill_m": 0.3,
                       "at": [
                         0.145,
                         0.418,
@@ -645,17 +645,17 @@
                         0.872
                       ],
                       "recess_m": 0.4,
-                      "why_not_ordinary": "the tower stage's paired lights over the main cornice (the photograph's x 925-975 and 1005-1050, y 560-730 px), read at the record's scale from grade at the tower's face (y 1577) and the main cornice's top there (y 758) to 12.6 m"
+                      "why_not_ordinary": "the tower stage's paired lights over the main cornice (the photograph's x 925-975 and 1005-1050, y 575-730 px), read through the re-solved camera on the tower's broad face (T-3189): about 9.7 to 11.5 m over grade"
                     }
                   ]
                 }
               ],
               "roof": {
                 "kind": "hip",
-                "pitch": 3.46,
+                "pitch": 2.57,
                 "covering": "slate_pennsylvania",
                 "finial": true,
-                "deck_rise_m": 5.45,
+                "deck_rise_m": 4.05,
                 "cresting": {
                   "height_m": 0.6,
                   "thickness_m": 0.08
@@ -668,7 +668,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). And the corner tower (T-3176): the sheet's corner feature at the south-west corner is a square turned 45 degrees across the corner, its north-west face meeting the front at v 14.36, its angles at u 25.5, v 15.5 and u 24.0, v 17.1 and its south-east face meeting the flank at u 22.3 (2.27 m on a face, centred on u 23.98, v 15.55); the photograph's broad south-west face (x 857-1135 px) is about 3.2 m, 3.5 times the front's 1.15 m window beside it, and the camera re-fitted with the square's side free on the sheet's centre puts it at 3.25 m (4.4 px RMS; the sheet's own 2.27 m leaves 40-47 px). Built as K08's polygonal tower turned 45 degrees across the front's south corner (s_m 15.5, its centre 0.42 m inside the front and on the flank's plane, radius 2.298 m), its walls on the three faces outside the house: one light a storey on the north-west face and a pair on the south-west, read off the print, and a pair on the unseen south-east face, reconstructed. Its heights are read in proportion to the main cornice at its face (grade y 1577, the cornice's top y 758 px, taken as the record's 12.6 m): the bands at the front's string course (7.5) and cornice (12.6), its wall top 16.2 m (y 525), its eaves 0.45 m out, a slated hip at pitch 3.46 cut to a 1.0 m deck at 22.0 m (y 182), an iron crest 0.6 m tall round the deck (y 138-179) and a turned finial on each corner (the print shows the near two, y 88-130). What it does not carry (its bracketed cornice, its lights' hoods) is open on the match record."
+          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). And the corner tower (T-3176): the sheet's corner feature at the south-west corner is a square turned 45 degrees across the corner, its north-west face meeting the front at v 14.36, its angles at u 25.5, v 15.5 and u 24.0, v 17.1 and its south-east face meeting the flank at u 22.3 (2.27 m on a face, centred on u 23.98, v 15.55); the photograph's broad south-west face (x 857-1135 px) is about 3.2 m, 3.5 times the front's 1.15 m window beside it, and the camera re-fitted with the square's side free on the sheet's centre puts it at 3.25 m (4.4 px RMS; the sheet's own 2.27 m leaves 40-47 px). Built as K08's polygonal tower turned 45 degrees across the front's south corner (s_m 15.5, its centre 0.42 m inside the front and on the flank's plane, radius 2.298 m), its walls on the three faces outside the house: one light a storey on the north-west face and a pair on the south-west, read off the print, and a pair on the unseen south-east face, reconstructed. T-3189: its heights read through the re-solved camera on its broad face (grade at y 1576 px): the bands at the front's string course (5.3 m) and cornice (9.4 m), its wall top under the brackets at y 522 px (about 12.1 m), its cornice's top at y 448 (about 12.9 m), its eaves 0.45 m out, a slated hip at pitch 2.57 cut to a deck about 1.0 m across at about 16.5 m (y 175 px, over the tower's centre), an iron crest 0.6 m tall round the deck (y 140-175 px, to about 17.0 m) and a turned finial on each corner (the print shows the near two, y 88-130, to about 17.6 m). T-3176 had read them in proportion to T-3171's 12.6 m cornice, which put the deck at 22.0 m. What it does not carry (its bracketed cornice, its lights' hoods) is open on the match record."
         },
         "rear_wings": {
           "value": [
@@ -680,10 +680,10 @@
                 0.85,
                 11.6
               ],
-              "floor_m": 2.0,
+              "floor_m": 1.3,
               "storey_heights_m": [
-                5.0,
-                4.6
+                3.6,
+                3.7
               ],
               "sash_by_storey": [
                 {
@@ -719,7 +719,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The sheet's brick rear range behind the main body (s28fp-1827-b1 p3, u -3.8 to 0, v 0.85-11.6), two storeys under a flat tin deck; its windows, which no picture sees, are reconstructed."
+          "note": "The sheet's brick rear range behind the main body (s28fp-1827-b1 p3, u -3.8 to 0, v 0.85-11.6), two storeys under a flat tin deck; its windows, which no picture sees, are reconstructed. T-3189: its floor and storeys brought down with the main block's (1.3 m, and 3.6 and 3.7 m, so its deck stands about 1 m under the main cornice, as T-3171 set it); no picture sees it, so its heights are inferred from the main block's."
         }
       }
     }

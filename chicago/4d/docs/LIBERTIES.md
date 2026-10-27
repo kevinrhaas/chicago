@@ -34182,8 +34182,14 @@ the Tyrrell photograph (`glessner_blog_1720_tyrrell_photo`) through its camera
 (`data/reference_views/walker_house_1720_prairie/tyrrell_front.json`): the porch floor and door
 about 1.55 m over the walk, the eave about 10.6 m and the frieze about 1.5 m deep, the front's
 openings (below, a single round-headed light, the door and a pair; above, two single round-headed
-sash and a pair), the porch's span (v -1.65 to 9.85 m, against the sheet's -2.0 to 8.25), its
-stair at its middle, its posts at its ends and either side of its middle opening and its plate,
+sash and a pair), the porch's span (v -1.35 to 9.55 m, against the sheet's -2.0 to 8.25; T-3181 read it at the
+porch's own depth, 85 px a metre, where T-3180 had taken the wall's 80), its stair at its middle
+as broad as the middle opening (2.24 m), its posts paired (centres 0.26 m apart) at its ends and
+either side of its middle opening, its plate's underside about 5.4 m over the walk (T-3181: y 518
+px), a segmental arch over each of the three openings springing about 0.45 m under the plate and
+rising 0.21 m (the middle one 0.15 m), a turned balustrade 0.7 m high in each side opening (about
+sixteen balusters, as the print counts), the stair's raking balustrades on closed strings to a
+newel at the foot, and an iron cresting about 0.5 m high on the porch roof's deck (T-3181),
 and the wing standing only one storey where it meets the front (the photograph sees sky over the
 porch roof south of the bay, where a two-storey wing would stand).
 **What is invented.** Every opening on the flanks, the wing and the rear, and the kit's
@@ -34191,16 +34197,21 @@ two-over-two sash there; the K06 round-headed sash and the kit's square casings 
 hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main
 block's); one stack, placed over the south wall where the photograph shows one, the second it shows
 over the north wall not built; the tin roof and its colour; the pale body paint and the kit's
-trim and sash colours (the photograph is monochrome).
-**What is not built yet.** Owned by the pieces of T-1873: the porch's paired posts, three arches,
-turned balustrades, the stair's cheek walls and the iron cresting round its deck (T-3181); the
+trim and sash colours (the photograph is monochrome). T-3181's porch: the balusters' vase profile
+(the print shows their count and outline, not their turning), the kit's chamfered posts in the
+photograph's turned and ringed ones' places, the cresting's cast panels drawn as plain square bars
+between posts with pointed knobs (the print shows the band, its posts and its height, not a pattern
+it would be honest to copy), the cresting's return along the porch roof's north end, and the
+newels at the stair's foot where the print's rails end in scrolls behind the street fence.
+**What is not built yet.** Owned by T-3182, the last piece of T-1873: the
 upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired
 carved brackets, the wider eave and the central front gable (T-3182). The photograph's stone posts
 and iron fence along the street line are not this record's.
-**How to resolve:** T-3181 and T-3182 replace the kit's stand-ins in place from the same
-photograph; a plan, a second photograph or a description of the flanks replaces their openings.
+**How to resolve:** T-3182 replaces the kit's stand-ins on the upper storey in place from the
+same photograph; a sharper print of the porch replaces the balusters' turning and the cresting's
+pattern; a plan, a second photograph or a description of the flanks replaces their openings.
 **Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
-**Ticket:** T-3180 (piece 1 of T-1873).
+**Ticket:** T-3180 (piece 1 of T-1873); the porch T-3181 (piece 2).
 **Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
 **Recorded:** 2026-10-26 (T-3180).
 

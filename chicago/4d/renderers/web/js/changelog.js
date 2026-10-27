@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2330, ts: '2026-10-27T07:59:44.015Z', date: 'Oct 27, 2026, 2:59 AM CT', title: '1827 Prairie stands at its true height', kind: 'improvement',
+    items: [
+      'The Doane house was standing about a third taller than its photograph. It is now measured off the photograph through its corrected camera: the cornice is at about 9.4 m, not 12.6 m, and the windows, the mansard, the pavilion\'s attic and roof, the corner tower and the porch\'s balcony have all come down with it, as the photograph shows them.',
+    ] },
+  { v: 2329, ts: '2026-10-27T07:55:42.284Z', date: 'Oct 27, 2026, 2:55 AM CT', title: '1720 Prairie\'s porch built to its photograph: paired posts, arches, cresting', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house\'s porch now stands on paired posts under three shallow arches, as its undated photograph shows, with turned balustrades either side of the stair and raking rails up the stair\'s sides.',
+      'An iron cresting runs round the porch roof\'s deck, and the porch is a little shorter and taller than before, measured where it stands rather than at the wall behind it.',
+    ] },
+  { v: 2328, ts: '2026-10-27T07:13:31.771Z', date: 'Oct 27, 2026, 2:13 AM CT', title: '1901 Prairie Avenue — the Ream house built from its 1898 photograph', kind: 'feature',
+    items: [
+      'Norman B. Ream\'s house at 1901 Prairie, a generic draft block until now, stands as the light stone house of its 1898 photograph: two tall storeys over a raised basement under a slated mansard with dormers and an iron cresting.',
+      'Its stone porch on paired columns carries a balustraded balcony at the stoop\'s head, where the photographs put it, and the south flank\'s canted bay rises through both storeys.',
+    ] },
   { v: 2327, ts: '2026-10-27T06:22:07.306Z', date: 'Oct 27, 2026, 1:22 AM CT', title: 'Pullman\'s conservatory across 18th Street, rebuilt from two 1890s pictures', kind: 'feature',
     items: [
       'The glasshouses at 1800 Calumet are now built from the 1894 Inland Architect plate and a c. 1897 photograph instead of a 1911 insurance map alone. Beman\'s conservatory now stands as a pointed Gothic glass house on a stone base, with an arched entrance, a transept and a ribbed glass dome about 13 m up. The long range behind it is now masonry with a row of high windows, ending in a domed glass colonnade. Both pictures now sit on the conservatory\'s card.',
