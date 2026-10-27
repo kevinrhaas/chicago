@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7d1d96ab8f82a17b2e6fa8e900aabbd81da5afc4c511810b5db0b1eab9f84156",
+  "glb_sha256": "fd1cbb0f256d452bf79ed932d075cd04cf044dd3086bc757900da7add71bd7a5",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -94,8 +94,8 @@
       "how": "T-2843: an all-stone K01 house in K02's Bedford stone, coursed round every face; the string courses and the corbel table stay open under T-2790 and T-2540"
     },
     {
-      "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across",
-      "status": "open",
+      "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across T-1890 rebuilds it to this print and HABS photograph 2, read through both solved cameras: a round shaft 2.2 m across (the print's 80 px from the flank section's edge, HABS 2's about 110 px, about 2.0 m; the 1911 sheet's bump 1.2-1.3 m out, so its centre 0.15 m proud and its face 1.25 m out), blank over its principal storey where the build had three lights a storey, under five stepped corbel courses from 7.9 to 8.9 m (the print's 7.97-8.64 m, HABS 2's 8.03-8.89 m) carrying a stage 3.7 m across with a small square light on its north and north-west faces (sills 9.6 m, heads 10.35 m; the print's 9.61-10.28 m), its moulded stone cornice at 10.9-11.26 m (the print's eave 10.95 m), and a cone at pitch 2.5 to 16.69 m (the print's 16.82 m), where the build's single 2.9 m prism rose to a 12.9 m eave and an 18.7 m cone: T-3060 had read those heights through the camera T-3074 re-solved. Re-rendered, the stage's lights fall within 5 px of the print's, its eave within about 10-15 px and its corbel table within about 15 px (k08 stage, L-kimball-1801-tower-stage-1890)",
+      "status": "fixed",
       "how": "T-2539"
     },
     {
@@ -144,8 +144,8 @@
       "how": "T-2900: built whole, a K01 wing longer than its host wall, from the 18th Street wall to v 18.3 under one hip, its front wall drawn where it runs past the gabled section; the photograph does not show it"
     },
     {
-      "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 2.5 m tall over the cone's neck (y 778 to 702), where the build's stands about 0.7 m",
-      "status": "open",
+      "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 2.5 m tall over the cone's neck (y 778 to 702), where the build's stands about 0.7 m T-1890 sizes its finial to the print's, 2.5 m over the cone's apex, and dresses its eaves in the K10 moulded stone cornice the tower carries; re-rendered through this camera its finial's tip, its cone's eave and its shaft's two edges each fall within about 5 px of the print's (the shaft x 25-85 against 28-90 on the crop T-1890 read, at the camera T-3074 re-solved after this difference was written), and the kit's floor band stands at its first floor (4.15 m) where the print's band is",
+      "status": "fixed",
       "how": "Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
@@ -207,6 +207,14 @@
     {
       "what": "the east range's frontispiece and openings (T-3110, read off HABS photograph 2): on this print the range stands behind the tree, where a pointed gable shows between its branches about where the frontispiece's renders (x 280-330 on the print's left half); the range's lights the build took out (r2's two, r3b's one) are not legible behind the trunk and branches",
       "status": "within tolerance"
+    },
+    {
+      "what": "the tower's cone at its eaves: the print's flares out over the cornice in a bell cast, about 190 px across (x 590-780) against the build's straight cone's 175 px, about 0.15 m a side at the tower's 49 px a metre (T-1890)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the tower's finial: the print's is a turned and knobbed pinnacle, pale against the slate, over a crocketed collar at the cone's apex, its tip about 19.6 m; the build sizes the kit's spike to it (2.6 m over the apex, its tip 19.29 m, within about 12 px) but lays it plain, in the cap's slate, with no collar (T-1890)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

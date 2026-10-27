@@ -129,7 +129,7 @@ def rule_data(v, data, b):
     lo_h, hi_h = k06["ranges"]["ordinary_clear_height_m"]
     levels = b.meta["levels_m"]
     for w in b.windows:
-        run = b.runs[w["run"]]
+        run = (b.runs + b.stage_runs)[w["run"]]   # T-1890: a staged tower's stage runs on from its shaft's
         a, z = w["s_extent"]
         if a < pier - EPS or z > run.L - pier + EPS:
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
@@ -247,7 +247,7 @@ def rule_keyed(b, v):
     # the outer wall on the declared plan
     off = 0.0
     for p in b.prims["wall"].pos:
-        off = max(off, min(plan_distance(r, p) for r in b.runs))
+        off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
         fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
     return fails
@@ -347,7 +347,10 @@ def rule_recesses(b, v, data):
             if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
-            for i, r in enumerate(b.runs):
+            # T-1890: a staged tower's stage window is held inside the stage's ring, not the shaft's
+            n0 = len(b.runs)
+            ring = list(enumerate(b.stage_runs, n0)) if w["run"] >= n0 else list(enumerate(b.runs))
+            for i, r in ring:
                 if i == w["run"]:
                     continue
                 if r.kind == "arc":
@@ -417,13 +420,24 @@ def rule_curves(b, data, tier):
 
 def rule_support(b, v, data):
     fails = []
+    sg = b.meta.get("stage")
+    if sg is not None:
+        # T-1890: a staged tower's corbel courses carry its stage back to its shaft
+        cb = K.part(v, data, "corbel")
+        if sg["step_m"] > cb["max_oversail_ratio"] * sg["course_height_m"] + 1e-6:
+            fails.append(f"oversail: the stage's corbel courses step {sg['step_m']:.3f} m, more than "
+                         f"{cb['max_oversail_ratio']} of their {sg['course_height_m']} m height")
+        if sg["bearing_m"] < cb["min_bearing_m"] - 1e-6:
+            fails.append(f"bearing: the stage's lowest corbel course bears on the shaft by {sg['bearing_m']:.3f} m only")
+        if not b.prims.get("corbel") or not b.prims["corbel"].idx:
+            fails.append("support: a staged tower has no corbel courses under its stage")
     if v["base"] == "grade":
         pl = b.prims.get("plinth")
         h = K.part(v, data, "plinth")["height_m"]
         if not pl or not pl.idx or abs(min(p[1] for p in pl.pos)) > 1e-6 or max(p[1] for p in pl.pos) < h - 1e-6 \
                 or h <= 0:
             return ["foundation: a bay on grade stands on no plinth from grade"]
-        return []
+        return fails
     if v.get("apron"):
         return rule_apron(b, b.prims.get("apron"))   # T-2904: the apron's own role
     cb = b.prims.get("corbel")
