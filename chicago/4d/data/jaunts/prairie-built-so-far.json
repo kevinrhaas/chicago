@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 868488544,
+  "content_version": 891043849,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -277,8 +277,8 @@
         "kind": "structure",
         "id": "henderson_house_1816_prairie"
       },
-      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: 1828 Prairie.",
-      "read_s": 15,
+      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-13",
         "tour"
@@ -296,9 +296,9 @@
       "id": "stop-14",
       "destination": {
         "kind": "structure",
-        "id": "house_1828_prairie"
+        "id": "marsh_house_1824_prairie"
       },
-      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Jones House, 1834 Prairie.",
+      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: 1828 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-14",
@@ -307,7 +307,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1828_prairie",
+          "id": "marsh_house_1824_prairie",
           "label": "About this building"
         }
       ],
@@ -317,10 +317,10 @@
       "id": "stop-15",
       "destination": {
         "kind": "structure",
-        "id": "jones_house_1834_prairie"
+        "id": "house_1828_prairie"
       },
-      "text": "Jones House, 1834 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
-      "read_s": 16,
+      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Jones House, 1834 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-15",
         "tour"
@@ -328,7 +328,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "jones_house_1834_prairie",
+          "id": "house_1828_prairie",
           "label": "About this building"
         }
       ],
@@ -338,10 +338,10 @@
       "id": "stop-16",
       "destination": {
         "kind": "structure",
-        "id": "marsh_house_1824_prairie"
+        "id": "jones_house_1834_prairie"
       },
-      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: 3 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
-      "read_s": 13,
+      "text": "Jones House, 1834 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-16",
         "tour"
@@ -349,7 +349,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "marsh_house_1824_prairie",
+          "id": "jones_house_1834_prairie",
           "label": "About this building"
         }
       ],
@@ -1197,6 +1197,16 @@
     },
     {
       "id": "stood-14",
+      "text": "Pomeroy-Marsh House, 1824 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front."
+    },
+    {
+      "id": "stood-15",
       "text": "1828 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1205,23 +1215,13 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904."
     },
     {
-      "id": "stood-15",
+      "id": "stood-16",
       "text": "Jones House, 1834 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1866 and given its mansard storey in 1886 (the marker); the photograph shows it before 1886."
-    },
-    {
-      "id": "stood-16",
-      "text": "Pomeroy-Marsh House, 1824 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "hmdb_prairie_lost_houses_1800_1900_west"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front."
     },
     {
       "id": "stood-17",

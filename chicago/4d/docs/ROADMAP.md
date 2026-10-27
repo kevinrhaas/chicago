@@ -5942,3 +5942,11 @@ T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving
 
 
 T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
+
+
+T-2382 (2026-10-26): select the existing blind dark doorway for Carpenter's log annex from the credited Andreas plate. The supported one-record choice leaves placement, dimensions, dates and former/current-use rulings unchanged. Actual selected master-to-WEB and same-camera comparisons are retained; the original image gate remains DIFFERS with broader massing and camera questions open. The existing pictured-grade ruling now uses the library ID of that same reproduction, so its legacy source alias does not count as a second picture on the visitor card; the attested grade and per-attribute grades remain. This is a reasoning checkpoint, not a new backlog item.
+
+
+
+
+

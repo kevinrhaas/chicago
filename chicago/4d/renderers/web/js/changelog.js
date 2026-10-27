@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2322, ts: '2026-10-27T03:30:09.100Z', date: 'Oct 26, 2026, 10:30 PM CT', title: '1834 Prairie rebuilt from its photograph', kind: 'feature',
+    items: [
+      'The Fernando Jones house at 1834 Prairie now stands as its one photograph shows it: a four-bay brick front over a high stone basement, keyed window hoods, a bracketed cornice, and a canted bay on the north flank, with the 1886 mansard over it. The old photograph turned out to be printed back to front, and the house is built the right way round.',
+    ] },
   { v: 2321, ts: '2026-10-27T02:58:41.574Z', date: 'Oct 26, 2026, 9:58 PM CT', title: '1720 Prairie stands as a clapboard Italianate built from its photograph', kind: 'feature',
     items: [
       'The Tyrrell/Walker house at 1720 Prairie is no longer a placeholder draft: it is a clapboard frame house with corner boards, cased sash, a deep frieze and a bracketed eave under a low hip.',
