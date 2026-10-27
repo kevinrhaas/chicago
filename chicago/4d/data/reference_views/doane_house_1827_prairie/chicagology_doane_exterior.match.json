@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9b782880c67e08171e5728a3b692b5ab9d646ec2e79e0abb586c6e54565cd022",
+  "glb_sha256": "c2acd1c6089ea280b9a72a1a28322a1cbc645d09499c6865221e27a865c542b8",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -63,6 +63,11 @@
     },
     {
       "what": "the hoods' shape and carving: the print's over the window bay are segmental, and over the pavilion's lights carved tympana under segmental and arched hoods between colonnettes; the build's hoods are level and plainly moulded",
+      "status": "fixed",
+      "how": "T-3209 (piece 1 of T-3197): a carved tympanum on each light's lintel (k08_bays.tympanum; the lintels cut to 0.12 m): on the pavilion's principal floor one segmental arch over its three lights, the centre's own arch over it, the render's panels at y about 1177-1213 px against the print's 1175-1215; over its second floor's centre light an arched panel (y about 925-955 against 922-955) and a level carved panel over each narrow one; over the window bay a carved segmental tympanum on the principal floor (y about 1175-1210 against 1172-1205) and a shallow segmental hood on the second. The print's foliage, finer than its pixels, stands as a row of lozenges and bosses on each panel (within tolerance)"
+    },
+    {
+      "what": "the colonnettes between the pavilion's lights on both storeys (x about 365-385 and 480-495 px), carrying the tympana's arches; the build's lights stand in plain moulded surrounds",
       "status": "open"
     },
     {
@@ -118,8 +123,14 @@
       "how": "T-3176's re-solved camera: the pavilion's edges are two of the plan readings it is fitted to, and render within about 10 px of the print's"
     },
     {
-      "what": "the crown's cornice stands 0.65 m past the pavilion's sides, the kit's least past the main cornice's 0.6 m, where the print's stands about at them (its eave x 350-597 px against the pavilion's face to x 600), and the attic's wall is stone across the pavilion's whole width, where the print slates its outer parts as cheeks (x 535-600 on its south side) and sets the lights between stone piers",
-      "status": "open"
+      "what": "the attic's wall is stone across the pavilion's whole width, where the print slates its outer parts as cheeks (x 535-600 on its south side) and sets the lights between stone piers",
+      "status": "fixed",
+      "how": "T-3209 (piece 1 of T-3197): the attic storey's outer 1.0 m at each end of the front and its returns clad in the mansard's slate (K08 `cheeks`), the stone face between them carrying the three lights between piers, rendering at x about 330-535 px against the print's about 355-525. The print's south cheek flares out a little at its foot; the build's stands plumb (within tolerance)"
+    },
+    {
+      "what": "the crown's cornice stood 0.65 m past the pavilion's face and sides, the kit's least past the main cornice's 0.6 m, where the print's stands about at them (its eave x 350-597 px against the pavilion's face to x 600)",
+      "status": "open",
+      "how": "T-3209: brought in to 0.2 m (the kit lets a crown over an attic sit inside the main cornice's reach, its eave a storey higher); the render's south eave corner still stands at about x 645, y 575 against the print's x 595, y 615, about 0.8 m out and 0.6 m high: the crown's eave box and the attic's height are the sign-off's (T-3191)"
     },
     {
       "what": "the attic's three lights: the print's carry arched transom heads under carved hoods (y about 627-690 px); the build's flat transoms stand in",
@@ -129,7 +140,7 @@
     {
       "what": "the crown's pitch: through the re-solved camera (T-3189) the print's crown rises about 3.0 m (its cornice at y 588 px, 12.1 m, its point at y 407, 15.1 m) over a half-width of about 3.4 m, about 41 degrees; the build's stands at 47, the nearest the kit's slated crown allows (over 45), so its point renders at y about 347 px, about 0.75 m over the print's",
       "status": "open",
-      "how": ""
+      "how": "T-3209: with the cornice brought in to 0.2 m the crown's half-width falls from 3.38 to 2.93 m at the same 47 degrees, and its point now renders at y about 375 px against the print's 407 (about 0.4 m over, from 0.75)"
     },
     {
       "what": "the crown's finial: the print's is a wrought iron cross-like finial about 1 m tall (y 355-410 px); the build turns the deck's iron finial (T-3000) to the same height",
@@ -174,7 +185,7 @@
     {
       "what": "the walk and the entrance gate",
       "status": "fixed",
-      "how": "the K14 walk runs from the porch flight to the public walk; the entrance gate stands open"
+      "how": "T-3206: the K14 walk runs from the porch flight to the public walk; the entrance gate stands open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

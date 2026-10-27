@@ -1,0 +1,25 @@
+{
+ "id": "ghm_blog_1721_dexter_c1888",
+ "type": "photograph",
+ "citation": "George Glessner, [Wirt Dexter house, 1721 S. Prairie Avenue, before the front addition], c. 1888. Photograph in the Glessner House Museum's George Glessner photographs, reproduced on its blog, 'The Early History of Prairie Avenue - Part IV' (2020-07-07).",
+ "author": "George Glessner",
+ "date": "c. 1888",
+ "describes_date": "c. 1888",
+ "repository": "Glessner House Museum (George Glessner photographs), via its blog. Prairie library image a16-ghm-blog-1721-dexter-c1888 (stream-1600-1700.json).",
+ "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+ "locator": "The gas street lamp in the right foreground, standing on the west parkway of Prairie Avenue near the camera, which is opposite 1721.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "An unpublished photograph by George Glessner (d. 1929), public domain in the US by term; the museum's terms for its scan were requested 2026-10-02 and are pending. Only the lamp's place and form are read; nothing is derived as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1721-dexter-c1888.jpg); the original host is not reachable from the build containers.",
+ "note": "Winter view across the avenue; the lamp is the one nearest the camera on the walk's own side.",
+ "what_it_supplies": [
+  "a gas street lamp on the west parkway of Prairie Avenue opposite 1721, and its form: fluted post, ladder bar, tapered four-sided lantern under a pyramidal cap"
+ ],
+ "what_it_does_not_supply": [
+  "the lamp's exact place along the block: it stands near the camera",
+  "a date later than c. 1888"
+ ]
+}

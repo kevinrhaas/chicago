@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_1898_front",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f081a1551dd05ef0018ac94362da031d1ab2cdce06bcd509d1cf880158453f6f",
+  "glb_sha256": "8b6b4567f81771550efa5ec2e10df06de82e8aa3a0b3e4926c53ffb7a4c2d581",
   "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
   "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
@@ -33,15 +33,15 @@
       "status": "fixed"
     },
     {
-      "what": "the front's south-west corner: the photograph cuts it on a canted face with its own window column and pedimented dormer (x 510-600 px); the render's corner is square. The south-west view's camera reads the cut about 1.83 m each way (chicagology_exterior_southwest.match.json), K01 has no main-body cut carried through the cornice and the mansard",
-      "status": "open"
+      "what": "the front's south-west corner: the photograph cuts it on a canted face with its own window column and pedimented dormer (x 510-600 px); now K01's canted corner (cant_corner), cut 1.83 m each way as the south-west view's camera reads it, its window column, its dormer and the cornice and the mansard carried round it, where the photograph puts it (render x about 500-600 px)",
+      "status": "fixed"
     },
     {
       "what": "the cornice: the photograph's is deep, on large paired blocks over a frieze about 0.6-0.8 m high; the render's K10 moulded cornice is thinner, its blocks single",
       "status": "open"
     },
     {
-      "what": "the dormers: the photograph's have low triangular pediments with carved cheeks, the middle one the largest, and a fourth over the canted corner; the render's three street dormers now stand at K01's lowest pediment, 30 deg, and the dormer over the flank's canted bay is built (the south-west view). The canted corner's dormer stands with the corner",
+      "what": "the dormers: the photograph's have low triangular pediments with carved cheeks, the middle one the largest, and a fourth over the canted corner; the render's three street dormers stand at K01's lowest pediment, 30 deg, the dormer over the flank's canted bay is built (the south-west view), and the canted corner's stands on its face at the middle one's size, its carved cheeks not built",
       "status": "within tolerance"
     },
     {

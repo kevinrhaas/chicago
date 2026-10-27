@@ -844,6 +844,12 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
+# the faces, the pictured ones at their lots), laid clear of the elms and the carriage walks: the
+# committed file is what the tool writes, lamp for lamp.
+step "the 1904 street furniture re-lays from the street grid (T-3199)" \
+  python3 tools/lay_prairie_1904_street_furniture.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
@@ -1123,6 +1129,11 @@ step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's
 # stand behind the front's plane only on the round, clear of it. Each refusal says why.
 step "a K01 front block rounds a corner in its own stone (T-3006)" \
   python3 tools/test_k01_round_corner.py
+# T-3186: or cuts a corner of the main body on a canted face (1901's, both Chicagology
+# photographs): the front and its side wall stop at the face, which is a wall of its own with
+# its window column, and the cornice, the mansard, the gutter and the curb's cresting turn it.
+step "a K01 main body cuts a corner on a canted face, carried through the cornice and the mansard (T-3186)" \
+  python3 tools/test_k01_cant_corner.py
 
 # T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
 # (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's

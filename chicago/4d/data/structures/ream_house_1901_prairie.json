@@ -67,7 +67,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The stone main body read off the 1911 sheet's trace (s28fp-1901-b1) in the house's frame (u toward the street from the rear wall at local x 1444.7, v south from the north wall at local y -3322.9): the front at local x 1422.3 (u 22.4) and the south wall at y -3338.1 (v 15.2). The sheet's porch box, its flank bays and its brick rear stand on it as K01's door hood, K08 bays and a K01 rear wing; its small chamfer at the south-west corner is not built (the photographs' cut corner is far larger: the match record)."
+        "note": "The stone main body read off the 1911 sheet's trace (s28fp-1901-b1) in the house's frame (u toward the street from the rear wall at local x 1444.7, v south from the north wall at local y -3322.9): the front at local x 1422.3 (u 22.4) and the south wall at y -3338.1 (v 15.2). The sheet's porch box, its flank bays and its brick rear stand on it as K01's door hood, K08 bays and a K01 rear wing; its small chamfer at the south-west corner is drawn smaller than the photographs' cut, which form.cant_corner builds (about 1.83 m each way); the polygon stays the sheet's square trace."
       },
       "form": {
         "stories": {
@@ -331,14 +331,14 @@
         },
         "north_bays": {
           "value": [
-            2.4,
+            2.65,
             5.6
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_1901_ream_exterior"
           ],
-          "note": "The south flank's windows between the front and its canted bay (K01's 'north' wall, its s from the front): the exterior photograph shows two narrow window columns there in the chamber storey and a small light in the principal storey; K01 lays one window column each at their places. Their narrow width is the match record's."
+          "note": "The south flank's windows between the front and its canted bay (K01's 'north' wall, its s from the front): the exterior photograph shows two narrow window columns there in the chamber storey and a small light in the principal storey; K01 lays one window column each at their places. Their narrow width is the match record's. The first column stands at s 2.65, 0.25 m further back than first read, so its jamb clears the canted corner's cut (1.83 m) by the 0.2 m pier K01 keeps; the print places it just past the canted face (x 1200-1260 px), within the camera's spread."
         },
         "rear_bays": {
           "value": [
@@ -705,6 +705,20 @@
                 "face_setback_m": 0.05,
                 "head": "gable",
                 "gable_pitch_deg": 30
+              },
+              {
+                "face": "cant",
+                "along_m": 0.0,
+                "sash": {
+                  "variant": "k06.opening.sash_2over2_flat",
+                  "width_m": 1.0,
+                  "height_m": 1.9,
+                  "sill_m": 0.15
+                },
+                "surround_m": 0.3,
+                "face_setback_m": 0.05,
+                "head": "gable",
+                "gable_pitch_deg": 30
               }
             ],
             "deck": {
@@ -719,7 +733,7 @@
             "chicagology_1901_ream_1898",
             "chicagology_1901_ream_exterior"
           ],
-          "note": "The slated mansard rising about 4.5 m over the wall head to its curb through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the deck's cresting at about y 100 px over the north part reads 14-15.5 m over grade), K05's most for a one-storey face; its faces steep and nearly straight. Three street dormers over the three window columns under pedimented heads, the middle one the largest, and an iron cresting along the curb, in both photographs. Their pediments low and triangular, about 30 deg (the kit's lowest), in the south-west view. A fourth dormer stands on the south flank's face over the canted bay's west end (K01's north face, 11.2 m from the rear wall), pedimented as the street's are, in the exterior photograph (x 1380-1450 px, read through its camera at about u 11.2, data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json). The dormer over the canted south-west corner is the match record's."
+          "note": "The slated mansard rising about 4.5 m over the wall head to its curb through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json) (the deck's cresting at about y 100 px over the north part reads 14-15.5 m over grade), K05's most for a one-storey face; its faces steep and nearly straight. Three street dormers over the three window columns under pedimented heads, the middle one the largest, and an iron cresting along the curb, in both photographs. Their pediments low and triangular, about 30 deg (the kit's lowest), in the south-west view. A fourth dormer stands on the south flank's face over the canted bay's west end (K01's north face, 11.2 m from the rear wall), pedimented as the street's are, in the exterior photograph (x 1380-1450 px, read through its camera at about u 11.2, data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json). A fifth stands on the canted south-west corner's face over its window column (face 'cant'), the largest of the front's in the 1898 photograph and pedimented as the others in the south-west one (its face about x 950-1115 px with its carved cheeks, its sash about x 995-1065 px, about 1.0 m by 1.9 m through that camera); K01 lays it at the middle street dormer's size, centred on the canted face's lower slope."
         },
         "rear_wings": {
           "value": [
@@ -767,6 +781,18 @@
             "sanborn_1911_chicago_v3_sheet_28"
           ],
           "note": "The 1911 sheet's brick rear: the east wall stands 3.1 m further back south of v 5.6 (lot x 1444.7-1447.8 on the trace), coloured brick, at the main body's height; on K01's rear wings, laid in K03 brick, under a flat roof. Its windows are reconstruction: no picture shows the rear."
+        },
+        "cant_corner": {
+          "value": {
+            "corner": "north",
+            "cut_m": 1.83
+          },
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_1901_ream_exterior",
+            "chicagology_1901_ream_1898"
+          ],
+          "note": "The front's south-west corner (K01's 'north') cut on a canted face square to the corner, from the base course to the mansard's curb, with its own window column on both storeys, in both photographs. The south-west photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_exterior_southwest.json) fits the cut about 1.83 m back each way, its face about 2.6 m across between x 942 and 1120 px; the 1898 camera's weaker fit reads about 2.5 m and the 1911 sheet draws a smaller chamfer. K01 lays the face in the front's ashlar on its beds, a window at its middle in each storey at the storey's sash and a basement light under them (the print shows the column; the basement light is the front's, reasoned from the lights under every principal window), and carries the moulded cornice, the mansard's faces, the gutter and the curb's cresting round it."
         },
         "yard": {
           "value": {

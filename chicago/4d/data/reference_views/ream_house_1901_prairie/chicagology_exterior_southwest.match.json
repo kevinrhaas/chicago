@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f081a1551dd05ef0018ac94362da031d1ab2cdce06bcd509d1cf880158453f6f",
+  "glb_sha256": "8b6b4567f81771550efa5ec2e10df06de82e8aa3a0b3e4926c53ffb7a4c2d581",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
@@ -33,8 +33,8 @@
       "status": "fixed"
     },
     {
-      "what": "the front's south-west corner: this photograph cuts it on a canted face square to its camera, about 1.83 m back each way (x 942-1120 px, about 2.6 m across), with its own window column on both storeys, its own pedimented dormer over them, and the cornice and the mansard carried round it; the render's corner is square. K01 cuts a corner only on a shallow pavilion (at most 1.0 m) or rounds it corbelled back to square under the wall head (1811's), so the whole cut through the cornice and the mansard is new K01 geometry, not a parameter",
-      "status": "open"
+      "what": "the front's south-west corner: this photograph cuts it on a canted face square to its camera, about 1.83 m back each way (x 942-1120 px, about 2.6 m across), with its own window column on both storeys, its own pedimented dormer over them, and the cornice and the mansard carried round it; now K01's canted corner (cant_corner): the face laid in the front's ashlar on its beds with a window under a moulded head in each storey and a basement light, the moulded cornice, the gutter, the mansard's faces and the curb's cresting turned round it on two mitres, and a pedimented dormer centred on its lower slope (render x 945-1120 px)",
+      "status": "fixed"
     },
     {
       "what": "the stoop's cheeks: the print's sweep down and out from the porch's column plinths to a roll at the walk (x 340-500 and 545-700 px); the render's are straight. K01's swept cheek stands only beside a terrace behind a pierced parapet and its scrolled one beside none, and this porch's columns stand on terraces the print shows open",
@@ -49,7 +49,7 @@
       "status": "open"
     },
     {
-      "what": "the dormers' pediments: the print's are low triangular pediments with a level cornice across their foot and carved cheeks, the canted corner's the largest; the render's stand at K01's lowest pitch, 30 deg, without the level cornice or the carving",
+      "what": "the dormers' pediments: the print's are low triangular pediments with a level cornice across their foot and carved cheeks, the canted corner's the largest, its stone face with its scrolled cheeks about x 950-1115 px; the render's stand at K01's lowest pitch, 30 deg, without the level cornice or the carving, the canted corner's sash at the print's size (about 1.0 by 1.9 m) in a plain face about 0.6 m narrower",
       "status": "within tolerance"
     },
     {
