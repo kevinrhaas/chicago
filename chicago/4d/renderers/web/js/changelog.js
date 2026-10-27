@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2327, ts: '2026-10-27T06:22:07.306Z', date: 'Oct 27, 2026, 1:22 AM CT', title: 'Pullman\'s conservatory across 18th Street, rebuilt from two 1890s pictures', kind: 'feature',
+    items: [
+      'The glasshouses at 1800 Calumet are now built from the 1894 Inland Architect plate and a c. 1897 photograph instead of a 1911 insurance map alone. Beman\'s conservatory now stands as a pointed Gothic glass house on a stone base, with an arched entrance, a transept and a ribbed glass dome about 13 m up. The long range behind it is now masonry with a row of high windows, ending in a domed glass colonnade. Both pictures now sit on the conservatory\'s card.',
+    ] },
   { v: 2326, ts: '2026-10-27T05:25:17.872Z', date: 'Oct 27, 2026, 12:25 AM CT', title: '1827 Prairie\'s corner tower rises over Prairie Avenue', kind: 'feature',
     items: [
       'The Doane house now has its square corner tower, turned to face the corner, with paired windows on each floor, rising a storey above the cornice under a tall slate roof, an iron crest and finials, as the old photograph shows it.',

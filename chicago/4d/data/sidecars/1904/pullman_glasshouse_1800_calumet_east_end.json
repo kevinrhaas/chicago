@@ -114,8 +114,8 @@
         "id": "k13.house.pullman_1800_east_end",
         "form": "span_apse",
         "length_m": 2.932,
-        "eave_m": 2.4,
-        "pitch_deg": 30,
+        "eave_m": 5.5,
+        "pitch_deg": 14,
         "facets": 7,
         "bays": 2,
         "door": null,
@@ -133,13 +133,32 @@
         "abuts": [
           "end_left"
         ],
-        "width_m": 5.511
+        "width_m": 5.511,
+        "rotunda": {
+          "podium_m": 1.0,
+          "podium_out_m": 0.1,
+          "column_radius_m": 0.22,
+          "entablature": {
+            "height_m": 0.55,
+            "out_m": 0.15
+          },
+          "dome": {
+            "radius_m": 1.5,
+            "segments": 24,
+            "rings": 4,
+            "rise_m": 1.45,
+            "rib_m": 0.06
+          },
+          "straight_columns": 1
+        }
       },
       "confidence": "reconstructed",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "inland_1894_pullman_conservatory",
+        "aic_lowe_pullman_conservatory_c1897"
       ],
-      "note": "The plan is the sheet's (inferred): a section narrower than the range (5.6 m against 7.1 m), on the range's south line, lettered '1' on its own and ending in a semicircle 2.8 m in radius, built as seven planar facets of the K13 kit's span_apse form (T-3164) under a half-cone of glass whose hips run to the ridge's end, carried 0.7 m past the springing. A 2.4 m eave and the range's 30 degree pitch, so its ridge stands under the range's; its west end opens into the range, whose end wall closes it (abuts end_left); everything else is RECONSTRUCTED from the K13 kit (data/components/prairie_1904/k13_conservatories.json, L-k13-conservatory-kit-2305) and recorded as L-pullman-glasshouses-1800-calumet-3164."
+      "note": "The plan is the sheet's (inferred): the rounded east end the sheet draws and the short straight part joining it to the range. T-3179: the plate and the Lowe photograph show the whole of it as a glazed colonnade, stone columns on a low podium with the glass between them, under an entablature level with the range's coping (about 6.0 m), and a low ribbed dome over the curve whose crown stands about 7.3 m up. RECONSTRUCTED: a column at every joint of the kit's seven-sided curve and one midway along each side of the straight part, the podium's height and the dome's profile (L-pullman-conservatory-3179)."
     },
     "function": {
       "value": "glasshouse",
@@ -152,6 +171,41 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "aic_lowe_pullman_conservatory_c1897",
+      "citation": "Unknown photographer. Pullman, George M., Residence [the conservatory from 18th Street]. Photograph, c. 1897 (holder's view date). Chicago History Museum original; copy in the David Garrard Lowe Historic Chicago Photograph Collection, Art Institute of Chicago, Ryerson and Burnham Archives, 201602_170420-1229.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/76204",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a cross-check of the plate's heights and forms a few years later",
+        "that nothing in the view changed between 1894 and c. 1897"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state",
+        "colour",
+        "its own camera distance: the print is cropped, so its fit is diagnostic"
+      ]
+    },
+    {
+      "source_id": "inland_1894_pullman_conservatory",
+      "citation": "Inland Architect Press. Conservatory of Geo. M. Pullman, Chicago. S. S. Beman, Architect. Photographic plate in The Inland Architect and News Record, vol. 24, no. 4 (1894). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection (Inland Architect plates), IA2404_1676.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/8465",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the conservatory's sections, heights and openings through its camera (49.5 px/m on the north front)",
+        "the east range's masonry face, windows and coping height, and its round end's colonnade and dome",
+        "the north range's north end as a low curved glass roof"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state: the plate is 1892-94, and the 1911 sheet draws a longer north range than it shows",
+        "colour: the plate is monochrome",
+        "the south and west sides, and the ranges' roofs behind their parapets"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
