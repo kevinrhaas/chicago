@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2350, ts: '2026-10-27T21:11:00.302Z', date: 'Oct 27, 2026, 4:11 PM CT', title: 'Fire hydrants stand on the 1904 parkways', kind: 'feature',
+    items: [
+      'A cast-iron post fire hydrant stands at Pullman\'s corner, beside the walk north of 18th Street, where the Detroit Publishing view shows it.',
+      'Another stands toward 22nd Street at Tucker\'s, from the 2140 photograph.',
+      'The rest stand one to an intersection and one mid-block on each long block, in the parkway grass by the curb.',
+      'Tap a hydrant for its card.',
+    ] },
   { v: 2349, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: '1904 Prairie: carriage blocks cleared from the curbs', kind: 'fix',
     items: [
       '91 curb blocks removed; period photos show the parkway edge clear.',
