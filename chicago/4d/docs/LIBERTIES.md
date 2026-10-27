@@ -34154,7 +34154,7 @@ plan or the dome's specification settles its covering.
 
 ### L-k01-1721-dexter-1878 — 1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff
 
-**Covers:** `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.side_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`
+**Covers:** `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`
 **Decision:** the house at 1721 Prairie Avenue, Wirt Dexter's house of 1863 under the front Arthur
 Little gave it in 1889 (T-1878, package N18A of T-1837), is no longer a district draft. It stands,
 under the draft's own id `dexter_house_1721_prairie`, as a `k01_frontage` record built by
@@ -34197,6 +34197,10 @@ its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m bac
 block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and
 says why in its record: the plate draws it taller than the lights above, and its size is read only
 in proportion to the 5.6 m storey.
+**`form.side_bays` retired from this liberty by T-1879 (2026-10-27):** the north flank's lights (K01's
+south wall in this house's frame) are now read off the 1891 plate through its solved camera — one column
+4.0 m back from the front corner, a window, a small oval light and a slot — and graded inferred, under
+`L-k01-1721-dress-1879`. The south and rear walls' lights stay this liberty's.
 
 ### L-k16-1720-frame-house-3180 — 1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph
 
@@ -34478,3 +34482,42 @@ pullman-addition`, not in the image store) would date the east section against 1
 **Ticket:** T-3192 (piece 1 of T-3178).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-27 (T-3192).
+
+### L-k01-1721-dress-1879 — 1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank
+
+**Decision:** T-1879 (package N18B of T-1837) solves the 1891 plate's camera
+(`data/reference_views/dexter_house_1721_prairie/inland_architect_plate.json`, 5.5 px RMS) and builds
+the front until the render from it shows the plate's building: two lights a storey on each bow with a
+blank pier at its middle; four lights on the forward block's third floor and a round-headed fanlight
+between the bows; a stone balustrade round each bow's top and along the forward block's parapet; the
+recessed front's parapet solid for 1.5 m from its corner and then balustered; open louvred shutters at
+every light of the front but the round-headed one; iron guards on stone slabs under the ground floor's
+bay lights; the stack carried up to 16.9 m; and the north flank as one column of openings.
+**What is read, not invented.** From the plate, through its camera: every count and place above, the
+stack's height, the guards' and balustrades' runs, the north flank's three openings.
+**What is invented.** The shutters' colour (the deep green T-2887 chose for 1637's; the plate is
+monochrome); the balusters' section (square, the plate's are turned); the guards' bars and their 0.85 m
+height and 0.3 m projection; the balustrades' heights (0.75-0.8 m, read only in proportion); the
+north flank's oval light, built square-headed at its size because K01 cuts no oval; the carved tablets
+over the upper lights, for which a cornice hood (the recessed front) and K06's plain head (the bays)
+stand; the forward parapet's 1.5 m solid pedestal at its north-west corner, built pierced. Each is
+`within tolerance` in the match record, with its reason.
+**The other pictures.** The two c. 1888 photographs (`a16-ghm-blog-1721-dexter-c1888`,
+`cgn-1721-dexter-winter-photo-copy`) show the frame house before Little's front of 1889 — another phase,
+so no camera is solved on them for `as_mapped_1904`. The Detroit print (`a16-pullman-det-4a08065`) sees
+1721 only at its left edge behind trees; its camera is Pullman's (`pullman_house_1729_prairie`). The
+c. 1905 Clark negative (`a16-chm-clark-ichi-071912-dexter-c1905`) is online only as a 375 px contact
+thumbnail inside a scrapbook PDF and is not in the image store; when it is fetched it is the 1904
+phase's closest picture and takes a camera of its own.
+**Grades.** The new attributes (`form.window_shutters`, `form.flat_balustrade`) and the reworked
+`form.bays`, `form.side_bays` and `form.chimneys` are `inferred`: what they place is the plate's, their
+sizes are read in proportion and their notes say so; the inventions above live inside them.
+**How it is built.** Three additive kit options, which no other record names (every other K01, K12,
+K13 and K16 asset re-emitted byte-identical): `window_shutters` on K01's own walls, `shutters` and
+`guard` on a K08 bay's light (in the light's frame, so a bow bends them), and `flat_balustrade`, the
+flat roof's blocking course stopped at a plinth and balustered over a stretch of the street front.
+**How to resolve:** a sharper or colour picture of the front (the Clark negative at full size)
+replaces the shutters' colour, the balusters' section and the tablets' carving.
+**Ticket:** T-1879.
+**Review:** `docs/RESEARCH/k01-1721-dexter-1879/README.md`, `docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-27 (T-1879).

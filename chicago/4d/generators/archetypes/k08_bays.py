@@ -121,6 +121,7 @@ ROLE_MATERIAL = {
     "glass_outer": "glass", "glass_inner": "glass", "came": "lead_came",
     "blind": "blind", "curtain": "curtain", "backing": "backing",
     "roof": "covering", "finial": "covering", "iron": "iron",
+    "shutter": "shutter",   # T-1879: a light's louvred shutters
     "board_wall": "board", "ground": "ground",
 }
 # The specimen's board, not the bay: excluded from a variant's costs and its checks.
@@ -145,6 +146,7 @@ def materials(data: dict) -> dict:
         "blind": m6["blind"], "curtain": m6["curtain"], "backing": m6["backing"],
         "board": {"color": (0.58, 0.52, 0.44), "roughness": 0.95}, "ground": m6["ground"],
         "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},   # T-2525: K01's iron
+        "shutter": {"color": (0.045, 0.08, 0.05), "roughness": 0.7},   # T-1879: K01's shutter
     }
     for fab, col in data["roofs"]["covering_colors"].items():
         metal = fab.startswith("copper") or fab.startswith("tin")
@@ -758,6 +760,51 @@ def grille(o, g: dict):
         prism(o, "iron", rect(x - b / 2, x + b / 2, 0.06 + b, cy), d + b + 0.002, d + 2 * b + 0.002)
 
 
+def shutters(o, sh: dict):
+    """T-1879: open louvred shutters folded back flat either side of a light (1721's, the 1891
+    plate): two leaves `width_m` wide from the sill to the head, `SHUTTER_GAP_M` off its sides,
+    each a board standing proud of the face with a slat every `louvre_m` across it, each slat
+    one face standing off the board (its edges are never seen from the street, and a bow's
+    bend would split a boxed slat into a dozen faces). In the opening's own frame, so a bow
+    bends them with its light."""
+    out = o.holes[0]
+    s0, s1 = min(q[0] for q in out), max(q[0] for q in out)
+    y0, y1 = min(q[1] for q in out), max(q[1] for q in out)
+    w, lv = sh["width_m"], sh["louvre_m"]
+    y0, y1 = y0 + 0.01, y1 - 0.01   # a centimetre inside the light, clear of its sill's and head's planes
+    for a, b in ((s0 - SHUTTER_GAP_M - w, s0 - SHUTTER_GAP_M), (s1 + SHUTTER_GAP_M, s1 + SHUTTER_GAP_M + w)):
+        o.proud("shutter", rect(a, b, y0, y1), SHUTTER_PROUD_M)
+        for k in range(int((y1 - y0 - 0.16) / lv)):
+            ya = y0 + 0.08 + k * lv
+            o.plane("shutter", rect(a + 0.05, b - 0.05, ya, ya + lv * 0.5), -(SHUTTER_PROUD_M + 0.015))
+
+
+def guard(o, g: dict):
+    """T-1879: an iron guard before a light's foot (1721's lower lights, the 1891 plate): a stone
+    slab `slab_m` deep standing `proud_m` out under the light, reaching `reach_m` past each of its
+    sides, and on it a guard `height_m` high whose rail stops just under the sill — square bars
+    every `pitch_m` along its front between a foot rail and a top rail, each rail returned to the
+    face at both ends. In the opening's own frame (y = 0 is its sill), so a bow bends it."""
+    out = o.holes[0]
+    s0, s1 = min(q[0] for q in out) - g["reach_m"], max(q[0] for q in out) + g["reach_m"]
+    h, d, b = g["height_m"], g["proud_m"], IRON_BAR_M
+    top, foot = -0.03, -0.03 - h
+    o.proud("sill", rect(s0 - 0.05, s1 + 0.05, foot - g["slab_m"], foot), d + 0.05)
+    # each part in its own band of depth and height, so no two faces share a plane where they meet:
+    # the rails in front, the bars just behind them stopping under the top rail's top, the returns
+    # behind the bars back to 2 mm off the wall
+    for y in (foot + 0.06, top - b):          # the rails along the front, and back to the face
+        prism(o, "iron", rect(s0, s1, y, y + b), -d, -d + b)
+        for x in (s0 + 0.003, s1 - b - 0.003):   # 3 mm in from the corner posts' sides
+            prism(o, "iron", rect(x, x + b, y, y + b), -d + 2 * b + 0.004, -0.002)
+    n = max(2, round((s1 - s0) / g["pitch_m"]))
+    for i in range(n + 1):                    # the bars, its two ends the corner posts
+        x = s0 + (s1 - s0 - b) * i / n
+        prism(o, "iron", rect(x, x + b, foot + 0.002, top - 0.003), -d + b + 0.002, -d + 2 * b + 0.002)
+
+
+SHUTTER_GAP_M = 0.06      # T-1879: K01's (k01_frontage_params.SHUTTER_GAP_M)
+SHUTTER_PROUD_M = 0.035   # T-1879: a leaf's board off the face, as T-2887's
 IRON_BAR_M = 0.018        # T-2525: K01's guard and grille bar (k01_arched_front.IRON_BAR_M)
 VOLUTE_SEGMENTS = 14      # T-3129: one panel volute, in straight runs of bar
 
@@ -1132,6 +1179,10 @@ class Bay:
                     o = window(w, s, levels[k] + w["sill_m"], w.get("recess_m", recess))
                     if w.get("grille") and self.tier == "full":   # the light tier keeps the hole
                         grille(o, w["grille"])
+                    if w.get("shutters"):   # T-1879
+                        shutters(o, w["shutters"])
+                    if w.get("guard") and self.tier == "full":   # T-1879: as a grille, full tier
+                        guard(o, w["guard"])
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
                         holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
