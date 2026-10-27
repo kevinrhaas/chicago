@@ -3,6 +3,101 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 438,
+      "takenAt": "2026-10-26T21:01:38.275Z",
+      "ref": "steward/t3161-pullman-pictures",
+      "commit": "65b6d5644848",
+      "devCommit": "ecfff9f56ce3",
+      "treeHash": "sha256:5d8944392d0c0444",
+      "treeDirty": false,
+      "changelogHash": "sha256:fc9595d88db35723",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.4,
+          3.9,
+          4
+        ]
+      },
+      "source": "/tmp/pmw/logs/smoke-d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 187,
+      "takenAt": "2026-10-26T21:01:38.151Z",
+      "ref": "steward/t3161-pullman-pictures",
+      "commit": "65b6d5644848",
+      "devCommit": "ecfff9f56ce3",
+      "treeHash": "sha256:5d8944392d0c0444",
+      "treeDirty": false,
+      "changelogHash": "sha256:fc9595d88db35723",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.4,
+          3.9,
+          4
+        ]
+      },
+      "source": "/tmp/pmw/logs/smoke-m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 64,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-26T20:50:58.839Z",
+      "ref": "steward/t3161-pullman-pictures",
+      "commit": "65b6d5644848",
+      "devCommit": "ecfff9f56ce3",
+      "treeHash": "sha256:5d8944392d0c0444",
+      "treeDirty": false,
+      "changelogHash": "sha256:fc9595d88db35723",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.3,
+          4
+        ]
+      },
+      "source": "/tmp/pmw/logs/smoke-d1.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -1447,38 +1542,6 @@
     },
     {
       "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 179,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 240,
-      "takenAt": "2026-10-10T07:44:15.525Z",
-      "ref": "steward/t2254-finish",
-      "commit": "142633a8e7b9",
-      "devCommit": "d5b6ccd3cfa1",
-      "treeHash": "sha256:f744f530a5378aa1",
-      "treeDirty": false,
-      "changelogHash": "sha256:e29d1f516153f7d4",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.7,
-          2.6,
-          2.9
-        ]
-      },
-      "source": "/tmp/smoke_m12.log"
-    },
-    {
-      "viewport": "mobile",
       "stage": "12",
       "parts": [
         12
@@ -1569,68 +1632,6 @@
         ]
       },
       "source": "/workspace/t2205-proof/smoke-stage8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 17,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-09T22:57:53.121Z",
-      "ref": "steward/t-2205-glessner-roof-edges",
-      "commit": "fd690a3f493f",
-      "devCommit": "fd690a3f493f",
-      "treeHash": "sha256:dea990ac76059ff1",
-      "treeDirty": true,
-      "changelogHash": "sha256:a1b20b6c5cee0e9b",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4.6,
-          4,
-          2.8
-        ]
-      },
-      "source": "/workspace/t2205-proof/smoke-stage8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 17,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-09T21:08:16.072Z",
-      "ref": "steward/t-2204-glessner-roof-filtering",
-      "commit": "ddd93aa3d491",
-      "devCommit": "ddd93aa3d491",
-      "treeHash": "sha256:71f488f91b753d5f",
-      "treeDirty": true,
-      "changelogHash": "sha256:39cb2eecea8add11",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          3.4,
-          3.9,
-          3.4
-        ]
-      },
-      "source": "/workspace/t2204-proof/smoke-8.log"
     },
     {
       "viewport": "desktop",

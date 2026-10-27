@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 795,
+  "count": 797,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56508,6 +56508,38 @@
       ]
     },
     {
+      "id": "L-pullman-1729-flank-stack-3161",
+      "title": "1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows standing on the 18th Street flank's cornice just east of the south-west corner pier and carried up in front of the mansard's face to a moulded cap well over the deck (`chimneys.stacks[2]`, on cornice). The camera is solved in the research notes on photo match (the album print `a16-aic-taylor-album-pullman-p69`; the print `a16-aic-taylor-pullman-from-nw` is the same negative). **What is read, not invented.** The stack's place on the flank, its base on the cornice at x 487-522 px (y 272-292) against the corner pier at x 447, so its 1.1 m face at u 24.25-25.35 with its west side seen beside it; its cap at y 160, 18.7 m through the camera, against the curb's 16.9 m. The 1890 Albertype plate (albertype 1890 camera) shows a tall stack rising behind the tree just east of the corner pier, where this one falls through that camera. **What is invented.** Its depth across the wall line (0.8 m, its outer face 0.47 m out inside the 0.6 m cornice, its inner face clear of the deck's curb so the cresting runs behind it), its cap's projection and depth (0.15 and 0.4 m), and its stone, laid in the walls' own. The photograph shows a band under the cap and a sunk panel on the shaft that are not built. The two deck stacks at (10, 5.5) and (18, 12.5) stay reconstructed: the Detroit print shows a stack near where the second falls, and Taylor's does not show it, and the two are left to a picture that settles it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a larger copy of either Taylor print, or the CHM 1905 views, reads the stack's depth and its cap; the rights question on this work decides whether the Taylor prints can be committed as reference copies, so the camera can join the image gate."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3161)."
+        }
+      ],
+      "work_refs": [
+        "T-3161"
+      ]
+    },
+    {
       "id": "L-kimball-1801-east-frontispiece-3110",
       "title": "1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows",
       "section": "per_subject",
@@ -56624,7 +56656,7 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": null,
+      "revised": "2026-10-26",
       "fields": [
         {
           "label": "Decision",
@@ -56645,6 +56677,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-26 (T-3171)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176."
         }
       ],
       "work_refs": [
@@ -56785,6 +56821,85 @@
       "work_refs": [
         "T-3165",
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-st-mary-chapel-front-2384",
+      "title": "A pictured chapel form for St Mary's",
+      "section": "per_subject",
+      "subjects": [
+        "st_marys_church"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.chimney_placement"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_marys_church",
+          "phase": "frame_1833",
+          "aspect": "form.tower"
+        }
+      ],
+      "recorded": "2026-10-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Building",
+          "text": "St. Mary's Catholic Church."
+        },
+        {
+          "label": "Decision",
+          "text": "transfer the undated Moss engraving's five long-wall sash, end door, blank gable and open belfry/cross into the original 1835 range as **reconstructed** appearance (Saint Mary's Church — wood engraving in Andreas's History of Chicago, volume 1…, Andreas 1884 vol.1 p.291). Andreas p.290 says the church had no tower when built in 1833 and received a low open tower and bell \"some time afterwards\". That interval does not establish presence or absence in July 1835. This reconstruction chooses presence; it does not claim a dated installation, a date for the engraving or proof that its later appearance stood at the original site."
+        },
+        {
+          "label": "What is chosen",
+          "text": "five window centres at fractions 0.15, 0.29, 0.43, 0.57 and 0.71 of the unchanged 35 ft wall, followed by the door at fraction 0.90, all snapped to the existing stud module. The six-opening count and transfer to 1835 are reconstructed. Existing sash size, glazing, casing, sill and threshold are retained. Both gables are blank: the near one is pictured; the unseen far one is reconstructed. The one existing stack moves to 0.75 m from the far gable; its count, shaft and head remain unchanged."
+        },
+        {
+          "label": "Belfry scantlings",
+          "text": "a 1.60 by 1.80 m boarded plinth centred 1.20 m from the near end straddles the body ridge. Its lower edge follows the roof slopes with 30 mm penetration, and its top is 0.45 m above the ridge. Four 100 mm square posts reach 2.40 m above the ridge, with 70 mm rails, 45 mm crossed lower rails and 70 mm curved brace timbers. The cornice projects 180 mm and is 160 mm thick. A 2.03 m high concave square cap narrows to a 50 mm tip; a small finial and 950 mm tall timber cross finish it, with a 760 mm crossarm. A dark small bell, 450 mm across at its mouth and 400 mm high, hangs within the open frame. These sections, profiles, material assignments and placements are reconstructed, not measured schedules; the bell's dark appearance does not establish an alloy or a paint colour from a monochrome engraving."
+        },
+        {
+          "label": "What is retained",
+          "text": "the original 25 by 35 ft footprint, location, dates, storey, wall height, gabled body type and unpainted body finish. The reconstructed 30 degree body pitch replaces the older typological 38 degrees after the first actual comparison showed a conspicuously high ridge. It is a selected shape, not a measured roof angle. No later enlargement or relocation is adopted. This supersedes “The town's three worship buildings wear a dwelling's facade”'s generic house-front placeholder and the 2026-10-23 conservative tower omission for St Mary's only."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated original-site elevation or alteration account could replace the temporal reconstruction. The actual source comparison records remaining visible differences under the owner's stopping rule; no complete picture match is claimed by a field value or this entry alone."
+        },
+        {
+          "label": "Covers",
+          "text": "`st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-25."
+        }
+      ],
+      "work_refs": [
+        "T-2384"
       ]
     },
     {
