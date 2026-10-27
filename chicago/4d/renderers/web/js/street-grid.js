@@ -33,8 +33,9 @@
  * (`terrain.setGroundCut`), and the walker is told how far down it is. A district
  * edge with no sidewalk drawn beyond it gets a stone edge up to the field, so the
  * lowered roadway never shows a gap. The same file lays a paved carriage walk across
- * the parkway, with a carriage block at the curb, before every lot 40 ft wide or
- * more. With no section file the bands lie on the field as before (L293).
+ * the parkway before every lot 40 ft wide or more, and (T-3198) a stone carriage post
+ * at the curb only where a picture shows one, each varied so none are clones. With no
+ * section file the bands lie on the field as before (L293).
  *
  * WHAT IT SHARES WITH EVERY OTHER DERIVED LAYER. A scene that does not list
  * `street_grid` hands this no data base and it draws nothing (T-1739's layer
@@ -91,6 +92,8 @@ const TUCK_M = 0.15;
  *  under the walk's inner edge where the fall is under a centimetre, never shows. */
 const CUT_RES_M = 0.5;
 const CURB_FACE_COLOUR = 0xcfcabe;
+// T-3198: dressed limestone, the 2100 block's posts painted white over it (per-post tone in vertex colour)
+const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 /** T-2475: how far one paving fades into the next where two roadways meet, metres. */
 const SEAM_M = 1.6;
 /** The fade overlay's height above the highest roadway, so it never fights one. */
@@ -576,11 +579,10 @@ function carriageWalkCard(w, face, grid, section) {
   return {
     id: w.id,
     sidecar: {
-      name: `${street.name_1904 ?? face.street} — a carriage walk and block`,
+      name: `${street.name_1904 ?? face.street} — a carriage walk`,
       phase: null,
       change_note: `A paved crossing of the parkway from the walk to the curb before lot ${w.parcel}, `
-        + `${w.width_ft} ft wide, with a dressed stone carriage block beside it at the curb. `
-        + 'The pictures show such crossings and blocks on these avenues; this one\'s place is our reconstruction.',
+        + `${w.width_ft} ft wide. The pictures show such crossings on these avenues; this one's place is our reconstruction.`,
       placement: {
         symbolic_location: face.where ?? face.street,
         position_confidence: cw.tier ?? 'reconstructed',
@@ -589,8 +591,8 @@ function carriageWalkCard(w, face, grid, section) {
       },
       attributes: {
         kind: {
-          value: 'carriage walk and carriage block', confidence: 'inferred', sources: cw.sources ?? [],
-          note: 'Paved crossings of the parkway and stone carriage blocks at the curb appear in the 1887-91 view south from 18th Street and the 1905 Views of Chicago plate.',
+          value: 'carriage walk', confidence: 'inferred', sources: cw.sources ?? [],
+          note: 'Paved crossings of the parkway appear in the 1887-91 view south from 18th Street and in front of 1815 and 2112.',
         },
         position: {
           value: `the middle of lot ${w.parcel}`, confidence: cw.tier ?? 'reconstructed', sources: [],
@@ -604,6 +606,42 @@ function carriageWalkCard(w, face, grid, section) {
       citations: [],
       research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
       research_note: `Carriage walk ${w.id} of data/street_section/1904.json (T-2474). ${cw.liberty ?? ''}`.trim(),
+    },
+  };
+}
+
+/** T-3198: a stone post at the curb, stood only where a picture shows one. */
+function carriagePostCard(post, face, grid, section) {
+  const cp = section?.carriage_posts ?? {};
+  const street = grid.streets?.[face.street] ?? {};
+  const form = post.form === 'square_domed' ? 'square dressed-stone post, domed cap' : 'round-topped stone post, painted white';
+  return {
+    id: post.id,
+    sidecar: {
+      name: `${street.name_1904 ?? face.street} — a carriage post`,
+      phase: null,
+      change_note: `A ${form} at the curb before lot ${post.parcel}, `
+        + `${Math.round(post.height_m / FT * 12)} in high. A carriage was drawn up and tied beside it.`,
+      placement: {
+        symbolic_location: face.where ?? face.street,
+        position_confidence: post.tier,
+        position_sources: post.sources ?? [],
+        position_note: post.note ?? '',
+      },
+      attributes: {
+        kind: { value: form, confidence: post.tier, sources: post.sources ?? [], note: post.note ?? '' },
+        position: {
+          value: `the curb before lot ${post.parcel}`, confidence: post.tier, sources: post.sources ?? [],
+          note: `${cp.note ?? ''} Picture: ${post.picture}.`.trim(),
+        },
+        size: {
+          value: `${post.height_m} m high, ${post.width_m} m across`, confidence: 'reconstructed', sources: [],
+          note: `Read off the picture's proportions, then varied by the post's own seed so no two match. ${cp.liberty ?? ''}`.trim(),
+        },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Carriage post ${post.id} of data/street_section/1904.json (T-3198).`,
     },
   };
 }
@@ -1017,6 +1055,7 @@ export async function createStreetGrid({
   }
 
   // T-2474 — the carriage walks: a paved crossing of the parkway, a hair above it.
+  const faceById = new Map((grid.faces ?? []).map((f) => [f.id, f]));
   const walkById = new Map();
   for (const w of section?.carriage_walks?.walks ?? []) {
     const face = (grid.faces ?? []).find((f) => f.id === w.face);
@@ -1098,7 +1137,7 @@ export async function createStreetGrid({
     out.census.triangles += buf.pos.length / 9;
   }
 
-  /* ---- T-2474: the curb's face, the district's open edges, the carriage blocks ---- */
+  /* ---- T-2474: the curb's face, the district's open edges; T-3198: the carriage posts ---- */
   if (section) {
     const fpos = []; const fnorm = []; const fuv = []; const fconf = []; const fspans = [];
     /** A vertical strip from `bottom` to `top` metres off the field along p -> q,
@@ -1162,36 +1201,6 @@ export async function createStreetGrid({
         }
       }
     }
-    // The carriage blocks: dressed stone, beside each carriage walk at the curb.
-    const blk = section.carriage_walks?.block ?? {};
-    const bAlong = (blk.along_ft ?? 3) * FT; const bAcross = (blk.across_ft ?? 2) * FT;
-    const bHeight = (blk.height_in ?? 18) * FT / 12;
-    const box = new THREE.BoxGeometry(1, 1, 1).toNonIndexed();
-    for (const { w } of walkById.values()) {
-      if (!w.block) continue;
-      const s = w.to_ft * FT - (blk.from_curb_in ?? 3) * FT / 12 - bAcross / 2;
-      const k = (w.width_ft * FT) / 2 + (blk.beside_ft ?? 1.5) * FT + bAlong / 2;
-      const e = w.at[0] + w.out[0] * s + w.along[0] * k;
-      const n = w.at[1] + w.out[1] * s + w.along[1] * k;
-      const base = terrain.surfaceHeight(e, n) + offsetAt(e, n) + CLASSES.parkway.lift - 0.04;
-      const m = new THREE.Matrix4().compose(
-        new THREE.Vector3(wx(e), base + (bHeight + 0.04) / 2, wz(n)),
-        new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.atan2(-w.along[1], w.along[0]) * -1),
-        new THREE.Vector3(bAlong, bHeight + 0.04, bAcross),
-      );
-      const g = box.clone().applyMatrix4(m);
-      const from = fpos.length / 9;
-      const P = g.attributes.position; const N = g.attributes.normal; const U = g.attributes.uv;
-      for (let i = 0; i < P.count; i += 1) {
-        fpos.push(P.getX(i), P.getY(i), P.getZ(i));
-        fnorm.push(N.getX(i), N.getY(i), N.getZ(i));
-        fuv.push(U.getX(i) * 0.6, U.getY(i) * 0.4);
-        fconf.push(1);
-      }
-      fspans.push({ id: `cw:${w.id}`, from, to: fpos.length / 9 });
-      g.dispose();
-    }
-    box.dispose();
     if (fpos.length) {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.Float32BufferAttribute(fpos, 3));
@@ -1218,6 +1227,79 @@ export async function createStreetGrid({
       materials.push(mat);
       out.census.triangles += fpos.length / 9;
     }
+
+    // T-3198 — the carriage posts: only where a picture shows one, each its own shape.
+    const postById = new Map();
+    const ppos = []; const pnorm = []; const pcol = []; const pconf = []; const pspans = [];
+    const addGeo = (g, m, tone) => {
+      g.applyMatrix4(m);
+      const G = g.index ? g.toNonIndexed() : g;
+      G.computeVertexNormals();
+      const P = G.attributes.position; const N = G.attributes.normal;
+      for (let i = 0; i < P.count; i += 1) {
+        ppos.push(P.getX(i), P.getY(i), P.getZ(i));
+        pnorm.push(N.getX(i), N.getY(i), N.getZ(i));
+        pcol.push(tone, tone, tone * 0.985);
+        pconf.push(1);
+      }
+      if (G !== g) G.dispose();
+      g.dispose();
+    };
+    for (const post of section.carriage_posts?.posts ?? []) {
+      const face = faceById.get(post.face);
+      if (!face) continue;
+      const [e, n] = post.at;
+      const ground = terrain.surfaceHeight(e, n) + offsetAt(e, n) + CLASSES.parkway.lift;
+      const H = post.height_m; const W = post.width_m; const r = W / 2;
+      const capH = post.cap === 'dome_flat' ? r * 0.55 : r;
+      const shaftH = H - capH + post.set_m;
+      const yaw = Math.atan2(post.along[0], -post.along[1]) + (post.yaw_deg * Math.PI) / 180;
+      const leanAxis = new THREE.Vector3(Math.cos((post.lean_yaw_deg * Math.PI) / 180), 0, Math.sin((post.lean_yaw_deg * Math.PI) / 180));
+      const place = new THREE.Matrix4().compose(
+        new THREE.Vector3(wx(e), ground - post.set_m, wz(n)),
+        new THREE.Quaternion().setFromAxisAngle(leanAxis, (post.lean_deg * Math.PI) / 180)
+          .multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), yaw)),
+        new THREE.Vector3(1, 1, 1),
+      );
+      const from = ppos.length / 9;
+      const square = post.form === 'square_domed';
+      const shaft = square ? new THREE.BoxGeometry(W, shaftH, W) : new THREE.CylinderGeometry(r * 0.96, r, shaftH, 12, 1);
+      addGeo(shaft, new THREE.Matrix4().makeTranslation(0, shaftH / 2, 0).premultiply(place), post.tone);
+      const dome = new THREE.SphereGeometry(square ? r * 1.04 : r * 0.96, square ? 4 : 12, 4, 0, Math.PI * 2, 0, Math.PI / 2);
+      const domeM = new THREE.Matrix4().compose(new THREE.Vector3(0, shaftH, 0),
+        new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), square ? Math.PI / 4 : 0),
+        new THREE.Vector3(square ? Math.SQRT2 : 1, capH / (square ? r * 1.04 : r * 0.96), square ? Math.SQRT2 : 1));
+      addGeo(dome, domeM.premultiply(place), post.tone);
+      if (post.cap === 'dome_collar') {
+        const collar = square ? new THREE.BoxGeometry(W * 1.12, 0.035, W * 1.12) : new THREE.CylinderGeometry(r * 1.1, r * 1.1, 0.035, 12, 1);
+        addGeo(collar, new THREE.Matrix4().makeTranslation(0, shaftH - 0.02, 0).premultiply(place), post.tone * 0.97);
+      }
+      pspans.push({ id: `cp:${post.id}`, from, to: ppos.length / 9 });
+      postById.set(post.id, { post, face });
+    }
+    out.census.carriagePosts = postById.size;
+    if (ppos.length) {
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.Float32BufferAttribute(ppos, 3));
+      geo.setAttribute('normal', new THREE.Float32BufferAttribute(pnorm, 3));
+      geo.setAttribute('color', new THREE.Float32BufferAttribute(pcol, 3));
+      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(pconf, 1));
+      geo.computeBoundingSphere();
+      const mat = new THREE.MeshStandardMaterial({ color: CARRIAGE_POST_COLOUR, roughness: 0.82, metalness: 0, vertexColors: true });
+      mat.name = 'street-grid-carriage-posts';
+      confidence?.patch(mat);
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.name = 'street-grid-carriage-posts';
+      mesh.userData.cls = 'curb';
+      mesh.userData.spans = pspans;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      group.add(mesh);
+      meshes.push(mesh);
+      materials.push(mat);
+      out.census.triangles += ppos.length / 9;
+    }
+    out.postById = postById;
 
     // The field's ground, cut out under everything drawn below it: the roadways and
     // the sidewalk space from the walk outward (the margin keeps the field's ground).
@@ -1288,7 +1370,6 @@ export async function createStreetGrid({
   out.setLotLines = (shown) => { if (out.lotLines) out.lotLines.visible = !!shown; };
   group.userData.census = out.census;
 
-  const faceById = new Map((grid.faces ?? []).map((f) => [f.id, f]));
   const wayById = new Map([
     ...(grid.carriageways ?? []).map((c) => [c.id, ['carriageway', c]]),
     ...(grid.alleys ?? []).map((a) => [a.id, ['alley', a]]),
@@ -1299,6 +1380,10 @@ export async function createStreetGrid({
     if (spanId.startsWith('cw:')) {
       const hit = walkById.get(spanId.slice(3));
       return hit ? carriageWalkCard(hit.w, hit.face, grid, section) : null;
+    }
+    if (spanId.startsWith('cp:')) {
+      const hit = out.postById?.get(spanId.slice(3));
+      return hit ? carriagePostCard(hit.post, hit.face, grid, section) : null;
     }
     if (spanId.includes('|')) {
       const [fid, band] = spanId.split('|');

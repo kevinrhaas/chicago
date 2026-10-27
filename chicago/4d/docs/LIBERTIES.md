@@ -27318,7 +27318,7 @@ fixes the reveal.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-13 (T-2474).
 
-### L-prairie-carriage-walks-2474 — Carriage walks and carriage blocks before every lot 40 ft wide or more
+### L-prairie-carriage-walks-2474 — Carriage walks before every lot 40 ft wide or more, and carriage posts only where pictured
 
 **Decision:** 91 paved crossings of the parkway, from the walk to the curb, 5 ft wide, one at the
 middle of every 1904 lot at least 40 ft wide, each with a dressed stone carriage block 3 ft long,
@@ -27337,6 +27337,21 @@ one by one.
 **Ticket:** T-2474.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-13 (T-2474).
+**Amended (T-3198, 2026-10-27; owner: "i dont need to have those carriage steps at every house. i
+dont see that in photos of prarie anywhere", then "what you keep you should vary them in appearance so
+that they do not look like clones" and "they mostly should go i think because i dont see them in
+photos, unless you do"):** the 91 rule-placed blocks are withdrawn. Read again, the Flinn view and the
+1905 plate show the lot-line coping along the walk's inside edge, not blocks at the curb, and the
+Pullman views show the parkway edge clear. Stones at the curb stand only where a picture shows one:
+a square domed post beside the crossing at 1815 Prairie (`chicagology_1815_sears_two_views`,
+attested), a pair of round domed posts flanking 2112's crossing and one at 2110
+(`glessner_blog_2100_block_looking_nw_1890s`, attested), and a row of the same posts at the east
+curb opposite 2109-2115 (inferred: the same picture's edge, the houses not certain). 13 posts in all,
+0.38 m in from the curb's face, stood clear of the elms. Each is varied by a seed on its id (height,
+width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degrees; tone) so no
+two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in
+HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which
+crossings exist where no picture reaches.
 
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
