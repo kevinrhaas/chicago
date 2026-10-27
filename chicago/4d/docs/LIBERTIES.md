@@ -33679,12 +33679,16 @@ distance (its `solve`).
 monochrome); the mansard's deck and its pitch; the treads; the flank, north and rear walls' windows,
 and the flank bays' storeys, windows and roofs (no picture sees them); the stacks' places; the
 rainwater; the sash pattern; the rear range's storeys, windows and flat deck; the side gate.
-**What is not built.** The porch's round arches and its third column, its carving and its stone
-balustrade; the stoop's balustered cheeks; the bay's panelled pilasters; the basement windows' full
-height; the bay carried up into the mansard with its own dormer; and the print's stretch of front
-wall south of the bay, which the sheet does not draw: open on the match record for T-3168.
-**How to resolve:** T-3168 builds those, solves the partial view's camera, and brings both match
-records to `matches`.
+**What is not built.** The porch's round arches and its third column; the basement windows' full
+height (K02's Lemont profile holds the coping they meet to two 0.41 m courses); the bay carried up
+into the mansard with its own dormer; the mansard's last metre of rise (K01's one-storey face stops at
+4.5 m); and the print's stretch of front wall south of the bay, which the sheet does not draw: open
+on the match records. T-3168 laid the porch in the front's stone, its balustrade heavier, and put a
+turned stone balustrade with newels on the stoop's cheeks; the porch's carving and the bay's
+panelled pilasters are surface relief left within tolerance (T-3153). Invented there: the
+balusters' turning and pitch, the newels' size, and the square section of the porch's balusters.
+**How to resolve:** K01/K02 kit work for the arches, the third column, the basement's height and the
+bay's carry into the mansard; a placement ruling for the wall south of the bay.
 **Covers:** `house_1828_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1828_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1828_prairie.as_mapped_1904.form.service_wall_brick`, `house_1828_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1828_prairie.as_mapped_1904.form.stair_tread_m`, `house_1828_prairie.as_mapped_1904.form.side_bays`, `house_1828_prairie.as_mapped_1904.form.north_bays`, `house_1828_prairie.as_mapped_1904.form.rear_bays`, `house_1828_prairie.as_mapped_1904.form.chimneys`, `house_1828_prairie.as_mapped_1904.form.rainwater`, `house_1828_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-3166 (piece 1 of T-1887).
 **Review:** `docs/RESEARCH/k01-1828-shipman-1887/README.md`.
@@ -34385,3 +34389,39 @@ plate's cameras, and brings every 1901 match record to `matches`.
 **Ticket:** T-3185 (piece 1 of T-1903).
 **Review:** `docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3185).
+
+### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
+
+**Decision:** the stable at the east end of 1729 Prairie (`pullman_house_1729_prairie_ranges`, its south
+block r1, north block r4 and east section r5) stops being the district draft's mansard box and becomes the
+stable J. W. Taylor photographed from 18th Street (AIC 16555, `aic_taylor_16555_pullman_west_front`), worked
+to that picture through the camera T-3165 solved on it until the side-by-side shows the same building.
+**What is read.** Through that camera (23.8 px/m at the stable's front, about 10% scale uncertainty there):
+the first-floor cornice at 3.95 m, from which a steep hipped roof springs to a flat deck at about 10.2 m
+inside iron cresting; the upper storey on the 18th Street front carried up through the roof's lower slope as
+one long wall with its own cornice at 6.0 m; a three-arch arcade between the west wall and a polygonal bay
+4.8 m across with its cornice at 4.9 m and round-headed lights; three bays of sash east of the bay on both
+storeys; the deck's west edge 3.3 m in from the eave; the belvedere's top about 10.3 m at the range's face;
+and the front's length: the hipped roof spans the 1911 sheet's south block within about 0.5 m, and the
+two-storey front runs on about 4 m further east under a lower roof. From the 1894 Inland Architect plate
+(`inland_1894_pullman_palm_house_stable`) and Taylor's south-west view (`aic_taylor_16554_pullman_from_sw`),
+read for form only: the arcade's broad open middle arch between narrower lights, the octagonal lantern
+under a dome and finial toward the deck's west end, the tall stack at the front's east end, and the square
+belvedere with a cornice and balustrade. **What is invented.** The east section's depth (7.3 m) and its
+low hipped roof: the 1911 sheet draws no building there, so either it was gone by 1911 or the sheet's
+trace missed it, and the 1904 scene keeps what the picture shows (AGENTS.md rule 11). The deck's east, north
+and south insets (the photograph shows only its west corner clearly), the lantern's and the stack's exact
+places and sizes, the belvedere's depth behind the range's parapet (4.4 m, the wing's own depth), the north
+block's hipped roof, and the sash on the north, east and west faces, which stay the draft rules'. The
+arcade's three arches are fitted into the 3.2 m Taylor's frontal reads between the west wall and the bay;
+the Inland plate reads that stretch about twice as long, which T-3193 weighs through the plate's own camera.
+Stone is the draft's light buff (the pictures are monochrome). **What is not.** The sheet's west wall, 18th
+Street front, east wall and north block; the heights, the bay, the arcade's place, the window bays and the
+roof's form are the photograph's. **How to resolve:** T-3193 solves the Inland plate's camera (its eye about
+8 m up, its horizon on the range's parapet) and the south-west view's, and either confirms or moves the
+arcade's length, the belvedere and the east section; the c. 1905 CHM negative i70232 (`a16-chm-clark-i70232-
+pullman-addition`, not in the image store) would date the east section against 1904.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-3192 (piece 1 of T-3178).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-27 (T-3192).

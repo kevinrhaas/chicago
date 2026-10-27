@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "c538efdfd3189e72b8711bf34361f365a6dd9fc65caf7ac9b3870842e1bcc0e0"
+      "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "f90f1211a87638e2bbf3ac21ab6b639bdad02428e9119a1e6de818198e9cf8d0"
+      "glb_sha256": "8caa6d00fabb9fd692f14f42016c04d855ba5e53ed6960161509ac76185027d7"
     }
   ],
-  "group_sha256": "a79c26941530986815229fa1a7b70a447c457b88271622ef2b7f97ce577ab050",
+  "group_sha256": "173426141c3404d22737d417e077b62fbcb2df908adc91073c103cab369f97b1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -122,6 +122,42 @@
       "what": "the north half of the rotunda behind the wing's face, the wing's roof and its north side",
       "status": "not shown",
       "how": "the camera stands south of the range"
+    },
+    {
+      "what": "the stable's hipped roof (T-3192): springing from the first-floor cornice at the west end (x 640-690 px, about 4 m) and rising steeply to a flat deck inside iron cresting, its west corner finial near x 720 px and the deck about 10.2 m up; the district draft's mansard box had none of it",
+      "status": "fixed"
+    },
+    {
+      "what": "the stable's upper storey on 18th Street carried up through the roof as one long wall with small square lights under its own cornice at about 6.0 m (y 520-525 px), with a low attic band and two small lights over the arcade",
+      "status": "fixed"
+    },
+    {
+      "what": "the stable's polygonal bay west of the front's middle, about 4.8 m across (x 690-815 px), its cornice at about 4.9 m and round-headed lights in its faces",
+      "status": "fixed"
+    },
+    {
+      "what": "the stable's arcade of round arches between its west wall and the bay, crowns about 3.0-3.2 m (y 590 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stable's front east of the bay: ground-storey sash (sills about 1.2 m, heads 3.2 m) and small upper sash at about 4.3-5.2 m, in three bays, the third on a section that runs on about 4 m past the hipped roof (to x 1090 px), which the 1911 sheet does not draw (liberty L-pullman-stable-3192)",
+      "status": "fixed"
+    },
+    {
+      "what": "the square belvedere over the range's parapet at the wing's east end, its balustrade's top about 10.3 m (y 455-470 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stable's arcade: the photograph shows two arches and a narrow light west of the bay where the 1894 Inland plate shows three arches, a broad open one between two narrower; the model takes the plate's three, fitted into the 3.2 m this view reads (T-3193 weighs the stretch through the plate's camera)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stable's roof meets its front below the upper storey's wall as a projecting band about 0.4 m deep where the print shows a moulded belt course; the hood mouldings over the ground-storey sash and the bay's string courses are not modelled",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stable's lantern, the stack at the front's east end, the deck's east end and the east section's roof: the tree crowns cover the roof's east half and the deck's middle (the lantern and stack are read from the south-west view and the Inland plate)",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

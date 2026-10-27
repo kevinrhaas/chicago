@@ -1,7 +1,7 @@
 {
   "id": "pullman_house_1729_prairie_ranges",
   "phase": "draft_1904",
-  "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; refined by T-1934)",
+  "name": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges (the district draft's massing, kept by T-1880; the stable refined to its pictures by T-3192)",
   "aka": [
     "1729 S. Prairie Avenue (rear)"
   ],
@@ -45,27 +45,28 @@
   "footprint": {
     "polygon": [
       [
-        -32.25,
-        -6.0
+        -36.4,
+        1.5
       ],
       [
-        -21.5,
-        -6.0
+        -21.0,
+        1.5
       ],
       [
-        -21.5,
-        14.25
+        -21.0,
+        14.27
       ],
       [
-        -32.25,
-        14.25
+        -36.4,
+        14.27
       ]
     ],
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+      "sanborn_1911_chicago_v3_sheet_20",
+      "aic_taylor_16555_pullman_west_front"
     ],
-    "note": "The stable block: the draft's rectangle 2 of the traced main part (s20fp-1729-b1 p3), in the Pullman house draft's frame (u toward Prairie Avenue, v south), which this record keeps; the other two parts are in draft_plan."
+    "note": "The stable's south block as the 1911 sheet draws it (s20fp-1729-b1 p3), from its west wall (u -21.0) to its east wall (u -36.4), the canted south-east corner squared, and from the sheet's offset at v 1.5 to its 18th Street front (v 14.27), in the Pullman house draft's frame (u toward Prairie Avenue, v south). The draft's rectangle had stopped at u -32.25, the narrower north block's line; T-3192 carried it to the east wall, which Taylor's 18th Street photograph confirms (the hipped roof spans the sheet's block within about 0.5 m through its camera). The other parts are in draft_plan."
   },
   "attributes": {
     "stories": {
@@ -90,15 +91,51 @@
           {
             "id": "r1",
             "role": "main",
-            "storeys": 2,
-            "roof": "mansard",
+            "storeys": 1,
+            "roof": "hip_deck",
             "rect": [
-              -32.25,
-              -6.0,
-              -21.5,
-              14.25
+              -36.4,
+              1.5,
+              -21.0,
+              14.27
             ],
-            "from": "s20fp-1729-b1 p3 (main, stone), the draft's rectangle 2 (the east building, lettered GARAGE)"
+            "from": "s20fp-1729-b1 p3 (main, stone): the east building's south block from its west wall to its east wall, as the 1911 sheet draws it with the canted south-east corner squared (T-3178), where the draft's rectangle 2 had stopped 4.2 m short of the east wall",
+            "pitch_deg": 53,
+            "deck_m": 6.25,
+            "deck_insets_m": [
+              0.8,
+              3.3,
+              4.63,
+              4.63
+            ]
+          },
+          {
+            "id": "r4",
+            "role": "wing",
+            "storeys": 2,
+            "roof": "hip",
+            "pitch_deg": 40,
+            "rect": [
+              -32.4,
+              -6.0,
+              -21.0,
+              1.5
+            ],
+            "from": "s20fp-1729-b1 p3 (main, stone): the east building's narrower north block, from the sheet's offset at v 1.5 to its north wall (T-3178)"
+          },
+          {
+            "id": "r5",
+            "role": "wing",
+            "storeys": 2,
+            "roof": "hip",
+            "pitch_deg": 30,
+            "rect": [
+              -40.4,
+              7.0,
+              -36.4,
+              14.27
+            ],
+            "from": "not on the 1911 sheet: the stable's 18th Street front carried on east of the sheet's east wall, as J. W. Taylor's 18th Street photograph shows it under a lower roof (T-3178); its depth is reconstructed"
           },
           {
             "id": "r2",
@@ -135,9 +172,10 @@
       },
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "aic_taylor_16555_pullman_west_front"
       ],
-      "note": "The draft's rectangles (cell 0.25 m, at most 3 a part) that the K01 house does not carry, in the Pullman house draft's frame: the east building at two storeys as the draft stood it (wing_storeys), the 1B range and the porte-cochere at one storey under flat roofs, as the sheet letters them. Roofs per piece are the draft rules' (reconstructed)."
+      "note": "The sheet's rectangles the K01 house does not carry, in the Pullman house draft's frame. The stable (T-3192): its south block r1 between the sheet's west and east walls, its narrower north block r4 at the sheet's offset, and r5, an east section the 1911 sheet does not draw: Taylor's 18th Street photograph shows the stable's two-storey front running on about 4 m past the hipped roof under a lower roof, with a third bay of sash, so r5 stands there at the photograph's length and the front's height; its 7.3 m depth is reconstructed (liberty L-pullman-stable-3192). The 1B range and the porte-cochere stay at one storey under flat roofs, as the sheet letters them. Roofs per piece other than the stable's are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -145,8 +183,8 @@
         "seed": 3054461091,
         "principal_floor_m": 0.0,
         "storey_heights_m": [
-          3.4,
-          2.8,
+          3.95,
+          2.05,
           2.6
         ],
         "roof_pitch_deg": 40,
@@ -158,11 +196,183 @@
         "brackets": false,
         "attic_dormers": false,
         "stone": "stone",
-        "features": [],
+        "features": [
+          {
+            "kind": "stable_dress",
+            "dressed_faces": [
+              "r1:v1",
+              "r5:v1"
+            ],
+            "arcade": {
+              "part": "r1",
+              "side": "v1",
+              "centres": [
+                -21.525,
+                -22.6,
+                -23.675
+              ],
+              "spans_m": [
+                0.65,
+                1.1,
+                0.65
+              ],
+              "spring_m": 2.65,
+              "pier_m": 0.2,
+              "open": [
+                1
+              ]
+            },
+            "canted_bay": {
+              "part": "r1",
+              "side": "v1",
+              "s0": -24.2,
+              "s1": -29.0,
+              "proj_m": 1.4,
+              "top_m": 4.9,
+              "cap_m": 0.6,
+              "light": {
+                "w_m": 0.8,
+                "sill_m": 0.8,
+                "h_m": 1.85
+              }
+            },
+            "windows": [
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -30.9,
+                "sill_m": 1.2,
+                "w_m": 0.7,
+                "h_m": 2.0
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -34.6,
+                "sill_m": 1.2,
+                "w_m": 1.1,
+                "h_m": 2.0
+              },
+              {
+                "part": "r5",
+                "side": "v1",
+                "s": -38.2,
+                "sill_m": 1.2,
+                "w_m": 0.9,
+                "h_m": 2.0
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -30.9,
+                "sill_m": 4.3,
+                "w_m": 0.7,
+                "h_m": 0.85
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -34.6,
+                "sill_m": 4.3,
+                "w_m": 1.0,
+                "h_m": 0.85
+              },
+              {
+                "part": "r5",
+                "side": "v1",
+                "s": -38.2,
+                "sill_m": 4.3,
+                "w_m": 0.9,
+                "h_m": 0.85
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -21.8,
+                "sill_m": 4.2,
+                "w_m": 0.55,
+                "h_m": 0.55
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s": -22.8,
+                "sill_m": 4.2,
+                "w_m": 0.55,
+                "h_m": 0.55
+              }
+            ],
+            "lantern": {
+              "at": [
+                -28.4,
+                7.9
+              ],
+              "base_m": 10.35,
+              "radius_m": 1.15,
+              "drum_m": 1.6,
+              "dome_m": 1.0,
+              "finial_m": 1.0,
+              "sides": 8
+            },
+            "belvedere": {
+              "rect": [
+                -24.1,
+                -6.9,
+                -20.0,
+                -2.5
+              ],
+              "top_m": 9.4,
+              "balustrade_m": 0.9,
+              "lights": [
+                "v1",
+                "u1"
+              ],
+              "light_sill_m": 7.2,
+              "light_h_m": 1.4
+            },
+            "stacks": [
+              {
+                "at": [
+                  -36.0,
+                  12.4
+                ],
+                "w_m": 1.4,
+                "d_m": 0.8,
+                "from_m": 5.0,
+                "top_m": 11.5
+              }
+            ],
+            "upper_walls": [
+              {
+                "part": "r1",
+                "side": "v1",
+                "s0": -21.0,
+                "s1": -23.6,
+                "from_m": 3.95,
+                "top_m": 5.1,
+                "depth_m": 1.0
+              },
+              {
+                "part": "r1",
+                "side": "v1",
+                "s0": -23.6,
+                "s1": -36.4,
+                "from_m": 3.95,
+                "top_m": 6.0,
+                "depth_m": 1.2
+              }
+            ]
+          }
+        ],
         "v_toward": "south"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the draft rules' service elevation (as the district's coach houses take it), written by T-1880 for the stable and ranges the Pullman house's draft carried; heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges. Liberty L-draft-prairie-16-18-east-2335."
+      "note": "The stable's elevation is T-3192's, read from its pictures; the rest is the draft rules' service elevation (T-1880). READ THROUGH TAYLOR'S 18TH STREET CAMERA (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json, 23.8 px/m at the stable's front, about 10% scale uncertainty): the first-floor cornice 3.95 m over grade, from which the hipped roof springs at 53 degrees to a flat deck at 10.2 m inside iron cresting; the upper storey carried up through the roof's lower slope as one long wall with its own cornice at 6.0 m, a low attic band with two small square lights over the arcade; the arcade's three round arches (crowns about 3.0-3.2 m) between the west wall and the polygonal bay; the bay 4.8 m across, projecting 1.4 m, its cornice at 4.9 m and a round-headed light in each of its three faces (heads about 2.65 m); three bays of sash east of it on both storeys (ground sills 1.2 m, heads 3.2 m; upper sills 4.3 m); the deck's west edge 3.3 m in from the eave, read off the photograph's corner finial. FROM THE 1894 INLAND PLATE AND TAYLOR'S SOUTH-WEST VIEW, READ FOR FORM ONLY (their cameras are T-3193's): the arcade's broad open middle arch between two narrower lights, the lantern (an octagonal drum of lights under a dome and finial, placed toward the deck's west end, its size scaled from the south-west view), the stack at the front's east end rising about 1.3 m past the deck, and the square belvedere with cornice and balustrade over the range's parapet at the wing's east end (its top about 10.3 m through Taylor's camera at the range's face; its depth behind the parapet is reconstructed). RECONSTRUCTED, and kept at that tier for the field as a whole: the deck's other three insets, the lantern's and the stack's exact places, the north block's and the east section's roofs, the belvedere's depth, and the north, east and west faces' sash (the draft rules'). Liberty L-pullman-stable-3192 (and L-draft-prairie-16-18-east-2335 for what the draft rules still set).",
+      "sources": [
+        "aic_taylor_16555_pullman_west_front",
+        "inland_1894_pullman_palm_house_stable",
+        "aic_taylor_16554_pullman_from_sw"
+      ]
     },
     "function": {
       "value": "stable",
@@ -184,6 +394,42 @@
   "residents": [],
   "citations": [
     {
+      "source_id": "aic_taylor_16554_pullman_from_sw",
+      "citation": "J. W. Taylor (Chicago), photographer. Pullman, George M., Residence [from the south-west, showing the palm house and stable]. Photograph, c. 1890-1910 (holder's view date). Art Institute of Chicago, Ryerson and Burnham Archives, Architecture Photograph Collection (Historic Architecture and Landscape Image Collection), no. 16554.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29313",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the stable's window count east of the bay (three bays, two storeys) and the stack at its east end",
+        "the lantern's form (octagonal drum with lights, a dome and a finial) and its place toward the deck's west end"
+      ],
+      "what_it_does_not_supply": [
+        "a solved camera yet (T-3193)",
+        "colour",
+        "the arcade, which the bay and the planting hide from this side"
+      ]
+    },
+    {
+      "source_id": "aic_taylor_16555_pullman_west_front",
+      "citation": "J. W. Taylor (Chicago), photographer. Pullman, George M., Residence [west front, showing portion enclosing palm house and stable]. Photograph, c. 1890-1910 (holder's view date). Art Institute of Chicago, Ryerson and Burnham Archives, Architecture Photograph Collection (Historic Architecture and Landscape Image Collection), no. 16555.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29190",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the palm house's size and place along the range: about 7.6 m across its entablature, its centre about 12 m east of the house's east wall (19.8 px/m between the range's two ends)",
+        "the drum's columns, entablature, balustrade and dome, and their heights through its camera",
+        "the range's parapet height, its arched door and window, the terrace and its central flight of steps"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state: the photograph is 1892-94",
+        "colour: the photograph is monochrome",
+        "the rotunda's north half behind the range, the range's roof and its north side",
+        "the dome's covering (glass or metal) at this size"
+      ]
+    },
+    {
       "source_id": "hmdb_prairie_lost_houses_1600_1700",
       "citation": "'Lost Houses of Prairie Avenue: 1600-1700 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308722.",
       "url": "https://www.hmdb.org/m.asp?m=308722",
@@ -197,6 +443,23 @@
       "what_it_does_not_supply": [
         "the 1904 occupants",
         "any measurement or appearance"
+      ]
+    },
+    {
+      "source_id": "inland_1894_pullman_palm_house_stable",
+      "citation": "Inland Architect Press. Palm House and Stable of George M. Pullman, Chicago. S. S. Beman, Architect. Photographic plate in The Inland Architect and News Record, vol. 24, no. 1 (1894). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection (Inland Architect plates).",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/8429",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the stable's forms: the arcade's three arches, the polygonal bay and its round-headed lights, the upper storey's wall and lights, the roof's west end springing from the first-floor cornice, the deck's cresting and the lantern",
+        "the belvedere's form: a square tower with a cornice and balustrade over the range's parapet"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state: the plate is 1892-94",
+        "colour: the plate is monochrome",
+        "a solved camera yet (T-3193)"
       ]
     },
     {
@@ -220,7 +483,7 @@
       ]
     }
   ],
-  "research_note": "The parts of the 1911 sheet's trace s20fp-1729-b1 that the Pullman house's K01 record (pullman_house_1729_prairie, T-1880) does not carry, kept where and as the district draft (T-2335) stood them so that nothing the sheet draws goes missing while the house moves onto K01: the stable and garage block at the lot's east end at two storeys, the 1B range north of the house's rear at one storey, and the porte-cochere on 18th Street at one storey. K01's wings stand on the main block's rear wall, and these do not (the conservatory, its own K13 record, stands between). Written by T-1880 on the draft builder from the draft's own rectangles, not by the draft rules (the rules' skip names it); every height, roof and opening is the draft rules' reconstruction (liberty L-draft-prairie-16-18-east-2335). T-1934 refines it.",
+  "research_note": "The parts of the 1911 sheet's trace s20fp-1729-b1 that the Pullman house's K01 record (pullman_house_1729_prairie, T-1880) does not carry, kept where and as the district draft (T-2335) stood them so that nothing the sheet draws goes missing while the house moves onto K01: the stable and garage block at the lot's east end at two storeys, the 1B range north of the house's rear at one storey, and the porte-cochere on 18th Street at one storey. K01's wings stand on the main block's rear wall, and these do not (the conservatory, its own K13 record, stands between). Written by T-1880 on the draft builder from the draft's own rectangles, not by the draft rules (the rules' skip names it); every height, roof and opening is the draft rules' reconstruction (liberty L-draft-prairie-16-18-east-2335). T-1934 refines it; T-3192 refined the stable to J. W. Taylor's 18th Street photograph (AIC 16555) through the camera T-3165 solved on it, reading the stable's forms from the 1894 Inland Architect plate of the palm house and stable and Taylor's south-west view (AIC 16554), whose cameras are T-3193's (liberty L-pullman-stable-3192).",
   "research_doc": "",
   "review_required": false,
   "called": "1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges"

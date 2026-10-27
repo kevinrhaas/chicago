@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 805,
+  "count": 806,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56092,11 +56092,11 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1828 Prairie Avenue, Daniel B. Shipman's, is no longer a district draft. It stands, under the draft's own id 1828 Prairie Avenue — Daniel B. Shipman house, as a k01 frontage record built by the k01 emit generator, against the automobile photograph (1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric…, about 1897-1906) and the Glessner House Museum's partial view ([Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer…, undated), both rights check required (forms and proportions only): a light ashlar front two tall storeys over a raised basement, a canted bay through both storeys on the front's south part, a porch on columns with a deep entablature and a balustrade at the stoop's head on its recessed north part, a moulded stone cornice and a slated mansard with dormers, a round bay and a canted bay on the south flank, the rear range, and an iron fence on a stone curb. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1828-b1, census s28-1828-front): the front block's place and plan (19.4 by 8.2 m), the front bay's width and projection, the south flank's round and canted bays, the rear range ('rear2B'), brick with a stone front. From the automobile photograph, through its solved camera (the chicagology automobile data): the principal floor, the principal storey and its windows' heights, the bay's windows, the porch's place, height, entablature and balustrade, the basement windows, the fence. From the partial view: the second storey's height in proportion, the cornice, the mansard and its two street dormers. Every height rests on the camera's distance (its `solve`). **What is invented.** The walls' thickness and the flanks' brick and its tone (the prints are monochrome); the mansard's deck and its pitch; the treads; the flank, north and rear walls' windows, and the flank bays' storeys, windows and roofs (no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys, windows and flat deck; the side gate. **What is not built.** The porch's round arches and its third column, its carving and its stone balustrade; the stoop's balustered cheeks; the bay's panelled pilasters; the basement windows' full height; the bay carried up into the mansard with its own dormer; and the print's stretch of front wall south of the bay, which the sheet does not draw: open on the match record for later work."
+          "text": "the house at 1828 Prairie Avenue, Daniel B. Shipman's, is no longer a district draft. It stands, under the draft's own id 1828 Prairie Avenue — Daniel B. Shipman house, as a k01 frontage record built by the k01 emit generator, against the automobile photograph (1828 S. Prairie Ave. About 1897. [Daniel B. Shipman house, with an electric…, about 1897-1906) and the Glessner House Museum's partial view ([Shipman house, 1828 S. Prairie Avenue, partial view.] Unknown photographer…, undated), both rights check required (forms and proportions only): a light ashlar front two tall storeys over a raised basement, a canted bay through both storeys on the front's south part, a porch on columns with a deep entablature and a balustrade at the stoop's head on its recessed north part, a moulded stone cornice and a slated mansard with dormers, a round bay and a canted bay on the south flank, the rear range, and an iron fence on a stone curb. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1828-b1, census s28-1828-front): the front block's place and plan (19.4 by 8.2 m), the front bay's width and projection, the south flank's round and canted bays, the rear range ('rear2B'), brick with a stone front. From the automobile photograph, through its solved camera (the chicagology automobile data): the principal floor, the principal storey and its windows' heights, the bay's windows, the porch's place, height, entablature and balustrade, the basement windows, the fence. From the partial view: the second storey's height in proportion, the cornice, the mansard and its two street dormers. Every height rests on the camera's distance (its `solve`). **What is invented.** The walls' thickness and the flanks' brick and its tone (the prints are monochrome); the mansard's deck and its pitch; the treads; the flank, north and rear walls' windows, and the flank bays' storeys, windows and roofs (no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys, windows and flat deck; the side gate. **What is not built.** The porch's round arches and its third column; the basement windows' full height (K02's Lemont profile holds the coping they meet to two 0.41 m courses); the bay carried up into the mansard with its own dormer; the mansard's last metre of rise (K01's one-storey face stops at 4.5 m); and the print's stretch of front wall south of the bay, which the sheet does not draw: open on the match records. Later work laid the porch in the front's stone, its balustrade heavier, and put a turned stone balustrade with newels on the stoop's cheeks; the porch's carving and the bay's panelled pilasters are surface relief left within tolerance. Invented there: the balusters' turning and pitch, the newels' size, and the square section of the porch's balusters."
         },
         {
           "label": "How to resolve",
-          "text": "Later work builds those, solves the partial view's camera, and brings both match records to `matches`."
+          "text": "K01/K02 kit work for the arches, the third column, the basement's height and the bay's carry into the mansard; a placement ruling for the wall south of the bay."
         },
         {
           "label": "Covers",
@@ -56118,6 +56118,7 @@
       "work_refs": [
         "T-3166",
         "T-1887",
+        "T-3153",
         "T-3168"
       ]
     },
@@ -57602,6 +57603,54 @@
         "T-3185",
         "T-1903",
         "T-3186"
+      ]
+    },
+    {
+      "id": "L-pullman-stable-3192",
+      "title": "Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie_ranges",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the stable at the east end of 1729 Prairie (1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges, its south block r1, north block r4 and east section r5) stops being the district draft's mansard box and becomes the stable J. W. Taylor photographed from 18th Street (AIC 16555, J. W. Taylor (Chicago), photographer), worked to that picture through the camera earlier work solved on it until the side-by-side shows the same building. **What is read.** Through that camera (23.8 px/m at the stable's front, about 10% scale uncertainty there): the first-floor cornice at 3.95 m, from which a steep hipped roof springs to a flat deck at about 10.2 m inside iron cresting; the upper storey on the 18th Street front carried up through the roof's lower slope as one long wall with its own cornice at 6.0 m; a three-arch arcade between the west wall and a polygonal bay 4.8 m across with its cornice at 4.9 m and round-headed lights; three bays of sash east of the bay on both storeys; the deck's west edge 3.3 m in from the eave; the belvedere's top about 10.3 m at the range's face; and the front's length: the hipped roof spans the 1911 sheet's south block within about 0.5 m, and the two-storey front runs on about 4 m further east under a lower roof. From the 1894 Inland Architect plate (Inland Architect Press. Palm House and Stable of George M. Pullman, Chicago) and Taylor's south-west view (J. W. Taylor (Chicago), photographer), read for form only: the arcade's broad open middle arch between narrower lights, the octagonal lantern under a dome and finial toward the deck's west end, the tall stack at the front's east end, and the square belvedere with a cornice and balustrade. **What is invented.** The east section's depth (7.3 m) and its low hipped roof: the 1911 sheet draws no building there, so either it was gone by 1911 or the sheet's trace missed it, and the 1904 scene keeps what the picture shows (the project's rules rule 11). The deck's east, north and south insets (the photograph shows only its west corner clearly), the lantern's and the stack's exact places and sizes, the belvedere's depth behind the range's parapet (4.4 m, the wing's own depth), the north block's hipped roof, and the sash on the north, east and west faces, which stay the draft rules'. The arcade's three arches are fitted into the 3.2 m Taylor's frontal reads between the west wall and the bay; the Inland plate reads that stretch about twice as long, which later work weighs through the plate's own camera. Stone is the draft's light buff (the pictures are monochrome). **What is not.** The sheet's west wall, 18th Street front, east wall and north block; the heights, the bay, the arcade's place, the window bays and the roof's form are the photograph's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves the Inland plate's camera (its eye about 8 m up, its horizon on the range's parapet) and the south-west view's, and either confirms or moves the arcade's length, the belvedere and the east section; the c. 1905 CHM negative i70232 (`a16-chm-clark-i70232- pullman-addition`, not in the image store) would date the east section against 1904."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3192)."
+        }
+      ],
+      "work_refs": [
+        "T-3165",
+        "T-3193",
+        "T-3192",
+        "T-3178"
       ]
     },
     {
