@@ -4705,7 +4705,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for bay in (val("bays") or []):
             if bay.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
                 continue
-            half = float(bay["plan"]["chord_m"]) / 2
+            # T-3163: a bow names its chord, a projection its width (1823's pavilion), a
+            # polyline its ends on the wall
+            pl = bay.get("plan") or {}
+            half = (float(pl["chord_m"]) / 2 if "chord_m" in pl else float(pl["width_m"]) / 2 if "width_m" in pl
+                    else max(abs(float(x)) for x, _ in pl["points"]))
             b0, b1 = float(bay["s_m"]) - half, float(bay["s_m"]) + half
             if b0 < b - 1e-9 and a + 1e-9 < b1:
                 raise ParamError(f"entrance_kit.side_stoop: the landing (v {a}-{b}) stands on the {bay['id']} bay")
