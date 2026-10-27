@@ -405,7 +405,7 @@
                   "at": [
                     0.53
                   ],
-                  "why_not_ordinary": "the ground floor's tall lights: the plate shows tall shuttered windows over iron balconettes in a 5.6 m principal storey, taller than the rules' ordinary sash"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
                 }
               ]
             },
@@ -471,11 +471,11 @@
                   "clear_height_m": 2.5,
                   "sill_m": 2.1,
                   "at_deg": [
-                    -36,
+                    -35,
                     0,
-                    36
+                    35
                   ],
-                  "why_not_ordinary": "the ground floor's tall lights: the plate shows tall shuttered windows over iron balconettes in a 5.6 m principal storey, taller than the rules' ordinary sash"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
                 }
               ]
             },
@@ -488,9 +488,9 @@
                   "clear_height_m": 2.2,
                   "sill_m": 0.75,
                   "at_deg": [
-                    -36,
+                    -35,
                     0,
-                    36
+                    35
                   ]
                 }
               ]
@@ -527,11 +527,11 @@
                   "clear_height_m": 2.5,
                   "sill_m": 2.1,
                   "at_deg": [
-                    -32,
+                    -35,
                     0,
-                    32
+                    35
                   ],
-                  "why_not_ordinary": "the ground floor's tall lights: the plate shows tall shuttered windows over iron balconettes in a 5.6 m principal storey, taller than the rules' ordinary sash"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
                 }
               ]
             },
@@ -544,9 +544,9 @@
                   "clear_height_m": 2.2,
                   "sill_m": 0.75,
                   "at_deg": [
-                    -32,
+                    -35,
                     0,
-                    32
+                    35
                   ]
                 }
               ]
@@ -567,7 +567,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "inland_architect_1891_06_dexter_plate"
       ],
-      "note": "The 1911 sheet's front (trace s20fp-1721-b1 p1 in this frame): the forward block's face at u 10.6, 2.9 m before the recessed wall at u 7.7, from v 3.55 (its north return, beside the porch) to the south wall at v 17.6; the north bow from v 4.8 to 9.4, 1.2 m out, the south bow from v 12.6 to 17.0, 1.1 m out. The plate shows the block, both bows rising through the ground and second storeys and each roofed at the third floor (its balustrade is T-1879's); the windows' places on the bows and between them are read off the plate, their count to a face reconstructed. The bows' outer windows stand at 36 degrees (north) and 32 degrees (south) off the bow's centre, pulled in from 40 so that each recess stays inside its bow (the K08 kit's recess rule); the plate places them near each bow's ends without fixing an angle."
+      "note": "The 1911 sheet's front (trace s20fp-1721-b1 p1 in this frame): the forward block's face at u 10.6, 2.9 m before the recessed wall at u 7.7, from v 3.55 (its north return, beside the porch) to the south wall at v 17.6; the north bow from v 4.8 to 9.4, 1.2 m out, the south bow from v 12.6 to 17.0, 1.1 m out. The plate shows the block, both bows rising through the ground and second storeys and each roofed at the third floor (its balustrade is T-1879's); the windows' places on the bows and between them are read off the plate, their count to a face reconstructed. Each bow's outer lights stand 35 degrees round its curve from the middle one, which keeps their recesses in front of the forward block's face (at 40 they ran up to 0.09 m back onto it)."
     },
     "rear_wings": {
       "value": [
