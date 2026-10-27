@@ -340,6 +340,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_trees/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parkway bands it plants along (T-2473), and tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of (T-2474); see the manifest step"
     },
+    "plant_prairie_1904_front_yards.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-27",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/front_yards/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-27 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose lots it plants, and of the committed 1904 sidecars and baked models, whose stoops, walks, fences and doors it keeps clear of (T-3203); see the manifest step"
+    },
     "lay_prairie_1904_street_furniture.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
