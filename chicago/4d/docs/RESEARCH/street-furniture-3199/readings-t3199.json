@@ -1,0 +1,173 @@
+{
+  "method": "published /1904/ app, animation loop stopped after readiness, each stand rendered with the street-furniture layer hidden (before) and shown (after); heap after a forced GC",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "js_heap_used_bytes": 81204484,
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "glessner-corner",
+          "before": {
+            "info": {
+              "triangles": 3983872,
+              "calls": 190
+            },
+            "furniture": {
+              "near": 9,
+              "far": 81,
+              "triangles": 12096,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 4001668,
+              "calls": 199
+            },
+            "furniture": {
+              "near": 9,
+              "far": 81,
+              "triangles": 12096,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "pullman-corner",
+          "before": {
+            "info": {
+              "triangles": 2516286,
+              "calls": 368
+            },
+            "furniture": {
+              "near": 10,
+              "far": 82,
+              "triangles": 12800,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 2535414,
+              "calls": 377
+            },
+            "furniture": {
+              "near": 10,
+              "far": 82,
+              "triangles": 12800,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "ames-1811",
+          "before": {
+            "info": {
+              "triangles": 2145876,
+              "calls": 330
+            },
+            "furniture": {
+              "near": 8,
+              "far": 93,
+              "triangles": 12428,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 2163376,
+              "calls": 339
+            },
+            "furniture": {
+              "near": 8,
+              "far": 93,
+              "triangles": 12428,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "glessner-stable-18th",
+          "before": {
+            "info": {
+              "triangles": 5089369,
+              "calls": 350
+            },
+            "furniture": {
+              "near": 8,
+              "far": 81,
+              "triangles": 11468,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 5105909,
+              "calls": 359
+            },
+            "furniture": {
+              "near": 8,
+              "far": 81,
+              "triangles": 11468,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        },
+        {
+          "name": "prairie-south",
+          "before": {
+            "info": {
+              "triangles": 3637221,
+              "calls": 354
+            },
+            "furniture": {
+              "near": 10,
+              "far": 82,
+              "triangles": 12800,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          },
+          "after": {
+            "info": {
+              "triangles": 3656301,
+              "calls": 362
+            },
+            "furniture": {
+              "near": 10,
+              "far": 82,
+              "triangles": 12800,
+              "drawCalls": 6,
+              "detail": "full"
+            },
+            "problems": []
+          }
+        }
+      ]
+    }
+  ]
+}
