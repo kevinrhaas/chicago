@@ -34238,3 +34238,45 @@ a field value or this entry alone.
 **How to resolve:** a separately dated original-site view or account could establish a leaf/state; no complete image match is claimed by this selected shadow.
 **Ticket:** T-2382.
 **Recorded:** 2026-10-26.
+
+### L-pullman-conservatory-3179 — Pullman's glasshouses worked to the 1894 Inland plate and the c. 1897 Lowe photograph: Beman's pointed conservatory, the masonry range and its domed colonnade
+
+**Decision:** the Pullman estate's glasshouse ground across 18th Street stops being four K13 ranges read off
+the 1911 sheet alone and is worked to the two pictures of it from 18th Street, the 1894 Inland Architect
+plate "Conservatory of Geo. M. Pullman" (`inland_1894_pullman_conservatory`) and the c. 1897 photograph in
+the Lowe collection (`aic_lowe_pullman_conservatory_c1897`), through solved cameras in
+`data/reference_views/pullman_glasshouse_1800_calumet_pavilion/`. **What is read.** Through the plate's
+camera (49.5 px/m on the conservatory's north front, scaled by its 8.34 m width; 25.8 px/m at the range):
+the conservatory a glass nave on a pointed section, its north end the great pointed arch with a broad frame
+and a bar up its middle, springing at about 3.6 m over a band of upright glazing on a stone podium about
+2.3 m high, its apex about 9.45 m; the arched stone entrance in that end, about 2.1 m wide and 3.5 m to its
+crown; a transept crossing it, its north face rising upright and turning level at a crest about 9.35 m;
+an octagonal glazed drum to about 10.0 m and a ribbed dome about 4 m across, its crown about 13.1 m with a
+finial over it. The east range a masonry wall about 6.0 m to its coping, eight square-headed windows high
+in it between pilasters, and no roof seen over its parapet. Its round east end a glazed colonnade under an
+entablature level with that coping and a low ribbed dome, crown about 7.3 m. The north range's north end a
+low curved glass roof, eave about 1.9 m and crown about 4.2 m. **What is invented.** The transept's plan
+and its hipped end: the 1911 sheet's cross arms (1.35 m out over 7 m of the nave) are kept, with a curved
+hip whose run (1.5 m) puts its crest's end where the plate does; the plate shows a narrow upright end
+where that plan shows a curved one about 1.5 m further east, and the plan is held to the sheet. The
+transept, drum and domes are glazed in an opaque substitute toned as the pictures show the glass (pale),
+because they stand outside the nave's one transparent envelope (the K13 kit's rule). The vault's four
+facets a half and the kit's bays, bars and staging; the stone tone; the walls' thickness, the windows'
+even spacing and the range's glass roof at a low 14 degrees behind its parapet (the sheet letters a
+glass roof, which no picture sees); a column at every joint of the round end and one midway along its
+straight sides; the domes' profiles. The north range's curvilinear section along its whole length, which
+the pictures see only at its north end. **What is not.** The plan of every range is the sheet's. **The
+north range and the pictures' date.** Both pictures (1894 and c. 1897) show garden and the lodge's front
+where the 1911 sheet draws a 23.7 m glass range from the conservatory's south end to the lodge, with only
+a short curved glass link beside the conservatory: the range was lengthened between about 1897 and 1911.
+Nothing dates it inside that span, so the 1904 scene keeps the sheet's range, and the match records say
+so rather than copying an earlier state. The lodge (`pullman_lodge_1800_calumet`), which both pictures show
+as a two-storey stone building with a bowed front, a recessed columned porch under a balcony and a
+crested mansard roof, is outside this entry and still the draft's reconstruction. Supersedes the forms
+and heights (not the plans) of L-pullman-glasshouses-1800-calumet-3164 for the four glasshouse records.
+**How to resolve:** a plan of the conservatory or a third picture from the east settles the transept's
+end; a dated view or permit between 1897 and 1911 dates the north range's lengthening.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_north.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east.as_standing_1904.form.conservatory`, `pullman_glasshouse_1800_calumet_east_end.as_standing_1904.form.conservatory`
+**Ticket:** T-3179 (piece of T-3165).
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-27 (T-3179).

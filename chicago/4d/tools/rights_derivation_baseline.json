@@ -1761,6 +1761,38 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "pullman_glasshouse_1800_calumet_east/as_standing_1904/form.conservatory": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_lowe_pullman_conservatory_c1897"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "pullman_glasshouse_1800_calumet_east_end/as_standing_1904/form.conservatory": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_lowe_pullman_conservatory_c1897"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "pullman_glasshouse_1800_calumet_north/as_standing_1904/form.conservatory": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_lowe_pullman_conservatory_c1897"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "pullman_glasshouse_1800_calumet_pavilion/as_standing_1904/form.conservatory": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_lowe_pullman_conservatory_c1897"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "pullman_house_1729_prairie_conservatory/as_standing_1904/footprint": {
       "kind": "structure",
       "blocked_sources": [

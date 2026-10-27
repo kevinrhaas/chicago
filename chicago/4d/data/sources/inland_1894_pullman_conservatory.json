@@ -1,0 +1,28 @@
+{
+ "id": "inland_1894_pullman_conservatory",
+ "type": "photograph",
+ "citation": "Inland Architect Press. Conservatory of Geo. M. Pullman, Chicago. S. S. Beman, Architect. Photographic plate in The Inland Architect and News Record, vol. 24, no. 4 (1894). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection (Inland Architect plates), IA2404_1676.",
+ "author": "Inland Architect Press (photographic plate); Solon S. Beman, architect",
+ "date": "1894 (publication)",
+ "describes_date": "1892 to 1894: the conservatory as built for George M. Pullman",
+ "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/8465). Prairie library image a16-inland-1894-pullman-conservatory; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-inland-1894-pullman-conservatory.jpg), committed since T-3179 at data/sources/assets/pullman_1800_glasshouses_t3179/ with its attribution.",
+ "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/8465",
+ "locator": "The whole plate: from 18th Street, looking south-west across the gated drive at the conservatory's north end (right), with the east range and its domed round end, and the lodge, behind at left.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1894 (pre-1931); the Prairie library's ruling is public domain. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate is the store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3179) from the image store's reference copy, 2000 x 1409 px (the plate with its mount and caption), sha256 4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a.",
+ "note": "The published view of Beman's conservatory for Pullman across 18th Street from the house: a glass nave on a pointed section with a broad arched frame at its north end over a band of upright glazing and a stone podium with an arched entrance; a transept whose north face rises upright and turns level at a crest; a ribbed dome with a finial on a glazed drum over the crossing; behind at left a one-storey masonry range with a row of square windows ending in a domed colonnade, and a two-storey stone lodge with a bowed front and a crested mansard roof. T-3179 solved its camera (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json) and worked the glasshouse records to it.",
+ "what_it_supplies": [
+  "the conservatory's sections, heights and openings through its camera (49.5 px/m on the north front)",
+  "the east range's masonry face, windows and coping height, and its round end's colonnade and dome",
+  "the north range's north end as a low curved glass roof"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state: the plate is 1892-94, and the 1911 sheet draws a longer north range than it shows",
+  "colour: the plate is monochrome",
+  "the south and west sides, and the ranges' roofs behind their parapets"
+ ]
+}
