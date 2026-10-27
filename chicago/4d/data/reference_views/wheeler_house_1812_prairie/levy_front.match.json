@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947",
+  "glb_sha256": "cfe3dd0d2b365e3ce1e5671846dd26401bb3fca9c1de1f27cecf387423fffd41",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -199,6 +199,11 @@
     {
       "what": "The side and rear walls, which the photograph does not see",
       "status": "not shown"
+    },
+    {
+      "what": "the low pale coping before the stair, and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays a 0.35 m stone coping on the street line, open across the stair's foot as the Levy print shows nothing across it and the c. 1888 view down the block shows low pale blocks; the K14 walk runs straight from the stair"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

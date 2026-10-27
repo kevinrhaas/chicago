@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4f7801c879ff17842e3db2787f3f25c8db9e8f3b9f2e34a3e5fcd4e531367f9b",
+  "glb_sha256": "92e5d499af4bf039c5617880addf0fe01286213f5f1beddc722f3ac76d5749ed",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -77,6 +77,16 @@
       "what": "the flanks, the round bay and the canted bay on the south flank, and the rear range",
       "status": "not shown",
       "how": "the camera is square to the front; built to the 1911 sheet at the reconstructed tier (L-k01-1828-shipman-1887)"
+    },
+    {
+      "what": "the walk and the entrance gate",
+      "status": "fixed",
+      "how": "T-3206 adds the K14 walk and stands the entrance gate open, with a cinder walk down the side passage"
+    },
+    {
+      "what": "the boundary's kind",
+      "status": "within tolerance",
+      "how": "this print shows an iron fence on a curb; glessner_partial reads as a low solid wall; the fence is kept (L-k14-walks-1800-block-3206)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

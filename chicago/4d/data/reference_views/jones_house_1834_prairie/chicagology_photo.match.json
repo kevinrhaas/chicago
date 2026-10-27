@@ -2,7 +2,7 @@
   "structure_id": "jones_house_1834_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/jones_house_1834_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c4e87cd7ff6080e30883d77c61eb21f4b325911150f33c761ccf9b6bb8926af2",
+  "glb_sha256": "6203db9cf51234a3f867243c7624ac0c53f51cf70a9aba7e74febf15e0dc8967",
   "camera_sha256": "b4e3db30dc1ca24563f8f0d7b1c293d1d1b77adcc7df81462bc57c8272f310af",
   "photo_sha256": "b56b80160679f820ed88e84b46eaf9a96c838b317fe1791ebf78d2773156fe52",
   "side_by_side": "docs/RESEARCH/photo-match/jones_house_1834_prairie/chicagology_photo-side-by-side.jpg",
@@ -172,6 +172,11 @@
       "what": "K03's projecting brick course at the second floor on the north flank, which the print does not draw",
       "status": "within tolerance",
       "how": "one brick course proud by a few centimetres"
+    },
+    {
+      "what": "the walk behind the low wall to its north opening",
+      "status": "fixed",
+      "how": "T-3206 lays the K14 walk from the stair's foot north behind the low wall and out through the wall's north opening, as the (mirrored) print shows"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -456,7 +456,7 @@
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
           "clear_m": 1.3,
-          "drawn_deg": 0
+          "drawn_deg": 70
         },
         "side_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
@@ -470,7 +470,7 @@
         "chicagology_1901_ream_exterior",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m)."
+      "note": "A low iron fence on a stone curb along the street line, its panels a band of C-scrolls under the top rail, with tall square stone posts at its gates and at the south corner, in both photographs: K11's scroll-band fence on the kit's stone piers. The scrolls' exact pattern (the prints draw paired loops) is the kit's. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the fence's line 9.1 m before the front, its curb's face on the sheet's street line (9.35 m). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
     },
     "bays": {
       "value": [
@@ -769,6 +769,32 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 sheet's brick rear: the east wall stands 3.1 m further back south of v 5.6 (lot x 1444.7-1447.8 on the trace), coloured brick, at the main body's height; on K01's rear wings, laid in K03 brick, under a flat roof. Its windows are reconstruction: no picture shows the rear."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1901_ream_1898",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate down the north passage to the house's rear corner. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
     },
     "function": {
       "value": "residence",

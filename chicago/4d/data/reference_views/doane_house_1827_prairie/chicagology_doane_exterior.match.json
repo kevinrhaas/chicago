@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9249f748bafb44c6c48d7b9d7e4ab1897ca7b705a38bfd54b30a822a94d1eb5d",
+  "glb_sha256": "db8ebc7593b20dff8d4ae52c5579eda8b3fefbada86adc580692a203da94fdd3",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -165,6 +165,16 @@
     {
       "what": "the tower's south-east face: not seen; built with the south-west face's paired lights (L-k01-1827-doane-3171)",
       "status": "not shown"
+    },
+    {
+      "what": "the fence's end at the stone pier on the lot's south corner",
+      "status": "fixed",
+      "how": "T-3206 ends the fence at a stone pier at s 21.95, where the photograph's pier (x 1165-1200) projects to the lot corner"
+    },
+    {
+      "what": "the walk and the entrance gate",
+      "status": "fixed",
+      "how": "the K14 walk runs from the porch flight to the public walk; the entrance gate stands open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -34613,3 +34613,33 @@ open in that record). This supersedes the gabled section's lights and its floor 
 L-kimball-1801-gabled-section-3001.
 **How to resolve:** a measured elevation of the 18th Street front, or a nearer photograph of the
 gabled section.
+
+### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
+**Recorded:** 2026-10-27.
+
+**Decision:** every worked 1904 house on the 1800 and 1900 blocks of Prairie Avenue except 1800
+(Glessner, left as built) is given a K14 yard: a lawn, a flagged front walk from the foot of its
+stoop to the inner edge of the public walk, and, where its pictures or its Sanborn sheet show a side
+passage, a service walk to the rear (T-3206). Before this only 1808 Prairie had a walk; the others
+showed a lawn running into a closed fence. **What is read, not invented.** The kind of front
+boundary is read from each house's pictures. 1801 (Taylor, c. 1895) has no fence, only a low coping
+edging the lawn along Prairie and 18th Street; it is built as a 0.35 m stone coping returned along
+18th, cut at the walk. 1811 (the Chicagology photograph) has a low rock-faced coping with openings at
+the walk and at the side walk; 1812 (Levy, and the c. 1888 view south-west down the block) low pale
+blocks, nothing across the stair's foot; 1815 a low coping with two square posts flanking its walk;
+1823 (the 1883 Newberry album) a low line with a post at a side-stoop walk. The iron fences of 1816,
+1824, 1827, 1828 and 1901, already photo-matched, are kept; their entrance gates now stand open, and
+1824's 5.45 m single side leaf, which no picture shows, becomes a 1.6 m gate. 1827's fence now ends
+at the stone pier its photograph shows at the lot's south corner. 1834's walk turns north behind its
+low wall to the wall's north opening, as its (mirrored) print shows. **What is invented or held by
+the kit.** The walks' widths (1.2-2.2 m), their flags and joints, the cinder or flagged service
+walks, the copings' sections, chamfers and exact heights, and where an opening falls within about
+0.5 m are the kit's or reconstructed; through 1811's camera the opening sits about 1 m south of
+where it is laid, and 1815's posts 0.2-0.45 m off, both recorded in their match records. 1828's two
+pictures disagree (an iron fence on the curb, a low solid stone wall); the fence is kept. Each walk
+is checked by `tools/check_house_walks.py`: it must start at the stoop, reach the public walk, pass
+through an opening in the front boundary and cross no building.
+**How to resolve:** nearer or earlier photographs of each front at the walk, or a survey plat
+drawing the walks.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.yard`, `wheeler_house_1812_prairie.as_built_1884.form.yard`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.yard`, `henderson_house_1816_prairie.as_mapped_1904.form.yard`, `dent_house_1823_prairie.as_mapped_1904.form.yard`, `marsh_house_1824_prairie.as_mapped_1904.form.yard`, `doane_house_1827_prairie.as_mapped_1904.form.yard`, `house_1828_prairie.as_mapped_1904.form.yard`, `jones_house_1834_prairie.as_mapped_1904.form.yard`, `ream_house_1901_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3206.

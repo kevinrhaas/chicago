@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "album_1883",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2635e3a1de3f46d0e6231977996dda055eb5ac79f1115bbab3a36cd71e660ce4",
+  "glb_sha256": "35f10bc7f78bd1e9243b1f986b95697fb8b64f9165ac34ee2ef0b6d0e741c1c8",
   "camera_sha256": "322562a5d4ab63a8d65232c77d2705d470366c7f2f2529ef84f16dc1f0ee3b49",
   "photo_sha256": "266ad0e2bc64f4ed5e08799f6c974f6a3150a4fa7170145700272596e1611588",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/album_1883-side-by-side.jpg",
@@ -91,6 +91,11 @@
       "what": "the walk, the trees and the figures",
       "status": "not shown",
       "how": "outside the building record"
+    },
+    {
+      "what": "the low line before the house and the post at the walk",
+      "status": "fixed",
+      "how": "T-3206 lays a 0.3 m stone coping on the street line with 0.75 m posts either side of the side-stoop walk's opening (the album's post at about s 1.4) and the K14 walk from the side stoop's foot"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

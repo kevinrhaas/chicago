@@ -472,7 +472,7 @@
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
           "clear_m": 1.3,
-          "drawn_deg": 0
+          "drawn_deg": 70
         },
         "side_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
@@ -488,7 +488,7 @@
       "sources": [
         "chicagology_1828_shipman_automobile"
       ],
-      "note": "An iron fence on a stone curb in front of the house, with turned posts, in the automobile photograph (Chicagology, about 1897). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates and the side gate across the south passage are reconstructed."
+      "note": "An iron fence on a stone curb in front of the house, with turned posts, in the automobile photograph (Chicagology, about 1897). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates and the side gate across the south passage are reconstructed. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
     },
     "bays": {
       "value": [
@@ -831,6 +831,33 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The sheet's 'rear2B' range behind the front block, u 19.8-26.9 and v -2.89 to 5.2 in the lot's frame, two storeys under a tin deck; its heights and openings are reconstructed. The sheet's small piece behind it (u 17.8-19.8, v 1.65-4.8) is not built."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78,
+          "band": "gate"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1828_shipman_automobile",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate back along the south lot line, the gate's width. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
     },
     "function": {
       "value": "residence",

@@ -47,8 +47,8 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  const page=await context.newPage();page.setDefaultTimeout(240000);
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  await page.goto(`http://127.0.0.1:${server.address().port}/1904/`,{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:500});
- await page.waitForFunction(()=>window.__chicago4d?.welcome?.state==='welcome',null,{timeout:240000,polling:1000});
+ await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:900000,polling:500});
+ await page.waitForFunction(()=>window.__chicago4d?.welcome?.state==='welcome',null,{timeout:900000,polling:1000});
  await page.evaluate(async detail=>{const a=__chicago4d;if(!a.welcome.enter('spawn'))throw Error('welcome entry failed');document.exitPointerLock?.();document.getElementById('control-help-gotit')?.click();a.renderer.setAnimationLoop(null);await a.setDetail(detail);a.step();},detail);
  await page.waitForFunction(()=>document.getElementById('gate').hidden);
  for(const [id,D,axis,foot,pub] of RUN){

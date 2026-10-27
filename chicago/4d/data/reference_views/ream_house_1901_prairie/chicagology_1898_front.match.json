@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_1898_front",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "541086a1701a76fd69f273b848c616ff98a608e24c1378f1ff49f226b396cbe2",
+  "glb_sha256": "4158135cdf016341d94c71a2921df9c8ea5046b4d6b8d28718c292f94da4a357",
   "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
   "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
@@ -75,6 +75,11 @@
     {
       "what": "the north flank, the rear and the brick rear range",
       "status": "not shown"
+    },
+    {
+      "what": "the walk and the entrance gate between the tall stone posts",
+      "status": "fixed",
+      "how": "T-3206 adds the K14 walk from the stair to the public walk and stands the entrance gate open between the posts; the scroll fence is kept"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

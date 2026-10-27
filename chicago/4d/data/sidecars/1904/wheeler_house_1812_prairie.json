@@ -1172,6 +1172,60 @@
       ],
       "note": "The steep faces straight, as both photographs show them (level slate courses on a plane, no bow), at 72 degrees, the north corner's lean in Levy's print (about 0.5 m out over 1.6 m of rise) and the convex variant's own chord; rising 2.0 m from the side walls' heads at 12.45 m to the curb at 14.45 m, the print's south cap (14.3-14.5 m), where the north cap reads about 0.4 m lower (an open item on the match record). 2.0 m is the foot of K01's one-storey range: the third storey stands under the walls' heads and the faces hold the attic over it (L-k01-1812-wheeler-roof-3033). The 1816 Henderson photograph (chicagology_1816_henderson_photo) is cited here in text only: its rights are unresolved, so nothing is built from it; Levy's print alone carries the value. T-3061: the south wall is carried up past the curb as a coped parapet, as both photographs show it: in Levy's print the slate face behind the gable's south shoulder ends in the wall's end, a vertical band (x 277-293 px) from the slate's foot to a heavier level cap at y 257-277 px (about 14.3-14.5 m at the front's plane), and the c. 1955 photograph sees the same coped top from the south (T-3034). Built as the side wall's own 0.33 m, from the rear wall to the front, its slab's top at 14.3 m under a coping 0.2 m deep to 14.5 m, the print's cap; the mansard's south face behind it is hidden from the street and dies into its inner side. Its length along the wall is not seen in either picture past the stack and is carried to the rear wall, as a parapet wall runs (L-k01-1812-wheeler-parapet-3061)."
     },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 5.95,
+        "lot_s_m": [
+          -0.27,
+          8.27
+        ],
+        "thickness_m": 0.3,
+        "chamfer_m": 0.06,
+        "runs": [
+          {
+            "to_s_m": 5.0,
+            "height_m": 0.35
+          },
+          {
+            "to_s_m": 7.2,
+            "opening": true
+          },
+          {
+            "to_s_m": 8.27,
+            "height_m": 0.35
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "levy_1812_prairie_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture of 1812 shows an iron fence: Levy's photograph (levy_1812_prairie_photo) runs the stair down to the walk with nothing across its foot, and the Prairie library's c. 1888 view south-west from 18th Street (a18-gh-1800-block-looking-sw-c1888, x 900-1180 px of its 1733 px print: the dark stair with the pierced cheek) shows low pale stone blocks before the stair, like 1808's beside it. K11's stone coping wall, 0.35 m, on the parcel's street line (6.0 m from the front; data/street_grid/1904.json prairie_1812), open s 5.0-7.2 across the stair's axis (s 6.1). The house fills its lot (s -0.27-8.27), so there is no side passage. The coping's height and section are reconstructed from that small view."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 2.0
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "levy_1812_prairie_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's opening to the public walk, 2.0 m wide (the flight's), and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

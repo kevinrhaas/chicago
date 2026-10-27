@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "541086a1701a76fd69f273b848c616ff98a608e24c1378f1ff49f226b396cbe2",
+  "glb_sha256": "4158135cdf016341d94c71a2921df9c8ea5046b4d6b8d28718c292f94da4a357",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
@@ -67,6 +67,11 @@
     {
       "what": "the rear and the brick rear range, behind the trees",
       "status": "not shown"
+    },
+    {
+      "what": "the walk and the entrance gate",
+      "status": "within tolerance",
+      "how": "seen from the south-west the open gate and walk T-3206 lays read behind the fence"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
