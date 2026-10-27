@@ -1817,6 +1817,31 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "pullman_house_1729_prairie_ranges/draft_1904/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "pullman_house_1729_prairie_ranges/draft_1904/form.draft_elevation": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16554_pullman_from_sw",
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "pullman_house_1729_prairie_ranges/draft_1904/form.draft_plan": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_taylor_16555_pullman_west_front"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "ream_house_1901_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
       "blocked_sources": [
