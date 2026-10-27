@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2320, ts: '2026-10-27T02:03:20.961Z', date: 'Oct 26, 2026, 9:03 PM CT', title: 'Wolf Point Tavern gets a darker roof tone', kind: 'improvement',
+    items: [
+      'The tavern uses a deeper reconstructed brown roof tone guided by the credited 1867 NYPL print of Wolf Point in 1833. Its existing shingle relief and building form remain.',
+      'The print does not establish the exact pigment, weathering or unchanged appearance in July 1835. Picture comparisons continue before the building is signed off.',
+    ] },
   { v: 2319, ts: '2026-10-27T01:25:30.838Z', date: 'Oct 26, 2026, 8:25 PM CT', title: '1823 Prairie looks like its pictures', kind: 'improvement',
     items: [
       'Thomas Dent\'s house at 1823 Prairie now has the box bay with its hood on the north side, iron cresting along the top of its mansard, paired windows in its dormers, and moulded heads over its front windows.',
