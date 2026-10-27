@@ -26389,7 +26389,7 @@ engraving after a photograph (`chicagology_1823_dent_engraving`, undated; rights
 forms and proportions only) and the 1883 New Chicago Album vignette of the same view
 (`newberry_new_chicago_album_1883_residences`, no known restrictions). A smooth light stone front on
 brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at
-the front's south end, flush with the south wall, under a steep hipped crown; a group of three
+the front's south end, flush with the south wall, under a steep hipped crown (since T-3163, an attic under a coped gable); a group of three
 windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded
 cornice; tall stacks; a two-storey rear range.
 **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census
@@ -26399,26 +26399,20 @@ pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrow
 '3B; rear2B'. From the engraving, through its camera
 (`data/reference_views/dent_house_1823_prairie/chicagology_engraving.json`): the principal floor, the
 storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's
-window columns, the dormers' places, the mansard's curb, the north stack's place and top. From the
+window columns, the dormers' places, the mansard's curb, the north stack's place and top (T-3163 re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the
 vignette: the stone front against the brick flank, and the same composition dated 1883.
 **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say
 light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the
 brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's
 windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place;
 the stacks' plans; the rainwater; the sash pattern.
-**What is not built.** The pavilion's pediment of paired lights in front of its steep roof, which
-stands about 2 m higher than K05's steepest hipped crown reaches; the mansard's cresting; the broad
-carved pediment over the triple group (K05's gable head over one sash); the north flank's paired
-lights under one pediment; the north flank's one-storey box bay under a hood; the stack at the north
-flank's rear, over the rear range, where K01 stands no stack; the stoop that climbs from the north;
-the narrow light beside the door; the grilled arched basement doorway under the landing; the moulded
-window heads and surrounds: open on the match record.
-**How to resolve:** T-3163 (piece 2 of T-1894) builds those, solves the 1883 vignette's camera, and
-brings the match records to `matches`.
+**What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing; the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records.
+**Revised:** 2026-10-26 (T-3163, piece 2 of T-1894). The engraving's camera is re-solved (its pavilion corners had been read about 60 px out) and the front's and the north flank's openings re-read through it; the 1883 vignette's camera is solved, from a cut of the plate committed at `data/sources/assets/dent_1823_album_1883_t3163/`. Built from the pictures: the north flank's box bay under its hood; the pavilion carried up an attic with paired lights under a coped gable and finial (T-3162's hipped crown is gone); the deck's iron cresting; paired-light dormers; K09 cornice hoods over the front's windows and surrounds on the pavilion's; the stoop climbing from the north; the north stack on the cornice. **Invented by T-3163:** the box bay's 0.5 m depth and its foot carried to grade (the pictures corbel it out at about 1.8 m); the pavilion attic's height and the gable's pitch; the cresting's pattern (K10's kit) and height; the dormers' sash sizes; the cornice hoods' profiles; the stoop's landing length and its cheek's stone.
+**How to resolve:** the remaining open items need K01 to stand a stack over a rear wing, a dormer through the curb, an opening under a side stoop's landing and a light between the door and a pavilion, and a pavilion crown with slated cheeks round a pedimented attic; only the owner opens new work on a photo-gated house (T-3153).
 **Covers:** `dent_house_1823_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dent_house_1823_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dent_house_1823_prairie.as_mapped_1904.form.service_wall_brick`, `dent_house_1823_prairie.as_mapped_1904.form.stair_tread_m`, `dent_house_1823_prairie.as_mapped_1904.form.roof_pitch_deg`, `dent_house_1823_prairie.as_mapped_1904.form.window_kit`, `dent_house_1823_prairie.as_mapped_1904.form.rainwater`, `dent_house_1823_prairie.as_mapped_1904.form.stair_landing_depth_m`, `dent_house_1823_prairie.as_mapped_1904.form.north_bays`, `dent_house_1823_prairie.as_mapped_1904.form.rear_bays`
 **Ticket:** T-3162 (piece 1 of T-1894).
 **Review:** `docs/RESEARCH/k01-1823-dent-1894/README.md`.
-**Recorded:** 2026-10-26 (T-3162).
+**Recorded:** 2026-10-26 (T-3162); revised the same day by T-3163.
 ### L-k01-1625-mcbirney-tudor-2432 — 1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one
 
 **Decision:** the house at 1625 Prairie Avenue (T-2432, piece 1 of T-1869) is no longer a district
@@ -34074,3 +34068,20 @@ a field value or this entry alone.
 **Covers:** `st_marys_church.frame_1833.form.plan`, `st_marys_church.frame_1833.form.bays`, `st_marys_church.frame_1833.form.tower`, `st_marys_church.frame_1833.form.chimney_placement`, `st_marys_church.frame_1833.form.roof_pitch_deg`.
 **Ticket:** T-2384.
 **Recorded:** 2026-10-25.
+
+
+### L-wolf-point-roof-tone-2386 — A picture-bounded roof tone
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.roof_colour`.
+
+**Decision:** Explicitly select the optional `deep_brown` roof tone for this tavern only: exactly one quarter of the existing `darkened` stock linear RGB, preserving alpha and roughness. This mirrors the local FrameTavern tonal option without changing the shared sheet or any default. The first native stock-darkened mobile comparison remained visibly pale, so the roof condition selector is replaced by a deliberately reconstructed colour. Its own reconstructed confidence reaches every roof face. No geometry, tile relief, covering, new material slot or other building finish changes.
+
+**Source and limits:** `blanchard_shober_1867_wolf_point`: Rufus Blanchard, publisher; Chas. Shober & Co., lithographer; Chicago, 1867, under the auspices of the Chicago Historical Society. NYPL, I. N. Phelps Stokes Collection, existing Commons surrogate; the inspected 1867 publication line supports its existing public-domain-by-age record. It is a retrospective depiction labelled 1833, not direct proof of the surface on 1 July 1835. Applying its broad appearance to 1835 is a conscious reconstruction. Print tint, lighting and reproduction do not establish pigment, weathering, age or calibrated reflectance. The stock's parent name does not assert weather-blackening.
+
+**Production:** The genuine pinned 82-master/82-WEB family refresh completed; all 81 unselected master and WEB files are individually byte-identical, and every nonfamily asset/source/people control is unchanged. The selected roof changes only its base colour; its actual reconstructed roof confidence remains 1.0.
+
+**Verification owed:** The retained provisional NYPL comparison of the actual final master and the actual compressed derivative in the native app. All eight original pictures, their camera/source disagreements and T-3153's street-visible stopping rule still govern the original unsplit signoff. No matches or completion is asserted here.
+
+**Recorded:** 2026-10-26 (T-2386).
+
+**Ticket:** T-2386.
