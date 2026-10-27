@@ -213,13 +213,26 @@
                 "face_setback_m": 0.1
               }
             ],
-            "storeys": 1
+            "storeys": 1,
+            "crown": {
+              "form": "hip",
+              "over_bay": "pavilion",
+              "depth_m": 6.0,
+              "overhang_m": 0.65,
+              "pitch_deg": 47,
+              "end_pitch_deg": 47,
+              "attic_m": 4.2,
+              "finial": {
+                "height_m": 1.0,
+                "radius_m": 0.15
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "Through the photograph's camera: the slated lower faces rise steeply from the cornice (about 12.6 m) to the curb (about 16.8 m); a dormer under a pediment stands on the front over the window bay south of the pavilion (x 650-770 px) and another over the porch at the north end (x 190-250 px)."
+          "note": "Through the photograph's camera: the slated lower faces rise steeply from the cornice (about 12.6 m) to the curb (about 16.8 m); a dormer under a pediment stands on the front over the window bay south of the pavilion (x 650-770 px) and another over the porch at the north end (x 190-250 px). T-3175: the pavilion's crown, read off the photograph through its camera: the pavilion is carried up an attic from the main eave (12.6 m, y 845 px) to its own cornice at about y 605 px (16.8 m, the main curb's height; attic_m 4.2), under a steep slated roof hipped on every side from that cornice (x 350-597 px) to a point at about y 410 px (about 20.2 m) with a turned iron finial to about y 355 px (about 1 m). Built as K05's hipped crown: 47 degrees on the sides and the street end (the photograph's rise of about 3.4 m over a half-width of about 3.4 m reads 45 degrees; 47 is the nearest the kit's steep range allows, its ridge about 20.5 m), the cornice 0.65 m past the pavilion's face and sides (the kit's least past the main cornice's 0.6 m; the photograph's stands about at the pavilion's sides), run 6.0 m back into the main roof so its ridge is about 0.5 m long (the photograph sees it end on, as a point). How far it runs back, which no picture shows, is reconstructed."
         },
         "roof_covering": {
           "value": {
@@ -532,12 +545,30 @@
                       "why_not_ordinary": "the upper storey's lights, read off the photograph (x 330-530 px) as nearly as tall as the principal floor's, taller than the rules' ordinary sash"
                     }
                   ]
+                },
+                {
+                  "height_m": 4.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_transom_flat",
+                      "clear_width_m": 0.7,
+                      "clear_height_m": 2.9,
+                      "sill_m": 0.85,
+                      "at": [
+                        0.33,
+                        0.5,
+                        0.67
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the attic's three tall lights, read off the Doane photograph through its camera (T-3175): three lights about 40 px across at x 357-400, 413-457 and 463-500 px on the pavilion's face (277-600 px for its 5.46 m), about 0.7 m each, their sills just over the main cornice's top (y about 800 px, about 13.4 m) and their heads under the crown's cornice (y about 627 px, about 16.4 m), centred on the pavilion; the photograph's lights have arched transom heads, which the kit's flat transom stands for"
+                    }
+                  ]
                 }
               ],
               "roof": {
                 "kind": "hip",
-                "pitch": 1.4,
-                "covering": "slate_pennsylvania"
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
               }
             }
           ],
@@ -546,7 +577,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height under the main cornice, with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones). Its own steep pyramidal roof and the sheet's corner feature at the south-west corner, with the square tower over it, are T-3172's and not built here."
+          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). The sheet's corner feature at the south-west corner, with the square tower over it, is T-3176's and not built here."
         },
         "rear_wings": {
           "value": [

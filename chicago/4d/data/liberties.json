@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 797,
+  "count": 799,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1727,7 +1727,7 @@
     },
     {
       "id": "pullman_house_1729_prairie_conservatory",
-      "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing"
+      "name": "George M. Pullman house (1729 Prairie Avenue): the palm house on its east range"
     },
     {
       "id": "pullman_house_1729_prairie_ranges",
@@ -34103,7 +34103,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1904 scene gains its first K13 conservatory, George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing: a segmental glass bay on the south face of the stone wing that sheet 20 of the 1911 Sanborn draws running east from the George M. Pullman house (1729 Prairie Avenue) toward its garage, looking onto the court between the two. It is built by the k13 emit generator from the K13 kit (“The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed”) against a plain block standing for the wing. **What is read.** The wing's plan (one storey and a basement, stone, 4.42 m deep, its free south face 17.3 m long between the house's east wall line and its step back before the garage) and the projection's place and size (a semicircle 3.45 m across and 1.55 m out, centred 9.1 m east of the house's wall line), measured on the committed raster between line centres and carried by the sheet's fitted similarity; inferred for 1904 as every reading of these sheets is. **What is invented.** That the projection is GLAZED: the sheet prints no use and no glass mark for it. It is a conservatory because the building register gives the Pullman estate a dated conservatory and palm-house complex and the conservatory bay is the form the kit's canted bay takes; the register's 1894 conservatory plate is not a source record here, and the register itself puts the estate's greenhouse complex on its own plot south of 18th Street, which this does not build. Then every size the kit does not take from the sheet: a 1.72 m radius in five planar facets (the sheet's curve, built in flat glass), the 2.6 m eave over the kit's two-foot plinth, the half-cone of glass rising to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end, and a staging bench of pot plants across the chord. The wing is a closed plain block 5.4 m high, the height reconstructed for a basement about a metre out of the ground under one tall storey and a parapet, with a plain base course and coping band and a brownstone colour taken from the register's 'brownstone main block' (not a source record here): no opening, cornice or roof detail, and no door from the wing into the bay. The wing's step and its run west along the house's north side are not built, and the house and the garage are not built at all. **What is not.** The wing's place, plan, storeys and stone, and the bay's place and plan, are the sheet's."
+          "text": "the 1904 scene gains its first K13 conservatory, George M. Pullman house (1729 Prairie Avenue): the palm house on its east range: a segmental glass bay on the south face of the stone wing that sheet 20 of the 1911 Sanborn draws running east from the George M. Pullman house (1729 Prairie Avenue) toward its garage, looking onto the court between the two. It is built by the k13 emit generator from the K13 kit (“The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed”) against a plain block standing for the wing. **What is read.** The wing's plan (one storey and a basement, stone, 4.42 m deep, its free south face 17.3 m long between the house's east wall line and its step back before the garage) and the projection's place and size (a semicircle 3.45 m across and 1.55 m out, centred 9.1 m east of the house's wall line), measured on the committed raster between line centres and carried by the sheet's fitted similarity; inferred for 1904 as every reading of these sheets is. **What is invented.** That the projection is GLAZED: the sheet prints no use and no glass mark for it. It is a conservatory because the building register gives the Pullman estate a dated conservatory and palm-house complex and the conservatory bay is the form the kit's canted bay takes; the register's 1894 conservatory plate is not a source record here, and the register itself puts the estate's greenhouse complex on its own plot south of 18th Street, which this does not build. Then every size the kit does not take from the sheet: a 1.72 m radius in five planar facets (the sheet's curve, built in flat glass), the 2.6 m eave over the kit's two-foot plinth, the half-cone of glass rising to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end, and a staging bench of pot plants across the chord. The wing is a closed plain block 5.4 m high, the height reconstructed for a basement about a metre out of the ground under one tall storey and a parapet, with a plain base course and coping band and a brownstone colour taken from the register's 'brownstone main block' (not a source record here): no opening, cornice or roof detail, and no door from the wing into the bay. The wing's step and its run west along the house's north side are not built, and the house and the garage are not built at all. **What is not.** The wing's place, plan, storeys and stone, and the bay's place and plan, are the sheet's."
         },
         {
           "label": "How to resolve",
@@ -35838,7 +35838,7 @@
         },
         {
           "label": "Decision",
-          "text": "the district draft's 16th-18th block, east side, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace and the census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601, 1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637 Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and 1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side or on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests, mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers. 1605's station stands as the draft's plain two-storey gabled outbuilding with the use railway station (a term added to the function vocabulary for it); its platform, canopy, street door and nameboards are no longer this entry's but `“The 16th Street station at 1605 Prairie dressed as a station: a platform tapering to the traced rail, a canopy, a street door and lettered boards, all reconstructed but the platform's edge”`'s. **1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at 1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson 1886 draws on lot 6 (backcast 1886; pa-1609- and pa-1611-1904-correction). Each half is read off Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it, and carried by the plate's fit (4.54 m RMS, the weakest of the four), so their plans are inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn. **1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias. **1635, nothing.** Forsyth's 1635 is phase unresolved in the census, on the strip next north of 1637; the draft builds nothing there and does not put the house on 1637 or 1625. Earlier work rules. **1729 and its conservatory.** The east wing's south bay is the K13 record already standing (George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing) on a plain block in the wing's place. The draft keeps that record's footprint out of the traced fabric (keep out), so the wing is drawn once, and stands the sheet's two-storey building at the wing's east end at two storeys (wing storeys). **What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on sheet 28's ground across 18th Street, allocated to the Pullman estate but never traced, so no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left to earlier work, whose piece of work says so."
+          "text": "the district draft's 16th-18th block, east side, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace and the census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601, 1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637 Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and 1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side or on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests, mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers. 1605's station stands as the draft's plain two-storey gabled outbuilding with the use railway station (a term added to the function vocabulary for it); its platform, canopy, street door and nameboards are no longer this entry's but `“The 16th Street station at 1605 Prairie dressed as a station: a platform tapering to the traced rail, a canopy, a street door and lettered boards, all reconstructed but the platform's edge”`'s. **1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at 1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson 1886 draws on lot 6 (backcast 1886; pa-1609- and pa-1611-1904-correction). Each half is read off Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it, and carried by the plate's fit (4.54 m RMS, the weakest of the four), so their plans are inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn. **1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias. **1635, nothing.** Forsyth's 1635 is phase unresolved in the census, on the strip next north of 1637; the draft builds nothing there and does not put the house on 1637 or 1625. Earlier work rules. **1729 and its conservatory.** The east wing's south bay is the K13 record already standing (George M. Pullman house (1729 Prairie Avenue): the palm house on its east range) on a plain block in the wing's place. The draft keeps that record's footprint out of the traced fabric (keep out), so the wing is drawn once, and stands the sheet's two-storey building at the wing's east end at two storeys (wing storeys). **What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on sheet 28's ground across 18th Street, allocated to the Pullman estate but never traced, so no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left to earlier work, whose piece of work says so."
         },
         {
           "label": "How to resolve",
@@ -41571,15 +41571,23 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": null,
+      "revised": "2026-10-26",
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown; a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top. From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The pavilion's pediment of paired lights in front of its steep roof, which stands about 2 m higher than K05's steepest hipped crown reaches; the mansard's cresting; the broad carved pediment over the triple group (K05's gable head over one sash); the north flank's paired lights under one pediment; the north flank's one-storey box bay under a hood; the stack at the north flank's rear, over the rear range, where K01 stands no stack; the stoop that climbs from the north; the narrow light beside the door; the grilled arched basement doorway under the landing; the moulded window heads and surrounds: open on the match record."
+          "text": "the house at 1823 Prairie Avenue, Thomas Dent's, is no longer a district draft. It stands, under the draft's own id 1823 Prairie Avenue — Thomas Dent house, as a k01 frontage record built by the k01 emit generator, against its two pictures: the Chicagology engraving after a photograph ([1823 S. Prairie Ave., the Thomas Dent residence.] Halftone engraving after a…, undated; rights check required: forms and proportions only) and the 1883 New Chicago Album vignette of the same view ('Private Residences of Chicago.' Plate in The New Chicago Album (Chicago…, no known restrictions). A smooth light stone front on brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at the front's south end, flush with the south wall, under a steep hipped crown (since, an attic under a coped gable); a group of three windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded cornice; tall stacks; a two-storey rear range. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census s28-1823-front and s28-1823-wing): the front block's place and plan (13.88 m along the front between the north wall at lot v -7.71 and the south wall at 6.17, the front's main plane at lot u 32.85), the pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrowing and depth, 'brick', '3B; rear2B'. From the engraving, through its camera (the chicagology engraving data): the principal floor, the storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's window columns, the dormers' places, the mansard's curb, the north stack's place and top (re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the vignette: the stone front against the brick flank, and the same composition dated 1883. **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place; the stacks' plans; the rainwater; the sash pattern. **What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing; the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-26 (T-3163, piece 2 of T-1894). The engraving's camera is re-solved (its pavilion corners had been read about 60 px out) and the front's and the north flank's openings re-read through it; the 1883 vignette's camera is solved, from a cut of the plate committed at `data/sources/assets/dent_1823_album_1883_t3163/`. Built from the pictures: the north flank's box bay under its hood; the pavilion carried up an attic with paired lights under a coped gable and finial (T-3162's hipped crown is gone); the deck's iron cresting; paired-light dormers; K09 cornice hoods over the front's windows and surrounds on the pavilion's; the stoop climbing from the north; the north stack on the cornice."
+        },
+        {
+          "label": "Invented by later work",
+          "text": "the box bay's 0.5 m depth and its foot carried to grade (the pictures corbel it out at about 1.8 m); the pavilion attic's height and the gable's pitch; the cresting's pattern (K10's kit) and height; the dormers' sash sizes; the cornice hoods' profiles; the stoop's landing length and its cheek's stone."
         },
         {
           "label": "How to resolve",
-          "text": "Later work builds those, solves the 1883 vignette's camera, and brings the match records to `matches`."
+          "text": "the remaining open items need K01 to stand a stack over a rear wing, a dormer through the curb, an opening under a side stoop's landing and a light between the door and a pavilion, and a pavilion crown with slated cheeks round a pedimented attic; only the owner opens new work on a photo-gated house."
         },
         {
           "label": "Covers",
@@ -41591,13 +41599,14 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-26 (T-3162)."
+          "text": "2026-10-26 (T-3162); revised the same day by T-3163."
         }
       ],
       "work_refs": [
         "T-3162",
         "T-1894",
-        "T-3163"
+        "T-3163",
+        "T-3153"
       ]
     },
     {
@@ -56504,6 +56513,38 @@
       ]
     },
     {
+      "id": "L-pullman-1729-flank-stack-3161",
+      "title": "1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows standing on the 18th Street flank's cornice just east of the south-west corner pier and carried up in front of the mansard's face to a moulded cap well over the deck (`chimneys.stacks[2]`, on cornice). The camera is solved in the research notes on photo match (the album print `a16-aic-taylor-album-pullman-p69`; the print `a16-aic-taylor-pullman-from-nw` is the same negative). **What is read, not invented.** The stack's place on the flank, its base on the cornice at x 487-522 px (y 272-292) against the corner pier at x 447, so its 1.1 m face at u 24.25-25.35 with its west side seen beside it; its cap at y 160, 18.7 m through the camera, against the curb's 16.9 m. The 1890 Albertype plate (albertype 1890 camera) shows a tall stack rising behind the tree just east of the corner pier, where this one falls through that camera. **What is invented.** Its depth across the wall line (0.8 m, its outer face 0.47 m out inside the 0.6 m cornice, its inner face clear of the deck's curb so the cresting runs behind it), its cap's projection and depth (0.15 and 0.4 m), and its stone, laid in the walls' own. The photograph shows a band under the cap and a sunk panel on the shaft that are not built. The two deck stacks at (10, 5.5) and (18, 12.5) stay reconstructed: the Detroit print shows a stack near where the second falls, and Taylor's does not show it, and the two are left to a picture that settles it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a larger copy of either Taylor print, or the CHM 1905 views, reads the stack's depth and its cap; the rights question on this work decides whether the Taylor prints can be committed as reference copies, so the camera can join the image gate."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3161)."
+        }
+      ],
+      "work_refs": [
+        "T-3161"
+      ]
+    },
+    {
       "id": "L-kimball-1801-east-frontispiece-3110",
       "title": "1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows",
       "section": "per_subject",
@@ -56620,7 +56661,7 @@
         }
       ],
       "recorded": "2026-10-26",
-      "revised": null,
+      "revised": "2026-10-26",
       "fields": [
         {
           "label": "Decision",
@@ -56641,6 +56682,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-26 (T-3171)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176."
         }
       ],
       "work_refs": [
@@ -56730,6 +56775,57 @@
       ],
       "work_refs": [
         "T-2380"
+      ]
+    },
+    {
+      "id": "L-pullman-palm-house-3165",
+      "title": "Pullman's palm house rebuilt to J. W. Taylor's photograph: a columned glass drum under a ribbed dome, moved 3 m east of the 1911 sheet's semicircle",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie_conservatory",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie_conservatory",
+          "phase": "as_standing_1904",
+          "aspect": "form.host_wall"
+        }
+      ],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "George M. Pullman house (1729 Prairie Avenue): the palm house on its east range stops being a small conservatory bay read off a semicircle and becomes the palm house Solon S. Beman added in 1892, as J. W. Taylor's photograph of the range from 18th Street (AIC 16555, J. W. Taylor (Chicago), photographer, 1892 to May 1894) shows it, worked to that picture through a solved camera until the side-by-side matches. **What is read.** Through the camera, scaled by the range's own two ends (the house's east wall and the wing's east end under the belvedere, which stand in one plane with the drum): the drum's size (its entablature about 7.6 m across), its place (its centre about 12.1 m east of the house's wall line), seven columns on a stone base with glass between them, an entablature, a balustrade level with the range's parapet, a ribbed dome with a finial behind it, the range's parapet height, an arched door east of the drum and an arched window west of it, and a raised terrace with a broad central flight of steps; every height through the camera within about 0.3 m. **What is invented.** That the 1911 sheet's semicircle (3.45 m across, 9.1 m east of the house's wall) is this drum drawn short and 3 m west of its place: the photograph and the sheet disagree, and the picture governs (the project's rules rule 11); the record's place moves 3.0 m east along the wing's own line, the wing's line and depth stay the sheet's. That the rotunda is a full circle whose north half lies inside the 4.42 m wing (the photograph sees only the south half). The dome's covering: the kit's opaque glass substitute, so no line of sight crosses two glass envelopes (the kit's rule for a lantern); glass or metal sheets are not legible in the print. The column shafts drawn octagonal, the balustrades as solid parapets and the wall as plain ashlar in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown); the terrace's depth (6 m), its height (1.4 m) and its flight's width (6 m), read roughly and kept within the picture's tolerance; the wing carried on east at the sheet's wall line to the belvedere, past the sheet's 0.66 m step, which the print does not separate. The garden bench and pot plants inside the drum stay the kit's. Both blocks stay at the reconstructed grade as a whole for those parts; the place and the plan are inferred (the record's notes give the reasoning). **What is not.** The sheet's wing line, depth and storeys; the drum's place, size, columns, dome and the range's openings are the photograph's. This supersedes the form, place and sizes of “A glazed conservatory bay on the Pullman house's east wing, read from a semicircle on the 1911 sheet” (its bay, eave, half-cone roof, brownstone block and 5.4 m height); that entry's reading of the wing off the sheet stands."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1894 Inland Architect plate of the palm house and stable, the c. 1905 CHM negative i70232 and Taylor's south-west view solved into this record's folder ('s second piece) either confirm the drum's place or move it; a plan or the dome's specification settles its covering."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26 (T-3165)."
+        }
+      ],
+      "work_refs": [
+        "T-3165",
+        "T-1934"
       ]
     },
     {

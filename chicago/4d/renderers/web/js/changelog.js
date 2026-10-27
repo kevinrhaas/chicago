@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 2320, ts: '2026-10-27T02:03:20.961Z', date: 'Oct 26, 2026, 9:03 PM CT', title: 'Wolf Point Tavern gets a darker roof tone', kind: 'improvement',
+    items: [
+      'The tavern uses a deeper reconstructed brown roof tone guided by the credited 1867 NYPL print of Wolf Point in 1833. Its existing shingle relief and building form remain.',
+      'The print does not establish the exact pigment, weathering or unchanged appearance in July 1835. Picture comparisons continue before the building is signed off.',
+    ] },
+  { v: 2319, ts: '2026-10-27T01:25:30.838Z', date: 'Oct 26, 2026, 8:25 PM CT', title: '1823 Prairie looks like its pictures', kind: 'improvement',
+    items: [
+      'Thomas Dent\'s house at 1823 Prairie now has the box bay with its hood on the north side, iron cresting along the top of its mansard, paired windows in its dormers, and moulded heads over its front windows.',
+      'Its south pavilion rises past the roof line to an attic with paired windows under a stone gable and finial, as the 1883 New Chicago Album draws it, and the stoop climbs to the door from the north.',
+      'The front\'s windows, door and side windows now stand where the old engraving puts them.',
+    ] },
+  { v: 2318, ts: '2026-10-27T00:49:38.262Z', date: 'Oct 26, 2026, 7:49 PM CT', title: 'The Pullman house\'s great chimney stack on 18th Street', kind: 'feature',
+    items: [
+      'A tall stone stack now stands on the 18th Street cornice, just east of the south-west corner. It runs up past the mansard to a capped top, as an 1890s photograph by J. W. Taylor shows it.',
+      'The roof\'s other tall stack has moved to the spot two more pictures agree on, and it now rises about a metre and a half higher.',
+      'The 1890 Albertype plate of the house is now one of the pictures it is checked against.',
+    ] },
+  { v: 2317, ts: '2026-10-27T00:42:20.416Z', date: 'Oct 26, 2026, 7:42 PM CT', title: 'St Mary\'s gains its pictured belfry', kind: 'improvement',
+    items: [
+      'An open belfry and cross now rise over St Mary\'s. A lower roof, five windows and an end door replace the house form, and its one chimney stands toward the far end. These features are reconstructed for 1835 from an undated engraving; the original footprint and dates are retained.',
+      'The Images tab shows the credited Moss engraving. Its 1884 publication is distinguished from the undated scene; the provisional comparison camera is not offered as a historical viewpoint.',
+    ] },
+  { v: 2316, ts: '2026-10-27T00:03:14.827Z', date: 'Oct 26, 2026, 7:03 PM CT', title: '1827 Prairie\'s pavilion rises under its own steep roof', kind: 'feature',
+    items: [
+      'The Doane house\'s front pavilion now climbs through the mansard, three tall attic windows in its stone face, to a steep slated roof that rises to a point under an iron finial, as the old photograph shows it.',
+    ] },
+  { v: 2315, ts: '2026-10-26T22:54:28.003Z', date: 'Oct 26, 2026, 5:54 PM CT', title: 'Pullman\'s palm house, rebuilt to its photograph', kind: 'feature',
+    items: [
+      'The small glass bay on the Pullman house\'s east range is now Beman\'s 1892 palm house as J. W. Taylor photographed it from 18th Street: a glass drum between stone columns, under an entablature, a balustrade and a ribbed dome.',
+      'It stands 3 m further east, where the photograph puts it, on a raised terrace with a broad flight of steps, in a range of light stone with its arched door and window.',
+    ] },
+  { v: 2314, ts: '2026-10-26T21:04:58.476Z', date: 'Oct 26, 2026, 4:04 PM CT', title: 'Log jail gains a high palisade', kind: 'improvement',
+    items: [
+      'A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review.',
+      'Light uses smaller house texture maps and builds distant rail sections as you approach to reduce phone memory use.',
+    ] },
   { v: 2313, ts: '2026-10-26T17:15:54.371Z', date: 'Oct 26, 2026, 12:15 PM CT', title: 'The Pullman house\'s portico and its porte-cochere on 18th Street', kind: 'feature',
     items: [
       '1729 Prairie\'s portico is now brownstone, on four columns under a stone balustrade, and its steps rise in the bay north of the door instead of across the whole porch. Read off the Detroit Publishing photograph.',

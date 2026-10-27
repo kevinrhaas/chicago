@@ -460,14 +460,28 @@
             "fabric": "stone"
           },
           {
-            "u_m": 18.0,
-            "v_m": 12.5,
+            "u_m": 20.0,
+            "v_m": 13.3,
+            "fabric": "stone",
+            "top_m": 19.5
+          },
+          {
+            "u_m": 24.8,
+            "v_m": 18.0,
+            "plan_m": [
+              1.1,
+              0.8
+            ],
+            "on_cornice": true,
+            "top_m": 18.7,
+            "cap_proud_m": 0.15,
+            "cap_depth_m": 0.4,
             "fabric": "stone"
           }
         ]
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: two stone stacks off the deck's edge; the photograph's roof line shows stacks behind the cresting but their places are not read through the camera."
+      "note": "RECONSTRUCTED as a whole, its third stack read off a photograph (T-3161): the 18th Street flank's great stack is read off J. W. Taylor's photograph no. 1445 (the album print a16-aic-taylor-album-pullman-p69 and the print a16-aic-taylor-pullman-from-nw, one negative) through its solved camera (docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md; the prints are link-only in the library, so the camera waits on the rights question on T-3161 before it joins the image gate): a stone stack standing on the flank's cornice and carried up the mansard's face, x 487-522 px at its base on the cornice (y 272-292) against the corner pier at x 447: its west side and south face together 35 px, at 18 px a metre along the flank there and 19 px a metre across it, so a 1.1 m face on the flank's line at u 24.25-25.35 with its 0.8 m west side seen beside it; its moulded cap at y 160, 18.7 m through the camera (the curb at about 16.9 m), a band under the cap. The 1890 Albertype plate shows the same stack rising behind the tree just east of the corner pier. Its depth across the wall line is not measured: 0.8 m, standing on the cornice in front of the mansard's face (its inner face 0.14 m clear of the deck's curb at v 17.46, so the cresting runs behind it) with its outer face 0.47 m out, inside the 0.6 m cornice, as the photograph shows it standing proud of the slope. The deck stack at (20, 13.3) is read from the same three pictures: the Detroit print and the Albertype plate, both from the crossing's south-west corner, show a tall stack rising behind the cresting just WEST of the south-west corner pier (Detroit x 528-545 px, top y 222, against the corner at x 557-560; the plate x about 1293, top y 213, against its corner at 1312), which no stack on the flank's line can do from there; their common line of sight passes the deck at about u 20, v 13.3, where Taylor's camera hides a stack wholly behind the flank stack, as that photograph shows (it shows only cresting either side of it). Its top through the two cameras is 19.05 and 19.9 m, taken at 19.5 (top_m); its place along the line of sight is good to about 1.5 m. It was a reconstructed stack at (18, 12.5) until T-3161. The flank stack is not in the 1890 plate, which is earlier than Taylor's photograph (1890s, after the 1892 additions it shows east of the flank): it is read as later work and stands in 1904. The stack at (10, 5.5) remains RECONSTRUCTED: through all three cameras it stands under the deck's edge, so no picture shows or excludes it. L-pullman-1729-flank-stack-3161."
     },
     "rainwater": {
       "value": {

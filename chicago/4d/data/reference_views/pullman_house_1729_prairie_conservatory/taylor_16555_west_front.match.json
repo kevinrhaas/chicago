@@ -1,0 +1,128 @@
+{
+  "structure_id": "pullman_house_1729_prairie_conservatory",
+  "view": "taylor_16555_west_front",
+  "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
+  "camera_sha256": "749333feccf72a64b981e9ec138d1c857d8ecefeb3b36871f753a8866d9fa406",
+  "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -11.208975503773733,
+        0,
+        -0.08144418823104738
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "c538efdfd3189e72b8711bf34361f365a6dd9fc65caf7ac9b3870842e1bcc0e0"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        -11.227541329977607,
+        0,
+        2.3485375627495597
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "f90f1211a87638e2bbf3ac21ab6b639bdad02428e9119a1e6de818198e9cf8d0"
+    }
+  ],
+  "group_sha256": "a79c26941530986815229fa1a7b70a447c457b88271622ef2b7f97ce577ab050",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the palm house: a round drum standing out of the wing's south face, about 7.6 m across its entablature (x 350-500 px), its centre 12.1 m east of the house wall",
+      "status": "fixed",
+      "how": "T-3165: the K13 bay rebuilt as a 3.35 m glass drum of six facets under a 0.45 m entablature and moved 3.0 m east along the wing; the render's entablature spans x 350-500 and its centre falls at x 425"
+    },
+    {
+      "what": "a column at every facet joint, standing on a stone base, carrying an entablature; glazing between the columns",
+      "status": "fixed",
+      "how": "T-3165: a stone column at each of the seven joints from the drum's base at 2.75 m to the eave at 6.25 m, glass between them; column bases at about y 605 and capitals at y 540 in both"
+    },
+    {
+      "what": "a balustrade round the drum's flat top, level with the wing's own parapet balustrade",
+      "status": "fixed",
+      "how": "T-3165: a 0.9 m balustrade on the entablature and a 0.9 m parapet along the wing, both topping out at about 8.05 m (y 500 in both)"
+    },
+    {
+      "what": "a ribbed dome rising out of the drum's top behind its balustrade, with a finial, about 4 m across and topping out near y 457",
+      "status": "fixed",
+      "how": "T-3165: a 1.9 m ribbed dome on a short collar, springing at 7.9 m, rib every other meridian, 0.5 m finial; its top at y 458"
+    },
+    {
+      "what": "the wing a one-storey stone range with a parapet, from the house's east wall to the belvedere",
+      "status": "fixed",
+      "how": "T-3165: the stand-in block runs 12.1 m west and 9.7 m east of the drum, 7.1 m to its top, in a light stone tone; its ends at x 180 and x 612 as in the print"
+    },
+    {
+      "what": "an arched doorway in the wing east of the drum and an arched window west of it",
+      "status": "fixed",
+      "how": "T-3165: two dark arched openings, the door centred 6.8 m east (head 5.2 m), the window 7.3 m west (head 5.4 m), within about 10 px of the print's"
+    },
+    {
+      "what": "the terrace before the range with a broad flight of steps rising to the drum and balustrades either side",
+      "status": "fixed",
+      "how": "T-3165: a 1.4 m terrace 6 m deep with an eight-riser flight 6 m wide on the drum's axis and a 0.9 m balustrade either side; the flight's top at about the print's landing, the balustrades' tops within about 0.35 m; it stops at the house's east wall, behind the porch in this view"
+    },
+    {
+      "what": "the balustrades are open balusters, the columns round with bases and capitals, the wall rusticated with pilasters either side of the drum, and urns on the terrace piers",
+      "status": "within tolerance",
+      "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
+    },
+    {
+      "what": "the wing's face reads darker than the stable's in the print",
+      "status": "within tolerance",
+      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
+    },
+    {
+      "what": "the dome's covering: glass or metal sheets between the ribs",
+      "status": "not shown",
+      "how": "the print shows a ribbed dome of light panels; whether glass or metal is not legible at this size. Built in the kit's opaque glass substitute (see the record's note)"
+    },
+    {
+      "what": "the north half of the rotunda behind the wing's face, the wing's roof and its north side",
+      "status": "not shown",
+      "how": "the camera stands south of the range"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

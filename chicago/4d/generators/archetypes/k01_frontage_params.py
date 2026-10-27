@@ -788,9 +788,11 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     # paired lights in the wall between the main cornice and its own eave), the crown's fascia
     # then standing `attic_m` over the main eave's; the main eave box stops square at the
     # pavilion's cheeks under the crown, as at a shallow pavilion's (k01_frontage.shallow_bay_cutters)
+    # T-3175: or the whole mansard storey (1827's, the Doane photograph: its attic of three
+    # lights rises from the main cornice to the main curb's height, about 4.2 m)
     attic = float(c.get("attic_m", 0.0))
-    if attic and not 1.0 <= attic <= 3.0:
-        raise ParamError(f"mansard.crown.attic_m {attic}: 1-3 m")
+    if attic and not 1.0 <= attic <= 4.5:
+        raise ParamError(f"mansard.crown.attic_m {attic}: 1-4.5 m")
     E = eave + attic
     # the pavilion is carried up to the crown's soffit, its own eaves and deck inside the crown
     soffit = E - float(k5["parts"]["eave"]["fascia_depth_m"])
@@ -814,11 +816,20 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     back = x1 - cd - co + rise / math.tan(math.radians(side))
     if back > apex - 0.5:
         raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
+    # T-3175: and a turned iron finial on the ridge's street end (1827's, over its pavilion in
+    # the Doane photograph), the deck's turning (k01_mansard_deck) at the same bounds
+    fn = c.get("finial")
+    if fn is not None:
+        if set(fn) != {"height_m", "radius_m"} or not 0.8 <= float(fn["height_m"]) <= 3.0 \
+                or not 0.05 <= float(fn["radius_m"]) <= 0.2:
+            raise ParamError("mansard.crown.finial: height_m 0.8-3.0 m and radius_m 0.05-0.2 m")
+        fn = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
             "overhang_m": co, "ridge_m": round(E + rise, 4),
             "ridge_x_m": (round(back, 4), round(apex, 4)),
-            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {})}
+            **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {}),
+            **({"finial": fn} if fn else {})}
 
 
 def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float):
@@ -4694,7 +4705,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for bay in (val("bays") or []):
             if bay.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
                 continue
-            half = float(bay["plan"]["chord_m"]) / 2
+            # T-3163: a bow names its chord, a projection its width (1823's pavilion), a
+            # polyline its ends on the wall
+            pl = bay.get("plan") or {}
+            half = (float(pl["chord_m"]) / 2 if "chord_m" in pl else float(pl["width_m"]) / 2 if "width_m" in pl
+                    else max(abs(float(x)) for x, _ in pl["points"]))
             b0, b1 = float(bay["s_m"]) - half, float(bay["s_m"]) + half
             if b0 < b - 1e-9 and a + 1e-9 < b1:
                 raise ParamError(f"entrance_kit.side_stoop: the landing (v {a}-{b}) stands on the {bay['id']} bay")

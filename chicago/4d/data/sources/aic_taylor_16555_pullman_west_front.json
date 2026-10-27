@@ -1,0 +1,29 @@
+{
+ "id": "aic_taylor_16555_pullman_west_front",
+ "type": "photograph",
+ "citation": "J. W. Taylor (Chicago), photographer. Pullman, George M., Residence [west front, showing portion enclosing palm house and stable]. Photograph, c. 1890-1910 (holder's view date). Art Institute of Chicago, Ryerson and Burnham Archives, Architecture Photograph Collection (Historic Architecture and Landscape Image Collection), no. 16555.",
+ "author": "J. W. Taylor (Chicago)",
+ "date": "c. 1890-1910 (holder's view date); its content dates it 1892 to May 1894",
+ "describes_date": "1892 to May 1894: the 1892 east addition stands, and the dead Fort Dearborn 'massacre tree' before it was felled on 18 May 1894",
+ "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/29190). Prairie library image a16-aic-taylor-pullman-west-front-palm-house, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-aic-taylor-pullman-west-front-palm-house.jpg), committed since T-3165 at data/sources/assets/pullman_1729_palm_house_t3165/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/29190",
+ "locator": "The whole print: from 18th Street, looking north across the walk at the 1892 range between the house and the stable. The palm house's columned drum with its dome stands at centre behind the dead tree, the terrace and its steps before it; the house's 18th Street porch with a striped awning at left; the stable's hipped roof, belvedere and arcaded bay at right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The holder's statement: contact the Art Institute of Chicago Archives for publication information (the Prairie library's ruling: 'unknown - link only'). A photograph of 1892-94, likely public domain by age, but its terms are not established. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3165) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-26 (T-3165) from the image store's reference copy, 1200 x 1107 px (the print with its border and a Kodak grey scale), sha256 ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1, the holder's IIIF 1200 px derivative.",
+ "note": "The one frontal photograph of Beman's 1892 range between the Pullman house and its stable. It shows a one-storey stone range under a balustraded parapet, set back behind a raised terrace with a broad flight of steps; at its centre a round palm house, a drum of columns on a stone base with glazing between them under an entablature and a balustrade, and a ribbed dome with a finial rising behind; an arched doorway east of the drum and an arched window west of it. T-3165 solved its camera (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json) and built the palm house to it. It is evidence of 1892-94, not of 1904; the c. 1905 CHM negative i70232 shows the same front, and the 1911 sheet still draws the range.",
+ "what_it_supplies": [
+  "the palm house's size and place along the range: about 7.6 m across its entablature, its centre about 12 m east of the house's east wall (19.8 px/m between the range's two ends)",
+  "the drum's columns, entablature, balustrade and dome, and their heights through its camera",
+  "the range's parapet height, its arched door and window, the terrace and its central flight of steps"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state: the photograph is 1892-94",
+  "colour: the photograph is monochrome",
+  "the rotunda's north half behind the range, the range's roof and its north side",
+  "the dome's covering (glass or metal) at this size"
+ ]
+}

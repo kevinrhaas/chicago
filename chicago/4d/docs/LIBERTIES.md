@@ -26389,7 +26389,7 @@ engraving after a photograph (`chicagology_1823_dent_engraving`, undated; rights
 forms and proportions only) and the 1883 New Chicago Album vignette of the same view
 (`newberry_new_chicago_album_1883_residences`, no known restrictions). A smooth light stone front on
 brick flanks, two storeys over a raised basement under a slated mansard with dormers; a pavilion at
-the front's south end, flush with the south wall, under a steep hipped crown; a group of three
+the front's south end, flush with the south wall, under a steep hipped crown (since T-3163, an attic under a coped gable); a group of three
 windows to a storey in the front's north part; the door beside the pavilion up its stoop; a moulded
 cornice; tall stacks; a two-storey rear range.
 **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1823-b1, census
@@ -26399,26 +26399,20 @@ pavilion's projection (lot v 0.43-6.15, 1.12 m forward), the rear range's narrow
 '3B; rear2B'. From the engraving, through its camera
 (`data/reference_views/dent_house_1823_prairie/chicagology_engraving.json`): the principal floor, the
 storey heights and the wall head, the street windows' places, the pavilion's windows, the north flank's
-window columns, the dormers' places, the mansard's curb, the north stack's place and top. From the
+window columns, the dormers' places, the mansard's curb, the north stack's place and top (T-3163 re-read the openings through a re-solved camera, and the box bay, the cresting, the stoop's run and the moulded heads off both pictures). From the
 vignette: the stone front against the brick flank, and the same composition dated 1883.
 **What is invented.** The walls' thickness; which stone (K02's Bedford limestone: the pictures say
 light and smooth, and K02's Lemont profile cannot course a 2.35 m base) and its two-course base; the
 brick's colour; the south flank's and the rear's windows (no picture sees them); the rear range's
 windows on its south flank and rear and its flat deck; the mansard's deck; the south stack's place;
 the stacks' plans; the rainwater; the sash pattern.
-**What is not built.** The pavilion's pediment of paired lights in front of its steep roof, which
-stands about 2 m higher than K05's steepest hipped crown reaches; the mansard's cresting; the broad
-carved pediment over the triple group (K05's gable head over one sash); the north flank's paired
-lights under one pediment; the north flank's one-storey box bay under a hood; the stack at the north
-flank's rear, over the rear range, where K01 stands no stack; the stoop that climbs from the north;
-the narrow light beside the door; the grilled arched basement doorway under the landing; the moulded
-window heads and surrounds: open on the match record.
-**How to resolve:** T-3163 (piece 2 of T-1894) builds those, solves the 1883 vignette's camera, and
-brings the match records to `matches`.
+**What is not built.** The triple group's broad carved dormer, whose pediment both pictures draw rising over the curb (K05's dormer is at most 2.0 m wide and stops under it); the stack at the north flank's rear, over the rear range, where K01 stands no stack; the grilled arched basement doorway under the landing; the narrow light beside the door on the principal storey; the slated cheeks the vignette draws either side of the pavilion's pedimented attic; the box bay's corbelled foot, built to grade: open on the match records.
+**Revised:** 2026-10-26 (T-3163, piece 2 of T-1894). The engraving's camera is re-solved (its pavilion corners had been read about 60 px out) and the front's and the north flank's openings re-read through it; the 1883 vignette's camera is solved, from a cut of the plate committed at `data/sources/assets/dent_1823_album_1883_t3163/`. Built from the pictures: the north flank's box bay under its hood; the pavilion carried up an attic with paired lights under a coped gable and finial (T-3162's hipped crown is gone); the deck's iron cresting; paired-light dormers; K09 cornice hoods over the front's windows and surrounds on the pavilion's; the stoop climbing from the north; the north stack on the cornice. **Invented by T-3163:** the box bay's 0.5 m depth and its foot carried to grade (the pictures corbel it out at about 1.8 m); the pavilion attic's height and the gable's pitch; the cresting's pattern (K10's kit) and height; the dormers' sash sizes; the cornice hoods' profiles; the stoop's landing length and its cheek's stone.
+**How to resolve:** the remaining open items need K01 to stand a stack over a rear wing, a dormer through the curb, an opening under a side stoop's landing and a light between the door and a pavilion, and a pavilion crown with slated cheeks round a pedimented attic; only the owner opens new work on a photo-gated house (T-3153).
 **Covers:** `dent_house_1823_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dent_house_1823_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dent_house_1823_prairie.as_mapped_1904.form.service_wall_brick`, `dent_house_1823_prairie.as_mapped_1904.form.stair_tread_m`, `dent_house_1823_prairie.as_mapped_1904.form.roof_pitch_deg`, `dent_house_1823_prairie.as_mapped_1904.form.window_kit`, `dent_house_1823_prairie.as_mapped_1904.form.rainwater`, `dent_house_1823_prairie.as_mapped_1904.form.stair_landing_depth_m`, `dent_house_1823_prairie.as_mapped_1904.form.north_bays`, `dent_house_1823_prairie.as_mapped_1904.form.rear_bays`
 **Ticket:** T-3162 (piece 1 of T-1894).
 **Review:** `docs/RESEARCH/k01-1823-dent-1894/README.md`.
-**Recorded:** 2026-10-26 (T-3162).
+**Recorded:** 2026-10-26 (T-3162); revised the same day by T-3163.
 ### L-k01-1625-mcbirney-tudor-2432 — 1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one
 
 **Decision:** the house at 1625 Prairie Avenue (T-2432, piece 1 of T-1869) is no longer a district
@@ -33879,6 +33873,32 @@ places its east end, its windows and the pavilion, and the piers' banding.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`.
 **Recorded:** 2026-10-26 (T-3160).
 
+### L-pullman-1729-flank-stack-3161 — 1729 Prairie's great stack on the 18th Street cornice off Taylor's photograph 1445: its place, width and top read, its depth and cap reconstructed
+
+**Decision:** the Pullman house gains the tall stone stack J. W. Taylor's photograph no. 1445 shows
+standing on the 18th Street flank's cornice just east of the south-west corner pier and carried up
+in front of the mansard's face to a moulded cap well over the deck (`chimneys.stacks[2]`,
+`on_cornice`). The camera is solved in
+`docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md` (the album print
+`a16-aic-taylor-album-pullman-p69`; the print `a16-aic-taylor-pullman-from-nw` is the same negative).
+**What is read, not invented.** The stack's place on the flank, its base on the cornice at x 487-522
+px (y 272-292) against the corner pier at x 447, so its 1.1 m face at u 24.25-25.35 with its west side
+seen beside it; its cap at y 160, 18.7 m through the camera, against the curb's 16.9 m. The 1890
+Albertype plate (`albertype_1890` camera) shows a tall stack rising behind the tree just east of the
+corner pier, where this one falls through that camera.
+**What is invented.** Its depth across the wall line (0.8 m, its outer face 0.47 m out inside the
+0.6 m cornice, its inner face clear of the deck's curb so the cresting runs behind it), its cap's
+projection and depth (0.15 and 0.4 m), and its stone, laid in the walls' own. The photograph shows a
+band under the cap and a sunk panel on the shaft that are not built. The two deck stacks at (10, 5.5)
+and (18, 12.5) stay reconstructed: the Detroit print shows a stack near where the second falls, and
+Taylor's does not show it, and the two are left to a picture that settles it.
+**How to resolve:** a larger copy of either Taylor print, or the CHM 1905 views, reads the stack's depth
+and its cap; the rights question on T-3161 decides whether the Taylor prints can be committed as
+reference copies, so the camera can join the image gate.
+**Ticket:** T-3161.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`.
+**Recorded:** 2026-10-26 (T-3161).
+
 ### L-kimball-1801-east-frontispiece-3110 — 1801 Prairie's east range brought to HABS photograph 2: a frontispiece on r3b's wall, and the range's lights cut to the one column the print shows
 
 **Decision:** HABS photograph 2 (Harold Allen, June 1965, from the north-west;
@@ -33943,6 +33963,7 @@ the house and brings the match record to `matches`.
 **Ticket:** T-3171 (piece 1 of T-1895).
 **Review:** `docs/RESEARCH/k01-1827-doane-3171/README.md`.
 **Recorded:** 2026-10-26 (T-3171).
+**Revised:** 2026-10-26 (T-3175, piece 1 of T-3172) — **the pavilion's roof is built.** The pavilion is carried up an attic storey past the main cornice, three tall lights in its wall, under a steep slated roof hipped on every side to a point with a turned iron finial (`form.mansard`'s `crown`), its heights and its lights read off the photograph through the same camera. Invented: how far the crown runs back into the main roof (6.0 m, so its ridge is about 0.5 m long; the photograph sees it end on), its 47-degree pitch (the photograph reads about 45, the kit's steep range starts over 45), its cornice standing 0.65 m past the pavilion's sides (the kit's least; the photograph's stands about at them), the attic's wall in stone across the pavilion's whole width (the photograph slates its outer parts as cheeks), the lights' flat transoms (the photograph's are arched) and the finial's turning (the deck's, T-3000). The corner block and its tower remain unbuilt: T-3176.
 
 
 
@@ -33969,6 +33990,41 @@ the house and brings the match record to `matches`.
 **How to resolve:** A future texture/device policy may choose a different tradeoff with measured memory and same-camera review; the full source maps remain available in the same native assets.
 **Ticket:** T-2380, required to clear the current integration memory failure for the visible jail enclosure.
 **Recorded:** 2026-10-26.
+
+### L-pullman-palm-house-3165 — Pullman's palm house rebuilt to J. W. Taylor's photograph: a columned glass drum under a ribbed dome, moved 3 m east of the 1911 sheet's semicircle
+
+**Decision:** `pullman_house_1729_prairie_conservatory` stops being a small conservatory bay read off a
+semicircle and becomes the palm house Solon S. Beman added in 1892, as J. W. Taylor's photograph of the
+range from 18th Street (AIC 16555, `aic_taylor_16555_pullman_west_front`, 1892 to May 1894) shows it, worked
+to that picture through a solved camera until the side-by-side matches. **What is read.** Through the
+camera, scaled by the range's own two ends (the house's east wall and the wing's east end under the
+belvedere, which stand in one plane with the drum): the drum's size (its entablature about 7.6 m across),
+its place (its centre about 12.1 m east of the house's wall line), seven columns on a stone base with glass
+between them, an entablature, a balustrade level with the range's parapet, a ribbed dome with a finial
+behind it, the range's parapet height, an arched door east of the drum and an arched window west of it,
+and a raised terrace with a broad central flight of steps; every height through the camera within about
+0.3 m. **What is invented.** That the 1911 sheet's semicircle (3.45 m across, 9.1 m east of the house's
+wall) is this drum drawn short and 3 m west of its place: the photograph and the sheet disagree, and the
+picture governs (AGENTS.md rule 11); the record's place moves 3.0 m east along the wing's own line, the
+wing's line and depth stay the sheet's. That the rotunda is a full circle whose north half lies inside the
+4.42 m wing (the photograph sees only the south half). The dome's covering: the kit's opaque glass
+substitute, so no line of sight crosses two glass envelopes (the kit's rule for a lantern); glass or metal
+sheets are not legible in the print. The column shafts drawn octagonal, the balustrades as solid
+parapets and the wall as plain ashlar in a light stone tone (the 1894 Inland plate shows the range light;
+colour is not shown); the terrace's depth (6 m), its height (1.4 m) and its flight's width (6 m), read
+roughly and kept within the picture's tolerance; the wing carried on east at the sheet's wall line to the
+belvedere, past the sheet's 0.66 m step, which the print does not separate. The garden bench and pot
+plants inside the drum stay the kit's. Both blocks stay at the reconstructed tier as a whole for those parts; the place and the plan are inferred (the record's notes give the reasoning). **What is not.** The sheet's wing line, depth and storeys; the
+drum's place, size, columns, dome and the range's openings are the photograph's. This supersedes the
+form, place and sizes of L-k13-pullman-bay-2306 (its bay, eave, half-cone roof, brownstone block and
+5.4 m height); that entry's reading of the wing off the sheet stands. **How to resolve:** the 1894 Inland
+Architect plate of the palm house and stable, the c. 1905 CHM negative i70232 and Taylor's south-west view
+solved into this record's folder (T-3165's second piece) either confirm the drum's place or move it; a
+plan or the dome's specification settles its covering.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
+**Ticket:** T-3165 (piece of T-1934).
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-26 (T-3165).
 
 
 ### L-st-mary-chapel-front-2384 — A pictured chapel form for St Mary's
