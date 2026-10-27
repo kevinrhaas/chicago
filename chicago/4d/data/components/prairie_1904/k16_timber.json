@@ -324,7 +324,9 @@
       "batten": 1500,
       "gable": 9000,
       "porch": 4500
-    }
+    },
+    "wall_per_m2": 60,
+    "_wall_per_m2_doc": "T-3180: a whole frame house's wall (frame_house) is held to this many triangles a square metre of its face over the foundation, or to max_triangles.wall if that is more, so a 22 m flank three storeys of clapboard high is priced by its size while a kit change that thickens every wall still fails here and on the specimens."
   },
   "samples": [
     {
