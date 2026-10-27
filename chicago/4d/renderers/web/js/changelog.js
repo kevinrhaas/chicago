@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2342, ts: '2026-10-27T15:31:37.543Z', date: 'Oct 27, 2026, 10:31 AM CT', title: '1801 Prairie\'s gabled section gets its round oriel and arched windows', kind: 'improvement',
+    items: [
+      'On the W. W. Kimball house\'s 18th Street side, the gabled section now matches its c. 1895 and 1965 photographs: a round oriel window stands on a deep stepped stone corbel, with a stone balustrade around its top and three round-arched windows below it, where the wall had a plain stack of paired windows.',
+    ] },
   { v: 2341, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: 'Pullman\'s stable: arcade onto the court, a bay on its corner', kind: 'improvement',
     items: [
       '1729 Prairie: the Pullman stable\'s three-arch carriage arcade now faces the court beside the palm house, as the 1894 Inland Architect plate shows, instead of 18th Street.',
