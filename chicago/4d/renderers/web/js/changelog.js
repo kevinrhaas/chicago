@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2317, ts: '2026-10-27T00:42:20.416Z', date: 'Oct 26, 2026, 7:42 PM CT', title: 'St Mary\'s gains its pictured belfry', kind: 'improvement',
+    items: [
+      'An open belfry and cross now rise over St Mary\'s. A lower roof, five windows and an end door replace the house form, and its one chimney stands toward the far end. These features are reconstructed for 1835 from an undated engraving; the original footprint and dates are retained.',
+      'The Images tab shows the credited Moss engraving. Its 1884 publication is distinguished from the undated scene; the provisional comparison camera is not offered as a historical viewpoint.',
+    ] },
   { v: 2316, ts: '2026-10-27T00:03:14.827Z', date: 'Oct 26, 2026, 7:03 PM CT', title: '1827 Prairie\'s pavilion rises under its own steep roof', kind: 'feature',
     items: [
       'The Doane house\'s front pavilion now climbs through the mansard, three tall attic windows in its stone face, to a steep slated roof that rises to a point under an iron finial, as the old photograph shows it.',
