@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2332, ts: '2026-10-27T09:41:13.175Z', date: 'Oct 27, 2026, 4:41 AM CT', title: '1828 Prairie\'s porch and front steps in stone', kind: 'improvement',
+    items: [
+      'The porch of the Shipman house at 1828 Prairie is now light stone like the rest of its front, columns and all, as both photographs show it. The railing on its roof is heavier, with stone posts and a broad top rail.',
+      'Its front steps now have stone balustrades along both sides, with a post at the top and another at the bottom, as in the street photograph with the electric runabout.',
+      'Both houses\' photograph comparisons were checked again. Some gaps are still open: the porch\'s round arches, the bay that rises into the roof, about a metre of the roof\'s height, the taller basement windows, and the question of where 1824 stands against 1828.',
+    ] },
   { v: 2331, ts: '2026-10-27T08:26:22.288Z', date: 'Oct 27, 2026, 3:26 AM CT', title: '1712 Prairie stands as a stone-front house', kind: 'feature',
     items: [
       '1712 Prairie Avenue is no longer a draft box: a light limestone front across the whole house, two tall storeys of windows in moulded stone surrounds, a high stoop to the door on the south, a bracketed cornice and a tin hip with a dormer lighting the attic.',
