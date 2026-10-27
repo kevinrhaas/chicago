@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 816,
+  "count": 817,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -56277,6 +56277,65 @@
       "work_refs": [
         "T-1886",
         "T-2964"
+      ]
+    },
+    {
+      "id": "L-brougham-body-finish-3084",
+      "title": "catalogue-guided curved coach shell and reconstructed finishes",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Refine the one empty1893-design Brougham's lower shell and optical finish, preserving the accepted V18 lamp geometry/materials, running gear, pole, steps, anchors and conservative proxy. The original source-profile outline is retained; subdivided curved side skins replace large warped cap triangles, and a continuous front wrap closes the previous partial lower front. Angle-weighted normals avoid weighting the appearance toward the largest outline triangles. The18mm side roll,20mm front crown,15mm shell thickness, smooth empty passenger pads and fine driver-seat edge piping are original reconstructed construction."
+        },
+        {
+          "label": "Source",
+          "text": "Studebaker Brothers Manufacturing Company, public-domain US1893 catalogue, Brougham leaf0095, untouched plate SHA256 `b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe`. Its depicted colour families support very dark green coachwork, black painted timber and fine pale lining. The plate does not measure modern colour-space values, pigments, varnish coefficients, wood species, metal composition or glass optics. No source pixels are embedded."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "the dark warm leather of the EMPTY seats, hidden cabin pads, seam placement and thickness; the catalogue's coachmen/passengers hide upholstery and their clothing is not evidence for the seat finish. The rear quarter remains an unidentified recessed opaque dark surface, not newly identified as glazing or a curtain. Separate cabin glazing uses portable physical transmission0.98/IOR1.5 as an appearance reconstruction; the accepted V18 lamp glazing and iron materials stay exact. No particular owner, household, actual Chicago specimen or unchanged1904 manufacture is attested by this catalogue design."
+        },
+        {
+          "label": "Delivery and limits",
+          "text": "current V19 near is45,338triangles and mid23,062; both are source-generated and losslessly indexed. Actual decoded V18 protections cover475near/309mid unaffected source occurrences, full wheel/pole/shoe/hitch contacts, named transforms, thirteen runtime anchors, eight inert static targets and the original conservative proxy. The8material batches include separate cabin glass; that count is not a render-pass or whole-scene budget claim. Existing24m selection,5% hysteresis, Full/Balanced/Light reach, placement and all runtime budget caps stay unchanged. Later work owns later physical-interface/portable-LOD/published phone-desktop qualification."
+        },
+        {
+          "label": "Review",
+          "text": "actual native GLTFLoader front/side/rear/quarter/detail studies of predecessor geometry show the body/finish change; final angle-weighted source views, source-camera discrepancy review, world/published budget and photographic acceptance remain pending. All four freshly validated final raw/indexed near/mid assets have0Khronos errors and warnings. A source/geometry gate does not qualify a photograph."
+        },
+        {
+          "label": "Unsupported",
+          "text": "occupants, boarding, door operation, animated steering, rein/horse coupling, collision physics, traffic and riding remain false. All absolute dimensions and hidden/opposite construction stay reconstructed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26."
+        },
+        {
+          "label": "This work final-source native study update (2026-10-26)",
+          "text": "Actual GLTFLoader17image study of near master fbe0f9b3... closed0/44.408s/cleanup0/errors[]. The source-wheel-control camera reproduces its two declared informal centres within0.005px but has+2.24/-3.75px vertical-radius residuals and is nonunique. The untouched-source pair, body detail and390px native study were inspected. Curved closure and finish/glazing improve; residual belly shade bands and catalogue contours stay open. Native studio draw counters include105calls/181300triangle submissions at the source view, versus baseline76/100124; these include extra physical-transmission/shadow passes and are not merged production-budget measurements. Full photographic, published and whole-world acceptance remain false."
+        },
+        {
+          "label": "This work C1-front candidate update (2026-10-26)",
+          "text": "Piecewise-linear max-profile slopes are replaced with shape-preserving C1 Hermite interpolation through the same front-bearing values; limited tangents prohibit interval overshoot and extrapolation. The owned side skin follows the same front curve while its rear boundary bearing and global width stay exact.15source-height bearings/462independent interval samples retain the control values and a finite-difference slope jump below0.00001. Near raw SHA256 `50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635`, mid raw `d2e2452b04f63c366a8debac88833d7ca21ef9f6a8031d57c240b600e3740b0a`; unchanged45,338/23,062triangle counts and V18 protections. Earlier fbe0 native images remain separate PRE-C1 evidence; current native appearance and photographic acceptance are pending."
+        },
+        {
+          "label": "This work analytical-normal-only update (2026-10-26)",
+          "text": "A controlled same-close shadow-off image retained the broad bands. Actual1,410interior front vertices showed up to4.209degrees of disagreement with the C1surface derivative. Explicit analytical front normals reduce actual error below0.000532degrees. ALL481C1triangle POSITION streams, all other NORMAL streams/materials/nodes/extras stay exact; no extra geometry/knot/subdivision change is made to erase a light artifact. Current near raw `206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4`, mid raw `560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d`; same45,338/23,062triangles and V18/C1protections. Actual shadow-enabled same-close image closed0/10.393s/cleanup0/errors[] and shows improved highlight flow, with faint broad shade variation still declared. Full photographic/published/whole-world acceptance remains false."
+        },
+        {
+          "label": "This work optical-delivery amendment (2026-10-26)",
+          "text": "The parked near/mid paths now select separate thin-sheet optical derivatives. All geometry/BIN bytes, UV/normal/index streams, hierarchy, physical interfaces, material0–6 and the45,338/23,062 triangle counts remain exact to the retained physical indexed masters. The original physical raw/indexed files remain unchanged. Cabin glass material7 alone uses reconstructed BLEND/opacity0.14/transmission0/IOR1.5, avoiding an additional whole-scene transmission pass; these are delivery coefficients, not historic-glass measurements. Actual24-row e97 phone/desktop Full/Light diagnosis completed with no runtime errors but returned NONPASS: desktop Full quarter4,654,565 exceeded4.6M, and both Light aerial stands exceeded their unchanged1.27M floor while the carriage was hidden. The explicitly measured selected-inspection Full allowance becomes4.7M with45,435 triangles reserve. Ordinary Full/Balanced/Light, all draw/shadow/reach/LOD limits and all memory limits remain exact. The Light floor and inherited memory failures remain open; no complete photographic, shipping-source, occupied or later work qualification follows. Exact readings are preserved in the project's notes on brougham optical delivery 3084."
+        }
+      ],
+      "work_refs": [
+        "T-3085",
+        "T-3084"
       ]
     },
     {
