@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8d89fc88d0c6893e054005e6b9257c198829661db33da53832b3cac9bcf1abb5",
+  "glb_sha256": "e2c2c9c97bd007040be400c8b90eeb9e7f9074a9d62a699f1374c9a6873bc095",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -81,8 +81,13 @@
       "status": "open"
     },
     {
-      "what": "the south dormer's face: the print's is slated with a pale frame round the light and its hood wider than the face, the build's face stone (as the 18th Street dormers' in the Taylor record)",
+      "what": "the south dormer's hood: the print's is wider than the face under it, where the build's hood stands as wide as its face",
       "status": "open"
+    },
+    {
+      "what": "the south dormer's face: the print's is slated with a pale frame round the light, the build's was stone",
+      "status": "fixed",
+      "how": "T-1890: slated as its hood is, its 0.75 by 1.2 m light in a pale stone frame 0.1 m wide (hood.face slate, frame_m 0.1), as the street and 18th Street dormers' in the Taylor record; it renders a dark face with the pale frame round the light, as the print's (L-kimball-1801-dormer-faces-1890)"
     },
     {
       "what": "colour: the stone's tone and the slate's",

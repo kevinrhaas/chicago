@@ -2400,6 +2400,8 @@ class Bay:
                 tops.append(self._finial_one(world, at, f))
             self.meta["finial"] = {"top_m": round(max(tops), 4), "count": len(tops)}
             return
+        if f.get("form") == "turned":
+            return self._turned_finial(world, f)
         ax, ay, az = self.meta["roof"]["apex"]
         r0, H = f["radius_m"], f["height_m"]
         k = 8
@@ -2412,6 +2414,103 @@ class Bay:
             world.face("finial", [lo[j], lo[jj], hi[jj], hi[j]], m)
         world.face("finial", hi, Y)
         self.meta["finial"] = {"top_m": round(ay + H, 4)}
+
+    #: T-1890: a TURNED finial's profile, (r, y) as fractions of its radius_m and height_m over
+    #: the cap's apex: a neck out of the collar, a knob, a pair of knobs and a pair of smaller
+    #: ones on a waisted shaft, then a bulb and the spike (1801's tower in the Taylor print;
+    #: the turnings are reconstructed, L-kimball-1801-tower-finial-1890)
+    TURNED = ((0.0, 0.1), (0.6, 0.1), (0.5, 0.2), (0.55, 0.25), (0.95, 0.28), (0.95, 0.31), (0.5, 0.34),
+              (0.4, 0.38), (0.4, 0.42), (0.85, 0.45), (1.1, 0.48), (0.85, 0.51), (1.1, 0.54), (0.8, 0.57),
+              (0.4, 0.6), (0.35, 0.65), (0.75, 0.68), (0.95, 0.71), (0.7, 0.74), (0.9, 0.77), (0.6, 0.8),
+              (0.3, 0.83), (0.1, 0.86), (0.04, 0.97), (0.0, 1.0))
+    TURNED_SEGS = 12
+    #: ... and its collar, a flare `collar_m` out on the cone, (r, y) as fractions of collar_m
+    #: and of the cone's own fall over it (the apex at 0, the rim at -1): a lip on the rim, then
+    #: a concave sweep in to the neck that stays outside the cone (whose r is -y) all the way
+    #: up, past the apex into the finial's foot
+    COLLAR = ((0.94, -1.05), (1.15, -1.01), (1.15, -0.93), (1.06, -0.9), (0.74, -0.686), (0.49, -0.4),
+              (0.31, -0.114), (0.22, 0.25), (0.17, 0.5), (0.15, 0.75), (0.0, 0.75))
+    #: ... ringed with crockets, two tiers of leaves curling out and up off the flare, the upper
+    #: tier between the lower's: (foot, head) along the flare as y fractions, and their reach
+    #: out of it as a fraction of collar_m
+    CROCKETS = 8
+    CROCKET_TIERS = ((-0.9, -0.6, 0.4), (-0.5, -0.1, 0.3), (-0.05, 0.4, 0.2))
+    CROCKET_THICK_M = 0.04
+    CLIP_M = 0.01   # a turning's back stands this far in front of its wall's plane
+
+    def _turned_finial(self, world, f):
+        """T-1890: a cap's TURNED finial (part `finial` with `form: turned`): the TURNED profile
+        lathed over the cone's apex up `height_m`, and where the part names a `collar_m`, the
+        COLLAR's flare from that far out on the cone up into the finial's foot, ringed with
+        CROCKETS — the pale crocketed collar and knobbed pinnacle of 1801's tower."""
+        ax, ay, az = self.meta["roof"]["apex"]
+        r0, H, k = f["radius_m"], f["height_m"], self.TURNED_SEGS
+        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=True)
+        top = {"top_m": round(ay + H, 4), "form": "turned"}
+        c = f.get("collar_m")
+        if c:
+            D = self.meta["roof"]["pitch"] * c   # the cone's fall from its apex to the collar's rim
+            # its back, where the tower stands into its wall, is closed CLIP_M in front of the
+            # wall's plane (z 0), as the cone's is on it, and a crocket that would stand behind
+            # that is not laid
+            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=True)
+            flare = self.COLLAR[3:-1]   # the sweep, rim to neck, y rising
+
+            def on(y):   # the flare's r (as a fraction of c) at y, a hair inside it
+                for (r1, y1), (r2, y2) in zip(flare, flare[1:]):
+                    if y1 <= y <= y2:
+                        return r1 + (r2 - r1) * (y - y1) / (y2 - y1) - 0.02
+                raise ValueError(f"{self.v['id']}: a crocket's foot off its collar")
+            for t, (y0, y1, reach) in enumerate(self.CROCKET_TIERS):
+                e = reach * c
+                lo, hi = (c * on(y0), ay + D * y0), (c * on(y1), ay + D * y1)
+                leaf = [hi, lo, (lo[0] + e, lo[1] + e * 1.4), (lo[0] + e * 0.45, hi[1] + e * 0.5)]
+                for i in range(self.CROCKETS):
+                    a = 2 * math.pi * (i + 0.5 * t) / self.CROCKETS
+                    if az + max(q[0] for q in leaf) * math.sin(a) - self.CROCKET_THICK_M >= self.CLIP_M:
+                        self._fin(world, ax, az, a, leaf, self.CROCKET_THICK_M)
+            top.update(collar_m=c, crockets=self.CROCKETS * len(self.CROCKET_TIERS))
+        self.meta["finial"] = top
+
+    @staticmethod
+    def _lathe(world, ax, az, prof, k, clip=False):
+        """A turned solid on the axis (ax, az): `prof` (r, y) from its foot up, each band of
+        quads shaded square to its own slope; a ring at r 0 closes it. `clip` holds it in front
+        of the wall's plane (z 0), flattening what would stand behind onto CLIP_M in front of it,
+        clear of the cone's back face on the plane itself."""
+        ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y,
+                              max(az + r * math.sin(2 * math.pi * j / k), Bay.CLIP_M) if clip
+                              else az + r * math.sin(2 * math.pi * j / k)) for j in range(k)]
+        rings = [ring(r, y) for r, y in prof]
+        for (r1, y1), (r2, y2), a, b in zip(prof, prof[1:], rings, rings[1:]):
+            dr, dy = r2 - r1, y2 - y1
+            ln = math.hypot(dr, dy)
+            for j in range(k):
+                jj = (j + 1) % k
+                t = 2 * math.pi * (j + 0.5) / k
+                n = (math.cos(t) * dy / ln, -dr / ln, math.sin(t) * dy / ln)
+                q = [a[j], a[jj], b[jj], b[j]]
+                q = [p for i, p in enumerate(q) if p != q[i - 1]]
+                if len(q) >= 3:
+                    world.face("finial", q, n)
+
+    @staticmethod
+    def _fin(world, ax, az, t, poly, thick):
+        """A flat leaf `thick` across, its outline `poly` (r, y) in the radial plane at angle t."""
+        ct, st = math.cos(t), math.sin(t)
+        P = lambda r, y, s: (ax + r * ct - s * st, y, az + r * st + s * ct)
+        h = thick / 2
+        world.face("finial", [P(r, y, h) for r, y in poly], (-st, 0.0, ct))
+        world.face("finial", [P(r, y, -h) for r, y in poly][::-1], (st, 0.0, -ct))
+        cr = sum(p[0] for p in poly) / len(poly)
+        cy = sum(p[1] for p in poly) / len(poly)
+        for (r1, y1), (r2, y2) in zip(poly, poly[1:] + poly[:1]):
+            nr, ny = y2 - y1, -(r2 - r1)
+            if nr * ((r1 + r2) / 2 - cr) + ny * ((y1 + y2) / 2 - cy) < 0:
+                nr, ny = -nr, -ny
+            ln = math.hypot(nr, ny)
+            world.face("finial", [P(r1, y1, -h), P(r2, y2, -h), P(r2, y2, h), P(r1, y1, h)],
+                       (nr / ln * ct, ny / ln, nr / ln * st))
 
     def _finial_one(self, world, at, f):
         """T-3176: a finial standing on a point (a crested deck's corner): the turned shaft

@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8d89fc88d0c6893e054005e6b9257c198829661db33da53832b3cac9bcf1abb5",
+  "glb_sha256": "e2c2c9c97bd007040be400c8b90eeb9e7f9074a9d62a699f1374c9a6873bc095",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -154,9 +154,14 @@
       "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
-      "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do; and their faces are slate with a pale frame round the light, where the build's are stone",
+      "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do",
       "status": "open",
       "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
+    },
+    {
+      "what": "the hooded dormers' faces: the print's are slate with a pale frame round the light, where the build's were stone",
+      "status": "fixed",
+      "how": "T-1890: each hooded dormer's face slated as its hood is (mansard.dormers[].hood.face: slate) and its light set in a pale stone frame 0.1 m wide standing 0.04 m out of the slate (hood.frame_m), inside the 0.2 m surround; the street and 18th Street dormers now read as the print's, a dark face with a pale frame round a small light under the hood. The frame's section is reconstructed (L-kimball-1801-dormer-faces-1890)"
     },
     {
       "what": "the south pavilion's gable apex and finial: through T-3060's camera the finial's axis renders at x 1280 against the print's 1268 (about 12 px south) and its top at y 237 against 218 (about 19 px low); carried through the camera, T-2538's readings put the gable's springing at about 14.1 m and its apex at 17.7 m, where the build stands 13.9 and 17.45 m",
@@ -222,7 +227,13 @@
     },
     {
       "what": "the tower's finial: the print's is a turned and knobbed pinnacle, pale against the slate, over a crocketed collar at the cone's apex, its tip about 19.6 m; the build sizes the kit's spike to it (2.6 m over the apex, its tip 19.29 m, within about 12 px) but lays it plain, in the cap's slate, with no collar (T-1890)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: the tower's finial turned (bays.tower.finial form: turned) and laid in pale zinc sheet, not the cap's slate: a crocketed collar flaring off the cone 0.45 m out (collar_m), its rim lipped and ringed with two tiers of eight crockets and a third of small ones up its neck, then a waisted shaft 2.9 m over the apex carrying a knob, a pair of knobs, a pair of smaller ones and a bulb under the spike (its tip 19.59 m, the print's about 19.6 m). Re-rendered through T-3074's camera the collar's flare renders 62 px across against the print's about 70, its knobs on the print's spacing; the collar and the knobs stand about 20-25 px under the print's (the difference below). The turnings, the crockets and the metal are reconstructed (L-kimball-1801-tower-finial-1890)"
+    },
+    {
+      "what": "the tower's cone top: the finial's collar renders with its rim at about y 299 against the print's 277 and its visible tip at about y 119 against 92, so the whole finial stands about 20-25 px (about 0.4-0.5 m) under the print's while its own height from collar to tip is the print's; the cone's apex is what stands low (T-3074's camera reads it at about 17.8 m, built 16.69 m from its eaves at pitch 2.5)",
+      "status": "open",
+      "how": "T-1890 (seen laying the turned finial). Raising the apex is the cone's pitch or its eaves, which the tower's form fixed above; re-read both through the current camera before working it."
     },
     {
       "what": "the flank section's west corner (T-1890): the print rounds it under the cornice (x 480-530 px, a light in the round), the build stands it square",
