@@ -471,7 +471,10 @@ def poly_dist(q, poly):
 def crossing_polys(section):
     """The corner crossings' strips (T-3200), flat and ramp, when the section carries them."""
     out = []
-    for c in (section or {}).get("corner_crossings", []) or []:
+    cc = (section or {}).get("corner_crossings") or []
+    if isinstance(cc, dict):  # the section writes {ticket, liberty, ..., crossings: [...]}
+        cc = cc.get("crossings") or []
+    for c in cc:
         for k in ("flat", "ramp"):
             q = c.get(k)
             if q and len(q) >= 3:
