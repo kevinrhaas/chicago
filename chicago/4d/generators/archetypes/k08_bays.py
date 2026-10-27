@@ -123,6 +123,7 @@ ROLE_MATERIAL = {
     "roof": "covering", "finial": "covering", "iron": "iron",
     "shutter": "shutter",   # T-1879: a light's louvred shutters
     "board_wall": "board", "ground": "ground",
+    "cheek": "covering_slate_pennsylvania",   # T-3197: a storey's slated cheeks
 }
 # The specimen's board, not the bay: excluded from a variant's costs and its checks.
 BOARD_ROLES = ("board_wall", "ground")
@@ -1020,6 +1021,76 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
     return out
 
 
+def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
+    """T-3197: a carved tympanum over a light's lintel (1827's, from the Doane photograph): a
+    stone panel standing on the lintel's top (`y0`) between its ends (`x0`, `x1`), `proud_m`
+    out, its top a segmental arc springing `spring_m` over the lintel and rising `rise_m` at
+    its crown (or level, where `rise_m` is 0), under a hood band `band_m` deep standing
+    `band_proud_m` out. The arc is the light's own, or (`span_m`) one arc of that chord
+    centred at `cx`, so the lights of a group stand under one arch, each panel the part over
+    its own light (the print's principal floor). On the panel's face a row of leaves
+    `relief_m` proud, lozenges and round bosses in turn, standing for the print's carved
+    foliage, which is finer than its pixels. Drawn into the strip `o` (s along the face, y
+    up, d negative out of it); the light tier keeps the panel and the hood. Returns the
+    leaves laid."""
+    sp, rise, pr = ty["spring_m"], ty["rise_m"], ty["proud_m"]
+    bd, bp, rl = ty["band_m"], ty["band_proud_m"], ty["relief_m"]
+    half = ty["span_m"] / 2 if "span_m" in ty else (x1 - x0) / 2
+    x0, x1 = x0 + 0.005, x1 - 0.005     # its ends just inside the lintel's, never on them
+    if "span_m" not in ty:
+        cx = (x0 + x1) / 2
+    ys = y0 + sp
+    if rise > 0:
+        R = (half * half + rise * rise) / (2 * rise)
+        yc = ys + rise - R
+        top = lambda x: yc + math.sqrt(max(R * R - (x - cx) ** 2, 0.0))
+    else:
+        top = lambda x: ys
+    if min(top(x0), top(x1)) < y0 + 0.08:
+        raise ValueError(f"a tympanum over {x0:.3f}-{x1:.3f} leaves under 0.08 m of panel at an end")
+    n = max(2, math.ceil((x1 - x0) / 0.08)) if rise > 0 else 1
+    xs = [x0 + (x1 - x0) * i / n for i in range(n + 1)]
+    yb = y0 - 0.002      # its bed a little into the lintel, so no face lies on the lintel's top
+    prism(o, "head", [(x0, yb), (x1, yb)] + [(x, top(x)) for x in xs[::-1]], -pr, 0.004)
+    # the hood: the arc carried up `band_m`, its back buried in the panel, its ends square
+    bot = [top(x) - 0.002 for x in xs]
+    hi = [top(x) + bd for x in xs]
+    d0, d1, dp = -bp, 0.004, -pr      # its back in the wall; its underside out past the panel
+    for i in range(n):
+        a, b = xs[i], xs[i + 1]
+        o.plane("head", [(a, bot[i]), (b, bot[i + 1]), (b, hi[i + 1]), (a, hi[i])], d0)
+        dx, dy = b - a, hi[i + 1] - hi[i]
+        o.face("head", [o.P(a, hi[i], d0), o.P(b, hi[i + 1], d0), o.P(b, hi[i + 1], d1), o.P(a, hi[i], d1)],
+               (-dy, dx, 0.0))
+        dy = bot[i + 1] - bot[i]
+        o.face("head", [o.P(a, bot[i], d0), o.P(b, bot[i + 1], d0), o.P(b, bot[i + 1], dp), o.P(a, bot[i], dp)],
+               (dy, -dx, 0.0))
+    # its ends: out past the panel from its underside, behind the panel's front from the
+    # panel's top, so no end lies on the panel's own side
+    for x, y_lo, y_hi, hx in ((x0, bot[0], hi[0], -1.0), (x1, bot[-1], hi[-1], 1.0)):
+        o.face("head", [o.P(x, y_lo, d0), o.P(x, y_hi, d0), o.P(x, y_hi, dp), o.P(x, y_lo, dp)], (hx, 0.0, 0.0))
+        o.face("head", [o.P(x, top(x), dp), o.P(x, y_hi, dp), o.P(x, y_hi, d1), o.P(x, top(x), d1)], (hx, 0.0, 0.0))
+    if tier != "full":
+        return 0
+    k = max(1, round((x1 - x0) / 0.14))
+    step, laid = (x1 - x0) / k, 0
+    for j in range(k):
+        a, b = x0 + j * step, x0 + (j + 1) * step
+        m = (a + b) / 2
+        lo, up = y0 + 0.03, min(top(a + step * 0.15), top(b - step * 0.15)) - 0.03
+        if up - lo < 0.05:
+            continue
+        cy, hh, hw = (lo + up) / 2, (up - lo) / 2, step * 0.38
+        if j % 2 == 0:
+            poly = [(m, cy - hh), (m + hw, cy), (m, cy + hh), (m - hw, cy)]
+        else:
+            r = min(hw, hh) * 0.8
+            poly = [(m + r * math.cos(t * math.pi / 4), cy + r * math.sin(t * math.pi / 4)) for t in range(8)]
+        prism(o, "carving", poly, -pr - rl, -pr + 0.004)
+        laid += 1
+    return laid
+
+
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
 class _Cut:
@@ -1202,6 +1273,21 @@ class Bay:
                         jambs = surround(flat, w["surround"], o, s, self.tier)
                         if v.get("masonry"):
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
+                    if w.get("tympanum"):
+                        # T-3197: a carved tympanum on the lintel, under the arc it names
+                        hp = o.prims["head"].pos
+                        hx0, hx1, hy = min(q[0] for q in hp), max(q[0] for q in hp), max(q[1] for q in hp)
+                        ty = w["tympanum"]
+                        laid = tympanum(flat, ty, hx0, hx1, hy, run.L / 2, self.tier)
+                        crown = hy + ty["spring_m"] + ty["rise_m"] + ty["band_m"]
+                        if crown > hi - (band["height_m"] / 2 if k + 1 < len(v["storeys"]) else 0.0) - 0.02:
+                            raise ValueError(f"{v['id']}: a tympanum at s = {s:.3f} rises to {crown:.3f} m, "
+                                             f"into the band at {hi:.3f}")
+                        tm = self.meta.setdefault("tympana", {"panels": 0, "leaves": 0})
+                        tm["panels"] += 1
+                        tm["leaves"] += laid
+                        if v.get("masonry"):
+                            trim_holes.append((hx0 - .002, hx1 + .002, hy - .002, crown + .002, (), True))
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos
@@ -1222,6 +1308,8 @@ class Bay:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
                     wall_cells(flat, "wall", holes, 0.0, run.L, lo, hi)
+                if v["storeys"][k].get("cheeks"):
+                    self._cheeks(flat, run, i, lo, hi, v["storeys"][k]["cheeks"], per_run[i][k], k + 1 < len(v["storeys"]))
                 if v["storeys"][k].get("frieze"):
                     if per_run[i][k] or k == 0:
                         raise ValueError(f"{v['id']}: a frieze is a windowless storey over another")
@@ -1491,6 +1579,33 @@ class Bay:
             flat.face("bracket", [flat.P(s0, y0, 0.0), flat.P(s1, y0, 0.0), flat.P(s1, y0, -out),
                                   flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta.setdefault("brackets", {})["modillions"] = self.meta.get("brackets", {}).get("modillions", 0) + n
+
+    def _cheeks(self, flat, run, i, lo, hi, ch, windows, capped):
+        """T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
+        photograph: its three lights between stone piers, its outer parts slated as cheeks): on
+        the front run (`front_run`) the outer `width_m` at each end, and every other run whole,
+        clad in slate standing `proud_m` before the wall, from the storey's foot to its top.
+        The wall stays behind it. No light may stand in a cheek. Under the bay's eaves (not
+        `capped`) its top is the soffit's, so it draws none."""
+        w, pr = ch["width_m"], ch["proud_m"]
+        if i != ch["front_run"]:
+            if windows:
+                raise ValueError(f"{self.v['id']}: a slated cheek covers run {i}, which has a light")
+            proud(flat, "cheek", run, lo, hi, pr, top=capped)
+        else:
+            a0, b1 = run.s_start(0.0) + w, run.s_end(0.0) - w
+            for _, s in windows:
+                if not a0 + 0.1 < s < b1 - 0.1:
+                    raise ValueError(f"{self.v['id']}: a light at s = {s:.3f} stands in a slated cheek")
+            for sa, sb, edge, hx in ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
+                flat.plane("cheek", rect(sa, sb, lo, hi), -pr)
+                for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:]:
+                    flat.face("cheek", [flat.P(run.s_start(0.0) if hx > 0 else b1, y, 0.0),
+                                        flat.P(a0 if hx > 0 else run.s_end(0.0), y, 0.0),
+                                        flat.P(sb, y, -pr), flat.P(sa, y, -pr)], (0.0, hy, 0.0))
+                flat.face("cheek", [flat.P(edge, lo, 0.0), flat.P(edge, hi, 0.0), flat.P(edge, hi, -pr),
+                                    flat.P(edge, lo, -pr)], (hx, 0.0, 0.0))
+        self.meta["cheeks"] = self.meta.get("cheeks", 0) + 1
 
     def _corbel_table(self, flat, run, y_floor, ct):
         """T-1890: a corbel table carrying a storey (1801's 18th Street section, the Taylor
@@ -2336,6 +2451,8 @@ class Bay:
                 tops.append(self._finial_one(world, at, f))
             self.meta["finial"] = {"top_m": round(max(tops), 4), "count": len(tops)}
             return
+        if f.get("form") == "turned":
+            return self._turned_finial(world, f)
         ax, ay, az = self.meta["roof"]["apex"]
         r0, H = f["radius_m"], f["height_m"]
         k = 8
@@ -2348,6 +2465,103 @@ class Bay:
             world.face("finial", [lo[j], lo[jj], hi[jj], hi[j]], m)
         world.face("finial", hi, Y)
         self.meta["finial"] = {"top_m": round(ay + H, 4)}
+
+    #: T-1890: a TURNED finial's profile, (r, y) as fractions of its radius_m and height_m over
+    #: the cap's apex: a neck out of the collar, a knob, a pair of knobs and a pair of smaller
+    #: ones on a waisted shaft, then a bulb and the spike (1801's tower in the Taylor print;
+    #: the turnings are reconstructed, L-kimball-1801-tower-finial-1890)
+    TURNED = ((0.0, 0.1), (0.6, 0.1), (0.5, 0.2), (0.55, 0.25), (0.95, 0.28), (0.95, 0.31), (0.5, 0.34),
+              (0.4, 0.38), (0.4, 0.42), (0.85, 0.45), (1.1, 0.48), (0.85, 0.51), (1.1, 0.54), (0.8, 0.57),
+              (0.4, 0.6), (0.35, 0.65), (0.75, 0.68), (0.95, 0.71), (0.7, 0.74), (0.9, 0.77), (0.6, 0.8),
+              (0.3, 0.83), (0.1, 0.86), (0.04, 0.97), (0.0, 1.0))
+    TURNED_SEGS = 12
+    #: ... and its collar, a flare `collar_m` out on the cone, (r, y) as fractions of collar_m
+    #: and of the cone's own fall over it (the apex at 0, the rim at -1): a lip on the rim, then
+    #: a concave sweep in to the neck that stays outside the cone (whose r is -y) all the way
+    #: up, past the apex into the finial's foot
+    COLLAR = ((0.94, -1.05), (1.15, -1.01), (1.15, -0.93), (1.06, -0.9), (0.74, -0.686), (0.49, -0.4),
+              (0.31, -0.114), (0.22, 0.25), (0.17, 0.5), (0.15, 0.75), (0.0, 0.75))
+    #: ... ringed with crockets, two tiers of leaves curling out and up off the flare, the upper
+    #: tier between the lower's: (foot, head) along the flare as y fractions, and their reach
+    #: out of it as a fraction of collar_m
+    CROCKETS = 8
+    CROCKET_TIERS = ((-0.9, -0.6, 0.4), (-0.5, -0.1, 0.3), (-0.05, 0.4, 0.2))
+    CROCKET_THICK_M = 0.04
+    CLIP_M = 0.01   # a turning's back stands this far in front of its wall's plane
+
+    def _turned_finial(self, world, f):
+        """T-1890: a cap's TURNED finial (part `finial` with `form: turned`): the TURNED profile
+        lathed over the cone's apex up `height_m`, and where the part names a `collar_m`, the
+        COLLAR's flare from that far out on the cone up into the finial's foot, ringed with
+        CROCKETS — the pale crocketed collar and knobbed pinnacle of 1801's tower."""
+        ax, ay, az = self.meta["roof"]["apex"]
+        r0, H, k = f["radius_m"], f["height_m"], self.TURNED_SEGS
+        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=True)
+        top = {"top_m": round(ay + H, 4), "form": "turned"}
+        c = f.get("collar_m")
+        if c:
+            D = self.meta["roof"]["pitch"] * c   # the cone's fall from its apex to the collar's rim
+            # its back, where the tower stands into its wall, is closed CLIP_M in front of the
+            # wall's plane (z 0), as the cone's is on it, and a crocket that would stand behind
+            # that is not laid
+            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=True)
+            flare = self.COLLAR[3:-1]   # the sweep, rim to neck, y rising
+
+            def on(y):   # the flare's r (as a fraction of c) at y, a hair inside it
+                for (r1, y1), (r2, y2) in zip(flare, flare[1:]):
+                    if y1 <= y <= y2:
+                        return r1 + (r2 - r1) * (y - y1) / (y2 - y1) - 0.02
+                raise ValueError(f"{self.v['id']}: a crocket's foot off its collar")
+            for t, (y0, y1, reach) in enumerate(self.CROCKET_TIERS):
+                e = reach * c
+                lo, hi = (c * on(y0), ay + D * y0), (c * on(y1), ay + D * y1)
+                leaf = [hi, lo, (lo[0] + e, lo[1] + e * 1.4), (lo[0] + e * 0.45, hi[1] + e * 0.5)]
+                for i in range(self.CROCKETS):
+                    a = 2 * math.pi * (i + 0.5 * t) / self.CROCKETS
+                    if az + max(q[0] for q in leaf) * math.sin(a) - self.CROCKET_THICK_M >= self.CLIP_M:
+                        self._fin(world, ax, az, a, leaf, self.CROCKET_THICK_M)
+            top.update(collar_m=c, crockets=self.CROCKETS * len(self.CROCKET_TIERS))
+        self.meta["finial"] = top
+
+    @staticmethod
+    def _lathe(world, ax, az, prof, k, clip=False):
+        """A turned solid on the axis (ax, az): `prof` (r, y) from its foot up, each band of
+        quads shaded square to its own slope; a ring at r 0 closes it. `clip` holds it in front
+        of the wall's plane (z 0), flattening what would stand behind onto CLIP_M in front of it,
+        clear of the cone's back face on the plane itself."""
+        ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y,
+                              max(az + r * math.sin(2 * math.pi * j / k), Bay.CLIP_M) if clip
+                              else az + r * math.sin(2 * math.pi * j / k)) for j in range(k)]
+        rings = [ring(r, y) for r, y in prof]
+        for (r1, y1), (r2, y2), a, b in zip(prof, prof[1:], rings, rings[1:]):
+            dr, dy = r2 - r1, y2 - y1
+            ln = math.hypot(dr, dy)
+            for j in range(k):
+                jj = (j + 1) % k
+                t = 2 * math.pi * (j + 0.5) / k
+                n = (math.cos(t) * dy / ln, -dr / ln, math.sin(t) * dy / ln)
+                q = [a[j], a[jj], b[jj], b[j]]
+                q = [p for i, p in enumerate(q) if p != q[i - 1]]
+                if len(q) >= 3:
+                    world.face("finial", q, n)
+
+    @staticmethod
+    def _fin(world, ax, az, t, poly, thick):
+        """A flat leaf `thick` across, its outline `poly` (r, y) in the radial plane at angle t."""
+        ct, st = math.cos(t), math.sin(t)
+        P = lambda r, y, s: (ax + r * ct - s * st, y, az + r * st + s * ct)
+        h = thick / 2
+        world.face("finial", [P(r, y, h) for r, y in poly], (-st, 0.0, ct))
+        world.face("finial", [P(r, y, -h) for r, y in poly][::-1], (st, 0.0, -ct))
+        cr = sum(p[0] for p in poly) / len(poly)
+        cy = sum(p[1] for p in poly) / len(poly)
+        for (r1, y1), (r2, y2) in zip(poly, poly[1:] + poly[:1]):
+            nr, ny = y2 - y1, -(r2 - r1)
+            if nr * ((r1 + r2) / 2 - cr) + ny * ((y1 + y2) / 2 - cy) < 0:
+                nr, ny = -nr, -ny
+            ln = math.hypot(nr, ny)
+            world.face("finial", [P(r1, y1, -h), P(r2, y2, -h), P(r2, y2, h), P(r1, y1, h)],
+                       (nr / ln * ct, ny / ln, nr / ln * st))
 
     def _finial_one(self, world, at, f):
         """T-3176: a finial standing on a point (a crested deck's corner): the turned shaft
