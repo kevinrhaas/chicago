@@ -29,7 +29,7 @@ REQUIRED = ("stories", "construction", "draft_plan", "draft_elevation")
 #: The form attributes that reach the mesh; `draft` is the card's.
 CONSUMED = frozenset(REQUIRED)
 KINDS = ("house", "service")
-ROOFS = ("hip", "hip_steep", "mansard", "shaped_gable", "flat", "gable")
+ROOFS = ("hip", "hip_steep", "hip_deck", "mansard", "shaped_gable", "flat", "gable")
 ROLES = ("main", "wing", "bay", "range", "porch", "stone_front")
 CONSTRUCTIONS = ("brick", "stone", "frame", "brick_with_stone_front", "stone_with_brick_rear")
 
