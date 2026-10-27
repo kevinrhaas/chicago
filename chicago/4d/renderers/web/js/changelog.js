@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2341, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: 'Pullman\'s stable: arcade onto the court, a bay on its corner', kind: 'improvement',
+    items: [
+      '1729 Prairie: the Pullman stable\'s three-arch carriage arcade now faces the court beside the palm house, as the 1894 Inland Architect plate shows, instead of 18th Street.',
+      'A polygonal bay of three arched lights stands across the stable\'s south-west corner, under an upper storey that cuts the corner on the diagonal; the 18th Street sash moved west with it.',
+      'The stable\'s lantern is lower and smaller, the belvedere sits a little further west, and the north block shares the stable\'s eave.',
+      'The palm house now has three pictures with solved cameras: the plate, and two J. W. Taylor photographs.',
+    ] },
+  { v: 2340, ts: '2026-10-27T14:37:12.986Z', date: 'Oct 27, 2026, 9:37 AM CT', title: '1827 Prairie\'s basement grilles and the tower\'s corbel blocks', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie matches its photograph more closely: its basement lights have iron grilles, a row of stone corbel blocks runs under the corner tower\'s cornice, and the front\'s south window bay and the pavilion\'s narrow windows now stand where the photograph puts them.',
+    ] },
   { v: 2339, ts: '2026-10-27T13:44:26.497Z', date: 'Oct 27, 2026, 8:44 AM CT', title: '1801 Prairie\'s 18th Street section, corbel table and fan gable', kind: 'improvement',
     items: [
       'The section of the W. W. Kimball house\'s 18th Street wall beside the tower now matches its c. 1895 and 1965 photographs: its top storey stands on a row of stone corbels, with paired windows under a coped gable carved with a fan and topped by a finial, where the wall used to rise plain to a low hipped roof.',

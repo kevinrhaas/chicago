@@ -207,7 +207,7 @@
               },
               {
                 "face": "street",
-                "along_m": 12.9,
+                "along_m": 12.25,
                 "head": "gable",
                 "gable_pitch_deg": 45,
                 "sash": {
@@ -239,7 +239,7 @@
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "T-3189, through the re-solved camera: the slated lower faces rise steeply from the cornice (about 9.4 m) to the curb, its crest at y 553 px over the window bay south of the pavilion (about 12.3 m), a rise of about 2.9 m; a dormer under a pediment stands on the front over that bay (x 650-770 px, its light from about 9.6 to 11.1 m, y 775-655, its peak at the curb, so it stands 0.05 m up the face rather than 0.1) and another over the porch at the north end (x 190-250 px). The pavilion's crown (T-3175), read the same way: the pavilion carried up an attic from the main eave to its own cornice at about y 588 px on its face (about 12.1 m, the main curb's height; attic_m 2.9), under a steep slated roof hipped on every side from that cornice (x 350-597 px) to a point at about y 407 px (about 15.1 m) with a turned iron finial to about y 352 px (about 0.8-1 m). Built as K05's hipped crown at 47 degrees on the sides and the street end, the nearest the kit's steep range (over 45) allows: the print's rise of about 3.0 m over a half-width of about 3.4 m reads 41 degrees, so the build's point stands about 0.7 m over the print's (open in the match record). The cornice 0.65 m past the pavilion's face and sides (the kit's least past the main cornice's 0.6 m), run 6.0 m back into the main roof so its ridge is short (the photograph sees it end on, as a point). How far it runs back, which no picture shows, is reconstructed."
+          "note": "T-3189, through the re-solved camera: the slated lower faces rise steeply from the cornice (about 9.4 m) to the curb, its crest at y 553 px over the window bay south of the pavilion (about 12.3 m), a rise of about 2.9 m; a dormer under a pediment stands on the front over that bay (x 650-770 px, its light from about 9.6 to 11.1 m, y 775-655, its peak at the curb, so it stands 0.05 m up the face rather than 0.1) and another over the porch at the north end (x 190-250 px). The pavilion's crown (T-3175), read the same way: the pavilion carried up an attic from the main eave to its own cornice at about y 588 px on its face (about 12.1 m, the main curb's height; attic_m 2.9), under a steep slated roof hipped on every side from that cornice (x 350-597 px) to a point at about y 407 px (about 15.1 m) with a turned iron finial to about y 352 px (about 0.8-1 m). Built as K05's hipped crown at 47 degrees on the sides and the street end, the nearest the kit's steep range (over 45) allows: the print's rise of about 3.0 m over a half-width of about 3.4 m reads 41 degrees, so the build's point stands about 0.7 m over the print's (open in the match record). The cornice 0.65 m past the pavilion's face and sides (the kit's least past the main cornice's 0.6 m), run 6.0 m back into the main roof so its ridge is short (the photograph sees it end on, as a point). How far it runs back, which no picture shows, is reconstructed. T-3195: the dormer over the window bay moves with that bay to the print's place (front_bays), to along_m 12.25, the nearest the crown's cornice allows (the print's centres about v 12.0)."
         },
         "roof_covering": {
           "value": {
@@ -288,14 +288,14 @@
         "front_bays": {
           "value": [
             2.55,
-            12.9
+            12.05
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Along the Prairie front from the north wall: the door's bay under the porch (v 2.55, the porch's centre) and the window bay south of the pavilion (v 12.9; x 665-745 px, one window a storey under a segmental hood). The pavilion's own lights are the K08 projection's."
+          "note": "Along the Prairie front from the north wall: the door's bay under the porch (v 2.55, the porch's centre) and the window bay south of the pavilion (x 665-745 px, one window a storey under a segmental hood). T-3195: that bay at v 12.05, read through the camera T-3176 re-solved (x 665-745 px on the front's plane is v 11.43-12.64), where T-3171's fit had put it at 12.9; its dormer moves with it as far as the pavilion's crown allows, to v 12.25 (the kit keeps a dormer 0.1 m clear of the crown's cornice, which stands 0.65 m past the pavilion's side; the print's dormer, x 650-770 px, centres about v 12.0). The pavilion's own lights are the K08 projection's."
         },
         "side_bays": {
           "value": [
@@ -345,15 +345,15 @@
         },
         "basement_lights": {
           "value": {
-            "sill_m": 0.3,
-            "width_m": 1.0,
-            "height_m": 0.75
+            "sill_m": 0.17,
+            "width_m": 1.25,
+            "height_m": 0.85
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The raised basement's barred lights under the front's windows (x 290-370 and 565-650 px). T-3189: through the re-solved camera the print's run from about grade to about 1.0 m (y 1475-1553 px beside the pavilion), under the 1.3 m water table; K02's two base courses hold the build's to 0.3-1.05 m, within about 0.2 m of them."
+          "note": "The raised basement's barred lights under the front's windows (x 290-370 and 565-650 px). T-3189: through the re-solved camera the print's run from about grade to about 1.0 m (y 1475-1553 px beside the pavilion), under the 1.3 m water table; K02's two base courses hold the build's to 0.3-1.05 m, within about 0.2 m of them. T-3195: read off the Doane photograph through its re-solved camera: the grilled light under the window bay south of the pavilion runs x 664-749 px, y 1475-1557 (v 11.42-12.70 m on the front's plane, about 1.28 m across, from about 0.07 to 1.04 m over grade), as the pavilion's does (x 392-468, y 1471-1548: about 1.25 m, 0.08-1.03 m). Built 1.25 m across from 0.17 to 1.02 m (its head stone under the band at 1.3 m), the sill held over the plinth's ledge, each barred (window_kit's grille)."
         },
         "chimneys": {
           "value": {
@@ -404,11 +404,16 @@
             "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
-              "well": false
+              "well": false,
+              "grille": {
+                "bars": 4,
+                "set_back_m": 0.04,
+                "ring_radius_m": 0.45
+              }
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: two-over-two sash; the photograph shows one-over-one and two-light sash behind blinds, which the kit's pattern stands for."
+          "note": "RECONSTRUCTED: two-over-two sash; the photograph shows one-over-one and two-light sash behind blinds, which the kit's pattern stands for. T-3195: the area lights barred, as the Doane photograph shows every basement light on the front (x 664-749 px under the window bay south of the pavilion, y 1475-1557): K08's bar grille in each light's reveal, four uprights and a ring under the head standing for the print's scrolled panel. The pattern is RECONSTRUCTED: the print's bars scroll out from a centre stem into an arch, which the kit's ring stands for."
         },
         "entrance_kit": {
           "value": {
@@ -498,16 +503,37 @@
               },
               "storeys": [
                 {
-                  "height_m": 5.3,
+                  "height_m": 1.3,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.25,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.17,
+                      "at": [
+                        0.5
+                      ],
+                      "recess_m": 0.4,
+                      "grille": {
+                        "bars": 4,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.45
+                      },
+                      "why_not_ordinary": "T-3195: the pavilion's basement light under its centre light, read off the Doane photograph through the re-solved camera: x 392-468 px, y 1471-1548 (v 7.43-8.68 m on the pavilion's face, about 1.25 m across, from about 0.08 to 1.03 m over grade), barred with an iron grille; built as the front's are, 1.25 m from 0.17 to 1.02 m; in a basement storey 1.3 m high (the house's principal floor), whose band stands for the print's water table over the basement lights (y about 1458-1480 px)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.0,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.75,
                       "clear_height_m": 2.6,
-                      "sill_m": 1.6,
+                      "sill_m": 0.3,
                       "at": [
-                        0.17,
-                        0.83
+                        0.26,
+                        0.74
                       ],
                       "recess_m": 0.4,
                       "why_not_ordinary": "the principal floor's tall lights: through the re-solved camera (T-3189) the pavilion's three lights a storey (x 330-530 px) run from about 1.6 to 4.2 m over grade (y 1428 and 1225 px), taller than the rules' ordinary sash",
@@ -522,7 +548,7 @@
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 1.3,
                       "clear_height_m": 2.6,
-                      "sill_m": 1.6,
+                      "sill_m": 0.3,
                       "at": [
                         0.5
                       ],
@@ -546,8 +572,8 @@
                       "clear_height_m": 2.05,
                       "sill_m": 0.2,
                       "at": [
-                        0.17,
-                        0.83
+                        0.26,
+                        0.74
                       ],
                       "recess_m": 0.4,
                       "why_not_ordinary": "the upper storey's lights: through the re-solved camera (T-3189) about 5.5 to 7.55 m over grade (y 1122 and 960 px), taller than the rules' ordinary sash",
@@ -600,7 +626,8 @@
                 "kind": "hip",
                 "pitch": 0.0,
                 "covering": "tin_flat_seam_painted"
-              }
+              },
+              "plinth_m": 0.05
             },
             {
               "id": "corner_tower",
@@ -620,13 +647,34 @@
               },
               "storeys": [
                 {
-                  "height_m": 5.3,
+                  "height_m": 1.3,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.65,
+                      "clear_height_m": 0.85,
+                      "sill_m": 0.17,
+                      "at": [
+                        0.145
+                      ],
+                      "recess_m": 0.4,
+                      "grille": {
+                        "bars": 3,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.22
+                      },
+                      "why_not_ordinary": "T-3195: the tower's basement light in its narrow north-west face, under that face's light, read off the Doane photograph: a tall barred light x 832-856 px, y 1482-1570 (from about grade to 1.06 m), seen nearly edge on; built the width of the light over it, from 0.17 to 1.02 m as the front's are. The broad face's basement is blank stone in the print and is left so.; in a basement storey 1.3 m high (the house's principal floor), whose band stands for the print's water table over the basement lights (y about 1458-1480 px)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.0,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.65,
                       "clear_height_m": 2.7,
-                      "sill_m": 1.6,
+                      "sill_m": 0.3,
                       "at": [
                         0.145,
                         0.418,
@@ -702,6 +750,14 @@
                   "height_m": 0.6,
                   "thickness_m": 0.08
                 }
+              },
+              "plinth_m": 0.05,
+              "corbel_table": {
+                "spacing_m": 0.28,
+                "width_m": 0.16,
+                "drop_m": 0.35,
+                "out_m": 0.2,
+                "margin_m": 0.1
               }
             }
           ],
@@ -710,7 +766,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). And the corner tower (T-3176): the sheet's corner feature at the south-west corner is a square turned 45 degrees across the corner, its north-west face meeting the front at v 14.36, its angles at u 25.5, v 15.5 and u 24.0, v 17.1 and its south-east face meeting the flank at u 22.3 (2.27 m on a face, centred on u 23.98, v 15.55); the photograph's broad south-west face (x 857-1135 px) is about 3.2 m, 3.5 times the front's 1.15 m window beside it, and the camera re-fitted with the square's side free on the sheet's centre puts it at 3.25 m (4.4 px RMS; the sheet's own 2.27 m leaves 40-47 px). Built as K08's polygonal tower turned 45 degrees across the front's south corner (s_m 15.5, its centre 0.42 m inside the front and on the flank's plane, radius 2.298 m), its walls on the three faces outside the house: one light a storey on the north-west face and a pair on the south-west, read off the print, and a pair on the unseen south-east face, reconstructed. T-3189: its heights read through the re-solved camera on its broad face (grade at y 1576 px): the bands at the front's string course (5.3 m) and cornice (9.4 m), its wall top under the brackets at y 522 px (about 12.1 m), its cornice's top at y 448 (about 12.9 m); T-3194: the print's cornice is a row of plain corbel blocks (about eleven to the broad face, y 485-522 px, about 0.35 m deep) under a deep moulded crown (y 448-485), so the tower's wall is carried to 12.5 m, the blocks' top, and K10's moulded stone eave (0.36 m, 0.32 m out) is its crown, to about 12.86 m against the print's 12.9; the corbel blocks themselves are not built (K08 hangs modillions only beside a polyline bay's corner consoles; open in the match record), so the frieze they stand on is plain stone; a slated hip at pitch 2.52 cut to a deck about 1.0 m across at about 16.5 m (y 175 px, over the tower's centre), an iron crest 0.6 m tall round the deck (y 140-175 px, to about 17.0 m) and a turned finial on each corner (the print shows the near two, y 88-130, to about 17.6 m). T-3176 had read them in proportion to T-3171's 12.6 m cornice, which put the deck at 22.0 m. T-3194: its lights and the pavilion's stand in a moulded surround, jambs 0.12 m broad (0.08 m on the tower, whose paired lights stand 0.65 m apart) on the sill's horns under a lintel 0.3 m deep standing 0.12 m proud as the hood, for the print's carved hoods and colonnettes (x 330-530 px on the pavilion, y 1170-1215 and 925-960 over its two storeys); the carving itself is reconstructed as the kit's plain moulding."
+          "note": "The sheet's shallow pavilion on the front (u 24.4-24.97, v 5.33-10.79: 5.46 m wide, 0.47 m out), carried full height with the photograph's three lights a storey (x 330-530 px: a wide centre light between two narrow ones), and on up an attic storey past the main cornice to its own crown (T-3175): the Doane photograph shows the pavilion rising through the mansard, three tall lights in its attic wall (x 357-500 px), under a steep pyramidal roof of its own (mansard.crown). And the corner tower (T-3176): the sheet's corner feature at the south-west corner is a square turned 45 degrees across the corner, its north-west face meeting the front at v 14.36, its angles at u 25.5, v 15.5 and u 24.0, v 17.1 and its south-east face meeting the flank at u 22.3 (2.27 m on a face, centred on u 23.98, v 15.55); the photograph's broad south-west face (x 857-1135 px) is about 3.2 m, 3.5 times the front's 1.15 m window beside it, and the camera re-fitted with the square's side free on the sheet's centre puts it at 3.25 m (4.4 px RMS; the sheet's own 2.27 m leaves 40-47 px). Built as K08's polygonal tower turned 45 degrees across the front's south corner (s_m 15.5, its centre 0.42 m inside the front and on the flank's plane, radius 2.298 m), its walls on the three faces outside the house: one light a storey on the north-west face and a pair on the south-west, read off the print, and a pair on the unseen south-east face, reconstructed. T-3189: its heights read through the re-solved camera on its broad face (grade at y 1576 px): the bands at the front's string course (5.3 m) and cornice (9.4 m), its wall top under the brackets at y 522 px (about 12.1 m), its cornice's top at y 448 (about 12.9 m); T-3194: the print's cornice is a row of plain corbel blocks (about eleven to the broad face, y 485-522 px, about 0.35 m deep) under a deep moulded crown (y 448-485), so the tower's wall is carried to 12.5 m, the blocks' top, and K10's moulded stone eave (0.36 m, 0.32 m out) is its crown, to about 12.86 m against the print's 12.9; T-3195: the corbel blocks are built, K08's corbel table under the crown on every face (blocks 0.16 m across at most 0.28 m apart, 0.35 m deep under the wall top and 0.2 m out, kept 0.1 m off each corner: eleven to the broad face, as the print counts), the print's stepped soffit under each block reconstructed as a plain one; a slated hip at pitch 2.52 cut to a deck about 1.0 m across at about 16.5 m (y 175 px, over the tower's centre), an iron crest 0.6 m tall round the deck (y 140-175 px, to about 17.0 m) and a turned finial on each corner (the print shows the near two, y 88-130, to about 17.6 m). T-3176 had read them in proportion to T-3171's 12.6 m cornice, which put the deck at 22.0 m. T-3194: its lights and the pavilion's stand in a moulded surround, jambs 0.12 m broad (0.08 m on the tower, whose paired lights stand 0.65 m apart) on the sill's horns under a lintel 0.3 m deep standing 0.12 m proud as the hood, for the print's carved hoods and colonnettes (x 330-530 px on the pavilion, y 1170-1215 and 925-960 over its two storeys); the carving itself is reconstructed as the kit's plain moulding. T-3196: the pavilion's and the tower's first storey (5.3 m) cut at the 1.3 m water table into a basement storey and the principal one (4.0 m, its lights' sills 0.3 m over that line where they had been 1.6 m over grade), so a band runs round both at the print's water table (y about 1458-1480 px) and each carries its grilled basement light under it, on a plinth lowered to 0.05 m."
         },
         "rear_wings": {
           "value": [
