@@ -728,7 +728,7 @@ class Sample:
 
         # frieze, boxed eave, brackets
         ft = fr["thickness_m"]
-        ev = tr["eave"]
+        ev = dict(tr["eave"], **(v.get("eave") or {}))     # T-3182: a house's own deeper eave
         P_, fh = ev["projection_m"], ev["fascia_m"]
         frieze = ([(0.0, y_fr0), (ft, y_fr0), (ft, y_s), (0.0, y_s)], ["frieze", "frieze", None, None])
         eave = ([(0.0, y_s), (P_, y_s), (P_, y_s + fh), (0.0, y_s + fh)], ["soffit", "fascia", "roof", None])
@@ -737,12 +737,17 @@ class Sample:
                 self.mitred_run(F, R, prof, roles, 0.0, W, D, caps, self.tone(key))
             else:
                 self.profile_run(F, prof, roles, 0.0, W, caps, self.tone(key))
-        br = dict(tr["bracket"])
+        br = dict(tr["bracket"], **(v.get("bracket") or {}))
         sp = br["spacing_m"]
         nb = int((W - 0.8) / sp) + 1
         first = (W - (nb - 1) * sp) / 2
-        for kb in range(nb):
-            self.bracket(F, first + kb * sp, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", kb))
+        at = [first + kb * sp for kb in range(nb)]
+        if v.get("bracket_pairs_m") is not None:     # T-3182: brackets in pairs where the photograph has them
+            at = [p + e * br["pair_m"] / 2 for p in v["bracket_pairs_m"] for e in (-1, 1)]
+        for kb, s_b in enumerate(at):
+            self.bracket(F, s_b, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", kb))
+        for fl in v.get("frieze_lights") or []:
+            self._frieze_light(F, fl, ft)
         if corner:
             self.bracket(R, (cb - ct + D) / 2, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", "r"))
         self.meta["eave"] = {"y_top": y_s + fh, "projection_m": P_}   # T-2323
@@ -801,6 +806,8 @@ class Sample:
         if win.get("surround") == "pointed":     # T-2423: the casing carried round the head
             return self._pointed_surround(F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw,
                                           win.get("head_radius_ratio", 1.0), win.get("stops"))
+        if win.get("surround") == "round":       # T-3182: the casing carried round a round head
+            return self._round_surround(F, win, kv, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw)
         for (a, b) in ((sa, c - hw), (c + hw, sb)):
             yb = ys - cth * sl
             self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, yH, cth), (a, yH, cth)], (0, 0, 1), tw)
@@ -878,6 +885,151 @@ class Sample:
                                "spring_m": round(spring, 6), "on_course_lines": False}
         self.meta.setdefault("casings", []).append(self.meta["casing"])
         return (c - hw, c + hw, ys, top), cuts
+
+    def _arch_band(self, F, cx, spring, r0, r1, z1, tone, legs=(0.0, 0.0), n=6, outer=True, z_in=0.0):
+        """T-3182: a flat band applied to the cladding round a round head, from radius r0 to r1
+        about (cx, spring) and standing z1 proud, over the half circle; `legs` carries its right
+        and left ends straight down that far under the spring, each ended square. A band with
+        another band round it builds no `outer` edge, and the one round it starts its inner
+        edge at `z_in`, the inner band's face, so the two never share a face."""
+        angs = [math.pi * k / n for k in range(n + 1)]
+        inner = [(cx + r0 * math.cos(a), spring + r0 * math.sin(a)) for a in angs]
+        outer = [(cx + r1 * math.cos(a), spring + r1 * math.sin(a)) for a in angs]
+        if legs[0] > 0:
+            inner, outer = [(cx + r0, spring - legs[0])] + inner, [(cx + r1, spring - legs[0])] + outer
+        if legs[1] > 0:
+            inner, outer = inner + [(cx - r0, spring - legs[1])], outer + [(cx - r1, spring - legs[1])]
+        for k in range(len(inner) - 1):
+            p0, p1, q0, q1 = inner[k], inner[k + 1], outer[k], outer[k + 1]
+            mx, my = (q0[0] + q1[0]) / 2 - cx, (q0[1] + q1[1]) / 2 - spring
+            self.poly(F, "casing", [(p0[0], p0[1], z1), (q0[0], q0[1], z1), (q1[0], q1[1], z1), (p1[0], p1[1], z1)],
+                      (0, 0, 1), tone)
+            if outer:
+                self.poly(F, "casing", [(q0[0], q0[1], 0), (q1[0], q1[1], 0), (q1[0], q1[1], z1), (q0[0], q0[1], z1)],
+                          (mx, my, 0), tone)
+            zi = z_in
+            self.poly(F, "casing", [(p0[0], p0[1], zi), (p1[0], p1[1], zi), (p1[0], p1[1], z1), (p0[0], p0[1], z1)],
+                      (-mx, -my, 0), tone)
+        for end, on in ((0, legs[0] > 0), (-1, legs[1] > 0)):     # a leg's foot, ended square
+            if on:
+                p, q = inner[end], outer[end]
+                self.poly(F, "casing", [(p[0], p[1], 0), (q[0], q[1], 0), (q[0], q[1], z1), (p[0], p[1], z1)],
+                          (0, -1, 0), tone)
+
+    def _round_surround(self, F, win, kv, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw):
+        """T-3182: a round-headed sash's casing carried round its head, as 1720 Prairie's
+        photograph shows every front window: the jamb casings (and, between a pair's lights,
+        the mullion's) rise to the spring and a band of the casing's width follows each light's
+        half circle, with no head board or drip cap. `hood_mould` sets a moulded band round
+        the casing's (width_m, projection_m), its outer ends carried `legs_m` down the jambs.
+        The clapboard is cut course by course to the clear head at each course's foot, as the
+        pointed surround's is, so every board end stands under the band."""
+        cs = self.data["trim"]["casing"]
+        cw, cth = cs["width_m"], cs["thickness_m"]
+        E = self.data["cladding"]["clapboard"]["exposure_m"]
+        bays, mull = kv.get("bays", 1), kv.get("mullion_m", 0.0)
+        bw = (2 * hw - mull * (bays - 1)) / bays
+        r = bw / 2
+        top = ys + H
+        spring = top - r
+        heads = [c - hw + r + k * (bw + mull) for k in range(bays)]
+        yb = ys - cth * sl
+        jambs = [(sa, c - hw), (c + hw, sb)] + [(x + r, x + r + mull) for x in heads[:-1]]
+        for (a, b) in jambs:
+            self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, spring, cth), (a, spring, cth)], (0, 0, 1), tw)
+            self.poly(F, "casing", [(a, ys, 0), (a, yb, cth), (a, spring, cth), (a, spring, 0)], (-1, 0, 0), tw)
+            self.poly(F, "casing", [(b, ys, 0), (b, yb, cth), (b, spring, cth), (b, spring, 0)], (1, 0, 0), tw)
+        hm = win.get("hood_mould")
+        for k, x in enumerate(heads):     # a pair's bands meet over the mullion: the second stands a hair proud
+            self._arch_band(F, x, spring, r, r + cw, cth + 0.003 * k, tw, outer=not hm)
+        y_out = spring + r + cw
+        if hm:
+            th = self.tone("hood_mould")
+            for k, x in enumerate(heads):
+                legs = (hm["legs_m"] if k == bays - 1 else 0.0, hm["legs_m"] if k == 0 else 0.0)
+                self._arch_band(F, x, spring, r + cw, r + cw + hm["width_m"], cth + hm["projection_m"] + 0.003 * k,
+                                th, legs, z_in=cth + 0.003 * k)
+            y_out += hm["width_m"]
+        cuts, k = [], round((y_ap - y_start) / E)
+        while y_start + k * E < top - 1e-6:
+            y0 = y_start + k * E
+            if y0 < spring - 1e-9:
+                cuts.append((sa, sb, y0, y0 + E))
+            else:
+                for x in heads:
+                    off = math.sqrt(max(0.0, r * r - (y0 - spring) ** 2))
+                    if off > 1e-6:
+                        cuts.append((x - off, x + off, y0, y0 + E))
+            k += 1
+        if win.get("hood"):
+            self._bracketed_hood(F, win["hood"], c, y_out, y_start)
+        self.meta["casing"] = {"s": [sa, sb], "y": [y_ap, round(y_out, 6)], "head": "round",
+                               "spring_m": round(spring, 6), "on_course_lines": False}
+        self.meta.setdefault("casings", []).append(self.meta["casing"])
+        return (c - hw, c + hw, ys, top), cuts
+
+    def _bracketed_hood(self, F, hv, c, y_under, y_start):
+        """T-3182: a flat hood on two scroll brackets over a window, 1720 Prairie's middle upper
+        window: a moulded slab `width_m` across, `height_m` deep and `projection_m` out, its
+        underside `above_m` over the casing's head, a bracket under each end."""
+        w, h, pz = hv["width_m"], hv["height_m"], hv["projection_m"]
+        E = self.data["cladding"]["clapboard"]["exposure_m"]
+
+        def clear(y):     # a level face applied to the cladding never lies on a course's butt
+            q = (y - y_start) / E
+            return y + 0.006 if abs(q - round(q)) * E < 0.003 else y
+        y0 = clear(y_under + hv["above_m"])
+        c += hv.get("offset_m", 0.0)     # the hood's middle off the window's, where the picture puts it
+        th = self.tone("hood")
+        yc = clear(y0 + h)
+        self.box(F, "frieze", c - w / 2, c + w / 2, y0, yc, 0.0, pz, skip=("back", "top"), tone=th,
+                 roles={"front": "fascia", "bottom": "soffit"})
+        self.box(F, "drip_cap", c - w / 2 - 0.04, c + w / 2 + 0.04, yc, clear(yc + 0.06), 0.0, pz + 0.04,
+                 skip=("back",), tone=th)
+        if hv.get("panel"):     # a plain raised panel standing on the hood, under the eave
+            pw, ph_, pp = hv["panel"]["width_m"], hv["panel"]["height_m"], hv["panel"]["projection_m"]
+            self.box(F, "casing", c - pw / 2, c + pw / 2, clear(yc + 0.06), clear(yc + 0.06 + ph_), 0.0, pp,
+                     skip=("back", "bottom"), tone=th)
+        br = dict(self.data["trim"]["bracket"], **hv["bracket"])
+        for e in (-1, 1):
+            self.bracket(F, c + e * (w / 2 - br["thickness_m"]), 0.0, y0, br, br["thickness_m"], tone=th)
+        self.meta.setdefault("hoods", []).append({"centre_m": c, "underside_m": round(y0, 6), "width_m": w})
+
+    def _frieze_light(self, F, fl, zf):
+        """T-3182: a small light let into the frieze between the eave's brackets, 1720 Prairie's
+        photograph: an `oval` (a stadium, lying along the frieze) or `round`-headed lights,
+        `bays` of them either side of a `mullion_m`, glazed and framed by a moulding `frame_m`
+        wide standing 0.03 m proud of the frieze board (its front alone: an edge that shallow ten
+        metres up is not seen, and the wall's triangle budget is better spent on the windows)."""
+        c, yc, w, h, bw = fl["centre_m"], fl["centre_y_m"], fl["width_m"], fl["height_m"], fl["frame_m"]
+        bays, mull = fl.get("bays", 1), fl.get("mullion_m", 0.0)
+        lw = (w - mull * (bays - 1)) / bays
+        n = 6
+        tf = self.tone("frieze_light")
+        for k in range(bays):
+            x = c - w / 2 + lw / 2 + k * (lw + mull)
+
+            def outline(g, x=x):
+                if fl["kind"] == "oval":
+                    rr, hs = h / 2 + g, max(0.0, (lw - h) / 2)
+                    right = [(x + hs + rr * math.cos(a), yc + rr * math.sin(a))
+                             for a in (-math.pi / 2 + math.pi * j / n for j in range(n + 1))]
+                    left = [(x - hs + rr * math.cos(a), yc + rr * math.sin(a))
+                            for a in (math.pi / 2 + math.pi * j / n for j in range(n + 1))]
+                    return right + left
+                rr, spring = lw / 2 + g, yc + h / 2 - lw / 2
+                return [(x + rr, yc - h / 2 - g)] + [(x + rr * math.cos(a), spring + rr * math.sin(a))
+                                                     for a in (math.pi * j / n for j in range(n + 1))] \
+                    + [(x - rr, yc - h / 2 - g)]
+            i_, o = outline(0.0), outline(bw)
+            self.poly(F, "glass_outer", [(p[0], p[1], zf + 0.004) for p in i_], (0, 0, 1), tf)
+            z1 = zf + 0.03
+            m = len(i_)
+            for j in range(m):
+                p0, p1, q0, q1 = i_[j], i_[(j + 1) % m], o[j], o[(j + 1) % m]
+                self.poly(F, "casing", [(p0[0], p0[1], z1), (q0[0], q0[1], z1), (q1[0], q1[1], z1), (p1[0], p1[1], z1)],
+                          (0, 0, 1), tf)
+        self.meta.setdefault("frieze_lights", []).append({"centre_m": c, "kind": fl["kind"], "bays": bays})
 
     def _hood(self, F, hv):
         """T-2423: a moulded hood over a gable's windows, read off 1638's photograph: a band
@@ -1494,7 +1646,9 @@ class Sample:
         step = la["pitch_m"] * math.sqrt(2)
         ylo, yhi = q0 - m - 1.0, q1 + m + 1.0
         n_layer = [0, 0]
-        for layer, sign, zfront in ((0, 1, z0f), (1, -1, z0f - lt)):
+        # T-3182: an `open` skirt (1720 Prairie's photograph: the floor's rim over a dark void)
+        # keeps the frame and the dark crawl space and lays no laths
+        for layer, sign, zfront in ((0, 1, z0f), (1, -1, z0f - lt)) if v.get("skirt") != "open" else ():
             cmin = (o0 - m) - sign * yhi - 2 if sign > 0 else (o0 - m) + ylo - 2
             cmax = (o1 + m) - sign * ylo + 2 if sign > 0 else (o1 + m) + yhi + 2
             cc = cmin
@@ -2906,6 +3060,11 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
                  "width_m": round(L - start, 6), "return_m": ret, "foundation_m": fh["foundation_m"],
                  "wall_top_m": b["wall_top_m"],
                  **({"frieze_m": b["frieze_m"]} if "frieze_m" in b else {}),     # T-3180: a block's own frieze
+                 **{k: b[k] for k in ("eave", "bracket") if k in b},              # T-3182: its own eave
+                 **({"bracket_pairs_m": [round(x - start, 6) for x in w["bracket_pairs_m"]]}
+                    if "bracket_pairs_m" in w else {}),
+                 **({"frieze_lights": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w["frieze_lights"]]}
+                    if "frieze_lights" in w else {}),
                  "windows": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("windows", [])],
                  "doors": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("doors", [])]}
             sm = Sample(v, data, index=0).build()
@@ -2938,7 +3097,116 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
             place(sm, O, U)
             out[k] = sm
         out["_porch_reach_m"] = reach
+    for j, bay in enumerate(fh.get("bays") or []):
+        out.update(_frame_bay_faces(sid, fh, bay, data, j))
     return out
+
+
+def _bay_frame(fh: dict, bay: dict):
+    """T-3182: where a frame house's bay plan stands: its (s, z) run along the named side of the
+    first block from that side's start corner, z out from the wall."""
+    O, U, _ = side_frame(fh["blocks"][0]["rect_uv"], bay["side"])
+    return O, U, _cross(U, Y)
+
+
+def _frame_bay_faces(sid: str, fh: dict, bay: dict, data: dict, j: int) -> dict:
+    """T-3182: an upper-storey canted bay standing on a frame house's porch deck, 1720 Prairie's
+    photograph: each face of its plan a kit `clapboard_wall` with no return, a post at each
+    angle (the corner board widened to `post_m`) and that face's own `windows`; and, where the
+    plan's first point stands past the wall's start corner (`back`), a plain face closing the
+    bay's back from that point to the corner. Each face is keyed `bay<j>.<i>`."""
+    plan = [tuple(q) for q in bay["plan"]]
+    Ow, Uw, Nw = _bay_frame(fh, bay)
+    at = lambda q: _add(Ow, _add(_mul(Uw, q[0]), _mul(Nw, q[1])))
+    fd = copy.deepcopy(data)
+    fd["trim"]["corner_board"]["width_m"] = bay["post_m"]
+    fd["trim"]["frieze"]["height_m"] = bay["frieze_m"]
+    wt = fd["trim"]["water_table"]
+    y_fd = round(bay["base_m"] - wt["height_m"] - wt["cap"]["height_m"], 6)
+    runs = [(a, b, f.get("windows", [])) for (a, b), f in zip(zip(plan, plan[1:]), bay["faces"])]
+    if plan[0][0] < 0:
+        runs.append(((0.0, 0.0), plan[0], []))
+    out = {}
+    for i, (a, b, wins) in enumerate(runs):
+        W = math.hypot(b[0] - a[0], b[1] - a[1])
+        v = {"id": f"k16.wall.{sid}.bay{j}_{i}", "kind": "clapboard_wall", "use": "wall", "width_m": round(W, 6),
+             "return_m": 0.0, "boards": [True, True], "foundation_m": y_fd, "wall_top_m": bay["wall_top_m"],
+             "windows": wins}
+        sm = Sample(v, fd).build()
+        for role in BAY_DROP:
+            sm.prims.pop(role, None)
+        A, B = at(a), at(b)
+        place(sm, A, _unit(_sub(B, A)))
+        sm.seed = seed_of(v["id"], 0, sid)
+        out[f"bay{j}.{i}"] = sm
+    return out
+
+
+def _frame_bay_trim(house: Sample, fh: dict, bay: dict, data: dict) -> dict:
+    """T-3182: the bay's base on the deck, its cornice round the plan, a raised panel under each
+    face's lights, and its hipped cap: each slope rising from the cornice's edge to the wall,
+    the front's to a level line `cap_rise_m` over the cornice, the cants' to that line's ends.
+    Where the plan stands past the wall's corner, the cap's back is closed down to the cornice."""
+    plan = [tuple(q) for q in bay["plan"]]
+    sm = Sample({"id": f"{house.v['id']}.bay", "kind": "structure", "use": "structure"}, data)
+    yf, yb, ys = bay["floor_m"], bay["base_m"] - bay["floor_m"], bay["wall_top_m"]
+    base = tuple((o, y if y is not None else yb - (0.09, 0.09, 0.04, 0.0)[k - 4])
+                 for k, (o, y) in enumerate(BAY_BASE))
+    bay_ring(sm, plan, base, (None, "water_table", "water_table", "apron", "sill", "sill", "sill"), yf)
+    bay_ring(sm, plan, BAY_CORNICE, ("soffit", "fascia", "drip_cap", "drip_cap", "drip_cap", "drip_cap"), ys)
+    ct = data["trim"]["corner_board"]["thickness_m"]
+    for i, (a, b) in enumerate(zip(plan, plan[1:])):
+        F = Frame(f"bay_{i}", (a[0], 0.0, a[1]), (b[0] - a[0], 0.0, b[1] - a[1]), (-(b[1] - a[1]), 0.0, b[0] - a[0]))
+        W = math.hypot(b[0] - a[0], b[1] - a[1])
+        inset = bay["post_m"] - ct + 0.05
+        sm.box(F, "casing", inset, W - inset, yf + 0.17, yf + yb - 0.12, 0.035, 0.035 + ct * 0.6, skip=("back",),
+               tone=sm.tone("bay_panel", i))
+    top = ys + BAY_CORNICE[-1][1]
+    edge, _ = bay_offset(plan, BAY_CORNICE[-1][0])
+    yr = top + bay["cap_rise_m"]
+    e = [(q[0], top, q[1]) for q in edge]
+    w1, w2 = (edge[1][0], yr, 0.0), (edge[2][0], yr, 0.0)
+    sm.face("roof_covering", [e[0], e[1], w1], (0.0, 1.0, 0.0))
+    sm.face("roof_covering", [e[1], e[2], w2, w1], (0.0, 1.0, 0.0))
+    sm.face("roof_covering", [e[2], e[3], w2], (0.0, 1.0, 0.0))
+    if edge[0][0] < 0:     # the cap's back, past the corner: a board down to the cornice
+        y0 = yr if w1[0] <= 0 else top + (yr - top) * (0.0 - edge[0][0]) / (w1[0] - edge[0][0])
+        back = [(edge[0][0], top, 0.0)] + ([w1] if w1[0] < 0 else []) + [(0.0, y0, 0.0), (0.0, top, 0.0)]
+        sm.face("frieze", back, (0.0, 0.0, -1.0))
+        sm.face("frieze", [(edge[0][0], ys, 0.0), (0.0, ys, 0.0), (0.0, top, 0.0), (edge[0][0], top, 0.0)],
+                (0.0, 0.0, -1.0))
+    Ow, Uw, _ = _bay_frame(fh, bay)
+    place(sm, Ow, Uw)
+    for role, pr in sm.prims.items():
+        absorb(house.prims.setdefault(role, Prim(role)), pr)
+    return {"plan": [list(q) for q in plan], "floor_m": yf, "wall_top_m": ys, "cap_top_m": round(yr, 4)}
+
+
+def _front_gable(house: Sample, b: dict, fg: dict, P_: float, fh_m: float) -> dict:
+    """T-3182: a low gable over the middle of a block's east front, standing on its eave, 1720
+    Prairie's photograph: a boarded tympanum flush with the eave's fascia, a rake board
+    `rake_m` deep `overhang_m` out from it, a soffit under the rake back to the tympanum, and
+    two roof slopes run back from the rake to where the ridge meets the hip's front slope."""
+    u0, v0, u1, v1 = b["rect_uv"]
+    t = math.tan(math.radians(fg["pitch_deg"]))
+    th = math.tan(math.radians(b["roof"]["pitch_deg"]))
+    hw, vc = fg["width_m"] / 2, fg["centre_m"]
+    ye = b["wall_top_m"] + fh_m
+    ya = ye + hw * t
+    xt = u1 + P_
+    xf, rk = xt + fg["overhang_m"], fg["rake_m"]
+    xr = xt - (ya - ye) / th                 # where the ridge runs into the hip's front slope
+    zc = -vc
+    F = house.F
+    house.poly(F, "board", [(xt, ye, zc + hw), (xt, ye, zc - hw), (xt, ya, zc)], (1, 0, 0))
+    for side in (1, -1):
+        ze = zc + side * hw
+        house.poly(F, "roof_covering", [(xf, ye, ze), (xf, ya, zc), (xr, ya, zc), (xt, ye, ze)], (0, 1, side))
+        house.poly(F, "fascia", [(xf, ye - rk, ze), (xf, ye, ze), (xf, ya, zc), (xf, ya - rk, zc)], (1, 0, 0))
+        house.poly(F, "soffit", [(xt, ye - rk, ze), (xf, ye - rk, ze), (xf, ya - rk, zc), (xt, ya - rk, zc)],
+                   (0, -1, -side * t))
+        house.poly(F, "fascia", [(xt, ye - rk, ze), (xf, ye - rk, ze), (xf, ye, ze), (xt, ye, ze)], (0, 0, side))
+    return {"centre_m": vc, "width_m": fg["width_m"], "apex_m": round(ya, 4)}
 
 
 def _porch_steps(sm: Sample, data: dict, po: dict, steps: dict) -> None:
@@ -3073,6 +3341,7 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     ridge = {}
     for i, b in enumerate(fh["blocks"]):
         u0, v0, u1, v1 = b["rect_uv"]
+        P_ = (b.get("eave") or {}).get("projection_m", ev["projection_m"])     # T-3182: a block's own eave
         x0, x1, z0, z1 = u0 - P_, u1 + P_, -v1 - P_, -v0 + P_
         if b.get("against"):     # the eave stops on the wall the block stands against
             a = b["against"]
@@ -3095,6 +3364,10 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
                            ([(x1, ye, z1), (x1, ye, z0), (x1, yd, z0), (x1, yd, z1)], (1, 0, 0))):
                 house.poly(house.F, "roof_covering", q, hnt)
             ridge[b["id"]] = (yd, None)
+        if b.get("front_gable"):
+            house.meta["front_gable"] = _front_gable(house, b, b["front_gable"], P_, fh_m)
+    for bay in fh.get("bays") or []:
+        house.meta.setdefault("bays", []).append(_frame_bay_trim(house, fh, bay, data))
     ch = fh.get("chimney")
     if ch:
         yr = ridge[fh["blocks"][0]["id"]][0]

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2337, ts: '2026-10-27T12:22:40.546Z', date: 'Oct 27, 2026, 7:22 AM CT', title: '1720 Prairie\'s upper storey now matches its photograph', kind: 'feature',
+    items: [
+      '1720 Prairie Avenue\'s upper storey now matches the Tyrrell photograph: a canted bay with a hipped cap stands on the porch roof at the south end, and a low gable rises over the middle of the front.',
+      'Every front window now has a round-arched casing under a hood moulding, and the middle upper window has a flat hood on scroll brackets.',
+      'The deeper eave now rests on paired brackets, with two oval lights and a paired attic window in the frieze. The porch\'s skirt is open and dark, as the picture shows.',
+    ] },
   { v: 2336, ts: '2026-10-27T11:34:22.632Z', date: 'Oct 27, 2026, 6:34 AM CT', title: '1901 Prairie: stone chimneys, a flank dormer and a scrolled fence', kind: 'feature',
     items: [
       'The Ream house at 1901 Prairie now matches its south-west photograph more closely: its two tall chimneys are pale stone like its walls, not red brick, and they stand where the photograph puts them.',

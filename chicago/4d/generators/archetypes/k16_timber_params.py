@@ -428,6 +428,46 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    out += _frame_upper_errors(fh)
+    return out
+
+
+def _frame_upper_errors(fh: dict) -> list[str]:
+    """T-3182: what a whole frame house's upper storey parts need: a block's own eave, its
+    paired brackets and frieze lights, a front gable on a hipped block, and a bay on the porch
+    deck whose plan is three faces from the wall out and back, each face naming its windows."""
+    out = []
+    for b in fh.get("blocks") or []:
+        bid = b.get("id", "?")
+        ev = b.get("eave")
+        if ev is not None and not (_num(ev.get("projection_m")) and 0.2 <= ev["projection_m"] <= 1.2):
+            out.append(f"{bid}: eave.projection_m must lie in 0.2-1.2 m")
+        fg = b.get("front_gable")
+        if fg is not None:
+            if (b.get("roof") or {}).get("kind") != "hip":
+                out.append(f"{bid}: a front gable stands on a hipped block")
+            if not all(_num(fg.get(k)) and fg[k] > 0 for k in ("centre_m", "width_m", "pitch_deg", "overhang_m", "rake_m")):
+                out.append(f"{bid}: front_gable needs positive centre_m, width_m, pitch_deg, overhang_m and rake_m")
+        for w in b.get("walls") or []:
+            if "bracket_pairs_m" in w and not ((b.get("bracket") or {}).get("pair_m")
+                                               and all(_num(x) for x in w["bracket_pairs_m"])):
+                out.append(f"{bid}.{w.get('side')}: bracket_pairs_m needs the block's bracket.pair_m")
+            for fl in w.get("frieze_lights") or []:
+                if fl.get("kind") not in ("oval", "round") or not all(
+                        _num(fl.get(k)) and fl[k] > 0 for k in ("centre_m", "centre_y_m", "width_m", "height_m", "frame_m")):
+                    out.append(f"{bid}.{w.get('side')}: a frieze light is an oval or round one with positive "
+                               "centre_m, centre_y_m, width_m, height_m and frame_m")
+    for i, bay in enumerate(fh.get("bays") or []):
+        plan = bay.get("plan") or []
+        if len(plan) != 4 or plan[0][1] != 0 or plan[-1][1] != 0 or min(plan[1][1], plan[2][1]) <= 0:
+            out.append(f"bay {i}: plan must be four (s, z) points from the wall out and back to it")
+        if len(bay.get("faces") or []) != 3:
+            out.append(f"bay {i}: faces must name each of the plan's three faces")
+        if not all(_num(bay.get(k)) and bay[k] > 0 for k in ("floor_m", "base_m", "wall_top_m", "frieze_m", "post_m",
+                                                               "cap_rise_m")) \
+                or not bay["floor_m"] < bay["base_m"] < bay["wall_top_m"]:
+            out.append(f"bay {i}: floor_m, base_m and wall_top_m must rise in that order, with frieze_m, post_m "
+                       "and cap_rise_m positive")
     return out
 
 
