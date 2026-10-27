@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2326, ts: '2026-10-27T05:25:17.872Z', date: 'Oct 27, 2026, 12:25 AM CT', title: '1827 Prairie\'s corner tower rises over Prairie Avenue', kind: 'feature',
+    items: [
+      'The Doane house now has its square corner tower, turned to face the corner, with paired windows on each floor, rising a storey above the cornice under a tall slate roof, an iron crest and finials, as the old photograph shows it.',
+    ] },
   { v: 2325, ts: '2026-10-27T04:54:40.252Z', date: 'Oct 26, 2026, 11:54 PM CT', title: '1721 Prairie, the Dexter house, rebuilt to its 1891 plate', kind: 'feature',
     items: [
       'The Wirt Dexter house at 1721 Prairie Avenue now stands as Arthur Little\'s front of 1889, read off the Inland Architect plate of 1891: three pale storeys under a deep cornice and a flat roof, its entrance porch on two columns set back in a recess at the north end, its roof railed as a balcony, and the rest of the front stepping forward with two bows rising through two storeys and a tall stack beside the porch. The long two-storey wing behind it runs back toward the alley as the 1911 map draws it.',
