@@ -24,4 +24,6 @@ no traced mesh), and the copy is unaltered.
 **How it is used.** `node tools/photo_match.mjs data/reference_views/house_1828_prairie/chicagology_automobile.json`
 renders the committed GLB from that camera and writes it beside the photograph, with the match record
 the image gate reads. The partial view shows the second storey and the mansard the automobile
-photograph cuts off, and is read for them; its camera is not solved yet (T-3168).
+photograph cuts off, and is read for them; its camera is `data/reference_views/house_1828_prairie/glessner_partial.json`
+(T-3168). The automobile photograph is also 1824 Prairie's reference view, on a camera fitted to that house
+(`data/reference_views/marsh_house_1824_prairie/chicagology_automobile.json`).

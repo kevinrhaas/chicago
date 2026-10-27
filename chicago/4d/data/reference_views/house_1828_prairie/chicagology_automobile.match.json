@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f7d48b824d2f7974a3512cc0dda9c8cc50637b3a5f220c4fb7922f4d227105a6",
+  "glb_sha256": "52b77ac5c1cdf7636f9e0192481fc2c944ee27ef50ed53f4368270bf41d6af3d",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -61,7 +61,7 @@
     {
       "what": "the second storey and the mansard: the frame cuts them off",
       "status": "not shown",
-      "how": "read off the partial view (glessner_blog_1828_shipman_partial), whose camera is T-3168's"
+      "how": "read off the partial view (glessner_partial.json, solved by T-3168), whose match record carries them"
     },
     {
       "what": "the iron fence on a stone curb before the house, with tall turned posts at its gate",
