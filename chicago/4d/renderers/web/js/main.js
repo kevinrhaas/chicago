@@ -1267,7 +1267,18 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // Light and draw-call ceilings unchanged. Before/after receipts and cameras:
 // docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
 // not a frame-rate guarantee; the existing Scene detail control selects Light.
-const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-3084, 2026-10-26: a conscious Full-only allowance for the catalogue
+// Brougham body, keeping its original 45,338 / 23,062 geometry intact. The
+// separate thin-sheet optical delivery avoids the whole-world transmission
+// pass. A fresh exact-e97 published diagnostic measured 24 two-step/GPU-readback
+// frames at both widths and both tiers; desktop Full carriage quarter was
+// 4,654,565 against the previous 4,600,000. Price selected inspection Full at
+// 4,700,000 (45,435 triangles clear), not the unmeasured 4.65M proposal.
+// Ordinary Full, Balanced, every Light/draw/shadow/reach/LOD setting stay exact.
+// Both Light district-air readings still exceed their unchanged 1.27M floor;
+// neither that shared failure nor memory is repaired by this Full allowance.
+// Actual readings and limits: docs/measurements/brougham-optical-delivery-3084.json.
+const GLESSNER_V4_FULL_TRIANGLES = 4700000;
 // T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
 // already draws 340 calls on dev, before the door change (4,443,344 tris).
 // The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
@@ -1958,7 +1969,7 @@ async function boot() {
   const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
-      measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
+      measured: 'Selected Glessner v4 inspection and T-3084 Brougham; fresh 4,654,565 at Full, priced at 4.7M. See GLESSNER_V4_FULL_TRIANGLES.' },
     light: { ...DETAIL.light, triangles: GLESSNER_V4_LIGHT_TRIANGLES,
       declared: GLESSNER_V4_LIGHT_TRIANGLES,
       measured: 'Glessner courtyard inspection; see T-2218 at GLESSNER_V4_LIGHT_TRIANGLES.' },
@@ -4594,7 +4605,11 @@ async function boot() {
       ask() {
         if (asked) return;
         asked = true;
-        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then((r) => { known = r.ok; }, () => { known = false; });
+        // Complete the zero-byte body too: discarding Chromium's HEAD response
+        // can leave its request aborted even after a successful HTTP status.
+        fetch(url, { method: 'HEAD', cache: 'no-cache' }).then(async (r) => {
+          await r.arrayBuffer(); known = r.ok;
+        }).catch(() => { known = false; });
       },
       load() {
         if (people) return Promise.resolve(people);

@@ -70,7 +70,7 @@
     ]
   },
   "material_limitations": "Generic cleared CC0 body skin atlas remains; original procedural opaque brown iris atlas now supplies reconstructed sclera/iris/pupil components. Cloth and shoes still use original coarse PBR colors/procedural linen micro-pattern without measured period fabric, captured leather, seams or photographic material qualification. Skin/eyes/hair/clothing are provisional reconstructions, not a named photographic likeness.",
-  "validation_status": "Proposed source-owned seam/vest/footwear/eye repair; fresh canonical/export/sole/render validation required. Not scene eligible solely by source controls.",
+  "validation_status": "T1789 modular wardrobe source candidate: three explicit existing-resident assemblies with connected waistcoats, physical edge returns, fitted buttons, optional short work jackets/lapels and fitted hats. Fresh canonical output, continuous fit, LOD, period/material and actual photo-quality review remain required; no old source proof qualifies this change.",
   "proof_variants": [
     {
       "id": "bardwell_otis_1835",
@@ -112,7 +112,8 @@
         ],
         "acceptance": "Unrendered source proposal; targeted source controls only. Full fit/40 inherited negatives/animatedLOD/canonical/photo remain open.",
         "maximum_head_jaw_source_mass": 0.01
-      }
+      },
+      "wardrobe_assembly": "teamster_waistcoat_hat"
     },
     {
       "id": "dufresne_joseph_1835",
@@ -143,7 +144,8 @@
         "engineering_age_years": 35,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
-      }
+      },
+      "wardrobe_assembly": "stable_keeper_round_jacket"
     },
     {
       "id": "flynn_martin_1835",
@@ -174,7 +176,8 @@
         "engineering_age_years": 35,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
-      }
+      },
+      "wardrobe_assembly": "teamster_short_jacket_hat"
     }
   ],
   "procedural_shirt_texture": {
@@ -268,5 +271,128 @@
       "mount_1835_bar_room_scene"
     ],
     "reading": "direct"
+  },
+  "modular_wardrobe": {
+    "version": 1,
+    "grade": "reconstructed",
+    "edge_thickness_m": 0.0015,
+    "construction_basis": "Original reusable garment construction. Short jackets, broad uncreased felt hats, button counts, colors and 1.5mm cloth returns are reconstructed design choices, not measured patterns or a resident possession. Connected waistcoat shoulder construction reuses the existing exact Bardwell pattern on the eligible adult35 body; actual fit and canonical review remain required.",
+    "connected_waistcoat_pattern": {
+      "id": "bardwell_connected_waistcoat_v1",
+      "status": "source_proposal_unrendered",
+      "neckline_drop_m": 0.025,
+      "neck_opening_halfwidth_m": 0.05,
+      "armhole_transition_below_joint_m": [
+        0.1,
+        0.015
+      ],
+      "shoulder_outer_inset_m": 0.026,
+      "armhole_field_scale_m": 0.04,
+      "scope": "Original connected shoulder/armhole pattern over cleared source torso, replacing mistaken joint-height cap and arm-weight-only clothing ownership. Dimensions unmeasured; Mount1835 qualitative shoulder-connected waistcoat/loose-shirt analogies only, no tracing or source likeness. Existing body/rig/weights/UV/material/normals/sole limits and lower closure preserved.",
+      "sources": [
+        "mount_1835_bargaining_for_a_horse",
+        "mount_1835_bar_room_scene"
+      ],
+      "acceptance": "Unrendered source proposal; targeted source controls only. Full fit/40 inherited negatives/animatedLOD/canonical/photo remain open.",
+      "maximum_head_jaw_source_mass": 0.01
+    },
+    "assemblies": {
+      "teamster_waistcoat_hat": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 5,
+        "button_radius_m": 0.004,
+        "hat": {
+          "crown_height_m": 0.105,
+          "brim_m": 0.065,
+          "seating_depth_m": 0.045
+        },
+        "jacket": null,
+        "colors": {
+          "headwear__felt_hat": [
+            0.085,
+            0.064,
+            0.042,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.075,
+            0.052,
+            0.031,
+            1.0
+          ]
+        }
+      },
+      "stable_keeper_round_jacket": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 6,
+        "button_radius_m": 0.0035,
+        "hat": null,
+        "jacket": {
+          "ease_m": 0.028,
+          "hem_fraction": 0.55,
+          "lapel_width_m": 0.025
+        },
+        "colors": {
+          "garment_outer__round_jacket": [
+            0.045,
+            0.055,
+            0.063,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.1,
+            0.075,
+            0.05,
+            1.0
+          ]
+        }
+      },
+      "teamster_short_jacket_hat": {
+        "grade": "reconstructed",
+        "waistcoat_buttons": 4,
+        "button_radius_m": 0.0045,
+        "hat": {
+          "crown_height_m": 0.065,
+          "brim_m": 0.038,
+          "seating_depth_m": 0.04
+        },
+        "jacket": {
+          "ease_m": 0.028,
+          "hem_fraction": 0.565,
+          "lapel_width_m": 0.018
+        },
+        "colors": {
+          "headwear__felt_hat": [
+            0.14,
+            0.115,
+            0.075,
+            1.0
+          ],
+          "garment_outer__round_jacket": [
+            0.095,
+            0.06,
+            0.035,
+            1.0
+          ],
+          "accessory__horn_buttons": [
+            0.055,
+            0.038,
+            0.026,
+            1.0
+          ]
+        }
+      }
+    },
+    "material_roughness": {
+      "garment_upper__shirt_linen": 0.88,
+      "garment_outer__waistcoat_wool": 0.9,
+      "garment_outer__round_jacket": 0.92,
+      "garment_lower__highwaist_pantaloons": 0.87,
+      "footwear__closed_leather_shoes": 0.57,
+      "headwear__felt_hat": 0.95,
+      "accessory__horn_buttons": 0.38
+    },
+    "material_basis": "Original restrained roughness choices distinguish linen/wool/felt, closed leather shoes and horn-like buttons. No captured roughness/normal map, historical fiber, resident possession or photographic material match is asserted.",
+    "liberty": "L-human-modular-workwear-1789"
   }
 }

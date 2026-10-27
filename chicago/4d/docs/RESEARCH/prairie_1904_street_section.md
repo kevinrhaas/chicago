@@ -58,3 +58,24 @@ of any elm by 0.85 m. Each post is varied by a seed on its id: height 0.78-1.06 
 (plain dome, dome over a collar, flattened dome), a lean of 0.4-2 degrees, its turn and its stone's
 tone. The paved carriage walks stay: 1815's, the 2100 block's and Glessner's (HABS no. 2) are pictured.
 Amended liberty: L-prairie-carriage-walks-2474.
+
+## The corner crossings and their ramps (T-3200, 2026-10-27)
+
+The owner, 2026-10-27, with J. W. Taylor's photograph no. 2135: *"there are ramps down into the
+street. they appear to be stone"*.
+
+| picture | source | what it shows | carried as |
+|---|---|---|---|
+| `a18-rba-taylor-2135-glessner-ne` | `taylor_2135_glessner_exterior_1887_1889` | the Glessner corner (18th and Prairie, SW): the walk carried across the parkway to the curb, two broad slabs sloping from the curb's top to the roadway, one each way across, the lamp's footing between | that corner's two crossings, attested |
+| `a16-pullman-det-4a08065` | `loc_det_4a08065_pullman_residence` | the Pullman corner (NE): the walks carried across the parkway either side of a curbed grass corner with the lamp, down to the roadway | that corner's two crossings, attested |
+
+So at each of the 28 corners where two faces of a block meet (Calumet's curve at 18th is a bend and
+has none), each face's walk runs straight on across the other street's parkway and curb at its own
+width, and its last 1.35 m (0.92 m on 16th Street's narrower parkway) is a stone slab ramping down to
+the roadway: `corner_crossings` in `data/street_section/1904.json`, 56 crossings, laid by the same
+tool. `street-grid.js` cuts the parkway and the curb out under each crossing, lays the walk and the
+ramp, breaks the curb's face where the ramp runs through it, closes each ramp's sides with a stone
+cheek, and gives the walker the ramp's slope. The corner lamp's plot stands between each pair
+(T-3199). Liberty: L-prairie-corner-crossings-3200.
+
+![the Glessner (top) and Pullman (bottom) corners at 18th, before and after T-3200](prairie_1904_street_section/corner-ramps-before-after.jpg)

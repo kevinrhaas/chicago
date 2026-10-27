@@ -24950,6 +24950,12 @@ The retained before-change published view at 390 x 780 shows inherited clipping:
 The change constrains only the three existing news grids to a zero-minimum flexible column and permits intact text, including long links, to wrap. Typography, content, unread logic, navigation and every pre-existing CSS rule remain intact; no clipping mask or smaller font is introduced. Delivery evidence must cover real published 390 x 780 and 1280 x 800 views, every row at 100% and 140% text size, the six news-flow assertions, current content and the About route, together with preflight and ordinary exact-head CI. Focused notes evidence is recorded separately from a whole-part13/full-renderer pass.
 
 
+## T-3088 — source-bounded horse anatomy master (qualification in progress)
+
+The Western Hotel yard horse selects a repeatable derivative of the credited canonical26 source, with thinner upper eyelid margins and locally refined, rounded hoof walls/coronets/toes. The original d454/b479 source files, repaired eye UVs, six texture images, rig, binds and planted-standing clip remain preserved. Added body rows carry explicit parent-edge skin/UV interpolation; source topology and contact samples are genuinely regenerated. The selected 4,158,016-byte master is SHA925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48, within the existing 4MiB/20,000-triangle budgets.
+
+Actual matched parent/candidate front, profiles, rear, quarter, head and hoof views were inspected against the cleared anatomy plates and CC0 living-horse references. Fresh native cloned-skin Mixer checks passed all65keys and64midpoints with unchanged physical limits and meaningful corruptions; maximum contact drift is8.650um, minimum surface is−0.485um, and reversed triangles are0. This qualifies the changed body only for canonical standing; it does not inherit the old yard proof. The resting upper lid still reads heavy; existing coat/maps and opaque mane/tail remain explicitly bounded by sequential T-3089. Actual current selected-body published yard/phone support, normal app lifecycle, complete preflight and full photographic sign-off remain pending. No walking, riding, hitching or historical individual is asserted. See the full-region anatomical review and retained source/physical receipts.
+
 ## T-2376 - Green Tree front-ground opening correction (2026-10-25)
 
 The main gable front now places two sash to the viewer's left of its rightmost
@@ -25099,3 +25105,166 @@ Carpenter picture card: the existing public-domain Andreas reproduction now has 
 
 
 T-2386 current-dev ending (2026-10-27): the genuine checked 562 roof-tone increment is retained byte-for-byte on actual Mary merge d210 and current dev ed250, including the new 1904 Pullman work. Jail and Mary have landed; their original picture gaps remain open. The earlier 562 eighteen-group results are dated coverage, not a current whole-suite claim. Current native validation, targeted published phone/desktop roof/card/ground review and named affected smoke groups are to be bound to this candidate, with exact active-1835 physical and renderer input comparisons used to carry unaffected dated coverage. The source card retains its credited Blanchard/Shober/NYPL link: the existing non-1904 inline-library join requires a genuine solved camera, and no Wolf camera or historical From this spot is invented to create one. The roof colour remains reconstructed, not sampled authentic colour, and all eight original picture acceptances remain unfinished.
+
+## T-1789 — modular workwear source checkpoint, 26 October2026
+
+Source construction now supplies three explicit existing-resident wardrobe assemblies: a connected waistcoat and broad hat, an open short jacket, and a shorter jacket/lower-crown hat. Real emitted source boundaries receive physical cloth returns; buttons are sampled on actual waistcoat triangles; lapels/caps have nondegenerate per-corner UVs. The adult35 waistcoat's folded clamped hem is corrected by continuous vertical ease without deleting source faces or changing body anatomy/rig. Ten bounded source controls pass on the actual adult25/35 arrays, including old-defect and malformed/detached negatives. This is not a new canonical/export/posed/browser/photo PASS: installed GLBs remain their prior source, all full T1789 garment/base/head/hair/three-person/Mark-assembly criteria remain open, and new generation plus real visual inspection is required. The complete same-ticket acceptance plan is docs/RESEARCH/portable-human-library-T-1789/README.md.
+
+## T-2385 — first Tremont evidence correction (2026-10-26)
+
+Gale1902 printed p51, in a walk framed by arrival 25 May 1835 (p25; chapter p43),
+describes the original 20x30 yellow two-storey Tremont. The default adopts 30x20 ft
+natural axes, two storeys and yellow as INFERRED; its 5.45 m wall height retains
+the existing 3.1 m lower and one 2.35 m upper modules as RECONSTRUCTED. Both street
+frontage planes stay fixed; the northeast origin and explicit roof-staff flag anchor
+follow the smaller native geometry. Native gifford-reading preserves the earlier
+three-storey/50x30 ft picture reading with its scale/colour disagreement declared.
+No enlargement date is proved. Original T-2385 stays open for the actual third-storey
+disagreement; the two-storey default is not labelled a photographic match.
+
+Authoring checkpoint: native exports, current-app inspection and final gates are
+pending the coordinated heavy-build lease. No passed validation is claimed here.
+
+T-2385 native-kit detail: the 30 ft five-bay default omits shutters because the
+existing open-shutter stock requires at least 1.95 m per bay; the smaller default
+has 1.8288 m. Gale does not describe shutters. Native gifford-reading preserves
+the pictured shutters. No clearance gate is weakened; this is another explicit
+default/picture difference, not an accepted match or proof of historical absence.
+
+
+T-2385 native export checkpoint, 2026-10-26: normal integration of public checked
+Green Tree cf25a3f and incoming dev88c983 is staged without a code commit. One
+pinned Blender4.5.3 process on CPU2 wrote exactly the canonical and native version
+masters; pinned native WEB4.5.0 wrote exactly their two derivatives. Canonical:
+276104B/3400 triangles, WEB46072B. Native gifford-reading:445040B/5552 triangles,
+WEB66692B; both alternative outputs are byte-exact to the incoming old default.
+All22 other frame-tavern masters/WEB/manifest rows and every non-target default
+manifest/WEB book row remain exact. The actual canonical Gifford-camera comparison
+is DIFFERS: two versus three storeys and omitted pictured shutters remain open.
+Its unchanged historical framing is provisional, not a new metric camera solution.
+The retained version comparison is bound by exact master/camera/source hashes;
+it was not re-rendered. Native scene202/tail, current full-app/mobile/Images,
+fixed-point, fullcheck/preflight and PR/merge remain PENDING. No match is claimed.
+
+T-2385 current native checkpoint, 2026-10-26: the normal pending merge now carries
+incoming dev132e0e85 and checked public Green Tree cf25a3f. The registered
+compile-liberties-to202 tail passed at its natural two-lap fixed point; the
+dependent five-step research-package tail and final native publish passed. An
+audit of all44 tracked XLSX/gzip artifacts and every dirty file outside4D restored
+only two whole-proof-equal serialization differences. All5897 frozen source,
+population and asset protections, including the genuine two masters/two WEB
+outputs, remained exact. An earlier stopped run and its own malformed-note-ID
+failure are preserved separately; the two affected existing function notes were
+restored exactly from the checked public parent before this successful run.
+Current-app checks and the full code gate are recorded separately when closed;
+this native result does not close the original picture ticket or prove an image
+match. The PR depends on Green Tree1328 landing first.
+
+T-2385 targeted published-app checkpoint, 2026-10-26: all four ordinary URL loads
+closed (default and gifford-reading,390x780/light and1280x800/full). The first
+mobile-default supplementary harness result is retained as FAIL: it read a stale
+api.flying snapshot copied by Object.assign. Exact getter/descriptor proof and
+the actual live walker/player/intent/HUD/button/altitude values qualify all
+required checks in that case; production code and its original result were not
+changed. The remaining three cases passed with only that local QA reader
+corrected, retaining the stale value as a diagnostic and every live assertion.
+No fifth load occurred. All four had zero page/HTTP/request errors, exact served
+WEB hashes, native version badges, Normal/ByGrade, source/credit/liberty DOM,
+roof-staff cloth flags, ground contact, unchanged street planes and native drawing
+budgets. Desktop also compared every other structure's registry and placement
+between versions. Photos/Sources screenshots show only docked or upper card
+portions; full credit text/links were checked in the actual native DOM. These
+static captures make no FPS or photographic-match claim. Final full preflight,
+current-dev integration and required smoke coverage remain separate pending gates.
+
+
+T-2385 native capacity correction, 2026-10-26: the first full1070-step gate
+retained four lodging-related failures. Its61-step tail had not run the direct
+native lodging owners. The unnecessary new Gale lifetime-range citation was
+removed while retaining Gale on the dimensions, storeys and paint; all phase
+dates and eligibility stay exact. Native build_lodging_model_1835 and
+seat_lodgers_1835 now report111.48m² over two storeys and six ordinary-night beds
+for Tremont, down from17. Eight other inns' ordinary estimates rebalance under
+the existing fixed class total. The actual12 residents, every person identity/name/seat,
+source grade, minted ID, quota and carried allocation remain exact. The existing
+crowded limit35 is the1840 town model's proxy, not an attested Tremont room count;
+it is unchanged. The keeper home's tie is inferred, and the lodger seats remain
+reconstructed even where a person's identity is attested. These native owners
+change current-capacity reporting, not who lives in the house. No geometry,
+crowding rule, new ratio, dated availability or population allocation is changed.
+The earlier fullFAIL remains preserved; final downstream/gate results are
+reported separately when actually closed.
+
+
+T-2385 capacity closure completed2026-10-26: both native capacity owners passed;
+the registered115-step downstream tail settled naturally in two laps. The all44
+XLSX/gzip/outside4D audit restored only whole-proof-equal serialization and kept
+real differences; native package5 and final publish passed. All four previously
+failed causal checks now pass, including the boarders self-test. Resident paths,
+identities, source grades, homes, seats, minted IDs, quotas and carried allocation
+are unchanged; five cards update only current-capacity reporting text/numbers.
+Ten sidecars are the exact native capacity/occupancy projections, with their
+other geometry/material/placement/flag/identity fields unchanged. The two master
+and two WEB assets remain exact. The original full4-failure result and the
+supplementary reporting-reader stops are preserved. A fresh current-base
+transplant and full preflight remain pending before the code PR.
+
+
+T-2385 current-base checkpoint, 2026-10-26: complete corrected WIP was publicly
+verified in evidence index358 before clearing the old pending merge. A fresh
+branch starts at actual dev a575ddde; only owned Tremont source/real2master+2WEB/
+registry rows/capacity reporting and the four exact public6a61 strict smoke tools
+were transferred. Incoming canonical changelog stays byte-exact; the dependency
+fragment was already folded atv2302, and the archived1828draft was not restored.
+Fresh registered115 native closure settled at two laps. ONE all44 audit against
+raw actuala575 baselines restored only four whole-proof-equal files; package5,
+final publish, all four lodging causal checks and strict placement fixtures pass.
+All2180 resident files and the full seat/quota/allocation ledger are byte-exact
+to the corrected transplant. The original four app loads bind unchanged mesh,
+renderer/version/flag appearance; final signage/barrels/Dearborn sidewalk changes
+are not a current whole-world ground or performance certificate. The four mesh
+files remain unchanged. A fresh two-worker full preflight and FULL18 renderer
+coverage remain pending. Open the dev PR as draft after preflight; ready/merge
+requires FULL18. OriginalT-2385 stays OPEN/DIF for the stated source disagreement.
+
+
+T-2385 leaf-report closure, 2026-10-26: the fresh14dd full gate retained two
+failures, both unregistered leaf reports of the already-updated lodging model.
+Native business reconstruction refreshes exactly nine ordinary-capacity ledger
+cells; all48 reconstructed firms re-derive unchanged. Native staffing-order
+refreshes only ordinary beds slept in215→212, physical empty beds37→40,
+occupants above the ordinary figure5→8 and its matching sentence. Remaining
+carried mint authorization32 and mintable_today0 stay unchanged. No person, firm,
+identity, home, seat, quota, allocation or staffing ruling is re-dealt. Both
+native checks and self-tests pass. No scene/native115/202/app/bake cycle is used
+for these reports, whose literal readers are their own tools. The original full
+two-failure verdict is preserved; another full preflight on this exact corrected
+source remains pending before any code commit or draft dev PR.
+
+
+T-2385 exact-head renderer checkpoint, 2026-10-26: public commit
+c878258c511eb4854ffbd93c5c08ba2e0b8ea9a1 completed its single 18-group
+published mobile/desktop matrix with 16 actual passes and two actual failures,
+both in stages 1–2. The smaller footprint moved the native Tremont signage
+anchor 3.05 m east while the reading probe stayed at its old fixed position.
+The native Dearborn street-edge closure also lengthened one walk by 5.16009 m:
+16 additional board tops and two additional stringer bays add exactly 40 top
+triangles, independently re-read by check_far_plank_tops as 111510. Both failed
+logs remain preserved; this is not a full renderer pass. The narrow probe repair
+keeps the existing 3.5 m facade-reading distance, pitch and pixel thresholds,
+uses the actual native anchor and bearing, and retains the exact top-face census
+and geometry/material/draw checks. New browser results and current-dev
+integration remain pending; the original picture discrepancy remains OPEN/DIF.
+
+
+T-2385 current dependency closure, 2026-10-26: the existing public32dc
+merge is preserved as a parent, including dev's runner-image checks. A normal
+merge of checked Jail23dd and exact, checked Mary/Wolf source/asset deltas
+retains all current 1904/Dent work, the four native hash/isolation repairs,
+and both Tremont masters and compressed versions byte for byte. The owning
+manifest resolve, actual incoming44-file audit, package, publish and native
+lodging/business/staffing and placement checks passed. All2189 protected
+people/capacity/version records stayed exact. The hotel's reading probe now
+uses the native facade at the same3.5m distance and unchanged pixel bar; the
+far-walk census retains exact111510 derived top triangles. Fresh final-head
+renderer validation is still required; originalT-2385 remains OPEN/DIF.

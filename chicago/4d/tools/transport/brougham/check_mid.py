@@ -25,7 +25,7 @@ def bind_parts(j,b):
         for attr in ['POSITION','NORMAL']:
             a=j['accessors'][primitive['attributes'][attr]];v=j['bufferViews'][a['bufferView']];assert a['componentType']==5126 and a['type']=='VEC3'and not v.get('byteStride');off=v.get('byteOffset',0)+a.get('byteOffset',0)+p['triangle_start_in_batch']*36;size=p['triangles']*36;chunk=b[off:off+size];assert len(chunk)==size;chunks[attr]=chunk;offsets[attr]=off
         state['next']+=p['triangles'];exhausted[mi]=state['next'];rows.append({'part_index':pi,'identity':[p['name'],p['frame'],p['material'],p['triangles']],'mesh_index':mi,'node_path':path(node_for[mi]),'chunks':chunks,'offsets':offsets})
-    assert len(exhausted)==len(j['meshes'])==25
+    assert len(exhausted)==len(j['meshes']) # exhaust every real batch; count is pinned by the current contract
     for mi,n in exhausted.items():assert j['accessors'][j['meshes'][mi]['primitives'][0]['attributes']['POSITION']]['count']==n*3
     return rows
 
@@ -34,90 +34,53 @@ def contained(outer,inner):
     return all(inner['min'][k]>=outer['min'][k] and inner['max'][k]<=outer['max'][k] for k in range(3))
 
 def check_mid_provenance(side,near,mid):
-    """Reject stale V17 lineage and unearned appearance acceptance in active V18 metadata."""
     p=side['mid_provenance']
-    assert side['revision']=='v18_rounded_coach_lamps_near_mid_study', 'Active V18 revision required'
-    assert p['source_master_near_sha256']==near['raw_sha256'], 'Mid provenance binds current near master'
-    assert p['build_receipt_sha256']==mid['build_receipt_sha256'], 'Mid provenance binds current MID receipt'
-    assert p['recipe']=='tools/transport/brougham/'+mid['recipe'] and p['recipe_sha256']==mid['recipe_sha256'], 'Mid provenance binds exact current recipe'
-    assert p['distance_lod_native_appearance_accepted'] is side['lod_appearance_accepted']['mid'] is False, 'V18 mid appearance remains unaccepted'
-    assert p['photographic_accepted'] is False and p['world_budget_accepted'] is False, 'V18 mid world/photo acceptance remains unpassed'
-    assert p['subdivision_records']=={'near':mid['subdivision_records_near'],'mid':mid['subdivision_records_mid']}, 'Mid provenance actual near/mid record counts'
-    assert p['triangles']=={'near':near['triangles'],'mid':mid['triangles']}, 'Mid provenance actual near/mid triangle counts'
+    assert side['revision']=='v19_catalogue_body_and_finish_near_mid_study'
+    assert p['source_master_near_sha256']==near['raw_sha256']
+    assert p['distance_lod_native_appearance_accepted']is side['lod_appearance_accepted']['mid']is False
+    assert p['photographic_accepted']is False and p['world_budget_accepted']is False
+    assert p['current_near_triangles']==near['triangles'] and p['current_mid_triangles']==mid['triangles']
 
 
 def verify():
-    start=time.monotonic();mcpath=D/'mid-contract.json'
-    assert sha(mcpath.read_bytes())=='b82f594d085b596069e1e3cd3dccb9662123348e1c5d0c4311094792cca12d16','Exact reviewed distance-mid contract'
-    mc=json.loads(mcpath.read_bytes());c=json.loads((D/'near-contract.json').read_bytes())
-    assert sha((ASSET/'MID-BUILD-RECEIPT.json').read_bytes())==mc['build_receipt_sha256']
-    assert sha((D/mc['recipe']).read_bytes())==mc['recipe_sha256']=='89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159'
-    for name,digest in c['source_files'].items():assert sha((D/name).read_bytes())==digest,'Producer/source pin '+name
-    for filename,digest,size in [(mc['raw_file'],mc['raw_sha256'],mc['raw_bytes']),(mc['indexed_file'],mc['indexed_sha256'],mc['indexed_bytes'])]:
-        raw=(ASSET/filename).read_bytes();assert sha(raw)==digest and len(raw)==size,'Exact reviewed mid '+filename
-    for name,digest in mc['archived_current_validator_reports'].items():
-        raw=(D/'archived-khronos'/name).read_bytes();assert sha(raw)==digest
-        report=json.loads(raw);issues=report['issues'];assert issues['numErrors']==issues['numWarnings']==0 and issues['numInfos']==4 and not issues['truncated']
-        assert report['info']['totalTriangleCount']==11706 and report['info']['drawCallCount']==25
-    assert sha((ASSET/'brougham-source.glb').read_bytes())==c['raw_sha256']
-    assert sha((ASSET/'brougham-near.glb').read_bytes())==c['near_sha256']==mc['unchanged_near_sha256']
-    old,ob=read(ASSET/'brougham-source.glb');new,nb=read(ASSET/'brougham-mid-source.glb');indexed,ib=read(ASSET/'brougham-mid.glb');side=json.loads((ASSET/'brougham.json').read_bytes())
-    check_mid_provenance(side,c,mc)
-    signature,triangles=expanded(new,nb);isig,it=expanded(indexed,ib)
-    assert triangles==it==mc['triangles']==11706 and signature==isig==mc['expanded_triangle_PN_sha256']
-    row=side['lods'][1];assert row['source_bytes']==mc['raw_bytes'] and row['indexed_bytes']==mc['indexed_bytes'] and row['expanded_triangle_PN_sha256']==signature
-    assert row['detail']=='mid' and row['triangles']==11706 and row['source_sha256']==mc['raw_sha256'] and row['indexed_sha256']==mc['indexed_sha256']
-    for key in ['nodes','materials','scenes','scene','extensionsUsed']:assert old.get(key)==new.get(key)==indexed.get(key),key
-    assert len(new['nodes'])==42 and len(new['materials'])==7 and len(new['meshes'])==25
-    for key in old['extras']:
-        if key not in ['statistics','parts']:assert old['extras'][key]==new['extras'][key],key
-    assert new['extras']['statistics']['triangles']==11706
-    for doc in [old,new,indexed]:
-        assert not any(doc.get(k) for k in ['images','textures','skins','animations'])
-        assert all(set(p['attributes'])=={'POSITION','NORMAL'} for m in doc['meshes'] for p in m['primitives'])
-    before=bind_parts(old,ob);after=bind_parts(new,nb);assert len(before)==480 and len(after)==314
-    from lamp_geometry import keyed,lamp_surfaces
-    assert lamp_surfaces(keyed(new,nb),new['extras']['parameters'])==424, 'Actual mid rounded-lamp winding/recessed aperture seams'
-    categories=lambda rows:collections.Counter(r['identity'][0] for r in rows)
-    bc,nc=categories(before),categories(after);assert set(bc)==set(nc)
-    assert {k:(bc[k],nc[k]) for k in bc if bc[k]!=nc[k]}=={'leaf_spring':(160,64),'roof_edge_fascia':(110,40)}
-    assert nc['tapered_rounded_spoke']==64 and bc['leaf_spring']//10==nc['leaf_spring']//4==16
-    counts=lambda doc:dict(sum((collections.Counter({p['name']:p['triangles']}) for p in doc['extras']['parts']),collections.Counter()))
-    actual=counts(new);assert actual==mc['physical_category_triangle_counts'],'Every physical category has its exact reviewed triangle count'
-    near_counts=counts(old);changed={name for name,n in actual.items() if near_counts[name]!=n}
-    def protected(rows):
-        return [(r['identity'],r['node_path'],r['chunks']) for r in rows if r['identity'][0] not in changed]
-    assert protected(before)==protected(after),'Unchanged physical feature P/N role streams'
-    ow,nw=world_nodes(old),world_nodes(new);assert ow==nw
-    assert len(side['anchors'])==13
-    for anchor in side['anchors']:assert anchor['node']==new['nodes'][anchor['node_index']]['name'] and anchor['translation_root_m']==nw[anchor['node_index']]
-    assert decoded_bounds(old,ob,ow)==decoded_bounds(new,nb,nw)==decoded_bounds(indexed,ib,world_nodes(indexed)),'Exact complete outer bounds'
-    assert native_contacts(old,ob)==native_contacts(new,nb)==native_contacts(indexed,ib),'Exact wheel, full pole and shoe contacts'
-    near_static=static_master_contract(old,ob,ow,c['raw_sha256']);mid_static=static_master_contract(new,nb,nw,mc['raw_sha256'])
-    assert near_static==side['static_master']==c['static_master'],'Production retains original near static interfaces and conservative proxy'
-    assert len(near_static['named_targets'])==8 and near_static['named_targets']==mid_static['named_targets']
-    outer=near_static['collision_proxy']['components'];inner=mid_static['collision_proxy']['components'];assert len(outer)==len(inner)==9
-    changes=[]
-    for i,(a,b) in enumerate(zip(outer,inner)):
-        assert {k:v for k,v in a.items() if k!='bounds_root_m'}=={k:v for k,v in b.items() if k!='bounds_root_m'}
-        assert contained(a['bounds_root_m'],b['bounds_root_m']),'Mid escapes original conservative proxy'
+    from check_near import check_detail
+    from body_geometry import part_rows
+    near=json.loads((D/'near-contract.json').read_text());mid=json.loads((D/'mid-contract.json').read_text())
+    result=check_detail('mid',ASSET,D)
+    a,ab=read(ASSET/near['raw_file']);b,bb=read(ASSET/mid['raw_file'])
+    side=json.loads((ASSET/'brougham.json').read_text());check_mid_provenance(side,near,mid)
+    assert side['source_master_sha256']==near['raw_sha256']
+    assert side['mid_provenance']['build_receipt_sha256']==sha((ASSET/'MID-BUILD-RECEIPT.json').read_bytes())
+    assert side['mid_provenance']['recipe_sha256']==sha((D/'ring16-mid-lods.json').read_bytes())
+    assert a['materials']==b['materials'] and a['extensionsUsed']==b['extensionsUsed']
+    before,after=part_rows(a,ab),part_rows(b,bb)
+    categories=lambda rows:collections.Counter(key[0]for key in rows)
+    bc,nc=categories(before),categories(after)
+    assert set(bc)==set(nc), 'Every physical feature family retained'
+    assert {name:(bc[name],nc[name])for name in bc if bc[name]!=nc[name]}=={'leaf_spring':(160,64),'roof_edge_fascia':(110,40)}, 'Only original tessellation-record count changes'
+    totals=lambda rows:dict(sum((collections.Counter({key[0]:row['triangles']})for key,row in rows.items()),collections.Counter()))
+    bt,nt=totals(before),totals(after)
+    changed_categories={name for name in bt if bt[name]!=nt[name]}
+    protected=lambda rows:{key:row for key,row in rows.items()if key[0]not in changed_categories}
+    assert protected(before)==protected(after), 'Exact P/N for every unchanged physical occurrence'
+    assert near['triangles']>mid['triangles'] and near['expanded_PN_sha256']!=mid['expanded_PN_sha256'], 'Near copy cannot stand in for real mid'
+    def counts(doc):return dict(sum((collections.Counter({p['name']:p['triangles']})for p in doc['extras']['parts']),collections.Counter()))
+    assert counts(a)==near['physical_category_triangle_counts'] and counts(b)==mid['physical_category_triangle_counts']
+    assert native_contacts(a,ab)==native_contacts(b,bb)
+    assert bc['tapered_rounded_spoke']==nc['tapered_rounded_spoke']==64, 'All64 original spoke occurrences retained; only their original tessellation differs'
+    assert len(a['extras']['parts'])==481 and len(b['extras']['parts'])==315
+    outer=near['static_master']['collision_proxy']['components'];inner=mid['static_master']['collision_proxy']['components']
+    assert len(outer)==len(inner)==9
+    contractions=[]
+    for i,(a,b)in enumerate(zip(outer,inner)):
+        assert a['source_frame']==b['source_frame'] and contained(a['bounds_root_m'],b['bounds_root_m']), 'Mid stays in original near proxy'
         for bound in ['min','max']:
             for axis in range(3):
                 delta=b['bounds_root_m'][bound][axis]-a['bounds_root_m'][bound][axis]
-                if delta:changes.append((i,bound,axis,delta))
-    assert changes==[(1,'max',1,-0.005755186080932617)],'Only exact reviewed mudguard tight-bound contraction allowed'
-    assert -.69*(1-math.cos((math.pi-.2)/(2*(12-1))))<=changes[0][3]<0
-    normalized=copy.deepcopy(mid_static);normalized['source_master_sha256']=near_static['source_master_sha256'];normalized['collision_proxy']=copy.deepcopy(near_static['collision_proxy'])
-    assert normalized==near_static,'All nonproxy static interface values exact'
-    # Controls exercise actual geometry, hierarchy and strict containment without file writes.
-    button=next(r for r in reversed(after) if r['identity'][0]=='solid_bright_hub_button');mut=bytearray(nb);off=button['offsets']['POSITION'];struct.pack_into('<f',mut,off,struct.unpack_from('<f',mut,off)[0]+.001)
-    mutrows=bind_parts(new,mut);assert [r['part_index'] for a,r in zip(after,mutrows) if a['chunks']!=r['chunks']]==[button['part_index']], 'Repeated hubcap mutation stays bound to its exact final role'
-    assert expanded(new,mut)[0]!=signature, 'Actual final repeated hubcap P/N mutation must change geometry signature'
-    stable=next(r for r in reversed(after) if r['identity'][0] not in changed);stablemut=bytearray(nb);off=stable['offsets']['POSITION'];struct.pack_into('<f',stablemut,off,struct.unpack_from('<f',stablemut,off)[0]+.001)
-    assert protected(bind_parts(new,stablemut))!=protected(before), 'Actual unchanged-category P/N mutation must be detected'
-    shifted=copy.deepcopy(new);i=side['anchors'][-1]['node_index'];shifted['nodes'][i]['translation'][0]+=.001;assert world_nodes(shifted)!=nw
-    growth=copy.deepcopy(inner[1]['bounds_root_m']);growth['max'][1]=outer[1]['bounds_root_m']['max'][1]+.001;assert not contained(outer[1]['bounds_root_m'],growth)
-    assert expanded(old,ob)[1]!=11706,'Near copy cannot pass as distance mid'
-    return {'pass':True,'seconds':round(time.monotonic()-start,3),'triangles_before':33374,'triangles_after':triangles,'triangles_saved':33374-triangles,'subdivision_records_before':480,'subdivision_records_after':314,'physical_category_count':len(actual),'materials_exact':7,'nodes_exact':42,'runtime_anchors_exact':13,'static_targets_exact':8,'original_near_proxy_preserved':True,'strict_mid_containment':True,'only_tight_bound_contraction_m':changes[0][3],'candidate_raw_sha256':mc['raw_sha256'],'candidate_indexed_sha256':mc['indexed_sha256'],'negative_controls':{'repeated_hubcap_PN_mutation':True,'unchanged_feature_PN_mutation':True,'anchor_shift':True,'proxy_growth':True,'near_copy_as_mid':True},'world_budget_accepted':False,'photographic_accepted':False}
+                if delta:contractions.append((i,bound,axis,delta))
+    assert contractions==[(1,'max',1,-0.005755186080932617)], 'Only original V18 tight mudguard contraction'
+    result.update(near_triangles=near['triangles'],mid_triangles=mid['triangles'],all_physical_occurrences_preserved=True,strict_mid_proxy_containment=True)
+    return result
+
 
 if __name__=='__main__':print(json.dumps(verify(),indent=2))
