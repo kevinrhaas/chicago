@@ -34163,46 +34163,6 @@ a field value or this entry alone.
 
 **Ticket:** T-2386.
 
-### L-k16-1720-frame-house-3180 — 1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph
-
-**Decision:** the Tyrrell/Walker house at 1720 Prairie Avenue (Otis L. Wheelock, 1868; T-3180, piece 1
-of T-1873) is no longer a district draft. It stands, under the draft's own id
-`walker_house_1720_prairie`, as a `k16_timber` record built by `generators/k16_emit.py` from the K16
-timber kit, as 1630 does (`L-k16-1630-frame-house-2357`): kit clapboard walls on a water table,
-corner boards and returns, K06 sash in the kit's flat timber casings, a panelled door, a frieze
-under a boxed eave with scroll brackets, a low hip, a flat deck over the wing, one brick stack, and
-the kit's porch across the front. T-3180 taught the kit a long porch's posts between its ends
-(`porch.inner_posts_m`), a porch floor raised over a basement with steps solved to it
-(`porch.basement_m`), and a block's own frieze depth (`frieze_m`).
-**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace
-(s20fp-1720-b1) and the T-1840 census (s20-1720-f): the main block's rectangle (22.25 m deep, 10 m
-along Prairie), the south wing's (u 10-21.5), the porch's 1.5 m depth, two storeys and frame. From
-the Tyrrell photograph (`glessner_blog_1720_tyrrell_photo`) through its camera
-(`data/reference_views/walker_house_1720_prairie/tyrrell_front.json`): the porch floor and door
-about 1.55 m over the walk, the eave about 10.6 m and the frieze about 1.5 m deep, the front's
-openings (below, a single round-headed light, the door and a pair; above, two single round-headed
-sash and a pair), the porch's span (v -1.65 to 9.85 m, against the sheet's -2.0 to 8.25), its
-stair at its middle, its posts at its ends and either side of its middle opening and its plate,
-and the wing standing only one storey where it meets the front (the photograph sees sky over the
-porch roof south of the bay, where a two-storey wing would stand).
-**What is invented.** Every opening on the flanks, the wing and the rear, and the kit's
-two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the
-hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main
-block's); one stack, placed over the south wall where the photograph shows one, the second it shows
-over the north wall not built; the tin roof and its colour; the pale body paint and the kit's
-trim and sash colours (the photograph is monochrome).
-**What is not built yet.** Owned by the pieces of T-1873: the porch's paired posts, three arches,
-turned balustrades, the stair's cheek walls and the iron cresting round its deck (T-3181); the
-upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired
-carved brackets, the wider eave and the central front gable (T-3182). The photograph's stone posts
-and iron fence along the street line are not this record's.
-**How to resolve:** T-3181 and T-3182 replace the kit's stand-ins in place from the same
-photograph; a plan, a second photograph or a description of the flanks replaces their openings.
-**Covers:** `walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`
-**Ticket:** T-3180 (piece 1 of T-1873).
-**Review:** `data/reference_views/walker_house_1720_prairie/tyrrell_front.match.json`.
-**Recorded:** 2026-10-26 (T-3180).
-
 ### L-k01-1721-dexter-1878 — 1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff
 
 **Covers:** `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.side_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`

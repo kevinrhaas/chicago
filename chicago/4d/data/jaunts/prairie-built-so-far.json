@@ -296,7 +296,7 @@
       "id": "stop-14",
       "destination": {
         "kind": "structure",
-        "id": "house_1828_prairie"
+        "id": "marsh_house_1824_prairie"
       },
       "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: 1828 Prairie.",
       "read_s": 15,
@@ -307,7 +307,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1828_prairie",
+          "id": "marsh_house_1824_prairie",
           "label": "About this building"
         }
       ],

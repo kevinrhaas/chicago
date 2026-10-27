@@ -57025,66 +57025,6 @@
       ]
     },
     {
-      "id": "L-k16-1720-frame-house-3180",
-      "title": "1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph",
-      "section": "per_subject",
-      "subjects": [
-        "walker_house_1720_prairie"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.roof_covering"
-        },
-        {
-          "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stories"
-        }
-      ],
-      "recorded": "2026-10-26",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "the Tyrrell/Walker house at 1720 Prairie Avenue (Otis L. Wheelock, 1868;, piece 1) is no longer a district draft. It stands, under the draft's own id 1720 Prairie Avenue — Tyrrell/Walker Italianate frame, as a k16 timber record built by the k16 emit generator from the K16 timber kit, as 1630 does (`“1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's”`): kit clapboard walls on a water table, corner boards and returns, K06 sash in the kit's flat timber casings, a panelled door, a frieze under a boxed eave with scroll brackets, a low hip, a flat deck over the wing, one brick stack, and the kit's porch across the front. This work taught the kit a long porch's posts between its ends (porch.inner posts (m)), a porch floor raised over a basement with steps solved to it (porch.basement (m)), and a block's own frieze depth (frieze (m)). **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the trace (s20fp-1720-b1) and the census (s20-1720-f): the main block's rectangle (22.25 m deep, 10 m along Prairie), the south wing's (u 10-21.5), the porch's 1.5 m depth, two storeys and frame. From the Tyrrell photograph ([The John Tyrrell house, 1720 S. Prairie Avenue (Otis L. Wheelock, 1868).]…) through its camera (the tyrrell front data): the porch floor and door about 1.55 m over the walk, the eave about 10.6 m and the frieze about 1.5 m deep, the front's openings (below, a single round-headed light, the door and a pair; above, two single round-headed sash and a pair), the porch's span (v -1.65 to 9.85 m, against the sheet's -2.0 to 8.25), its stair at its middle, its posts at its ends and either side of its middle opening and its plate, and the wing standing only one storey where it meets the front (the photograph sees sky over the porch roof south of the bay, where a two-storey wing would stand). **What is invented.** Every opening on the flanks, the wing and the rear, and the kit's two-over-two sash there; the K06 round-headed sash and the kit's square casings on the front; the hip's 20-degree pitch; the wing's one storey back to its rear (the sheet's '2' is read as the main block's); one stack, placed over the south wall where the photograph shows one, the second it shows over the north wall not built; the tin roof and its colour; the pale body paint and the kit's trim and sash colours (the photograph is monochrome). **What is not built yet.** Owned by the pieces of earlier work: the porch's paired posts, three arches, turned balustrades, the stair's cheek walls and the iron cresting round its deck; the upper storey's canted bay, the arched casings and hoods, the frieze's attic lights, the paired carved brackets, the wider eave and the central front gable. The photograph's stone posts and iron fence along the street line are not this record's."
-        },
-        {
-          "label": "How to resolve",
-          "text": "Later work replace the kit's stand-ins in place from the same photograph; a plan, a second photograph or a description of the flanks replaces their openings."
-        },
-        {
-          "label": "Covers",
-          "text": "`walker_house_1720_prairie.as_mapped_1904.form.stories`, `walker_house_1720_prairie.as_mapped_1904.form.construction`, `walker_house_1720_prairie.as_mapped_1904.form.roof_covering`"
-        },
-        {
-          "label": "Review",
-          "text": "the tyrrell front match data."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-10-26 (T-3180)."
-        }
-      ],
-      "work_refs": [
-        "T-3180",
-        "T-1873",
-        "T-3181",
-        "T-3182",
-        "T-2328",
-        "T-1840"
-      ]
-    },
-    {
       "id": "L-k01-1721-dexter-1878",
       "title": "1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff",
       "section": "per_subject",
@@ -57181,6 +57121,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-26 (T-1878)."
+        },
+        {
+          "label": "Kit fit",
+          "text": "the K08 bay kit's gate refused two of the reconstructed window choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and says why in its record: the plate draws it taller than the lights above, and its size is read only in proportion to the 5.6 m storey."
         }
       ],
       "work_refs": [
