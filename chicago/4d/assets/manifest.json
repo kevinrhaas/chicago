@@ -3350,7 +3350,7 @@
       "baked_ao": false,
       "bytes": 13694596,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "55ce043c38c009de50ca693525f5f65ca2d8b6a9391594b08005851c5078364d",
+      "inputs_sha256": "0456a4475718311ae581fc0ebb443b22ecb839bd5dc3ef4a0f044d9a3105a418",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kimball_house_1801_prairie"
@@ -9348,8 +9348,8 @@
     "tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 445040,
-      "inputs_sha256": "16ddd5768fc6eece0ce64469f5e7183d0e393f50da52b6c8275d9de8d6f0fa5b",
+      "bytes": 276104,
+      "inputs_sha256": "717398e00f8c2d31353e07b3afbae89cd2679969283210b5572ef6f1f35ba70f",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"

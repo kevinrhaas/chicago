@@ -43,11 +43,11 @@ GLTFLoader.prototype.loadAsync = async function(url) {
 globalThis.fetch=async(url,options={})=>{
  const u=new URL(url);
  if(u.protocol!=='file:')return fetchBefore(url,options);
- if(u.pathname.endsWith('/brougham-near.glb')||u.pathname.endsWith('/brougham-mid.glb')){
+ if(u.pathname.endsWith('/brougham-near-delivery-v1.glb')||u.pathname.endsWith('/brougham-mid-delivery-v1.glb')){
   requests.push(String(url));assert(options.signal===manager.abortController.signal,'Use actual manager cancellation signal');assert(options.credentials==='same-origin','Keep original same-origin credentials');
-  if(rejectNear&&u.pathname.endsWith('/brougham-near.glb'))return new Response('Controlled missing near',{status:404});
-  if(rejectMid&&u.pathname.endsWith('/brougham-mid.glb'))return new Response('Controlled missing mid',{status:503});
-  if(holdMid&&u.pathname.endsWith('/brougham-mid.glb'))await new Promise((resolve,reject)=>{releaseMid=resolve;midStarted();options.signal.addEventListener('abort',()=>reject(options.signal.reason),{once:true})});
+  if(rejectNear&&u.pathname.endsWith('/brougham-near-delivery-v1.glb'))return new Response('Controlled missing near',{status:404});
+  if(rejectMid&&u.pathname.endsWith('/brougham-mid-delivery-v1.glb'))return new Response('Controlled missing mid',{status:503});
+  if(holdMid&&u.pathname.endsWith('/brougham-mid-delivery-v1.glb'))await new Promise((resolve,reject)=>{releaseMid=resolve;midStarted();options.signal.addEventListener('abort',()=>reject(options.signal.reason),{once:true})});
   if(options.signal.aborted)throw options.signal.reason;
   return new Response(fs.readFileSync(u),{status:200,headers:{'Content-Type':'model/gltf-binary'}});
  }
@@ -70,19 +70,26 @@ try {
  need(JSON.stringify(installed.instances[0].row.at_local_enu_m)==='[1397.9,-3240]'&&installed.instances[0].row.bearing_deg===178.99,'Replacement retains existing qualified stand and bearing');
  need(legacyRequests.length===0,'Removed C02 display incurs no legacy asset load in installed1904scene');
  await dispose(installed);need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'Installed replacement retires every source resource once');
- const midRequestsBeforeCompat=requests.filter(u=>u.endsWith('/brougham-mid.glb')).length;
+ const midRequestsBeforeCompat=requests.filter(u=>u.endsWith('/brougham-mid-delivery-v1.glb')).length;
  compatibilityRecord=structuredClone(record);compatibilityRecord.scenes['1904'].push(obsoleteC02);
  const out=await createParkedTransport(options);objects.push(out);
  need(problems.length===0,'Actual near, mid and C02 load and batch without runtime problems: '+JSON.stringify(problems));
  const b=out.instances.find(i=>i.row.model==='studebaker_brougham_1893'),legacy=out.instances.find(i=>i.row.model==='carriage_c02');
  need(b?.lod?.isLOD&&b.lod.autoUpdate===false&&b.lod.levels.length===2,'Only opted-in Brougham has controlled standard THREE.LOD');
  need(legacy&&!legacy.lod&&legacy.group.children.every(n=>n.isMesh),'Legacy C02 retains its ordinary merged group');
- need(b.draw_batches===7&&b.lod.levels.every(l=>l.object.children.length===7),'Actual near and mid each merge to seven material batches');
- need(count(b.lod.levels[0].object)===33374&&count(b.lod.levels[1].object)===11706,'Actual merged indexed geometry reads back genuine near/mid triangle counts');
+ need(b.draw_batches===8&&b.lod.levels.every(l=>l.object.children.length===8),'Actual near and mid each merge to eight material batches');
+ need(count(b.lod.levels[0].object)===45338&&count(b.lod.levels[1].object)===23062,'Actual merged indexed geometry reads back genuine near/mid triangle counts');
+ for(const level of b.lod.levels){
+  const glass=level.object.children.filter(mesh=>mesh.material.name==='thin_sheet_cabin_glass_delivery_reconstruction');
+  need(glass.length===1,'Each actual runtime LOD retains exactly one cabin-glass material batch');
+  const material=glass[0].material;
+  need((material.transmission??0)===0&&material.opacity===.14&&material.transparent&&!material.depthWrite&&material.ior===1.5,
+    'Actual vendored loader reads the declared alpha optical profile without a transmission pass');
+ }
  need(b.lod.levels[1].hysteresis===0.05,'Standard five percent hysteresis retained');
  for(const l of b.lod.levels)l.object.traverse(m=>{if(m.isMesh){need(patched.has(m.material),'Every level uses existing confidence material patch');need(Array.from(m.geometry.attributes._confidence.array).every(v=>v===1),'Every level retains reconstructed confidence values')}});
  const pose=(distance)=>{camera.position.copy(b.group.position).add(new T.Vector3(0,0,distance));camera.lookAt(b.group.position.clone().add(new T.Vector3(0,1,0)));camera.updateMatrixWorld(true);out.update(camera);out.group.updateMatrixWorld(true)};
- const active=(label,expected)=>need(b.active_lod===expected&&b.active_triangles===(expected==='near'?33374:11706)&&b.lod.levels.filter(l=>l.object.visible).length===1,label);
+ const active=(label,expected)=>need(b.active_lod===expected&&b.active_triangles===(expected==='near'?45338:23062)&&b.lod.levels.filter(l=>l.object.visible).length===1,label);
  pose(23.99);active('Near retained below 24m', 'near');
  pose(24.01);active('Actual mid selected beyond24m','mid');
  pose(23.0);active('Hysteresis keeps mid while returning through boundary','mid');
@@ -92,7 +99,7 @@ try {
  height=3200;pose(25.227878213450246);active('Large drawing buffer restores near at same stand and camera','near');
  height=800;camera.zoom=2;camera.updateProjectionMatrix();pose(25.23);active('Zoom retains near through standard LOD zoom distance','near');camera.zoom=1;camera.updateProjectionMatrix();
  height=NaN;pose(30);active('Missing render-height evidence safely retains near','near');height=800;
- const saved=record.models.studebaker_brougham_1893;need(saved.delivery_lods.mid.endsWith('/brougham-mid.glb')&&saved.delivery_lods.runtime_distance_selection_enabled,'Actual placements opt into exact separate mid payload');
+ const saved=record.models.studebaker_brougham_1893;need(saved.delivery_lods.mid.endsWith('/brougham-mid-delivery-v1.glb')&&saved.delivery_lods.runtime_distance_selection_enabled,'Actual placements opt into exact separate mid payload');
  const activeGeometryReadback=[];
  for(const distance of [3,25]){
   pose(distance);camera.position.x=b.group.position.x+distance;camera.position.z=b.group.position.z;camera.position.y=b.group.position.y+1.25;camera.lookAt(b.group.position.clone().add(new T.Vector3(0,1.0,0)));camera.updateMatrixWorld(true);out.update(camera);out.group.updateMatrixWorld(true);
@@ -115,8 +122,8 @@ try {
  need(!out.group.children.length&&!out.instances.length,'Disposal clears all active level ownership');
  const beforeLight=requests.length;const light=await createParkedTransport({...options,detail:'light'});objects.push(light);need(requests.length===beforeLight&&!light.instances.length,'Light boot does not fetch either Brougham level');await dispose(light);
  rejectMid=true;const failed=[];const fallback=await createParkedTransport({...options,problems:failed});objects.push(fallback);
- const retained=fallback.instances.find(i=>i.row.model==='studebaker_brougham_1893');need(retained&&!retained.lod&&count(retained.group)===33374&&failed.some(s=>s.includes('near retained')),'Actual failed mid fetch retains original near and reports failure');await dispose(fallback);rejectMid=false;
- need(requests.filter(u=>u.endsWith('/brougham-mid.glb')).length===midRequestsBeforeCompat+2,'Each created transport caches its one mid request; failure control is distinct');
+ const retained=fallback.instances.find(i=>i.row.model==='studebaker_brougham_1893');need(retained&&!retained.lod&&count(retained.group)===45338&&failed.some(s=>s.includes('near retained')),'Actual failed mid fetch retains original near and reports failure');await dispose(fallback);rejectMid=false;
+ need(requests.filter(u=>u.endsWith('/brougham-mid-delivery-v1.glb')).length===midRequestsBeforeCompat+2,'Each created transport caches its one mid request; failure control is distinct');
  // A Light boot returns its API before loading. Dispose during its actual pending
  // mid load, then let the real GLTF parse finish; no late model may be attached.
  const waiting=await createParkedTransport({...options,detail:'light',problems:[]});objects.push(waiting);
@@ -139,7 +146,7 @@ try {
  need(starts.length===ends.length&&starts.length===requests.filter(u=>u.includes('/parked-brougham/')).length,'Every success, HTTP failure and manager abort balances source manager start/end');
  need(errors.length===3,'Manager error accounting preserves controlled mid503, near404 and aborted-mid errors');
  need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'HTTP-failure/manager-abort paths retain exact cached source disposal');
- console.log(JSON.stringify({pass:true,scope:'Actual vendored Three/GLTF near-mid batching, active-only picking, source-cache ownership, tier/reach/zoom/resize and disposal; synthetic flat ground is not world proof',activeGeometryReadback,parseBases,managerEvents,assertionCount:assertions.length,assertions,nearBytesUnchanged:true,photographicAcceptance:false,actualWorldBudgetAcceptance:false},null,2));
+ console.log(JSON.stringify({pass:true,scope:'Actual vendored Three/GLTF optical near-mid batching, active-only picking, source-cache ownership, tier/reach/zoom/resize and disposal; synthetic flat ground is not world proof',activeGeometryReadback,parseBases,managerEvents,assertionCount:assertions.length,assertions,opticalDeliveryProfileVerified:true,geometryCountsPreserved:true,photographicAcceptance:false,actualWorldBudgetAcceptance:false},null,2));
 } finally {
  for(const out of objects)if(out.instances.length)await dispose(out);
  GLTFLoader.prototype.loadAsync=load;GLTFLoader.prototype.parseAsync=parseAsyncBefore;for(const name of Object.keys(managerBefore))manager[name]=managerBefore[name];globalThis.fetch=fetchBefore;globalThis.self=selfBefore;globalThis.createImageBitmap=bitmapBefore;

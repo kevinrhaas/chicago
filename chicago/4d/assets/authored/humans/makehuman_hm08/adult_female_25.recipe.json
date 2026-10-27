@@ -1,0 +1,32 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/african-female-young.target",
+      "sha256": "92d61eeb3c164b421fd5a7c3537ee45e7e1a51de4d49bf312e19c3df2be1d8fc",
+      "coefficient": 0.3333333333333333
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-female-young.target",
+      "sha256": "095fe79694fa19e1fe98d93009ec116199bd524e081c640351a10eccf2cca1eb",
+      "coefficient": 0.3333333333333333
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-female-young.target",
+      "sha256": "118379f6e8ba9266247fdb8788a20e1df40a239f97ced0b9905bcbcc74f6e820",
+      "coefficient": 0.3333333333333333
+    }
+  ],
+  "phenotype": {
+    "sex": "female engineering variant",
+    "chosen_age_years": 25,
+    "age_band_years": [
+      20,
+      29
+    ],
+    "ancestry_status": "unattested; equal upstream software-category blend is an authoring liberty, not a resident ethnicity",
+    "age_status": "authoring choice inside an eligible existing reconstructed adult age band, not an asserted birth year",
+    "likeness_status": "source component candidate; no portrait/likeness qualification"
+  },
+  "basis": "VerifiedCC0graphicaldelta blend before existing joint derivation; no upstream program logic copied; source body candidate only"
+}

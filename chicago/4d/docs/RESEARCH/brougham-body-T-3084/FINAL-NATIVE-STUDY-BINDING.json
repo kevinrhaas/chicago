@@ -1,0 +1,282 @@
+{
+  "scope": "Actual final-source native GLTFLoader study; no photographic/world/published qualification",
+  "source_master_sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45",
+  "baseline_master_sha256": "99f2ca33f0228d486db274f461c59eecdfa19dcb70d1eb2c080c30d4d5456b4a",
+  "reference_sha256": "b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe",
+  "three": "0.185.1",
+  "original_result_sha256": "36c301aa3306a7fb1cb3669f009bca458f7e2fa05ceadfcbb07a443857c74ee3",
+  "supervised_result": {
+    "returncode": 0,
+    "seconds": 44.407549513998674,
+    "command_seconds": 44.40748459500901,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "node",
+      "/tmp/T3084-native-v19-final-visual1/render-native.cjs"
+    ],
+    "cwd": "/tmp/chicago-photo-worker-t3084-20261026/chicago/4d",
+    "main_child_pid": 309719,
+    "timed_out": false,
+    "requested_timeout_seconds": 180.0,
+    "effective_timeout_seconds": 180.0,
+    "timeout_override_reason": null
+  },
+  "cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 309745,
+        "status": 256
+      },
+      {
+        "pid": 309747,
+        "status": 0
+      },
+      {
+        "pid": 309748,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "errors": [],
+  "browser_closed": true,
+  "views": [
+    {
+      "view": "quarter",
+      "which": "baseline",
+      "filename": "baseline-quarter.png",
+      "sha256": "523bbae2377f686a4f8fe5ea2c239cf7546acc9c56db7c4b306f6c84719cd6d7",
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "quarter",
+      "which": "candidate",
+      "filename": "candidate-quarter.png",
+      "sha256": "c90926f92d7f32b5f9d00acdd09b486a516953e4d80c34189c37f1a8074cd3d2",
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    },
+    {
+      "view": "side",
+      "which": "baseline",
+      "filename": "baseline-side.png",
+      "sha256": "066ac2e8e350baed5b1f189df159143b7b372e429b8cf72518196a2e5c078324",
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "side",
+      "which": "candidate",
+      "filename": "candidate-side.png",
+      "sha256": "13f0bd5d57aa7ba3f33b9074094293c420ed492ccff5cdc70fe1164fd05dfdb9",
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    },
+    {
+      "view": "front",
+      "which": "baseline",
+      "filename": "baseline-front.png",
+      "sha256": "3dd57efccd59cf29af992ad64cbbb21abad139708a194feecea0e7e7bd694d51",
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "front",
+      "which": "candidate",
+      "filename": "candidate-front.png",
+      "sha256": "df167eb04781d821382f1e89ec430183072cf7a84a0e5acf551e62714ed76e7f",
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    },
+    {
+      "view": "rear",
+      "which": "baseline",
+      "filename": "baseline-rear.png",
+      "sha256": "0ce5bc8eb6be27320b1e6f4d64bc90f16afd44c7664431bb248ffeb7363d2014",
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "rear",
+      "which": "candidate",
+      "filename": "candidate-rear.png",
+      "sha256": "5f27632beb8cf5bb00109233fc628fc7419f4464e64bf1f5cdfbec405e0b5d41",
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    },
+    {
+      "view": "body_detail",
+      "which": "baseline",
+      "filename": "baseline-body_detail.png",
+      "sha256": "8c54bd85352329bf6ea1bb6f5639a7c38e23fa0c5aba316533dc12572c6162b3",
+      "native_render_calls": 75,
+      "native_render_triangles_all_passes": 99292
+    },
+    {
+      "view": "body_detail",
+      "which": "candidate",
+      "filename": "candidate-body_detail.png",
+      "sha256": "96ad9ed3892eac0ddfcaf6f393b139567155ac7e1d16d0cd450b47f49eab4caf",
+      "native_render_calls": 103,
+      "native_render_triangles_all_passes": 179636
+    },
+    {
+      "view": "seat_detail",
+      "which": "baseline",
+      "filename": "baseline-seat_detail.png",
+      "sha256": "55de1607c346cd6fba055e0d368c7d373d8b084557a323086f85e2e07a58ec3d",
+      "native_render_calls": 75,
+      "native_render_triangles_all_passes": 99292
+    },
+    {
+      "view": "seat_detail",
+      "which": "candidate",
+      "filename": "candidate-seat_detail.png",
+      "sha256": "fb1cfd4aa8e4370318ccc79959e2e949af5be021ff8dacde41b5291467de5a7f",
+      "native_render_calls": 103,
+      "native_render_triangles_all_passes": 179636
+    },
+    {
+      "view": "source-quarter",
+      "which": "baseline",
+      "filename": "baseline-source-quarter.png",
+      "sha256": "ac444b8662d53ca94a9ffb4fc41b899a09adce49aa719b3e8a6172bc1f569873",
+      "actual_controls": [
+        {
+          "id": "front-near-wheel",
+          "actual_native_projection_px": [
+            810.0000000000113,
+            820.005
+          ],
+          "source_control_px": [
+            810,
+            820
+          ]
+        },
+        {
+          "id": "rear-near-wheel",
+          "actual_native_projection_px": [
+            1277.0000000000111,
+            794.995
+          ],
+          "source_control_px": [
+            1277,
+            795
+          ]
+        }
+      ],
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "source-quarter",
+      "which": "candidate",
+      "filename": "candidate-source-quarter.png",
+      "sha256": "f3915e450df290e396608bc6977750ef531013ec43658571cc8e7cd7b1f3b693",
+      "actual_controls": [
+        {
+          "id": "front-near-wheel",
+          "actual_native_projection_px": [
+            810.0000000000113,
+            820.005
+          ],
+          "source_control_px": [
+            810,
+            820
+          ]
+        },
+        {
+          "id": "rear-near-wheel",
+          "actual_native_projection_px": [
+            1277.0000000000111,
+            794.995
+          ],
+          "source_control_px": [
+            1277,
+            795
+          ]
+        }
+      ],
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    },
+    {
+      "view": "source-and-final-native-pair",
+      "which": null,
+      "filename": "untouched-source-and-final-candidate.png",
+      "sha256": "0180c49e560dc8a6be725730a9d91127e07e8c20fa977605adb1b07250f5d217"
+    },
+    {
+      "view": "native-phone-study-ONLY",
+      "which": "baseline",
+      "filename": "baseline-native-phone-study.png",
+      "sha256": "d8171ed37a3eac3cc133fcc7c8b47c40a74e014f0eed7606dc7a8bd70ef21ad7",
+      "native_render_calls": 76,
+      "native_render_triangles_all_passes": 100124
+    },
+    {
+      "view": "native-phone-study-ONLY",
+      "which": "candidate",
+      "filename": "candidate-native-phone-study.png",
+      "sha256": "03225a7c47883c10740735db2400ed890fec5a7c3a9c5775488d089e5b4263f4",
+      "native_render_calls": 105,
+      "native_render_triangles_all_passes": 181300
+    }
+  ],
+  "production_adapter_used": false,
+  "native_phone_study_is_published_qualification": false,
+  "photographic_accepted": false,
+  "evidence_status": "Large original PNGs retained in owned /tmp output for ROOT safe evidence checkpoint; no bulky app evidence copied",
+  "prepared_camera_input": {
+    "original_path": "/tmp/T3084-V19-SOURCE-CAMERA-PREPARED.json",
+    "sha256": "1d9d56961feec49bb6cf3ac39758a43a5272bda561fe242cc71bb2e852af8fd4",
+    "actual_render_executed_at_preparation": false
+  },
+  "actual_output_execution": {
+    "actual_native_GLTFLoader": true,
+    "source_quarter_rows_executed": 2,
+    "complete_image_rows": 17,
+    "image_hashes_reverified": true,
+    "source_master_sha256": "fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45",
+    "source_camera_controls_executed": true,
+    "browser_closed": true,
+    "errors": [],
+    "outer_result": {
+      "returncode": 0,
+      "seconds": 44.407549513998674,
+      "command_seconds": 44.40748459500901,
+      "resource_pause_seconds": 0.0,
+      "command": [
+        "node",
+        "/tmp/T3084-native-v19-final-visual1/render-native.cjs"
+      ],
+      "cwd": "/tmp/chicago-photo-worker-t3084-20261026/chicago/4d",
+      "main_child_pid": 309719,
+      "timed_out": false,
+      "requested_timeout_seconds": 180.0,
+      "effective_timeout_seconds": 180.0,
+      "timeout_override_reason": null
+    },
+    "cleanup": {
+      "reaped_owned_descendants": [
+        {
+          "pid": 309745,
+          "status": 256
+        },
+        {
+          "pid": 309747,
+          "status": 0
+        },
+        {
+          "pid": 309748,
+          "status": 0
+        }
+      ],
+      "remaining_owned_children": [],
+      "cleanup_complete": true
+    }
+  },
+  "execution_truth_addendum_sha256": "6b41c0a9ee10411e9a06547f18db8abaebc670e5591fa03dfed21591437b8d39"
+}

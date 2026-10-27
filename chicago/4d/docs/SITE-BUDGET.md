@@ -1008,6 +1008,13 @@ textured houses (§11's "1.5-3.5 MiB each", now 3.6-4.5 for the big ones) and tr
   `tools/transport/brougham/check_*.py` reads, from the source tree. Leaving them out
   of the mirror is a `publish.sh` change, but the Brougham is in flight on #1335 and the
   published `LICENSES.md` names the horse master, so this PR does not do it.
+  **Pulled 2026-10-27 (T-3084, with T-3088 landed):** `tools/transport-source-only.json`
+  lists the masters no live model or renderer script reads, `publish.sh` leaves them out
+  of the mirror, and `check_published.mjs` refuses one that is still published, is a live
+  model, or is named by a renderer script. The list is the two v16 standing-horse parents
+  (anatomy-v2 is the live horse) and the Brougham's two sources; the bytes stay in the
+  repository for the authoring checks. The mechanism is T-2793's (#1340), taken ahead of
+  that PR so the Brougham fits the 416 MiB allowance.
 
 **The allowance is now 416 MiB**, 35.115 MiB of headroom on this tree, about 31.7 once
 #1331 lands. Two 416 MiB allowances (production and the `/4d/dev/` preview) plus the
