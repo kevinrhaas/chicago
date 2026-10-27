@@ -417,11 +417,11 @@
        "variant": "k11.gate.walk_gate_on_piers",
        "leaves": 2,
        "clear_m": 1.3,
-       "drawn_deg": 70
+       "drawn_deg": 0
       },
       "side_gate": {
        "variant": "k11.gate.walk_gate_on_piers",
-       "pier_s_m": -5.55,
+       "pier_s_m": -1.8,
        "drawn_deg": 0
       },
       "posts": {
@@ -433,7 +433,7 @@
      "sources": [
       "chicagology_1828_shipman_automobile"
      ],
-     "note": "Stone posts and an iron fence on a curb before the house at the right edge of the automobile photograph (about 1897-1906); the Pomeroy photograph's ornamental iron fence before it is older. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates are reconstructed. T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206). T-3206: the side gate is hung across 1.6 m of the south yard's mouth at the lot line (s -7.25 to -5.55), the fence carried on from its pier; it had spanned the whole 5.45 m mouth as one leaf, which no gate of the district does (reconstructed, as the gates were). T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+     "note": "Stone posts and an iron fence on a curb before the house at the right edge of the automobile photograph (about 1897-1906); the Pomeroy photograph's ornamental iron fence before it is older. The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates are reconstructed."
     },
     "bays": {
      "value": [
@@ -594,33 +594,6 @@
       "chicagology_1828_shipman_automobile"
      ],
      "note": "The sheet's 'rear2B' range behind the main block, lot frame u 19.6-32.6, from the main block's north wall (v 6.1) to v -6.0, so it stands 3.0 m past the main block's south flank, where it shows a short front of its own to the street: the lower two-storey block under a hipped roof on bracketed eaves beside the villa in the Pomeroy photograph (before 1880), its street face (with the trees' shadows on it) in the automobile photograph. Heights and windows are reconstructed in proportion to the photograph. Its roof is decked flat in K04's tin behind a deep fascia: the photograph's roof is a low hip, and a pitched K01 wing is slated, which K04's slates allow only from 45 degrees, far steeper than the photograph's (open for T-3168). The sheet's bay on its south wall (u 26.1-31.4 out to v -8.0) is not built: a K01 wing's wall carries a tower or a full-height projection, not a bay (open in the research note)."
-    },
-    "yard": {
-     "value": {
-      "kit": "k14_condition",
-      "built": 1904,
-      "lawn": "turf",
-      "grass_edge": "street_front",
-      "under_stoop": "earth",
-      "front_walk": {
-       "surface": "stone_flags",
-       "flag_m": 0.6,
-       "top_m": 0.06,
-       "wear_tone": 0.9
-      },
-      "service_walk": {
-       "surface": "cinder",
-       "to_u_m": 0.0,
-       "wear_tone": 0.78,
-       "band": "gate"
-      }
-     },
-     "confidence": "reconstructed",
-     "sources": [
-      "chicagology_1828_shipman_automobile",
-      "sanborn_1911_chicago_v3_sheet_28"
-     ],
-     "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate back along the south lot line, the gate's width. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
     }
    }
   }
