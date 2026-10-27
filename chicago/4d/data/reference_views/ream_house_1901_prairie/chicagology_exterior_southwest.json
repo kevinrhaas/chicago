@@ -1,0 +1,27 @@
+{
+ "structure_id": "ream_house_1901_prairie",
+ "source_id": "chicagology_1901_ream_exterior",
+ "library_image": "a19-cgy-1901-exterior",
+ "photo": "../../sources/assets/ream_1901_photos_t1903/ream_1901_exterior.jpg",
+ "image_px": [
+  1928,
+  1176
+ ],
+ "principal_px": [
+  616.1,
+  956.6
+ ],
+ "focal_px": 2118.9,
+ "eye": [
+  46.34,
+  34.14,
+  2.1
+ ],
+ "yaw_deg": 220.23,
+ "sun_uvy": [
+  1.0,
+  -0.35,
+  0.9
+ ],
+ "solve": "Fitted by T-3186 (piece 2 of T-1903) to the undated Chicagology exterior photograph alone, the image store's 1928 x 1176 px copy, in the frame the 1898 camera uses (u toward Prairie Avenue from the main body's rear wall, the front at u 22.4; v from the north wall, the south wall at v 15.2). LEVEL: every vertical edge of the house stands vertical in the print, and the canted south-west corner's cornice bed and base course both read level (y 366-368 and 1002-1003 px across it), so that face stands square to the picture plane and the camera's heading is nearly its normal; the base course reads close to level on all three faces, so the horizon stands near it and the eye near street level, with the lens shifted far up and left (the copy is cut from a larger plate). Ten readings fitted by least squares, the canted corner's size free: the canted corner's two edges at the cornice's bed (x 942, y 368 and x 1119, y 366 px) and on the base course (y 1003 and 1002), the front's north corner at the cornice's bed (x 412, y 515), the front's north window column and the window over the porch (x 513 and 660 px), the canted face's window column (x 1040), and the south flank's canted bay's west cheek, which faces the camera, at the wall (x 1340) and at the bay's front corner (x 1522); heights held at the model's base course 1.45 m and wall head 10.75 m. Residual 9.2 px RMS; the corners fit within 4 px and the bay's cheek carries the largest, 22 and 16 px: the print's cheek reads about 3 m across where the sheet's bay gives it 2.25 m (the match record). PLACE: the eye at u 46.3 (about 24 m before the front, across Prairie Avenue), v 34.1 (about 19 m south of the south wall) and 2.1 m over the house's grade, looking north-east (yaw 220 deg) at the canted corner. WHAT IT SAYS ABOUT THE PLAN: the canted south-west corner fits best cut about 1.83 m each way (its face about 2.6 m across), where the 1898 camera's weaker fit read about 2.5 m and the 1911 sheet draws a small chamfer. LIGHT: the front and the canted corner lit, the south flank in deep shade and the porch's columns casting to the north: a sun in the west to north-west (sun_uvy)."
+}
