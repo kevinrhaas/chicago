@@ -1209,6 +1209,8 @@ class Bay:
                 flat.plane("fascia", K6.box(er.s_start(ov), er.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
+            if v.get("corbel_table"):
+                self._eave_corbel_table(flat, run, y_top, ov)
             if v.get("balcony"):
                 self._balcony(flat, run, y_e, ov, first=i == 0, idx=i)
             if v.get("floor_balcony"):
@@ -1464,6 +1466,36 @@ class Bay:
                                          flat.P(s_, ya, -o)], (hx, 0.0, 0.0))
                 flat.face("corbel", [flat.P(s0, ya, 0.0), flat.P(s1, ya, 0.0), flat.P(s1, ya, -o),
                                      flat.P(s0, ya, -o)], (0.0, -1.0, 0.0))
+        self.meta["corbel_table"] = self.meta.get("corbel_table", 0) + n
+
+    def _eave_corbel_table(self, flat, run, y_top, ov):
+        """T-3195: a row of plain stone blocks under a moulded eave along every run (1827's
+        tower, from the Doane photograph): blocks `width_m` across, `drop_m` deep under the
+        wall top and `out_m` before the face, as many as fit at `spacing_m` between `margin_m`
+        from each of the run's ends (so a polygon's corners stand clear), spread evenly there. Each block's back and top stand
+        against the face and the moulding's bed and are not drawn."""
+        if self.tier == "light":
+            return    # a far view's copy: the moulding carries the eave's outline, the row is detail
+        m = self.v["corbel_table"]
+        w, drop, out = m["width_m"], m["drop_m"], m["out_m"]
+        if out > ov:
+            raise ValueError(f"{self.v['id']}: a corbel {out} m out reaches past its eave at {ov} m")
+        a, b = run.s_start(0.0) + m["margin_m"], run.s_end(0.0) - m["margin_m"]
+        n = math.floor((b - a - w) / m["spacing_m"] + 1e-9) + 1 if b - a >= w else 0
+        if n <= 0:
+            return    # a run too short for one block (a return the host wall all but closes)
+        gap = (b - a - n * w) / max(n - 1, 1) if n > 1 else 0.0
+        x0 = a if n > 1 else (a + b - w) / 2
+        y0 = y_top - drop
+        for k in range(n):
+            s0 = x0 + k * (w + gap)
+            s1 = s0 + w
+            flat.plane("corbel", K6.box(s0, s1, y0, y_top), -out)
+            for s_, hx in ((s0, -1.0), (s1, 1.0)):
+                flat.face("corbel", [flat.P(s_, y0, 0.0), flat.P(s_, y_top, 0.0), flat.P(s_, y_top, -out),
+                                     flat.P(s_, y0, -out)], (hx, 0.0, 0.0))
+            flat.face("corbel", [flat.P(s0, y0, 0.0), flat.P(s1, y0, 0.0), flat.P(s1, y0, -out),
+                                 flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta["corbel_table"] = self.meta.get("corbel_table", 0) + n
 
     def _consoles(self, world, y_top, ov):
