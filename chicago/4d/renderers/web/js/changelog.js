@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2349, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: '1904 Prairie: carriage blocks cleared from the curbs', kind: 'fix',
+    items: [
+      '91 curb blocks removed; period photos show the parkway edge clear.',
+      '13 stone carriage posts stand where photos show them: 1815 Prairie and the 2100 block.',
+      'Each post differs in height, cap, lean and stone tone.',
+      'Carriage walks across the parkway are unchanged.',
+    ] },
+  { v: 2348, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: 'The Kimball house\'s tower wears its turned finial, its dormers their slate', kind: 'improvement',
+    items: [
+      '1801 Prairie\'s corner tower now carries the knobbed, turned finial of the c. 1895 Taylor photograph, rising from a crocketed collar on the cone\'s tip, in pale metal where a plain slate spike stood.',
+      'The house\'s three hooded dormers have slated faces with a pale frame round each small window, as the Taylor photograph and the 1965 HABS photograph show them, where their faces were plain stone.',
+    ] },
+  { v: 2347, ts: '2026-10-27T21:00:09.073Z', date: 'Oct 27, 2026, 4:00 PM CT', title: '1827 Prairie\'s carved window heads and slated attic cheeks', kind: 'improvement',
+    items: [
+      'The Doane house at 1827 Prairie matches its photograph more closely: carved stone panels now arch over the windows of its front pavilion and of the window bay beside it, the pavilion\'s attic is slated at its sides around a stone face with its three windows, and the steep roof over it sits closer to the wall, as the photograph shows.',
+    ] },
   { v: 2346, ts: '2026-10-27T19:19:34.707Z', date: 'Oct 27, 2026, 2:19 PM CT', title: 'Gas lamps stand at every corner and along the 1904 parkways', kind: 'feature',
     items: [
       'A cast-iron gas lamp post stands at each of the district\'s 28 street corners, on a stone footing at the curb corner.',
