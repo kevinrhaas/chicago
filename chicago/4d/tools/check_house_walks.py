@@ -79,6 +79,7 @@ PENDING = {
     "house_1726_prairie": "T-3205",
     "house_1730_prairie": "T-3205",
     "house_1736_prairie": "T-3205",
+    "kellogg_house_1709_prairie": "T-3205",
     "pullman_house_1729_prairie": "T-3205",
     "walker_house_1720_prairie": "T-3205",
 }
