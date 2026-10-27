@@ -24327,7 +24327,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24413,6 +24413,9 @@ The sheet's stable and garage at the lot's east end, the 1B range north of the h
 on 18th Street stay this draft's, at the massing it stood them, as `pullman_house_1729_prairie_ranges`, written by T-1880
 from the draft's own rectangles on the draft builder (the rules' skip names it) until T-1934; the stable keeps its two
 storeys and mansard, and the range and the porte-cochere stand at one storey under flat roofs, as the sheet letters them.
+**1721 retired from this liberty by T-1878 (2026-10-26):** the Dexter house now stands as the K01 brick
+frontage read off the 1911 sheet and the 1891 Inland Architect plate, under `L-k01-1721-dexter-1878`, under
+the same id; its draft attributes are gone. Its alley building stays a draft here.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -34080,6 +34083,52 @@ plan or the dome's specification settles its covering.
 **Ticket:** T-3165 (piece of T-1934).
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-26 (T-3165).
+
+### L-k01-1721-dexter-1878 — 1721 Prairie refined from the district draft to a K01 house: Arthur Little's front of 1889, its porch in the recess and its two bows on a forward block, painted a chosen pale buff
+
+**Covers:** `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.side_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`
+**Decision:** the house at 1721 Prairie Avenue, Wirt Dexter's house of 1863 under the front Arthur
+Little gave it in 1889 (T-1878, package N18A of T-1837), is no longer a district draft. It stands,
+under the draft's own id `dexter_house_1721_prairie`, as a `k01_frontage` record built by
+`generators/k01_emit.py`: a three-storey block over a low basement under a moulded cornice and a flat
+deck, its north part recessed behind an entrance porch on two columns whose flat roof is railed as a
+balcony, the rest of the front standing 2.9 m forward of it as one block carrying two bows through
+the ground and second storeys, a tall stack on that block's north return, and the long two-storey
+rear wing with a frame room at its east end. The picture is the 1891 Inland Architect plate
+(`inland_architect_1891_06_dexter_plate`, public domain), read for forms and proportions.
+**What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1721-b1, census
+s20-1721-f and s20-1721-a1): the plan — the main block 7.75 m deep and 17.6 m wide at the recessed
+wall, the forward block's face 2.9 m before it from 3.55 m to the south wall, both bows' places and
+how far they stand out, the porch's place in the recess, the rear wing's run and width and its frame
+end — three storeys, brick. From the plate: the recess, the porch on two columns and its railed
+roof, the forward block, the bows rising two storeys and roofed at the third floor, three storeys
+over a low basement, the flat roof behind the cornice, the light smooth wall, the north return's stack.
+**What is invented.** The walls' colour: the plate is monochrome, so the brick is painted a chosen
+pale buff (`form.wall_finish`), taken as painted because the plate shows no coursing where it shows
+the shutters' slats. The windows on the south and north walls and on the rear (no picture shows
+them), each bow's three lights a storey, the storey heights read only in proportion, the wall
+thicknesses, the window heads (a cornice hood where the plate has small carved tablets), the tin of
+the deck and its fall, the kit's sash and tread. The rear wing's windows and its frame room's one
+storey are the sheet's notation read by the kit.
+**What is not built yet (T-1879).** The balustraded parapet over the cornice and the cornice's
+modillions; the bows' balustraded balconies at the third floor; the porch's balusters (the kit's
+railing stands for them); shutters, the ground floor's iron balconettes, the carved tablets; the
+oval light on the north face; and the image gate's cameras on the five pictures.
+**How it is built.** K01 cannot step its own front, so the forward block is a K08 full-height
+projection marked `block` (14.05 m wide, 2.9 m proud, flush with the south corner) and the bows
+stand on its face (`on_front`), framed as T-3108 frames a bow on a chamfer; both are additive to
+`k01_frontage_params` and `k01_frontage`, and no other record names them.
+**How to resolve:** a picture of the house in colour, or a description of its walls, replaces the
+paint; T-1879 builds the detail above and solves the cameras.
+**Ticket:** T-1878.
+**Review:** `docs/RESEARCH/k01-1721-dexter-1878/README.md`.
+**Recorded:** 2026-10-26 (T-1878).
+**Kit fit (2026-10-27, T-1878):** the K08 bay kit's gate refused two of the reconstructed window
+choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round
+its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward
+block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and
+says why in its record: the plate draws it taller than the lights above, and its size is read only
+in proportion to the 5.6 m storey.
 
 ### L-k16-1720-frame-house-3180 — 1720 Prairie refined from the district draft to a whole K16 clapboard frame house, its front read off the Tyrrell photograph
 
