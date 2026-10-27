@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2359, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1900 Prairie stands as the Keith house in its photograph', kind: 'feature',
+    items: [
+      '1900 Prairie Avenue, Elbridge Keith\'s house, is no longer a draft box: a smooth limestone front, two tall storeys over a raised basement, under a slated mansard with dormers and a deep cornice on paired brackets.',
+      'At its south corner a canted bay rises through both storeys and up past the cornice under its own slate crown, and a porch on columns at the head of a broad stoop carries a balcony, with a raised terrace running along the front, as the old photograph of the house shows them.',
+      'The photograph is now the house\'s picture, so it is built to it and compared against it from the photographer\'s own viewpoint. The card says what is still to come, such as the round-headed windows and their carved hoods.',
+    ] },
+  { v: 2358, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1904 corners: stone ramps down to the street', kind: 'feature',
+    items: [
+      'Every corner of the district now has two crossings, the walk carried on to the curb.',
+      'Each ends in a dressed stone ramp down to the roadway; the curb breaks for it.',
+      'Pictured at the Glessner and Pullman corners of 18th and Prairie; elsewhere by rule.',
+      'Walk down a ramp: the walker follows its slope.',
+    ] },
   { v: 2357, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'The Kimball house\'s tower cone rises to its photographs', kind: 'improvement',
     items: [
       '1801 Prairie\'s corner tower now has a steeper slate cone, its tip about half a metre higher, so the tower\'s finial stands where the c. 1895 Taylor photograph and the 1965 HABS photograph both put it.',
