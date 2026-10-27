@@ -30197,11 +30197,14 @@ reshaped from a picture), grouped into areas of buildings within 60 m of each ot
 of the street and back up the other. The ladder, the grouping, the order, the reading times and the keepsake
 are this project's description of its own work, not history.
 **Bounds:** Written only by `tools/jaunt_built_so_far.py` from the compiled 1904 records and their image-gate
-verdicts; `check.sh` fails when the committed walk no longer matches them.
+verdicts; `check.sh` fails when the committed walk no longer matches them. A jaunt holds at most the schema's
+50 stops, so once more buildings than that are worked the walk takes the 50 most detailed by the same ladder
+and its opening says how many less detailed buildings wait outside it (2026-10-27, when the 51st building
+reached the walk).
 **How to resolve:** Not a historical claim and never promoted to one; the ladder changes in the tool and its
 docstring together.
 **Applies to:** `data/jaunts/prairie-built-so-far.json`.
-**Recorded:** 2026-10-17 (T-2747).
+**Recorded:** 2026-10-17 (T-2747); the 50-stop bound 2026-10-27 (T-3187).
 
 ### L-glessner-cupola-body-2228 — Glessner's stable cupola raised so its dovecote body stands clear of the ridge
 
