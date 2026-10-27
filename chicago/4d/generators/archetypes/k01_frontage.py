@@ -2657,6 +2657,14 @@ class Assembly:
             if ch is not None:   # T-3048: short of where a chamfer's face crosses the plane
                 (x0, x1), ys = closes[0]
                 closes = [((x0 + ch[3], x1) if ch[0] == "left" else (x0, x1 - ch[3]), ys)]
+            # T-1890: a staged tower's ring is the stage's from its lowest corbel course up, wider
+            # than the shaft's, so it is closed there across the stage's junctions
+            sg = built.meta.get("stage")
+            if sg is not None:
+                (x0, x1), (y0, y1) = closes[0]
+                y_c = max(y0, sg["bottom_m"])
+                closes = [c for c in (((x0, x1), (y0, y_c)), (tuple(sg["junctions_x"]), (y_c, y1)))
+                          if c[1][1] - c[1][0] > 1e-6]
             # T-3156: a pavilion under a raised crown has no soffit of its own: the crown's is over it
             if not shallow and "soffit" in built.prims:
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
