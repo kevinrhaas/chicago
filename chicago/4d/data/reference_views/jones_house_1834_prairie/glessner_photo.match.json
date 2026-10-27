@@ -2,7 +2,7 @@
   "structure_id": "jones_house_1834_prairie",
   "view": "glessner_photo",
   "glb": "assets/gltf/jones_house_1834_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3b6a0fbc51883eebb991224a86837eb55daa12f8e19b8fc319d7ff757c584d79",
+  "glb_sha256": "c4e87cd7ff6080e30883d77c61eb21f4b325911150f33c761ccf9b6bb8926af2",
   "camera_sha256": "c3c2ac309fef60b5376ac5dbfb21bf4025c21f8cf748baf9aa2031e6084dea7b",
   "photo_sha256": "4180b8c58b74f7611529056a55633e18f01a35f37ad769ebda8bfefeff219283",
   "side_by_side": "docs/RESEARCH/photo-match/jones_house_1834_prairie/glessner_photo-side-by-side.jpg",
@@ -86,7 +86,7 @@
     {
       "what": "the bay's lights round-headed, its stone base with a round-headed basement light, and its top a bracketed cornice; built square-headed under a plain cap",
       "status": "fixed",
-      "how": "T-3184: K08's hooded canted bay (a hood on consoles), its lights round-headed (K06 round fanlight sash), the near cheek's 0.8 m wide, and a narrow round-headed light in its 2.2 m stone base; the hood's line within about 10 px"
+      "how": "T-3184: K08's hooded canted bay (a hood on consoles), its lights round-headed (K06 round fanlight sash), the near cheek's 0.8 m wide, and a narrow round-headed light in its 2.2 m stone base; the hood's line within about 10 px; re-rendered after the base light was set on the kit's 0.6 m plinth (0.72-1.92 m) and each cheek's light centred on its cheek, as K08's storey and pier rules require: no change a visitor would notice"
     },
     {
       "what": "the cornice's depth: a tall plain frieze with panels between paired carved brackets about 1.1 m deep; K10's cornice is shallower and its brackets smaller",
