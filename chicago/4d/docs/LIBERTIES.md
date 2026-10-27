@@ -34719,3 +34719,39 @@ district near 1904 would place them too.
 **Ticket:** T-3201.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 2.
 **Recorded:** 2026-10-27 (T-3201).
+
+### L-prairie-utility-poles-3202 — The 1904 district's utility poles and wires: Glessner's pictured pole, a line on 18th Street and down every alley, and 22nd Street's trolley overhead
+
+**Decision:** wooden poles carry overhead wires along three runs (`data/street_furniture/1904.json`,
+written by `tools/lay_prairie_1904_street_furniture.py`).
+On 18th Street, Glessner's pole stands on the south parkway at the north-west corner of the
+stable, by the alley (attested); two more run west from it to Indiana Avenue at about 34 m by the curb
+(inferred), and a line goes from it into the alley behind. Down each of the seven alleys a line runs on
+its east side, its end poles 2.5 m in from the mouths, spanned across the street where one alley's foot
+meets the next one's head (reconstructed). On 22nd Street, pairs of plain poles at about 34 m, one in
+the north parkway by the curb and one opposite it across the street, hold a span wire at 6.6 m, and two
+contact wires run along the street over the tracks at 5.6 m (the wires inferred, the poles
+reconstructed). No pole stands on a Prairie Avenue parkway. Line poles are 10.5 m on 18th Street and 9.5 m in the
+alleys, each with one crossarm (six pins on 18th Street, four in the alleys) and green glass insulators.
+The wires sag about 1.2 % of their span and are hidden on the phone's light tier. Every pole is
+moved clear of an elm, a lamp or a hydrant (1.5 m), a carriage walk and an alley mouth.
+**What it stands on:** the c. 1887 photograph of Glessner's stable from the north-west
+(`cornell_adw_glessner_stable_1887`) for Glessner's pole, its crossarm and its place. Taylor no. 2135
+(`taylor_2135_glessner_exterior_1887_1889`) and the Detroit Publishing Pullman view
+(`loc_det_4a08065_pullman_residence`) show no pole on 18th Street east of the alley or on Prairie
+Avenue. The photograph from 22nd and Prairie (`chicagology_2140_photo_a`) shows rails and trolley
+wires in 22nd Street; it is undated (after 1890).
+**What is invented:** every pole's place but Glessner's; the line's run west to Indiana and down the
+alleys, and what it carried; the 34-m spacing, the heights, the pins and the insulators' colour; the
+trolley overhead's form (span wires on paired poles, two contact wires, the heights), which the
+photograph shows only as wires; that 22nd Street's line was electric by July 1904. The University of
+Chicago's 1897 street-car map and 1902 surface street-railroad maps
+(`st-uchicago-blanchard-1897-street-car-lines-se`, `st-uchicago-1902-surface-street-railroads` in the
+Prairie library) would settle 22nd Street's line, but their images could not be reached from the build
+containers and were not read.
+**How to resolve:** read the 1902 street-railroad map and the 1897 street-car map for 22nd Street; a
+dated photograph of 22nd Street or of an alley in the district would place the poles and show the
+overhead's form; a Sanborn sheet does not draw poles.
+**Ticket:** T-3202.
+**Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
+**Recorded:** 2026-10-27 (T-3202).

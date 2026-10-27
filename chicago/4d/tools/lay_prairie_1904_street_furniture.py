@@ -581,25 +581,236 @@ def lay_hydrants(grid, section, trees_doc, lamps):
     return items
 
 
+# --------------------------------------------------------------------------- the poles and wires (T-3202)
+
+POLE_SPACING_M = 34.0          # about 110 ft between poles on a line
+POLE_CURB_INSET_M = 0.35       # a street pole's centre, inside the parkway's curb edge
+POLE_ALLEY_INSET_M = 0.45      # an alley pole's centre, inside the alley's edge
+POLE_MOUTH_IN_M = 2.5          # an alley line's end pole, in from the alley's mouth
+POLE_TREE_CLEAR_M = 1.5        # plan distance from an elm's trunk
+POLE_ITEM_CLEAR_M = 1.5        # plan distance from a lamp or a hydrant
+ALLEY_LINE_JOIN_M = 12.0       # two alley ends this near across a street are one line, spanned over it
+
+POLE = {
+    "street": {"height_m": 10.5, "butt_d_m": 0.30, "top_d_m": 0.19, "arms": 1, "pins": 6,
+               "arm_len_m": 2.4, "arm_below_top_m": 0.45},
+    "alley": {"height_m": 9.5, "butt_d_m": 0.28, "top_d_m": 0.18, "arms": 1, "pins": 4,
+              "arm_len_m": 1.8, "arm_below_top_m": 0.4},
+    "trolley": {"height_m": 9.0, "butt_d_m": 0.28, "top_d_m": 0.19, "arms": 0, "pins": 0,
+                "span_at_m": 6.6},
+}
+WIRE_SAG_FRAC = 0.012          # a line wire's sag, as a share of its span
+TROLLEY = {"contact_h_m": 5.6, "contact_gap_m": 3.0, "span_sag_m": 0.35}
+
+# Glessner's pole: the c. 1887 photograph from the north-west shows a pole with a crossarm of
+# about six pins on the 18th Street parkway at the stable's north-west corner, by the alley.
+GLESSNER_POLE = {"face": "e18th__indiana_prairie_18_20", "alley": "alley_indiana_prairie_18_20",
+                 "past_alley_m": 2.0, "sources": ["cornell_adw_glessner_stable_1887"]}
+# 18th Street's line runs west from Glessner's pole to Indiana Avenue; Taylor 2135 and the
+# Detroit view show no pole on 18th Street east of the alley.
+POLE_18TH_NOTE_SOURCES = ["taylor_2135_glessner_exterior_1887_1889", "loc_det_4a08065_pullman_residence"]
+TROLLEY_SOURCES = ["chicagology_2140_photo_a"]
+TROLLEY_FACES = ["e22nd__indiana_prairie_21_22", "e22nd__prairie_calumet_21_22"]
+STREET_WIDTH_FT = {"row_66": 66.0, "row_50": 50.0}
+
+
+def alley_edges(al):
+    """The alley's two long edges as polylines, north to south: (west, east)."""
+    qs = al["quads_local_m"]
+    west = [tuple(qs[0][0])] + [tuple(q[1]) for q in qs]
+    east = [tuple(qs[0][3])] + [tuple(q[2]) for q in qs]
+    if west[0][1] < west[-1][1]:
+        west.reverse(); east.reverse()
+    return west, east
+
+
+def poly_len(pl):
+    return sum(math.dist(a, b) for a, b in zip(pl, pl[1:]))
+
+
+def poly_at(pl, s):
+    """Point and unit tangent at distance s along a polyline."""
+    acc = 0.0
+    for a, b in zip(pl, pl[1:]):
+        L = math.dist(a, b)
+        if s <= acc + L or b == pl[-1]:
+            f = (s - acc) / (L or 1.0)
+            return (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f), unit(sub(b, a))
+        acc += L
+    return pl[-1], unit(sub(pl[-1], pl[-2]))
+
+
+def lay_poles(grid, section, trees_doc, items):
+    xs = grid["cross_sections"]
+    faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
+    alleys = {a["id"]: a for a in grid.get("alleys", [])}
+    walks = {}
+    for w in (section or {}).get("carriage_walks", {}).get("walks", []):
+        walks.setdefault(w["face"], []).append(w)
+    trees = [(t["e"], t["n"]) for t in (trees_doc or {}).get("trees", [])]
+    others = [(i["e"], i["n"]) for i in items]
+    crossings = crossing_polys(section)
+
+    def free(p):
+        return (all(math.dist(p, t) >= POLE_TREE_CLEAR_M for t in trees)
+                and all(math.dist(p, o) >= POLE_ITEM_CLEAR_M for o in others)
+                and all(poly_dist(p, c) >= CROSSING_CLEAR_M for c in crossings))
+
+    def on_face(face, s, across, lo, hi):
+        blocked = blocked_intervals(face, walks, list(alleys.values()))
+        k = 0
+        while k * NUDGE_STEP_M <= NUDGE_MAX_M:
+            for x in ((s,) if k == 0 else (s + k * NUDGE_STEP_M, s - k * NUDGE_STEP_M)):
+                if lo <= x <= hi and not any(a < x < b for a, b, _ in blocked):
+                    p, t = face.at(x, across)
+                    if free(p):
+                        return x, p, t
+            k += 1
+        return None
+
+    poles, wires = [], []
+
+    def pole(pid, p, t, cls, grade, sources, line, liberty=None, **kw):
+        rec = {"id": pid, "kind": "utility_pole", "e": r2(p[0]), "n": r2(p[1]), "heading_deg": round(bearing(t), 1),
+               "place": line, "class": cls, "grade": grade, "sources": sources}
+        if liberty:
+            rec["liberty"] = liberty
+        rec.update(kw)
+        poles.append(rec)
+        others.append(p)
+        return rec
+
+    # 1. 18th Street: Glessner's pole by the alley, then west to Indiana.
+    face = faces[GLESSNER_POLE["face"]]
+    al = alleys[GLESSNER_POLE["alley"]]
+    ss = [face.project(tuple(q))[0] for q in al["polygon_local_m"] if abs(face.project(tuple(q))[1]) < 8.0]
+    # The face runs east to west; "past the alley" is toward Prairie, the smaller s.
+    s0 = min(ss) - ALLEY_CLEAR_M - GLESSNER_POLE["past_alley_m"]
+    across = face.park_to - POLE_CURB_INSET_M
+    hit = on_face(face, s0, across, 0.0, face.length)
+    if not hit:
+        raise SystemExit("street furniture: no clear spot for Glessner's pole")
+    names = {k: v.get("name_1904", k) for k, v in grid["streets"].items()}
+    w18 = f"on the south parkway of {names['e18th']}"
+    line18 = [pole("pole.18th.glessner", hit[1], hit[2], "street", "attested", GLESSNER_POLE["sources"], "e18th",
+                   where=f"{w18}, at the north-west corner of Glessner's stable by the alley",
+                   note=("Glessner's: the c. 1887 photograph of the stable from the north-west shows a wooden pole "
+                         "with a crossarm of about six pins on the 18th Street parkway at the stable's corner, "
+                         "by the alley."))]
+    s = hit[0] + POLE_SPACING_M
+    k = 1
+    while s <= face.length - 6.0:
+        h = on_face(face, s, across, s - 4.0, face.length - 4.0)
+        if h:
+            line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
+                               GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
+                               liberty="L-prairie-utility-poles-3202", where=w18))
+            k += 1
+        s += POLE_SPACING_M
+    # ...and one more short of Indiana Avenue's corner, where the line goes on beyond the district.
+    last_s = face.project((line18[-1]["e"], line18[-1]["n"]))[0]
+    if face.length - 8.0 - last_s > 0.5 * POLE_SPACING_M:
+        h = on_face(face, face.length - 8.0, across, last_s + 10.0, face.length - 4.0)
+        if h:
+            line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
+                               GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
+                               liberty="L-prairie-utility-poles-3202", where=w18))
+    # 2. The alleys: a line down each, on its east side, an end pole in from each mouth.
+    ends = []
+    for aid in sorted(alleys):
+        west, east = alley_edges(alleys[aid])
+        edge = east
+        L = poly_len(edge)
+        n = max(1, round((L - 2 * POLE_MOUTH_IN_M) / POLE_SPACING_M))
+        step = (L - 2 * POLE_MOUTH_IN_M) / n
+        line = []
+        for j in range(n + 1):
+            s = POLE_MOUTH_IN_M + j * step
+            got = None
+            for dk in [0] + [d * sgn for d in (0.5, 1.0, 1.5, 2.0, 2.5, 3.0) for sgn in (1, -1)]:
+                x = min(max(s + dk, 1.0), L - 1.0)
+                q, t = poly_at(edge, x)
+                inward = (t[1], -t[0])   # walking south on the east edge, west is to the right
+                p = (q[0] + inward[0] * POLE_ALLEY_INSET_M, q[1] + inward[1] * POLE_ALLEY_INSET_M)
+                if free(p):
+                    got = (p, t)
+                    break
+            if got:
+                line.append(pole(f"pole.{aid.replace('alley_', 'alley.')}#{j:02d}", got[0], got[1], "alley",
+                                 "reconstructed", [], "alley", liberty="L-prairie-utility-poles-3202",
+                                 alley=aid, where=f"in the alley {alleys[aid]['where']}"))
+        if line:
+            ends.append((aid, line[0], line[-1]))
+        for a, b in zip(line, line[1:]):
+            wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "reconstructed"})
+    # The alley lines run on across the cross streets where one alley's foot meets the next one's head.
+    for aid, head, foot in ends:
+        for bid, head2, _ in ends:
+            if bid != aid and math.dist((foot["e"], foot["n"]), (head2["e"], head2["n"])) < 2 * POLE_MOUTH_IN_M + 66 * FT + ALLEY_LINE_JOIN_M \
+                    and abs(foot["e"] - head2["e"]) < ALLEY_LINE_JOIN_M and head2["n"] < foot["n"]:
+                wires.append({"from": foot["id"], "to": head2["id"], "kind": "line", "grade": "reconstructed"})
+    # 18th Street's line: along the parkway, and from Glessner's pole into the alley behind it.
+    for a, b in zip(line18, line18[1:]):
+        wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "inferred"})
+    head = next((h for aid, h, _ in ends if aid == GLESSNER_POLE["alley"]), None)
+    if head:
+        wires.append({"from": line18[0]["id"], "to": head["id"], "kind": "line", "grade": "inferred"})
+    # 3. 22nd Street's trolley: poles on both curbs, a span wire between each pair, two contact
+    #    wires along the street over the tracks.
+    pairs = []
+    for fid in TROLLEY_FACES:
+        face = faces[fid]
+        width = STREET_WIDTH_FT[face.rec["cross_section"]] * FT
+        across = face.park_to - POLE_CURB_INSET_M
+        far_across = width - across        # the far side's parkway, measured from this face's line
+        n = max(1, round((face.length - 12.0) / POLE_SPACING_M))
+        step = (face.length - 12.0) / n
+        for j in range(n + 1):
+            s = 6.0 + j * step
+            h = on_face(face, s, across, 4.0, face.length - 4.0)
+            if not h:
+                continue
+            q, t = face.at(h[0], far_across)
+            a = pole(f"pole.trolley.{fid.split('__')[1]}.n#{j:02d}", h[1], h[2], "trolley", "reconstructed",
+                     [], "e22nd", liberty="L-prairie-utility-poles-3202",
+                     where=f"on the north parkway of {names['e22nd']}")
+            b = pole(f"pole.trolley.{fid.split('__')[1]}.s#{j:02d}", q, t, "trolley", "reconstructed",
+                     [], "e22nd", liberty="L-prairie-utility-poles-3202", beyond_district=True,
+                     where=f"on the south side of {names['e22nd']}, across from the district")
+            pairs.append((h[0] + (0 if fid == TROLLEY_FACES[0] else 1000), a, b))
+    pairs.sort(key=lambda x: (x[1]["e"]))
+    for _, a, b in pairs:
+        wires.append({"from": a["id"], "to": b["id"], "kind": "trolley_span", "grade": "inferred",
+                      "sources": TROLLEY_SOURCES})
+    for (_, a1, b1), (_, a2, b2) in zip(pairs, pairs[1:]):
+        wires.append({"between_spans": [[a1["id"], b1["id"]], [a2["id"], b2["id"]]], "kind": "trolley_contact",
+                      "grade": "inferred", "sources": TROLLEY_SOURCES})
+    return poles, wires
+
+
 def build():
     grid = json.loads(GRID.read_text())
     section = json.loads(SECTION.read_text()) if SECTION.exists() else None
     trees = json.loads(TREES.read_text()) if TREES.exists() else None
     items = lay_lamps(grid, section, trees)
     items += lay_hydrants(grid, section, trees, items)
+    poles, wires = lay_poles(grid, section, trees, items)
+    items += poles
     order = {"corner": 0, "mid-block": 1}
     items.sort(key=lambda i: (i["kind"], order.get(i["place"], 9), i["id"]))
     cited = [s for i in items for s in i["sources"]]
     lamps = [i for i in items if i["kind"] == "gas_lamp"]
     hydrants = [i for i in items if i["kind"] == "fire_hydrant"]
+    poles = [i for i in items if i["kind"] == "utility_pole"]
     return {
-        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps and (T-3201) the fire hydrants on the parkways. GENERATED by "
+        "_doc": ("The 1904 district's street furniture (T-3199): the gas lamps, (T-3201) the fire hydrants and (T-3202) the poles and wires. GENERATED by "
                  "tools/lay_prairie_1904_street_furniture.py from data/street_grid/1904.json, "
                  "data/street_section/1904.json and data/street_trees/1904.json -- do not hand-edit; re-run the "
                  "tool. Local ENU metres of data/datum.json; heading_deg is the compass bearing of the street "
                  "line the item stands along. Drawn by renderers/web/js/street-furniture.js. "
                  "docs/RESEARCH/prairie_1904_street_furniture.md is the reading; docs/LIBERTIES.md "
-                 "L-prairie-street-lamps-3199 and L-prairie-hydrants-3201 the inventions."),
+                 "L-prairie-street-lamps-3199, L-prairie-hydrants-3201 and L-prairie-utility-poles-3202 the "
+                 "inventions. `wires` join poles by id; the renderer hangs them from the poles' pins."),
         "scene": "1904",
         "target_date": "1904-07-01",
         "ticket": "T-3199",
@@ -639,6 +850,27 @@ def build():
                 "rule_note": ("The pictures show post hydrants on the parkway at Pullman's corner and at 22nd Street; "
                               "the city's hydrants stood at its corners and along its long blocks"),
             },
+            "utility_pole": {
+                "name": "utility pole",
+                "name_by_class": {"street": "utility pole", "alley": "utility pole", "trolley": "trolley-wire pole"},
+                "form": ("A wooden pole, 9 to 11 m, tapering from its butt; a line pole carries a crossarm with "
+                         "pins and glass insulators, a trolley-wire pole carries the span wire over the street."),
+                "form_grade": "inferred",
+                "form_sources": ["cornell_adw_glessner_stable_1887"],
+                "form_note": ("Glessner's pole in the c. 1887 photograph is a plain wooden pole with one crossarm of "
+                              "about six pins; every line pole is drawn after it. The trolley poles' form is not "
+                              "pictured: drawn as plain wooden poles."),
+                "model_m": POLE,
+                "what": "A wooden pole carrying overhead wires",
+                "what_by_class": {"trolley": "A pole holding the span wire of the street railway's overhead"},
+                "ticket": "T-3202",
+                "rule_note": "Glessner's pole is pictured on 18th Street; the lines down the alleys are drawn by rule",
+                "rule_note_by_class": {
+                    "street": "The photograph of Glessner's stable shows the line's pole at the alley",
+                    "trolley": ("A photograph at 22nd and Prairie shows rails and trolley wires in 22nd Street; "
+                                "the poles that carried them are not pictured"),
+                },
+            },
         },
         "placement": {
             "gas_lamp": {
@@ -667,30 +899,54 @@ def build():
                          "of every block face 150 m long or more. Each stands in the grass, clear of the walks, the "
                          "corner crossings, the carriage walks, the lamps and the elms."),
             },
+            "utility_pole": {
+                "liberty": "L-prairie-utility-poles-3202",
+                "spacing_m": POLE_SPACING_M,
+                "note": ("Glessner's pole where the photograph shows it, on 18th Street's south parkway at the "
+                         "stable's corner by the alley; the line on west from it to Indiana Avenue at about 34 m "
+                         "(Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley), and "
+                         "into the alley behind it; a line down every alley on its east side, its end poles 2.5 m in "
+                         "from the mouths and spanned across the cross streets where alleys meet; none on the "
+                         "Prairie Avenue parkways. Each pole clear of the elms, lamps, hydrants, carriage walks "
+                         "and alley mouths."),
+                "note_by_class": {
+                    "trolley": ("22nd Street's overhead: a pair of plain poles at about 34 m, one in the north "
+                                "parkway by the curb and one opposite it across the street, a span wire between "
+                                "them at 6.6 m and two contact wires along the street over the tracks at 5.6 m."),
+                },
+            },
         },
+        "wire_model": {"sag_frac": WIRE_SAG_FRAC, "trolley": TROLLEY},
         "street_names": {k: v.get("name_1904", k) for k, v in grid["streets"].items()},
         "sources": source_lines(cited + ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
                                          "chicagology_2140_photo_b", "loc_det_4a08065_pullman_residence",
-                                         "ghm_blog_pullman_completed"]),
+                                         "ghm_blog_pullman_completed", "cornell_adw_glessner_stable_1887",
+                                         "chicagology_2140_photo_a"]),
         "summary": {
             "items": len(items),
             "gas_lamps": len(lamps),
             "fire_hydrants": len(hydrants),
+            "utility_poles": len(poles),
+            "wires": len(wires),
             "corner_lamps": sum(i["place"] == "corner" for i in lamps),
             "attested": sum(i["grade"] == "attested" for i in items),
+            "inferred": sum(i["grade"] == "inferred" for i in items),
             "reconstructed": sum(i["grade"] == "reconstructed" for i in items),
         },
         "items": items,
+        "wires": wires,
     }
 
 
 def dump(doc):
     """Indented, one item to a line: the file diffs by item."""
     items = doc.pop("items")
+    wires = doc.pop("wires", [])
     head = json.dumps(doc, indent=1, ensure_ascii=False)[:-2]
-    body = ",\n".join("  " + json.dumps(x, separators=(", ", ": "), ensure_ascii=False) for x in items)
+    line = lambda xs: ",\n".join("  " + json.dumps(x, separators=(", ", ": "), ensure_ascii=False) for x in xs)
     doc["items"] = items
-    return head + f',\n "items": [\n{body}\n ]\n}}\n'
+    doc["wires"] = wires
+    return head + f',\n "items": [\n{line(items)}\n ],\n "wires": [\n{line(wires)}\n ]\n}}\n'
 
 
 def main():

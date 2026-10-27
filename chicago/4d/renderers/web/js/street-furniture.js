@@ -40,7 +40,8 @@ const RINGS = {
 const REDEAL_M = 3;
 // A hydrant is under a metre tall: past this it is a speck, so it is not drawn at all.
 const HYDRANT_FAR_M = { full: 160, balanced: 130, light: 90 };
-const KINDS = ['gas_lamp', 'fire_hydrant'];
+const KINDS = ['gas_lamp', 'fire_hydrant', 'utility_pole'];
+const POLE_CLASSES = ['street', 'alley', 'trolley'];
 
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -184,6 +185,67 @@ function hydrantGeometry(m) {
   return { near, far };
 }
 
+/**
+ * A wooden pole (T-3202), in its own frame: y up from the ground, local x along its line, so a
+ * crossarm lies along local z. `m` is one class of the data file's `model_m`. Returns
+ * { near: { wood, glass }, far: { wood, glass: null } }; glass is null on a pole with no arm.
+ */
+function poleGeometry(m) {
+  const H = m.height_m ?? 9.5;
+  const rb = (m.butt_d_m ?? 0.28) / 2;
+  const rt = (m.top_d_m ?? 0.18) / 2;
+  const arms = m.arms ?? 0;
+  const armY = H - (m.arm_below_top_m ?? 0.4);
+  const armL = m.arm_len_m ?? 1.8;
+  const pins = pinOffsets(m);
+  const wood = [at(new THREE.CylinderGeometry(rt, rb, H, 8), H / 2)];
+  const glass = [];
+  for (let k = 0; k < arms; k += 1) {
+    const y = armY - k * 0.6;
+    wood.push(at(new THREE.BoxGeometry(0.09, 0.11, armL), y));
+    for (const z of pins) {
+      const pin = at(new THREE.CylinderGeometry(0.014, 0.018, 0.12, 4), y + 0.11);
+      pin.translate(0, 0, z);
+      wood.push(pin);
+      const ins = at(new THREE.CylinderGeometry(0.03, 0.045, 0.09, 6), y + 0.2);
+      ins.translate(0, 0, z);
+      glass.push(ins);
+    }
+  }
+  const farWood = [at(new THREE.CylinderGeometry(rt, rb, H, 4), H / 2)];
+  if (arms) farWood.push(at(new THREE.BoxGeometry(0.1, 0.12, armL), armY));
+  return {
+    near: { wood: merge(wood), glass: glass.length ? merge(glass) : null },
+    far: { wood: merge(farWood), glass: null },
+  };
+}
+
+/** Where a crossarm's pins stand along it (local z), the middle left clear for the climber. */
+function pinOffsets(m) {
+  const n = m.pins ?? 0;
+  const L = m.arm_len_m ?? 1.8;
+  if (!n) return [];
+  const half = Math.ceil(n / 2);
+  const out = [];
+  for (let i = 0; i < half; i += 1) {
+    const z = 0.25 + (L / 2 - 0.35) * (half === 1 ? 0 : i / (half - 1)) + 0.05;
+    out.push(z, -z);
+  }
+  return out.slice(0, n).sort((a, b) => a - b);
+}
+
+/** A sagging wire from a to b (THREE.Vector3s), as `seg` straight pieces pushed onto `pos`. */
+function sagWire(pos, a, b, sag, seg = 8) {
+  let px = a.x; let py = a.y; let pz = a.z;
+  for (let i = 1; i <= seg; i += 1) {
+    const f = i / seg;
+    const x = a.x + (b.x - a.x) * f; const z = a.z + (b.z - a.z) * f;
+    const y = a.y + (b.y - a.y) * f - 4 * sag * f * (1 - f);
+    pos.push(px, py, pz, x, y, z);
+    px = x; py = y; pz = z;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* the card                                                                    */
 /* -------------------------------------------------------------------------- */
@@ -203,32 +265,35 @@ function itemCard(it, doc) {
   const kind = doc.kinds?.[it.kind] ?? {};
   const place = doc.placement?.[it.kind] ?? {};
   const attested = it.grade === 'attested';
-  const where = it.place === 'corner'
+  const where = it.where ?? (it.place === 'corner'
     ? `at the ${CORNER_WORDS[it.corner] ?? it.corner} corner of ${(it.streets ?? []).map((s) => doc.street_names?.[s] ?? s).join(' and ')}`
-    : 'on the parkway, mid-block';
+    : 'on the parkway, mid-block');
+  const what = kind.what_by_class?.[it.class] ?? kind.what ?? 'A street lamp';
+  const ruleNote = kind.rule_note_by_class?.[it.class] ?? kind.rule_note ?? '';
+  const name = kind.name_by_class?.[it.class] ?? kind.name ?? 'street lamp';
   const pictures = (it.sources ?? []).map((id) => titleOf(doc, id));
   return {
     id: it.id,
     sidecar: {
-      name: `A ${kind.name ?? 'street lamp'}`,
+      name: `A ${name}`,
       phase: null,
       change_note: attested
-        ? `${kind.what ?? 'A street lamp'} ${where}, where a picture shows one: ${pictures.join('; ')}. ${it.note ?? ''}`.trim()
-        : `${kind.what ?? 'A street lamp'} ${where}. ${kind.rule_note ?? ''}; this one's place is our reconstruction.`,
+        ? `${what} ${where}, where a picture shows one: ${pictures.join('; ')}. ${it.note ?? ''}`.trim()
+        : `${what} ${where}. ${ruleNote}; this one's place is ${it.grade === 'inferred' ? 'inferred' : 'our reconstruction'}.`,
       placement: {
         symbolic_location: it.face ?? (it.faces ?? []).join(' / '),
         position_confidence: it.grade,
         position_sources: it.sources ?? [],
-        position_note: attested ? (it.note ?? '') : (place.note ?? ''),
+        position_note: attested ? (it.note ?? '') : (place.note_by_class?.[it.class] ?? place.note ?? ''),
       },
       attributes: {
         kind: {
-          value: kind.name ?? it.kind, confidence: kind.form_grade ?? 'inferred',
+          value: name, confidence: kind.form_grade ?? 'inferred',
           sources: kind.form_sources ?? [], note: `${kind.form ?? ''} ${kind.form_note ?? ''}`.trim(),
         },
         position: {
           value: where, confidence: it.grade, sources: it.sources ?? [],
-          note: attested ? (it.note ?? '') : `${place.note ?? ''} ${it.liberty ?? ''}`.trim(),
+          note: attested ? (it.note ?? '') : `${place.note_by_class?.[it.class] ?? place.note ?? ''} ${it.liberty ?? ''}`.trim(),
         },
       },
       citations: citationsOf(doc, [...(it.sources ?? []), ...(kind.form_sources ?? [])]),
@@ -270,6 +335,7 @@ export async function createStreetFurniture({
   stats.items = (doc.items ?? []).length;
   stats.lamps = items.filter((it) => it.kind === 'gas_lamp').length;
   stats.hydrants = items.filter((it) => it.kind === 'fire_hydrant').length;
+  stats.poles = items.filter((it) => it.kind === 'utility_pole').length;
   if (!items.length) return out;
 
   /* ---- the parts, each one instanced geometry per level ------------------ */
@@ -281,12 +347,18 @@ export async function createStreetFurniture({
   const hydrant = hydrantGeometry(hydrantModel);
   const isLamp = (it) => it.kind === 'gas_lamp';
   const isHydrant = (it) => it.kind === 'fire_hydrant';
+  const isPole = (it) => it.kind === 'utility_pole';
+  const poleModels = doc.kinds?.utility_pole?.model_m ?? {};
+  const poles = Object.fromEntries(POLE_CLASSES.filter((c) => poleModels[c]).map((c) => [c, poleGeometry(poleModels[c])]));
   const mats = {
     iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
     glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
     // The Detroit view prints the hydrant lighter than the lamp posts: a mid-grey paint.
     hydrant: new THREE.MeshStandardMaterial({ color: 0x6f6e66, roughness: 0.6, metalness: 0.25 }),
+    // Creosoted cedar, weathered; the insulators are the usual green glass.
+    wood: new THREE.MeshStandardMaterial({ color: 0x5a4a3a, roughness: 0.95, metalness: 0 }),
+    insulator: new THREE.MeshStandardMaterial({ color: 0x7fa596, roughness: 0.2, metalness: 0.05 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
@@ -294,6 +366,10 @@ export async function createStreetFurniture({
     { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
+    ...Object.entries(poles).flatMap(([c, g]) => [
+      { name: `pole-${c}-wood`, geo: g, key: 'wood', mat: mats.wood, lift: () => 0, on: (it) => isPole(it) && it.class === c },
+      { name: `pole-${c}-glass`, geo: g, key: 'glass', mat: mats.insulator, lift: () => 0, on: (it) => isPole(it) && it.class === c },
+    ]),
   ];
 
   /* ---- where each lamp stands, once ------------------------------------- */
@@ -310,6 +386,7 @@ export async function createStreetFurniture({
   for (const part of parts) {
     for (const level of ['near', 'far']) {
       const src = part.key ? part.geo[level][part.key] : part.geo[level];
+      if (!src) continue;
       const geo = src.clone();
       const max = placed.filter((p) => part.on(p.it)).length;
       if (!max) continue;
@@ -326,6 +403,74 @@ export async function createStreetFurniture({
   }
   for (const g of [lamp.near.iron, lamp.near.glass, lamp.far.iron, lamp.far.glass, footing.near, footing.far,
     hydrant.near, hydrant.far]) g.dispose();
+  for (const g of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
+
+  /* ---- the wires (T-3202): one static set of line segments, off on light -- */
+  const byId = new Map(placed.map((p) => [p.it.id, p]));
+  const pinWorld = (p, z, y) => {
+    const v = new THREE.Vector3(0, y, z).applyQuaternion(p.q);
+    return new THREE.Vector3(p.x + v.x, p.y + v.y, p.z + v.z);
+  };
+  const wirePos = [];
+  for (const w of doc.wires ?? []) {
+    if (w.kind === 'line') {
+      const a = byId.get(w.from); const b = byId.get(w.to);
+      if (!a || !b) continue;
+      const ma = poleModels[a.it.class] ?? {}; const mb = poleModels[b.it.class] ?? {};
+      const za = pinOffsets(ma); const zb = pinOffsets(mb);
+      const n = Math.min(za.length, zb.length);
+      const ya = (ma.height_m ?? 9.5) - (ma.arm_below_top_m ?? 0.4) + 0.24;
+      const yb = (mb.height_m ?? 9.5) - (mb.arm_below_top_m ?? 0.4) + 0.24;
+      // Match each wire to the pin on the same side of both arms, seen along the span.
+      const pa = za.map((z) => pinWorld(a, z, ya)); const pb = zb.map((z) => pinWorld(b, z, yb));
+      const dir = new THREE.Vector3(b.x - a.x, 0, b.z - a.z).normalize();
+      const side = (v, p) => (v.x - p.x) * -dir.z + (v.z - p.z) * dir.x;
+      pa.sort((u, v) => side(u, a) - side(v, a)); pb.sort((u, v) => side(u, b) - side(v, b));
+      const span = Math.hypot(b.x - a.x, b.z - a.z);
+      for (let i = 0; i < n; i += 1) {
+        const j = Math.round((i * (pa.length - 1)) / Math.max(1, n - 1));
+        const k = Math.round((i * (pb.length - 1)) / Math.max(1, n - 1));
+        sagWire(wirePos, pa[j], pb[k], (doc.wire_model?.sag_frac ?? 0.012) * span);
+      }
+    } else if (w.kind === 'trolley_span') {
+      const a = byId.get(w.from); const b = byId.get(w.to);
+      if (!a || !b) continue;
+      const h = poleModels.trolley?.span_at_m ?? 6.6;
+      sagWire(wirePos, new THREE.Vector3(a.x, a.y + h, a.z), new THREE.Vector3(b.x, b.y + h, b.z),
+        doc.wire_model?.trolley?.span_sag_m ?? 0.35, 10);
+    } else if (w.kind === 'trolley_contact') {
+      const t = doc.wire_model?.trolley ?? {};
+      const hangs = (w.between_spans ?? []).map(([ia, ib]) => {
+        const a = byId.get(ia); const b = byId.get(ib);
+        if (!a || !b) return null;
+        const mid = new THREE.Vector3((a.x + b.x) / 2, Math.min(a.y, b.y) + (t.contact_h_m ?? 5.6), (a.z + b.z) / 2);
+        const across = new THREE.Vector3(b.x - a.x, 0, b.z - a.z).normalize();
+        return { mid, across };
+      });
+      if (hangs.length !== 2 || hangs.includes(null)) continue;
+      const g = (t.contact_gap_m ?? 3.0) / 2;
+      for (const s of [-1, 1]) {
+        const p0 = hangs[0].mid.clone().addScaledVector(hangs[0].across, s * g);
+        const p1 = hangs[1].mid.clone().addScaledVector(hangs[1].across, s * g);
+        sagWire(wirePos, p0, p1, 0.08, 4);
+        // The hanger up to the span wire at each end.
+        for (const p of [p0, p1]) wirePos.push(p.x, p.y, p.z, p.x, p.y + 0.6, p.z);
+      }
+    }
+  }
+  let wires = null;
+  if (wirePos.length) {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(wirePos, 3));
+    g.computeBoundingSphere();
+    mats.wire = new THREE.LineBasicMaterial({ color: 0x1e201d });
+    mats.wire.name = 'street-furniture-wire';
+    wires = new THREE.LineSegments(g, mats.wire);
+    wires.name = 'street-furniture-wires';
+    wires.castShadow = false; wires.receiveShadow = false;
+    group.add(wires);
+    stats.wireSegments = wirePos.length / 6;
+  }
 
   /* ---- the deal: which lamps each level draws, from where the eye is ----- */
   let tier = RINGS[detail] ? detail : 'full';
@@ -333,7 +478,7 @@ export async function createStreetFurniture({
   const m4 = new THREE.Matrix4(); const pos = new THREE.Vector3(); const one = new THREE.Vector3(1, 1, 1);
   const deal = (eye) => {
     const ring = RINGS[tier];
-    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0;
+    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0; let poleN = 0;
     for (const mesh of meshes) {
       const { part, level } = mesh.userData;
       const conf = mesh.geometry.getAttribute('_confidence');
@@ -360,9 +505,16 @@ export async function createStreetFurniture({
         triangles += k * (mesh.geometry.attributes.position.count / 3);
         if (part.name === 'lamp-iron') { if (level === 'near') nearN = k; else farN = k; }
         if (part.name === 'hydrant') hydN += k;
+        if (part.name.startsWith('pole-') && part.name.endsWith('-wood')) poleN += k;
       }
     }
-    stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
+    if (wires) {
+      // The wires are a thread a pixel wide: they cost a draw, so the phone tier leaves them off.
+      wires.visible = tier !== 'light';
+      if (wires.visible) { calls += 1; }
+    }
+    stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.polesDrawn = poleN;
+    stats.wiresShown = !!wires?.visible; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
     last.copy(eye);
   };
 
@@ -383,6 +535,7 @@ export async function createStreetFurniture({
   const ray = new THREE.Raycaster();
   const height = (model.finial_top_m ?? 3.1);
   const hydrantH = hydrantModel.height_m ?? 0.85;
+  const poleH = (c) => poleModels[c]?.height_m ?? 9.5;
   out.pickAt = (ndc, camera) => {
     if (!camera || !group.visible) return null;
     ray.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
@@ -393,14 +546,16 @@ export async function createStreetFurniture({
     for (const p of placed) {
       const lift = p.it.footing ? footH : 0;
       const hyd = isHydrant(p.it);
+      const isP = isPole(p.it);
       const dx = o.x - p.x; const dz = o.z - p.z;
       const tt = -(dx * d.x + dz * d.z) / a;
       if (!(tt > 0 && tt < 200)) continue;
       const px = dx + d.x * tt; const pz = dz + d.z * tt;
       const yy = o.y + d.y * tt;
       // The column is thin; the pick takes a lantern's width so a post can be hit.
-      const r = hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16);
-      if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + (hyd ? hydrantH : height)
+      const r = isP ? 0.25 : (hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16));
+      const top = isP ? poleH(p.it.class) : (hyd ? hydrantH : height);
+      if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + top
         && (!best || tt < best.distance)) {
         best = { p, distance: tt, point: new THREE.Vector3(o.x + d.x * tt, yy, o.z + d.z * tt) };
       }
@@ -415,6 +570,7 @@ export async function createStreetFurniture({
   };
   out.dispose = () => {
     for (const m of meshes) m.geometry.dispose();
+    wires?.geometry.dispose();
     for (const m of Object.values(mats)) m.dispose();
   };
   return out;
