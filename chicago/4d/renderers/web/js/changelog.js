@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2324, ts: '2026-10-27T04:09:58.098Z', date: 'Oct 26, 2026, 11:09 PM CT', title: 'A darker doorway for Carpenter\'s log shop', kind: 'change',
+    items: [
+      'Carpenter’s log annex has a dark recessed doorway, following the old engraving. Its picture is available on the Images card with the original credit.',
+    ] },
+  { v: 2323, ts: '2026-10-27T04:09:58.098Z', date: 'Oct 26, 2026, 11:09 PM CT', title: '1828 Prairie\'s roof raised and crested from its second photograph', kind: 'improvement',
+    items: [
+      'The Shipman house at 1828 Prairie now stands to a second photograph, the Glessner House Museum\'s partial view, as well as the street view with the electric runabout.',
+      'Its slate mansard is raised almost a metre, its two dormers are larger, and iron cresting runs along the top of the roof, as that photograph shows.',
+      'Next door, 1824 Prairie is checked against the runabout photograph from its own camera angle. Its bay window, belt course and porch balcony line up, but the photograph puts the house about 6 m further back from the street than the 1911 fire-insurance map does. That disagreement is written down and not yet settled.',
+    ] },
+  { v: 2322, ts: '2026-10-27T03:30:09.100Z', date: 'Oct 26, 2026, 10:30 PM CT', title: '1834 Prairie rebuilt from its photograph', kind: 'feature',
+    items: [
+      'The Fernando Jones house at 1834 Prairie now stands as its one photograph shows it: a four-bay brick front over a high stone basement, keyed window hoods, a bracketed cornice, and a canted bay on the north flank, with the 1886 mansard over it. The old photograph turned out to be printed back to front, and the house is built the right way round.',
+    ] },
+  { v: 2321, ts: '2026-10-27T02:58:41.574Z', date: 'Oct 26, 2026, 9:58 PM CT', title: '1720 Prairie stands as a clapboard Italianate built from its photograph', kind: 'feature',
+    items: [
+      'The Tyrrell/Walker house at 1720 Prairie is no longer a placeholder draft: it is a clapboard frame house with corner boards, cased sash, a deep frieze and a bracketed eave under a low hip.',
+      'Its front follows the undated Tyrrell photograph: the round-headed windows, the door, the floor raised high over the walk, and a porch across the whole front on its posts with a central stair.',
+      'The photograph is on the house\'s Images tab and is matched from its own camera; the porch\'s arches and cresting, the corner bay and the centre gable come next.',
+    ] },
   { v: 2320, ts: '2026-10-27T02:03:20.961Z', date: 'Oct 26, 2026, 9:03 PM CT', title: 'Wolf Point Tavern gets a darker roof tone', kind: 'improvement',
     items: [
       'The tavern uses a deeper reconstructed brown roof tone guided by the credited 1867 NYPL print of Wolf Point in 1833. Its existing shingle relief and building form remain.',

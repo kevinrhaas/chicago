@@ -3707,6 +3707,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     front_bays = tuple(float(s) for s in val("front_bays"))
     entrance = val("entrance_bay")
     door_s = front_bays[-1] if entrance == "north" else front_bays[0]
+    # T-1888: a front entered in an inner bay that is not its middle one (1834's four bays,
+    # the door third from the south in its photograph): the bay's number, 1 the southmost
+    if isinstance(entrance, int) and not isinstance(entrance, bool):
+        if not 1 <= entrance <= len(front_bays):
+            raise ParamError(f"entrance_bay {entrance} names a bay this {len(front_bays)}-bay front has not "
+                             f"(1 is the southmost)")
+        door_s = front_bays[entrance - 1]
+    elif entrance not in ("south", "north", "middle"):
+        raise ParamError(f"entrance_bay is south, north, middle or a bay's number, not {entrance!r}")
     # T-2408: a three-bay front entered in its middle bay, the door between the bays either
     # side (1620's, beside the bay window its pictures put on the south part)
     if entrance == "middle":
@@ -3763,7 +3772,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  or not 0.05 <= hood["overhang_m"] <= 0.4):
             raise ParamError(f"street_front_round_heads.hood takes variant {ROUND_HEAD_HOOD!r} and overhang_m, "
                              f"its block 0.05-0.4 m past each jamb")
-        if val("stone_front") or sfo:
+        # T-1888: a front whose stone stops at the principal floor (brick_above_m there) is a
+        # brick front over a stone basement, and its storeys' windows are cut in the brick
+        sf_ = val("stone_front") or {}
+        if (sf_ and sf_.get("brick_above_m") != val("principal_floor_m")) or sfo:
             raise ParamError("street_front_round_heads cuts round holes in a brick front; a stone front "
                              "lays its arches with street_front_openings")
         if any(not 0 <= int(k) < stories for k in rh["storeys"]):
@@ -5037,7 +5049,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # surrounds stay stone. A quoined corner is stone returned into brick up a
             # stone front, so it is refused here rather than half laid
             ba = stone["brick_above_m"]
-            lines = [round(pf + sum(heights[:i]), 4) for i in range(1, len(heights))]
+            # T-1888: or the principal floor's, a stone basement under a brick front (1834's
+            # photograph: the ashlar basement to the water table, every storey over it brick)
+            lines = [round(pf + sum(heights[:i]), 4) for i in range(len(heights))]
             if construction == "stone" or not any(abs(ba - f) < 1e-6 for f in lines):
                 raise ParamError(f"stone_front.brick_above_m {ba} must be one of the upper storeys' "
                                  f"floor lines {lines}, on a brick house with a stone front")

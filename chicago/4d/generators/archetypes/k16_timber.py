@@ -1529,19 +1529,26 @@ class Sample:
         sp = Wf - a - v.get("post_inset_m", 0.05)     # T-2519: the post's outer face in from the floor's end
         tp_ = self.tone("post")
         y_b, y_h = yf + pt["base_m"], yp - pt["head_m"]
-        for (y0, y1, skip) in ((yf, y_b, ("bottom", "top")), (y_h, yp, ("bottom", "top"))):
-            self.box(F, "post", sp - a, sp + a, y0, y1, zp - a, zp + a, skip=skip, tone=tp_)
         octo = octagon(a, chm)
-        for i in range(8):
-            (ds0, dz0), (ds1, dz1) = octo[i], octo[(i + 1) % 8]
-            self.poly(F, "post", [(sp + ds0, y_b, zp + dz0), (sp + ds1, y_b, zp + dz1), (sp + ds1, y_h, zp + dz1),
-                                  (sp + ds0, y_h, zp + dz0)], ((ds0 + ds1) / 2, 0, (dz0 + dz1) / 2), tp_)
-        for i in range(1, 8, 2):    # the four chamfer stops on each block, the corner triangles
-            (ds0, dz0), (ds1, dz1) = octo[i - 1], octo[i]
-            corner = (math.copysign(a, ds0 + ds1), math.copysign(a, dz0 + dz1))
-            for yy, hy in ((y_b, 1), (y_h, -1)):
-                self.poly(F, "post", [(sp + ds0, yy, zp + dz0), (sp + corner[0], yy, zp + corner[1]), (sp + ds1, yy, zp + dz1)],
-                          (0, hy, 0), tp_)
+
+        def post_at(sp):
+            for (y0, y1, skip) in ((yf, y_b, ("bottom", "top")), (y_h, yp, ("bottom", "top"))):
+                self.box(F, "post", sp - a, sp + a, y0, y1, zp - a, zp + a, skip=skip, tone=tp_)
+            for i in range(8):
+                (ds0, dz0), (ds1, dz1) = octo[i], octo[(i + 1) % 8]
+                self.poly(F, "post", [(sp + ds0, y_b, zp + dz0), (sp + ds1, y_b, zp + dz1), (sp + ds1, y_h, zp + dz1),
+                                      (sp + ds0, y_h, zp + dz0)], ((ds0 + ds1) / 2, 0, (dz0 + dz1) / 2), tp_)
+            for i in range(1, 8, 2):    # the four chamfer stops on each block, the corner triangles
+                (ds0, dz0), (ds1, dz1) = octo[i - 1], octo[i]
+                corner = (math.copysign(a, ds0 + ds1), math.copysign(a, dz0 + dz1))
+                for yy, hy in ((y_b, 1), (y_h, -1)):
+                    self.poly(F, "post", [(sp + ds0, yy, zp + dz0), (sp + corner[0], yy, zp + corner[1]), (sp + ds1, yy, zp + dz1)],
+                              (0, hy, 0), tp_)
+
+        post_at(sp)
+        inner = v.get("inner_posts_m", [])     # T-3180: a long porch's posts between its ends
+        for s_in in inner:
+            post_at(s_in)
         # the plate, the brackets under it, the beaded ceiling, the roof over all
         self.box(F, "plate", 0.0, Wf + 0.05, yp, yc, zp - pd / 2, zp + pd / 2, skip=("top",), tone=self.tone("plate"),
                  roles={"s0": "cut", "s1": "end_grain"})
@@ -1549,8 +1556,9 @@ class Sample:
             self._porch_arch(F, v["arch"], sp - a, zp - pd / 2, zp + pd / 2, yp)
         else:
             br = dict(tr["bracket"], drop_m=pt["head_m"], reach_m=0.28)
-            self.bracket(F, sp - a, zp, yp, br, br["thickness_m"], along_s=True, outward=-1.0, tone=tp_)
-            self.bracket(F, sp + a, zp, yp, br, br["thickness_m"], along_s=True, outward=1.0, tone=tp_)
+            for s_p in [sp] + list(inner):
+                self.bracket(F, s_p - a, zp, yp, br, br["thickness_m"], along_s=True, outward=-1.0, tone=tp_)
+                self.bracket(F, s_p + a, zp, yp, br, br["thickness_m"], along_s=True, outward=1.0, tone=tp_)
         if v.get("stoop"):    # T-2425: steps up between cheek walls in the posts' line
             self._porch_stoop(F, v["stoop"], sp, a, zp + a, Dp + fl["nosing_m"], yf)
         z_in = zp - pd / 2
@@ -2763,6 +2771,7 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
             v = {"id": f"k16.wall.{sid}.{b['id']}_{w['side']}", "kind": "clapboard_wall", "use": "wall",
                  "width_m": round(L - start, 6), "return_m": ret, "foundation_m": fh["foundation_m"],
                  "wall_top_m": b["wall_top_m"],
+                 **({"frieze_m": b["frieze_m"]} if "frieze_m" in b else {}),     # T-3180: a block's own frieze
                  "windows": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("windows", [])],
                  "doors": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("doors", [])]}
             sm = Sample(v, data, index=0).build()
@@ -2803,7 +2812,7 @@ def _porch_steps(sm: Sample, data: dict, po: dict, steps: dict) -> None:
     porch's own frame, before it is set down): risers equal and solved from the floor
     height, each step a block with an oiled tread and painted riser and strings."""
     fl = data["porch"]["floor"]
-    yf, Dp = fl["height_m"], po.get("depth_m", fl["depth_m"])
+    yf, Dp = fl["height_m"] + po.get("basement_m", 0.0), po.get("depth_m", fl["depth_m"])   # T-3180: a raised floor
     n = max(2, math.ceil(yf / steps["max_riser_m"] - 1e-9))
     r, g = yf / n, steps["going_m"]
     c, hw = steps["centre_m"] - po["centre_m"], steps["width_m"] / 2   # in the half's own frame

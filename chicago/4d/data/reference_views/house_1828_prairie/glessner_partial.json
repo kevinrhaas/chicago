@@ -1,0 +1,28 @@
+{
+ "structure_id": "house_1828_prairie",
+ "source_id": "glessner_blog_1828_shipman_partial",
+ "library_image": "a18-gh-shipman-1828-partial",
+ "photo": "../../sources/assets/shipman_1828_photos_t1887/shipman_1828_partial.jpg",
+ "image_px": [
+  387,
+  675
+ ],
+ "principal_px": [
+  -50.0,
+  489.0
+ ],
+ "focal_px": 550.0,
+ "pixel_aspect": 1.52,
+ "eye": [
+  40.0,
+  -2.0,
+  1.6
+ ],
+ "yaw_deg": -80.0,
+ "sun_uvy": [
+  0.8,
+  -0.6,
+  1.0
+ ],
+ "solve": "Fitted by T-3168 (piece 3 of T-1887) to the image store's 387 x 675 px copy of the Glessner House Museum's damaged partial view, against the K01 build T-3166 read off the automobile photograph (data/reference_views/house_1828_prairie/chicagology_automobile.json). Frame as there: u toward Prairie Avenue (east), v north, the recessed north part's face at u 19.4 and the house's north corner at v 8.2. WHERE FROM: the south-east, in the roadway about 20 m out, looking a little north of west (yaw -80). Three things put it south of the porch rather than north of it, as the source record's 'from the north-east' had it: the porch's north column (x 185 px) stands only about 10 px inside the house's north corner (x 195), which only an eye south of the porch's line gives (from the north the porch's 1.65 m projection would carry the column 30-60 px clear of the corner); the porch's south flank shows left of its south column (x 90-108); and the canted bay's north cheek window (x 35-50) is seen nearly edge-on. The front's horizontals fall to the right, toward a vanishing point beyond the right edge (the mansard's curb most steeply, x 50-175 at y 48-75), which a yaw north of square gives. PIXEL ASPECT 1.52: this copy's proportions are not the automobile photograph's. The porch's two front columns (x 108 and 185, 77 px) against its floor-to-entablature (y 470 to 325, 145 px) read 1.9 tall to wide here and about 2.8 in the automobile print (x 510 and 620, y 452 to 140); the second-storey window over the porch reads 36 x 77 px (2.1) where K01's sash and the automobile print's principal windows read 3.3-3.4. One of the two copies was resampled apart from its height; the automobile copy's runabout and its driver read in natural proportion, so this one is taken to be the stretched copy, its horizontal focal 1.52 times its vertical. FIT: with f 550 px (vertical) the porch's columns (x 108, 185), its entablature and balustrade (y 312-347), the main cornice (y 200-222) and the north corner (x 195) all render within about 10 px; the porch floor at y 470 puts the eye 1.6 m over the house's grade within about 0.3 m. UNCERTAINTY: the pixel aspect and the distance trade against each other and against the heights above the cornice (the mansard's curb, the dormer), so a gap read there of under about 1 m is a gap between this fit and the automobile photograph's, not a measured one. LIGHT: the front is lit and the porch's interior dark, the next house's south flank in half-light: a sun in the south-east, as in the automobile photograph."
+}
