@@ -251,11 +251,34 @@
     },
     "side_bays": {
       "value": [
-        2.0,
-        5.75
+        {
+          "s_m": 4.0,
+          "sill_m": 10.2,
+          "width_m": 1.0,
+          "height_m": 1.7
+        },
+        {
+          "s_m": 4.0,
+          "sill_m": 8.25,
+          "width_m": 0.45,
+          "height_m": 0.7,
+          "head": "plain",
+          "why_not_ordinary": "the plate's small oval light on the north flank at the second floor (x 462-472, y 675-710 px), built as a square-headed light of the same size: K01 cuts no oval"
+        },
+        {
+          "s_m": 4.0,
+          "sill_m": 3.4,
+          "width_m": 0.3,
+          "height_m": 0.6,
+          "head": "plain",
+          "why_not_ordinary": "the plate's narrow slot on the north flank at the principal floor (x 463-468, y 930-970 px)"
+        }
       ],
-      "confidence": "reconstructed",
-      "note": "The north wall of the main block: the plate shows a window a storey near its front; the rest is hidden by the house to the north."
+      "confidence": "inferred",
+      "note": "The north wall of the main block (K01's south wall in this house's frame), read off the 1891 plate through its solved camera (T-1879): one column of lights 4.0 m back from the front corner — a window at the third floor (x 460-475 px), a small oval light at the second (x 462-472 px; built square-headed at its size, K01 cutting no oval) and a narrow slot at the principal floor (x 463-468 px); the rest of the flank is blank wall in the plate. T-1878 had two columns at 2.0 and 5.75 m from the rules.",
+      "sources": [
+        "inland_architect_1891_06_dexter_plate"
+      ]
     },
     "north_bays": {
       "value": [
@@ -321,7 +344,8 @@
         "stacks": [
           {
             "u_m": 6.85,
-            "v_m": 4.2
+            "v_m": 4.6,
+            "top_m": 16.9
           },
           {
             "u_m": 1.2,
@@ -333,7 +357,7 @@
       "sources": [
         "inland_architect_1891_06_dexter_plate"
       ],
-      "note": "The plate's tall plain stack rising past the parapet at the forward block's north return, stood on the main block's front wall behind it; the second stack is the rules' and no picture shows it."
+      "note": "The plate's tall plain stack rising past the parapet at the forward block's north return, stood on the main block behind it; T-1879 sets its place (v 4.6 m) and its top (16.9 m) through the plate's solved camera, which shows its top about 3.5 m over the parapet. The second stack is the rules' and no picture shows it."
     },
     "entrance_kit": {
       "value": {
@@ -405,7 +429,18 @@
                   "at": [
                     0.53
                   ],
-                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)",
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  },
+                  "guard": {
+                    "height_m": 0.85,
+                    "proud_m": 0.3,
+                    "slab_m": 0.15,
+                    "pitch_m": 0.12,
+                    "reach_m": 0.9
+                  }
                 }
               ]
             },
@@ -419,7 +454,11 @@
                   "sill_m": 0.75,
                   "at": [
                     0.53
-                  ]
+                  ],
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  }
                 }
               ]
             },
@@ -432,9 +471,23 @@
                   "clear_height_m": 1.6,
                   "sill_m": 0.6,
                   "at": [
-                    0.253,
-                    0.53,
-                    0.8
+                    0.237,
+                    0.408,
+                    0.617,
+                    0.758
+                  ],
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  }
+                },
+                {
+                  "opening": "k06.opening.sash_round_fanlight",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 1.9,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.509
                   ]
                 }
               ]
@@ -447,6 +500,19 @@
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
+          },
+          "balcony": {
+            "fabric": "stone",
+            "height_m": 0.8,
+            "inset_m": 0.1,
+            "post_m": 0.3,
+            "bar_m": 0.07,
+            "pitch_m": 0.17,
+            "rail_m": [
+              0.2,
+              0.12
+            ],
+            "foot_rail_m": 0.12
           }
         },
         {
@@ -471,11 +537,21 @@
                   "clear_height_m": 2.5,
                   "sill_m": 2.1,
                   "at_deg": [
-                    -35,
-                    0,
-                    35
+                    -33,
+                    33
                   ],
-                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)",
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  },
+                  "guard": {
+                    "height_m": 0.85,
+                    "proud_m": 0.3,
+                    "slab_m": 0.15,
+                    "pitch_m": 0.12,
+                    "reach_m": 0.4
+                  }
                 }
               ]
             },
@@ -488,10 +564,13 @@
                   "clear_height_m": 2.2,
                   "sill_m": 0.75,
                   "at_deg": [
-                    -35,
-                    0,
-                    35
-                  ]
+                    -33,
+                    33
+                  ],
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  }
                 }
               ]
             }
@@ -503,6 +582,19 @@
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
+          },
+          "balcony": {
+            "fabric": "stone",
+            "height_m": 0.75,
+            "inset_m": 0.05,
+            "post_m": 0.2,
+            "bar_m": 0.07,
+            "pitch_m": 0.17,
+            "rail_m": [
+              0.16,
+              0.12
+            ],
+            "foot_rail_m": 0.1
           }
         },
         {
@@ -527,11 +619,21 @@
                   "clear_height_m": 2.5,
                   "sill_m": 2.1,
                   "at_deg": [
-                    -35,
-                    0,
-                    35
+                    -31,
+                    31
                   ],
-                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)"
+                  "why_not_ordinary": "the principal storey's tall sash: the 1891 plate draws it taller than the lights above, so it is reconstructed 2.5 m clear in proportion to its 5.6 m storey, past K06's ordinary 2.4 m (T-1878)",
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  },
+                  "guard": {
+                    "height_m": 0.85,
+                    "proud_m": 0.3,
+                    "slab_m": 0.15,
+                    "pitch_m": 0.12,
+                    "reach_m": 0.4
+                  }
                 }
               ]
             },
@@ -544,10 +646,13 @@
                   "clear_height_m": 2.2,
                   "sill_m": 0.75,
                   "at_deg": [
-                    -35,
-                    0,
-                    35
-                  ]
+                    -31,
+                    31
+                  ],
+                  "shutters": {
+                    "width_m": 0.42,
+                    "louvre_m": 0.12
+                  }
                 }
               ]
             }
@@ -559,15 +664,28 @@
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
+          },
+          "balcony": {
+            "fabric": "stone",
+            "height_m": 0.75,
+            "inset_m": 0.05,
+            "post_m": 0.2,
+            "bar_m": 0.07,
+            "pitch_m": 0.17,
+            "rail_m": [
+              0.16,
+              0.12
+            ],
+            "foot_rail_m": 0.1
           }
         }
       ],
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20",
-        "inland_architect_1891_06_dexter_plate"
+        "inland_architect_1891_06_dexter_plate",
+        "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The 1911 sheet's front (trace s20fp-1721-b1 p1 in this frame): the forward block's face at u 10.6, 2.9 m before the recessed wall at u 7.7, from v 3.55 (its north return, beside the porch) to the south wall at v 17.6; the north bow from v 4.8 to 9.4, 1.2 m out, the south bow from v 12.6 to 17.0, 1.1 m out. The plate shows the block, both bows rising through the ground and second storeys and each roofed at the third floor (its balustrade is T-1879's); the windows' places on the bows and between them are read off the plate, their count to a face reconstructed. Each bow's outer lights stand 35 degrees round its curve from the middle one, which keeps their recesses in front of the forward block's face (at 40 they ran up to 0.09 m back onto it)."
+      "note": "The 1911 sheet's front (trace s20fp-1721-b1 p1 in this frame): the forward block's face at u 10.6, 2.9 m before the recessed wall at u 7.7, from v 3.55 (its north return, beside the porch) to the south wall at v 17.6; the north bow from v 4.8 to 9.4, 1.2 m out, the south bow from v 12.6 to 17.0, 1.1 m out. The plate shows the block, both bows rising through the ground and second storeys and each roofed at the third floor (its balustrade is T-1879's); the windows' places on the bows and between them are read off the plate, their count to a face reconstructed. Each bow's outer lights stand 35 degrees round its curve from the middle one, which keeps their recesses in front of the forward block's face (at 40 they ran up to 0.09 m back onto it). T-1879, through the plate's solved camera: each bow has two lights a storey (at 33 degrees either side of its middle, a blank pier between them) and a stone balustrade round its top at the third floor; the forward block's third floor has a light over each side of each bow and a round-headed fanlight between them, and a stone balustrade along its parapet; every light but the fanlight has open louvred shutters, and the ground floor's lights iron guards on stone slabs, the centre one long enough that the three middle ones read as the plate's one run. Heights and the guards' and balusters' sizes are read in proportion; the shutters' colour and the balusters' square section are reconstructed (L-k01-1721-dress-1879)."
     },
     "rear_wings": {
       "value": [
@@ -659,6 +777,38 @@
       ],
       "note": "The 1911 sheet's 'long 2B brick rear wing with 1-storey frame pieces at both ends' (census s20-1721-a1): the brick wing from the main rear wall to u -19.9, from the north wall (v 0) to v 6.2; the frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. Its windows are reconstructed: no picture shows it."
     },
+    "window_shutters": {
+      "value": {
+        "width_m": 0.45,
+        "louvre_m": 0.1,
+        "walls": {
+          "k01.wall.street_front": [
+            1,
+            2
+          ]
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1891_06_dexter_plate"
+      ],
+      "note": "The 1891 plate shows a pair of open louvred shutters folded back beside each upper light of the recessed front (x 545-685 px, both floors), dark against the light wall. Their colour is not shown (a monochrome plate): the deep green of T-2887's is reconstructed (docs/LIBERTIES.md, L-k01-1721-dress-1879). Inferred: their presence, count and places are the plate's, their widths read in proportion to the lights."
+    },
+    "flat_balustrade": {
+      "value": {
+        "from_s_m": 1.5,
+        "to_s_m": 3.35,
+        "plinth_m": 0.2,
+        "rail_m": 0.15,
+        "bar_m": 0.09,
+        "pitch_m": 0.2
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1891_06_dexter_plate"
+      ],
+      "note": "The 1891 plate shows the recessed front's parapet solid from the north-west corner for about 1.5 m (x 503-593 px through the solved camera), then turned balusters on a plinth under a rail to the forward block's return (x 593-705 px). The balusters are built square (the kit's bar), their turning not modelled. Inferred: the stretch is the plate's, the plinth, rail and balusters read in proportion."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
@@ -736,7 +886,7 @@
       ]
     }
   ],
-  "research_note": "T-1878 (package N18A of T-1837) refines the district draft (T-2335) in place under this id onto the K01 kit: the 1911 sheet's plan (the main block with its north part recessed behind an entrance porch, the forward block with two bows, the long 2B rear wing and its frame end) read against the 1891 Inland Architect plate of Arthur Little's front. Its carving, the balustraded parapet and the bows' balconies, shutters, balconettes and the image gate are T-1879's. docs/RESEARCH/k01-1721-dexter-1878/README.md is the reading.",
+  "research_note": "T-1878 (package N18A of T-1837) refines the district draft (T-2335) in place under this id onto the K01 kit: the 1911 sheet's plan read against the 1891 Inland Architect plate of Arthur Little's front. T-1879 (package N18B) solves the plate's camera and works the front to it until the side-by-side matches: the bows' two lights a storey, the third floor's four lights and fanlight, the balustrades, shutters, ground-floor iron, the stack and the north flank. docs/RESEARCH/k01-1721-dexter-1878/README.md and docs/RESEARCH/k01-1721-dexter-1879/README.md are the reading.",
   "research_doc": "",
   "review_required": false,
   "called": "1721 Prairie Avenue — Wirt Dexter house, Arthur Little's front of 1889"
