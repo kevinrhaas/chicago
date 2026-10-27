@@ -24342,7 +24342,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24431,6 +24431,11 @@ storeys and mansard, and the range and the porte-cochere stand at one storey und
 **1721 retired from this liberty by T-1878 (2026-10-26):** the Dexter house now stands as the K01 brick
 frontage read off the 1911 sheet and the 1891 Inland Architect plate, under `L-k01-1721-dexter-1878`, under
 the same id; its draft attributes are gone. Its alley building stays a draft here.
+**1709 retired from this liberty by T-1877 (2026-10-27):** the Palmer Kellogg successor now stands as the
+K01 brick frontage read off the 1911 sheet and the 1893 Rand McNally drawing, under
+`L-k01-1709-kellogg-drawing-led-1877`, under the same id; its draft attributes are gone. The draft had
+stood a 18.75 m deep hip-roofed body with the sheet's corner bays as plain projections; the sheet's plan
+and the drawing's mansard, porch and corner bay replace it. Its alley building stays a draft here.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -34366,6 +34371,44 @@ a source, replaces the kits' choices in place.
 **Covers:** `house_1712_prairie.as_mapped_1904.form.basement_lights`, `house_1712_prairie.as_mapped_1904.form.chimneys`, `house_1712_prairie.as_mapped_1904.form.dormer`, `house_1712_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1712_prairie.as_mapped_1904.form.entrance_bay`, `house_1712_prairie.as_mapped_1904.form.entrance_kit`, `house_1712_prairie.as_mapped_1904.form.front_bays`, `house_1712_prairie.as_mapped_1904.form.north_bays`, `house_1712_prairie.as_mapped_1904.form.principal_floor_m`, `house_1712_prairie.as_mapped_1904.form.rainwater`, `house_1712_prairie.as_mapped_1904.form.rear_bays`, `house_1712_prairie.as_mapped_1904.form.roof_covering`, `house_1712_prairie.as_mapped_1904.form.roof_form`, `house_1712_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1712_prairie.as_mapped_1904.form.sash_by_storey`, `house_1712_prairie.as_mapped_1904.form.service_wall_brick`, `house_1712_prairie.as_mapped_1904.form.side_bays`, `house_1712_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1712_prairie.as_mapped_1904.form.stair_tread_m`, `house_1712_prairie.as_mapped_1904.form.stone_front`, `house_1712_prairie.as_mapped_1904.form.stoop_width_m`, `house_1712_prairie.as_mapped_1904.form.storey_heights_m`, `house_1712_prairie.as_mapped_1904.form.street_front_trim`, `house_1712_prairie.as_mapped_1904.form.wall_head`, `house_1712_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1712_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1712_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-3187 (piece 1 of T-1872).
 **Recorded:** 2026-10-27 (T-3187).
+
+### L-k01-1709-kellogg-drawing-led-1877 — 1709 Prairie refined from the district draft to a K01 brick house, its plan the 1911 sheet's and its front the 1893 Rand McNally drawing's
+
+**Decision:** the Palmer Kellogg successor at 1709 Prairie Avenue (T-1877, package N17 of T-1837) is
+no longer a district draft. It stands, under the draft's own id, as a `k01_frontage` record built by
+`generators/k01_emit.py`, its plan read off sheet 20 of the 1911 Sanborn and its street front off the
+one picture of it, the strip over '1709' on p. 233 of Rand, McNally & Co.'s 1893 Bird's-Eye Views and
+Guide to Chicago (`rand_mcnally_1893_views_prairie_east_1701_1815`), whose camera is solved in
+`data/reference_views/kellogg_house_1709_prairie/` and whose match record reads `matches`. The
+drawing is a guidebook's, not a measured one: its proportions are taken, not its dimensions.
+**What is read, not invented.** From the sheet through the T-2328 trace and the T-1840 census
+(s20-1709-f, '3B brick dwelling (D), irregular, with corner bays'; s20-1709-a1, '2B, 1B and 2B brick
+rear pieces and a round frame porch'): the main body, 12.87 m along the street and 15.13 m deep to the
+face of its forward block; the square set diagonally across the block's south-west corner (circumradius
+1.78 m); the canted bay on the south wall, 4.0 m at the wall and 1.2 m out; the small frame bay on the
+north wall; and the three rear pieces. From the drawing: two storeys of tall windows over a raised
+basement, so the sheet's third storey is the mansard's; three window columns across the front, the door
+in the north one; the columned porch at the north end and its stoop; the deep cornice; the slated
+mansard and its two street dormers over the north part; the corner bay's own tall slated roof over the
+cornice; and the light from the south-west.
+**What is invented.** Every dimension the drawing only suggests (the 1.8 m principal floor, the 3.8 and
+3.5 m storeys, the sash and their places on the walls the drawing does not see); the walls' thickness;
+the brick's colour, bond and grime (the one K03 panel); K09's flat lintel-and-cornice hoods where the
+drawing draws small pediments (the kit has no pedimented window head); the porch's 3.6 m width, 1.7 m
+depth and railed top; the mansard's 3.0 m rise, its deck, cresting and tin; the corner bay's 1.2 m blank
+stage and pyramid; the two chimney stacks; the gutters and downpipes; the canted and frame bays'
+windows and roofs; the rear pieces' floors, decks and windows.
+**What is not built.** The sheet sets the north 6.42 m of the front 1.71 m behind the forward block,
+with a one-storey square in the north-west corner; K01's diagonal corner bay stands only across the
+main body's own corner, so the main body takes the block's face and the front stands in one plane, as
+the drawing draws it, and the porch stands in front of it. The sheet's round frame porch on the south
+rear piece and the canted south-east corner of that piece (built square) are not modelled. The fence
+or curb of the front yard is not built: the sheet draws none (T-1943 owns the frontage fittings).
+**How to resolve:** a photograph of the house, or a K01 front recess that a diagonal corner bay can
+stand on, replaces the drawing's one plane; a pedimented K09 window head replaces the flat hoods.
+**Covers:** `kellogg_house_1709_prairie.as_mapped_1904.form.chimneys`, `kellogg_house_1709_prairie.as_mapped_1904.form.eave_overhang_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.north_bays`, `kellogg_house_1709_prairie.as_mapped_1904.form.rainwater`, `kellogg_house_1709_prairie.as_mapped_1904.form.rear_bays`, `kellogg_house_1709_prairie.as_mapped_1904.form.roof_pitch_deg`, `kellogg_house_1709_prairie.as_mapped_1904.form.service_wall_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.side_bays`, `kellogg_house_1709_prairie.as_mapped_1904.form.stair_landing_depth_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.stair_tread_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.stoop_width_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kellogg_house_1709_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-1877 (package N17 of T-1837).
+**Recorded:** 2026-10-27 (T-1877).
 
 ### L-k01-1708-thorne-3188 — 1708 Prairie refined from the district draft to a K01 brick front read off two photographs of the Glessner townhouses, its plan the 1911 sheet's
 
