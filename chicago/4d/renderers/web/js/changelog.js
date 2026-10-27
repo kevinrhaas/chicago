@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2315, ts: '2026-10-26T22:54:28.003Z', date: 'Oct 26, 2026, 5:54 PM CT', title: 'Pullman\'s palm house, rebuilt to its photograph', kind: 'feature',
+    items: [
+      'The small glass bay on the Pullman house\'s east range is now Beman\'s 1892 palm house as J. W. Taylor photographed it from 18th Street: a glass drum between stone columns, under an entablature, a balustrade and a ribbed dome.',
+      'It stands 3 m further east, where the photograph puts it, on a raised terrace with a broad flight of steps, in a range of light stone with its arched door and window.',
+    ] },
   { v: 2314, ts: '2026-10-26T21:04:58.476Z', date: 'Oct 26, 2026, 4:04 PM CT', title: 'Log jail gains a high palisade', kind: 'improvement',
     items: [
       'A tall plank enclosure with pointed tops now surrounds the log jail, with an open passage aligned to its entrance. The palisade follows Gale’s retrospective description; its dimensions and layout are reconstructed. The keeper house and the jail’s conflicting roof depictions still need review.',
