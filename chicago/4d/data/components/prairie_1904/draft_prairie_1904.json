@@ -991,7 +991,8 @@
     "s27w-1925-front": "1925-1929 Indiana: the 1911 sheet draws a one-storey brick post-office sub-station filling the lots to the street line, and T-3154 read a house on them in 1904 (households at 1927 in the 1902 Lakeside directory, and homes and furnished rooms there still in the 1911 one), so the census rules the frontage replaced_after_1904: the sub-station is not the 1904 building and no outline of the house is in hand, so the draft stands nothing rather than invent it.",
     "s27w-1935-front": "1935-1937 Indiana: the 1911 sheet draws a one-storey brick corner store, the Health Food Company's agency in the 1911 Lakeside directory, and T-3154 found nothing that dates the corner or puts anyone on it before 1910; the census keeps the frontage phase_unresolved, so the 1911 outline is traced and not drafted.",
     "s27w-1935-flats": "216-216a E. 20th Street, the 4B frame flats behind the 1935-1937 corner store: households in the Blue Book from 1910 and in none of 1902-1909, which points to flats of about 1909 but does not date them; on the same phase_unresolved frontage, traced and not drafted.",
-    "s28-pullman-garden-lodge": "The two-storey lodge between Pullman's glasshouse ranges at 1800 Calumet stands as `pullman_lodge_1800_calumet` (T-3164, piece 1 of T-1934): read off sheet 28 by hand with the glasshouses beside it, on this builder's archetype but from its own record, because the colour trace follows this copy's pink wash diagonally into the east range. T-3165 refines it."
+    "s28-pullman-garden-lodge": "The two-storey lodge between Pullman's glasshouse ranges at 1800 Calumet stands as `pullman_lodge_1800_calumet` (T-3164, piece 1 of T-1934): read off sheet 28 by hand with the glasshouses beside it, on this builder's archetype but from its own record, because the colour trace follows this copy's pink wash diagonally into the east range. T-3165 refines it.",
+    "s20-1720-f": "1720 Prairie, the Tyrrell/Walker Italianate frame, now stands whole as the K16 timber record walker_house_1720_prairie (T-3180, piece 1 of T-1873) — its main block, the one-storey wing on its south side and the porch across its front, read from the 1911 sheet and the Tyrrell photograph — which refines this draft in place under the draft's own id; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1354,7 +1355,9 @@
       "pitch_deg": 30,
       "brackets": true,
       "entrance": "centre",
-      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's."
+      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's.",
+      "house_id": "walker_house_1720_prairie",
+      "house_address": "1720"
     },
     "frontage-20-019": {
       "slug": "house",
