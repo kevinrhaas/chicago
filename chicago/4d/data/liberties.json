@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 816,
+  "count": 819,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42645,7 +42645,7 @@
         },
         {
           "label": "Since later work",
-          "text": "407 trees. A tree that would stand on a carriage walk or its block moves to the walk's nearer side (“Carriage walks and carriage blocks before every lot 40 ft wide or more”), and the trees stand on the parkway's fall toward the curb."
+          "text": "407 trees. A tree that would stand on a carriage walk or its block moves to the walk's nearer side (“Carriage walks before every lot 40 ft wide or more, and carriage posts only where pictured”), and the trees stand on the parkway's fall toward the curb."
         }
       ],
       "work_refs": [
@@ -42694,7 +42694,7 @@
     },
     {
       "id": "L-prairie-carriage-walks-2474",
-      "title": "Carriage walks and carriage blocks before every lot 40 ft wide or more",
+      "title": "Carriage walks before every lot 40 ft wide or more, and carriage posts only where pictured",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
@@ -42723,7 +42723,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-13 (T-2474)."
+          "text": "2026-10-13 (T-2474). **Amended (T-3198, 2026-10-27; owner: \"i dont need to have those carriage steps at every house. i dont see that in photos of prarie anywhere\", then \"what you keep you should vary them in appearance so that they do not look like clones\" and \"they mostly should go i think because i dont see them in photos, unless you do\"):** the 91 rule-placed blocks are withdrawn. Read again, the Flinn view and the 1905 plate show the lot-line coping along the walk's inside edge, not blocks at the curb, and the Pullman views show the parkway edge clear. Stones at the curb stand only where a picture shows one: a square domed post beside the crossing at 1815 Prairie (`chicagology_1815_sears_two_views`, attested), a pair of round domed posts flanking 2112's crossing and one at 2110 (`glessner_blog_2100_block_looking_nw_1890s`, attested), and a row of the same posts at the east curb opposite 2109-2115 (inferred: the same picture's edge, the houses not certain). 13 posts in all, 0.38 m in from the curb's face, stood clear of the elms. Each is varied by a seed on its id (height, width, cap: plain dome, dome with collar or flattened dome; a lean of 0.4-2 degrees; tone) so no two read as one casting. The paved crossings stay: pictures show them (1815, 2112, Glessner's in HABS no. 2). Still invented: every post's size and cap, the row's count and spacing, and which crossings exist where no picture reaches."
         }
       ],
       "work_refs": [
@@ -56947,12 +56947,6 @@
           "domain": "structure",
           "structure": "dexter_house_1721_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.side_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "dexter_house_1721_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.stair_tread_m"
         },
         {
@@ -56991,7 +56985,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.side_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`"
+          "text": "`dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_front_m`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_thickness_side_m`, `dexter_house_1721_prairie.as_mapped_1904.form.street_front_trim`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_pitch_deg`, `dexter_house_1721_prairie.as_mapped_1904.form.roof_covering`, `dexter_house_1721_prairie.as_mapped_1904.form.window_kit`, `dexter_house_1721_prairie.as_mapped_1904.form.stair_tread_m`, `dexter_house_1721_prairie.as_mapped_1904.form.north_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.rear_bays`, `dexter_house_1721_prairie.as_mapped_1904.form.wall_finish`"
         },
         {
           "label": "Decision",
@@ -57011,7 +57005,7 @@
         },
         {
           "label": "Kit fit",
-          "text": "the K08 bay kit's gate refused two of the reconstructed window choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and says why in its record: the plate draws it taller than the lights above, and its size is read only in proportion to the 5.6 m storey."
+          "text": "the K08 bay kit's gate refused two of the reconstructed window choices above, and both were changed, not argued. Each bow's outer lights now stand 35 degrees round its curve from the middle one, not 40: at 40 their recesses ran up to 0.09 m back onto the forward block's face. The principal storey's sash stays 2.5 m clear, which is past K06's ordinary 2.4 m, and says why in its record: the plate draws it taller than the lights above, and its size is read only in proportion to the 5.6 m storey. **form.side bays retired from this liberty by later work (2026-10-27):** the north flank's lights (K01's south wall in this house's frame) are now read off the 1891 plate through its solved camera — one column 4.0 m back from the front corner, a window, a small oval light and a slot — and graded inferred, under `“1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank”`. The south and rear walls' lights stay this liberty's."
         }
       ],
       "work_refs": [
@@ -58114,6 +58108,41 @@
       ]
     },
     {
+      "id": "L-k01-1721-dress-1879",
+      "title": "1721 Prairie's front worked to the 1891 Inland Architect plate: balustrades, shutters, iron, the bows' lights, the third floor and the north flank",
+      "section": "per_subject",
+      "subjects": [
+        "dexter_house_1721_prairie",
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (package N18B) solves the 1891 plate's camera (the inland architect plate data, 5.5 px RMS) and builds the front until the render from it shows the plate's building: two lights a storey on each bow with a blank pier at its middle; four lights on the forward block's third floor and a round-headed fanlight between the bows; a stone balustrade round each bow's top and along the forward block's parapet; the recessed front's parapet solid for 1.5 m from its corner and then balustered; open louvred shutters at every light of the front but the round-headed one; iron guards on stone slabs under the ground floor's bay lights; the stack carried up to 16.9 m; and the north flank as one column of openings. **What is read, not invented.** From the plate, through its camera: every count and place above, the stack's height, the guards' and balustrades' runs, the north flank's three openings. **What is invented.** The shutters' colour (the deep green chose for 1637's; the plate is monochrome); the balusters' section (square, the plate's are turned); the guards' bars and their 0.85 m height and 0.3 m projection; the balustrades' heights (0.75-0.8 m, read only in proportion); the north flank's oval light, built square-headed at its size because K01 cuts no oval; the carved tablets over the upper lights, for which a cornice hood (the recessed front) and K06's plain head (the bays) stand; the forward parapet's 1.5 m solid pedestal at its north-west corner, built pierced. Each is `within tolerance` in the match record, with its reason. **The other pictures.** The two c. 1888 photographs (`a16-ghm-blog-1721-dexter-c1888`, `cgn-1721-dexter-winter-photo-copy`) show the frame house before Little's front of 1889 — another phase, so no camera is solved on them for as mapped 1904. The Detroit print (`a16-pullman-det-4a08065`) sees 1721 only at its left edge behind trees; its camera is Pullman's (1729 Prairie Avenue — the George M. Pullman house). The c. 1905 Clark negative (`a16-chm-clark-ichi-071912-dexter-c1905`) is online only as a 375 px contact thumbnail inside a scrapbook PDF and is not in the image store; when it is fetched it is the 1904 phase's closest picture and takes a camera of its own. **Grades.** The new attributes (form.window shutters, form.flat balustrade) and the reworked `form.bays`, form.side bays and `form.chimneys` are `inferred`: what they place is the plate's, their sizes are read in proportion and their notes say so; the inventions above live inside them. **How it is built.** Three additive kit options, which no other record names (every other K01, K12, K13 and K16 asset re-emitted byte-identical): window shutters on K01's own walls, `shutters` and `guard` on a K08 bay's light (in the light's frame, so a bow bends them), and flat balustrade, the flat roof's blocking course stopped at a plinth and balustered over a stretch of the street front."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper or colour picture of the front (the Clark negative at full size) replaces the shutters' colour, the balusters' section and the tablets' carving."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1721 dexter, an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-1879)."
+        }
+      ],
+      "work_refs": [
+        "T-1837",
+        "T-2887",
+        "T-1879"
+      ]
+    },
+    {
       "id": "L-kimball-1801-gable-oriel-1890",
       "title": "1801 Prairie's gabled section on 18th Street given its round oriel on corbels and its three round-arched lights",
       "section": "per_subject",
@@ -58229,6 +58258,82 @@
       ],
       "work_refs": [
         "T-3199"
+      ]
+    },
+    {
+      "id": "L-prairie-hydrants-3201",
+      "title": "The 1904 district's fire hydrants: the two pictured, then one per intersection and one mid-block on each long block, placed by rule",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "a cast-iron post fire hydrant stands in the parkway grass at two pictured places and at places set by rule (the 1904 street furniture data, written by the lay prairie 1904 street furniture tool). Pullman's stands on the Prairie Avenue parkway beside the walk 8 m north of the corner at 18th Street; Tucker's on the Prairie Avenue parkway near the curb 6 m north of the corner at 22nd Street; these two are attested. Every other intersection has one, at its corners taken in turn (NE, SW, NW, SE, west to east and north to south), on the avenue's parkway 3.5 m from the corner and 0.45 m inside the curb; and every block face 150 m long or more has one mid-block on one side of its street. Each is moved along the parkway clear of a lamp (2 m), an elm (1.8 m), a carriage walk, an alley mouth and a corner crossing (0.5 m). Every hydrant is the same: a barrel on a flared foot, a band under a domed bonnet with an operating nut, two side nozzles with caps, about 0.85 m, painted a mid grey."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the hydrant's form and the two places from the Detroit Publishing Pullman view (Detroit Publishing Co. The Pullman residence, Chicago), the Glessner House Museum's halftone of the finished Pullman house ([George M. Pullman residence, 1729 S. Prairie Avenue, completed.] Halftone of a…) and the second 2140 photograph ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph of the house from the…)."
+        },
+        {
+          "label": "What is invented",
+          "text": "every hydrant's place but the two pictured; one per intersection and the turn of corners; the 3.5-m and 0.45-m measures; the mid-block hydrant on faces of 150 m or more; one form for the district at the measures read off three pictures; the paint (the prints are monochrome; the Detroit view prints it lighter than the lamp posts)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a city water department record of hydrants by street (an annual report's hydrant list) would place them; Sanborn insurance sheets mark hydrants, so a Sanborn sheet of the district near 1904 would place them too."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on prairie 1904 street furniture § 2."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3201)."
+        }
+      ],
+      "work_refs": [
+        "T-3201"
+      ]
+    },
+    {
+      "id": "L-prairie-utility-poles-3202",
+      "title": "The 1904 district's utility poles and wires: Glessner's pictured pole, a line on 18th Street and down every alley, and 22nd Street's trolley overhead",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "wooden poles carry overhead wires along three runs (the 1904 street furniture data, written by the lay prairie 1904 street furniture tool). On 18th Street, Glessner's pole stands on the south parkway at the north-west corner of the stable, by the alley (attested); two more run west from it to Indiana Avenue at about 34 m by the curb (inferred), and a line goes from it into the alley behind. Down each of the seven alleys a line runs on its east side, its end poles 2.5 m in from the mouths, spanned across the street where one alley's foot meets the next one's head (reconstructed). On 22nd Street, pairs of plain poles at about 34 m, one in the north parkway by the curb and one opposite it across the street, hold a span wire at 6.6 m, and two contact wires run along the street over the tracks at 5.6 m (the wires inferred, the poles reconstructed). No pole stands on a Prairie Avenue parkway. Every line pole is drawn as Glessner's: 10.5 m, one crossarm of six pins with green glass insulators; the trolley poles are plain, 9 m. The wires sag about 1.2 % of their span and are hidden on the phone's light grade. Every pole is moved clear of an elm, a lamp or a hydrant (1.5 m), a carriage walk and an alley mouth."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the c. 1887 photograph of Glessner's stable from the north-west (Unknown photographer, Detail, Glessner House, ca. 1887) for Glessner's pole, its crossarm and its place. Taylor no. 2135 (J. W. Taylor, Glessner Residence (2135), c.1887–1889) and the Detroit Publishing Pullman view (Detroit Publishing Co. The Pullman residence, Chicago) show no pole on 18th Street east of the alley or on Prairie Avenue. The photograph from 22nd and Prairie ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph from the south-east…) shows rails and trolley wires in 22nd Street; it is undated (after 1890)."
+        },
+        {
+          "label": "What is invented",
+          "text": "every pole's place but Glessner's; the line's run west to Indiana and down the alleys, and what it carried; the 34-m spacing, the heights, the pins and the insulators' colour; the trolley overhead's form (span wires on paired poles, two contact wires, the heights), which the photograph shows only as wires; that 22nd Street's line was electric by July 1904. The University of Chicago's 1897 street-car map and 1902 surface street-railroad maps (`st-uchicago-blanchard-1897-street-car-lines-se`, `st-uchicago-1902-surface-street-railroads` in the Prairie library) would settle 22nd Street's line, but their images could not be reached from the build containers and were not read."
+        },
+        {
+          "label": "How to resolve",
+          "text": "read the 1902 street-railroad map and the 1897 street-car map for 22nd Street; a dated photograph of 22nd Street or of an alley in the district would place the poles and show the overhead's form; a Sanborn sheet does not draw poles."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on prairie 1904 street furniture § 3."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27 (T-3202)."
+        }
+      ],
+      "work_refs": [
+        "T-3202"
       ]
     },
     {

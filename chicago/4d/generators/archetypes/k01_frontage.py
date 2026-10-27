@@ -316,6 +316,7 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
              "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
              "iron": "iron",        # T-2525: a bow's balcony rail and a light's grille
+             "shutter": "shutter",   # T-1879: a bay light's louvred shutters
              "cheek": "mansard_slate"}  # T-3197: a storey's slated cheeks, the mansard's slate (1827's attic)
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 
@@ -3076,6 +3077,21 @@ class Assembly:
                     ya = y0 + 0.08 + k * lv
                     self.proud_box("shutter", frame, s0 + 0.05, s1 - 0.05, ya, ya + lv * 0.5, 0.05, seed, conf)
 
+    def window_shutters(self, frames):
+        """T-1879: open louvred shutters folded back flat beside a wall's lights (1721's, the
+        1891 plate), as T-2887's at a bay's window over: a pair of boards `width_m` wide,
+        SHUTTER_GAP_M off each side of the light from its sill to its head, slats across them."""
+        sh, conf = self.p.shutters, self.p.conf("window_shutters")
+        w, lv, gap = sh["width_m"], sh["louvre_m"], k01_frontage_params.SHUTTER_GAP_M
+        for cid, a, b, y0, y1 in sh["lights"]:
+            seed = self.instance("k01.window.shutters", "shutters", {"width_m": w, "louvre_m": lv},
+                                 {"sill": _add(frames[cid][0], _mul(frames[cid][1], (a + b) / 2))})
+            for s0, s1 in ((a - gap - w, a - gap), (b + gap, b + gap + w)):
+                self.proud_box("shutter", frames[cid], s0, s1, y0, y1, 0.035, seed, conf)
+                for k in range(int((y1 - y0 - 0.16) / lv)):
+                    ya = y0 + 0.08 + k * lv
+                    self.proud_box("shutter", frames[cid], s0 + 0.05, s1 - 0.05, ya, ya + lv * 0.5, 0.05, seed, conf)
+
     def column_block(self, mat, C, A, B, h, y0, y1, seed, conf):
         """A square block about the vertical through C, `h` either side along A and B, from
         y0 to y1 over grade: its four faces and its top (its foot stands on a band)."""
@@ -3860,8 +3876,12 @@ class Assembly:
         # the covering, and the fascia over the rear wall
         P = k5.frame("z")
         zf = D - tw / 2
+        # T-1879: where the course is pierced as a balustrade its buried end is seen between the
+        # balusters, so over a pierced course that end is the deck's fascia
+        bal = fl.get("balustrade")
         deck = k5.extrude([(0.0, deck_bottom), (zf, deck_bottom), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
-                          lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
+                          lambda i, p_, q_: ("soffit", "fascia" if bal else "hidden", "covering", "fascia")[i],
+                          "hidden", "hidden")
         # T-2564: where the stone finish lays the north return in dressed courses, the brick
         # parapet stops at the return's back rather than running across its face, and the
         # wall head it stood on is the return's (the stone core caps it, so it is no roof face)
@@ -3880,7 +3900,13 @@ class Assembly:
         for ends, end in (((-tw, 0.0), D), ((-W, -W + tw), north_end)):   # the south and north parapets
             solids += k5.parapet_element({}, [(0.0, top), (end, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
         # the blocking course over the street front
-        solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
+        if bal:   # T-1879: stopped at a plinth where it is pierced as a balustrade (1721's)
+            z0, z1, ptop = -bal["to_s_m"], -bal["from_s_m"], E + bal["plinth_m"]
+            for path in ([(-W, top), (z0, top)], [(z0, ptop), (z1, ptop)], [(z1, top), (0.0, top)]):
+                if path[1][0] - path[0][0] > 1e-6:
+                    solids += k5.parapet_element({}, path, (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
+        else:
+            solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
         if finish:
             solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (0, tw), "x", tw, E, cp, dr, 0.0, 0.0)
         # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
@@ -3915,7 +3941,25 @@ class Assembly:
         # every picture of the front shows it under the lattice, not the eave's painted timber
         self.stone_cornice_u = D - 1e-6 if finish else math.inf
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)
+        if bal:
+            self.flat_balustrade(bal, D, W, E + bal["plinth_m"] + cp, top, tw, seed, conf)
         return yf
+
+    def flat_balustrade(self, bal, D, W, y0, top, tw, seed, conf):
+        """T-1879: the balusters and rail of a blocking course pierced as a balustrade (1721's
+        recessed front, the 1891 plate), in the front's trim stone: square balusters on the
+        plinth's coping, centred in the course's thickness, under a rail the course's thickness
+        and `rail_m` deep whose top is the course's, run between the solid lengths either side."""
+        s0, s1, b, rail = bal["from_s_m"], bal["to_s_m"], bal["bar_m"], bal["rail_m"]
+        # the street front's frame: u = D its face, s along it to the north (-z), N out to the street
+        R, N = (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)
+        self.proud_box("limestone_trim", ((D - tw, 0.0, 0.0), R, N), s0, s1, top - rail, top, tw, seed, conf)
+        n = max(1, round((s1 - s0) / bal["pitch_m"]) - 1)
+        pitch = (s1 - s0) / (n + 1)
+        for i in range(1, n + 1):
+            x = s0 + i * pitch
+            self.proud_box("limestone_trim", ((D - tw / 2 - b / 2, 0.0, 0.0), R, N), x - b / 2, x + b / 2,
+                           y0, top - rail, b, seed, conf)
 
     # role -> material: what the union named each face, and what a renderer binds to it
     SHELL = {"covering": "slate_covering", "cheek": "slate_covering", "fascia": "fascia",
@@ -5250,6 +5294,8 @@ def build(params, structure_id: str):
                     and o.sill_m - 0.15 < top:
                 raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "
                                  f"opening at s {o.s_m} whose sill is {o.sill_m} m")
+    if p.shutters:   # T-1879: open louvred shutters beside the named walls' lights
+        a.window_shutters({cid: frames[cid][0][0] for cid in frames})
     # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
     # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
     k10_frontage.dress(a, reach)
