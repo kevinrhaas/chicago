@@ -1,0 +1,28 @@
+{
+ "id": "chicagology_1901_ream_1898",
+ "type": "photograph",
+ "citation": "1901 S. Prairie Ave. 'In 1898 as owned by Mr. Ream.' [Norman B. Ream house, from across Prairie Avenue to the south-west.] Unknown photographer, 1898 (the hosting page's caption). Reproduced on chicagology.com, Prairie Avenue, 1901 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "1898 (Chicagology's caption)",
+ "describes_date": "1898",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a19-cgy-1901-ream-1898, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1901-ream-1898.jpg), committed since T-1903 at data/sources/assets/ream_1901_photos_t1903/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1901prairie/",
+ "locator": "The whole street front from its north corner to the canted south-west corner, the porch and its balcony, the cornice and the mansard with its dormers; the south flank's front half and its canted bay, seen steeply; the area fence and its gate posts. A street tree stands across the front's south part.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-1903) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3185, piece 1 of T-1903) from the image store's reference copy, 981 x 673 px greyscale, sha256 86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892.",
+ "note": "The fullest picture of the Ream house this project builds from. A light smooth ashlar house of two tall storeys over a raised basement: on the front's north part one window column; then a stone porch on paired Corinthian columns with responds at the wall, its flat top a balcony with a stone balustrade before the window over the door, reached by a stoop between curved stone cheeks; south of it one more window column, and the front's south end cut by a canted face with its own window column; every window under a moulded head with a small cornice on consoles; a deep cornice on large paired blocks over a frieze, carried round the south flank; a slated mansard with pedimented dormers over every window column and an iron cresting on its curb; the south flank's canted bay carried through both storeys with its own dormer; an iron fence of scrolled panels on a stone curb, with tall square stone posts.",
+ "what_it_supplies": [
+  "the street front's composition: its window columns, the porch and balcony, the canted south-west corner, the cornice, the mansard and its dormers",
+  "the heights of the principal floor, both storeys, the windows, the porch and the mansard through the photograph's camera",
+  "the tone of the walls: a light smooth stone"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "the north flank, the rear and the brick rear range",
+  "the south flank's rear half, behind the canted bay"
+ ]
+}
