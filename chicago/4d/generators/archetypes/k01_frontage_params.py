@@ -1776,7 +1776,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # pavilion), never the size
             q = e["plan"]
             w, d = float(q["width_m"]), float(q["proud_m"])
-            if not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
+            # T-1878: or a whole FORWARD BLOCK of the front (`block`), standing proud of the wall
+            # behind a corner recess (1721's, the 1911 sheet and the 1891 Inland plate: 14 m of the
+            # front stands 2.9 m before the wall the porch is set back against), square, flush
+            # with its wall's other corner, and carrying the front's bows on its face (`on_front`)
+            if q.get("block") is not None:
+                if q["block"] is not True or not (6.0 < w <= 16.0 and 1.2 < d <= 3.5) \
+                        or e.get("variant") != "k08.projection.full_height" or e.get("flush_corner") is None \
+                        or set(q) - {"width_m", "proud_m", "block"}:
+                    raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
+                                     f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+            elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
             # T-2988: either cheek may be CANTED, running from the wall `cant_*_m` further out
@@ -1784,7 +1794,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
@@ -2235,6 +2245,26 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     "along": (round(ex, 6), round(ez, 6)), "out": (round(-ez, 6), round(ex, 6)),
                     "length_m": round(L, 4), "s_m": s}
             a, b = host["s_m"] + min(ax, bx), host["s_m"] + max(ax, bx)
+        # T-1878: a bay standing on a forward block's FRONT (1721's two bows, the 1911 sheet and
+        # the 1891 Inland plate): its wall is the block's face, s_m measured along it from its
+        # left end, and on its host wall it stands over the block's own span. The same frame
+        # as a chamfer's, with no cant
+        face = None
+        if e.get("on_front") is not None:
+            host = next((x for x in out if x["id"] == e["on_front"]), None)
+            if host is None or not host.get("block") or host["wall"] != e["wall"] or v["kind"] != "bay" \
+                    or oriel or cant is not None or e.get("flush_corner") or e.get("corner") \
+                    or e.get("window_over") or e.get("strips") or e.get("columns") or e.get("dress"):
+                raise ParamError(f"bays: {e['id']} stands on_front: a bay on grade, on the face of a forward "
+                                 f"block laid before it on the same wall")
+            (ax, az), (bx, _bz) = host["variant"]["plan"]["points"][1:3]
+            L = bx - ax
+            if not (BAY_PIER_M - 1e-9 <= a and b <= L - BAY_PIER_M + 1e-9):
+                raise ParamError(f"bays: {e['id']} meets its block's face at s {a:.3f}..{b:.3f}, closer than "
+                                 f"{BAY_PIER_M} m to an end of its {L:.3f} m face")
+            face = {"host": host["id"], "origin": (round(host["s_m"] + ax, 6), round(az, 6)),
+                    "along": (1.0, 0.0), "out": (0.0, 1.0), "length_m": round(L, 4), "s_m": s}
+            a, b = host["s_m"] + ax, host["s_m"] + bx
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
@@ -2262,7 +2292,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s ring stands {gap:.3f} m inside its {corner} end; a corner turret's "
                                  f"stands 0-{TURRET_CORNER_M} m inside it, never past the end wall's plane")
             v["cap_whole"] = True
-        if cant is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or
+        if cant is None and face is None and ((a < BAY_PIER_M - 1e-9 and flush != "left" and corner != "left") or
                              (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right" and corner != "right")):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
@@ -2412,9 +2442,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if e.get("fabric", "stone") not in ("stone", "front_stone") or not any(abs(brick_above - y) < 1e-6 for y in lines):
                 raise ParamError(f"bays: {e['id']}.brick_above_m {brick_above} must be one of a stone bay's "
                                  f"storey lines {lines}")
-        out.append({"id": e["id"], "wall": e["wall"], "s_m": s if cant is None else round(a, 4),
+        out.append({"id": e["id"], "wall": e["wall"], "s_m": s if cant is None and face is None else round(a, 4),
                     "span_m": (round(a, 4), round(b, 4)),
                     **({"on_chamfer": cant} if cant else {}),
+                    **({"on_face": face} if face else {}),
+                    **({"block": True} if (e.get("plan") or {}).get("block") is True else {}),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
