@@ -1,6 +1,6 @@
 {
   "id": "pullman_glasshouse_1800_calumet_pavilion",
-  "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13",
+  "name": "Pullman estate (1800 S. Calumet Avenue): Beman's conservatory at the head of the north range, K13",
   "aka": [
     "1800 S. Calumet Avenue",
     "Pullman conservatory",
@@ -92,14 +92,14 @@
         "conservatory": {
           "value": {
             "id": "k13.house.pullman_1800_pavilion",
-            "form": "span_lantern",
-            "eave_m": 3.4,
-            "pitch_deg": 30,
-            "bays": 8,
-            "door": {
-              "wall": "end_left",
-              "at": 0.5
-            },
+            "form": "vault",
+            "section": "pointed",
+            "length_m": 12.589,
+            "width_m": 8.342,
+            "eave_m": 3.6,
+            "rise_m": 5.85,
+            "bays": 4,
+            "door": null,
             "gutters": [
               {
                 "eave": "front",
@@ -110,19 +110,50 @@
                 "outlet": "both"
               }
             ],
-            "ridge_vent": true,
+            "ridge_vent": false,
             "planting": [
-              "bench_front",
-              "bench_back"
+              "bench_front"
             ],
-            "length_m": 12.589,
-            "width_m": 8.342
+            "pavilion": {
+              "podium_m": 2.3,
+              "podium_out_m": 0.12,
+              "entrance": {
+                "width_m": 2.1,
+                "height_m": 3.5,
+                "surround_m": 0.3
+              },
+              "transept": {
+                "centre_m": 6.3,
+                "width_m": 7.0,
+                "reach_m": 1.35,
+                "rise_m": 5.75,
+                "section": "elliptic",
+                "rib_spacing_m": 0.9
+              },
+              "drum": {
+                "radius_m": 2.05,
+                "sides": 8,
+                "base_m": 8.3,
+                "top_m": 10.0
+              },
+              "dome": {
+                "radius_m": 2.0,
+                "segments": 20,
+                "rings": 4,
+                "rise_m": 3.1,
+                "rib_m": 0.06,
+                "finial_m": 0.5
+              }
+            },
+            "facets": 4
           },
-          "confidence": "reconstructed",
+          "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory",
+            "aic_lowe_pullman_conservatory_c1897"
           ],
-          "note": "The plan is the sheet's (inferred): the pavilion's long arm, north to south. The sheet draws it as a cross, its middle arms 1.3 m and 1.4 m wider each side over 7 m of its length; those arms are NOT built here, the long arm standing for the whole, and are T-3165's to build to the pictures. A span house with the kit's lantern, taller than the ranges (a 3.4 m eave against their 2.4-2.6 m) because the sheet makes it the head of the range; the door in its north end; everything else is RECONSTRUCTED from the K13 kit (data/components/prairie_1904/k13_conservatories.json, L-k13-conservatory-kit-2305) and recorded as L-pullman-glasshouses-1800-calumet-3164. Its south end stands 5 cm short of the north range's end wall, so the two never share a pane."
+          "note": "T-3179: Beman's conservatory as the 1894 Inland Architect plate and the Lowe c. 1897 photograph show it from 18th Street, worked through their solved cameras (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/): a glass nave on a pointed (Gothic) section, its north end the plate's great pointed arch, on a stone podium 2.3 m high with a band of upright glazing over it to the springing at 3.6 m and the apex at about 9.45 m; the arched stone entrance 2.4 m wide in its north end, its crown about 3.5 m; a pointed transept 7.0 m wide crossing it at mid-length and standing 1.35 m out each side, its ridge about 9.35 m; and an octagonal glazed drum (to 10.1 m) under a ribbed dome about 3.7 m across, its crown about 12.7 m and its finial about 13.5 m. The plan is the 1911 sheet's (inferred): the long arm's 12.59 by 8.34 m and the cross arms 1.3-1.4 m each side over 7 m of its length, which the plate's transept end confirms within about 0.2 m through the camera. Heights are read off the plate at 49.5 px/m on the north front (its width, 8.34 m, scales it) and agree with the Lowe photograph within 0.2 m. RECONSTRUCTED within that: the vault's eight facets a half, the bays, the transept and dome glazed in the kit's opaque substitute (they stand outside the nave's one transparent envelope), the cresting the plate shows along the transept ridge (under 1 ft, not built) and everything the pictures do not show of the south end (L-pullman-glasshouses-1800-calumet-3164, L-pullman-conservatory-3179)."
         }
       }
     }

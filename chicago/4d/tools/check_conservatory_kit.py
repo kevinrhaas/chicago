@@ -312,7 +312,8 @@ def plan_area(h):
     if not h.form["closed"]:
         return 0.0
     pl = h.form["plan"]
-    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2
+    # T-3179: and what a dress stands on outside it (the Pullman conservatory's transept arms)
+    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2 + h.meta.get("plan_extra_m2", 0.0)
 
 
 def rule_costs(h, data):

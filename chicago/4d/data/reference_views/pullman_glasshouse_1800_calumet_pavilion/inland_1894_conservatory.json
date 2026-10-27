@@ -1,0 +1,33 @@
+{
+ "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+ "scene": "1904",
+ "also_render": [
+  "pullman_glasshouse_1800_calumet_north",
+  "pullman_glasshouse_1800_calumet_east",
+  "pullman_glasshouse_1800_calumet_east_end",
+  "pullman_lodge_1800_calumet"
+ ],
+ "library_image": "a16-inland-1894-pullman-conservatory",
+ "photo": "../../sources/assets/pullman_1800_glasshouses_t3179/inland_1894_pullman_conservatory.jpg",
+ "image_px": [
+  2000,
+  1409
+ ],
+ "principal_px": [
+  1005,
+  885
+ ],
+ "focal_px": 2001,
+ "eye": [
+  -38.98,
+  11.67,
+  1.75
+ ],
+ "yaw_deg": 99.7,
+ "solve": "(draft)",
+ "sun_uvy": [
+  -0.3,
+  0.6,
+  1.0
+ ]
+}

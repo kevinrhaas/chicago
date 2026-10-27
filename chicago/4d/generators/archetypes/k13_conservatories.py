@@ -72,6 +72,7 @@ ROLE_MATERIAL = {
     "wall": "house_wall", "ground": "ground",
     "host_band": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
+    "sky_glass": "glass_sky",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -96,6 +97,10 @@ def materials(data: dict) -> dict:
         "floor": {"color": (0.50, 0.27, 0.20), "roughness": 0.8},
         "house_wall": {"color": (0.62, 0.40, 0.31), "roughness": 0.92},
         "ground": {"color": (0.36, 0.34, 0.30), "roughness": 1.0},
+        # T-3179: the opaque substitute toned as the 1894 plate and the c. 1897 photograph show
+        # Beman's glass catching a pale sky, for the glazing that stands outside a house's one
+        # transparent envelope where the pictures read it light, not dark
+        "glass_sky": {"color": (0.60, 0.64, 0.66), "roughness": 0.2},
     }
 
 
@@ -422,12 +427,66 @@ def form_span_apse(v, data):
     }
 
 
+def vault_section(v, data):
+    """T-3179: one half of a vault's section, [(z, y)] from the eave (z 0, the upright wall
+    leaving it tangent) to the crown (z = width / 2). `pointed`: an arc whose centre stands on
+    the springing line, so the two halves meet at a point, as Beman's conservatory over the
+    Pullman glasshouses does in the 1894 Inland Architect plate (it must rise at least half its
+    span); `elliptic`: a quarter-ellipse, so the halves meet level at the crown, as the low
+    range behind it does."""
+    W, he, rise = v["width_m"], v["eave_m"], v["rise_m"]
+    n = v.get("facets") or data["curve"]["facets"]
+    h = W / 2
+    if v.get("section", "pointed") == "pointed":
+        if rise < h:
+            raise ValueError(f"{v['id']}: a pointed vault rises at least half its span ({h:.3f} m), not {rise}")
+        c = (rise * rise - h * h) / (2 * h)      # the centre's offset past the crown: (h + c)^2 - c^2 = rise^2
+        r, t1 = h + c, math.acos(c / (h + c))
+        pts = [(r * (1 - math.cos(t1 * k / n)), he + r * math.sin(t1 * k / n)) for k in range(n + 1)]
+    else:
+        pts = [(h * (1 - math.cos(math.pi / 2 * k / n)), he + rise * math.sin(math.pi / 2 * k / n)) for k in range(n + 1)]
+    pts[0], pts[-1] = (0.0, he), (h, he + rise)   # exactly on the eave and the crown
+    return pts
+
+
+def form_vault(v, data):
+    """T-3179: a free-standing span whose roof is a vault of planar glass facets on
+    `vault_section`, both halves alike, the end walls closing the section. The section is
+    convex, so the glass stays one envelope."""
+    L, W, he, rise = v["length_m"], v["width_m"], v["eave_m"], v["rise_m"]
+    cp = vault_section(v, data)
+    door = v.get("door") or {}
+    b = v["bays"]
+    P = [
+        Panel("front", [(0, 0, W), (L, 0, W), (L, he, W), (0, he, W)], (0, 0, 1), plinth=True, bays=b),
+        Panel("back", [(L, 0, 0), (0, 0, 0), (0, he, 0), (L, he, 0)], (0, 0, -1), plinth=True, bays=b),
+    ]
+    for k in range(len(cp) - 1):
+        (z0, y0), (z1, y1) = cp[k], cp[k + 1]
+        P.append(Panel(f"facet_back_{k}", [(L, y0, z0), (0, y0, z0), (0, y1, z1), (L, y1, z1)],
+                       (0, z1 - z0, -(y1 - y0)), bays=b))
+        P.append(Panel(f"facet_front_{k}", [(0, y0, W - z0), (L, y0, W - z0), (L, y1, W - z1), (0, y1, W - z1)],
+                       (0, z1 - z0, y1 - y0), bays=b))
+    for x, nx, name in ((0.0, -1.0, "end_left"), (L, 1.0, "end_right")):
+        pts = [(x, 0, 0), (x, 0, W)] + [(x, y, W - z) for z, y in cp] + [(x, y, z) for z, y in reversed(cp[:-1])]
+        P.append(Panel(name, pts, (nx, 0, 0), plinth=True, door=door if door.get("wall") == name else None))
+    return {
+        "panels": P, "host": False, "closed": True,
+        "plan": [(0, 0), (L, 0), (L, W), (0, W)],
+        "eaves": {"front": [(0, he, W), (L, he, W)], "back": [(0, he, 0), (L, he, 0)]},
+        # staging only along the walls `planting` names
+        "ridges": [], "benches": [b for b in (("front", (0, W), (L, W)), ("back", (L, 0), (0, 0)))
+                                  if "bench_" + b[0] in v.get("planting", ("bench_front", "bench_back"))],
+        "border": None, "eave_m": he, "top_m": he + rise, "centre": (L / 2, (he + rise) / 2, W / 2), "section": cp,
+    }
+
+
 FORMS = {"lean_to": form_lean_to, "span": form_span, "span_lantern": form_span_lantern,
          "curvilinear_lean_to": form_curvilinear_lean_to, "canted_bay": form_canted_bay,
-         "segmental_bay": form_segmental_bay, "span_apse": form_span_apse}
+         "segmental_bay": form_segmental_bay, "span_apse": form_span_apse, "vault": form_vault}
 
 #: The forms that stand against a house wall and need a `host_wall` on their record. A
-#: free-standing house (a span, with or without its lantern or apse) needs none (T-3164).
+#: free-standing house (a span, with or without its lantern or apse, or a vault) needs none (T-3164).
 HOST_FORMS = frozenset({"lean_to", "curvilinear_lean_to", "canted_bay", "segmental_bay"})
 
 
@@ -549,6 +608,10 @@ class House:
         abuts = set(v.get("abuts") or ())
         if abuts:
             f["panels"] = [p for p in f["panels"] if p.name not in abuts and p.name.removesuffix("_lantern") not in abuts]
+        # T-3179: walls of masonry (`masonry` names them) carry the glass; their glass is not built
+        masonry = set((v.get("masonry") or {}).get("sides") or ())
+        if masonry:
+            f["panels"] = [p for p in f["panels"] if p.name not in masonry]
         self.form = f
         self.panels = f["panels"]
         self.meta.update({"eave_m": f["eave_m"], "top_m": f["top_m"], "centre": list(f["centre"])})
@@ -1467,6 +1530,204 @@ def host_dress(h: House, host: dict):
         h.face("opening", pts, (0, 0, 1))
 
 
+def _dome(h: House, d: dict, cx: float, cz: float, y0: float, role: str = "dome"):
+    """T-3179: a ribbed dome of `rings` x `segments` facets in the opaque glass substitute on a
+    circle of `radius_m` centred at (cx, cz), springing at y0 and rising `rise_m`, a rib on every
+    other meridian and an optional finial: the palm house's dome, stood anywhere."""
+    rd, m, rings = d["radius_m"], d["segments"], d["rings"]
+    prof = [(rd * math.cos(math.pi / 2 * j / rings), y0 + d["rise_m"] * math.sin(math.pi / 2 * j / rings))
+            for j in range(rings + 1)]
+    for j in range(rings):
+        (r0, ya), (r1, yb) = prof[j], prof[j + 1]
+        for k in range(m):
+            t0, t1 = math.tau * k / m, math.tau * (k + 1) / m
+            q = [(cx + r0 * math.cos(t0), ya, cz + r0 * math.sin(t0)), (cx + r0 * math.cos(t1), ya, cz + r0 * math.sin(t1))]
+            q += [(cx + r1 * math.cos(t1), yb, cz + r1 * math.sin(t1))]
+            q += [] if j == rings - 1 else [(cx + r1 * math.cos(t0), yb, cz + r1 * math.sin(t0))]
+            tm = (t0 + t1) / 2
+            h.face(role, q, (math.cos(tm), 0.4 + j / rings, math.sin(tm)))
+    w = d.get("rib_m", 0.1)
+    for k in range(0, m, 2):
+        t = math.tau * k / m
+        c, s_, ux, uz = math.cos(t), math.sin(t), -math.sin(t), math.cos(t)
+        for j in range(rings):
+            (r0, ya), (r1, yb) = prof[j], prof[j + 1]
+            o0, o1 = r0 + 0.04, r1 + 0.04
+            h.face("dome_rib", [(cx + o0 * c - ux * w / 2, ya, cz + o0 * s_ - uz * w / 2),
+                                (cx + o0 * c + ux * w / 2, ya, cz + o0 * s_ + uz * w / 2),
+                                (cx + o1 * c + ux * w / 2, yb, cz + o1 * s_ + uz * w / 2),
+                                (cx + o1 * c - ux * w / 2, yb, cz + o1 * s_ - uz * w / 2)], (c, 0.5, s_))
+    top = y0 + d["rise_m"]
+    if d.get("finial_m"):
+        _prism(h, "dome_rib", [(cx + 0.08 * math.cos(math.tau * k / 6), cz + 0.08 * math.sin(math.tau * k / 6))
+                               for k in range(6)], top - 0.05, top + d["finial_m"])
+    return top + d.get("finial_m", 0.0)
+
+
+def masonry_walls(h: House, ms: dict):
+    """T-3179: the masonry the Inland plate shows round the Pullman glasshouse range across 18th
+    Street, where the 1911 sheet letters only a glass roof: a wall `thickness_m` thick outside
+    each side `masonry` names (front or back, the span's long walls), from grade to `height_m`
+    (the eave and a parapet over it), under a coping; pilasters between a row of windows, drawn
+    dark a centimetre proud; and an optional open porch of columns under a flat entablature."""
+    v = h.v
+    L, W, t = v["length_m"], v["width_m"], ms.get("thickness_m", 0.0)
+    for side in ms["sides"]:
+        H, cp, wn, pil = ms["height_m"], ms["coping"], ms.get("windows"), ms["pilaster"]
+        z0, z1, sz = (W, W + t, 1.0) if side == "front" else (-t, 0.0, -1.0)
+        zf = z1 if sz > 0 else z0                       # the wall's outer face
+        _prism(h, "stonework", [(0.0, z0), (L, z0), (L, z1), (0.0, z1)], 0.0, H, top=False)
+        zo = zf + sz * cp["out_m"]
+        _prism(h, "stonework", [(0.0, min(zf - sz * t, zo)), (L, min(zf - sz * t, zo)),
+                                (L, max(zf - sz * t, zo)), (0.0, max(zf - sz * t, zo))], H, H + cp["thickness_m"],
+               bottom=True)
+        if not wn:                                      # a plain wall, its coping only
+            continue
+        n = max(1, int((L - wn["margin_m"] * 2) / wn["spacing_m"] + 1e-9))
+        step = (L - wn["margin_m"] * 2) / n
+        for i in range(n + 1):                          # a pilaster at each bay line
+            x = wn["margin_m"] + step * i
+            za, zb = sorted((zf - sz * 0.02, zf + sz * pil["out_m"]))
+            _prism(h, "stonework", [(x - pil["width_m"] / 2, za), (x + pil["width_m"] / 2, za),
+                                    (x + pil["width_m"] / 2, zb), (x - pil["width_m"] / 2, zb)], 0.0, H - 0.02)
+        for i in range(n):                              # a window in each bay
+            x = wn["margin_m"] + step * (i + 0.5)
+            a, b = x - wn["width_m"] / 2, x + wn["width_m"] / 2
+            zw = zf + sz * 0.01
+            h.face("opening", [(a, wn["sill_m"], zw), (b, wn["sill_m"], zw), (b, wn["head_m"], zw),
+                               (a, wn["head_m"], zw)], (0.0, 0.0, sz))
+    po = ms.get("porch")
+    if po:
+        x0, x1, D, ph = po["from_m"], po["to_m"], po["depth_m"], po["height_m"]
+        zf, sz = (W + t, 1.0) if po["side"] == "front" else (-t, -1.0)
+        zd = zf + sz * D
+        rc = po["column_radius_m"]
+        for i in range(po["columns"]):
+            x = x0 + rc + (x1 - x0 - 2 * rc) * i / max(1, po["columns"] - 1)
+            zc = zd - sz * rc
+            _prism(h, "stonework", [(x + rc * math.cos(math.tau * k / 8), zc + rc * math.sin(math.tau * k / 8))
+                                    for k in range(8)], 0.0, ph, top=False)
+        za, zb = sorted((zf - sz * 0.02, zd + sz * 0.1))
+        _prism(h, "stonework", [(x0 - 0.1, za), (x1 + 0.1, za), (x1 + 0.1, zb), (x0 - 0.1, zb)], ph,
+               ph + po["entablature_m"], bottom=True)
+        # the door it shelters, dark on the wall
+        xm, dw = (x0 + x1) / 2, po["door_width_m"]
+        zw = zf + sz * 0.015                            # clear of the windows' plane
+        h.face("opening", [(xm - dw / 2, 0.0, zw), (xm + dw / 2, 0.0, zw), (xm + dw / 2, ph - 0.3, zw),
+                           (xm - dw / 2, ph - 0.3, zw)], (0.0, 0.0, sz))
+
+
+def rotunda(h: House, rs: dict):
+    """T-3179: the round east end of the Pullman range as the Inland plate shows it: a column at
+    every joint of the span_apse's half-ring and `straight_columns` more along each side of its
+    straight part, on a stone podium, the glass between them, an entablature round the whole at
+    the range's coping, and a low ribbed dome over the curve's centre."""
+    v = h.v
+    L, W, n, he = v["length_m"], v["width_m"], v["facets"], v["eave_m"]
+    R = W / 2
+    ring = lambda r: [(L + r * math.sin(math.pi * k / n), R - r * math.cos(math.pi * k / n)) for k in range(n + 1)]
+    ro = R + rs["podium_out_m"]
+    _prism(h, "stonework", ring(ro) + [(0.02, R + ro), (0.02, R - ro)], 0.0, rs["podium_m"])
+    col = rs["column_radius_m"]
+    k_s = rs.get("straight_columns", 0)
+    feet = ring(R + col) + [(L * i / (k_s + 1), z) for i in range(1, k_s + 1) for z in (-col, W + col)]
+    for x, z in feet:
+        _prism(h, "stonework", [(x + col * math.cos(math.tau * k / 8), z + col * math.sin(math.tau * k / 8))
+                                for k in range(8)], rs["podium_m"], he - 0.15, top=False)
+    e = rs["entablature"]
+    eo = R + e["out_m"]
+    _prism(h, "stonework", ring(eo) + [(0.02, R + eo), (0.02, R - eo)], he - 0.15, he + e["height_m"], bottom=True)
+    return _dome(h, rs["dome"], L, R, he + e["height_m"], "sky_glass")
+
+
+def ribs(h: House, prof, xa, xb, ze, sgn, zin, hip, spacing):
+    """T-3179: the transept's glazing bars, as the plate draws them: a rib following the section
+    up each long slope at every `spacing` along the arm, from the hip to where the slope meets the
+    nave, each a strip 6 cm wide standing 3 cm proud of the substitute glazing."""
+    w, out = 0.06, 0.03
+    z_lo, z_hi = sorted((hip(0.0), zin(prof[-1][1])))
+    n = max(1, int(abs(z_hi - z_lo) / spacing))
+    for i in range(1, n):
+        z = z_lo + (z_hi - z_lo) * i / n
+        for xs, sx in ((xa, 1.0), (xb, -1.0)):
+            for (q0, y0), (q1, y1) in zip(prof, prof[1:]):
+                # only where this station lies on the slope (between its hip and the nave)
+                if not all(min(hip(q), zin(y)) - 1e-6 <= z <= max(hip(q), zin(y)) + 1e-6 for q, y in ((q0, y0), (q1, y1))):
+                    continue
+                dx, dy = q1 - q0, y1 - y0
+                ln = math.hypot(dx, dy)
+                nx, ny = -sx * dy / ln, dx / ln          # the slope's outward normal in (x, y)
+                a = (xs + sx * q0 + nx * out, y0 + ny * out)
+                b = (xs + sx * q1 + nx * out, y1 + ny * out)
+                h.face("dome_rib", [(a[0], a[1], z - w / 2), (b[0], b[1], z - w / 2), (b[0], b[1], z + w / 2),
+                                    (a[0], a[1], z + w / 2)], (nx, ny, 0.0))
+
+
+def pavilion(h: House, ps: dict):
+    """T-3179: Beman's conservatory at the head of the Pullman range, as the 1894 Inland plate and
+    the Lowe photograph show it, round the K13 vault's pointed nave: a stone podium under the glass
+    band, the arched stone entrance in its north end, a pointed transept crossing the nave (its
+    glass the opaque substitute, which the kit gives what stands outside the one transparent
+    envelope), and a ribbed dome on a glazed drum over the crossing."""
+    v = h.v
+    L, W, he = v["length_m"], v["width_m"], v["eave_m"]
+    nave = h.form["section"]
+    pod, po = ps["podium_m"], ps["podium_out_m"]
+    _prism(h, "stonework", [(-po, -po), (L + po, -po), (L + po, W + po), (-po, W + po)], 0.0, pod)
+    tr = ps["transept"]
+    xc, tw, reach = tr["centre_m"], tr["width_m"], tr["reach_m"]
+    xa, xb = xc - tw / 2, xc + tw / 2
+    # its section rises upright off the eave and turns level at the crest (the plate's ribs), and
+    # its end is hipped on the same curve, so the end reads as a curved hip and not a gable
+    arm = vault_section({"id": v["id"] + ".transept", "width_m": tw, "eave_m": he, "rise_m": tr["rise_m"],
+                         "section": tr.get("section", "elliptic"), "facets": v.get("facets")}, h.data)
+
+    def into(y):
+        """How far in from the nave's wall its roof stands at height y (0 at the eave)."""
+        for (z0, y0), (z1, y1) in zip(nave, nave[1:]):
+            if y0 <= y <= y1 + 1e-9:
+                return z0 + (z1 - z0) * (y - y0) / (y1 - y0) if y1 > y0 else z1
+        return nave[-1][0]
+
+    for sgn, zw in ((-1.0, 0.0), (1.0, W)):           # the east arm (z < 0) and the west
+        ze = zw + sgn * reach
+        zin = lambda y: zw - sgn * into(y)
+        hip = lambda q: ze - sgn * q                   # the hip line's z at a run q in from the eave
+        for x in (xa, xb):
+            h.face("sky_glass", [(x, 0.0, ze), (x, 0.0, zw), (x, he, zw), (x, he, ze)], (x - xc, 0.0, 0.0))
+        h.face("sky_glass", [(xa, 0.0, ze), (xb, 0.0, ze), (xb, he, ze), (xa, he, ze)], (0.0, 0.0, sgn))
+        for (q0, y0), (q1, y1) in zip(arm, arm[1:]):
+            for xs, sx in ((xa, 1.0), (xb, -1.0)):     # the two long slopes, from the hip to the nave
+                h.face("sky_glass", [(xs + sx * q0, y0, hip(q0)), (xs + sx * q1, y1, hip(q1)),
+                                (xs + sx * q1, y1, zin(y1)), (xs + sx * q0, y0, zin(y0))], (-sx * (y1 - y0), q1 - q0, 0.0))
+            end = [(xa + q0, y0, hip(q0)), (xb - q0, y0, hip(q0)), (xb - q1, y1, hip(q1))]
+            end += [] if xb - q1 - (xa + q1) < 1e-6 else [(xa + q1, y1, hip(q1))]
+            h.face("sky_glass", end, (0.0, q1 - q0, sgn * (y1 - y0)))
+        za, zb = sorted((zw - sgn * 0.05, ze + sgn * po))
+        _prism(h, "stonework", [(xa - po, za), (xb + po, za), (xb + po, zb), (xa - po, zb)], 0.0, pod + 0.01)
+        h.meta["plan_extra_m2"] = h.meta.get("plan_extra_m2", 0.0) + tw * reach
+        # glazing bars: a rib up each long slope, standing 3 cm proud
+        ribs(h, arm, xa, xb, ze, sgn, zin, hip, tr.get("rib_spacing_m", 0.6))
+    # the entrance in the north end: an arched opening drawn dark and its stone surround
+    en = ps["entrance"]
+    zc, r, ht = W / 2, en["width_m"] / 2, en["height_m"]
+    arc = [(zc + r * math.cos(math.pi * k / 12), ht - r + r * math.sin(math.pi * k / 12)) for k in range(13)]
+    h.face("opening", [(-po - 0.01, 0.0, zc - r), (-po - 0.01, 0.0, zc + r)] + [(-po - 0.01, y, z) for z, y in arc],
+           (-1.0, 0.0, 0.0))
+    sw, so = en["surround_m"], -po - 0.03
+    outer = [(zc + (r + sw) * math.cos(math.pi * k / 12), ht - r + (r + sw) * math.sin(math.pi * k / 12)) for k in range(13)]
+    for (za, ya), (zb, yb), (zc_, yc), (zd, yd) in zip(arc, arc[1:], outer[1:], outer):
+        h.face("stonework", [(so, ya, za), (so, yb, zb), (so, yc, zc_), (so, yd, zd)], (-1.0, 0.0, 0.0))
+    for z0, z1 in ((zc - r - sw, zc - r), (zc + r, zc + r + sw)):
+        h.face("stonework", [(so, 0.0, z0), (so, 0.0, z1), (so, ht - r, z1), (so, ht - r, z0)], (-1.0, 0.0, 0.0))
+    # the drum and dome over the crossing
+    dr = ps["drum"]
+    _prism(h, "sky_glass", [(xc + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
+                        W / 2 + dr["radius_m"] * math.sin(math.tau * (k + 0.5) / dr["sides"])) for k in range(dr["sides"])],
+           dr["base_m"], dr["top_m"])
+    h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xc, W / 2, dr["top_m"], "sky_glass"), 3)}
+
+
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
     """The conservatory a k13_conservatories record names, built against its host wall."""
     data = data or load()
@@ -1477,6 +1738,13 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
         host_dress(h, form["host_wall"]["value"])
     if form["conservatory"]["value"].get("stonework"):
         palm_house(h, form["conservatory"]["value"]["stonework"])
+    v = form["conservatory"]["value"]
+    if v.get("masonry"):
+        masonry_walls(h, v["masonry"])
+    if v.get("rotunda"):
+        rotunda(h, v["rotunda"])
+    if v.get("pavilion"):
+        pavilion(h, v["pavilion"])
     return h
 
 

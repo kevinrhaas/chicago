@@ -1,0 +1,110 @@
+{
+  "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+  "view": "lowe_c1897_conservatory",
+  "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
+  "glb_sha256": "6f8c6d6d30ce883b9fac0c04e54b5df0b5f53ab4d96dc8d92efbd8a22c78621c",
+  "camera_sha256": "b324ec35c49545801a8dc2e0e8c7e1d4d417c09f177a0e5ed840054fc802f9ec",
+  "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1468.881,
+        "local_n": -3238.358,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "6f8c6d6d30ce883b9fac0c04e54b5df0b5f53ab4d96dc8d92efbd8a22c78621c"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_north",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_north__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.115,
+        "local_n": -3250.978,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        12.639861465175308,
+        0,
+        -1.010474215986432
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "fcc96ffdf4060f2b38bffc8f5839f00963f2b6cd5c40fd4bf510201baeca8962"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.613,
+        "local_n": -3279.134,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        40.80026522435114,
+        0,
+        -1.010127527884292
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "ef1a1e5f66b940cbbf929350865878c8fe9a6f0642ef1a2bc082e07a2adf2307"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east_end",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1487.476,
+        "local_n": -3280.504,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        42.46847038513005,
+        0,
+        -17.846242297674625
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "84112c845597f4021aec1bab41464478b8db27042c18a6d6731a865162a35460"
+    },
+    {
+      "structure_id": "pullman_lodge_1800_calumet",
+      "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.535,
+        "local_n": -3274.685,
+        "rotation_deg": 178.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        36.3505815900771,
+        0,
+        -1.0108724267342746
+      ],
+      "rotation_y": -1.5707963267948963,
+      "glb_sha256": "64cf883d07802f5a531ad807d9305b8640fbaabee4fdfdffa85c81aedd0effbe"
+    }
+  ],
+  "group_sha256": "41e38fde739e8c0d1382437679bf1fb1e07d212ed2b211bb90d2193994dec4d8",
+  "side_by_side": "../../../../../../../../tmp/pm/lowe_c1897_conservatory-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
