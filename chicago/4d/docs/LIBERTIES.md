@@ -34744,3 +34744,29 @@ without a lamp removes that one.
 **Ticket:** T-3199.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
+
+### L-prairie-hydrants-3201 — The 1904 district's fire hydrants: the two pictured, then one per intersection and one mid-block on each long block, placed by rule
+
+**Decision:** a cast-iron post fire hydrant stands in the parkway grass at two pictured places and at
+places set by rule (`data/street_furniture/1904.json`, written by
+`tools/lay_prairie_1904_street_furniture.py`). Pullman's stands on the Prairie Avenue parkway beside
+the walk 8 m north of the corner at 18th Street; Tucker's on the Prairie Avenue parkway near the curb
+6 m north of the corner at 22nd Street; these two are attested. Every other intersection has one, at
+its corners taken in turn (NE, SW, NW, SE, west to east and north to south), on the avenue's parkway
+3.5 m from the corner and 0.45 m inside the curb; and every block face 150 m long or more has one
+mid-block on one side of its street. Each is moved along the parkway clear of a lamp (2 m), an elm
+(1.8 m), a carriage walk, an alley mouth and a corner crossing (0.5 m). Every hydrant is the same:
+a barrel on a flared foot, a band under a domed bonnet with an operating nut, two side nozzles with
+caps, about 0.85 m, painted a mid grey.
+**What it stands on:** the hydrant's form and the two places from the Detroit Publishing Pullman view
+(`loc_det_4a08065_pullman_residence`), the Glessner House Museum's halftone of the finished Pullman
+house (`ghm_blog_pullman_completed`) and the second 2140 photograph (`chicagology_2140_photo_b`).
+**What is invented:** every hydrant's place but the two pictured; one per intersection and the turn
+of corners; the 3.5-m and 0.45-m measures; the mid-block hydrant on faces of 150 m or more; one form
+for the district at the measures read off three pictures; the paint (the prints are monochrome; the Detroit view prints it lighter than the lamp posts).
+**How to resolve:** a city water department record of hydrants by street (an annual report's
+hydrant list) would place them; Sanborn insurance sheets mark hydrants, so a Sanborn sheet of the
+district near 1904 would place them too.
+**Ticket:** T-3201.
+**Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 2.
+**Recorded:** 2026-10-27 (T-3201).
