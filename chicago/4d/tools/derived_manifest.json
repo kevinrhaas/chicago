@@ -382,6 +382,19 @@
       ]
     },
     {
+      "why": "THE 1904 STREET FURNITURE (T-3199): the gas lamps at every intersection corner of the district's drawn streets, the pictured ones at their lots and the rest of each face at a reconstructed spacing, laid on data/street_grid/1904.json's faces clear of the carriage walks data/street_section/1904.json lays and the elms data/street_trees/1904.json plants. It reads all three, so it follows the step above.",
+      "command": [
+        "python3",
+        "tools/lay_prairie_1904_street_furniture.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/lay_prairie_1904_street_furniture.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-2327, T-2328, T-2340): sheets 28, 20 and 35's 1904 building footprints, read off the committed Sanborn rasters through the GCP files tools/georef_prairie_1904.py writes, clipped to the lots data/street_grid/1904.json carries and keyed to the authored T-1841, T-1840 and T-1842 sheet censuses. It reads the parcel grid the step above writes, so it follows that step.",
       "command": [
         "python3",
@@ -2388,6 +2401,10 @@
         "chicago/4d/data/sidecars/1835/sources/chicagology_1834_jones_photo.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_1901_ream_1898.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_1901_ream_exterior.json",
+        "chicago/4d/data/sidecars/1835/sources/chicagology_1905_field_photo.json",
+        "chicago/4d/data/sidecars/1835/sources/chicagology_2120_gorton_photo.json",
+        "chicago/4d/data/sidecars/1835/sources/chicagology_2140_photo_a.json",
+        "chicago/4d/data/sidecars/1835/sources/chicagology_2140_photo_b.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_chicago_brick.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_dearborn_st_bridges.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_first_post_office.json",
@@ -2470,8 +2487,11 @@
         "chicago/4d/data/sidecars/1835/sources/garraghan_1921_st_marys_chronology.json",
         "chicago/4d/data/sidecars/1835/sources/gemmell_chicago_in_1820_lithograph.json",
         "chicago/4d/data/sidecars/1835/sources/geneanet_cook_baumgarten_1836.json",
+        "chicago/4d/data/sidecars/1835/sources/ghm_blog_1721_dexter_c1888.json",
+        "chicago/4d/data/sidecars/1835/sources/ghm_blog_pullman_completed.json",
         "chicago/4d/data/sidecars/1835/sources/ghm_george_glessner_ic_train_18th.json",
         "chicago/4d/data/sidecars/1835/sources/ghm_george_glessner_ic_train_foot_18th_c1888.json",
+        "chicago/4d/data/sidecars/1835/sources/ghm_ward_1887_prairie_north_from_20th.json",
         "chicago/4d/data/sidecars/1835/sources/gifford_tremont_house_no_1.json",
         "chicago/4d/data/sidecars/1835/sources/glessner_blog_1637_grosvenor_asbuilt_photo.json",
         "chicago/4d/data/sidecars/1835/sources/glessner_blog_1637_spalding_remodel_engraving.json",
@@ -2599,6 +2619,7 @@
         "chicago/4d/data/sidecars/1835/sources/nps_bailly_homestead.json",
         "chicago/4d/data/sidecars/1835/sources/nrhp_1972_prairie_avenue_district.json",
         "chicago/4d/data/sidecars/1835/sources/nwchicago_elijah_wentworth.json",
+        "chicago/4d/data/sidecars/1835/sources/nypl_dennis_tucker_1010_prairie_stereo.json",
         "chicago/4d/data/sidecars/1835/sources/ohio_firelands_rouse_bly.json",
         "chicago/4d/data/sidecars/1835/sources/okstate_treaty_chicago_1833.json",
         "chicago/4d/data/sidecars/1835/sources/old_settlers_bridges_1883.json",

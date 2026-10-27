@@ -1,0 +1,24 @@
+{
+ "id": "chicagology_1905_field_photo",
+ "type": "photograph",
+ "citation": "[1905 S. Prairie Ave. (Marshall Field residence).] Photograph of the house from the west side of the avenue; unknown photographer, undated (file '923prairiefieldhome', the pre-1880 number). Reproduced on chicagology.com, Prairie Avenue, 1905 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (file name uses the pre-1880 number)",
+ "describes_date": "undated",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a19-cgy-1905-field-923 (stream-1900.json).",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1905prairie/",
+ "locator": "A cast-iron gas lamp in front of the house's north part, on the parkway beside the walk, in front of the scroll-pattern iron fence.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Only what stands in the street and where is read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1905-field-923.jpg); the original host is not reachable from the build containers.",
+ "what_it_supplies": [
+  "a gas lamp on the east parkway in front of 1905 Prairie"
+ ],
+ "what_it_does_not_supply": [
+  "a date",
+  "the lamp's place as a measurement"
+ ]
+}

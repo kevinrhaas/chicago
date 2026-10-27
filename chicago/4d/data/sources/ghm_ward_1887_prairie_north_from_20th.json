@@ -1,0 +1,26 @@
+{
+ "id": "ghm_ward_1887_prairie_north_from_20th",
+ "type": "illustration",
+ "citation": "'Prairie Avenue.' Wood engraving in Souvenir of Chicago (Columbus, Ohio: Ward Bros., 1887), the avenue looking north from 20th Street; Glessner House Museum collection ('Prairie Avenue 1887').",
+ "author": "Ward Bros. (publisher)",
+ "date": "1887",
+ "describes_date": "1887",
+ "repository": "Glessner House Museum collection. Prairie library image st-ghm-ward-1887-prairie-north-from-20th (stream-streetscape.json).",
+ "url": "https://www.glessnerhouse.org/prairie-avenue-1887",
+ "locator": "The right foreground: a lamp post on the east parkway at the corner of 20th Street.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1887. Read for arrangement only; no asset is derived.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3199) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/st-ghm-ward-1887-prairie-north-from-20th.jpg); the original host is not reachable from the build containers.",
+ "note": "An engraving, so its proportions are the engraver's; it places a lamp at the corner and does not measure it.",
+ "what_it_supplies": [
+  "a lamp post at the east-side parkway corner of Prairie Avenue and 20th Street in 1887",
+  "stone crossing flags across the intersection"
+ ],
+ "what_it_does_not_supply": [
+  "the lamp's form in detail",
+  "any measurement"
+ ]
+}
