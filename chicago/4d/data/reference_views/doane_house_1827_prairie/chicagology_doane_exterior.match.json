@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c2acd1c6089ea280b9a72a1a28322a1cbc645d09499c6865221e27a865c542b8",
+  "glb_sha256": "ca30326c180bc4e77c8740b291b52ecaa23cb8790c031733b7a93ff47e17a753",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -81,7 +81,16 @@
     },
     {
       "what": "the porch's round arches and its steps rising along the front from the north (a flight stands across the porch's width)",
+      "status": "fixed",
+      "how": "T-3210 (piece 2 of T-3197): the porch built as a stone arcade on the hood's columns (k01 door hood `arches`), three columns on the street face at v 0.35, 2.55 and 4.75 and two round arches between them springing at 3.65 m and rising 0.85 m, and one arch on the south face from the respond to the corner column. The render's south street arch stands at x 13-107 px, its crown at y about 1203, against the print's x 13-120 and 1207 (its south springing behind the street tree in both). The flight read through the camera: straight in under that arch, 1.9 m wide (v 2.7-4.6), the floor carried on either side as terraces; the print's south cheek, from x 37, y 1515 to x 112, y 1455, renders from about x 47, y 1493 to x 127, y 1427, a coping about 0.3 m higher and its top end one tread further in (within tolerance: the cheek's foot is behind the shrubs at the print's edge, and the coping's height over the nosings is the kit's). Neither reading the ticket named holds through the camera: along the front lands the flight past the porch's south face, and straight in under the north arch puts its south cheek inside the porch under its floor (stoop_width_m's note)."
+    },
+    {
+      "what": "the porch's south face in deep shadow, its column against the pavilion standing proud (x 233-253 px) where the build has a flat respond, and a low parapet between the pedestals on that face (y about 1420-1455 px); the render lights that face and leaves it open to the floor",
       "status": "open"
+    },
+    {
+      "what": "the newel pedestal and short column on the flight's south cheek at its top (x 85-112 px, y 1332-1455); the build's cheek ends in a plain block",
+      "status": "within tolerance"
     },
     {
       "what": "the iron grilles in the basement lights: one under the pavilion's centre light (x 392-468 px, y 1471-1548), one under the window bay south of it (x 664-749, y 1475-1557) and a tall one in the tower's narrow north-west face (x 832-856, y 1482-1570); the build's basement lights were glazed, and the pavilion and tower had none",
