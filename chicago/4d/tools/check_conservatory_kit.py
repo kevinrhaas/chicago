@@ -307,13 +307,14 @@ def rule_doubled(h, data):
 
 
 def plan_area(h):
-    """The closed plan's area in square metres (0 for a house open to its host wall): what the
-    kit's per-square-metre caps scale with (T-3164)."""
-    if not h.form["closed"]:
-        return 0.0
+    """The closed plan's area in square metres (0 for a house open to its host wall), and what
+    its dress stands on: what the kit's per-square-metre caps scale with (T-3164)."""
     pl = h.form["plan"]
-    # T-3179: and what a dress stands on outside it (the Pullman conservatory's transept arms)
-    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2 + h.meta.get("plan_extra_m2", 0.0)
+    own = abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2 if h.form["closed"] else 0.0
+    # T-3179: and what a dress stands on outside it (the Pullman conservatory's transept arms);
+    # T-1934: an open bay's too, when its host wing and terrace are dressed (the Pullman palm
+    # house's balustraded range and terrace), so the dress is costed on the ground it covers
+    return own + h.meta.get("plan_extra_m2", 0.0)
 
 
 def rule_costs(h, data):
