@@ -702,7 +702,7 @@
                 {
                   "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.7,
-                  "clear_height_m": 2.15,
+                  "clear_height_m": 2.0,
                   "sill_m": 0.25,
                   "at": [
                     0.33,
@@ -710,7 +710,7 @@
                     0.67
                   ],
                   "recess_m": 0.4,
-                  "why_not_ordinary": "the attic's three tall lights, read off the Doane photograph through its re-solved camera (T-3175, T-3189): three lights about 40 px across at x 357-400, 413-457 and 463-500 px on the pavilion's face (269-601 px for its 5.46 m), about 0.7 m each, their sills just over the main cornice's top (y about 795 px, about 9.65 m) and their heads under the crown's cornice (y about 625 px, about 11.8 m), centred on the pavilion; T-3194: the photograph's lights have arched heads over their sashes (y about 627-690 px), so they are round-headed, a fanlight over the sashes"
+                  "why_not_ordinary": "the attic's three tall lights, read off the Doane photograph through its re-solved camera (T-3175, T-3189): three lights about 40 px across at x 357-400, 413-457 and 463-500 px on the pavilion's face (269-601 px for its 5.46 m), about 0.7 m each, their sills just over the main cornice's top (y about 795 px, about 9.65 m) and their heads under the crown's cornice (y about 625 px, about 11.8 m), centred on the pavilion; T-3194: the photograph's lights have arched heads over their sashes (y about 627-690 px), so they are round-headed, a fanlight over the sashes; T-3191: 2.0 m clear under the attic lowered 0.3 m, the heads of their arches at the crown's soffit"
                 }
               ],
               "cheeks": {
@@ -907,10 +907,11 @@
                   "clear_height_m": 2.7,
                   "sill_m": 0.3,
                   "at": [
-                    0.116,
-                    0.425,
-                    0.733
-                  ]
+                    0.185,
+                    0.438,
+                    0.691
+                  ],
+                  "why_not_ordinary": "the main front's sash (sash_by_storey: 1.15 m wide, 2.7 and 2.4 m tall, read off the Doane photograph through the re-solved camera), carried onto the rear part's step at the places the flank's own windows stood (s 11.5, 16 and 20.5 from the front: 1.7, 6.2 and 10.7 m along the step's face, after its 1.6 m front cheek, of the step's 17.8 m run); reconstructed, no picture reads this face (T-3191)"
                 }
               ]
             },
@@ -923,10 +924,11 @@
                   "clear_height_m": 2.4,
                   "sill_m": 0.3,
                   "at": [
-                    0.116,
-                    0.425,
-                    0.733
-                  ]
+                    0.185,
+                    0.438,
+                    0.691
+                  ],
+                  "why_not_ordinary": "the main front's sash (sash_by_storey: 1.15 m wide, 2.7 and 2.4 m tall, read off the Doane photograph through the re-solved camera), carried onto the rear part's step at the places the flank's own windows stood (s 11.5, 16 and 20.5 from the front: 1.7, 6.2 and 10.7 m along the step's face, after its 1.6 m front cheek, of the step's 17.8 m run); reconstructed, no picture reads this face (T-3191)"
                 }
               ]
             }
