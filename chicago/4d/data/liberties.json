@@ -59418,19 +59418,7 @@
           "domain": "structure",
           "structure": "george_glessner_house_1706_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "george_glessner_house_1706_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.yard"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_lee_house_1700_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
         },
         {
           "domain": "structure",
@@ -59456,7 +59444,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_lee_house_1700_prairie.as_mapped_1904.form.boundary`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.boundary`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`"
+          "text": "`glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`"
         }
       ],
       "work_refs": [

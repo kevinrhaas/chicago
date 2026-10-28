@@ -35436,5 +35436,5 @@ as Chicagology's later photograph shows it: so it is read as the 1904 railing.
 **How to resolve:** a K11 gateway set off its flight's axis with a walk that turns to it (1706's, about
 1.6 m south); a photograph showing the pair's yards nearer the street line, or a second camera on
 Chicagology's picture fitted on the curb and the stair feet as well as the front.
-**Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.boundary`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.boundary`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
+**Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3212.
