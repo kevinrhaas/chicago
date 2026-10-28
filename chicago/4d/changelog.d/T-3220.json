@@ -1,0 +1,9 @@
+{
+  "title": "Room for the next Prairie Avenue houses in the published town",
+  "kind": "chore",
+  "items": [
+    "The published town had filled its storage allowance, which held back two finished pieces of work: 1700 and 1706 Prairie, and the walks and gates of the 1600 block.",
+    "The allowance grows from 416 to 432 MiB. That figure was checked against what the site actually deploys, and the rest of the site turned out to weigh 132 MiB, not 129.",
+    "The lasting fix now has a ticket: each shared texture sheet gets shipped once, where today the houses carry 66 MiB of copies between them."
+  ]
+}
