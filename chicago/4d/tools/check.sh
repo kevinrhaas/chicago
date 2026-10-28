@@ -1092,6 +1092,12 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)
+# wears its storey's K09 head on a side wall too, and its own transom tiers: 1801's two
+# lights over the loggia in the kit's surround on 0.8 m top lights; a bad name refused.
+step "a K01 light named in street_front_trim.lights wears its storey's head and its tiers (T-1890)" \
+  python3 tools/test_k01_loggia_lights.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main

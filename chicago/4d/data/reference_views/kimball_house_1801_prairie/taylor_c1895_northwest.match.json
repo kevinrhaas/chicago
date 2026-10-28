@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "09bf64d0b8695771f4fa1d2d902a559e4665613c199991f29f6808415f2acf6f",
+  "glb_sha256": "d10ce88f023a450dafc7a6b8f5955a86623d31f1f9b6937c9030866f04df0dc6",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -206,8 +206,12 @@
     },
     {
       "what": "the lights over the loggia, on the front and the flank: the print's outlines read about 1.4 m across (x 1016-1071 and 877-931 px), about 1.2 m once the lit reveal of the near jamb is taken off, against the build's 1.15 m (K01's widest ordinary sash); their transom bar stands about 0.75-1.0 m under the head where K06's transom light is 0.45 m; and each stands in a moulded frame under a projecting head between carved pilasters, where the build lays K01's flat arch",
-      "status": "open",
-      "how": ""
+      "status": "fixed",
+      "how": "T-1890: both lights wear the K09 kit's restrained surround (street_front_trim.by_storey's second storey, and `lights` names the flank's on the 18th Street wall), a two-fascia architrave round the light under a cornice hood on consoles, and each carries an 0.8 m top light over a 0.1 m bar (`lights` tiers), its bar now about 0.9 m under the head as the print's; the width stays K01's 1.15 m, about 0.05 m under the print's 1.2, within tolerance. The carved pilasters either side are the next difference"
+    },
+    {
+      "what": "the carved pilasters either side of the lights over the loggia, on the front and the flank: each light stands between two pilasters (about 0.3 m across, x 1000-1010 and 1075-1085 px at the front, 860-870 and 935-945 on the flank) rising from the belt under the sill to carved capitals beside the head, a chain of lozenges down each shaft; the build lays the K09 surround's consoles there and no pilaster (T-1890)",
+      "status": "open"
     },
     {
       "what": "the south wall's two stone stacks (T-3107, read off HABS photograph 1): this camera cannot see them; the front one, built to 18.0 m, stays under the deck's line from this eye, where the print shows sky over the cresting; T-3109 dresses both and lowers the rear one to 18.5 m, still under the north curb from this eye",
