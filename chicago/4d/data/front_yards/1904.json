@@ -119,19 +119,19 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 173,
-  "trees": 23,
-  "beds": 11,
+  "shrubs": 191,
+  "trees": 20,
+  "beds": 13,
   "creeper_patches": 21,
   "attested_plants": 31,
   "lots_with_a_door": 110,
   "schemes": {
-   "corners": 49,
+   "corners": 72,
    "group": 22,
    "lawn": 34,
    "pictured": 2,
    "pictured bare": 7,
-   "stoop": 35
+   "stoop": 12
   }
  },
  "lots": [
@@ -210,9 +210,17 @@
      9.03
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1507.68,
+     -3295.59,
+     "arborvitae",
+     3.16,
+     1.34
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -246,7 +254,7 @@
      11.52
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -255,26 +263,25 @@
      "arborvitae",
      2.1,
      0.89
-    ]
-   ],
-   "trees": [
+    ],
     [
-     1516.43,
-     -3314.09,
-     "linden",
-     5.37,
-     2.81
+     1509.18,
+     -3309.09,
+     "lilac",
+     3.15,
+     2.57
     ]
    ],
+   "trees": [],
    "beds": [
     [
      1514.18,
      -3310.84,
-     1.47,
-     1.02,
+     1.0,
+     1.0,
      162.49,
-     "oval",
-     1
+     "round",
+     3
     ]
    ],
    "creeper": []
@@ -607,7 +614,7 @@
      9.64
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -616,6 +623,13 @@
      "lilac",
      2.61,
      2.12
+    ],
+    [
+     1519.43,
+     -3455.09,
+     "lilac",
+     2.5,
+     2.04
     ]
    ],
    "trees": [],
@@ -789,7 +803,7 @@
      9.95
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -800,15 +814,7 @@
      1.35
     ]
    ],
-   "trees": [
-    [
-     1526.93,
-     -3533.34,
-     "linden",
-     5.75,
-     3.01
-    ]
-   ],
+   "trees": [],
    "beds": [],
    "creeper": []
   },
@@ -1233,9 +1239,17 @@
      3.19
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1320.18,
+     -3485.09,
+     "arborvitae",
+     2.91,
+     1.23
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -1738,7 +1752,7 @@
      7.89
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [],
    "trees": [],
@@ -1825,9 +1839,17 @@
      5.96
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1279.93,
+     -3235.59,
+     "lilac",
+     2.54,
+     2.07
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -2014,7 +2036,7 @@
      6.43
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -2023,6 +2045,13 @@
      "arborvitae",
      2.45,
      1.04
+    ],
+    [
+     1281.43,
+     -3277.09,
+     "lilac",
+     2.8,
+     2.28
     ]
    ],
    "trees": [],
@@ -2722,9 +2751,17 @@
      5.89
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1281.18,
+     -3525.34,
+     "arborvitae",
+     2.35,
+     0.99
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -2866,7 +2903,7 @@
      4.21
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [],
    "trees": [],
@@ -2902,7 +2939,7 @@
      4.72
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [],
    "trees": [],
@@ -2938,7 +2975,7 @@
      6.38
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -2947,6 +2984,13 @@
      "lilac",
      2.85,
      2.32
+    ],
+    [
+     1285.43,
+     -3635.09,
+     "arborvitae",
+     2.02,
+     0.85
     ]
    ],
    "trees": [],
@@ -3338,9 +3382,17 @@
      4.07
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1411.68,
+     -2985.09,
+     "lilac",
+     2.51,
+     2.05
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -3374,7 +3426,7 @@
      4.01
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -3789,16 +3841,24 @@
      9.51
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1383.68,
+     -3040.34,
+     "lilac",
+     2.58,
+     2.1
+    ]
+   ],
    "trees": [
     [
      1386.43,
      -3039.59,
      "linden",
-     6.74,
-     3.53
+     7.57,
+     3.96
     ]
    ],
    "beds": [],
@@ -3872,7 +3932,7 @@
      9.34
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [],
    "trees": [
@@ -3880,8 +3940,8 @@
      1386.18,
      -3055.34,
      "linden",
-     5.09,
-     2.66
+     6.39,
+     3.34
     ]
    ],
    "beds": [],
@@ -3916,11 +3976,36 @@
      9.34
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1382.93,
+     -3065.34,
+     "arborvitae",
+     3.18,
+     1.34
+    ],
+    [
+     1383.43,
+     -3067.09,
+     "lilac",
+     2.51,
+     2.05
+    ]
+   ],
    "trees": [],
-   "beds": [],
+   "beds": [
+    [
+     1385.93,
+     -3066.59,
+     1.0,
+     1.0,
+     179.34,
+     "round",
+     1
+    ]
+   ],
    "creeper": []
   },
   {
@@ -4333,18 +4418,18 @@
      14.01
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
-   "trees": [
+   "shrubs": [
     [
-     1415.68,
-     -3147.84,
-     "linden",
-     5.76,
-     3.01
+     1420.18,
+     -3150.09,
+     "lilac",
+     2.45,
+     2.0
     ]
    ],
+   "trees": [],
    "beds": [],
    "creeper": []
   },
@@ -4691,8 +4776,8 @@
      "attested"
     ],
     [
-     1414.68,
-     -3152.59,
+     1413.93,
+     -3190.09,
      "linden",
      5.6,
      2.93,
@@ -4700,7 +4785,7 @@
     ],
     [
      1413.68,
-     -3153.59,
+     -3163.59,
      "linden",
      7.91,
      4.14,
@@ -5053,9 +5138,17 @@
      4.57
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1390.68,
+     -3246.59,
+     "arborvitae",
+     2.9,
+     1.23
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -5390,11 +5483,29 @@
      9.6
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1419.93,
+     -3305.59,
+     "lilac",
+     2.69,
+     2.19
+    ]
+   ],
    "trees": [],
-   "beds": [],
+   "beds": [
+    [
+     1417.18,
+     -3311.59,
+     1.1,
+     1.1,
+     179.41,
+     "round",
+     1
+    ]
+   ],
    "creeper": []
   },
   {
@@ -5960,7 +6071,7 @@
      9.5
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
@@ -5969,15 +6080,22 @@
      "arborvitae",
      2.43,
      1.03
+    ],
+    [
+     1421.43,
+     -3450.84,
+     "lilac",
+     2.88,
+     2.35
     ]
    ],
    "trees": [
     [
      1417.93,
      -3458.84,
-     "maple",
-     6.23,
-     2.93
+     "linden",
+     5.9,
+     3.09
     ]
    ],
    "beds": [],
@@ -6127,9 +6245,17 @@
      9.57
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1421.43,
+     -3498.34,
+     "arborvitae",
+     2.39,
+     1.01
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []
@@ -6476,9 +6602,17 @@
      8.93
     ]
    ],
-   "scheme": "stoop",
+   "scheme": "corners",
    "grade": "reconstructed",
-   "shrubs": [],
+   "shrubs": [
+    [
+     1421.43,
+     -3577.84,
+     "arborvitae",
+     2.92,
+     1.24
+    ]
+   ],
    "trees": [],
    "beds": [],
    "creeper": []

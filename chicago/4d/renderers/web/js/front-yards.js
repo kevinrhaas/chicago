@@ -56,7 +56,7 @@ export const YARD_PLANTS = {
     bloom: { shape: 'head', rgb: [236, 234, 214], size_m: [0.12, 0.18], height_frac: 0.55 } },
   rose: { speciesId: 'rosa_garden', common: 'garden rose', h: [0.9, 1.3], crownW: [0.8, 1.2],
     dbh: [0.01, 0.018], dark: 0x2b4622, light: 0x6c8a46, bark: 0x5f5a3e,
-    bloom: { shape: 'cup', rgb: [172, 26, 46], size_m: [0.06, 0.085], height_frac: 0.45 } },
+    bloom: { shape: 'cup', rgb: [196, 30, 52], size_m: [0.08, 0.11], height_frac: 0.4 } },
   arborvitae: { speciesId: 'thuja_occidentalis', common: 'American arborvitae', h: [2.0, 3.2],
     crownW: [0.9, 1.3], dbh: [0.05, 0.08], dark: 0x1f361b, light: 0x4f6c34, bark: 0x6b5444, evergreen: true },
   globe: { speciesId: 'thuja_globe', arch: 'thuja_globe', common: 'arborvitae sheared to a ball',

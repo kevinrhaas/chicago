@@ -498,6 +498,9 @@ def plant_lot(p, plan: Plan, house, sids):
                 g = pic.get("stoop", {}).get("grade")
                 put(key, left, g, h, w)
                 put(key, right, g, h, w)
+            elif scheme == "stoop":
+                # no room for a matched pair at this stoop: a pair or nothing, never one
+                scheme = "corners"
         elif scheme == "stoop":
             scheme = "corners"
 
@@ -564,10 +567,12 @@ def plant_lot(p, plan: Plan, house, sids):
             & (y.terms["a door or the way to it"] >= 1.2)
         for k in range(want_trees):
             if "trees" in pic:
-                spread = np.full(room.shape, 0.0)
+                # spread through the lawn as the views show them: each as far from every
+                # other planting as the lawn allows
+                near = np.full(room.shape, 30.0)
                 for x, yy, _ in taken:
-                    spread -= np.hypot(y.pe - x, y.pn - yy) * 0.05
-                score = spread + rng.random() * 0.01
+                    near = np.minimum(near, np.hypot(y.pe - x, y.pn - yy))
+                score = -near + rng.random() * 0.01
             else:
                 frac = s / max(1.0, y.width)
                 score = np.minimum(np.abs(frac - 0.18), np.abs(frac - 0.82)) + 0.02 * np.abs(d - front * 0.45)

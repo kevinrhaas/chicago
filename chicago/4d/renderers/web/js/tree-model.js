@@ -1006,7 +1006,7 @@ const SHELL_K = 7.0;
 const BLOOM_SHAPES = {
   umbel: { florets: 3, lift: 1.4, squash: 0.9, segs: [4, 3], share: 0.6 },
   head: { florets: 6, lift: 0.5, squash: 0.8, segs: [5, 3], share: 0.5 },
-  cup: { florets: 3, lift: 0.3, squash: 0.7, segs: [5, 3], share: 0.5 },
+  cup: { florets: 3, lift: 0.3, squash: 0.7, segs: [5, 3], share: 0.75 },
 };
 /** The pale bark texel a solid bloom is drawn off is about this dark (linear), so its
  *  vertex colour is lifted by this much to come back to the flower's. */
@@ -1461,6 +1461,8 @@ function deadSkeleton(sk, kind, rnd) {
  *  against the anchor spacing. Coarser levels carry the same curtain on fewer,
  *  larger cards, as a tree's levels do. */
 const VINE_LOD = { near: [1, 1.5], mid: [2, 2.6], far: [4, 4.6], distant: [8, 8.6] };
+/** T-3223: the wall ivy's leaf spacing at each level, metres. */
+const VINE_SPACING = { near: 0.16, mid: 0.26, far: 0.5, distant: 1.0 };
 
 /**
  * T-2810 — A VINE ON AN EDGE TREE, built in the tree's frame with its open
@@ -1583,36 +1585,52 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
   const lrnd = mulberry32(seed ^ 0x3223);
   const H = (spec.h[0] + spec.h[1]) / 2;
   const W = spec.crownW ? (spec.crownW[0] + spec.crownW[1]) / 2 : Math.max(1.2, H * 0.4);
-  const s0 = 0.30;
-  const cols = Math.max(2, Math.round(W / s0));
   // The top edge, a smooth random walk: tongues of ivy climbing ahead of the mat.
+  const TOP_COLS = 12;
   const top = [];
   let tv = rnd();
-  for (let c = 0; c <= cols; c++) { tv = clamp01(tv + (rnd() - 0.5) * 0.5); top.push(tv); }
+  for (let c = 0; c <= TOP_COLS; c++) { tv = clamp01(tv + (rnd() - 0.5) * 0.55); top.push(tv); }
+  const topAt = (u) => {
+    const f = ((u + 1) / 2) * TOP_COLS; const c = Math.min(TOP_COLS - 1, Math.floor(f));
+    return lerp(top[c], top[c + 1], f - c);
+  };
   const [sunTile, clumpTile] = LEAF_TILES[spec.leaf] ?? LEAF_TILES.maple;
   const dark = linearRGB(spec.dark ?? 0x2f4a22);
   const light = linearRGB(spec.light ?? 0x6d8f3e);
-  const [stride, k] = VINE_LOD[lod] ?? VINE_LOD.near;
+  const sp = VINE_SPACING[lod] ?? VINE_SPACING.near;
   const leaves = new Buf();
   const wood = new Buf();
-  for (let c = 0; c <= cols; c += stride) {
-    const u = (c / cols) * 2 - 1;
-    const edge = 1 - Math.pow(Math.abs(u), 4);
-    const yTop = H * (0.55 + 0.45 * top[c]) * (0.75 + 0.25 * edge);
-    const rows = Math.max(1, Math.round(yTop / s0));
-    for (let r = 0; r <= rows; r += stride) {
-      const y = (r / rows) * yTop;
-      const up = y / H;
-      // Thinner toward the top and the loose edges.
-      if (lrnd() > (1 - 0.45 * up) * (0.55 + 0.45 * edge) * leafCover) continue;
-      const z = u * W * 0.5 + (r % 2 ? s0 * 0.5 : 0) + (lrnd() - 0.5) * s0 * 0.5;
-      const at = [0.04 + lrnd() * 0.12, y + (lrnd() - 0.5) * s0 * 0.4, z];
-      const lit = clamp01(0.25 + 0.5 * up + 0.2 * lrnd());
-      const tint = 0.84 + lrnd() * 0.3;
-      const colour = dark.map((v, j) => lerp(v, light[j], 0.2 + lit * 0.7) * lerp(0.75, 1, lit) * tint * LEAF_GAIN);
-      const facing = norm([1, (lrnd() - 0.5) * 0.5, (lrnd() - 0.5) * 0.6]);
-      const tile = lrnd() < 0.7 ? sunTile : clumpTile;
-      card(leaves, at, [0, -1, 0], s0 * k * (0.9 + lrnd() * 0.4), tile, colour, [1, 0.15, 0], 0.15 + 0.2 * up, lrnd, facing);
+  // Two layers, as a wall of Boston ivy is seen: a dense, shaded under-mat of massed leaf
+  // close on the brick, and over it the sunlit leaves held out on their stalks, shingled,
+  // each turned its own way, so the mat has no rows and the wall shows only at the edges.
+  const layers = lod === 'near' || lod === 'mid'
+    ? [{ step: sp * 1.7, size: sp * 3.2, off: [0.02, 0.05], tile: clumpTile, lit: [0.05, 0.3], keep: 1 },
+      { step: sp, size: sp * 2.3, off: [0.06, 0.16], tile: sunTile, lit: [0.3, 0.75], keep: 0.9 }]
+    : [{ step: sp, size: sp * 2.6, off: [0.04, 0.12], tile: clumpTile, lit: [0.15, 0.6], keep: 1 }];
+  for (const L of layers) {
+    const cols = Math.max(2, Math.round(W / L.step));
+    const rows = Math.max(2, Math.round(H / L.step));
+    for (let c = 0; c <= cols; c++) {
+      for (let r = 0; r <= rows; r++) {
+        const u = clamp01((c + (lrnd() - 0.5) * 0.9) / cols) * 2 - 1;
+        const y = ((r + (lrnd() - 0.5) * 0.9) / rows) * H;
+        const edge = 1 - Math.pow(Math.abs(u), 5);
+        const yTop = H * (0.6 + 0.4 * topAt(u)) * (0.7 + 0.3 * edge);
+        if (y < 0 || y > yTop) continue;
+        const up = y / H;
+        // Thinner toward the ragged top and the loose side edges.
+        const fringe = Math.min(1, (yTop - y) / (L.step * 2.5));
+        if (lrnd() > L.keep * (0.35 + 0.65 * fringe) * (0.5 + 0.5 * edge) * leafCover) continue;
+        const at = [lerp(L.off[0], L.off[1], lrnd()), y, u * W * 0.5];
+        const lit = clamp01(lerp(L.lit[0], L.lit[1], lrnd()) + 0.15 * up);
+        const tint = 0.86 + lrnd() * 0.28;
+        const colour = dark.map((v, j) => lerp(v, light[j], 0.15 + lit * 0.75) * lerp(0.7, 1, lit) * tint * LEAF_GAIN);
+        // A leaf's stalk is below its blade; each turned its own way in the wall's plane.
+        const th = (lrnd() - 0.5) * Math.PI * 1.4;
+        const facing = norm([1, (lrnd() - 0.3) * 0.5, (lrnd() - 0.5) * 0.5]);
+        card(leaves, at, [0.25, Math.cos(th), Math.sin(th)], L.size * (0.85 + lrnd() * 0.35), L.tile, colour,
+          [1, 0.15, 0], 0.12 + 0.2 * up, lrnd, facing);
+      }
     }
   }
   const strands = lod === 'near' ? 3 : 1;
@@ -1639,7 +1657,7 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
     height: H,
     crownR: W / 2,
     trunkR: 0.025,
-    clumps: cols,
+    clumps: layers.length,
     skeleton: { vine: true },
   };
 }
