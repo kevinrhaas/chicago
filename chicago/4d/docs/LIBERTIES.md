@@ -35096,7 +35096,7 @@ overhead's form; a Sanborn sheet does not draw poles.
 (T-3223 replaced T-3203's continuous foundation row of 1,354 lumps). Lots whose photographs show
 the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those pictures show them:
 mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit
-Publishing views show: ivy over the west front and porch, low shrubs at the porch's foot, young
+Publishing views show: ivy over the west front (off the porch, below), young
 lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the
 ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn
 and the rest are planted in one of the period's few ways, drawn per lot from a seed of the
@@ -35105,9 +35105,13 @@ hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvit
 corner of the house, a short group of two or three shrubs against the front, and on a deep lot
 now and then a young sugar maple or linden in the lawn and one round or oval bed of geraniums or
 coleus. Each plant keeps clear, from its crown's edge, of the house wall, every stoop, step,
-fence, coping and walk, a 2 m disk round every door, and a 1.6 m way from each front door to the
-lot line, all read off the houses' baked models; `--check` re-measures that against the models
-in every gate run. No urn is placed: no picture read shows one clearly enough to place it.
+fence, coping and walk, a 2 m disk round every door, and a 5.2 m-wide way from each front door
+to the lot line, so a door and its stoop or porch front are seen clear from the street (T-3227,
+after Pullman's porch was planted in front of its door), widened to the whole front of the stoop
+or porch the door opens onto, up to 4.5 m either side of the door; ivy keeps its whole width off
+that way. So Pullman's porch-foot shrubs, which the Detroit views do show, are left out: the owner
+ruled that nothing stands in front of a door.
+All of it is read off the houses' baked models, and `--check` re-measures it in every gate run. No urn is placed: no picture read shows one clearly enough to place it.
 **What it stands on:** the photographs of 1720 (`glessner_blog_1720_tyrrell_photo`), 1736
 (`glessner_blog_1736_mcbirney_c1890_photo`), 1801 (`taylor_c1895_kimball_residence_1801`), 1811
 (`chicagology_1811_ames_photo`), 1816 (`chicagology_1816_henderson_photo`), 1905
