@@ -4328,10 +4328,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"its block 0.05-0.4 m past each jamb")
         # T-1888: a front whose stone stops at the principal floor (brick_above_m there) is a
         # brick front over a stone basement, and its storeys' windows are cut in the brick
+        # T-3208: or a stone front laid by front_bays, each window one round hole in its courses
+        # under the arch band and key (1900's, the oblique print and the c. 2014 detail); a front
+        # whose arches are grouped under voussoir blocks still names them in street_front_openings
         sf_ = val("stone_front") or {}
-        if (sf_ and sf_.get("brick_above_m") != val("principal_floor_m")) or sfo:
-            raise ParamError("street_front_round_heads cuts round holes in a brick front; a stone front "
-                             "lays its arches with street_front_openings")
+        if (sf_ and sf_.get("brick_above_m") not in (None, val("principal_floor_m"))) or sfo:
+            raise ParamError("street_front_round_heads cuts round holes in a brick front, or in a stone front "
+                             "laid by front_bays; a stone front's grouped arches are street_front_openings")
         if any(not 0 <= int(k) < stories for k in rh["storeys"]):
             raise ParamError(f"street_front_round_heads.storeys names a storey this {stories}-storey house has not")
         rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})), "head": rh.get("head", "round"),
