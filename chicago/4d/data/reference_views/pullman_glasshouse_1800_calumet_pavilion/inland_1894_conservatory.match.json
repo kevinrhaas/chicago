@@ -104,7 +104,7 @@
   ],
   "group_sha256": "449fbe623b9113d35b2b4d2aa3357cd5f293ff707f3cf324f6debf3035ec3b96",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the conservatory: a glass nave on a pointed section, its north end the great pointed arch springing at y 795 over a band of upright glazing on a stone podium (top y 858), apex y 510, between x 1250 and 1635",
@@ -148,18 +148,18 @@
     },
     {
       "what": "the glazed band's lights have arched heads and the podium is rusticated and panelled; the range's wall is panelled with a base course, its pilasters and the colonnade's columns heavier than built",
-      "status": "within tolerance",
-      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts"
+      "status": "open",
+      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "iron cresting along the transept's crest and the range's coping, and the small ornaments at the nave's apex and the transept's end",
-      "status": "within tolerance",
-      "how": "T-3153: each under 1 ft in section; not built"
+      "status": "open",
+      "how": "T-3153: each under 1 ft in section; not built Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the nave's arch is a smooth curve; the render's is four planar facets a half",
-      "status": "within tolerance",
-      "how": "the chords fall at most about 0.08 m inside the arc (the kit's glass is planar and its triangle budget holds the facets to four); the outline agrees within a few pixels"
+      "status": "open",
+      "how": "the chords fall at most about 0.08 m inside the arc (the kit's glass is planar and its triangle budget holds the facets to four); the outline agrees within a few pixels Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the glass reads pale (the sky in it) on the transept, the drum and the domes",
