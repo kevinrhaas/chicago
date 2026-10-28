@@ -808,7 +808,7 @@
           "value": {
             "kit": "k14_condition",
             "built": 1904,
-            "lawn": "turf",
+            "lawn": "none",
             "grass_edge": "street_front",
             "under_stoop": "earth",
             "front_walk": {
@@ -830,7 +830,7 @@
             "newberry_new_chicago_album_1883_residences",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The side stoop's flight ends running north along the front (its foot at s 1.4); the walk leaves it there, from the flight's wall side out to the public walk through the coping's opening, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The side stoop's flight ends running north along the front (its foot at s 1.4); the walk leaves it there, from the flight's wall side out to the public walk through the coping's opening, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }

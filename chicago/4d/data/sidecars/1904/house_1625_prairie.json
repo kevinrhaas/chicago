@@ -794,7 +794,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -810,7 +810,7 @@
         "inland_architect_1890_01_mcbirney_residence",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3215 (the owner, 2026-10-27). The photograph shows the ground before the doorway paved up to its step, lighter than the yard either side of it, and nothing across the front, so the walk is laid in flags from the stoop's foot, its width (1.6 m), straight out to the inner edge of the public walk, 3.78 m before the street front; the lawn covers the rest. The print's paving is too worn and too far off to read as flags or a width; both are the kit's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215."
+      "note": "T-3215 (the owner, 2026-10-27). The photograph shows the ground before the doorway paved up to its step, lighter than the yard either side of it, and nothing across the front, so the walk is laid in flags from the stoop's foot, its width (1.6 m), straight out to the inner edge of the public walk, 3.78 m before the street front; the lawn covers the rest. The print's paving is too worn and too far off to read as flags or a width; both are the kit's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

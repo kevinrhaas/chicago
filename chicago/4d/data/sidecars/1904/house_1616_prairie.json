@@ -389,7 +389,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -404,7 +404,7 @@
         "land_owner_1874_05_homes_of_chicago_1620_law",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3215 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures). 1616 has no picture of its own front: the May 1874 Land Owner engraving of 1620 reads its boarded street line only as far as the plate's edge (form.boundary). So the walk is a stated reconstruction on the block's pictured fronts (1612's photograph, two doors south, shows a light paved walk from the public walk through its open entrance gateway to the stoop's foot): flags from the stoop's foot through the boards' walk gate, the gate's width, to the inner edge of the public walk; the lawn covers the rest of the front yard inside the boards. The engraving draws the boards unbroken across the south side yard's mouth, so no side gate and no service walk are built. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215."
+      "note": "T-3215 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures). 1616 has no picture of its own front: the May 1874 Land Owner engraving of 1620 reads its boarded street line only as far as the plate's edge (form.boundary). So the walk is a stated reconstruction on the block's pictured fronts (1612's photograph, two doors south, shows a light paved walk from the public walk through its open entrance gateway to the stoop's foot): flags from the stoop's foot through the boards' walk gate, the gate's width, to the inner edge of the public walk; the lawn covers the rest of the front yard inside the boards. The engraving draws the boards unbroken across the south side yard's mouth, so no side gate and no service walk are built. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

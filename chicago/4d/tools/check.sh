@@ -6022,6 +6022,18 @@ selftest "the road-band movement report names a band that moved" \
 step "a street's invented line reaches the picture" \
   node tools/test_street_confidence.mjs
 
+# T-3233. The owner, on four screenshots of the 1904 streets: "we dont want harsh linear
+# transitions like that on the ground and grass". Each straight line had a cause at its
+# source: the one-foot margin drawn as a strip of the parkway's turf, curb vertices on the
+# curb line taking the roadway's level, a strip of avenue dropped beside a crossing (a hole
+# down to the cut-away ground), a crossing's fade stopping square at its ends, and K14 yards
+# laying a turf sheet over the app's own grass. This builds the shipped street grid headless
+# and holds all five; its self-test takes each fix back out and must see each check fire.
+step "the 1904 street ground draws no hard straight line: no turf margin, no dropped curb, no hole, faded seams, no yard turf (T-3233)" \
+  node tools/test_street_ground_seams.mjs
+selftest "the 1904 street-ground check fires on each of its five causes put back (T-3233)" \
+  node tools/test_street_ground_seams.mjs --self-test
+
 # T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
 # put one outside the ramp and outside the face's bands it took the roadway's level
 # and the slab dropped off the curb. The test slices the shipped helpers out of
