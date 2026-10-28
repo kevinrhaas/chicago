@@ -1531,7 +1531,8 @@ export async function loadGlbMesh(url) {
   // place that decides how compressed assets are read.
   loader.setMeshoptDecoder(await loadMeshoptDecoder());
   const gltf = await new Promise((resolve, reject) => {
-    loader.parse(buffer, String(url), resolve, reject);
+    // T-3232: the GLB's directory, against which GLTFLoader resolves a buffer URI.
+    loader.parse(buffer, new URL('.', url).href, resolve, reject);
   });
   let found = null;
   gltf.scene.traverse((o) => { if (!found && o.isMesh) found = o; });

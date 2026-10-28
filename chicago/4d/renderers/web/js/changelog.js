@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2386, ts: '2026-10-28T13:34:09.705Z', date: 'Oct 28, 2026, 8:34 AM CT', title: '1827 Prairie\'s south flank steps out, and its pavilion roof is reshaped', kind: 'feature',
+    items: [
+      'The back half of the Doane house\'s south side now steps 1.6 m out from the front half, in stone to the main cornice, as the 1911 fire-insurance map draws it.',
+      'The steep roof over the front pavilion now peaks near its face, as in the old photograph, where before its point sat too far back and too high.',
+      'The corner tower\'s lower pair of windows now have carved arched hoods.',
+      'Two more pictures of the house are matched against the model: a wider copy of the same photograph, and the Tribune\'s night photograph of the 1926 fire.',
+    ] },
+  { v: 2385, ts: '2026-10-28T13:24:05.718Z', date: 'Oct 28, 2026, 8:24 AM CT', title: 'The 1904 houses download about 93 MB less', kind: 'improvement',
+    items: [
+      'Houses built from the same kit now share one copy of each brick, stone and wood texture, where every house used to carry its own.',
+      'The 1904 year kept on your device for offline use is about a third smaller, and every house looks exactly as it did.',
+    ] },
   { v: 2384, ts: '2026-10-28T12:59:29.995Z', date: 'Oct 28, 2026, 7:59 AM CT', title: 'Walks to the four timber houses of the 1600 block', kind: 'feature',
     items: [
       'You can now walk up to the front doors of the four wooden houses at 1601, 1609, 1611 and 1630 Prairie. Each has a stone-flagged walk from the sidewalk to its porch steps.',

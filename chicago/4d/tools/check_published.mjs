@@ -30,6 +30,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { checkSheets } from './share_glb_sheets.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
@@ -238,7 +239,15 @@ const TRANSFORMED = [
         + 'rungs and fails if it is coarser than tools/web_derivatives.sh asks for, because the '
         + 'derivative gate next door compares triangles, node identity, materials and a bounding box '
         + 'within four rungs and a bit-depth change moves none of them. This is the entry that cost '
-        + 'three parcels — read #145 before adding another.' },
+        + 'three parcels — read #145 before adding another. T-3232: a GLB that shares a texture '
+        + 'sheet is also rewritten by tools/share_glb_sheets.mjs, its sheet moved to an external '
+        + 'buffer; that rewrite is gated below and by check.sh, view for view against assets/web.' },
+  { re: /^data\/gltf\/sheets\/[0-9a-f]{16}\.(?:ktx2|png|jpg|webp)$/,
+    what: 'tools/share_glb_sheets.mjs (run by publish.sh) writes each image two or more published GLBs '
+        + 'embed once, named by its hash, and points those GLBs at it as an external buffer (T-3232)',
+    gate: 'share_glb_sheets.mjs --check (here and in check.sh) reads every rewritten GLB back through its '
+        + 'sheets and asserts its JSON, bufferViews and meshopt streams are its assets/web source\'s, each '
+        + 'sheet is named by its own hash, and each is held by two or more GLBs.' },
 ];
 
 const walk = (dir, base = '') => {
@@ -385,6 +394,13 @@ if (existsSync(path.join(SITE, 'data/prebuilt'))) {
       problems.push(`data/prebuilt/index.json lists ${sorted(list.layers ?? {})} and the mirror holds ${sorted(onDisk)}.`);
     }
   }
+}
+// T-3232: the GLBs above are declared transformed, so their sheet rewrite is read back
+// here: each one, its shared sheets read in, must be its assets/web source view for view.
+if (existsSync(path.join(SITE, 'data/gltf'))) {
+  const shared = checkSheets(SITE);
+  problems.push(...shared.problems);
+  console.log(`shared sheets: ${shared.rewritten} GLB(s) read back to their sources through ${shared.sheets} sheet(s)`);
 }
 if (problems.length) {
   console.error('published mirror FAILED:');

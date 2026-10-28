@@ -180,6 +180,12 @@ fi
 if [ -d assets/web/versions ]; then
   cp -a assets/web/versions "$SITE/data/gltf/versions"
 fi
+# EACH SHARED TEXTURE SHEET SHIPS ONCE (T-3232). A kit's sheets are embedded in every
+# house built on the kit — one K01 sheet sat in 28 GLBs — so an image two or more of
+# these GLBs carry is written once to data/gltf/sheets/ and each GLB names it as an
+# external buffer. Only the published copies change; check.sh's
+# `share_glb_sheets.mjs --check` reads every rewrite back to its assets/web source.
+node tools/share_glb_sheets.mjs "$SITE"
 
 # EVERY MAP BELOW SHIPS AS ITS LOSSLESS WEBP (T-1973), not its PNG master: the same
 # pixels in about a third fewer bytes, held pixel-identical to the master by
