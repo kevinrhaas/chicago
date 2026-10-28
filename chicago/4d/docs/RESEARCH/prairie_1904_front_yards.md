@@ -31,7 +31,7 @@ a picture records.
 ## What is drawn
 
 * **Pictured lots** are drawn as their pictures show them: the seven lots above with a bare lawn
-  are bare (`BARE` in the tool), and Pullman and 1912 keep their ivy, Pullman its porch shrubs,
+  are bare (`BARE` in the tool), and Pullman and 1912 keep their ivy (off the porch front), Pullman
   its young lindens and its 18th Street border (attested; 1912 inferred).
 * **Every other lot** is reconstructed (liberty `L-prairie-front-yards-3203`). About a third are
   left as open lawn. The rest get one of the few plantings the period's yards and garden books
@@ -51,7 +51,10 @@ a picture records.
 `tools/plant_prairie_1904_front_yards.py` lays every 1904 house's baked model on a 0.25 m plan
 raster. A plant is placed only where its crown's EDGE keeps clear of: the house wall, a stoop and
 its steps, a fence, pier or coping, a paved walk, a 2 m disk round every door leaf of the lot's
-houses, a 1.6 m-wide way from each front door straight to the lot line, and the lot lines. The
+houses, a 5.2 m-wide way from each front door straight to the lot line (T-3227: at 3.2 m wide,
+Pullman's porch pair and the ivy on its porch posts still stood in front of its door), widened to
+the whole front of the stoop or porch the door opens onto, up to 4.5 m either side, and the lot
+lines. Pullman's porch-foot shrubs, which the Detroit views show, are therefore left out. A patch of ivy keeps its whole width, not just its middle, off a door's way. The
 renderer draws each plant at the height and crown width the tool measured, so what is checked is
 what is seen. `--check` re-measures the committed file against the models in every gate run, so a
 rebake that moves a stoop or a door under a plant fails and names the plant and what it blocks;
