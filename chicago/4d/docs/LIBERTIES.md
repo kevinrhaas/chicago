@@ -35185,6 +35185,44 @@ later photograph of either front at the walk, or of 1620's south side yard.
 **Covers:** `goodman_house_1612_prairie.as_built_1869.form.yard`, `law_house_1620_prairie.restored_1904.form.yard`.
 **Ticket:** T-3214.
 
+### L-k14-walks-1700-block-3205 — Walks, gates and front boundaries of the 1700-block Prairie houses read off their pictures; each house given a walk from the public walk to its door
+**Recorded:** 2026-10-28.
+
+**Decision:** every worked 1904 house on the 1700 block of Prairie Avenue (1708, 1709 Kellogg, 1712,
+1720 Walker, 1721 Dexter, 1726, 1729 Pullman, 1730, 1736 McBirney) is given a flagged front walk from
+the foot of its stair to the inner edge of the public walk, through an opening or an open gate in its
+front boundary (T-3205; 1700 and 1706 wait for their own K01 records). Before this none had a walk;
+1720, 1709, 1712, 1721, 1726 and 1730 had no front boundary at all, and the copings of 1729 and 1736
+ran unbroken across their stairs, so a visitor met a wall. **What is read, not invented.** 1708's
+spear railing on its curb (Chicagology's photograph, the 1901 construction view) is kept, its entrance
+leaves now standing open. 1720's front is read through its photograph's camera: a low pale kerb with
+an iron railing on it and white round-topped stone posts about 1.2 m high, a paved way in between two
+of them, and the Tribune's 1898 vignette's posts either side of the stair's foot; the kerb's rounded
+top is the one photographed in place in 2015. 1721's low coping and the posts either side of its walk
+are the c. 1888 winter photograph's. 1729's opening is read through the Detroit print's camera, a gap
+between two piers in the low wall square before the stair. 1736's opening is the gap the c. 1890
+print shows between the low run and the stair's pier, its edges hidden by a street tree and the pier.
+1730's close-boarded street fence is the May 1874 Land Owner vignette's (Prairie library
+a16-cgy-landowner-1874-1730-dewey). **What is invented or held by the kit.** No picture shows the
+fronts of 1709 or 1712 close enough to read, and the 1898 vignette of 1726 stops at its stair's foot:
+these three take the block's low stone coping (as 1700, 1721 and 1736 stand), 0.35 m, cut 1.8 m for the
+walk. The walks' widths (1.0-1.5 m), flags and joints, the service walks (cinder at 1720, flags at 1708 and 1730, where the cinder sheet
+would overrun the site budget), the kerbs' and
+copings' sections, the posts' and piers' sizes (1729's piers are held to 1.2 m, the kit's ceiling,
+against the print's about 1.5 m), the railing's bars, 1720's sixth post, the gates (1730's both,
+1708's leaves' state) and every run carried past a picture's edge to the lot line are reconstructed;
+the 1874 board fence is assumed to have stood to 1904. 1720's two pictures disagree south of its stair
+(lawn to the walk in the older print, railing in the vignette): the railing is built. A frame house
+lays no lawn (generators/archetypes/k16_yard.py), nor do the eight K01 houses here
+(`lawn: none`, generators/archetypes/k14_yard.py): their yards' ground is the app's. Where the app stands
+a house on ground lower than its yard, the yard is lifted onto it (`yard.grade_m`, measured in the
+published app), which is the app's ground, not evidence of a graded lawn. Each walk is checked by
+`tools/check_house_walks.py`.
+**How to resolve:** nearer photographs of each front at the walk in the 1890s-1900s, or a survey
+plat drawing the walks and fences.
+**Covers:** `house_1708_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.yard`, `house_1712_prairie.as_mapped_1904.form.yard`, `walker_house_1720_prairie.as_mapped_1904.form.yard`, `dexter_house_1721_prairie.as_mapped_1904.form.yard`, `house_1726_prairie.as_mapped_1904.form.yard`, `pullman_house_1729_prairie.as_mapped_1904.form.yard`, `house_1730_prairie.as_mapped_1904.form.yard`, `house_1736_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.boundary`, `house_1712_prairie.as_mapped_1904.form.boundary`, `house_1726_prairie.as_mapped_1904.form.boundary`, `house_1730_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3205.
+
 ### L-k14-walks-1600-block-3215 — Walks and front boundaries of 1616, 1621, 1623, 1625 and 1637 Prairie read off their pictures; each house given a front walk from the public walk to its door
 **Recorded:** 2026-10-28.
 
