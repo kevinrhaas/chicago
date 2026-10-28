@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2374, ts: '2026-10-28T06:52:00.845Z', date: 'Oct 28, 2026, 1:52 AM CT', title: '1638 Prairie\'s gateway now leads to its porch stair on flags', kind: 'feature',
+    items: [
+      'The timber house at 1638 Prairie gets a front walk. It comes in through the gateway between the two gate piers, runs north along the back of the fence and turns to the foot of the porch stair.',
+      'Through the old photograph\'s camera, the flags land where the picture shows pale ground: in the gateway and at the bottom of the stair. The rest of the walk is hidden by the hedge, so its line is a reconstruction, noted under the house\'s liberties.',
+    ] },
   { v: 2373, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: '1904 alley poles and wires no longer run through coach houses', kind: 'fix',
     items: [
       'Ten utility poles in the alleys behind Prairie Avenue and Calumet Avenue now stand a little further into the alley, so the poles, their crossarms and their wires clear the coach houses and stables on the alley line, Glessner\'s stable among them.',
