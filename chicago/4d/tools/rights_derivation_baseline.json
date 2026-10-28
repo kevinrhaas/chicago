@@ -385,6 +385,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "doane_house_1827_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1827_doane_exterior"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "doane_house_1827_prairie/as_mapped_1904/form.storey_heights_m": {
       "kind": "structure",
       "blocked_sources": [
