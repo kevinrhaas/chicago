@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47"
+      "glb_sha256": "3fcd395b3a2ace04e5135d58f9af9e1bf2f4d7420cbf70518ae5a80ce9d3edb0"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "978e273ae0c42ec7612618b04dd4c8561ffb6a8db31256f062f71a5be918ef2a",
+  "group_sha256": "4100478eee74c3818cd60165f4b4916ec4e864c3406d8f98f98a7af75f061fe8",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -142,6 +142,10 @@
       "what": "colour",
       "status": "not shown",
       "how": "a monochrome plate"
+    },
+    {
+      "what": "T-3161 re-laid the house's 18th Street flank (one window west of the porte-cochere, the porte-cochere moved east to s 10.25-15.4, the flank's pavilion taken off, its dormers moved): none of it reaches the plate's left edge, where the house's east corner, unchanged, stands as before",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

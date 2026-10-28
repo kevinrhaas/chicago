@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
+  "glb_sha256": "3fcd395b3a2ace04e5135d58f9af9e1bf2f4d7420cbf70518ae5a80ce9d3edb0",
   "camera_sha256": "9e095ecf877dd9c727005205732dc743b511b7dcbb293b44b4f112913a884130",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
@@ -69,8 +69,8 @@
       "how": "under a pixel along this face; the closer views are T-3161's"
     },
     {
-      "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630",
-      "status": "fixed",
+      "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630; T-3161 places the 18th Street face's three dormers from Taylor's photograph no. 1445 at u 15.3, 9.45 and 5.2, which render here at x 624, 650 and 667 against the print's two at x 592-604 and 618-630: the grazing view and Taylor's disagree along the flank as they do over the arcade",
+      "status": "within tolerance",
       "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
     },
     {
@@ -89,8 +89,8 @@
       "how": "T-3158: a modillion every 0.5 m under the corona all round the cornice, stopped at the breaks; the frieze's bed course at 10.70-10.86 m and a framed panel between each pair of piers (two in the centre bay), the render's frieze at y 311-333 against the print's 310-330"
     },
     {
-      "what": "the arcade on the 18th Street flank (x 598-683): two round arches on piers under a balustrade at about y 385-395, the porte-cochere; the build stands a plain pavilion 6.0 m wide and 1.2 m out there, and the sheet's one-storey porte-cochere (p4) at the draft's massing in pullman_house_1729_prairie_ranges, which this camera puts behind the flank at x 690-710",
-      "status": "fixed",
+      "what": "the arcade on the 18th Street flank (x 598-683): two round arches on piers under a balustrade at about y 385-395, the porte-cochere. T-3160 built it to this print at s 6.35-11.48, 4.27 m out; T-3161 moved it to Taylor's photograph no. 1445, which sees the flank at 18 px a metre against this print's 5-6 (s 10.25-15.4, 5.45 m out, the 1911 sheet's outer line 5.4 m), and through this camera it now renders at x 618-716, its west arch at x 644-684 against the print's 610-645, its east end past the tree that hides the print's (x 685-700). The two pictures disagree by about 4 m along the flank, and the 1890 Albertype plate falls between them",
+      "status": "within tolerance",
       "how": "T-3160: a one-storey porte-cochere standing 4.27 m out from the flank at s 6.35-11.48 (porte_cochere): the west end's arch (2.37 m, crown 6.0 m) renders at x 612-644 against the print's 610-645, the south front's (2.27 m) at about x 668-678 against 668-678, the balustrade's top at y 389. The pavilion moved east clear of it. The sheet's p4 stands 1.4 m east and 1.1 m further out than the print's; the print governs (L-pullman-1729-porte-cochere-3160)"
     },
     {
@@ -142,6 +142,10 @@
       "what": "the flank's great stack on the 18th Street cornice (T-3161, read off Taylor's photograph 1445) renders at x 577-591, its cap at y 203; the print shows cresting and branches there, with a thin upright at x 575-580, y 225-250",
       "status": "within tolerance",
       "how": "T-3161: a gap two pictures disagree about (T-3153): Taylor's photograph shows the stack on the cornice at 18 px a metre, where this print would draw it about 6 px wide among the branches; the stack stands, and L-pullman-1729-flank-stack-3161 says so"
+    },
+    {
+      "what": "the 18th Street pavilion's own hipped roof (s 11.5-17.5, 1.2 m out), which the print does not show standing out of the mansard over the flank: taken off by T-3161 on Taylor's photograph no. 1445",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
