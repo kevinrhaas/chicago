@@ -13,7 +13,13 @@ negative. Phase correlation over scale puts the 16399 print at 1.015 x the album
 (-6, +29) px; the stack's cap at (505, 160) on the album print lands at (507, 191) on 16399, where it
 is read.
 
-**Why it is not a reference view yet.** The library records both prints as "rights unknown — link
+**It is a reference view now (T-3161, 2026-10-28).** The owner ruled on 2026-10-27 that the 1890s Taylor
+prints are public domain by age; both are committed at `data/sources/assets/pullman_1729_taylor_t3161/`,
+the album print's camera is `data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json`,
+and its match record carries what follows, re-read against the rebuilt flank. The rest of this page is
+the record of how it stood before.
+
+**Why it was not a reference view.** The library records both prints as "rights unknown — link
 only" (AIC: "contact the Art Institute of Chicago Archives for publication information"). The image
 gate's cameras need the picture in the tree, and committing a copy is a rights decision, which is
 the owner's (AGENTS.md); the question is on T-3161. The 1801 Kimball Taylor print was committed
