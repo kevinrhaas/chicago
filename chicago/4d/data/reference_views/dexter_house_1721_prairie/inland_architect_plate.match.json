@@ -2,7 +2,7 @@
   "structure_id": "dexter_house_1721_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f5adbce48bbadcd4353a55cdedcc020bfca3f8d2c5ce2905ef760ce27c6bffee",
+  "glb_sha256": "9a00202908b64db39f5eb96c7ff188a2db3d9c34ed357808a52cd6aa9ed8f921",
   "camera_sha256": "3da664e85e8113d4743c4b2b60543e98cbe9fd9997109602c8a3215fff050000",
   "photo_sha256": "b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg",
@@ -102,6 +102,11 @@
       "what": "the south wall, the rear and the rear wing",
       "status": "not shown",
       "how": "outside the picture"
+    },
+    {
+      "what": "the low stone coping along the walk either side of the stair's foot, the walk straight in to the stair",
+      "status": "fixed",
+      "how": "T-3205: a low coping 0.4 m with 0.9 m posts at the opening, the flagged walk from the public walk to the stair; the render's coping meets the stair's cheeks as the plate's does, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

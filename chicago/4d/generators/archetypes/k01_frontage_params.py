@@ -5076,10 +5076,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # T-2918: a stoop's cheeks swept down to a rolled scroll at the foot, K07's carved cheek
         # (1808's, T-2565); 1811's plate draws its stair between them
         cf = door_kit_in["cheek_form"]
-        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in \
-                or set(cf) - {"kind", "foot_block_m"}:
-            raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop, "
-                             "no terrace), optionally on a foot_block_m")
+        # T-3186: or beside open terraces at the landing's depth, each cheek's head standing on
+        # the landing's front edge (1901's portico, its terraces either side of the stoop)
+        ters = door_kit_in.get("terrace")
+        ters = ters if isinstance(ters, list) else [ters] if ters else []
+        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
+                or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
+                or set(cf) - {"kind", "foot_block_m", "bow"}:
+            raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
+                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m "
+                             "and with a bow")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5087,6 +5093,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if not 0.2 <= fb <= 1.0:
                 raise ParamError("entrance_kit.cheek_form.foot_block_m: a scroll's foot block is 0.2-1.0 m tall")
             door_kit["cheek_form"]["foot_block_m"] = fb
+        # T-3186: the sweep's power, 1 a straight rake onto the roll up to 2, the concave fall
+        if "bow" in cf:
+            bw = float(cf["bow"])
+            if not 1.0 <= bw <= 2.0:
+                raise ParamError("entrance_kit.cheek_form.bow: a scrolled cheek's sweep falls with a power of 1 "
+                                 "(straight) to 2 (the concave default)")
+            door_kit["cheek_form"]["bow"] = bw
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
@@ -5189,9 +5202,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "columns" in hd:
             co = hd["columns"]
             if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
-                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m"}:
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m, and optionally at_v_m")
+                                 "capital_m and respond_m, and optionally at_v_m and carved")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -5221,6 +5234,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"entrance_kit.hood.columns.at_v_m {at}: two to eight columns under the hood "
                                      f"(v {hs0:.3f}-{hs1:.3f}), their plinths inside its ends and 0.3 m apart")
                 door_kit["hood"]["columns"]["at_s_m"] = [round(a - door_s, 4) for a in at]
+            # T-3186: the capitals carved as a bell of leaves in `tiers` under an abacus `abacus_m`
+            # deep, the bay columns' carving (T-2887) (1901's Corinthian capitals, the 1898 photograph)
+            if "carved" in co:
+                cv = co["carved"]
+                if not isinstance(cv, dict) or set(cv) != {"tiers", "abacus_m"} or cv["tiers"] not in (1, 2) \
+                        or not 0.03 <= float(cv["abacus_m"]) <= cap - 0.08:
+                    raise ParamError("entrance_kit.hood.columns.carved takes tiers (1 or 2) and abacus_m, 0.03 m "
+                                     "up to 0.08 m short of the columns' capital")
+                door_kit["hood"]["columns"]["carved"] = {"tiers": int(cv["tiers"]), "abacus_m": float(cv["abacus_m"])}
         if "fabric" in hd:
             if hd["fabric"] != "stone" or "columns" not in hd:
                 raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "

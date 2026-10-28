@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 832,
+  "count": 833,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -55753,12 +55753,6 @@
           "domain": "structure",
           "structure": "pullman_house_1729_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.north_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "pullman_house_1729_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.rainwater"
         },
         {
@@ -55821,7 +55815,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the George M. Pullman house at 1729 Prairie Avenue is no longer a district draft. It stands, under the draft's own id 1729 Prairie Avenue — the George M. Pullman house, as a k01 frontage record built by the k01 emit generator, against the Detroit Publishing Co. photograph of between 1890 and 1901 (Detroit Publishing Co. The Pullman residence, Chicago, Library of Congress LC-D4-12551; no known restrictions): brownstone walls two storeys over a raised basement, a deep stone cornice, a slated mansard with hooded dormers and iron cresting, the north-west block and the 18th Street pavilion carried full height, a portico on columns carrying a balcony across the Prairie front's north part, the one-storey brick block at the south-east corner, and a low stone wall on the Prairie line. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1729-b1, census s20-1729-f): the main block's place and plan (27.75 by 17.93 m, stopped at the conservatory's south wall), the north-west block, the 18th Street pavilion, the portico's place and depth, the south-east block, stone. From the photograph, through its solved camera (the detroit det 4a08065 data): the principal floor, the storey heights, the cornice's and the curb's heights, the cresting, the windows' heights and the Prairie front's three bays, the portico's balcony, two dormers' places, the wall on the street line. Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row pa-1729-5); the print is monochrome. **What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang; the treads; the north flank's, the 18th Street flank's and the rear's windows (no picture read here places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m out (the sheet draws it 10.25 m wide and 2.0 m out): a K08 pavilion's most. **What is not built.** The rusticated piers and quoins, the arched and hooded window heads, the pedimented dormers and the flank's dormers, the modillions, the portico's further columns and stone balustrade, the stoop at the portico's north end (a broad flight stands across its width), the arcade on the 18th Street flank, the round bay on the north flank and the wall's 18th Street run: open on the match record for later work."
+          "text": "the George M. Pullman house at 1729 Prairie Avenue is no longer a district draft. It stands, under the draft's own id 1729 Prairie Avenue — the George M. Pullman house, as a k01 frontage record built by the k01 emit generator, against the Detroit Publishing Co. photograph of between 1890 and 1901 (Detroit Publishing Co. The Pullman residence, Chicago, Library of Congress LC-D4-12551; no known restrictions): brownstone walls two storeys over a raised basement, a deep stone cornice, a slated mansard with hooded dormers and iron cresting, the north-west block and the 18th Street pavilion carried full height, a portico on columns carrying a balcony across the Prairie front's north part, the one-storey brick block at the south-east corner, and a low stone wall on the Prairie line. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1729-b1, census s20-1729-f): the main block's place and plan (27.75 by 17.93 m, stopped at the conservatory's south wall), the north-west block, the 18th Street pavilion, the portico's place and depth, the south-east block, stone. From the photograph, through its solved camera (the detroit det 4a08065 data): the principal floor, the storey heights, the cornice's and the curb's heights, the cresting, the windows' heights and the Prairie front's three bays, the portico's balcony, two dormers' places, the wall on the street line. Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row pa-1729-5); the print is monochrome. **What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang; the treads; the north flank's and the rear's windows, and the 18th Street flank's until later work read them off Taylor's photograph no. 1445 (no picture read here places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m out (the sheet draws it 10.25 m wide and 2.0 m out): a K08 pavilion's most. **What is not built.** The rusticated piers and quoins, the arched and hooded window heads, the pedimented dormers and the flank's dormers, the modillions, the portico's further columns and stone balustrade, the stoop at the portico's north end (a broad flight stands across its width), the arcade on the 18th Street flank, the round bay on the north flank and the wall's 18th Street run: open on the match record for later work."
         },
         {
           "label": "How to resolve",
@@ -55829,7 +55823,7 @@
         },
         {
           "label": "Covers",
-          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.north_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`"
+          "text": "`pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`"
         },
         {
           "label": "Review",
@@ -55842,6 +55836,7 @@
       ],
       "work_refs": [
         "T-1880",
+        "T-3161",
         "T-1881",
         "T-1934"
       ]
@@ -57925,7 +57920,7 @@
         }
       ],
       "recorded": "2026-10-27",
-      "revised": "2026-10-27",
+      "revised": "2026-10-28",
       "fields": [
         {
           "label": "Decision",
@@ -57974,6 +57969,18 @@
         {
           "label": "Still not built",
           "text": "the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them."
+        },
+        {
+          "label": "What is invented",
+          "text": "the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's)."
+        },
+        {
+          "label": "Still not built",
+          "text": "the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for later work."
         }
       ],
       "work_refs": [
@@ -58674,7 +58681,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the 1904 house lots of the drawn district whose house stands back from its lot line (149 lots) are planted by the plant prairie 1904 front yards tool into the 1904 front yards data, and drawn as grown plants on the parkway elms' leaf and bark atlases (replaced 's continuous foundation row of 1,354 lumps). Lots whose photographs show the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those pictures show them: mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit Publishing views show: ivy over the west front and porch, low shrubs at the porch's foot, young lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn and the rest are planted in one of the period's few ways, drawn per lot from a seed of the parcel's id: a matched pair of shrubs at the stoop's foot (a sheared arborvitae ball, smooth hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvitae cone at a front corner of the house, a short group of two or three shrubs against the front, and on a deep lot now and then a young sugar maple or linden in the lawn and one round or oval bed of geraniums or coleus. Each plant keeps clear, from its crown's edge, of the house wall, every stoop, step, fence, coping and walk, a 2 m disk round every door, and a 1.6 m way from each front door to the lot line, all read off the houses' baked models; `--check` re-measures that against the models in every gate run. No urn is placed: no picture read shows one clearly enough to place it."
+          "text": "the 1904 house lots of the drawn district whose house stands back from its lot line (149 lots) are planted by the plant prairie 1904 front yards tool into the 1904 front yards data, and drawn as grown plants on the parkway elms' leaf and bark atlases (replaced 's continuous foundation row of 1,354 lumps). Lots whose photographs show the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those pictures show them: mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit Publishing views show: ivy over the west front (off the porch, below), young lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn and the rest are planted in one of the period's few ways, drawn per lot from a seed of the parcel's id: a matched pair of shrubs at the stoop's foot (a sheared arborvitae ball, smooth hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvitae cone at a front corner of the house, a short group of two or three shrubs against the front, and on a deep lot now and then a young sugar maple or linden in the lawn and one round or oval bed of geraniums or coleus. Each plant keeps clear, from its crown's edge, of the house wall, every stoop, step, fence, coping and walk, a 2 m disk round every door, and a 5.2 m-wide way from each front door to the lot line, so a door and its stoop or porch front are seen clear from the street (after Pullman's porch was planted in front of its door), widened to the whole front of the stoop or porch the door opens onto, up to 4.5 m either side of the door; ivy keeps its whole width off that way. So Pullman's porch-foot shrubs, which the Detroit views do show, are left out: the owner ruled that nothing stands in front of a door. All of it is read off the houses' baked models, and `--check` re-measures it in every gate run. No urn is placed: no picture read shows one clearly enough to place it."
         },
         {
           "label": "What it stands on",
@@ -58695,7 +58702,8 @@
       ],
       "work_refs": [
         "T-3223",
-        "T-3203"
+        "T-3203",
+        "T-3227"
       ]
     },
     {
@@ -58851,6 +58859,125 @@
       ],
       "work_refs": [
         "T-3214"
+      ]
+    },
+    {
+      "id": "L-k14-walks-1700-block-3205",
+      "title": "Walks, gates and front boundaries of the 1700-block Prairie houses read off their pictures; each house given a walk from the public walk to its door",
+      "section": "per_subject",
+      "subjects": [
+        "dexter_house_1721_prairie",
+        "house_1708_prairie",
+        "house_1712_prairie",
+        "house_1726_prairie",
+        "house_1730_prairie",
+        "house_1736_prairie",
+        "kellogg_house_1709_prairie",
+        "pullman_house_1729_prairie",
+        "walker_house_1720_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1708_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1712_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1712_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1726_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1726_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1730_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1730_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1736_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-28."
+        },
+        {
+          "label": "Decision",
+          "text": "every worked 1904 house on the 1700 block of Prairie Avenue (1708, 1709 Kellogg, 1712, 1720 Walker, 1721 Dexter, 1726, 1729 Pullman, 1730, 1736 McBirney) is given a flagged front walk from the foot of its stair to the inner edge of the public walk, through an opening or an open gate in its front boundary (1700 and 1706 wait for their own K01 records). Before this none had a walk; 1720, 1709, 1712, 1721, 1726 and 1730 had no front boundary at all, and the copings of 1729 and 1736 ran unbroken across their stairs, so a visitor met a wall. **What is read, not invented.** 1708's spear railing on its curb (Chicagology's photograph, the 1901 construction view) is kept, its entrance leaves now standing open. 1720's front is read through its photograph's camera: a low pale kerb with an iron railing on it and white round-topped stone posts about 1.2 m high, a paved way in between two of them, and the Tribune's 1898 vignette's posts either side of the stair's foot; the kerb's rounded top is the one photographed in place in 2015. 1721's low coping and the posts either side of its walk are the c. 1888 winter photograph's. 1729's opening is read through the Detroit print's camera, a gap between two piers in the low wall square before the stair. 1736's opening is the gap the c. 1890 print shows between the low run and the stair's pier, its edges hidden by a street tree and the pier. 1730's close-boarded street fence is the May 1874 Land Owner vignette's (Prairie library a16-cgy-landowner-1874-1730-dewey). **What is invented or held by the kit.** No picture shows the fronts of 1709 or 1712 close enough to read, and the 1898 vignette of 1726 stops at its stair's foot: these three take the block's low stone coping (as 1700, 1721 and 1736 stand), 0.35 m, cut 1.8 m for the walk. The walks' widths (1.0-1.5 m), flags and joints, the service walks (cinder at 1720, flags at 1708 and 1730, where the cinder sheet would overrun the site budget), the kerbs' and copings' sections, the posts' and piers' sizes (1729's piers are held to 1.2 m, the kit's ceiling, against the print's about 1.5 m), the railing's bars, 1720's sixth post, the gates (1730's both, 1708's leaves' state) and every run carried past a picture's edge to the lot line are reconstructed; the 1874 board fence is assumed to have stood to 1904. 1720's two pictures disagree south of its stair (lawn to the walk in the older print, railing in the vignette): the railing is built. A frame house lays no lawn (the k16 yard generator), nor do the eight K01 houses here (`lawn: none`, the k14 yard generator): their yards' ground is the app's. Where the app stands a house on ground lower than its yard, the yard is lifted onto it (yard.grade (m), measured in the published app), which is the app's ground, not evidence of a graded lawn. Each walk is checked by the house walks check."
+        },
+        {
+          "label": "How to resolve",
+          "text": "nearer photographs of each front at the walk in the 1890s-1900s, or a survey plat drawing the walks and fences."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1708_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.yard`, `house_1712_prairie.as_mapped_1904.form.yard`, `walker_house_1720_prairie.as_mapped_1904.form.yard`, `dexter_house_1721_prairie.as_mapped_1904.form.yard`, `house_1726_prairie.as_mapped_1904.form.yard`, `pullman_house_1729_prairie.as_mapped_1904.form.yard`, `house_1730_prairie.as_mapped_1904.form.yard`, `house_1736_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.boundary`, `house_1712_prairie.as_mapped_1904.form.boundary`, `house_1726_prairie.as_mapped_1904.form.boundary`, `house_1730_prairie.as_mapped_1904.form.boundary`."
+        }
+      ],
+      "work_refs": [
+        "T-3205"
       ]
     },
     {

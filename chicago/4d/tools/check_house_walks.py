@@ -24,8 +24,8 @@ it requires:
      walking up it is not stopped short of the door.
 
 A house that fails and is in PENDING is reported and does not fail the gate: the 1600 and 1700
-blocks' houses were worked before this rule, and their lanes (T-3204, T-3205) empty the list as
-they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
+blocks' houses were worked before this rule, and their lanes (T-3204; T-3205 emptied the 1700
+block's) empty the list as they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
 take it out. So does a PENDING id that is not a worked 1904 house.
 
     python3 tools/check_house_walks.py --check       the gate (check.sh)
@@ -65,16 +65,7 @@ PENDING = {
     "house_1630_prairie": "T-3204",
     "house_1634_prairie": "T-3204",
     "house_1636_prairie": "T-3204",
-    "dexter_house_1721_prairie": "T-3205",
-    "house_1708_prairie": "T-3205",
-    "house_1712_prairie": "T-3205",
-    "house_1726_prairie": "T-3205",
-    "house_1730_prairie": "T-3205",
-    "house_1736_prairie": "T-3205",
-    "kellogg_house_1709_prairie": "T-3205",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
-    "pullman_house_1729_prairie": "T-3205",
-    "walker_house_1720_prairie": "T-3205",
 }
 
 
@@ -436,7 +427,7 @@ def main(argv=None) -> int:
             print(f"  {f}")
         return 1
     print(f"check_house_walks: ok — {n_ok} worked 1904 houses walked into from the public walk through an "
-          f"opening; {n_pend} pending on their lanes (T-3204, T-3205, T-3207)")
+          f"opening; {n_pend} pending on their lanes ({', '.join(sorted(set(PENDING.values()))) or 'none'})")
     return 0
 
 
