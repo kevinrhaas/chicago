@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2376, ts: '2026-10-28T08:03:52.431Z', date: 'Oct 28, 2026, 3:03 AM CT', title: 'Front doors kept clear of shrubs and ivy', kind: 'fix',
+    items: [
+      'No shrub, tree or patch of ivy now stands in front of a house\'s front door, its stoop or its porch front: each door keeps a wide clear way out to the street. The Pullman house\'s porch no longer has plants in front of its door.',
+    ] },
+  { v: 2375, ts: '2026-10-28T08:03:52.431Z', date: 'Oct 28, 2026, 3:03 AM CT', title: 'Front walks and ways in for the 1700-block Prairie houses', kind: 'feature',
+    items: [
+      'Nine houses from 1708 to 1736 Prairie now have a flagged walk from the sidewalk to the front steps.',
+      '1720 Walker gains its photographed stone kerb, iron railing and round-topped posts, with an opening at the stair.',
+      'Pullman\'s and McBirney\'s low stone walls now open where their photographs show the gap, so you can walk in.',
+      '1721 Dexter\'s low coping has a post either side of its walk, as in its 1888 photograph; 1730 keeps the board fence of its 1874 engraving, now with gates.',
+      '1708\'s iron gates stand open; 1709, 1712 and 1726, unpictured at the street, take the block\'s low coping.',
+      'Side walks run back to the rear at 1708, 1720 and 1730.',
+    ] },
   { v: 2374, ts: '2026-10-28T06:52:00.845Z', date: 'Oct 28, 2026, 1:52 AM CT', title: '1638 Prairie\'s gateway now leads to its porch stair on flags', kind: 'feature',
     items: [
       'The timber house at 1638 Prairie gets a front walk. It comes in through the gateway between the two gate piers, runs north along the back of the fence and turns to the foot of the porch stair.',
