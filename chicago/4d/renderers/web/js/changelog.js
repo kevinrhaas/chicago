@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2364, ts: '2026-10-28T01:55:25.688Z', date: 'Oct 27, 2026, 8:55 PM CT', title: 'Front yards planted along Prairie Avenue in 1904', kind: 'feature',
+    items: [
+      'The 1904 house lots are no longer bare grass: shrubs now line each house\'s front and the start of its sides, and most lawns have one to three low flower beds of scarlet geraniums, white and pink, marigolds or coleus. Each lot is planted a little differently, and nothing stands on a stoop, a front walk, a fence or the way to a door.',
+      'The Pullman house is planted as its 1890s photographs show it: ivy climbs its west front and porch, and a thick border of shrubs runs inside the low wall along 18th Street. Ivy also covers the front of 1912 Prairie, from a later photograph.',
+      'Click a shrub, a bed or the ivy to see whether a picture shows it or it is our reconstruction. The flowering shrubs, beds and ivy follow the Season setting; the clipped evergreens stay green all year.',
+    ] },
+  { v: 2363, ts: '2026-10-28T01:48:59.704Z', date: 'Oct 27, 2026, 8:48 PM CT', title: 'No brick bar across Glessner\'s carriage way', kind: 'fix',
+    items: [
+      'A thin strip of brick no longer hangs across the courtyard end of Glessner\'s carriage passage. It was the wall\'s bottom course, left behind about two feet over the floor when the passage floor was lowered to the HABS drawings.',
+      'The courtyard opening now runs clear down to the passage floor between its brick sides, as sheet 4 draws it.',
+    ] },
+  { v: 2362, ts: '2026-10-28T00:47:48.222Z', date: 'Oct 27, 2026, 7:47 PM CT', title: '1904 corners: stone slabs ramp out onto the street', kind: 'fix',
+    items: [
+      'Corner crossings now carry the walk level over the curb.',
+      'One stone slab per crossing slopes from the curb out onto the roadway, as in the photographs.',
+      'The slab\'s sides and foot show its thickness; the curb runs on unbroken behind it.',
+    ] },
   { v: 2361, ts: '2026-10-28T00:43:23.284Z', date: 'Oct 27, 2026, 7:43 PM CT', title: 'The Kimball house\'s dormer hoods flare out at their feet', kind: 'improvement',
     items: [
       'The three slate hoods on 1801 Prairie\'s mansard dormers now stand wider than the windows below them and sweep in to a narrow top, as the c. 1895 Taylor photograph and the 1965 HABS photographs show them.',

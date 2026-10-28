@@ -27358,9 +27358,10 @@ crossings exist where no picture reaches.
 
 **Decision:** at every 1904 corner where two faces of a block meet (28 corners; Calumet's curve at
 18th is a bend and has none), each face's walk is carried straight on across the other street's
-parkway and curb at its own width (6 ft; 5 ft on 16th Street), and its last 1.35 m (0.92 m on 16th
-Street's narrower parkway) is a dressed stone slab ramping from the walk's level down to the
-roadway. The curb's face is broken where the ramp runs through it. 56 crossings
+parkway and over the curb at its own width (6 ft; 5 ft on 16th Street) and level, and from the
+curb's face one dressed stone slab 15 cm thick runs 1.5 m out into the roadway, its top falling from
+the curb's top to 5 cm over the paving (T-3217: the first build sloped the walk down inside the
+parkway instead, which the pictures do not show). 56 crossings
 (`corner_crossings` in `data/street_section/1904.json`, laid by
 `tools/lay_prairie_1904_street_section.py`); the corner lamp's grass plot stands between each pair.
 **What it stands on:** J. W. Taylor's photograph no. 2135 of the Glessner corner, 18th and Prairie
@@ -27369,13 +27370,13 @@ top to the roadway, one each way across, the lamp's footing between them. The De
 view of the Pullman corner, north-east (`loc_det_4a08065_pullman_residence`): the walks carried
 across the parkway either side of a curbed grass corner, down to the roadway. These four crossings
 are attested; the owner, 2026-10-27: "there are ramps down into the street. they appear to be stone".
-**What is invented:** the crossings at the other 26 corners; the ramp's run and its plain dressed
-face; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
+**What is invented:** the crossings at the other 26 corners; the slab's run (1.5 m), thickness
+(15 cm) and plain dressed face, read roughly off the two pictures; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
 across the roadway itself.
 **How to resolve:** a photograph of any other corner of the district shows whether it had the same
 crossings; a Board of Local Improvements order or a city sidewalk specification of 1890-1905 fixes
-the ramp's slope and stone.
-**Ticket:** T-3200.
+the slab's run, thickness and stone.
+**Ticket:** T-3200, T-3217.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-27 (T-3200).
 
@@ -35060,6 +35061,39 @@ overhead's form; a Sanborn sheet does not draw poles.
 **Ticket:** T-3202.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
 **Recorded:** 2026-10-27 (T-3202).
+
+### L-prairie-front-yards-3203 — The 1904 house lots' front yards: foundation shrubs, low beds and ivy, planted by rule on almost every lot
+
+**Decision:** every 1904 house lot of the drawn district whose house stands back from its lot line
+(149 lots) is planted (`data/front_yards/1904.json`, written by
+`tools/plant_prairie_1904_front_yards.py`): foundation shrubs 0.45-0.95 m off the house's walls along
+its front and the first 7 m of its sides, about 1.0-1.55 m apart, in three habits (a clipped
+evergreen, a loose flowering mound, a tall lilac-like shrub at a corner or a side), and one to three
+low beds cut in the lawn before the house (round, oval or a strip along the front), bedded out in
+one of four palettes (scarlet geraniums; white and pink; marigold yellow and orange; coleus). Which
+habits, how far apart, whether in clumps, how many beds and which palette are drawn per lot from a
+seed of the parcel's id, so no two neighbours match and a re-run lays the same yards. Nothing stands
+within 0.85 m of the lot line, on or within 0.45 m of a stoop, fence, pier or coping, within 0.35 m
+of a paved walk, or across a 2.7 m way from a front door straight to the lot line, all read off the
+houses' own baked models. The lawn is the ground's own sward. Pullman's yard at 1729 has the ivy over
+its west front and porch and the shrub border inside the 18th Street coping east of the house that
+the Detroit Publishing views show (attested); 1912's has the ivy over its front that a later
+photograph shows (inferred for 1904). No urn is placed: no picture read shows one on a stoop clearly
+enough to place it.
+**What it stands on:** the Detroit Publishing views of the Pullman house
+(`loc_det_4a08065_pullman_residence` and `loc_det_4a08066_pullman_residence`, 1890-1901: shrubs at
+the porch, ivy on the front and porch, a dense shrub border inside the coping along 18th Street), the Glessner House Museum's halftone of the finished Pullman house, the photograph of
+1912 Prairie (`chicagology_1912_prairie_exterior_photo`: ivy over the front; its electric lamp dates it after 1904),
+and the brief's reading of the district's pictures as kept front yards with foundation planting and
+low beds (tickets repo, `evidence/streetscape-1904-2026-10-27/BRIEF.md` § 7).
+**What is invented:** every shrub and bed but Pullman's border and the two houses' ivy; the three
+habits and their sizes; the spacing and the clearances; the beds, their shapes and their bedding;
+which lots are planted sparsely or in clumps; the ivy's exact extent on both pictured houses.
+**How to resolve:** a dated photograph of a lot's front yard replaces that lot's rule planting with
+what it shows (its shrubs, beds and urns placed and graded attested); a nursery bill, a garden
+writer's account of a Prairie Avenue yard, or a society-page description would name species.
+**Ticket:** T-3203.
+**Recorded:** 2026-10-27 (T-3203).
 
 ### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
 **Recorded:** 2026-10-27.

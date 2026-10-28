@@ -89,6 +89,7 @@ const COPIES = [
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],
   ['data/street_furniture/', 'data/street_furniture/'],
+  ['data/front_yards/', 'data/front_yards/'],
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
