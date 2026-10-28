@@ -35288,6 +35288,9 @@ one (Prairie Avenue 16th-18th beside 18th-20th at 18th Street; Indiana and Calum
 0.35 m strip beside the narrower one is paved as the avenue on the near side of the crossing,
 where it lies inside the wider roadway, and dropped only where it stands over a sidewalk. Before,
 it was dropped on both sides, and the cut-away ground showed as a flat pale strip down the gutter.
+And the worn fade of a cross street's paving into the avenue's (T-2475) now runs on past the cross
+street's curb lines over the avenue's gutter and wears out there, where it stopped square; how far
+one paving wears into the next is ours, as it was.
 **How to resolve:** a photograph of a Prairie Avenue lot line before 1905 showing what covered
 the foot inside the walk (a sod edge, a coping, bare earth), or of a front lawn's edge against its
 side yard.

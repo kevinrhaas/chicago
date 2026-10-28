@@ -103,8 +103,9 @@ const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 const SEAM_M = 1.6;
 /** The fade overlay's height above the highest roadway, so it never fights one. */
 const SEAM_LIFT_M = 0.004;
-// T-3233: and `seamEnd`, metres from each END of the run of fade along its edge (where the
-// lower roadway's own side lines cross the higher one), so the fade wears out there too.
+// T-3233: and `seamEnd`, metres along the edge from each END of the run of fade (where the
+// lower roadway's own side lines cross the higher one), negative past it: the fade runs on
+// past each end over the higher roadway and wears out there too.
 const SEAM_VERTEX_DECL = 'attribute float seam;\nattribute vec2 seamEnd;\nvarying float vChiSeam;\nvarying vec2 vChiSeamEnd;\nvarying vec2 vChiSeamXZ;\n';
 const SEAM_VERTEX_ASSIGN = '\n  vChiSeam = seam;\n  vChiSeamEnd = seamEnd;\n  vChiSeamXZ = (modelMatrix * vec4(transformed, 1.0)).xz;\n';
 const SEAM_FRAGMENT_DECL = `varying float vChiSeam;
@@ -123,12 +124,12 @@ float chiSeamNoise(vec2 p) {
 `;
 /** Opaque on the edge it starts from, gone SEAM_M on, ragged between: the noise
  *  is weighted to vanish at both ends so the overlay meets each paving exactly. T-3233:
- *  within SEAM_M of either end of its run the fade is rounded off, so where the lower
- *  roadway's own side line crosses the higher one (a cross street's curb line carried
- *  over the avenue's gutter) the worn paving does not stop on a straight cut either. */
+ *  past either end of its run the fade runs on SEAM_M and is rounded off there, so where
+ *  the lower roadway's own side line crosses the higher one (a cross street's curb line
+ *  carried over the avenue's gutter) the worn paving does not stop on a straight cut. */
 const SEAM_FRAGMENT_ALPHA = `
   {
-    float chiB = clamp(1.0 - min(vChiSeamEnd.x, vChiSeamEnd.y) / ${SEAM_M.toFixed(2)}, 0.0, 1.0);
+    float chiB = clamp(-min(vChiSeamEnd.x, vChiSeamEnd.y) / ${SEAM_M.toFixed(2)}, 0.0, 1.0);
     float chiS = clamp(length(vec2(clamp(vChiSeam, 0.0, 1.0), chiB)), 0.0, 1.0);
     float chiN = (chiSeamNoise(vChiSeamXZ * 0.9) - 0.5) * 0.9 + (chiSeamNoise(vChiSeamXZ * 4.1) - 0.5) * 0.45;
     float chiK = chiS + chiN * sin(3.14159265 * chiS);
@@ -878,7 +879,7 @@ export async function createStreetGrid({
       // T-3233: metres along the edge from each end of the run this overlay is part of
       const [lo, hi] = seamEnds ?? [-Infinity, Infinity];
       const along = (e, n) => (t[0] * (e - p[0]) + t[1] * (n - p[1])) / L;
-      seamEndAt = (e, n) => [Math.min(1e3, along(e, n) - lo), Math.min(1e3, hi - along(e, n))];
+      seamEndAt = (e, n) => [Math.max(-1e3, Math.min(1e3, along(e, n) - lo)), Math.max(-1e3, Math.min(1e3, hi - along(e, n)))];
     }
     const lib = surface ? library.get(surface.material) : null;
     const along = tileAlong ?? lib?.along ?? 4;
@@ -1102,7 +1103,8 @@ export async function createStreetGrid({
         lift: CLASSES.carriageway.lift + w.priority * PRIORITY_LIFT_M });
     }
     // T-3233: the run each margin belongs to along its edge — the margins of one edge that
-    // touch, merged — whose two ends the fade is rounded off at.
+    // touch, merged — and past each of its two ends, SEAM_M more of the fade laid over the
+    // higher roadway (within its edge), rounded off there, where it used to stop square.
     const runs = new Map();
     for (const m of w.margins) {
       const [p, q] = m.edge; const t = sub(q, p); const L = len(t) || 1;
@@ -1122,6 +1124,20 @@ export async function createStreetGrid({
       }
       if (run.length) close();
     }
+    const ends = [];
+    for (const m of w.margins) {
+      if (m.extends) continue;
+      const [p, q] = m.edge; const t = sub(q, p); const L = len(t) || 1;
+      const u = [t[0] / L, t[1] / L]; const nIn = [-u[1], u[0]];
+      const at = (a, c) => [p[0] + u[0] * a + nIn[0] * c, p[1] + u[1] * a + nIn[1] * c];
+      for (const [a0, a1] of [[Math.max(0, m.run[0] - SEAM_M), m.run[0]], [m.run[1], Math.min(L, m.run[1] + SEAM_M)]]) {
+        if (a1 - a0 < 0.05 || (m.span[0] > m.run[0] + 0.01 && a1 === m.run[0]) || (m.span[1] < m.run[1] - 0.01 && a0 === m.run[1])) continue;
+        const key = `${m.edge.flat().map((v) => v.toFixed(3)).join()}|${a0.toFixed(3)}`;
+        if (ends.some((x) => x.key === key)) continue;
+        ends.push({ key, poly: [at(a0, -TUCK_M), at(a1, -TUCK_M), at(a1, SEAM_M), at(a0, SEAM_M)], frame: m.frame, edge: m.edge, run: m.run, extends: true });
+      }
+    }
+    w.margins.push(...ends);
     for (const m of w.margins) {
       push('carriageway', w.id, [], w.tier, w.surface, { priority: w.priority, seam: m.edge, seamEnds: m.run, polys: [m] });
       out.census.seams += 1;

@@ -24,9 +24,9 @@
  *   seams    where one roadway's paving meets another's (18th Street's macadam at Prairie's
  *            asphalt), the edge is a worn fade, not a cut: every cut a higher roadway makes in a
  *            lower one carries a seam overlay (T-2475) —
- *   ends     — and the fade wears out at the two ends of its run as well, where the cross
- *            street's own curb line runs on over the avenue's gutter; it used to stop there on
- *            a straight cut, the crossing's paving square against the asphalt.
+ *   ends     — and the fade runs on past the two ends of its run and wears out there too,
+ *            where the cross street's own curb line runs on over the avenue's gutter; it used
+ *            to stop there on a straight cut, the crossing's paving square against the asphalt.
  *   yards    a K14 yard laid the kit's turf sheet over its front lawn, which met the app's own
  *            ground beside it (the side yard, the margin) in a straight line of another green
  *            (1801 Prairie's side yard). No yard lays it: the app's ground is the lawn.
@@ -229,9 +229,10 @@ function checkSeams(sg) {
 }
 
 function checkEnds(sg) {
-  // ...and each run of fade wears out at its two ends too, where the lower roadway's own side
-  // line crosses the higher one: every overlay carries how far each point is from its run's
-  // ends, some of its points stand at an end, and its shader rounds the fade off there.
+  // ...and each run of fade wears out past its two ends too, where the lower roadway's own
+  // side line crosses the higher one: every overlay carries how far each point is from its
+  // run's ends, some of its points stand at or past an end (the fade laid on past it), and
+  // its shader rounds the fade off there.
   const faults = [];
   for (const m of sg.group.children) {
     if (!m.isMesh || !m.geometry.getAttribute('seam')) continue;
