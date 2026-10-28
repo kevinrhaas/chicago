@@ -89,6 +89,41 @@ for tier in ("full", "light"):
     else:
         check(pn["leaves"] == 0 and "roundel" not in hf, "light: the panel and the band stay, the relief and the roundel go")
 
+# T-3186: 1901 Prairie's frieze and carved blocks under the moulded cornice round its mansard
+REAM = "ream_house_1901_prairie"
+
+
+def ream(change=None):
+    st = json.loads((ROOT / "data" / "structures" / f"{REAM}.json").read_text())
+    ph = st["phases"][-1]
+    if change:
+        change(ph["form"]["wall_head"]["value"])
+    return K1.build(KP.from_phase(ph, st), REAM)
+
+
+rw = ream().wall_head
+check(rw.get("frieze_m") == [round(rw["cornice_m"][0] - 0.42, 4), rw["cornice_m"][0]],
+      f"1901: the frieze stands 0.42 m under the cornice's foot ({rw.get('frieze_m')})")
+bl = rw.get("blocks") or {}
+check(bl.get("count", 0) >= 50 and bl.get("left_out") == 1,
+      f"1901: a course of blocks round the front, the canted corner and both flanks, one left out at a stack ({bl})")
+check(bl.get("y_m", [0, 0])[1] > rw["cornice_m"][0] and bl["y_m"][0] > rw["frieze_m"][0],
+      f"1901: the blocks stand on the frieze, their tops under the corona ({bl.get('y_m')})")
+
+
+def ream_refused(change, why, says):
+    try:
+        ream(change)
+    except (KP.ParamError, ValueError) as e:
+        check(says in str(e), f"1901: {why}: refused ({str(e)[:90]}...)")
+        return
+    check(False, f"1901: {why}: refused")
+
+
+ream_refused(lambda v: v["blocks"].update(projection_m=0.3), "blocks reaching past the corona's soffit", "corona's soffit")
+ream_refused(lambda v: v["frieze"].update(height_m=0.6), "a frieze down onto the chamber heads", "reaches the stone cornice's frieze")
+ream_refused(lambda v: v["blocks"].update(spacing_m=3.0), "blocks 3 m apart", "spacing_m 0.4-1.6")
+
 if failures:
     print(f"\n{len(failures)} failure(s)")
     sys.exit(1)

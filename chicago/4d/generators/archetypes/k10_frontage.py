@@ -128,9 +128,21 @@ def spec(params) -> dict | None:
     if dp is not None and (t.get("cornice") != STONE or not 0.15 <= float(dp) <= 0.36):
         raise ValueError(f"wall_head.depth_m scales {STONE!r}'s section to 0.15-0.36 m deep (the kit's is 0.36)")
     fz = t.get("frieze")
-    if fz is not None and (t.get("cornice") != CORNICE or set(fz) != {"height_m", "proud_m"}
+    # T-3186: and under the moulded stone cornice round a mansard (1901's two pictures), from
+    # `height_m` under the cornice's foot up to it
+    mansard_stone = t.get("cornice") == STONE and getattr(params, "roof_form", "hip") == "mansard"
+    if fz is not None and (t.get("cornice") != CORNICE and not mansard_stone or set(fz) != {"height_m", "proud_m"}
                            or not 0.3 <= float(fz["height_m"]) <= 1.2 or not 0.01 <= float(fz["proud_m"]) <= 0.06):
-        raise ValueError(f"wall_head.frieze runs under {CORNICE!r}: height_m 0.3-1.2 under the soffit, proud_m 0.01-0.06")
+        raise ValueError(f"wall_head.frieze runs under {CORNICE!r}, or under {STONE!r} round a mansard: "
+                         f"height_m 0.3-1.2, proud_m 0.01-0.06")
+    # T-3186: stone blocks under the moulded cornice's corona, K10's scrolled console in the
+    # walls' stone, at an even spacing along every stretch of the course round a mansard
+    bk = t.get("blocks")
+    if bk is not None and (not mansard_stone or set(bk) != {"spacing_m", "height_m", "projection_m", "width_m"}
+                           or not 0.4 <= float(bk["spacing_m"]) <= 1.6 or not 0.2 <= float(bk["height_m"]) <= 0.8
+                           or not 0.08 <= float(bk["width_m"]) <= 0.3 or not 0.1 <= float(bk["projection_m"]) <= 0.4):
+        raise ValueError(f"wall_head.blocks stand under {STONE!r} round a mansard: spacing_m 0.4-1.6, "
+                         f"height_m 0.2-0.8, width_m 0.08-0.3, projection_m 0.1-0.4")
     # T-3184: the timber cornice's brackets sized off a picture (1834's photograph: deep carved
     # brackets, paired, under a cornice about 1.1 m deep), the kit's shape at the read size
     bm = t.get("bracket_m")
@@ -790,16 +802,100 @@ def _mansard_cornice(a, K, data, bays, conf):
             plan["walls"][names[j]][1] - plan["walls"][names[j]][0]
         if any(lo_ - 1e-6 < x < hi_ + 1e-6 for sp in spans for x in sp):
             raise ValueError("the stone cornice stops on a canted corner's cut")
+    paths = []
     for k, (s0, s1) in enumerate(spans):
         path = [point(s0)] + [q for j, c in enumerate(cum[1:-1], 1) if s0 + 1e-6 < c < s1 - 1e-6
                               for q in cant.get(j, [point(c)])] + [point(s1)]
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=names)
         ends = (s0 < 1e-9, s1 > cum[-1] - 1e-9)       # capped where the named walls end; dying into a bay
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=ends)
+        paths.append((path, ends))
     a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
                    "walls": names, "dies_into": into,
                    "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
+    _stone_frieze_blocks(a, K, var, prof, y_c, paths, names + ["k01.wall.cant"] * bool(cc))
     _lay(a, var.pieces, conf, STONE)
+
+
+def _stone_frieze_blocks(a, K, var, prof, y_c, paths, walls):
+    """T-3186: 1901 Prairie's two pictures put a frieze under the moulded stone cornice and,
+    standing on it, a course of carved stone blocks — scrolled consoles — at an even
+    spacing under the corona. The frieze (`wall_head.frieze`) is a plain band `height_m`
+    under the cornice's foot, `proud_m` before the wall, swept along the course's own
+    paths (round the canted corner's mitres, dying into a bay where the course does),
+    open on the wall and lying under the cornice's bed. The blocks (`wall_head.blocks`)
+    are K10's console, its back on the frieze's face and its top under the corona's
+    soffit, one `corner_m` (at least clear of its own width) from each end of every
+    straight stretch of the paths, evenly between at no more than `spacing_m`; one that
+    would stand in a chimney stack or on a downpipe is left out. A head that reaches the
+    frieze's or the blocks' foot is refused, as at the cornice."""
+    p = a.p
+    fz, bk = p.wall_head.get("frieze"), p.wall_head.get("blocks")
+    if not fz and not bk:
+        return
+    fp = float(fz["proud_m"]) if fz else 0.0
+    foot = y_c - float(fz["height_m"]) if fz else y_c
+    # the corona's soffit: the section's widest level step outward, as a height and its reach
+    steps = [(q1[0] - q0[0], q0[1], q1[0]) for q0, q1 in zip(prof, prof[1:]) if abs(q1[1] - q0[1]) < 1e-9 and q1[0] > q0[0]]
+    _, u_s, n_s = max(steps)
+    y_top = y_c + u_s
+    if bk:
+        h, w, bp = float(bk["height_m"]), float(bk["width_m"]), float(bk["projection_m"])
+        if fp + bp > n_s - 0.02:
+            raise ValueError(f"wall_head.blocks: {bp} m before the frieze reaches past the corona's soffit "
+                             f"({n_s} m out, less 20 mm)")
+        if fz and y_top - h < foot:
+            raise ValueError(f"wall_head.blocks: {h} m under the corona's soffit stands below the frieze's foot")
+        foot = min(foot, y_top - h)
+    for o in p.openings:
+        if o.wall in walls and o.head_m + HEAD_RISE_M > foot - 0.005:
+            raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the stone cornice's frieze or blocks at {foot:.3f} m")
+    out = {}
+    if fz:
+        fh = float(fz["height_m"])
+        fsec = [(0.0, 0.0), (fp, 0.0), (fp, fh)]
+        for k, (path, ends) in enumerate(paths):
+            pc = var.piece(f"stone frieze {k + 1}", "stone", "open", run_names=walls)
+            K.sweep(pc.mesh, [(x, y_c - fh, z) for x, _, z in path], K.Y, fsec, side=1.0, sgn=1.0,
+                    caps=ends, cap_close=[(0.0, fh)])
+        out["frieze_m"] = [round(y_c - fh, 4), round(y_c, 4)]
+    if bk:
+        B = _kit().load()["parts"]["bracket"]
+        c = max(B["corner_m"], w / 2 + CLEAR_M)
+        sp = float(bk["spacing_m"])
+        r = p.rainwater or {}
+        pipes = [(x["wall"], x["s_m"], r.get("pipe_diameter_m", 0.0) / 2 + r.get("pipe_offset_from_wall_m", 0.0))
+                 for x in r.get("downpipes", [])]
+        by = {q.name: q for q in runs(p)}
+        pipe_xz = [by[wl].at(s, 0.0) for wl, s, _ in pipes if wl in by]
+        stacks = [(ch["u_m"] - ch["plan_m"][0] / 2 - ch["cap_proud_m"] - CLEAR_M,
+                   ch["u_m"] + ch["plan_m"][0] / 2 + ch["cap_proud_m"] + CLEAR_M,
+                   -ch["v_m"] - ch["plan_m"][1] / 2 - ch["cap_proud_m"] - CLEAR_M,
+                   -ch["v_m"] + ch["plan_m"][1] / 2 + ch["cap_proud_m"] + CLEAR_M) for ch in p.chimneys]
+        k, skipped, count = 0, 0, 0
+        for path, _ in paths:
+            for q0, q1 in zip(path, path[1:]):
+                run = K.Run("stone blocks", (q0[0], q0[2]), (q1[0], q1[2]), (True, True))
+                if run.L < w + 2 * CLEAR_M:
+                    continue
+                lo, hi = (c, run.L - c) if run.L - 2 * c >= 0 else (run.L / 2, run.L / 2)
+                n = max(1, math.ceil((hi - lo) / sp - 1e-9))
+                for i in range(n + 1 if hi > lo else 1):
+                    s = lo + (hi - lo) * i / n
+                    foot_xz = [run.at(s + d, 0.0, fp + e) for d in (-w / 2, w / 2) for e in (0.0, bp)]
+                    xs, zs = [q[0] for q in foot_xz], [q[2] for q in foot_xz]
+                    if any(min(xs) < x1 and max(xs) > x0 and min(zs) < z1 and max(zs) > z0 for x0, x1, z0, z1 in stacks) \
+                            or any(min(xs) - rad - w / 2 < q[0] < max(xs) + rad + w / 2
+                                   and min(zs) - rad - w / 2 < q[2] < max(zs) + rad + w / 2
+                                   for q, (_, _, rad) in zip(pipe_xz, pipes)):
+                        skipped += 1
+                        continue
+                    k += 1
+                    pc = var.piece(f"stone block {k}", "stone", "open", bracket={"run": run.name, "s": s})
+                    K.console(pc.mesh, run, s, y_top, fp, w, h, bp, B["curl"])
+                    count += 1
+        out["blocks"] = {"count": count, "left_out": skipped, "y_m": [round(y_top - h, 4), round(y_top, 4)]}
+    a.wall_head.update(out)
 
 
 def _cresting(a, K, data, conf):
