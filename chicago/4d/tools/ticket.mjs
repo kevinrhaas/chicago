@@ -720,15 +720,51 @@ function tripwireSelfTest() {
  * them matches every reference view committed for it — see tools/image_gate.mjs and
  * data/reference_views/README.md. Nothing else is refused: an edit never needs a photo.
  */
-function refuseIfImageGateOpen(t) {
-  if (!/^## Image gate/m.test(t.body || '')) return;
+function refuseIfImageGateOpen(t, all = [], closing = [t]) {
+  for (const g of [t, ...gatedAncestorsClosedBy(t, all, closing)]) refuseIfOneGateOpen(t, g);
+}
+
+/**
+ * A SPLIT PARENT'S GATE IS CLOSED BY ITS LAST PIECE (owner, 2026-10-28). `split` closes the
+ * parent without asking the gate, and the pieces it mints carry no `## Image gate` section,
+ * so on 1729 Prairie T-1881 split into five pieces and T-1934 into seven, every piece
+ * closed, and the house's three match records still said `differs`. The owner found it
+ * "still way off from a photographic match". So the gate a split parent carries is asked
+ * when its LAST live piece closes: every split ancestor with an `## Image gate` section,
+ * none of whose other pieces is still open, claimed or blocked (a piece in `review` already
+ * passed its own `done`). Earlier pieces close on their own slice, as before.
+ */
+function gatedAncestorsClosedBy(t, all, closing) {
+  const closingIds = new Set(closing.map((c) => c.id));
+  const LIVE = ['open', 'claimed', 'blocked-owner', 'blocked-tech'];
+  const leavesUnder = (id) => all.filter((k) => k.parent === id)
+    .flatMap((k) => (k.state === 'split' ? leavesUnder(k.id) : [k]));
+  const out = [];
+  const seen = new Set();
+  for (let p = all.find((k) => k.id === t.parent); p && p.state === 'split' && !seen.has(p.id);
+    p = all.find((k) => k.id === p.parent)) {
+    seen.add(p.id);
+    if (!/^## Image gate/m.test(p.body || '')) continue;
+    const live = leavesUnder(p.id).filter((k) => !closingIds.has(k.id) && LIVE.includes(k.state));
+    if (!live.length) out.push(p);
+  }
+  return out;
+}
+
+function refuseIfOneGateOpen(t, g) {
+  if (!/^## Image gate/m.test(g.body || '')) return;
   // run, not imported: the self-tests copy this file alone into a sandbox
   const gate = path.join(HERE, 'image_gate.mjs');
   const r = existsSync(gate)
-    ? spawnSync(process.execPath, [gate, '--ticket', t.file], { encoding: 'utf8' })
+    ? spawnSync(process.execPath, [gate, '--ticket', g.file], { encoding: 'utf8' })
     : { status: 1, stdout: `${gate} is missing, so the image gate cannot be read\n` };
   if (r.status === 0) return;
-  console.error(`\n${t.id} IS NOT FINISHED: ITS BUILDING DOES NOT YET MATCH ITS PICTURES (the image gate).\n`);
+  if (g !== t) {
+    console.error(`\n${t.id} IS THE LAST OPEN PIECE OF ${g.id}, WHICH WAS SPLIT, AND ${g.id}'S BUILDING`
+      + ` DOES NOT YET MATCH ITS PICTURES (the image gate, inherited).\n`);
+  } else {
+    console.error(`\n${t.id} IS NOT FINISHED: ITS BUILDING DOES NOT YET MATCH ITS PICTURES (the image gate).\n`);
+  }
   for (const w of String(r.stdout || r.stderr || '').trim().split('\n')) console.error(`  ${w}`);
   console.error(`\nRender each view from its camera (node tools/photo_match.mjs data/reference_views/<id>/<view>.json),`);
   console.error(`fix what differs, and set the match record's verdict to "matches" with nothing open.`);
@@ -3423,7 +3459,7 @@ switch (cmd) {
       // `review` is what settle turns into `done` on merge, and a tripwire this ticket
       // trips is fixable in this PR and nowhere cheaper.
       if (!flag('anyway')) {
-        for (const t of members) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'review'); }
+        for (const t of members) { refuseIfImageGateOpen(t, tickets, members); refuseIfATripwireNamesIt(t, 'review'); }
         refuseIfClosingStrandsAnAncestor(members);
       }
       for (const t of members) {
@@ -3440,7 +3476,7 @@ switch (cmd) {
     if (!pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
     for (const t of members) { t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = pr; if (group) t.group = group; }
     if (!flag('anyway')) {   // T-1548 / T-1581 / T-2368
-      for (const t of members) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'done'); }
+      for (const t of members) { refuseIfImageGateOpen(t, tickets, members); refuseIfATripwireNamesIt(t, 'done'); }
       refuseIfClosingStrandsAnAncestor(members);
     }
     for (const t of members) { writeTicket(t); queueRemove(t.id); queueDropBlockedLines(t.id); }
@@ -3765,6 +3801,11 @@ switch (cmd) {
           + `split because the parent needed more than one run's demonstration to be done. `
           + `The parent keeps the full ask and its links; this ticket owns one slice of it.\n\n`
           + liveNote
+          + (/^## Image gate/m.test(t.body || '')
+            ? `## Image gate stays on ${t.id}\n\n${t.id} carries an \`## Image gate\` section. The last of these `
+              + `pieces to close is refused (\`done\`) until every building it names matches every one of its `
+              + `reference views, so a slice that leaves a difference open says so in the match record.\n\n`
+            : '')
           + (photoStop ? `## SPLIT PAST THE PHOTO-TICKET STOPPING RULE, BECAUSE THE OWNER ASKED\n\n${photoStop}; split on the owner's words:\n\n> ${ownerAsked}\n\n` : '')
           + `**Acceptance:** (state it before working — one demonstration, never weakened to pass)\n`,
       };

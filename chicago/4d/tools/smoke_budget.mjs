@@ -266,6 +266,11 @@ const COVERAGE = [
   ['renderers/web/index.html', ALL, 'the page itself'],
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
+  // T-3235. The image gate's cameras and match records (AGENTS.md rule 11). No module under
+  // renderers/ fetches them: they reach the browser only through what compile_pictures.py
+  // (a picture's spot) and jaunt_built_so_far.py (the built-so-far walk) derive from them,
+  // and those derived sidecars and jaunts are priced by their own rows.
+  ['data/reference_views/', NONE, 'the image gate\u2019s cameras and match records \u2014 read by the gate\u2019s tools and two compilers, fetched by no renderer'],
   // T-1971. The housing deal's ledger reaches the scene only through the sidecars
   // compile_scene writes from it (`residents[]` on the building card), which are priced
   // by their own rows. No module under renderers/ fetches it.

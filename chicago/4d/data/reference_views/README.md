@@ -53,6 +53,11 @@ at.
   view of every building listed is `matches`, made from the GLB in the tree, with nothing open.
   `--anyway --why` passes a picture shown to be wrong about the building (a later alteration, a
   retouched print), with the reason written in the ticket.
+- **A split does not escape it** (owner, 2026-10-28). `split` closes the parent without the
+  gate, so the gate stays on the parent and its LAST live piece asks it: `done` on a piece
+  refuses while every other piece under a gated split ancestor is closed (or in `review`) and
+  that ancestor's buildings do not match. 1729 Prairie's T-1881 and T-1934 had closed through
+  twelve pieces with the house's records still `differs`.
 - Nothing refuses an edit: `check.sh` runs `image_gate.mjs --check`, which fails only a malformed
   file and otherwise prints where each building stands.
 - **Where it stops** (owner, 2026-10-25, T-3153; AGENTS.md rule 11). A difference is `open`
