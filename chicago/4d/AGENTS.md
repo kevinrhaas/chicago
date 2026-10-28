@@ -89,8 +89,9 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    `data/reference_views/<structure_id>/`; build; render with `node tools/photo_match.mjs`; and
    work the differences down until the side-by-side shows none in what the picture shows. A
    building ticket carries an `## Image gate` section naming its structure ids, and
-   `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
-   the picture: read the image itself. `data/reference_views/README.md` is the page.
+   `ticket.mjs done` refuses it while any view is not `matches`; a split ticket's gate is asked
+   by its last piece to close (2026-10-28: 1729 Pullman closed through twelve pieces while its
+   records said `differs`). A summary of a picture is not the picture: read the image itself. `data/reference_views/README.md` is the page.
 
    **…and it stops at what a visitor would notice** (the photo-ticket stopping rule, T-3153).
    The owner, 2026-10-25: *"you keep going on with creating tickets in an almost never ending
