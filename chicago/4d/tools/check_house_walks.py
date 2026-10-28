@@ -24,8 +24,8 @@ it requires:
      walking up it is not stopped short of the door.
 
 A house that fails and is in PENDING is reported and does not fail the gate: the 1600 and 1700
-blocks' houses were worked before this rule, and their lanes (T-3204, T-3205) empty the list as
-they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
+blocks' houses were worked before this rule, and their lanes (T-3204; T-3205 emptied the 1700
+block's) empty the list as they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
 take it out. So does a PENDING id that is not a worked 1904 house.
 
     python3 tools/check_house_walks.py --check       the gate (check.sh)
@@ -55,17 +55,7 @@ PENDING = {
     "house_1609_prairie": "T-3204",
     "house_1611_prairie": "T-3204",
     "house_1630_prairie": "T-3204",
-    "shortall_gregory_house_1638_prairie_front": "T-3204",
-    "dexter_house_1721_prairie": "T-3205",
-    "house_1708_prairie": "T-3205",
-    "house_1712_prairie": "T-3205",
-    "house_1726_prairie": "T-3205",
-    "house_1730_prairie": "T-3205",
-    "house_1736_prairie": "T-3205",
-    "kellogg_house_1709_prairie": "T-3205",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
-    "pullman_house_1729_prairie": "T-3205",
-    "walker_house_1720_prairie": "T-3205",
 }
 
 
@@ -389,12 +379,20 @@ def self_test() -> int:
     case("a PENDING house that passes is refused (take it out)", ex, {"h": sc}, {"h": "T-0000"}, True)
     e = copy.deepcopy(ex); e["k01"]["components"] = []
     case("a PENDING house that fails is reported, not refused", e, {"h": sc}, {"h": "T-0000"}, False)
+    # T-3222: a K16 front names its walk and its fence's runs under "k16", the runs by their ends
+    k16 = {"k16": {"components": [copy.deepcopy(ex["k01"]["components"][0]), {
+        "id": "k16.boundary.street_fence", "family": "fence", "instances": [
+            {"params": {}, "sockets": {"end_a": [15.85, 0.0, 1.0], "end_b": [15.85, 0.0, -3.3]}},
+            {"params": {}, "sockets": {"end_a": [15.85, 0.0, -4.7], "end_b": [15.85, 0.0, -9.0]}}]}]}}
+    case("a K16 walk through its fence's gateway passes", k16, {"h": sc}, {}, False)
+    e = copy.deepcopy(k16); e["k16"]["components"][1]["instances"][1]["sockets"]["end_a"] = [15.85, 0.0, -3.3]
+    case("a K16 walk across its fence's run is refused", e, {"h": sc}, {}, True)
     fails, _ = run([], lambda s, p: ex, {"h": sc}, {"ghost": "T-0000"})
     ok = bool(fails)
     print(f"   self-test | {'ok  ' if ok else 'FAIL'} a PENDING id that is not a worked house is refused: "
           f"{fails[0] if fails else 'passes'}")
     bad += not ok
-    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {13 - bad} of 13 cases")
+    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {15 - bad} of 15 cases")
     return 1 if bad else 0
 
 
@@ -419,7 +417,7 @@ def main(argv=None) -> int:
             print(f"  {f}")
         return 1
     print(f"check_house_walks: ok — {n_ok} worked 1904 houses walked into from the public walk through an "
-          f"opening; {n_pend} pending on their lanes (T-3204, T-3205, T-3207)")
+          f"opening; {n_pend} pending on their lanes ({', '.join(sorted(set(PENDING.values()))) or 'none'})")
     return 0
 
 

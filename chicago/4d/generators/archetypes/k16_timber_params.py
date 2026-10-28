@@ -24,6 +24,9 @@ OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
                  boxed, bracketed eave and a hip or flat roof; the kit porch on the street
                  wall with its steps; one brick stack
     roof_covering optional: the roof's colour
+    boundary     optional (T-3205): a `stone_coping_wall` on the street line, its kerb runs,
+                 posts and openings (archetypes/k16_yard.py)
+    yard         optional (T-3205): the front walk and service walk through those openings
 
 Nothing here imports Blender; `generators/mesh_inputs.py` hashes the dataclass this
 returns, so every field the builder reads is in it.
@@ -37,13 +40,14 @@ from dataclasses import dataclass, field
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("layout", "gable", "wing_wall", "porch", "body")
-OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary", "basement")
+OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary", "basement", "yard")
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
 HOUSE_REQUIRED = ("frame_house",)
-HOUSE_OPTIONAL = ("roof_covering",)
-CONSUMED = frozenset(REQUIRED + OPTIONAL + HOUSE_REQUIRED)
+# T-3205: a whole house's street kerb and the walks through it (archetypes/k16_yard.py)
+HOUSE_OPTIONAL = ("roof_covering", "boundary", "yard")
+CONSUMED = frozenset(REQUIRED + OPTIONAL + HOUSE_REQUIRED + HOUSE_OPTIONAL)
 SIDES = ("east", "north", "west", "south")   # counter-clockwise from above, the walls' order
 ROOFS = ("hip", "flat", "gable")   # T-2398: a gable, its ridge along u or v
 KINDS = {"gable": "gable", "wing_wall": "clapboard_wall", "porch": "porch"}
@@ -69,6 +73,7 @@ class K16TimberParams:
     tower: dict | None = None
     boundary: dict | None = None
     basement: dict | None = None
+    yard: dict | None = None
     frame_house: dict | None = None
     confidence: dict = field(default_factory=dict)
 
@@ -123,6 +128,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = boundary_errors(form["boundary"]["value"])
         if bad:
             raise ParamError(f"{rid}: boundary: {'; '.join(bad)}")
+    if "yard" in form:     # T-3222: a K14 front walk through the boundary's gateway
+        bad = yard_errors(form["yard"]["value"], "boundary" in form)
+        if bad:
+            raise ParamError(f"{rid}: yard: {'; '.join(bad)}")
     if "basement" in form:     # T-2523
         bad = basement_errors(form["basement"]["value"])
         if bad:
@@ -147,6 +156,28 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         **{k: dict(form[k]["value"]) for k in OPTIONAL if k in form},
         confidence={k: form[k]["confidence"] for k in REQUIRED + OPTIONAL if k in form},
     )
+
+
+def yard_errors(yv: dict, has_boundary: bool) -> list[str]:
+    """T-3222: a K16 yard is a K14 front walk alone — no lawn or service walk is laid — from the
+    porch stair's foot in through the boundary's gateway (k16_timber.yard_walk)."""
+    out = [] if has_boundary else ["a yard's walk comes in through the boundary's gateway, and the form names none"]
+    if yv.get("kit") != "k14_condition" or not _num(yv.get("built")):
+        out.append("names kit 'k14_condition' and the year its ground is worn from ('built')")
+    if set(yv) - {"kit", "built", "front_walk", "grade_m"}:
+        out.append(f"takes kit, built, front_walk and grade_m alone; {sorted(set(yv))}")
+    fw = yv.get("front_walk") or {}
+    if fw.get("surface") != "stone_flags":
+        out.append("front_walk is laid in 'stone_flags'")
+    if not (_num(fw.get("width_m")) and 0.9 <= fw["width_m"] <= 3.0):
+        out.append("front_walk.width_m is 0.9-3.0 m")
+    if not (_num(fw.get("flag_m")) and 0.3 <= fw["flag_m"] <= 1.8):
+        out.append("front_walk.flag_m is a flag's length, 0.3-1.8 m")
+    if not (_num(fw.get("top_m")) and 0.035 < fw["top_m"] <= 0.1):
+        out.append("front_walk.top_m stands a flag over the ground, and no more than 0.1 m")
+    if not (_num(fw.get("wear_tone")) and 0.62 <= fw["wear_tone"] <= 1.0):
+        out.append("front_walk.wear_tone is 0.62-1.0, the kit's floor up")
+    return out
 
 
 #: T-2456: what a street fence and its gate piers need

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
+  "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589",
   "camera_sha256": "efed15b177939d01403a58cf4d34b863a4df5b6e853edeac73c492973aa2e42f",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
@@ -39,17 +39,17 @@
       "how": "the plate is of 1890 or earlier (the book's date) and Taylor's photograph of the 1890s, which shows the 1892 work east of the flank, is later: the plate is evidence of the house before the stack, and the 1904 build keeps it (AGENTS.md rule 11, L-pullman-1729-flank-stack-3161)"
     },
     {
-      "what": "the 18th Street arcade: the plate's open west arch at about x 1408-1454, the build's at x 1383-1426",
+      "what": "the 18th Street arcade: the plate's open west arch at about x 1408-1454; T-3161 moved the porte-cochere to Taylor's photograph no. 1445 (s 10.25-15.4, 5.45 m out), which renders its west arch at x 1427-1480 here, about 20 px east of the plate's, where the build's stood 25 px west of it before: the plate (5-6 px a metre along the flank) sits between the Detroit print's reading and Taylor's, a disagreement between pictures",
       "status": "within tolerance",
       "how": "a gap two pictures and two camera fits disagree about (T-3153): about 1.7 m along the flank at the arcade's scale; the Detroit print, from the same corner, puts the arch where the build stands it (T-3160), and Taylor's photograph 1445 puts it further east still (docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor-1445-camera.md). The block is not moved until the pictures agree"
     },
     {
-      "what": "the flank west of the arcade: the plate shows one round-arched window over another between the corner pier and the arcade, where the build cuts a pair on each storey",
-      "status": "open",
+      "what": "the flank west of the arcade: the plate shows one round-arched window over another between the corner pier and the arcade, where the build cut a pair on each storey; T-3161 builds one on each storey (s 5.85, from Taylor's photograph no. 1445, which shows the same), rendering here at x about 1361",
+      "status": "fixed",
       "how": "T-3161 read it (Taylor's photograph 1445 shows the same single column); not rebuilt in this run"
     },
     {
-      "what": "the Prairie dormers' moulded, eared hoods (the plate's large dormer at about x 1200 under a broken pediment); the build lays a plain surround round each arch",
+      "what": "the Prairie dormers' moulded, eared hoods (the plate's large dormer at about x 1200 under a broken pediment); the build lays a plain surround round each arch; Taylor's photograph no. 1445 shows the same hoods on the flank's dormers",
       "status": "open",
       "how": "the same gap as the Detroit print's open difference; not rebuilt in this run"
     },
@@ -67,6 +67,15 @@
       "what": "the building east of the flank at the plate's right edge",
       "status": "not shown",
       "how": "cut by the vignette's edge, and before the 1892 east addition"
+    },
+    {
+      "what": "the 18th Street pavilion's own hipped roof (s 11.5-17.5), which the plate does not show over the flank's cornice: taken off by T-3161 on Taylor's photograph no. 1445",
+      "status": "fixed"
+    },
+    {
+      "what": "the low stone wall along Prairie Avenue and its piers at the walk",
+      "status": "not shown",
+      "how": "T-3205: at this vignette's scale the wall reads as a line along the parkway, which the render's wall follows; the piers are compared in detroit_det_4a08065 (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

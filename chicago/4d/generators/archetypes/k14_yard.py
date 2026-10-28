@@ -90,13 +90,13 @@ def spec(params) -> dict | None:
     if not params.boundary.get("side_gate") and params.boundary.get("layout") != "stone_posts_rails" \
             and not (unbroken and "service_walk" not in y):
         raise ValueError("a yard's service walk runs through the K11 side gate, and this boundary names none")
-    if y.get("lawn") != "turf":
-        raise ValueError("yard.lawn builds 'turf' alone")
+    if y.get("lawn") not in ("turf", "none"):
+        raise ValueError("yard.lawn: 'turf', or 'none' for the app's own ground (T-3205)")
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
     fw, sw = y.get("front_walk") or {}, y.get("service_walk")
-    if fw.get("surface") != "stone_flags" or (sw is not None and sw.get("surface") != "cinder"):
-        raise ValueError("yard builds a stone_flags front walk and a cinder service walk")
+    if fw.get("surface") != "stone_flags" or (sw is not None and sw.get("surface") not in ("cinder", "stone_flags")):
+        raise ValueError("yard builds a stone_flags front walk and a cinder (or, T-3205, stone_flags) service walk")
     for name, w in (("front_walk", fw), ("service_walk", sw or {"wear_tone": 1.0})):
         if not 0.62 <= float(w["wear_tone"]) <= 1.0:
             raise ValueError(f"yard.{name}.wear_tone {w['wear_tone']} is under the kit's floor (0.62)")
@@ -295,6 +295,8 @@ def _dress(a, y):
         e = [(wall_u(s), wall_u(s) + strip(s)) for s in (s0, s1)]
         earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (curb_in, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
+    if y.get("lawn") == "none":         # T-3205: the app's own ground is the lawn
+        lawn_rows = []
     lawn_tris = sum(_up_grid(a, SURFACES["turf"], r, conf) for r in lawn_rows)
     earth_tris = sum(_up_grid(a, SURFACES["earth"], r, conf) for r in earth_rows + under_rows)
     widths = [strip(s) for s in edges if not st0 <= s <= st1]
@@ -324,9 +326,11 @@ def _dress(a, y):
     service_tris = 0
     if "service_walk" in y:
         to_u = float(S["to_u_m"])
-        service_tris = _up_grid(a, SURFACES["cinder"], walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, LAWN_Y), conf)
+        # T-3205: flags stand a hair over the ground as the open yard's do; cinder lies on it
+        sm, y_s = SURFACES[S["surface"]], LAWN_Y + (0.004 if S["surface"] == "stone_flags" else 0.0)
+        service_tris = _up_grid(a, sm, walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, y_s), conf)
         sa, sb = b["side_gate_s_m"]
-        service_tris += _up_grid(a, SURFACES["cinder"], walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, LAWN_Y), conf)
+        service_tris += _up_grid(a, sm, walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, y_s), conf)
 
     # -- the front walk: stone flags from the stoop's foot to the public walk -------------
     F = y["front_walk"]
@@ -383,9 +387,11 @@ PASSAGE_CLEAR_M = 0.45   # a turned walk's cross leg stands this far off the wal
 
 def open_spec(params, y: dict) -> dict:
     """`yard` inside a `stone_coping_wall`: as `spec`, but the walk names its width (no gate
-    sizes it), and the service walk is optional and names the passage it runs down."""
-    if y.get("lawn") != "turf":
-        raise ValueError("yard.lawn builds 'turf' alone")
+    sizes it), and the service walk is optional and names the passage it runs down. Its
+    `lawn` may be 'none' (T-3205): no turf is laid, the yard's grass is the app's own ground
+    (as a K16 frame house's is, archetypes/k16_yard.py), and the turf sheet is not shipped."""
+    if y.get("lawn") not in ("turf", "none"):
+        raise ValueError("yard.lawn: behind a coping wall 'turf', or 'none' for the app's own ground")
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
     fw = y.get("front_walk") or {}
@@ -525,6 +531,8 @@ def dress_open(a, y):
             earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (inner, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
     lawn_tris = earth_tris = 0          # integer counts, added left to right (T-2363)
+    if y.get("lawn") == "none":         # T-3205: the app's own ground is the lawn
+        lawn_rows = []
     for r in lawn_rows:
         lawn_tris += _up_grid(a, SURFACES["turf"], r, conf)
     for r in earth_rows + under_rows:
