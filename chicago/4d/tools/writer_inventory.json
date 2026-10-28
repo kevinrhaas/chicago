@@ -176,6 +176,12 @@
       "measured": "2026-10-10",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K11 variant in memory from data/components/prairie_1904/k11_ironwork.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k11_ironwork.py run bare, which no gate step runs (T-2318)."
     },
+    "check_house_walks.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-27",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --check, --report and --self-test read the committed 1904 sidecars and the K01/K16 GLBs' node extras and write nothing (the self-test's cases are built in memory). It declares no write mode: the walks and boundaries it gates are written by generators/k01_emit.py from the records' yard and boundary (T-3206)."
+    },
     "check_condition_kit.py": {
       "placement": "not_a_writer",
       "write_mode": null,

@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "habs_1965",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d55baf0a7d0bf8bde00ebff3df84846f6a1504b6920906f53b1547c84854f6c",
+  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
   "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
   "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "5d55baf0a7d0bf8bde00ebff3df84846f6a1504b6920906f53b1547c84854f6c"
+      "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3"
     },
     {
       "structure_id": "kimball_house_1801_prairie",
@@ -42,10 +42,10 @@
         25.190899205620163
       ],
       "rotation_y": -0.0001745329251997703,
-      "glb_sha256": "1d9e6c4f855fb23c48af92c2cc6538aa8f2faf8fe9a47bc427d16b96ba9d3665"
+      "glb_sha256": "8d89fc88d0c6893e054005e6b9257c198829661db33da53832b3cac9bcf1abb5"
     }
   ],
-  "group_sha256": "2593b64845fb8bf5a40b8d562c0cfe32bfab76f6c177f168dbfafc0891dee785",
+  "group_sha256": "56d91eb26e97199426e39f172c140699419ca07adf52980fc7ea7acf5e86894e",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -84,6 +84,11 @@
     {
       "what": "T-3109 re-rendered after 1801's south stacks were dressed (the rear one lowered to 18.5 m), its south bay and its south dormer built: all on 1801's south wall and roof, left of 1811's north side at the frame's right edge; nothing of 1811 in the frame moved",
       "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1904",
+      "status": "not shown",
+      "how": "by 1965 an iron fence stands on the lot line; the 1904 coping is read off the earlier prints"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
