@@ -2,8 +2,9 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "5b86a83102dfd5158bc85b078c9187eb0f4ebeb84a4203315c74be9bc6dc4769",
+  "glb_sha256": "6a0ccb97bf5abbbd5ec723e6f0f36856f3941857948db82a5c86ea79ca950f21",
   "camera_sha256": "a8fbf32f4f70b529f9438469cfb333941f8cef958c6681562df40b1a5b643891",
+  "photo_sha256": "c57ee5e7463331d871a9ae4555fb95b8da8b8c2a3640a1a8a24fc907aa021646",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -150,7 +151,11 @@
     {
       "what": "Colour of every surface: the print is a monochrome halftone",
       "status": "not shown"
+    },
+    {
+      "what": "Front walk (T-3222): the print shows pale ground through the gateway between the two piers and at the foot of the porch stair behind the fence; the model drew none, the stair coming down on bare ground and the gateway opening on nothing. Now a 1.2 m walk of flags in the plinths' stone comes in through the gateway, runs north along the fence's back and turns west to the stair's foot; through the camera its flags fill the gateway between the plinths and show under the stair's last step where the print's pale ground is. The rest of it is behind the hedge in the print, so its line there is reconstructed",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

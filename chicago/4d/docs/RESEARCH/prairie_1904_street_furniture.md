@@ -92,13 +92,17 @@ the Detroit view).
 parkway at the stable's north-west corner, by the alley. It carries one crossarm of about six pins.
 It is the only pole any picture of the district shows. Taylor no. 2135, looking along Glessner's 18th
 Street front east of the stable, shows none; neither does the Detroit Publishing view of 18th Street
-east of Prairie. So the drawn line runs west from Glessner's pole, not east, and turns into the alley
-behind it.
+east of Prairie. So the drawn line runs west from Glessner's pole, not east. (T-3202 also turned it
+into the alley behind; that span crossed the stable's north-west corner and is not hung since T-3225,
+the alley line there being fed across 18th Street from the alley to the north.)
 
 **The alleys.** No picture of an alley in the district has been found. Lines down the alleys are the
 reconstruction: one on each alley's east side, about every 34 m, joined across the cross streets where
 alleys meet. No pole stands on a Prairie Avenue parkway, where the pictures show the lamps and elms and
-no pole.
+no pole. Since T-3225 (the owner, 2026-10-28: "some of the electrical poles and lines are intersecting
+with buildings") every pole, crossarm and wire is held clear of the coach houses, stables and fences on
+the alley lines, tested on their baked models: ten alley poles stand further into their alleys than the
+rule's 0.45 m.
 
 **22nd Street's trolley.** The photograph from the south-east corner of 22nd and Prairie
 (`chicagology_2140_photo_a`) shows street-railway rails and overhead trolley wires across 22nd Street.

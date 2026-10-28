@@ -35036,7 +35036,7 @@ district near 1904 would place them too.
 written by `tools/lay_prairie_1904_street_furniture.py`).
 On 18th Street, Glessner's pole stands on the south parkway at the north-west corner of the
 stable, by the alley (attested); two more run west from it to Indiana Avenue at about 34 m by the curb
-(inferred), and a line goes from it into the alley behind. Down each of the seven alleys a line runs on
+(inferred). Down each of the seven alleys a line runs on
 its east side, its end poles 2.5 m in from the mouths, spanned across the street where one alley's foot
 meets the next one's head (reconstructed). On 22nd Street, pairs of plain poles at about 34 m, one in
 the north parkway by the curb and one opposite it across the street, hold a span wire at 6.6 m, and two
@@ -35045,6 +35045,20 @@ reconstructed). No pole stands on a Prairie Avenue parkway. Every line pole is d
 crossarm of six pins with green glass insulators; the trolley poles are plain, 9 m.
 The wires sag about 1.2 % of their span and are hidden on the phone's light tier. Every pole is
 moved clear of an elm, a lamp or a hydrant (1.5 m), a carriage walk and an alley mouth.
+**Clear of what is built (T-3225, the owner's report of 2026-10-28 that poles and lines ran into
+buildings):** no pole, crossarm or wire touches a 1904 structure, tested on the baked models (and the
+context city's blocks) as a plan raster of their heights: a pole's face stays 0.15 m off any wall,
+fence or roof edge, a crossarm 0.3 m over the roof beneath it, and every wire, as it sags between
+the pins, 0.3 m over whatever it crosses (so wires pass over fences and low sheds, never through a
+wall or roof). Where the rule's spot fails, an alley pole slides up to 6 m along the alley, then
+stands further into it (0.9 to 2.4 m in from the edge instead of 0.45 m), and only then crosses to the
+west side; a span through a building steps its poles further in, or is not hung. On the 2026-10-28
+data ten alley poles stand further in (three of them also slid 0.5 to 1.5 m) by the coach houses of 1726 and 1736
+Prairie, Wheeler's at 1812, Glessner's stable, 2140 Prairie's alley building, 1836 and 1900 Calumet's
+and 2140 Calumet's; and the span T-3202 hung from Glessner's pole into the alley behind is not hung,
+because it crossed the stable's north-west corner. The alley line there is fed across 18th Street
+from the alley to the north. Glessner's model is not in git, so the test stands it as its footprint
+walled to 15 m; against the model itself that span would clear the stable's gable by about 0.8 m.
 **What it stands on:** the c. 1887 photograph of Glessner's stable from the north-west
 (`cornell_adw_glessner_stable_1887`) for Glessner's pole, its crossarm and its place. Taylor no. 2135
 (`taylor_2135_glessner_exterior_1887_1889`) and the Detroit Publishing Pullman view
@@ -35062,9 +35076,9 @@ containers and were not read.
 **How to resolve:** read the 1902 street-railroad map and the 1897 street-car map for 22nd Street; a
 dated photograph of 22nd Street or of an alley in the district would place the poles and show the
 overhead's form; a Sanborn sheet does not draw poles.
-**Ticket:** T-3202.
+**Ticket:** T-3202; T-3225 (clear of the structures).
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
-**Recorded:** 2026-10-27 (T-3202).
+**Recorded:** 2026-10-27 (T-3202); amended 2026-10-28 (T-3225).
 
 ### L-prairie-front-yards-3203 — The 1904 house lots' front yards: lawns as the photographs show them, and a few period plants by rule where no picture shows the lot
 
@@ -35187,3 +35201,29 @@ across its side yard's mouth. Each walk is checked by `tools/check_house_walks.p
 walks.
 **Covers:** `house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3221.
+
+### L-k16-1638-walk-3222 — 1638 Prairie's front walk: in through the gateway between its two piers, north along the fence's back and west to the porch stair's foot, in flags of the plinths' stone
+
+**Decision:** 1638 Prairie (the K16 timber house) is given a front walk (T-3222), which the K16
+generator could not lay before: the house's stair came down on bare ground and the gateway between
+its two gate piers opened on nothing. The walk is a K14 walk: K14's router (`k14_yard._route`)
+takes it out from the stair's foot (u 5.02 m, on the porch's axis at s 6.53 m), turns it along the
+boundary's back 0.45 m clear of the plinths, and brings it out through the gateway between the
+plinths' faces (s -0.18 to 1.075 m) to the street line, the public walk's inner edge (u 10.8 m);
+the condition kit's front_walk wear tones its flags, as on the district's other K14 walks. **What is
+read, not invented.** The gateway, between the two piers the photograph shows (`chicagology_1638_prairie_photo`,
+T-2524's reading), and the stair it leads to, at the north end of the front. Through the photograph's
+camera the print shows pale ground in the gateway and at the stair's foot behind the fence, and the
+walk as built lands in both (the match record, T-3222). **What is invented or held by the kit.**
+Everything between: the hedge hides the yard behind the fence in the print, so the walk's line along
+the fence's back, its width (1.2 m, the gateway's clear less the kit's margins), its flags (0.9 m,
+0.06 m over the ground, the district's K14 walks' sizes) and their stone (the plinths', one slot) are
+reconstructed. The app's ground rises 2-21 mm over the house's bed under the walk (measured in the
+published app, tools/qa_house_walks_t3222.mjs), less than a flag stands over it, so no `grade_m` lift
+is laid. `tools/check_house_walks.py` reads the walk and the fence's two runs either side of the
+gateway off the GLB: it starts at the stair, reaches the public walk, passes the fence only at its
+gateway and crosses no footprint.
+**How to resolve:** a nearer or later photograph of 1638's yard, or a survey plat drawing the walk.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.yard`.
+**Ticket:** T-3222.
+**Recorded:** 2026-10-28 (T-3222).
