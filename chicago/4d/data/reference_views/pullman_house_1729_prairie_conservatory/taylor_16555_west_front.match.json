@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "26069f6872966d44014f579804dc7e9fe2267b5287af55c2fb826f4b3112425c"
+      "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "aeb8e4384f6cfc0887420a7f0b0b66e384993c5134df3c5845e62e2eef34a0d2",
+  "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -157,6 +157,10 @@
       "what": "the stable's lantern, the stack at the front's east end and the deck's east end",
       "status": "not shown",
       "how": "the tree crowns cover the roof's east half; the plate and 16554 show them"
+    },
+    {
+      "what": "T-3161 re-laid the house's 18th Street flank from Taylor's photograph no. 1445: the house at this print's left edge is its east end, which changed only in its second-storey lights (a pair at s 22.8-23.9 for the single ones), behind the awning and the trees here",
+      "status": "within tolerance"
     },
     {
       "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb",

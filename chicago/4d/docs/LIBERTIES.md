@@ -33622,7 +33622,7 @@ Prairie front's three bays, the portico's balcony, two dormers' places, the wall
 Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row
 pa-1729-5); the print is monochrome.
 **What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang;
-the treads; the north flank's, the 18th Street flank's and the rear's windows (no picture read here
+the treads; the north flank's and the rear's windows, and the 18th Street flank's until T-3161 read them off Taylor's photograph no. 1445 (no picture read here
 places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the
 south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the
 sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m
@@ -33634,7 +33634,7 @@ arcade on the 18th Street flank, the round bay on the north flank and the wall's
 open on the match record for T-1881.
 **How to resolve:** T-1881 builds those and brings the match record to `matches`; T-1934 refines
 the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
-**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.north_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`
 **Ticket:** T-1880.
 **Review:** `docs/RESEARCH/k01-1729-pullman-1880/README.md`.
 **Recorded:** 2026-10-25 (T-1880).
