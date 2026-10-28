@@ -34654,6 +34654,8 @@ plate's cameras, and brings every 1901 match record to `matches`.
 
 **Revised:** 2026-10-27 (T-3186) — **the canted south-west corner is built** (`form.cant_corner`, K01's new main-body cut): 1.83 m back each way as the south-west camera reads it, its face laid in the front's ashlar on the front's beds, a window under the front's moulded head in each storey at the storey's sash, and the moulded cornice, the eave gutter, the mansard's faces and the curb's cresting turned round it on two mitres; a fifth dormer stands centred on its lower slope at the middle street dormer's size. **Still invented there:** the basement light under the face's column (the prints show the area behind the fence; the light is the front's, reasoned from one under every principal window), the windows' widths (the storey's ordinary sash, the prints' read within the camera's spread), and the 0.2 m pier K01 keeps between a flank window and the cut, which moves the flank's first window column 0.25 m back (s 2.65). The cant dormer's carved scroll cheeks are not built, its stone face about 0.6 m narrower than the print's. **Still not built:** the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records.
 
+**Revised:** 2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them. **What is invented:** the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's). **Still not built:** the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for T-3186.
+
 ### L-k01-1900-keith-3207 — 1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph
 
 **Decision:** the house at 1900 Prairie Avenue, Elbridge G. Keith's (T-3207, piece 1 of T-1897), is
@@ -34998,22 +35000,31 @@ goes with the mansard's lower face and stays open in that record.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
 ### L-kimball-1801-loggia-lights-1890 — 1801 Prairie's lights over the loggia in the kit's moulded surround
-**Recorded:** 2026-10-28.
+**Recorded:** 2026-10-28; amended 2026-10-28 when the pilasters were built.
 
 **Decision:** the W. W. Kimball house's two second-storey lights over the loggia, the avenue front's
 (`front_bays` 1.6) and the 18th Street flank's (`side_bays` 18.67), each stand in the K09 kit's restrained
 surround (`street_front_trim`, T-1890): a two-fascia architrave round the light and a cornice hood on two
 consoles over it; the flank's light is named in `street_front_trim.lights` so a side wall's light wears its
 storey's head as the front's does. Each carries an 0.8 m fixed top light over a 0.1 m stone bar (`lights`
-tiers) where K06's transom light is 0.45 m.
+tiers) where K06's transom light is 0.45 m. Each light stands between two pilasters (`lights[].pilasters`): a
+shaft 0.25 m broad and 0.06 m proud on a base from the belt's top at 5.0 m, 0.1 m clear of the architrave,
+under a capital that carries the hood's end in place of the kit's console (the hood run out over the
+capitals), with one lozenge 0.55 m tall carved 0.015 m proud and centred on each shaft.
 **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
 through T-3074's camera at about 57 px a metre, shows each light in a moulded frame under a projecting head
 (x 1016-1071 px at the front, 877-931 on the flank) and its transom bar about 0.75-1.0 m under the head
-(y 680-700 px at the front, 676-694 on the flank).
-**What is invented or held by the kit.** The architrave's and hood's profiles and the consoles are the kit's
-generic ones, not the print's mouldings; the bar is the wall's stone where the print's may be the frame's; the
-light stays K01's 1.15 m where the print's reads about 1.2 m; the carved pilasters either side of each light,
-with their capitals and lozenges, are not built and stay open in the Taylor match record.
+(y 680-700 px at the front, 676-694 on the flank); and each light between two pilasters (x 1000-1010 and
+1075-1085 at the front, 860-870 and 935-945 on the flank) rising from the belt under the sill to carved
+capitals beside the head. HABS 1965's photograph 2 (`habs_kimball_photo_02_nw_1965`, surviving fabric that
+the Taylor print shows too) shows the 18th Street pair sharply: one lozenge, about 0.55 m tall and nearly
+the shaft's width, centred on each shaft, under a foliate capital.
+**What is invented or held by the kit.** The architrave's and hood's profiles are the kit's generic ones, not
+the print's mouldings; the bar is the wall's stone where the print's may be the frame's; the light stays
+K01's 1.15 m where the print's reads about 1.2 m. The pilasters' width is a mean of two readings (the Taylor
+print's about 0.2 m, HABS 2's about 0.3 m); their capitals are plain blocks where both pictures' are
+foliate; their shafts are plain where HABS 2's are sunk-panelled; their bases stand on the belt behind the
+balcony, where HABS 2 shows a carved block under each at about the sill.
 **How to resolve:** a nearer photograph of the loggia's upper storey, or the house's drawings.
 
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
@@ -35021,8 +35032,10 @@ with their capitals and lozenges, are not built and stay open in the Taylor matc
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
 streets (28 corners) and along every block face's parkway (`data/street_furniture/1904.json`,
 written by `tools/lay_prairie_1904_street_furniture.py`). A corner lamp stands in the corner square
-where the two sidewalk spaces meet, 1.5 ft inside both curbs, on a small stone footing, between the
-two corner crossings. Seven lamps stand where a photograph shows them in front of a house (1801/1811,
+where the two sidewalk spaces meet, 1.5 ft inside both curbs, between the two corner crossings; the
+Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows it, the rest on the
+parkway (T-3231: the owner doubted the raised footings once drawn at every corner, and the Pullman
+and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811,
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
 eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
@@ -35030,8 +35043,9 @@ of a street staggered, on the parkway 0.4 m off the walk, moved along the parkwa
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
 same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
 collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four
-scrolled arms, a clear four-sided lantern tapering out to a projecting rim, a steep pale roof, a vent
-cap and a knob, about 3.1 m. The scene has no night, so none is lit.
+arms bent up into the lantern's foot, a clear four-sided lantern tapering out to an iron waist band,
+a steep glazed top on iron hips (T-3231: the 1811 print sees the trees through it), a small cap, a
+vent and a knob, about 3.1 m. The scene has no night, so none is lit.
 **What it stands on:** the post's form from the 1811 photograph (`chicagology_1811_ames_photo`),
 J. W. Taylor's no. 2135 (`taylor_2135_glessner_exterior_1887_1889`) and the second 2140 photograph
 (`chicagology_2140_photo_b`); the corner lamps from those and from the Detroit Publishing Pullman
@@ -35043,13 +35057,14 @@ they stand before. That 1904 is gas: every electric standard in the Prairie libr
 dated after it.
 **What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
-the pictures show four; the footing at every corner, where Taylor 2135 shows one; one post for the
+the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
-the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass.
+the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the
+glazed top's frame drawn as a plain cup and four hips.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
-**Ticket:** T-3199, T-3219.
+**Ticket:** T-3199, T-3219, T-3231.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
 

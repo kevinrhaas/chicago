@@ -84,6 +84,8 @@ const CLASSES = {
  *  roadways' mostly trodden and the walks swept. */
 const SEASON_KIND = { carriageway: 0.3, alley: 0.5, margin: 1, parkway: 1, walk: 0.15, curb: 0.2 };
 const PRIORITY_LIFT_M = 0.003;
+/** How near a ramp's edge a point still takes the ramp's level (T-3231). */
+const RAMP_EDGE_M = 0.005;
 /** T-2692: how far a roadway runs on under one ranked above it, which stands a few
  *  millimetres higher. Cut off flush, the step between them showed what lies under
  *  the higher one's edge, a dark hairline seen from low down along every such cut. */
@@ -201,6 +203,21 @@ function pointInPolygon(e, n, poly) {
     if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
   }
   return inside;
+}
+
+/** Inside `poly`, or within `eps` of its edge. T-3231: a ramp's own corners lie exactly
+ *  on its edge, where the parity test can fall either way; a head corner that fell
+ *  outside it (and outside the face's bands, whose edge it also is) took the roadway's
+ *  level, and the slab's head dropped off the curb at 26 of 112 corners. */
+function nearPolygon(e, n, poly, eps) {
+  if (pointInPolygon(e, n, poly)) return true;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i, i += 1) {
+    const [ax, ay] = poly[j]; const [bx, by] = poly[i];
+    const dx = bx - ax; const dy = by - ay; const L2 = dx * dx + dy * dy || 1;
+    const t = Math.max(0, Math.min(1, ((e - ax) * dx + (n - ay) * dy) / L2));
+    if (Math.hypot(e - ax - t * dx, n - ay - t * dy) <= eps) return true;
+  }
+  return false;
 }
 
 /** Twice the signed area of a plan polygon: positive counter-clockwise. */
@@ -769,9 +786,13 @@ export async function createStreetGrid({
   /** T-3200: the corner crossings, each face's walk carried on across the other street's
    *  parkway and over its curb, then one stone slab sloping from the curb's face out and
    *  down onto the roadway. */
-  const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => ({
-    x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]), rampBox: bboxOf(x.ramp),
-  }));
+  const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => {
+    const b = bboxOf(x.ramp);
+    return {
+      x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]),
+      rampBox: [b[0] - RAMP_EDGE_M, b[1] - RAMP_EDGE_M, b[2] + RAMP_EDGE_M, b[3] + RAMP_EDGE_M],
+    };
+  });
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
   const rampFoot = () => ROAD + CLASSES.carriageway.lift + MAX_PRIORITY * PRIORITY_LIFT_M + 0.002 - CLASSES.walk.lift;
@@ -796,7 +817,7 @@ export async function createStreetGrid({
   const offsetAt = (e, n) => {
     if (!section) return 0;
     for (const { x, rampBox } of crossings) {
-      if (!inBox(rampBox, e, n) || !pointInPolygon(e, n, x.ramp)) continue;
+      if (!inBox(rampBox, e, n) || !nearPolygon(e, n, x.ramp, RAMP_EDGE_M)) continue;
       const f = Math.max(0, Math.min(1, (acrossIn(x, e, n) - x.ramp_from_m) / (x.ramp_to_m - x.ramp_from_m)));
       const head = -FALL * x.ramp_from_m + CLASSES.curb.lift - CLASSES.walk.lift;   // the curb's top
       return (1 - f) * head + f * (rampFoot() + (x.lip_m ?? 0.05));

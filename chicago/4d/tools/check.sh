@@ -1189,6 +1189,10 @@ step "a K01 front block rounds a corner in its own stone (T-3006)" \
 # its window column, and the cornice, the mansard, the gutter and the curb's cresting turn it.
 step "a K01 main body cuts a corner on a canted face, carried through the cornice and the mansard (T-3186)" \
   python3 tools/test_k01_cant_corner.py
+# T-3186: a portico's columns carved at the capital (1901's Corinthian shafts, the 1898
+# photograph) and a scrolled stoop beside open terraces, its sweep falling straight by `bow`.
+step "a K01 portico's capitals carved and a scrolled stoop beside its open terraces (T-3186)" \
+  python3 tools/test_k01_porch_capitals_cheeks.py
 
 # T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
 # (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's
@@ -6007,6 +6011,15 @@ selftest "the road-band movement report names a band that moved" \
 # tripwire that fires the day the data makes the fix matter.
 step "a street's invented line reaches the picture" \
   node tools/test_street_confidence.mjs
+
+# T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
+# put one outside the ramp and outside the face's bands it took the roadway's level
+# and the slab dropped off the curb. The test slices the shipped helpers out of
+# street-grid.js; the self-test proves the bare parity test would miss corners.
+step "every 1904 corner ramp's head meets its curb's top (T-3231)" \
+  node tools/test_ramp_heads.mjs
+selftest "the ramp-head gate sees the bare parity test miss ramp corners (T-3231)" \
+  node tools/test_ramp_heads.mjs --self-test
 
 # K49(d) warned for a week that a spatial filter running after the stratified
 # deal selects a BIASED set of ranks, and told every later parcel not to use

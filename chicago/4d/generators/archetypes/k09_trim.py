@@ -610,9 +610,10 @@ class Variant:
                  groove=Lp["midrib_groove"], nt=6, nu=4, thickness=C["thickness_m"], rng=self.rng)
         return p
 
-    def cornice_hood(self, x_l, x_r, y_b):
+    def cornice_hood(self, x_l, x_r, y_b, consoles=True):
         """A frieze block from y_b, a cornice returned round its three faces, and a
-        scrolled console under each end."""
+        scrolled console under each end (T-1890: or none, where a pilaster's capital
+        carries each end)."""
         P = self.data["parts"]
         hb, co, cn = P["hood_block"], P["console"], P["profiles"]["cornice"]["points"]
         H, D = hb["height_m"], hb["proud_m"]
@@ -622,6 +623,8 @@ class Variant:
         yc = y_b + H - ch
         cor = self.piece("cornice", "trim", "open", relief={"plane_z": 0.0, "proud_m": D + max(n for n, _ in cn)})
         sweep(cor.mesh, [(x_l, yc, 0.0), (x_l, yc, D), (x_r, yc, D), (x_r, yc, 0.0)], Y, cn, side=1.0, smooth=False)
+        if not consoles:
+            return y_b + H
         h, pj, wd = co["height_m"], co["projection_m"], co["width_m"]
         ss = [i / 14 for i in range(15)]
         front = [(pj * (1 - 0.72 * (3 * s * s - 2 * s ** 3)), y_b - h * s) for s in ss]
@@ -881,13 +884,13 @@ class Variant:
         W, H = v["clear_width_m"], v["clear_height_m"]
         ar = P["profiles"]["architrave"]["points"]
         aw = max(n for n, _ in ar)
-        ov = P["hood_block"]["overhang_m"]
+        ov = v.get("overhang_m", P["hood_block"]["overhang_m"])   # T-1890: out over a light's pilasters
         hw = W / 2 + aw + ov + 0.7
         self.board(-hw, hw, H + aw + 1.0, door=doorway(None, -W / 2, W / 2, H), recess=P["opening"]["recess_m"])
         a = self.piece("architrave", "trim", "open", relief={"plane_z": 0.0, "proud_m": max(u for _, u in ar)})
         sweep(a.mesh, [(-W / 2, 0.0, 0.0), (-W / 2, H, 0.0), (W / 2, H, 0.0), (W / 2, 0.0, 0.0)], Z, ar,
               side=-1.0, smooth=False)
-        self.cornice_hood(-W / 2 - aw - ov, W / 2 + aw + ov, H + aw)
+        self.cornice_hood(-W / 2 - aw - ov, W / 2 + aw + ov, H + aw, consoles=v.get("consoles", True))
         self.meta["orders"] = 1
         self.meta["order_depth_m"] = 0.0
 

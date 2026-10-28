@@ -3223,8 +3223,11 @@ class Assembly:
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
                 v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m", "flare", "newel", "pierced") if k in cf}
-            elif "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
-                v["stair"]["scroll_block_m"] = cf["foot_block_m"]
+            else:
+                if "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
+                    v["stair"]["scroll_block_m"] = cf["foot_block_m"]
+                if "bow" in cf:   # T-3186: and its sweep fall straighter than the square's
+                    v["stair"]["scroll_bow"] = cf["bow"]
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
         ss = p.entrance_kit.get("side_stoop")
         if ss:
@@ -3386,7 +3389,7 @@ class Assembly:
         # before the railing, which may change the material the boxes are laid in)
         cols = h.get("columns")
         if cols:
-            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0)
+            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf)
         tri_fascia = len(pr.idx) // 3 - tri0
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
@@ -3432,13 +3435,15 @@ class Assembly:
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
-    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0):
+    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf):
         """T-2963: two turned columns carrying a door hood as a porch (1816's): each a square
         plinth on the stoop's landing, a twelve-sided shaft and a square capital block under
         the soffit, at the deck's front corners, and a flat respond against the wall behind
         it. In the hood's own painted joinery. T-3159: or a row of them where a picture puts
-        them (`at_s_m`, from the door's axis), on the landing and the terraces beside it."""
+        them (`at_s_m`, from the door's axis), on the landing and the terraces beside it.
+        T-3186: or each capital carved, a bell of leaves under its abacus (`carved`)."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
+        cv = co.get("carved")
         yl = op.sill_m                                   # the landing, the door's own sill
         r, seg = dia / 2, 12
         cd = out - pw / 2 - 0.05
@@ -3448,7 +3453,13 @@ class Assembly:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
             cw = min(pw, dia + 0.14) / 2
-            box(cs - cw, cs + cw, y0 - cap, y0, cd - cw, cd + cw, skip=("top",))
+            box(cs - cw, cs + cw, y0 - (cv["abacus_m"] if cv else cap), y0, cd - cw, cd + cw, skip=("top",))
+            if cv:   # T-3186: the bay columns' bell of leaves (T-2887), its crown under the abacus
+                C, ya, yb, k = P(cs, 0.0, cd), y0 - cap, y0 - cv["abacus_m"], cv["tiers"]
+                for t in range(k):
+                    lo, hi = ya + (yb - ya) * t / k, ya + (yb - ya) * (t + 1) / k
+                    self.bell("carved_trim", C, R, N, C[1] + lo, C[1] + hi, r + 0.01 + 0.02 * t,
+                              r + 0.05 + 0.025 * t, seed, conf)
             ya, yb = yl + ph, y0 - cap
             for k in range(seg):
                 a0, a1 = 2 * math.pi * k / seg, 2 * math.pi * (k + 1) / seg

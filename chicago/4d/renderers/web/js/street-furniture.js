@@ -13,8 +13,8 @@
  * HOW. Every lamp is the same post, so each part of it (the iron, the lantern's glass,
  * the stone footing at a corner) is one procedural geometry drawn INSTANCED, at two
  * levels by distance from the eye: the near set at full detail (foot, collar, leafed
- * boss, shaft, capital, ladder bar, scrolled arms, tapered lantern, rim, roof and vent;
- * T-3219, read off the 1811 photograph) casting the sun's shadow, and the
+ * boss, shaft, capital, ladder bar, bent arms, tapered lantern, waist band, glazed top
+ * and cap; T-3219 and T-3231, read off the 1811 photograph) casting the sun's shadow, and the
  * far set as a plain post and lantern that casts none. Past the far ring a lamp is not
  * drawn. The phone's `light` tier pulls both rings in and casts nothing. The sets are
  * re-dealt only when the eye has moved a few metres, from a list of about a hundred.
@@ -88,9 +88,10 @@ const square = (wTop, wBottom, h, open = false) => at(
  * photograph, the clearest post of the district, against Taylor 2135 and 2140's
  * second view). From the ground: a plain round foot on a plinth, a moulded collar, the
  * leafed boss, a slender shaft, the capital under the ladder bar, a stem whose four
- * scrolled arms carry the lantern's foot, the lantern tapering out to a projecting rim,
- * a steep four-sided roof, its vent cap and a knob. Returns { iron, tin, glass } for the
- * near level and the far level, with the lantern's tinned top as `tin`.
+ * arms bend up into the lantern's foot, the lantern's glass tapering out to an iron
+ * waist band, a steep glazed top on iron hips (T-3231: the 1811 print sees the trees
+ * through it), and a small cap, vent and knob. Returns { iron, tin, glass } for the
+ * near level and the far level, with the tinned cap as `tin`.
  */
 function lampGeometry(m) {
   const H = m.height_m ?? 3.12;
@@ -136,7 +137,6 @@ function lampGeometry(m) {
     turned.computeVertexNormals();
   }
   const h = lan.top - lan.foot;
-  const dw = (lan.w_top - lan.w_foot) / 2;
   // A bar from (x0, y0, z0) to (x1, y1, z1), `t` thick.
   const rod = (a, b, t) => {
     const d = new THREE.Vector3(b[0] - a[0], b[1] - a[1], b[2] - a[2]);
@@ -145,51 +145,90 @@ function lampGeometry(m) {
     g.translate((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2);
     return g;
   };
+  // A round iron bar bent along a curve through `pts` (start, bend, end), `r` its radius.
+  const bent = (pts, r, seg = 10) => new THREE.TubeGeometry(
+    new THREE.QuadraticBezierCurve3(...pts.map(([x, y, z]) => new THREE.Vector3(x, y, z))), seg, r, 4, false);
   const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
+  const faces = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  // The upper glass: from the waist band up to the neck under the cap. T-3231: the 1811
+  // print sees the trees through it, as through the lower glass, so it is glazed, not tin.
+  const upFrom = lan.top + rim.h; const upTo = roof.top;
+  const upW = rim.w - 0.03;
+  // The arms: four bars bent out of the stem's collar and up into the lantern's foot
+  // corners, a cup under the lantern (T-3231: the 1811 print shows them curving up to
+  // join the lantern, not standing up past it).
+  const armFrom = stemTop - 0.05; const armR = 0.03;
+  const footC = lan.w_foot / 2;
+  const arms = corners.map(([sx, sz]) => bent([
+    [sx * armR, armFrom, sz * armR],
+    [sx * (footC + 0.03), armFrom - 0.01, sz * (footC + 0.03)],
+    [sx * footC, lan.foot, sz * footC],
+  ], 0.008));
   const near = {
     iron: merge([
       turned,
       // The ladder bar, across the post along the street, the lamplighter's rest, its ends knobbed.
       at(new THREE.BoxGeometry(bar.w, 0.022, 0.022), bar.at),
       ...[1, -1].map((s) => { const g = new THREE.SphereGeometry(0.018, 6, 4); g.translate(s * bar.w / 2, bar.at, 0); return g; }),
-      // The four scrolled arms from the stem to the lantern's foot.
-      ...corners.map(([sx, sz]) => rod([sx * 0.025, stemTop - 0.04, sz * 0.025],
-        [sx * (lan.w_foot / 2 + 0.03), lan.foot - 0.01, sz * (lan.w_foot / 2 + 0.03)], 0.014)),
+      // The stem's collar the arms spring from.
+      at(new THREE.CylinderGeometry(0.035, 0.03, 0.03, 8), armFrom),
+      ...arms,
+      // The burner's pipe, standing in the lower glass.
+      at(new THREE.CylinderGeometry(0.008, 0.008, h * 0.55, 5), lan.foot + h * 0.275),
       // The lantern's foot ring, its four corner bars and a middle bar on each face.
       at(square(lan.w_foot + 0.02, lan.w_foot + 0.02, 0.03), lan.foot),
       ...corners.map(([sx, sz]) => rod([sx * lan.w_foot / 2, lan.foot, sz * lan.w_foot / 2],
         [sx * lan.w_top / 2, lan.top, sz * lan.w_top / 2], 0.016)),
-      ...[[1, 0], [-1, 0], [0, 1], [0, -1]].map(([sx, sz]) => rod([sx * lan.w_foot / 2, lan.foot, sz * lan.w_foot / 2],
+      ...faces.map(([sx, sz]) => rod([sx * lan.w_foot / 2, lan.foot, sz * lan.w_foot / 2],
         [sx * lan.w_top / 2, lan.top, sz * lan.w_top / 2], 0.009)),
+      // The waist band where the lower glass meets the upper, projecting a little: a frame
+      // of four bars, open, so the lantern is seen through from below.
+      ...[0, 1, 2, 3].map((k) => {
+        const g = new THREE.BoxGeometry(rim.w, rim.h, 0.024);
+        g.translate(0, lan.top + rim.h / 2, rim.w / 2 - 0.012);
+        g.rotateY((k * Math.PI) / 2);
+        return g;
+      }),
+      // The upper glass's frame: a bar up each hip to the neck, and a light one up each face.
+      ...corners.map(([sx, sz]) => rod([sx * upW / 2, upFrom, sz * upW / 2],
+        [sx * roof.w_top / 2, upTo, sz * roof.w_top / 2], 0.014)),
+      ...faces.map(([sx, sz]) => rod([sx * upW / 2, upFrom, sz * upW / 2],
+        [sx * roof.w_top / 2, upTo, sz * roof.w_top / 2], 0.007)),
+      // The neck ring under the cap.
+      at(square(roof.w_top + 0.012, roof.w_top + 0.012, 0.018), upTo),
     ]),
-    // The projecting rim, the steep roof, the vent's cap and the knob: tinned sheet, which
-    // the 1811 print and Taylor 2135 both show pale against the dark post.
+    // The cap over the neck, its vent and the knob: tinned sheet, pale against the post.
     tin: merge([
-      at(square(rim.w, rim.w, rim.h), lan.top + rim.h / 2),
-      at(square(roof.w_top, rim.w - 0.03, roof.top - lan.top - rim.h), (lan.top + rim.h + roof.top) / 2),
       at(square(roof.w_top * 0.8, roof.w_top * 0.8, vent.h * 0.6), roof.top + vent.h * 0.3),
       at(square(0.02, vent.w, vent.h * 0.5), roof.top + vent.h * 0.85),
       at(new THREE.SphereGeometry(0.022, 8, 5), H - 0.022),
     ]),
-    glass: merge([at(square(lan.w_top - 0.012, lan.w_foot - 0.004, h - 0.01, true), (lan.foot + lan.top) / 2)]),
+    glass: merge([
+      at(square(lan.w_top - 0.012, lan.w_foot - 0.004, h - 0.01, true), (lan.foot + lan.top) / 2),
+      at(square(roof.w_top - 0.004, upW - 0.006, upTo - upFrom - 0.006, true), (upFrom + upTo) / 2),
+    ]),
   };
   const far = {
     iron: merge([
       at(new THREE.CylinderGeometry(foot.r, foot.plinth_r, boss.to, 6), boss.to / 2),
       at(new THREE.CylinderGeometry(rS1, rS0, stemTop - boss.to, 5), (boss.to + stemTop) / 2),
+      at(square(rim.w, rim.w, rim.h), lan.top + rim.h / 2),
     ]),
     tin: merge([
-      at(square(rim.w, rim.w, rim.h), lan.top + rim.h / 2),
-      at(square(roof.w_top, rim.w - 0.03, roof.top - lan.top - rim.h), (lan.top + rim.h + roof.top) / 2),
+      at(square(roof.w_top * 0.8, roof.w_top * 0.8, vent.h), roof.top + vent.h / 2),
     ]),
-    glass: merge([at(square(lan.w_top, lan.w_foot, h), (lan.foot + lan.top) / 2)]),
+    glass: merge([
+      at(square(lan.w_top, lan.w_foot, h), (lan.foot + lan.top) / 2),
+      at(square(roof.w_top, upW, upTo - upFrom), (upFrom + upTo) / 2),
+    ]),
   };
   return { near, far };
 }
 
 function footingGeometry(m) {
-  const f = m.footing_m ?? { w: 0.95, h: 0.16 };
-  // Sunk 0.1 m so it sits on a parkway that falls toward the curb.
+  const f = m.footing_m ?? { w: 0.8, h: 0.02 };
+  // A stone pad level with the walk, not a pedestal (T-3231: Taylor 2135's post stands on
+  // one at the curb corner); sunk 0.1 m so it sits on a parkway that falls toward the curb.
   const g = new THREE.BoxGeometry(f.w, f.h + 0.1, f.w);
   g.translate(0, (f.h - 0.1) / 2, 0);
   const near = merge([g]);
@@ -389,7 +428,7 @@ export async function createStreetFurniture({
   const model = doc.kinds?.gas_lamp?.model_m ?? {};
   const lamp = lampGeometry(model);
   const footing = footingGeometry(model);
-  const footH = model.footing_m?.h ?? 0.16;
+  const footH = model.footing_m?.h ?? 0.02;
   const hydrantModel = doc.kinds?.fire_hydrant?.model_m ?? {};
   const hydrant = hydrantGeometry(hydrantModel);
   const isLamp = (it) => it.kind === 'gas_lamp';
@@ -409,7 +448,7 @@ export async function createStreetFurniture({
     tin: new THREE.MeshStandardMaterial({ color: 0xd0d4ce, roughness: 0.45, metalness: 0.05 }),
     // Clear panes: the 1811 print sees the street through them, so they read light only where
     // they catch the sky, never as a lit box.
-    glass: new THREE.MeshStandardMaterial({ color: 0xe2e8e6, roughness: 0.08, metalness: 0.15, transparent: true, opacity: 0.6, depthWrite: false, side: THREE.DoubleSide }),
+    glass: new THREE.MeshStandardMaterial({ color: 0xdfe6e6, roughness: 0.06, metalness: 0.2, transparent: true, opacity: 0.38, depthWrite: false, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
     // The Detroit view prints the hydrant lighter than the lamp posts: a mid-grey paint.
     hydrant: new THREE.MeshStandardMaterial({ color: 0x6f6e66, roughness: 0.6, metalness: 0.25 }),

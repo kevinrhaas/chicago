@@ -20,7 +20,9 @@ What the record's `street_front_trim` names, and what is built for it:
                    names, centred between the basement light's lintel and the sill, or
                    (`apron_over_belt`, T-2526) between the storey's belt course and the sill
   lights           (T-1890) single lights by wall, place and storey: a side wall's wears its
-                   storey's head as the front's do, and any may carry its own transom tiers
+                   storey's head as the front's do, and any may carry its own transom tiers,
+                   and a surrounded one its `pilasters`: a carved pilaster each side whose
+                   capital carries the hood's end in place of its console
   shelf            (T-2531) over the apron, the light stood on a tablet proud of the wall over
                    a moulded shelf under its sill, the panel hung from the shelf's foot
 
@@ -46,6 +48,10 @@ DOOR_HOOD = "k09.trim.lintel_cornice_hood"   # T-2409: the kit's cornice hood ov
 APRON = "k09.trim.foliate_panel"
 SILL_REACH_M = 0.08          # K01's sill runs this far past each jamb
 SEAT_GAP_M = 0.004           # a capital stops this short of what it carries (no face on a face)
+PILASTER = "k09.trim.light_pilaster"   # T-1890: a surrounded light's pilasters (`lights[].pilasters`)
+PILASTER_BURY_M = 0.004      # each pilaster piece runs this far into what it stands on and carries
+PILASTER_BASE_GROW_M = 0.02  # a base stands this much wider (each side) and prouder than its shaft
+PILASTER_CAP_GROW_M = 0.045  # and a capital this much (K08's pilasters, T-2931)
 
 
 def _kit():
@@ -175,13 +181,18 @@ def dress(a, op, frame, conf):
         _entrance(a, kit, data, op, frame, conf)
         return True
     v = dict(_variant(kit, data, kind), clear_width_m=op.width_m, clear_height_m=op.height_m)
+    pil = (light(p, op) or {}).get("pilasters") if kind == "k09.surround.rowhouse_restrained" else None
+    if pil:
+        # T-1890: the hood runs out over each pilaster's capital, which carries it in place of a console
+        v.update(overhang_m=pilaster_overhang(pil), consoles=False)
     # T-2960: a round_heads hood's block stands its own distance past the jambs
     ov = ((getattr(p, "round_heads", None) or {}).get("hood") or {}).get("overhang_m") \
         if op.component == "k01.opening.sash_round_hooded" else None
     if ov is not None:
         v["overhang_m"] = ov
     seed = a.instance(kind, "trim", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
-                                     "storey": _storey(p, op), **({"overhang_m": ov} if ov is not None else {})},
+                                     "storey": _storey(p, op), **({"overhang_m": ov} if ov is not None else {}),
+                                     **({"overhang_m": v["overhang_m"], "consoles": False} if pil else {})},
                       {"sill": sock(op.s_m, op.sill_m), "head": sock(op.s_m, op.head_m)})
     t = spec(p)
     aproned = bool(t.get("apron")) and _storey(p, op) in t.get("apron_storeys", [])
@@ -191,7 +202,59 @@ def dress(a, op, frame, conf):
     foot = _shelf(a, var, op, frame, conf, sh, seed) if sh else None
     if aproned:
         _apron(a, kit, data, op, frame, conf, foot)
+    if pil:
+        _pilasters(a, kit, data, op, frame, conf, pil)
     return True
+
+
+def pilaster_overhang(pil) -> float:
+    """T-1890: how far a pilastered light's hood runs past its architrave: over the gap, the
+    shaft and its capital's spread, and a centimetre on, so the block covers the capital."""
+    return round(pil["gap_m"] + pil["width_m"] + PILASTER_CAP_GROW_M + 0.01, 4)
+
+
+def _pilasters(a, kit, data, op, frame, conf, pil):
+    """T-1890: a carved pilaster each side of a surrounded light (1801's two lights over the
+    loggia, the Taylor print: each light between two pilasters rising from the belt under its
+    sill to carved capitals beside its head, a carved lozenge on each shaft; HABS 1965's
+    photograph 2 shows one to a shaft, centred). Each stands
+    `gap_m` clear of the architrave: a base on `foot_m` (over grade), a shaft `width_m` broad
+    and `proud_m` out, and a capital under the hood's frieze block where the console would
+    hang, the base and the capital each wider and prouder than the shaft (the capital the
+    more), as K08's pilasters on 1801's bow are (T-2931); on the shaft `count` lozenges
+    `height_m` tall, spaced evenly up it. Every piece runs 4 mm into what it
+    stands on and what it carries, the lozenges 4 mm into the shaft, so no face lies on another."""
+    P = data["parts"]
+    aw = max(n for n, _ in P["profiles"]["architrave"]["points"])
+    w, d, hb, hc = pil["width_m"], pil["proud_m"], pil["base_m"], pil["capital_m"]
+    lo = pil["foot_m"] - op.sill_m              # in the light's frame: y up from its sill
+    hi = op.height_m + aw                       # the frieze block's bed
+    x0 = op.width_m / 2 + aw + pil["gap_m"]
+    lz = pil.get("lozenges")
+    seed = a.instance(PILASTER, "trim", {"width_m": w, "proud_m": d, "base_m": hb, "capital_m": hc,
+                                         "gap_m": pil["gap_m"], "storey": _storey(a.p, op)},
+                      {"foot": _socket(frame, op.s_m, pil["foot_m"]), "head": _socket(frame, op.s_m, op.sill_m + hi)})
+    var = _seeded(kit, data, {"id": PILASTER, "kind": "pilaster"}, seed)
+    B = PILASTER_BURY_M
+    for sgn, side in ((-1, "l"), (1, "r")):
+        xa, xb = sorted((sgn * x0, sgn * (x0 + w)))
+        for name, ya, yb, grow in (("base", lo - B, lo + hb, PILASTER_BASE_GROW_M),
+                                   ("capital", hi - hc, hi + B, PILASTER_CAP_GROW_M),
+                                   ("shaft", lo + hb - B, hi - hc + B, 0.0)):
+            pc = var.piece(f"{side} pilaster {name}", "trim", "open", relief={"plane_z": 0.0, "proud_m": d + grow})
+            kit.box(pc.mesh, xa - grow, xb + grow, ya, yb, 0.0, d + grow, skip=("back",))
+        if not lz:
+            continue
+        lw, hh, m = w - 2 * lz["margin_m"], lz["height_m"] / 2, lz["count"]
+        step = (hi - hc - lo - hb) / m
+        cx = (xa + xb) / 2
+        for j in range(m):
+            cy = lo + hb + step * (j + 0.5)
+            pc = var.piece(f"{side} pilaster lozenge {j + 1}", "carving", "rooted", host=f"{side} pilaster shaft",
+                           relief={"plane_z": d, "proud_m": lz["relief_m"]})
+            kit.prism(pc.mesh, [(cx, cy - hh), (cx + lw / 2, cy), (cx, cy + hh), (cx - lw / 2, cy)],
+                      d - B, d + lz["relief_m"])
+    _lay(a, var, frame, op.s_m, op.sill_m, conf, PILASTER)
 
 
 def _shelf(a, var, op, frame, conf, sh, seed):
