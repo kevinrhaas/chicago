@@ -45,6 +45,7 @@ sys.path.insert(0, str(HERE.parent))
 from archetypes.k01_frontage import Prim, _add, _cross, _dot, _mul, _sub, _unit  # noqa: E402
 from archetypes import k06_windows as K06  # noqa: E402
 from archetypes import k09_trim as K09  # noqa: E402
+from archetypes import k16_yard  # noqa: E402
 from archetypes import k14_yard as K14  # noqa: E402
 
 ROOT = HERE.parents[1]
@@ -90,6 +91,9 @@ ROLE_MATERIAL = {
     # T-3181: 1720's porch — its turned balustrades, the stair's cheeks and newels, and the iron
     # cresting round its deck, which takes the boundary's iron
     "rail": "trim", "baluster": "trim", "string": "trim", "newel": "trim", "cresting": "fence_iron",
+    # T-3205: a frame house's street kerb, its posts and railing, and its walks (k16_yard.py)
+    "coping": "fence_stone", "kerb_post": "fence_stone", "kerb_rail": "fence_iron", "kerb_bar": "fence_iron",
+    "yard_flag": "walk_stone", "yard_cinder": "walk_cinder",
     # T-3222: 1638's front walk, flags of the boundary's stone (its plinths'): one slot, no new draw
     "walk_flag": "fence_stone",
 }
@@ -102,11 +106,16 @@ NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing
 NOT_TIMBER += ("roof_covering", "chimney")
 NOT_TIMBER += ("fence_bar", "fence_rail", "pier_finial", "fence_base", "pier_plinth")
 NOT_TIMBER += ("cresting",)
+NOT_TIMBER += ("coping", "kerb_post", "kerb_rail", "kerb_bar", "yard_flag", "yard_cinder")
 NOT_TIMBER += ("walk_flag",)
 #: T-2456: the boundary's two materials, offered only to a house that builds one
 BOUNDARY_MATERIALS = {
     "fence_iron": {"color": (0.12, 0.12, 0.12), "roughness": 0.6, "metallic": 0.4, "class": "metal"},
     "fence_stone": {"color": (0.70, 0.68, 0.62), "roughness": 0.92, "class": "masonry"},
+    # T-3205: the walks of a frame house's yard (k16_yard.py): flags a shade darker than the kerb,
+    # and cinder in K14's colour (k01_frontage MATERIALS["yard_cinder"]) without its gravel map
+    "walk_stone": {"color": (0.63, 0.60, 0.54), "roughness": 0.9, "class": "masonry"},
+    "walk_cinder": {"color": (0.30, 0.29, 0.27), "roughness": 0.95, "class": "ground"},
 }
 
 
@@ -3508,6 +3517,9 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     main = fh["blocks"][0]["rect_uv"]
     house.meta.update({"parts": {k: triangles(sm) for k, sm in parts.items() if not k.startswith("_")},
                        "focus": [main[2], 3.0, -(main[1] + main[3]) / 2], "span_m": 12.0})
+    yard = k16_yard.dress(house, phase["form"])     # T-3205: its kerb and the walks through it
+    if yard:
+        house.meta["yard"] = yard
     return house
 
 
@@ -3528,9 +3540,12 @@ def frame_house_materials(house: Sample, data: dict, form: dict) -> dict:
 
 def frame_house_glb(house: Sample, data: dict, form: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
     name = f"{structure_id}__{phase_id}"
+    extra = {}
+    if house.meta.get("yard"):      # T-3205: the kerb's and walks' instances, as K01 writes K11's and K14's
+        extra = {"k16": {"components": house.meta["yard"]["components"]}, "yard": house.meta["yard"]["built"]}
     return to_glb([house], data, node_name=name, mats=frame_house_materials(house, data, form), node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
-        "parts_triangles": house.meta["parts"]},
+        "parts_triangles": house.meta["parts"], **extra},
         extras={"ticket": "T-2357", "structure": f"data/structures/{structure_id}.json"})
 
 

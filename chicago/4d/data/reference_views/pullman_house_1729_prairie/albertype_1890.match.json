@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3fcd395b3a2ace04e5135d58f9af9e1bf2f4d7420cbf70518ae5a80ce9d3edb0",
+  "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589",
   "camera_sha256": "efed15b177939d01403a58cf4d34b863a4df5b6e853edeac73c492973aa2e42f",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
@@ -71,6 +71,11 @@
     {
       "what": "the 18th Street pavilion's own hipped roof (s 11.5-17.5), which the plate does not show over the flank's cornice: taken off by T-3161 on Taylor's photograph no. 1445",
       "status": "fixed"
+    },
+    {
+      "what": "the low stone wall along Prairie Avenue and its piers at the walk",
+      "status": "not shown",
+      "how": "T-3205: at this vignette's scale the wall reads as a line along the parkway, which the render's wall follows; the piers are compared in detroit_det_4a08065 (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

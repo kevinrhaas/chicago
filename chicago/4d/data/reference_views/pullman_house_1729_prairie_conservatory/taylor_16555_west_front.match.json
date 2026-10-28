@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "3fcd395b3a2ace04e5135d58f9af9e1bf2f4d7420cbf70518ae5a80ce9d3edb0"
+      "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "4100478eee74c3818cd60165f4b4916ec4e864c3406d8f98f98a7af75f061fe8",
+  "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -161,6 +161,11 @@
     {
       "what": "T-3161 re-laid the house's 18th Street flank from Taylor's photograph no. 1445: the house at this print's left edge is its east end, which changed only in its second-storey lights (a pair at s 22.8-23.9 for the single ones), behind the awning and the trees here",
       "status": "within tolerance"
+    },
+    {
+      "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb",
+      "status": "within tolerance",
+      "how": "T-3205: looked at again with the house's walks rebaked; the 18th Street side is not this record's building nor the house's way in (the Prairie front's is), and T-3160 left the run of posts unbuilt because the print does not resolve them. Not built; recorded as the lot's remaining gap (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 832,
+  "count": 833,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58845,6 +58845,125 @@
       ],
       "work_refs": [
         "T-3214"
+      ]
+    },
+    {
+      "id": "L-k14-walks-1700-block-3205",
+      "title": "Walks, gates and front boundaries of the 1700-block Prairie houses read off their pictures; each house given a walk from the public walk to its door",
+      "section": "per_subject",
+      "subjects": [
+        "dexter_house_1721_prairie",
+        "house_1708_prairie",
+        "house_1712_prairie",
+        "house_1726_prairie",
+        "house_1730_prairie",
+        "house_1736_prairie",
+        "kellogg_house_1709_prairie",
+        "pullman_house_1729_prairie",
+        "walker_house_1720_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1708_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1712_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1712_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1726_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1726_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1730_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1730_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1736_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "walker_house_1720_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-28."
+        },
+        {
+          "label": "Decision",
+          "text": "every worked 1904 house on the 1700 block of Prairie Avenue (1708, 1709 Kellogg, 1712, 1720 Walker, 1721 Dexter, 1726, 1729 Pullman, 1730, 1736 McBirney) is given a flagged front walk from the foot of its stair to the inner edge of the public walk, through an opening or an open gate in its front boundary (1700 and 1706 wait for their own K01 records). Before this none had a walk; 1720, 1709, 1712, 1721, 1726 and 1730 had no front boundary at all, and the copings of 1729 and 1736 ran unbroken across their stairs, so a visitor met a wall. **What is read, not invented.** 1708's spear railing on its curb (Chicagology's photograph, the 1901 construction view) is kept, its entrance leaves now standing open. 1720's front is read through its photograph's camera: a low pale kerb with an iron railing on it and white round-topped stone posts about 1.2 m high, a paved way in between two of them, and the Tribune's 1898 vignette's posts either side of the stair's foot; the kerb's rounded top is the one photographed in place in 2015. 1721's low coping and the posts either side of its walk are the c. 1888 winter photograph's. 1729's opening is read through the Detroit print's camera, a gap between two piers in the low wall square before the stair. 1736's opening is the gap the c. 1890 print shows between the low run and the stair's pier, its edges hidden by a street tree and the pier. 1730's close-boarded street fence is the May 1874 Land Owner vignette's (Prairie library a16-cgy-landowner-1874-1730-dewey). **What is invented or held by the kit.** No picture shows the fronts of 1709 or 1712 close enough to read, and the 1898 vignette of 1726 stops at its stair's foot: these three take the block's low stone coping (as 1700, 1721 and 1736 stand), 0.35 m, cut 1.8 m for the walk. The walks' widths (1.0-1.5 m), flags and joints, the service walks (cinder at 1720, flags at 1708 and 1730, where the cinder sheet would overrun the site budget), the kerbs' and copings' sections, the posts' and piers' sizes (1729's piers are held to 1.2 m, the kit's ceiling, against the print's about 1.5 m), the railing's bars, 1720's sixth post, the gates (1730's both, 1708's leaves' state) and every run carried past a picture's edge to the lot line are reconstructed; the 1874 board fence is assumed to have stood to 1904. 1720's two pictures disagree south of its stair (lawn to the walk in the older print, railing in the vignette): the railing is built. A frame house lays no lawn (the k16 yard generator), nor do the eight K01 houses here (`lawn: none`, the k14 yard generator): their yards' ground is the app's. Where the app stands a house on ground lower than its yard, the yard is lifted onto it (yard.grade (m), measured in the published app), which is the app's ground, not evidence of a graded lawn. Each walk is checked by the house walks check."
+        },
+        {
+          "label": "How to resolve",
+          "text": "nearer photographs of each front at the walk in the 1890s-1900s, or a survey plat drawing the walks and fences."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1708_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.yard`, `house_1712_prairie.as_mapped_1904.form.yard`, `walker_house_1720_prairie.as_mapped_1904.form.yard`, `dexter_house_1721_prairie.as_mapped_1904.form.yard`, `house_1726_prairie.as_mapped_1904.form.yard`, `pullman_house_1729_prairie.as_mapped_1904.form.yard`, `house_1730_prairie.as_mapped_1904.form.yard`, `house_1736_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.boundary`, `house_1712_prairie.as_mapped_1904.form.boundary`, `house_1726_prairie.as_mapped_1904.form.boundary`, `house_1730_prairie.as_mapped_1904.form.boundary`."
+        }
+      ],
+      "work_refs": [
+        "T-3205"
       ]
     },
     {
