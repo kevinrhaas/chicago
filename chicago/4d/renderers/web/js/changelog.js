@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2389, ts: '2026-10-28T16:10:31.588Z', date: 'Oct 28, 2026, 11:10 AM CT', title: '1901 Prairie\'s cornice gets its carved stone blocks', kind: 'change',
+    items: [
+      'The Ream house at 1901 Prairie now carries the deep cornice its two photographs show: a course of carved stone blocks under the cornice, standing on a plain frieze, all the way round the front, the cut corner and the side.',
+    ] },
+  { v: 2388, ts: '2026-10-28T16:10:31.588Z', date: 'Oct 28, 2026, 11:10 AM CT', title: '1900 Prairie\'s windows and dormers now arch, as its photographs show', kind: 'feature',
+    items: [
+      'Every front window of the Elbridge Keith house, and those in its corner bay, is now round-headed under a moulded hood with a stone key on its crown, as the old photograph and the house today show.',
+      'The three dormers in its mansard roof now have arched heads instead of little gables.',
+      'The low stone wall before the lawn now rises into square posts beside the walk and at the lot\'s corners.',
+      'Four later pictures of the house and a street elevation drawing are now weighed against the model. Seven details are still not built, including the paired window over the porch, the dormer on the bay\'s roof and the stoop\'s stone newels. They are listed on the house\'s photo-match record.',
+    ] },
   { v: 2387, ts: '2026-10-28T14:21:33.563Z', date: 'Oct 28, 2026, 9:21 AM CT', title: '1904 streets and yards: no hard lines across the grass and paving', kind: 'fix',
     items: [
       'The green strip between the lawns and the sidewalk is gone: each yard\'s grass now runs right up to the walk, and the front walks meet it.',
