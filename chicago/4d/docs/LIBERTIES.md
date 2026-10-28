@@ -24250,7 +24250,7 @@ house stays this draft's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24322,6 +24322,13 @@ the 1911 sheet and its front off two photographs of the Glessner townhouses it s
 of, recorded as `L-k01-1708-thorne-3188`, under the same id; its draft attributes are gone. The
 draft had built one 22 x 7.25 m block with three flat bays; the sheet's canted bay, its stepped
 rear and its two-storey wing, and the pictures' cornice, hoods and bay, replace it.
+**1700 and 1706 retired from this liberty by T-3211 (2026-10-27):** the Glessner townhouses now
+stand as a mirrored pair of K01 frontages, `glessner_lee_house_1700_prairie` and
+`george_glessner_house_1706_prairie` (piece 1 of T-1871), their plan read off the 1911 sheet and
+their front off the two photographs of it, recorded as `L-k01-1700-1706-glessner-1871`, under the
+same ids; their draft attributes are gone. The draft had built each under a low hip with three bays;
+the pictures' mansard, dormers, eight window columns and the two porches replace it. 1700's coach
+house stays this draft's.
 **1620, the one house the 1911 sheet does not draw.** The T-1840 census stands the Robert Law house
 for 1904 on Robinson 1886 and the 1904 Blue Book (backcast_1886). Its outline is read off Robinson
 1886 plate 10 in the plate's own pixels and carried by the plate's T-1250 fit (4.54 m RMS, the
@@ -34519,6 +34526,49 @@ measured height anywhere on the townhouses' front, which fixes every camera's sc
 **Covers:** `house_1708_prairie.as_mapped_1904.form.basement_lights`, `house_1708_prairie.as_mapped_1904.form.chimneys`, `house_1708_prairie.as_mapped_1904.form.principal_floor_m`, `house_1708_prairie.as_mapped_1904.form.rear_bays`, `house_1708_prairie.as_mapped_1904.form.roof_covering`, `house_1708_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1708_prairie.as_mapped_1904.form.service_wall_brick`, `house_1708_prairie.as_mapped_1904.form.side_bays`, `house_1708_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1708_prairie.as_mapped_1904.form.stair_tread_m`, `house_1708_prairie.as_mapped_1904.form.stoop_width_m`, `house_1708_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1708_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1708_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-3188 (piece 2 of T-1872).
 **Recorded:** 2026-10-27 (T-3188).
+
+### L-k01-1700-1706-glessner-1871 — 1700 and 1706 Prairie, the Glessner townhouses, refined from the district draft to a mirrored K01 pair read off two photographs of their front, their plan the 1911 sheet's
+
+**Decision:** the two Georgian townhouses John J. Glessner built for his children at 1700 and 1706
+Prairie Avenue (T-3211, piece 1 of T-1871) are no longer district drafts. Each stands, under the
+draft's own id, as a `k01_frontage` record built by `generators/k01_emit.py`, the two mirrored:
+each house's porch and rear range at its outer end. Both are read off the two photographs of the
+pair's front T-3188 solved for 1708 Prairie: Chicagology's (`chicagology_1700_1706_townhouses_photo`)
+and the Glessner House Museum's Christmas print (`glessner_blog_1708_1706_1700_christmas_photo`),
+through those cameras carried into each house's frame (`data/reference_views/<id>/`).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn (trace s20fp-1700-b1; census
+s20-1700-f and s20-1706-f, '3B brick dwelling'): the front block 13.1 m deep across both houses,
+11.05 m (1706) and 11.2 m (1700) along the street either side of the party line, and a three-storey
+range 8.15 m deep and about 4.6 m wide behind each house's outer end. From the pictures, through
+their cameras: two brick storeys over a low basement under a slated mansard, its cornice's soffit
+about 8.3 m and its curb about 12.0 m up; four window columns to each house, the upper sills about
+5.5 m and heads 7.45 m; the principal storey's round-arched windows cresting about 4.9 m, each with
+an iron balconette before it; each house's stone porch at its outer end, four columns along its
+front (triangulated from both cameras at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner,
+1.9 m out), a plain entablature from about 4.05 to 4.75 m and an iron railing on its deck; the door
+under it; two pedimented dormers to each house, their pediments' peaks triangulated (1706 about 2.2
+and 7.4 m from its south corner, 1700 about 3.15 and 8.05 m from its south end: not mirrored); a
+light-painted cornice; the white fret railing along the deck's street edge; the party wall carried
+up through the roof, and 1700's north end wall carried up past the curb.
+**What is invented.** The scale of every height, as for 1708: the cameras are solved with the eye
+1.6 m over the lawn, and an eye at 1.4 or 1.8 m scales the heights by 12 per cent either way. The
+1.0 m principal floor (between the pictures' 0.7 m column bases and their 2.0 m sills); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel; the pictures are monochrome) and
+the paint's hue; the sash's kind (two-over-two for the pictures' many-paned sash); the stone keys
+over the upper windows, laid as brick heads; the arches' carved tympana, built as fanlight lights;
+the cornice's modillions and dentils, built as K10's small brackets; the fret's pattern, built as
+K10's cresting pattern in painted timber; the porches' Ionic capitals as square blocks, their
+consoles and modillions (the K08 hood's joinery under every K01 hood), and their flights straight
+out from the middle bay; the two downpipes either side of the party line where the pictures show
+one; the stacks' places; the deck's fall; the rear ranges' storeys, windows and flat decks; the
+blank party walls and 1700's blank north wall; the windows in the rear walls.
+**What is not built.** The front fences and walks (T-3205's; the two pictures disagree about them).
+The two 1901 construction photographs and the 1702 address association are T-3212's.
+**How to resolve:** the 1901 construction photographs (T-3212); a measured height anywhere on the
+townhouses' front, which fixes every camera's scale; a picture of the rear.
+**Covers:** `george_glessner_house_1706_prairie.as_mapped_1904.form.north_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.rear_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_covering`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_pitch_deg`, `george_glessner_house_1706_prairie.as_mapped_1904.form.service_wall_brick`, `george_glessner_house_1706_prairie.as_mapped_1904.form.side_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stair_tread_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stoop_width_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_front_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_side_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.window_kit`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.north_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.rear_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_covering`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_pitch_deg`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.service_wall_brick`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.side_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stair_tread_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stoop_width_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_front_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_side_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3211 (piece 1 of T-1871).
+**Recorded:** 2026-10-27 (T-3211).
 
 ### L-pullman-conservatory-3179 — Pullman's glasshouses worked to the 1894 Inland plate and the c. 1897 Lowe photograph: Beman's pointed conservatory, the masonry range and its domed colonnade
 
