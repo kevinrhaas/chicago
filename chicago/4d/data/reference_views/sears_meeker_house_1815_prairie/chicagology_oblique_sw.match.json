@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3fa3e8354f3be1fb374dbd16a1e0205b51c189c1cfb73994fa59a00eb35a8281",
+  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -61,6 +61,11 @@
       "what": "the street fence, the walk and the parkway's posts",
       "status": "not shown",
       "how": "outside the building record"
+    },
+    {
+      "what": "the coping, posts and walk T-3206 lays",
+      "status": "within tolerance",
+      "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

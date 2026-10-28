@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2360, ts: '2026-10-28T00:11:34.562Z', date: 'Oct 27, 2026, 7:11 PM CT', title: 'Front walks and gates for the 1800-block Prairie houses', kind: 'feature',
+    items: [
+      'Eleven houses from 1801 to 1901 Prairie now have a flagged walk from the sidewalk to the front steps.',
+      'Their front boundaries follow the photographs: low stone copings at 1801, 1811, 1812, 1815 and 1823, cut where the walk passes through.',
+      'The iron fences at 1816, 1824, 1827, 1828 and 1901 now have their gates standing open.',
+      '1827\'s fence ends at the stone pier its photograph shows, and 1834\'s walk turns behind its low wall to the opening.',
+      'Side walks lead to the rear where the pictures or the fire-insurance map show a passage.',
+      'A new check refuses any finished 1904 house without a walk through an opening to its door.',
+    ] },
   { v: 2359, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1900 Prairie stands as the Keith house in its photograph', kind: 'feature',
     items: [
       '1900 Prairie Avenue, Elbridge Keith\'s house, is no longer a draft box: a smooth limestone front, two tall storeys over a raised basement, under a slated mansard with dormers and a deep cornice on paired brackets.',
