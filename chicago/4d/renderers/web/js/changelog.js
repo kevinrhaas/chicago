@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2361, ts: '2026-10-28T00:43:23.284Z', date: 'Oct 27, 2026, 7:43 PM CT', title: 'The Kimball house\'s dormer hoods flare out at their feet', kind: 'improvement',
+    items: [
+      'The three slate hoods on 1801 Prairie\'s mansard dormers now stand wider than the windows below them and sweep in to a narrow top, as the c. 1895 Taylor photograph and the 1965 HABS photographs show them.',
+    ] },
   { v: 2360, ts: '2026-10-28T00:11:34.562Z', date: 'Oct 27, 2026, 7:11 PM CT', title: 'Front walks and gates for the 1800-block Prairie houses', kind: 'feature',
     items: [
       'Eleven houses from 1801 to 1901 Prairie now have a flagged walk from the sidewalk to the front steps.',
