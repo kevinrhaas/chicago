@@ -1,4 +1,45 @@
 export const CHANGELOG = [ // newest first
+  { v: 2366, ts: '2026-10-28T02:51:54.909Z', date: 'Oct 27, 2026, 9:51 PM CT', title: 'The Kimball house\'s windows over the loggia are framed', kind: 'change',
+    items: [
+      'The two windows over the Kimball house\'s loggia, on Prairie Avenue and on 18th Street, now stand in moulded frames under projecting heads, with their transoms lowered to where the c. 1895 Taylor photograph shows them.',
+    ] },
+  { v: 2365, ts: '2026-10-28T02:39:50.071Z', date: 'Oct 27, 2026, 9:39 PM CT', title: '1904 gas lamps rebuilt to the photographs', kind: 'fix',
+    items: [
+      'New post read off the 1811 photograph: plain foot, leafed boss, slender shaft, bell capital.',
+      'Four scrolled arms carry the lantern; the ladder bar is shorter, its ends knobbed.',
+      'Clear lantern panes tapering out to a projecting rim; a steep pale roof and vent cap.',
+      'Corner footings stand taller, as in Taylor 2135.',
+    ] },
+  { v: 2364, ts: '2026-10-28T01:55:25.688Z', date: 'Oct 27, 2026, 8:55 PM CT', title: 'Front yards planted along Prairie Avenue in 1904', kind: 'feature',
+    items: [
+      'The 1904 house lots are no longer bare grass: shrubs now line each house\'s front and the start of its sides, and most lawns have one to three low flower beds of scarlet geraniums, white and pink, marigolds or coleus. Each lot is planted a little differently, and nothing stands on a stoop, a front walk, a fence or the way to a door.',
+      'The Pullman house is planted as its 1890s photographs show it: ivy climbs its west front and porch, and a thick border of shrubs runs inside the low wall along 18th Street. Ivy also covers the front of 1912 Prairie, from a later photograph.',
+      'Click a shrub, a bed or the ivy to see whether a picture shows it or it is our reconstruction. The flowering shrubs, beds and ivy follow the Season setting; the clipped evergreens stay green all year.',
+    ] },
+  { v: 2363, ts: '2026-10-28T01:48:59.704Z', date: 'Oct 27, 2026, 8:48 PM CT', title: 'No brick bar across Glessner\'s carriage way', kind: 'fix',
+    items: [
+      'A thin strip of brick no longer hangs across the courtyard end of Glessner\'s carriage passage. It was the wall\'s bottom course, left behind about two feet over the floor when the passage floor was lowered to the HABS drawings.',
+      'The courtyard opening now runs clear down to the passage floor between its brick sides, as sheet 4 draws it.',
+    ] },
+  { v: 2362, ts: '2026-10-28T00:47:48.222Z', date: 'Oct 27, 2026, 7:47 PM CT', title: '1904 corners: stone slabs ramp out onto the street', kind: 'fix',
+    items: [
+      'Corner crossings now carry the walk level over the curb.',
+      'One stone slab per crossing slopes from the curb out onto the roadway, as in the photographs.',
+      'The slab\'s sides and foot show its thickness; the curb runs on unbroken behind it.',
+    ] },
+  { v: 2361, ts: '2026-10-28T00:43:23.284Z', date: 'Oct 27, 2026, 7:43 PM CT', title: 'The Kimball house\'s dormer hoods flare out at their feet', kind: 'improvement',
+    items: [
+      'The three slate hoods on 1801 Prairie\'s mansard dormers now stand wider than the windows below them and sweep in to a narrow top, as the c. 1895 Taylor photograph and the 1965 HABS photographs show them.',
+    ] },
+  { v: 2360, ts: '2026-10-28T00:11:34.562Z', date: 'Oct 27, 2026, 7:11 PM CT', title: 'Front walks and gates for the 1800-block Prairie houses', kind: 'feature',
+    items: [
+      'Eleven houses from 1801 to 1901 Prairie now have a flagged walk from the sidewalk to the front steps.',
+      'Their front boundaries follow the photographs: low stone copings at 1801, 1811, 1812, 1815 and 1823, cut where the walk passes through.',
+      'The iron fences at 1816, 1824, 1827, 1828 and 1901 now have their gates standing open.',
+      '1827\'s fence ends at the stone pier its photograph shows, and 1834\'s walk turns behind its low wall to the opening.',
+      'Side walks lead to the rear where the pictures or the fire-insurance map show a passage.',
+      'A new check refuses any finished 1904 house without a walk through an opening to its door.',
+    ] },
   { v: 2359, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1900 Prairie stands as the Keith house in its photograph', kind: 'feature',
     items: [
       '1900 Prairie Avenue, Elbridge Keith\'s house, is no longer a draft box: a smooth limestone front, two tall storeys over a raised basement, under a slated mansard with dormers and a deep cornice on paired brackets.',

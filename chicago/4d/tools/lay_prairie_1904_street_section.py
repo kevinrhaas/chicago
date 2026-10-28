@@ -50,9 +50,12 @@ a broad stone slab sloping from the curb's top down to the roadway, one for each
 corner lamp's footing between them; the Detroit Publishing view of the Pullman corner (north-east)
 shows the same two crossings either side of a curbed grass corner. So at every corner where two
 faces of a block meet (at 45 degrees or more: Calumet's curve at 18th is a bend, not a corner),
-each face's walk runs straight on across the other face's parkway and curb at its own width, and
-its last RAMP_RUN_M (less on a narrow parkway, leaving RAMP_MIN_FLAT_M flat) is a stone ramp from
-the walk's level down to the roadway; the curb's face is broken where the ramp runs through it.
+each face's walk runs straight on across the other face's parkway and over the curb at its own
+width, at the walk's level, and from the curb's face one dressed stone slab RAMP_SLAB_M thick runs
+RAMP_RUN_M out into the roadway, its top falling from the curb's top to RAMP_LIP_M above the paving,
+its foot bedded on the roadway, as both pictures show it (the owner, 2026-10-27, of the first
+build, which sloped the walk down inside the parkway instead: "they dont go down into the street
+like the photos").
 The two pictured corners are attested; the rest stand by that rule, reconstructed
 (docs/LIBERTIES.md L-prairie-corner-crossings-3200).
 """
@@ -78,8 +81,9 @@ TREES = ROOT / "data" / "street_trees" / "1904.json"
 POST_FROM_CURB_M = 0.38        # a post's centre behind the curb's street face
 POST_TRUNK_CLEAR_M = 0.85      # a post's centre off an elm's
 POST_ROW_STEP_M = 2.6          # the east curb's row in the 2100-block photograph
-RAMP_RUN_M = 1.35              # a corner ramp's run, curb line back toward the walk
-RAMP_MIN_FLAT_M = 0.3          # the least flat walk left between the walk and a ramp
+RAMP_RUN_M = 1.5               # a corner slab's run, from the curb's face out into the roadway
+RAMP_SLAB_M = 0.15             # the slab's thickness (its edges show it in the Detroit view)
+RAMP_LIP_M = 0.05              # its top's height over the paving at its foot
 CORNER_MIN_SIN = math.sin(math.radians(45))   # two faces meeting at less than this are a bend
 # T-3200: the corners a picture shows, by the two faces meeting there.
 PICTURED_CORNERS = {
@@ -197,8 +201,8 @@ def lay_crossings(grid, xs):
                     bB = {b["band"]: b for b in xs[B["cross_section"]]["bands"]}
                     w0, w1 = bA["walk"]["from_ft"] * FT, bA["walk"]["to_ft"] * FT
                     a_walk, a_curb = bB["walk"]["to_ft"] * FT, bB["curb"]["to_ft"] * FT
-                    run = min(RAMP_RUN_M, a_curb - a_walk - RAMP_MIN_FLAT_M)
-                    a_ramp = a_curb - run
+                    run = RAMP_RUN_M
+                    a_foot = a_curb + run
                     k = tA[0] * nB[0] + tA[1] * nB[1]
 
                     def at(off, across):
@@ -210,10 +214,11 @@ def lay_crossings(grid, xs):
                         "face": B["id"], "walk_of": A["id"],
                         "origin": [round(c[0], 3), round(c[1], 3)],
                         "out": [round(nB[0], 5), round(nB[1], 5)],
-                        "flat": [at(w0, a_walk), at(w1, a_walk), at(w1, a_ramp), at(w0, a_ramp)],
-                        "ramp": [at(w0, a_ramp), at(w1, a_ramp), at(w1, a_curb), at(w0, a_curb)],
-                        "ramp_from_m": round(a_ramp, 3), "ramp_to_m": round(a_curb, 3),
+                        "flat": [at(w0, a_walk), at(w1, a_walk), at(w1, a_curb), at(w0, a_curb)],
+                        "ramp": [at(w0, a_curb), at(w1, a_curb), at(w1, a_foot), at(w0, a_foot)],
+                        "ramp_from_m": round(a_curb, 3), "ramp_to_m": round(a_foot, 3),
                         "width_m": round(w1 - w0, 3), "run_m": round(run, 3),
+                        "slab_m": RAMP_SLAB_M, "lip_m": RAMP_LIP_M,
                         "tier": "attested" if pic else "reconstructed",
                     }
                     if pic:
@@ -312,9 +317,11 @@ def build():
             "liberty": "L-prairie-corner-crossings-3200",
             "sources": ["taylor_2135_glessner_exterior_1887_1889", "loc_det_4a08065_pullman_residence"],
             "ramp_run_m": RAMP_RUN_M,
-            "note": ("At every corner each face's walk is carried on across the other street's parkway to the "
-                     "curb, and its last run is a dressed stone ramp down to the roadway, the curb broken for it. "
-                     "Pictured at the Glessner and Pullman corners of 18th and Prairie; elsewhere by that rule."),
+            "slab_m": RAMP_SLAB_M,
+            "note": ("At every corner each face's walk is carried on across the other street's parkway and over "
+                     "the curb, and from the curb's face one dressed stone slab slopes out and down onto the "
+                     "roadway. Pictured at the Glessner and Pullman corners of 18th and Prairie; elsewhere by "
+                     "that rule."),
             "crossings": lay_crossings(grid, xs),
         },
     }

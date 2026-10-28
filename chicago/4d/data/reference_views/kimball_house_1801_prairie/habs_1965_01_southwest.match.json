@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "63197f7ed7ae57becfb221935fd781b4b50258cfd83642320bb32084ae7b269f",
+  "glb_sha256": "d10ce88f023a450dafc7a6b8f5955a86623d31f1f9b6937c9030866f04df0dc6",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -82,7 +82,8 @@
     },
     {
       "what": "the south dormer's hood: the print's is wider than the face under it, where the build's hood stands as wide as its face",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: the hood's foot flares 0.2 m wider than the face each side and 0.2 m out in front of it, its shelf with it (hood.flare_m), and sweeps in to a top 0.81 m across (taper 0.17, where the print's top reads about 0.8 m on the face's 1.15 m): the print's foot reads about 80 px on the face's 60, the build's 1.55 m on its 1.15 m. The camera foreshortens this face about twice as hard as the print's courses do, so the widths are read on the print against the face's own (L-kimball-1801-hood-flare-1890)"
     },
     {
       "what": "the south dormer's face: the print's is slated with a pale frame round the light, the build's was stone",

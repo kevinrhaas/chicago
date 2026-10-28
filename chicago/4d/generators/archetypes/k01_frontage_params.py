@@ -1069,6 +1069,14 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 0.0 <= tp_ <= (sw / 2 + ring) - 0.15:
             raise ParamError(f"{what}.hood.taper_m {tp_}: each cheek leans in 0 m up to 0.15 m short of the middle")
         out["hood"] = {"shelf_m": sf, "shelf_proud_m": sp, "rise_m": hr, "lean_m": ln, "taper_m": tp_}
+        # T-1890: the hood's foot may FLARE, standing `flare_m` wider than the face each side and
+        # as far out in front of it, the shelf under it with it, and sweeping in to the top the
+        # taper and lean set (1801's, wider at their feet than the faces under them in HABS 1)
+        if "flare_m" in hd:
+            fl = float(hd["flare_m"])
+            if not 0.05 <= fl <= 0.3:
+                raise ParamError(f"{what}.hood.flare_m {fl}: a hood's foot flares 0.05-0.3 m past its face")
+            out["hood"]["flare_m"] = fl
         # T-1890: the face under the shelf may be SLATED as the hood is, its light in a pale
         # stone frame `frame_m` wide inside the surround (1801's, in the Taylor print and HABS 1)
         if hd.get("face", "stone") not in ("stone", "slate"):
@@ -5668,6 +5676,36 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         "tympanum": tympanum_spec(e["tympanum"], "street_front_trim.tympana",
                                                   float(e["lintel_proud_m"]))})
         trim["tympana"] = tys
+
+    # T-1890: single lights named by wall, place and storey, each wearing its storey's head on
+    # a side wall too (1801's light over the loggia's 18th Street arch, framed as its pair over
+    # the loggia on the avenue front is in the Taylor print), and each its own transom `tiers`
+    # where its picture draws the bar lower than K06's transom light
+    if "lights" in trim:
+        lts = []
+        for e in trim["lights"]:
+            keys = {"wall", "s_m", "storey"}
+            ok = isinstance(e, dict) and keys <= set(e) <= keys | {"tiers"} \
+                and e["wall"] in ("k01.wall.street_front", "k01.wall.side.south", "k01.wall.side.north") \
+                and isinstance(e["storey"], int) and 0 <= e["storey"] < int(val("stories"))
+            hits = [o for o in openings if ok and o.wall == e["wall"] and o.component == "k01.opening.sash_flat"
+                    and abs(o.s_m - float(e["s_m"])) < 1e-6
+                    and max(k for k, f in enumerate(floors) if o.sill_m >= f - 1e-6) == e["storey"]]
+            if len(hits) != 1:
+                raise ParamError(f"street_front_trim.lights: {e} names no one square-headed light by its wall "
+                                 f"(street front or a side), s_m and storey, with an optional tiers")
+            out = {"wall": e["wall"], "s_m": float(e["s_m"]), "storey": e["storey"]}
+            if "tiers" in e:
+                t, h = e["tiers"], hits[0].height_m
+                if not isinstance(t, dict) or set(t) != {"bar_m", "lights_m"} or not 1 <= len(t["lights_m"]) <= 3 \
+                        or not 0.05 <= float(t["bar_m"]) <= 0.3 \
+                        or not all(0.2 <= float(x) <= 1.0 for x in t["lights_m"]) \
+                        or h - sum(float(x) for x in t["lights_m"]) - float(t["bar_m"]) * len(t["lights_m"]) < 1.0:
+                    raise ParamError(f"street_front_trim.lights: tiers take bar_m (0.05-0.3 m) and one to three "
+                                     f"lights_m (0.2-1.0 m each), leaving at least 1.0 m of sash under them, not {t}")
+                out["tiers"] = {"bar_m": float(t["bar_m"]), "lights_m": [float(x) for x in t["lights_m"]]}
+            lts.append(out)
+        trim["lights"] = lts
 
     # T-2360: the K14 yard's age is the house's own: the year its phase was built in
     yard = dict(val("yard", {}) or {})

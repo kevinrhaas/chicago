@@ -2467,6 +2467,9 @@ class Assembly:
             v["rise_over_span"] = op.rise_over_span
         if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
             v["panes"] = [1, 1]
+        lt = k09_frontage.light(self.p, op)
+        if lt and lt.get("tiers"):   # T-1890: its transom where its picture draws it (`street_front_trim.lights`)
+            v["tiers"] = dict(lt["tiers"])
         if not entry["well"]:
             v["well"] = False
         return v
@@ -2495,6 +2498,8 @@ class Assembly:
             roles["iron"] = "iron"
         if head:   # T-2410: the kit's arch band is this head's hood
             roles["head"] = head_mat or stone_trim
+        if o.v.get("tiers"):   # T-1890: a tier's bar is the wall's dressed stone, as K08's is the bay's
+            roles["mullion"] = stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
     def front_tympanum(self, op):
@@ -4210,21 +4215,25 @@ class Assembly:
         HOOD_LIP_M past its cheeks. The hood stands on it, as wide as the face at its foot,
         and rises `rise_m` to a level top that runs on into the roof (which buries it), its
         slated front falling `lean_m` back and each cheek leaning `taper_m` in, so the front
-        narrows as it climbs, as the print's do. Both plan boxes are a gabled dormer's: the
-        hood's slate is the lower faces' own."""
+        narrows as it climbs, as the print's do. T-1890: a hood with `flare_m` stands that much
+        wider than the face each side at its foot and that much out in front of it, its shelf
+        with it, and sweeps in from there to the same top. Both plan boxes are a gabled
+        dormer's: the hood's slate is the lower faces' own."""
         h = d["hood"]
+        fl = h.get("flare_m", 0.0)
         y0, y1 = eaves - self.HOOD_BED_M, eaves + h["shelf_m"]
         bk = back + sg * self.HOOD_BACK_M
-        out = nf + sg * h["shelf_proud_m"]
-        rh, rt = r + self.HOOD_LIP_M, r - h["taper_m"]
+        out = nf + sg * (h["shelf_proud_m"] + fl)
+        rh, rt = r + fl + self.HOOD_LIP_M, r - h["taper_m"]
         P = k5.frame("z" if axis == "x" else "x")   # (out, up, along) for a face whose out is `axis`
         shelf = k5.extrude([(bk, y0), (out, y0), (out, y1), (bk, y1)], centre - rh, centre + rh, P,
                            lambda i, p_, q_: "hidden" if abs(p_[0] - bk) < 1e-9 and abs(q_[0] - bk) < 1e-9
                            else "dormer_face", "dormer_face", "dormer_face")
         # the hood: bedded HOOD_BED_M into the shelf, its eight corners (out, up, along)
         yb, nt, hb = y1 - self.HOOD_BED_M, nf - sg * h["lean_m"], bk + sg * 0.02
-        c = {(f, t, s): P(*((nf if f else hb) if not t else (nt if f else hb),
-                            top if t else yb, centre + s * (rt if t else r)))
+        nb = nf + sg * fl
+        c = {(f, t, s): P(*((nb if f else hb) if not t else (nt if f else hb),
+                            top if t else yb, centre + s * (rt if t else r + fl)))
              for f in (0, 1) for t in (0, 1) for s in (-1, 1)}
         mid = P((nf + hb) / 2, (yb + top) / 2, centre)
         hood = []

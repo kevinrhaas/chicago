@@ -655,8 +655,8 @@ function cornerCrossingCard(x, face, grid, section) {
     sidecar: {
       name: `${street.name_1904 ?? face.street} — a corner crossing`,
       phase: null,
-      change_note: `The walk carried on across the parkway to the curb, then a stone slab ${x.width_m} m wide `
-        + `ramping ${x.run_m} m down to the roadway.`,
+      change_note: `The walk carried on across the parkway and over the curb, then one stone slab ${x.width_m} m wide `
+        + `sloping ${x.run_m} m out from the curb's face down onto the roadway.`,
       placement: {
         symbolic_location: face.where ?? face.street,
         position_confidence: x.tier ?? 'reconstructed',
@@ -670,7 +670,7 @@ function cornerCrossingCard(x, face, grid, section) {
           sources: x.sources ?? [], note: `${x.note ?? ''} ${cc.liberty ?? ''}`.trim(),
         },
         size: {
-          value: `${x.width_m} m wide, ${x.run_m} m run`, confidence: 'reconstructed', sources: [],
+          value: `${x.width_m} m wide, ${x.run_m} m out, ${Math.round((x.slab_m ?? 0.15) * 100)} cm thick`, confidence: 'reconstructed', sources: [],
           note: `The walk's own width; the run read off the pictures. ${cc.liberty ?? ''}`.trim(),
         },
       },
@@ -767,7 +767,8 @@ export async function createStreetGrid({
   });
   const roadQuads = (grid.carriageways ?? []).flatMap((c) => c.quads_local_m ?? []).map((q) => ({ q, box: bboxOf(q) }));
   /** T-3200: the corner crossings, each face's walk carried on across the other street's
-   *  parkway to its curb, the last run a stone ramp down to the roadway. */
+   *  parkway and over its curb, then one stone slab sloping from the curb's face out and
+   *  down onto the roadway. */
   const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => ({
     x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]), rampBox: bboxOf(x.ramp),
   }));
@@ -797,7 +798,8 @@ export async function createStreetGrid({
     for (const { x, rampBox } of crossings) {
       if (!inBox(rampBox, e, n) || !pointInPolygon(e, n, x.ramp)) continue;
       const f = Math.max(0, Math.min(1, (acrossIn(x, e, n) - x.ramp_from_m) / (x.ramp_to_m - x.ramp_from_m)));
-      return (1 - f) * (-FALL * x.ramp_from_m) + f * rampFoot();
+      const head = -FALL * x.ramp_from_m + CLASSES.curb.lift - CLASSES.walk.lift;   // the curb's top
+      return (1 - f) * head + f * (rampFoot() + (x.lip_m ?? 0.05));
     }
     let s = -1; let W = 0;
     for (const sf of sideFaces) {
@@ -810,12 +812,6 @@ export async function createStreetGrid({
     return 0;
   };
   out.offsetAt = offsetAt;
-  /** T-3200: the sidewalk space's own level at a point of one crossing's face, ramp aside. */
-  const offsetAtFace = (faceId, [e, n]) => {
-    const c = crossings.find((k) => k.x.face === faceId);
-    return c ? -FALL * Math.max(0, acrossIn(c.x, e, n)) : 0;
-  };
-
   const bufs = new Map();
   const tierOf = {};
   for (const xs of Object.values(grid.cross_sections ?? {})) for (const b of xs.bands ?? []) tierOf[b.band] = b.tier;
@@ -1261,31 +1257,23 @@ export async function createStreetGrid({
     const curbTop = (W) => -FALL * W + CLASSES.curb.lift;
     const roadTop = ROAD + CLASSES.carriageway.lift - 0.02;
     for (const sf of sideFaces) {
-      const ramps = crossings.filter((c) => c.x.face === sf.f.id).map((c) => c.x);
       for (const [a, b, c, d] of sf.f.bands?.curb ?? []) {
         const toward = sub(lerp(d, c, 0.5), lerp(a, b, 0.5));
         const L = len(toward) || 1;
-        const dir = [toward[0] / L, toward[1] / L];
-        // T-3200: the face stops either side of each ramp, which runs down through it.
-        const t = sub(c, d); const T = len(t) || 1;
-        const gaps = ramps.map((x) => [x.ramp[2], x.ramp[3]].map((p) => dot(sub(p, d), t) / (T * T)))
-          .map(([u, v]) => [Math.min(u, v), Math.max(u, v)])
-          .filter(([u, v]) => v > 0 && u < 1).sort((g, h) => g[0] - h[0]);
-        let u0 = 0;
-        for (const [u, v] of [...gaps, [1, 1]]) {
-          if (u > u0) wall(`${sf.f.id}|curb`, lerp(d, c, u0), lerp(d, c, Math.min(1, u)), curbTop(sf.W), roadTop, dir);
-          u0 = Math.max(u0, v);
-        }
+        wall(`${sf.f.id}|curb`, d, c, curbTop(sf.W), roadTop, [toward[0] / L, toward[1] / L]);
       }
     }
-    // T-3200: each ramp's two cheeks, from the parkway's turf down to the slab.
+    // T-3200: each corner slab's two sides and its foot, its thickness standing over the
+    // roadway, which runs on under it.
     for (const { x } of crossings) {
-      const mid = lerp(lerp(x.ramp[0], x.ramp[1], 0.5), lerp(x.ramp[2], x.ramp[3], 0.5), 0.5);
-      for (const [p, q] of [[x.ramp[0], x.ramp[3]], [x.ramp[1], x.ramp[2]]]) {
-        const m = lerp(p, q, 0.5); const o = sub(mid, m); const ol = len(o) || 1;
-        const turf = (pt) => offsetAtFace(x.face, pt) + CLASSES.parkway.lift;
-        const slab = (pt) => offsetAt(pt[0], pt[1]) + CLASSES.walk.lift;
-        wall(`xr:${x.id}`, p, q, [turf(p), Math.max(turf(q), curbTop(x.ramp_to_m))], [slab(p), slab(q)], [o[0] / ol, o[1] / ol]);
+      const T = x.slab_m ?? 0.15;
+      const top = (pt) => offsetAt(pt[0], pt[1]) + CLASSES.walk.lift;
+      const under = (pt) => Math.max(roadTop, top(pt) - T);
+      const [r0, r1, r2, r3] = x.ramp;
+      const mid = lerp(lerp(r0, r1, 0.5), lerp(r2, r3, 0.5), 0.5);
+      for (const [p, q] of [[r0, r3], [r1, r2], [r3, r2]]) {
+        const o = sub(lerp(p, q, 0.5), mid); const ol = len(o) || 1;
+        wall(`xr:${x.id}`, p, q, [top(p), top(q)], [under(p), under(q)], [o[0] / ol, o[1] / ol]);
       }
     }
     // Where a roadway meets no sidewalk (a district edge), a stone edge up to the field.

@@ -859,6 +859,14 @@ step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
 step "the 1904 street furniture re-lays from the street grid (T-3199)" \
   python3 tools/lay_prairie_1904_street_furniture.py --check
 
+# T-3203. ...and the house lots' front yards: a lawn to each house, foundation shrubs, low beds
+# and the pictured ivy, laid clear of every stoop, fence, walk and door's way the 1904 houses'
+# baked models draw. The committed file is what the tool writes; when a house has been rebaked
+# since, it is held instead to every planting still clearing what is built, so a rebake that
+# moves nothing a yard touches stays green and one that does names the planting it buried.
+step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3203)" \
+  python3 tools/plant_prairie_1904_front_yards.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
@@ -1076,6 +1084,19 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 # face or as wide as its surround refused.
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
+
+# T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
+# front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the
+# Taylor print): the foot and shelf flare_m wider and further out, the top unmoved, the slating
+# box spanning it; a hood without it as before; a flare under 0.05 or over 0.3 m refused.
+step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
+  python3 tools/test_k01_hood_flare.py
+
+# T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)
+# wears its storey's K09 head on a side wall too, and its own transom tiers: 1801's two
+# lights over the loggia in the kit's surround on 0.8 m top lights; a bad name refused.
+step "a K01 light named in street_front_trim.lights wears its storey's head and its tiers (T-1890)" \
+  python3 tools/test_k01_loggia_lights.py
 
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
