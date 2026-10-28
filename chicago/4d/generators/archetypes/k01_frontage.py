@@ -3372,7 +3372,9 @@ class Assembly:
         arc = [(Rr - Rr * math.sin(math.pi / 2 * j / kseg), -Dd + Dd * math.cos(math.pi / 2 * j / kseg))
                for j in range(kseg + 1)]
         inset = 0.05
-        for a0 in (s0 + inset, s1 - inset - t):
+        # T-3210: none on an end an arch is turned across (its spandrel wall stands there)
+        ends = (h.get("columns") and h.get("arches") or {}).get("faces", ())
+        for a0 in [x for x, e in ((s0 + inset, "left"), (s1 - inset - t, "right")) if e not in ends]:
             for s_, n_ in ((a0, left), (a0 + t, right)):
                 for j in range(kseg):
                     quad([P(s_, y0, 0.0), P(s_, y0 + arc[j][1], arc[j][0]), P(s_, y0 + arc[j + 1][1], arc[j + 1][0])],
@@ -3387,7 +3389,7 @@ class Assembly:
         # before the railing, which may change the material the boxes are laid in)
         cols = h.get("columns")
         if cols:
-            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf)
+            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, h.get("arches"))
         tri_fascia = len(pr.idx) // 3 - tri0
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
@@ -3428,37 +3430,42 @@ class Assembly:
         self.trim_triangles["k01.hood.door_bracketed"] = (
             tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") == "iron" else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
-        self.hood_meta = {"modillions": n, "consoles": 2, "balusters": nb, "top_m": round(y3, 4),
+        self.hood_meta = {"modillions": n, "consoles": 2 - len({"left", "right"} & set(ends)), "balusters": nb,
+                          "top_m": round(y3, 4),
                           **({"columns": len(cols.get("at_s_m", (0, 0)))} if cols else {}),
+                          **({"arches": self._arch_count} if cols and h.get("arches") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
-    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf):
+    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, arches=None):
         """T-2963: two turned columns carrying a door hood as a porch (1816's): each a square
         plinth on the stoop's landing, a twelve-sided shaft and a square capital block under
         the soffit, at the deck's front corners, and a flat respond against the wall behind
         it. In the hood's own painted joinery. T-3159: or a row of them where a picture puts
         them (`at_s_m`, from the door's axis), on the landing and the terraces beside it.
-        T-3186: or each capital carved, a bell of leaves under its abacus (`carved`)."""
+        T-3186: or each capital carved, a bell of leaves under its abacus (`carved`).
+        T-3210: or under an arcade (`arches`), the capitals at its springing."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
         cv = co.get("carved")
         yl = op.sill_m                                   # the landing, the door's own sill
         r, seg = dia / 2, 12
         cd = out - pw / 2 - 0.05
+        cw = min(pw, dia + 0.14) / 2
+        ys = arches["spring_m"] if arches else y0        # the capitals' top
         at = [op.s_m + a for a in co["at_s_m"]] if co.get("at_s_m") else (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05)
         for cs in at:
             if not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
-            cw = min(pw, dia + 0.14) / 2
-            box(cs - cw, cs + cw, y0 - (cv["abacus_m"] if cv else cap), y0, cd - cw, cd + cw, skip=("top",))
+            box(cs - cw, cs + cw, ys - (cv["abacus_m"] if cv else cap), ys, cd - cw, cd + cw,
+                skip=("top",) if not arches else ())
             if cv:   # T-3186: the bay columns' bell of leaves (T-2887), its crown under the abacus
-                C, ya, yb, k = P(cs, 0.0, cd), y0 - cap, y0 - cv["abacus_m"], cv["tiers"]
+                C, ya, yb, k = P(cs, 0.0, cd), ys - cap, ys - cv["abacus_m"], cv["tiers"]
                 for t in range(k):
                     lo, hi = ya + (yb - ya) * t / k, ya + (yb - ya) * (t + 1) / k
                     self.bell("carved_trim", C, R, N, C[1] + lo, C[1] + hi, r + 0.01 + 0.02 * t,
                               r + 0.05 + 0.025 * t, seed, conf)
-            ya, yb = yl + ph, y0 - cap
+            ya, yb = yl + ph, ys - cap
             for k in range(seg):
                 a0, a1 = 2 * math.pi * k / seg, 2 * math.pi * (k + 1) / seg
                 am = (a0 + a1) / 2
@@ -3467,6 +3474,75 @@ class Assembly:
                      self._hood_dir(P, am), bf)
             # the respond: a flat pilaster on the wall behind the column, landing to soffit
             box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
+        if arches:
+            self._arch_count = self._hood_arcade(arches, P, quad, bf, bh, be, sorted(at), s0, s1, cd, cw, rsp, y0)
+
+    def _hood_arcade(self, A, P, quad, bf, bh, be, at, s0, s1, cd, cw, rsp, y0):
+        """T-3210: round arches on a porch's columns (1827's, the Doane photograph). On the
+        front a spandrel wall as thick as the capitals, on the columns' line from the hood's one
+        end to the other and from the springing to the soffit, an arch cut in it between each
+        pair of columns from capital to capital. On an end named in `faces`, the same wall
+        across the end column's line from the house's wall back to the front's, its arch from
+        the respond to the end column's capital. Each arch a half ellipse `rise_m` high over its
+        clear span, drawn in `K` facets. Its top under the fascia and its foot on the capitals
+        are not drawn; nor the end wall's face on the house's wall or on the front's."""
+        K, ys, ri = 12, A["spring_m"], A["rise_m"]
+        o = P(0.0, 0.0, 0.0)
+        R_, Y_, N_ = (_sub(P(*e), o) for e in ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)))
+        n = 0
+
+        def wall(spans, lo, hi, face, inn, out_, nf, bfc):
+            """A spandrel wall from `lo` to `hi` along its run, `inn`..`out_` through it, its
+            faces normal to `nf`; `face(x, y, t)` places run x, height y and depth t. Each
+            span (a, b) an arch cut from it."""
+            pieces, x = [], lo
+            for a, b in spans:
+                pieces.append(("pier", x, a))
+                pieces.append(("arch", a, b))
+                x = b
+            pieces.append(("pier", x, hi))
+            for kind, a, b in pieces:
+                if b - a < 1e-6:
+                    continue
+                if kind == "pier":
+                    for t, sg in ((out_, 1.0), (inn, -1.0)):
+                        quad([face(a, ys, t), face(b, ys, t), face(b, y0, t), face(a, y0, t)], _mul(nf, sg), bfc)
+                    continue
+                m, hs = (a + b) / 2, (b - a) / 2
+                arc = [(m - hs * math.cos(math.pi * j / K), ys + ri * math.sin(math.pi * j / K)) for j in range(K + 1)]
+                for j in range(K):
+                    (xa, ya_), (xb, yb_) = arc[j], arc[j + 1]
+                    for t, sg in ((out_, 1.0), (inn, -1.0)):
+                        quad([face(xa, ya_, t), face(xb, yb_, t), face(xb, y0, t), face(xa, y0, t)], _mul(nf, sg), bfc)
+                    # the intrados, facing the arch's centre
+                    xm, ym = (xa + xb) / 2, (ya_ + yb_) / 2
+                    dn = _unit(_add(_mul(face(1.0, 0.0, 0.0, vec=True), (m - xm) / hs ** 2),
+                                    _mul(Y_, (ys - ym) / ri ** 2)))
+                    quad([face(xa, ya_, inn), face(xb, yb_, inn), face(xb, yb_, out_), face(xa, ya_, out_)], dn, bh)
+
+        # the front: from end to end of the hood, its arches between the capitals
+        spans = [(a + cw, b - cw) for a, b in zip(at, at[1:])]
+        front = lambda x, y, t, vec=False: R_ if vec else P(x, y, t)
+        if "front" in A["faces"]:
+            wall(spans, s0, s1, front, cd - cw, cd + cw, N_, bf)
+            n += len(spans)
+            # the wall's underside past the end columns, and its ends
+            for a, b in ((s0, at[0] - cw), (at[-1] + cw, s1)):
+                if b - a > 1e-6:
+                    quad([P(a, ys, cd - cw), P(b, ys, cd - cw), P(b, ys, cd + cw), P(a, ys, cd + cw)], _mul(Y_, -1.0), bh)
+            for x, sg in ((s0, -1.0), (s1, 1.0)):
+                quad([P(x, ys, cd - cw), P(x, ys, cd + cw), P(x, y0, cd + cw), P(x, y0, cd - cw)], _mul(R_, sg), be)
+        # the ends: across the end column's line, from the wall to the front's wall
+        d1 = cd - cw if "front" in A["faces"] else cd + cw
+        for side, cs in (("left", at[0]), ("right", at[-1])):
+            if side not in A["faces"]:
+                continue
+            end = lambda x, y, t, vec=False, cs=cs: N_ if vec else P(cs + t, y, x)
+            wall([(rsp, cd - cw)], 0.0, d1, end, -cw, cw, R_, be)
+            n += 1
+            if "front" not in A["faces"]:
+                quad([P(cs - cw, ys, d1), P(cs + cw, ys, d1), P(cs + cw, y0, d1), P(cs - cw, y0, d1)], N_, bf)
+        return n
 
     @staticmethod
     def _hood_dir(P, a):
