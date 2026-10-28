@@ -2055,6 +2055,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or set(q) - {"width_m", "proud_m", "pier"}:
                     raise ParamError(f"bays: {e['id']} is a pier: a windowless full-height projection under a "
                                      f"flat top, 0.3-1.5 m wide and 0.05-0.3 m proud (has {w} m and {d} m)")
+                v["pier"] = True   # check_bay_kit holds it to a box's triangles, with no light tier
             elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
