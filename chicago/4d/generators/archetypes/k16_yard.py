@@ -197,7 +197,7 @@ def dress(house, form: dict) -> dict | None:
     uo, T = b["street_u_m"], b["thickness_m"]
     inner = uo - T
     s_lo, s_hi = b["lot_s_m"]
-    roles = ("coping", "kerb_post", "kerb_rail", "kerb_bar", "walk_flag", "walk_cinder")
+    roles = ("coping", "kerb_post", "kerb_rail", "kerb_bar", "yard_flag", "yard_cinder")
     # the stair's foot, read off the built steps before anything else shares their roles
     steps = [q for r in ("step_riser", "step_tread") for q in house.prims[r].pos] if "step_riser" in house.prims else []
     marks = {r: len(house.prims[r].pos) if r in house.prims else 0 for r in roles}
@@ -233,7 +233,7 @@ def dress(house, form: dict) -> dict | None:
     foot = max(q[0] for q in near)
     legs = k14_yard._route((foot, axis - w / 2, axis + w / 2), [tuple(o) for o in openings], inner, uo, w)
     top = float(F["top_m"])
-    nflags, ftris = _flags(house, "walk_flag", legs, float(F["flag_m"]), top, "u", 3)
+    nflags, ftris = _flags(house, "yard_flag", legs, float(F["flag_m"]), top, "u", 3)
     comps.append({"id": k14_yard.FRONT_WALK, "family": "yard", "instances": [{
         "params": {"flags": nflags, "width_m": w, "triangles": ftris,
                    "legs_m": [[round(l[0], 4), round(l[1], 4), round(l[2], 4), round(l[3], 4), l[4]] for l in legs]},
@@ -248,7 +248,7 @@ def dress(house, form: dict) -> dict | None:
         tu, (p0, p1), to_u = float(S["turn_u_m"]), S["passage_s_m"], float(S["to_u_m"])
         ww = float(S["width_m"])
         slegs = [(tu + ww, uo, o0, o1, "u"), (tu, tu + ww, min(o0, p0), max(o1, p1), "s"), (to_u, tu, p0, p1, "u")]
-        role = "walk_cinder" if S["surface"] == "cinder" else "walk_flag"
+        role = "yard_cinder" if S["surface"] == "cinder" else "yard_flag"
         sn, stris = _flags(house, role, slegs, 100.0 if S["surface"] == "cinder" else float(F["flag_m"]),
                            LAWN_TOP if S["surface"] == "cinder" else top, "u", 5)
         comps.append({"id": k14_yard.SERVICE_WALK, "family": "yard", "instances": [{
@@ -259,7 +259,7 @@ def dress(house, form: dict) -> dict | None:
         out["service_walk_legs_m"] = [[round(x, 4) if isinstance(x, float) else x for x in l] for l in slegs]
     g = k14_yard._grade_spec(y)
     if g is not None:
-        _lift(house, ("walk_flag", "walk_cinder"), marks, g, D, uo, axis)
+        _lift(house, ("yard_flag", "yard_cinder"), marks, g, D, uo, axis)
     return {"built": out, "components": comps}
 
 

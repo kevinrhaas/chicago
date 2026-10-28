@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2374, ts: '2026-10-28T06:52:00.845Z', date: 'Oct 28, 2026, 1:52 AM CT', title: '1638 Prairie\'s gateway now leads to its porch stair on flags', kind: 'feature',
+    items: [
+      'The timber house at 1638 Prairie gets a front walk. It comes in through the gateway between the two gate piers, runs north along the back of the fence and turns to the foot of the porch stair.',
+      'Through the old photograph\'s camera, the flags land where the picture shows pale ground: in the gateway and at the bottom of the stair. The rest of the walk is hidden by the hedge, so its line is a reconstruction, noted under the house\'s liberties.',
+    ] },
+  { v: 2373, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: '1904 alley poles and wires no longer run through coach houses', kind: 'fix',
+    items: [
+      'Ten utility poles in the alleys behind Prairie Avenue and Calumet Avenue now stand a little further into the alley, so the poles, their crossarms and their wires clear the coach houses and stables on the alley line, Glessner\'s stable among them.',
+      'The wire that ran from Glessner\'s pole on 18th Street over the corner of his stable into the alley is gone; that alley\'s line is fed across 18th Street from the alley to the north.',
+      'No pole, crossarm or wire in the 1904 scene now touches a building.',
+    ] },
+  { v: 2372, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: '1812 Prairie\'s door glass no longer shows through the house', kind: 'fix',
+    items: [
+      'The side light beside 1812 Prairie\'s front door and the lights over its transom now show a dark hall behind the glass, where before they looked straight through the unbuilt house to the yard behind.',
+    ] },
+  { v: 2371, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: 'Stone walls no longer speckle or flicker as you walk', kind: 'fix',
+    items: [
+      'The mortar behind each stone now always draws behind the stone\'s face, near or far.',
+      '1801 and 1827 Prairie\'s flanks, and the stone houses down the street, read as clean coursed stone again.',
+    ] },
+  { v: 2370, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: 'Walks and open gates at 1612 and 1620 Prairie', kind: 'feature',
+    items: [
+      '1612 Prairie (Goodman) and 1620 Prairie (Law) now have a flagged walk from the sidewalk through the front gate to the steps, where before the lawn ran up to a shut gate.',
+      'Their entrance gates now stand open, as the 1612 photograph and both pictures of 1620 show them.',
+      'A cinder side walk runs from each south gate back down the side passage to the rear.',
+    ] },
   { v: 2369, ts: '2026-10-28T04:54:00.889Z', date: 'Oct 27, 2026, 11:54 PM CT', title: '1904 sits lighter on a phone', kind: 'fix',
     items: [
       'The 1904 town holds about 35 MB less on a phone, back under its memory ceiling, so the tab is less likely to be killed mid-walk.',
