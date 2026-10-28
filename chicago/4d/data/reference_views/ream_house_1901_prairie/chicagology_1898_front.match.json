@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_1898_front",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8b6b4567f81771550efa5ec2e10df06de82e8aa3a0b3e4926c53ffb7a4c2d581",
+  "glb_sha256": "13d1bb8948518ae3b91cd058c9e0d64f430691eb5354d015f45e47c6a9dbcc7a",
   "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
   "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
@@ -45,11 +45,25 @@
       "status": "within tolerance"
     },
     {
-      "what": "the porch's columns: Corinthian capitals on paired shafts set close; the render's plain shafts under block capitals stand 0.75 m apart in each pair",
-      "status": "open"
+      "what": "the porch's capitals: Corinthian, a deep bell of leaves under the abacus; now K01's carved hood capital, two tiers of leaves under a 0.1 m abacus, about 0.45 m deep and 0.47 m across the leaves where the print reads about 0.45 m and 0.5 m (x 240-270, 330-365 px)",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit.hood.columns.carved {tiers 2, abacus_m 0.1}, the bay columns' carving (T-2887)"
     },
     {
-      "what": "the stoop's cheeks: the photograph's curve down and out to the walk in stone; the render's are straight",
+      "what": "the porch's paired shafts: about 0.5 m apart centre to centre in the print (about 18 px at 2.7 cm a pixel), 0.75 m in the render where K01 keeps their plinths 0.3 m clear; 0.25 m, under the 1 ft bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the leafage's carving itself (its acanthus and volutes), finer than the print resolves",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stoop's cheeks: the photograph's sweep down and out in stone from the inner columns' feet to a roll at the walk; now K07's scrolled stone cheek either side, its head on the landing's edge beside the open terraces, its top running straight down the rake (bow 1) onto the rolled foot",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit cheek_form {kind scrolled, bow 1.0}, the scrolled cheek allowed beside open terraces at the landing's depth"
+    },
+    {
+      "what": "the cheeks' row of small openings under their tops (the north cheek's, x 330-380 px); K07's scrolled cheek is solid",
       "status": "open"
     },
     {
