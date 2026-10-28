@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2381, ts: '2026-10-28T10:45:46.134Z', date: 'Oct 28, 2026, 5:45 AM CT', title: 'Corner lamps and ramps match the photographs', kind: 'fix',
+    items: [
+      'Street lamps no longer stand on raised stone blocks. Only the Glessner corner\'s lamp keeps a stone pad, level with the walk, as the 1880s photograph shows.',
+      'The lantern\'s top is glass on thin iron ribs under a small cap, like the lower panes, and the arms under it bend up into the lantern\'s corners.',
+      'Every corner\'s stone ramp now starts at the top of the curb. At about a quarter of the corners, including Prairie at 16th and 18th, its upper edge had dropped to the road.',
+    ] },
   { v: 2380, ts: '2026-10-28T10:38:40.023Z', date: 'Oct 28, 2026, 5:38 AM CT', title: 'Carved pilasters beside the Kimball house\'s upper loggia windows', kind: 'feature',
     items: [
       'At 1801 Prairie, the two windows over the corner loggia, one on the avenue and one on 18th Street, now each stand between a pair of carved stone pilasters, as the c. 1895 photograph and the 1965 survey photograph show them.',
