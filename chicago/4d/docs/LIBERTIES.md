@@ -35159,7 +35159,9 @@ against the print's about 1.5 m), the railing's bars, 1720's sixth post, the gat
 1708's leaves' state) and every run carried past a picture's edge to the lot line are reconstructed;
 the 1874 board fence is assumed to have stood to 1904. 1720's two pictures disagree south of its stair
 (lawn to the walk in the older print, railing in the vignette): the railing is built. A frame house
-lays no lawn (generators/archetypes/k16_yard.py): its yard's ground is the app's. Where the app stands
+lays no lawn (generators/archetypes/k16_yard.py), nor do the six houses behind copings (1709,
+1712, 1721, 1726, 1729, 1736: `lawn: none`, generators/archetypes/k14_yard.py): their yards' ground
+is the app's. Where the app stands
 a house on ground lower than its yard, the yard is lifted onto it (`yard.grade_m`, measured in the
 published app), which is the app's ground, not evidence of a graded lawn. Each walk is checked by
 `tools/check_house_walks.py`.

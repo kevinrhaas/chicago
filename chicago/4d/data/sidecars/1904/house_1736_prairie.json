@@ -722,7 +722,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -744,7 +744,7 @@
         "glessner_blog_1736_mcbirney_c1890_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot, turned south behind the wall to the opening at s 3.9-4.9 (the print shows the wall whole before the stair), and out to the public walk, 1.0 m wide as the opening allows; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205."
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot, turned south behind the wall to the opening at s 3.9-4.9 (the print shows the wall whole before the stair), and out to the public walk, 1.0 m wide as the opening allows; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
     },
     "function": {
       "value": "residence",

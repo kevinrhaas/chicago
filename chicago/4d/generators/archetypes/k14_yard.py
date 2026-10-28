@@ -364,9 +364,11 @@ PASSAGE_CLEAR_M = 0.45   # a turned walk's cross leg stands this far off the wal
 
 def open_spec(params, y: dict) -> dict:
     """`yard` inside a `stone_coping_wall`: as `spec`, but the walk names its width (no gate
-    sizes it), and the service walk is optional and names the passage it runs down."""
-    if y.get("lawn") != "turf":
-        raise ValueError("yard.lawn builds 'turf' alone")
+    sizes it), and the service walk is optional and names the passage it runs down. Its
+    `lawn` may be 'none' (T-3205): no turf is laid, the yard's grass is the app's own ground
+    (as a K16 frame house's is, archetypes/k16_yard.py), and the turf sheet is not shipped."""
+    if y.get("lawn") not in ("turf", "none"):
+        raise ValueError("yard.lawn: behind a coping wall 'turf', or 'none' for the app's own ground")
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
     fw = y.get("front_walk") or {}
@@ -506,6 +508,8 @@ def dress_open(a, y):
             earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (inner, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
     lawn_tris = earth_tris = 0          # integer counts, added left to right (T-2363)
+    if y.get("lawn") == "none":         # T-3205: the app's own ground is the lawn
+        lawn_rows = []
     for r in lawn_rows:
         lawn_tris += _up_grid(a, SURFACES["turf"], r, conf)
     for r in earth_rows + under_rows:
