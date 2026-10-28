@@ -1025,3 +1025,54 @@ three days, and the next raise would take nearly all of what is left. **The next
 the shared sheets, not a bigger number.** Storage hygiene only, as in §11: the boot
 payload budget, frame and Light limits, the 90 % warning and the duplicate guard are
 unchanged. Byte counts: `docs/RESEARCH/site-budget-T-3170/growth.json`.
+
+## 14. 416 MiB full on dev, and the ceiling read off the deployed artifact — measured storage allowance, T-3220
+
+On 2026-10-28 `dev` (`00d814a9`) published **415.800 MiB** (5,566 files) of the 416 MiB
+allowance: **0.200 MiB of headroom**, less than any textured house. Two PRs were complete
+and red on the dataset step's site line alone: #1384 (T-3211, 1700 and 1706 Prairie onto
+K01, +3.99 MB of web GLBs in place of their drafts) and #1408 (T-3229, walks, fences and
+gates for the ten unpictured 1600-block houses, +2.10 MiB). `site_budget.py --dupes`
+still finds no identical file over 64 KiB, and §13's transport-masters lever is already
+pulled (T-3084). What filled the 35 MiB §13 bought in two days is the same thing §13
+named: textured Prairie houses and their records.
+
+**The ceiling, measured rather than restated.** Every raise since §8 carried the same
+129.136 MiB of "other site content" forward. This one reads the deployed `github-pages`
+artifact itself (`main`, 2026-10-28T07:00Z, the tar inside the artifact listed file by
+file):
+
+| where | MiB | files |
+|---|---:|---:|
+| `/4d/dev/` (the `dev` preview) | 415.824 | 5,765 |
+| `/4d/` (production, `main`) | 326.840 | 5,304 |
+| `/pre-fire/` | 47.880 | 42 |
+| `/prairie-1904/` | 46.974 | 115 |
+| `/rebuilding-1870s/` | 37.333 | 22 |
+| the rest (`notes/`, `css/`, root pages) | 0.047 | 9 |
+| **total** | **874.898** | |
+
+Other content is **132.233 MiB**, not 129.136: the committed `site/` still reads 129.136,
+but `deploy.yml` republishes `/prairie-1904/` from `chicago/prairie_1904_v1/` and that copy
+is 46.974 MiB against the committed 43.876. The deployed `/4d/dev/` tree agrees with this
+checkout's `publish.sh` to 0.024 MiB, so `validate.py`'s number is the right one to cap.
+
+**The allowance is now 432 MiB.** Two 432 MiB trees plus 132.233 MiB total **996.233 MiB**,
+under 1 GiB by 27.767. It leaves `dev` 16.2 MiB: #1384 and #1408 together take 6.1, and
+the rest is about three more textured houses. The largest allowance 1 GiB would allow is
+445.88 MiB, so at the last two days' rate (about 17 MiB a day) a further raise buys
+less than a day. **This is the last raise the arithmetic can honestly make.**
+
+**What "1 GB" means is not settled, and it matters now.** GitHub's Pages limits page says
+"Published GitHub Pages sites may be no larger than 1 GB" and gives no unit. Read as
+10^9 bytes (953.674 MiB), the raise is not what crosses the line: two trees at today's
+`dev` (415.8 x 2 + 132.233 = 963.8 MiB) already do, and the first promotion that brings
+production level with `dev` would deploy an artifact over it. Today's artifact is 874.898
+MiB, so nothing has tested the line yet.
+
+**The answer is bytes back, and it is filed: T-3232.** The 1,062 published GLBs embed
+66.309 MiB of KTX2 sheets that are copies (§13). Shipping each sheet once, referred to by
+URI, returns more than every raise since §9 together and brings both trees under either
+reading of the limit. Storage hygiene only, as in §11 and §13: the boot payload budget,
+frame and Light limits, the 90 % warning and the duplicate guard are unchanged. Byte
+counts: `docs/RESEARCH/site-budget-T-3220/ceiling.json`.

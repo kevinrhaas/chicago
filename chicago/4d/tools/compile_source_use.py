@@ -19,7 +19,7 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013; 192 000 from
 # T-2385 (dev's new Prairie sources and the Tremont's Gale record together read 184 255);
 # 200 000 from T-3188 — see outputs().
-INDEX_BUDGET = 200_000
+INDEX_BUDGET = 208_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -447,6 +447,9 @@ class Compiler:
         # Museum's Christmas print and Chicagology's photograph of 1700-1706, at whose edge it
         # stands) took the index to 192 534 raw bytes with every citation whole. Same bargain:
         # about twenty sources of room, the gzipped first open measured by measure_sources.mjs.
+        # 208 000 SINCE 2026-10-28 (T-3161): J. W. Taylor's photograph no. 1445 of 1729 Prairie
+        # (the owner ruled it public domain on 2026-10-27) took the index to 200 142 raw bytes
+        # with every citation whole, its own citation already cut short. Same bargain again.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs
