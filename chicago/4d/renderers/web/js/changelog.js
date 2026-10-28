@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2369, ts: '2026-10-28T04:54:00.889Z', date: 'Oct 27, 2026, 11:54 PM CT', title: '1904 sits lighter on a phone', kind: 'fix',
+    items: [
+      'The 1904 town holds about 35 MB less on a phone, back under its memory ceiling, so the tab is less likely to be killed mid-walk.',
+      'Nothing on screen changes: the savings are copies and coordinates the renderer kept but never drew with.',
+    ] },
   { v: 2368, ts: '2026-10-28T04:50:39.154Z', date: 'Oct 27, 2026, 11:50 PM CT', title: 'Real shrubs, flowers and young trees in the 1904 front yards', kind: 'improvement',
     items: [
       'The front-yard plants are now grown like the street elms, with branches and leaves: lilacs, spiraea, hydrangeas and roses in flower, sheared arborvitae, young maples and lindens, and beds of geraniums or coleus. The rows of green lumps are gone.',

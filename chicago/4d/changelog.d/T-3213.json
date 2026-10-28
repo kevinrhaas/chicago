@@ -1,8 +1,0 @@
-{
-  "title": "1904 sits lighter on a phone",
-  "kind": "fix",
-  "items": [
-    "The 1904 town holds about 35 MB less on a phone, back under its memory ceiling, so the tab is less likely to be killed mid-walk.",
-    "Nothing on screen changes: the savings are copies and coordinates the renderer kept but never drew with."
-  ]
-}
