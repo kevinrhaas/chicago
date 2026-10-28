@@ -972,7 +972,7 @@
       "baked_ao": false,
       "bytes": 4027808,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "9c9d55b64a99e0881633570a36f240935de3103ed1e0989363a80ed7e7af5efa",
+      "inputs_sha256": "4d8488e5d66d26b8b78322535aedfbe8a12b8cb7efd747d554d2b5855182e138",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "george_glessner_house_1706_prairie"
@@ -1002,7 +1002,7 @@
       "baked_ao": false,
       "bytes": 4032024,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "9c1678cc316fc6580a386393003f93c081f49804e404edfe1031005973f282da",
+      "inputs_sha256": "972f6fc0e7331c6942b8c587035ededd4f1e68eb61481f73fedd2d83e0bc2988",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "glessner_lee_house_1700_prairie"
