@@ -1,3 +1,15 @@
+## T-3232 — each shared texture sheet ships once (2026-10-28)
+
+The published tree carried 92.8 MiB of duplicate KTX2 kit sheets, the same sheet embedded in
+every house built on its kit. Two PRs had just gone red on the site budget, and §14 of
+`docs/SITE-BUDGET.md` called 432 MiB the last raise the 1 GiB Pages limit allows.
+`publish.sh` now writes each shared sheet once to `data/gltf/sheets/` and points the GLBs at it
+by URI (`tools/share_glb_sheets.mjs`). The published tree went from about 416 to 323.30 MB of
+432, and the 1904 offline pack from 336.8 to 239.4 MB. The committed GLBs did not change; the
+shipped form is read back to them by `--check`. Honest limits: production keeps the copies
+until the next promotion, and the browser readings are headless swiftshader (a desktop 1904 probe
+before and after, and smoke part 3 at both viewports), not a phone.
+
 ## T-3213 — 1904 on a phone back under its 400 MiB memory ceiling (2026-10-28)
 
 Dev had drifted over the 1904 phone's memory ceiling unseen — 409.4 MB on
