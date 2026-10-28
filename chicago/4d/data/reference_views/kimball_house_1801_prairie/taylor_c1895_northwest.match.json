@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d10ce88f023a450dafc7a6b8f5955a86623d31f1f9b6937c9030866f04df0dc6",
+  "glb_sha256": "e4de03de0aedc2b1e73bf02a7631835e2a25648a446f0007e2715f6169d5a787",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -211,7 +211,8 @@
     },
     {
       "what": "the carved pilasters either side of the lights over the loggia, on the front and the flank: each light stands between two pilasters (about 0.3 m across, x 1000-1010 and 1075-1085 px at the front, 860-870 and 935-945 on the flank) rising from the belt under the sill to carved capitals beside the head, a chain of lozenges down each shaft; the build lays the K09 surround's consoles there and no pilaster (T-1890)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: each light now stands between two pilasters (`street_front_trim.lights[].pilasters`, K09): a shaft 0.25 m broad and 0.06 m proud from the belt's top, 0.1 m clear of the architrave, on a base and under a capital that carries the hood's end where the kit's console hung, the hood run out over the capitals, with one carved lozenge 0.55 m tall centred on each shaft, read off HABS 1965's photograph 2, which shows the 18th Street pair sharply (one lozenge a shaft, where this print's blur had read as a chain). Re-rendered through T-3074's camera the front's shafts stand at about x 1000-1010 and 1077-1085 (the print's 1000-1010 and 1075-1085) and the flank's at about 860-870 and 935-942 (860-870 and 935-945), within a few px. The capitals are plain blocks where both pictures' are foliate, and HABS 2's shafts are sunk-panelled where the build's are plain: within tolerance from the street, written into L-kimball-1801-loggia-lights-1890"
     },
     {
       "what": "the south wall's two stone stacks (T-3107, read off HABS photograph 1): this camera cannot see them; the front one, built to 18.0 m, stays under the deck's line from this eye, where the print shows sky over the cresting; T-3109 dresses both and lowers the rear one to 18.5 m, still under the north curb from this eye",

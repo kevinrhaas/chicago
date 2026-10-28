@@ -5707,7 +5707,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         lts = []
         for e in trim["lights"]:
             keys = {"wall", "s_m", "storey"}
-            ok = isinstance(e, dict) and keys <= set(e) <= keys | {"tiers"} \
+            ok = isinstance(e, dict) and keys <= set(e) <= keys | {"tiers", "pilasters"} \
                 and e["wall"] in ("k01.wall.street_front", "k01.wall.side.south", "k01.wall.side.north") \
                 and isinstance(e["storey"], int) and 0 <= e["storey"] < int(val("stories"))
             hits = [o for o in openings if ok and o.wall == e["wall"] and o.component == "k01.opening.sash_flat"
@@ -5726,6 +5726,37 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"street_front_trim.lights: tiers take bar_m (0.05-0.3 m) and one to three "
                                      f"lights_m (0.2-1.0 m each), leaving at least 1.0 m of sash under them, not {t}")
                 out["tiers"] = {"bar_m": float(t["bar_m"]), "lights_m": [float(x) for x in t["lights_m"]]}
+            if "pilasters" in e:
+                # T-1890: a carved pilaster each side of a surrounded light (1801's lights over the
+                # loggia, the Taylor print), on a base from `foot_m` over grade under its sill, to a
+                # capital carrying the hood's end, the shaft's face carved as K08's are (T-2931)
+                pl, o = e["pilasters"], hits[0]
+                pk = {"width_m", "proud_m", "base_m", "capital_m", "gap_m", "foot_m"}
+                lk = {"count", "height_m", "margin_m", "relief_m"}
+                ok = isinstance(pl, dict) and pk <= set(pl) <= pk | {"lozenges"} \
+                    and (trim.get("by_storey") or [None] * (e["storey"] + 1))[e["storey"]] == "k09.surround.rowhouse_restrained"
+                if ok:
+                    w, d, hb, hc, g, ft = (float(pl[k]) for k in ("width_m", "proud_m", "base_m", "capital_m", "gap_m", "foot_m"))
+                    ok = 0.1 <= w <= 0.4 and 0.02 <= d <= 0.1 and 0.05 <= hb <= 0.3 and 0.1 <= hc <= 0.5 \
+                        and 0.06 <= g <= 0.3 and floors[e["storey"]] - 0.5 <= ft <= o.sill_m - 0.1 \
+                        and o.head_m + 0.15 - hc - (ft + hb) >= 1.0
+                lz = pl.get("lozenges") if ok else None
+                if lz is not None:
+                    ok = isinstance(lz, dict) and set(lz) == lk and isinstance(lz["count"], int) \
+                        and 1 <= lz["count"] <= 6 and 0.1 <= float(lz["height_m"]) <= 1.0 \
+                        and lz["count"] * (float(lz["height_m"]) + 0.1) <= o.head_m + 0.15 - hc - (ft + hb) \
+                        and 0.01 <= float(lz["margin_m"]) < w / 2 - 0.02 and 0.005 <= float(lz["relief_m"]) <= 0.04
+                if not ok:
+                    raise ParamError(f"street_front_trim.lights: pilasters stand beside a light its storey's "
+                                     f"k09.surround.rowhouse_restrained dresses, and take width_m (0.1-0.4 m), "
+                                     f"proud_m (0.02-0.1 m), base_m (0.05-0.3 m), capital_m (0.1-0.5 m), gap_m "
+                                     f"(0.06-0.3 m) clear of the architrave, foot_m (half a metre under the storey's "
+                                     f"floor at most, 0.1 m under the sill at least, a metre of shaft over it) and "
+                                     f"optional lozenges ({sorted(lk)}: one to six, 0.1-1.0 m tall, a tenth of a "
+                                     f"metre apart at least, inside the shaft), not {pl}")
+                out["pilasters"] = {"width_m": w, "proud_m": d, "base_m": hb, "capital_m": hc, "gap_m": g, "foot_m": ft,
+                                    **({"lozenges": {"count": lz["count"], **{k: float(lz[k]) for k in
+                                                                             ("height_m", "margin_m", "relief_m")}}} if lz else {})}
             lts.append(out)
         trim["lights"] = lts
 
