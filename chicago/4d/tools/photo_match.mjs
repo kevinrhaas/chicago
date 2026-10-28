@@ -208,7 +208,7 @@ try {
     side_by_side: path.relative(root, side).replace(/\\/g, '/'),
     verdict: same && was.verdict ? was.verdict : 'unreviewed',
     differences: Array.isArray(was.differences) ? was.differences : [],
-    _how: 'verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not "matches" (tools/image_gate.mjs).',
+    _how: 'verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not "matches" (tools/image_gate.mjs).',
   };
   fs.writeFileSync(matchFile, JSON.stringify(rec, null, 2) + '\n');
   console.log(`photo_match: ${glb}\n  ${render}\n  ${side}\n  ${matchFile} (${rec.verdict}${same ? '' : was.verdict ? ' — a rendered input changed; look again' : ''})`);
