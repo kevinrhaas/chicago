@@ -95,6 +95,7 @@ import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
+import { createFrontYards } from './front-yards.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -2292,6 +2293,15 @@ async function boot() {
   });
   scene3d.add(streetFurniture.group);
   api.streetFurniture = streetFurniture;
+  // T-3203 — the house lots' front yards (data/front_yards/<scene>.json): a mown lawn to each
+  // house, foundation shrubs along it, low beds, and ivy where a picture shows it; laid clear
+  // of every stoop, walk, fence and door's way the houses' own models draw.
+  const frontYards = await createFrontYards({
+    dataBase: layerBase('front_yards'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('front_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+  });
+  scene3d.add(frontYards.group);
+  api.frontYards = frontYards;
 
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
@@ -3101,6 +3111,7 @@ async function boot() {
       const streetsRebuilt = streets.setDetail?.(level);
       void streetTrees.setDetail(level);
       streetFurniture.setDetail(level);
+      frontYards.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
@@ -3152,6 +3163,7 @@ async function boot() {
     // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
     void streetTrees.setDetail(level);
     streetFurniture.setDetail(level);
+    frontYards.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     // T-2600: cut on the job pool; awaited in the serialised run below, before
@@ -4068,6 +4080,11 @@ async function boot() {
     const furnitureHit = streetFurniture.pickAt(ndc, camera);
     if (furnitureHit && furnitureHit.record && (!hit || furnitureHit.distance < hit.distance)) {
       hit = { ...furnitureHit };
+    }
+    // And a front yard's shrub, ivy or bed (T-3203): what it is and whether a picture shows it.
+    const yardHit = frontYards.pickAt(ndc, camera);
+    if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
+      hit = { ...yardHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -5101,6 +5118,7 @@ async function boot() {
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt, camera);
     streetFurniture.update(dt, camera);
+    frontYards.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
