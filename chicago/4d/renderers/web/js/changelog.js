@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2384, ts: '2026-10-28T12:59:29.995Z', date: 'Oct 28, 2026, 7:59 AM CT', title: 'Walks to the four timber houses of the 1600 block', kind: 'feature',
+    items: [
+      'You can now walk up to the front doors of the four wooden houses at 1601, 1609, 1611 and 1630 Prairie. Each has a stone-flagged walk from the sidewalk to its porch steps.',
+      'No picture of these fronts survives, so each follows its side of the block. On the east side, 1601, 1609 and 1611 are open to the street, like 1621, 1623 and 1625. On the west side, 1630 has a low stone curb with an iron railing on it, and its walk passes between two stone posts, like its neighbours\' fenced fronts.',
+    ] },
   { v: 2383, ts: '2026-10-28T12:15:06.844Z', date: 'Oct 28, 2026, 7:15 AM CT', title: 'The Glessner townhouses at 1700 and 1706 Prairie, built from their photographs', kind: 'feature',
     items: [
       'The two Georgian townhouses John J. Glessner built for his children at 1700 and 1706 Prairie Avenue are no longer draft boxes. They stand as a mirrored pair: two brick storeys under one slate mansard with pedimented dormers and a light railing along the roof, round-arched windows with iron balconettes on the main floor, and at each outer end a stone porch on four columns with a balcony on top.',
