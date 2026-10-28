@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "83279e0ab106ef921c58bc13e91573a7d8c88ceb18cc1b338f145fc84a946608",
+  "glb_sha256": "e8fc1d3b89827f39cfe9c2e52effdf67be7e426b076305a9e7dd02a3e7b6ff57",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -109,6 +109,11 @@
     {
       "what": "1965 fabric: the gabled section's loggia glazed in, a sash in each of its two openings under the gable; the c. 1895 Taylor print shows it open, and the 1904 build follows the print (T-1890)",
       "status": "not shown"
+    },
+    {
+      "what": "the pier and downpipe where the gabled section meets the main block (T-1890): a plain stone strip from grade to under the main cornice (x 537-550 px, about u -0.1-0.45 through this camera), with a capital at the principal storey's head (y about 970) and another under the cornice (y about 820), and a round downpipe close against its east side from the gutter to grade (x 550-557); the build's wall ran plain there and carried no pipe on the 18th Street flank",
+      "status": "fixed",
+      "how": "T-1890 builds the pier (bays.p_pier, 0.55 m wide on the 18th Street wall's east end, 0.1 m proud, to 8.34 m with a band at 5.0 m and a plain cap) and the copper downpipe at u 0.8 (rainwater.downpipes); re-rendered, the pier's face falls at about x 531-550 and the pipe at 552-557, within about 6 px of the print's. The capitals' carving is the kit's plain cap and band, within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
