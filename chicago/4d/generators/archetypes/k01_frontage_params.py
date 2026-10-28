@@ -2033,6 +2033,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or set(q) - {"width_m", "proud_m", "block"}:
                     raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
                                      f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
+            # T-3191: or a flank's STEP (`step`), the rear part of a side wall standing out from its
+            # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
+            # full-height projection on a side wall, longer and further out than a pavilion
+            elif q.get("step") is not None:
+                if q["step"] is not True or not (6.0 < w <= 16.0 and 0.1 <= d <= 2.0) \
+                        or e.get("variant") != "k08.projection.full_height" \
+                        or e.get("wall") not in ("k01.wall.side.north", "k01.wall.side.south") \
+                        or set(q) - {"width_m", "proud_m", "step"}:
+                    raise ParamError(f"bays: {e['id']} is a flank's step: a full-height projection on a side "
+                                     f"wall, 6-16 m wide and 0.1-2.0 m proud (has {w} m and {d} m)")
             elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
@@ -2041,7 +2051,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block", "step"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
