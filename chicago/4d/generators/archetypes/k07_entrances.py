@@ -572,9 +572,14 @@ class Entrance(Opening):
                 # T-2918: a record may ask for the carved cheek on a plain stoop (1811's plate)
                 if carved or st.get("cheek_form") == "scrolled":
                     self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r,
-                                         st.get("scroll_block_m", 0.0))
+                                         st.get("scroll_block_m", 0.0), st.get("scroll_bow"))
                     if Dq > L:
                         self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
+                    elif sgn in psides and not carved:
+                        # T-3186: an open terrace at the landing's depth takes that side of the
+                        # landing, so the cheek's head stands on its front edge, its back end above
+                        # the deck faced toward the wall (1901's portico)
+                        self.quad("cheek", [(si,0,L),(so,0,L),(so,.85,L),(si,.85,L)],(0,0,-1))
                     else:
                         self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
                     continue
@@ -1523,18 +1528,20 @@ class Entrance(Opening):
             a0 = o1 + m + k * (w + m)
             self._tablet("cheek", to3, a0, a0 + w, b0, b1, h, (float(sgn), 0.0, 0.0))
 
-    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0):
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0,bow=None):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
         # the concavity. T-2565: both pictures end it at the street in a rolled foot,
         # a stone scroll lying across the cheek and standing proud of its outer face,
         # not in a scroll at its head; the sweep runs down onto the roll's crown.
         # T-2984: or the roll stands `blk` up on a plain foot block under its front half
         # (1811's plate), the sweep running down onto its crown there
+        # T-3186: or the sweep's power `bow` from 1 (a straight rake onto the roll, 1901's
+        # print) toward 2, the concave fall every scrolled cheek had before it
         rr = .2
         Fc = F - rr
         base = -R + blk
         end = base + 2 * rr; peak = .85 if not terrace else 1.0
-        top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** 2
+        top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** (2 if bow is None else bow)
         N=32
         for i in range(N):
             a=start+(Fc-start)*i/N; b=start+(Fc-start)*(i+1)/N

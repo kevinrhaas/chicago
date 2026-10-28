@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8b6b4567f81771550efa5ec2e10df06de82e8aa3a0b3e4926c53ffb7a4c2d581",
+  "glb_sha256": "13d1bb8948518ae3b91cd058c9e0d64f430691eb5354d015f45e47c6a9dbcc7a",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
@@ -37,12 +37,22 @@
       "status": "fixed"
     },
     {
-      "what": "the stoop's cheeks: the print's sweep down and out from the porch's column plinths to a roll at the walk (x 340-500 and 545-700 px); the render's are straight. K01's swept cheek stands only beside a terrace behind a pierced parapet and its scrolled one beside none, and this porch's columns stand on terraces the print shows open",
+      "what": "the stoop's cheeks: the print's sweep down from the porch's column plinths to a roll at the walk (x 340-500 and 545-700 px), their moulded tops straight down the rake; now K07's scrolled stone cheek either side, its head on the landing's edge beside the open terraces, its top straight down the rake (bow 1) to the roll",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit cheek_form {kind scrolled, bow 1.0}"
+    },
+    {
+      "what": "the cheeks' row of small openings under their tops, five or six to a cheek (x 560-690 px on the near one); K07's scrolled cheek is solid",
       "status": "open"
     },
     {
-      "what": "the porch's columns: Corinthian capitals on paired shafts set close; the render's are plain shafts under block capitals, K01's door-hood column, which has no carved capital",
-      "status": "open"
+      "what": "the porch's capitals: Corinthian, a deep bell of leaves under the abacus; now K01's carved hood capital, two tiers of leaves under a 0.1 m abacus",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit.hood.columns.carved"
+    },
+    {
+      "what": "the porch's paired shafts: set closer in the print than the render's 0.75 m centre to centre (about 0.5 m through the 1898 view's camera); under the 1 ft bar",
+      "status": "within tolerance"
     },
     {
       "what": "the cornice: the print's is deep, on large paired blocks over a frieze about 0.6-0.8 m high, round the front, the canted corner and the flank; the render's K10 moulded cornice is thinner, its blocks single",
