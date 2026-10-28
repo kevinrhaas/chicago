@@ -2,6 +2,70 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 231,
+      "takenAt": "2026-10-28T06:37:50.821Z",
+      "ref": "steward/t3229-t3216-1600-block-unpictured-walks",
+      "commit": "656fce81e853",
+      "devCommit": "b72d159f26c8",
+      "treeHash": "sha256:e797dd5bbcc37aaa",
+      "treeDirty": false,
+      "changelogHash": "sha256:f8445e84e4e8929f",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          5,
+          4.7,
+          4.2
+        ]
+      },
+      "source": "/tmp/t3216/smoke_m1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 63,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-28T06:37:50.700Z",
+      "ref": "steward/t3229-t3216-1600-block-unpictured-walks",
+      "commit": "656fce81e853",
+      "devCommit": "b72d159f26c8",
+      "treeHash": "sha256:e797dd5bbcc37aaa",
+      "treeDirty": false,
+      "changelogHash": "sha256:f8445e84e4e8929f",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          5,
+          4.7,
+          4.2
+        ]
+      },
+      "source": "/tmp/t3216/smoke_d1.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "14",
       "parts": [
@@ -1195,68 +1259,6 @@
         ]
       },
       "source": "/tmp/smoke_m3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 155,
-      "takenAt": "2026-10-20T16:36:21.088Z",
-      "ref": "steward/t2931-1801-pilasters",
-      "commit": "c26de927e3f0",
-      "devCommit": "057355579681",
-      "treeHash": "sha256:fcfe99394b75d3b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:03d3ca5f141577af",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          4.4,
-          3.9
-        ]
-      },
-      "source": "/tmp/t2931/smoke-m3.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 358,
-      "takenAt": "2026-10-20T16:36:20.982Z",
-      "ref": "steward/t2931-1801-pilasters",
-      "commit": "c26de927e3f0",
-      "devCommit": "057355579681",
-      "treeHash": "sha256:fcfe99394b75d3b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:03d3ca5f141577af",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.5,
-          4.4,
-          3.9
-        ]
-      },
-      "source": "/tmp/t2931/smoke-d3.log"
     },
     {
       "viewport": "desktop",
