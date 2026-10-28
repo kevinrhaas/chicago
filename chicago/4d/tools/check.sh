@@ -6012,6 +6012,15 @@ selftest "the road-band movement report names a band that moved" \
 step "a street's invented line reaches the picture" \
   node tools/test_street_confidence.mjs
 
+# T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
+# put one outside the ramp and outside the face's bands it took the roadway's level
+# and the slab dropped off the curb. The test slices the shipped helpers out of
+# street-grid.js; the self-test proves the bare parity test would miss corners.
+step "every 1904 corner ramp's head meets its curb's top (T-3231)" \
+  node tools/test_ramp_heads.mjs
+selftest "the ramp-head gate sees the bare parity test miss ramp corners (T-3231)" \
+  node tools/test_ramp_heads.mjs --self-test
+
 # K49(d) warned for a week that a spatial filter running after the stratified
 # deal selects a BIASED set of ranks, and told every later parcel not to use
 # `stratum` in a filtered layer on the strength of it. T-0018 refuted that: the
