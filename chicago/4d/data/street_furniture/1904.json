@@ -166,7 +166,85 @@
   "utility_pole": {
    "liberty": "L-prairie-utility-poles-3202",
    "spacing_m": 34.0,
-   "note": "Glessner's pole where the photograph shows it, on 18th Street's south parkway at the stable's corner by the alley; the line on west from it to Indiana Avenue at about 34 m (Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley), and into the alley behind it; a line down every alley on its east side, its end poles 2.5 m in from the mouths and spanned across the cross streets where alleys meet; none on the Prairie Avenue parkways. Each pole clear of the elms, lamps, hydrants, carriage walks and alley mouths.",
+   "clearance": {
+    "pole_face_m": 0.15,
+    "crossarm_over_roof_m": 0.3,
+    "wire_over_roof_m": 0.3,
+    "alley_insets_m": [
+     0.45,
+     0.9,
+     1.4,
+     1.9,
+     2.4
+    ],
+    "note": "No pole, crossarm or wire touches a 1904 structure (T-3225): tested on the baked models and the context city's blocks as a plan raster of their heights, a pole's face 0.15 m off any wall, fence or roof edge, a crossarm 0.3 m over the roof beneath it, every wire 0.3 m over whatever it crosses as it sags. An alley pole the rule puts into a coach house slides along the alley, then stands further into it, then crosses to its west side; a span through a building steps its poles further in, or is not hung. `moved` lists the poles off the rule's spot, `spans_not_hung` the spans left out.",
+    "moved": [
+     {
+      "pole": "pole.alley.indiana_prairie_16_18#06",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.indiana_prairie_16_18#07",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": -0.5
+     },
+     {
+      "pole": "pole.alley.indiana_prairie_18_20#00",
+      "side": "east",
+      "inset_m": 1.9,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.indiana_prairie_18_20#01",
+      "side": "east",
+      "inset_m": 1.4,
+      "along_m": 0.5
+     },
+     {
+      "pole": "pole.alley.indiana_prairie_21_22#03",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.indiana_prairie_21_22#04",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": 1.5
+     },
+     {
+      "pole": "pole.alley.prairie_calumet_18_20#02",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.prairie_calumet_18_20#03",
+      "side": "east",
+      "inset_m": 0.9,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.prairie_calumet_21_22#03",
+      "side": "east",
+      "inset_m": 1.4,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.prairie_calumet_21_22#04",
+      "side": "east",
+      "inset_m": 1.4,
+      "along_m": 0.0
+     }
+    ],
+    "spans_not_hung": [
+     "pole.18th.glessner -> pole.alley.indiana_prairie_18_20#00"
+    ]
+   },
+   "note": "Glessner's pole where the photograph shows it, on 18th Street's south parkway at the stable's corner by the alley; the line on west from it to Indiana Avenue at about 34 m (Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley); a line down every alley on its east side, its end poles 2.5 m in from the mouths and spanned across the cross streets where alleys meet; none on the Prairie Avenue parkways. Each pole clear of the elms, lamps, hydrants, carriage walks and alley mouths, and every pole, crossarm and wire clear of the buildings, coach houses and fences.",
    "note_by_class": {
     "trolley": "22nd Street's overhead: a pair of plain poles at about 34 m, one in the north parkway by the curb and one opposite it across the street, a span wire between them at 6.6 m and two contact wires along the street over the tracks at 5.6 m."
    }
@@ -281,7 +359,7 @@
   "gas_lamps": 101,
   "fire_hydrants": 18,
   "utility_poles": 60,
-  "wires": 57,
+  "wires": 56,
   "corner_lamps": 28,
   "attested": 14,
   "inferred": 2,
@@ -416,10 +494,10 @@
   {"id": "pole.alley.indiana_prairie_16_18#03", "kind": "utility_pole", "e": 1334.13, "n": -3058.16, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#04", "kind": "utility_pole", "e": 1334.58, "n": -3092.37, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
   {"id": "pole.alley.indiana_prairie_16_18#05", "kind": "utility_pole", "e": 1335.02, "n": -3126.57, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
-  {"id": "pole.alley.indiana_prairie_16_18#06", "kind": "utility_pole", "e": 1335.46, "n": -3160.77, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
-  {"id": "pole.alley.indiana_prairie_16_18#07", "kind": "utility_pole", "e": 1335.9, "n": -3194.98, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
-  {"id": "pole.alley.indiana_prairie_18_20#00", "kind": "utility_pole", "e": 1337.65, "n": -3220.37, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
-  {"id": "pole.alley.indiana_prairie_18_20#01", "kind": "utility_pole", "e": 1338.01, "n": -3254.61, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
+  {"id": "pole.alley.indiana_prairie_16_18#06", "kind": "utility_pole", "e": 1335.01, "n": -3160.78, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
+  {"id": "pole.alley.indiana_prairie_16_18#07", "kind": "utility_pole", "e": 1335.44, "n": -3194.48, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_16_18", "where": "in the alley behind the lots of Indiana to Prairie, 16th to 18th Street"},
+  {"id": "pole.alley.indiana_prairie_18_20#00", "kind": "utility_pole", "e": 1336.2, "n": -3220.39, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
+  {"id": "pole.alley.indiana_prairie_18_20#01", "kind": "utility_pole", "e": 1337.06, "n": -3255.12, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
   {"id": "pole.alley.indiana_prairie_18_20#02", "kind": "utility_pole", "e": 1338.37, "n": -3288.85, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
   {"id": "pole.alley.indiana_prairie_18_20#03", "kind": "utility_pole", "e": 1338.73, "n": -3323.09, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
   {"id": "pole.alley.indiana_prairie_18_20#04", "kind": "utility_pole", "e": 1339.1, "n": -3357.32, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_18_20", "where": "in the alley behind the lots of Indiana to Prairie, 18th to 20th Street"},
@@ -433,12 +511,12 @@
   {"id": "pole.alley.indiana_prairie_21_22#00", "kind": "utility_pole", "e": 1340.79, "n": -3620.09, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
   {"id": "pole.alley.indiana_prairie_21_22#01", "kind": "utility_pole", "e": 1340.96, "n": -3651.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
   {"id": "pole.alley.indiana_prairie_21_22#02", "kind": "utility_pole", "e": 1341.13, "n": -3683.09, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
-  {"id": "pole.alley.indiana_prairie_21_22#03", "kind": "utility_pole", "e": 1341.29, "n": -3714.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
-  {"id": "pole.alley.indiana_prairie_21_22#04", "kind": "utility_pole", "e": 1341.46, "n": -3746.09, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
+  {"id": "pole.alley.indiana_prairie_21_22#03", "kind": "utility_pole", "e": 1340.84, "n": -3714.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
+  {"id": "pole.alley.indiana_prairie_21_22#04", "kind": "utility_pole", "e": 1341.01, "n": -3747.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
   {"id": "pole.alley.prairie_calumet_18_20#00", "kind": "utility_pole", "e": 1460.84, "n": -3257.99, "heading_deg": 178.9, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#01", "kind": "utility_pole", "e": 1462.17, "n": -3291.86, "heading_deg": 166.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
-  {"id": "pole.alley.prairie_calumet_18_20#02", "kind": "utility_pole", "e": 1473.04, "n": -3323.28, "heading_deg": 178.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
-  {"id": "pole.alley.prairie_calumet_18_20#03", "kind": "utility_pole", "e": 1473.33, "n": -3357.13, "heading_deg": 179.5, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
+  {"id": "pole.alley.prairie_calumet_18_20#02", "kind": "utility_pole", "e": 1472.59, "n": -3323.3, "heading_deg": 178.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
+  {"id": "pole.alley.prairie_calumet_18_20#03", "kind": "utility_pole", "e": 1472.88, "n": -3357.13, "heading_deg": 179.5, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#04", "kind": "utility_pole", "e": 1473.72, "n": -3390.98, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#05", "kind": "utility_pole", "e": 1474.13, "n": -3424.83, "heading_deg": 179.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#06", "kind": "utility_pole", "e": 1474.58, "n": -3458.69, "heading_deg": 179.2, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
@@ -449,8 +527,8 @@
   {"id": "pole.alley.prairie_calumet_21_22#00", "kind": "utility_pole", "e": 1475.96, "n": -3618.8, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
   {"id": "pole.alley.prairie_calumet_21_22#01", "kind": "utility_pole", "e": 1476.16, "n": -3650.14, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
   {"id": "pole.alley.prairie_calumet_21_22#02", "kind": "utility_pole", "e": 1476.36, "n": -3681.48, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
-  {"id": "pole.alley.prairie_calumet_21_22#03", "kind": "utility_pole", "e": 1476.55, "n": -3712.82, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
-  {"id": "pole.alley.prairie_calumet_21_22#04", "kind": "utility_pole", "e": 1476.75, "n": -3744.15, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
+  {"id": "pole.alley.prairie_calumet_21_22#03", "kind": "utility_pole", "e": 1475.6, "n": -3712.82, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
+  {"id": "pole.alley.prairie_calumet_21_22#04", "kind": "utility_pole", "e": 1475.8, "n": -3744.16, "heading_deg": 179.6, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_21_22", "where": "in the alley behind the lots of Prairie to Calumet, 21st to 22nd Street"},
   {"id": "pole.trolley.indiana_prairie_21_22.n#00", "kind": "utility_pole", "e": 1286.61, "n": -3753.15, "heading_deg": 89.2, "place": "e22nd", "class": "trolley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "where": "on the north parkway of East Twenty-second Street"},
   {"id": "pole.trolley.indiana_prairie_21_22.n#01", "kind": "utility_pole", "e": 1321.74, "n": -3752.64, "heading_deg": 89.2, "place": "e22nd", "class": "trolley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "where": "on the north parkway of East Twenty-second Street"},
   {"id": "pole.trolley.indiana_prairie_21_22.n#02", "kind": "utility_pole", "e": 1356.36, "n": -3752.15, "heading_deg": 89.2, "place": "e22nd", "class": "trolley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "where": "on the north parkway of East Twenty-second Street"},
@@ -510,7 +588,6 @@
   {"from": "pole.alley.prairie_calumet_20_21#03", "to": "pole.alley.prairie_calumet_21_22#00", "kind": "line", "grade": "reconstructed"},
   {"from": "pole.18th.glessner", "to": "pole.18th#01", "kind": "line", "grade": "inferred"},
   {"from": "pole.18th#01", "to": "pole.18th#02", "kind": "line", "grade": "inferred"},
-  {"from": "pole.18th.glessner", "to": "pole.alley.indiana_prairie_18_20#00", "kind": "line", "grade": "inferred"},
   {"from": "pole.trolley.indiana_prairie_21_22.n#00", "to": "pole.trolley.indiana_prairie_21_22.s#00", "kind": "trolley_span", "grade": "inferred", "sources": ["chicagology_2140_photo_a"]},
   {"from": "pole.trolley.indiana_prairie_21_22.n#01", "to": "pole.trolley.indiana_prairie_21_22.s#01", "kind": "trolley_span", "grade": "inferred", "sources": ["chicagology_2140_photo_a"]},
   {"from": "pole.trolley.indiana_prairie_21_22.n#02", "to": "pole.trolley.indiana_prairie_21_22.s#02", "kind": "trolley_span", "grade": "inferred", "sources": ["chicagology_2140_photo_a"]},
