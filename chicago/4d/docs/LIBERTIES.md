@@ -35161,3 +35161,46 @@ across its side yard's mouth. Each walk is checked by `tools/check_house_walks.p
 walks.
 **Covers:** `house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3221.
+
+### L-k11-fences-1600-block-3216 — Front boundaries of the ten unpictured worked 1600-block Prairie houses reconstructed on the block's pictured fronts
+**Recorded:** 2026-10-28.
+
+**Decision:** ten worked 1904 houses on the 1600 block of Prairie Avenue have no picture of their
+fronts: 1600, 1604, 1608, 1626, 1628, 1634 and 1636 on the west side, and 1613, 1615 and 1619 on
+the east (T-3216, piece 3 of T-3204). Each is given a front boundary as a STATED RECONSTRUCTION
+that follows its own side of the block. **What is read, not invented.** On the west side every
+pictured front closes its street line and gates its walk: 1612's photograph (an iron spear fence
+on its curb), 1620's 1874 engraving and 1898 sketch (an iron lattice), 1616's boards in the same
+1874 plate, and 1638's photograph (iron bars on a stone base). On the east side, 1621's and 1623's
+1886 drawings and 1625's 1890 photograph draw open fronts with no fence, wall or gate. The lot
+lines and street lines are the 1904 parcels' (data/street_grid/1904.json, from the 1911 Sanborn
+sheet 20). **What is invented or held by the kit.** On the west side the fence's kind is the K11
+kit's spear fence on its curb, the plainest of the block's pictured kinds. Its height, its posts
+and the pair of entrance leaves on stone piers, standing open, are also the kit's. 1634's and
+1636's fences are held 0.3 m inside the public walk, where their parcels' lines fall on the walk's
+edge. 1626's south lot line is put on the house's wall, 0.21 m from where the parcel was fitted.
+1600's south passage has a shut side gate like 1612's. The other six west-side houses stand too
+close to their south lot lines for a gate, so their iron runs unbroken (K11's T-3216 rule). 1600's
+iron is not returned along 16th Street. On the east side the three fronts are built open.
+**How to resolve:** a photograph of any of these fronts from about 1895-1910, or an insurance or
+survey plat that draws the fences.
+**Covers:** `house_1600_prairie.as_mapped_1904.form.boundary`, `house_1604_prairie.as_mapped_1904.form.boundary`, `house_1608_prairie.as_mapped_1904.form.boundary`, `house_1626_prairie.as_mapped_1904.form.boundary`, `house_1628_prairie.as_mapped_1904.form.boundary`, `house_1634_prairie.as_mapped_1904.form.boundary`, `house_1636_prairie.as_mapped_1904.form.boundary`, `house_1613_prairie.as_mapped_1904.form.boundary`, `house_1615_prairie.as_mapped_1904.form.boundary`, `house_1619_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3216.
+
+### L-k14-walks-1600-block-3216 — Front walks of the ten unpictured worked 1600-block Prairie houses, from the public walk to the door
+**Recorded:** 2026-10-28.
+
+**Decision:** the same ten houses (T-3216) are given a K14 yard: a lawn and a flagged front walk
+from the foot of the stoop to the inner edge of the public walk. Before this none of them had a
+walk, and the walker could not reach their doors. **What is read, not invented.** Nothing: no
+picture of these fronts is held. The walks follow the pattern of the block's pictured fronts, where
+1612's photograph shows a light paved walk through its open gateway to the stoop's foot. On the west
+side a walk runs through the entrance gate, at the gate's width. On the east side it runs straight
+out across the open front, 1.2 m wide, as 1621's, 1623's and 1625's do (T-3221). **What is invented
+or held by the kit.** The kit supplies the walk's line, flags, width, joints and wear, and the lawn
+with its bare strip. No service walk is built. Each walk is checked by
+`tools/check_house_walks.py`.
+**How to resolve:** a photograph of each front from about 1900-1910, or a survey plat drawing the
+walks.
+**Covers:** `house_1600_prairie.as_mapped_1904.form.yard`, `house_1604_prairie.as_mapped_1904.form.yard`, `house_1608_prairie.as_mapped_1904.form.yard`, `house_1613_prairie.as_mapped_1904.form.yard`, `house_1615_prairie.as_mapped_1904.form.yard`, `house_1619_prairie.as_mapped_1904.form.yard`, `house_1626_prairie.as_mapped_1904.form.yard`, `house_1628_prairie.as_mapped_1904.form.yard`, `house_1634_prairie.as_mapped_1904.form.yard`, `house_1636_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3216.

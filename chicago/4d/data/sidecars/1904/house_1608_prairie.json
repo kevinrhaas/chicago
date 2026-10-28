@@ -418,6 +418,47 @@
       "confidence": "reconstructed",
       "note": "T-2364: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp, on all four of its brick walls and on its stone dressings. BUILT 1886 is a bound, not a date: Robinson's 1886 atlas, plate 10 (robinson_1886_chicago_plate_10), draws a house on lot 5 where this record's main body stands, its outline within the two maps' fits (4.54 m and 3.08 m RMS) of the 1911 sheet's, so the house stood by 1886 and no reading yet says how long before. The kit is evaluated at that bound, the youngest the evidence allows: 18 years standing, age factor 0.45, the same as 1808 Prairie's, so the weathering shown is a floor and an earlier completion year would only darken it. Damp at the wall foot, soot under the soffit, and a trail below every K06 sill and down the wall behind each downpipe, scaled by the fabric (the common buff brick 1.0, the limestone dressings as the kit's dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); using the plate's bound as the completion year is this ticket's (L-k14-1608-brick-2364). A building permit, a dated photograph or a directory reading of the house replaces it."
     },
+    "boundary": {
+      "value": {
+        "street_line_m": 8.995,
+        "lot_s_m": [
+          -0.92,
+          7.92
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216: no picture of this front is held, so the boundary is a STATED RECONSTRUCTION on the west side of the block's pictured fronts, every one of which closes its street line and gates its walk: 1612's photograph (an iron spear fence on its curb, a pair of entrance gates at the stoop's foot and a gate across the south passage), 1620's 1874 engraving and 1898 sketch (an iron lattice on its base with gate piers at the walk), 1616's boarded street line in the same 1874 plate, and 1638's photograph (iron bars on a stone base between gate piers). Built as the K11 kit's spear fence on its curb, the plainest of them and the block's photographed iron, with the kit's pair of entrance leaves on stone piers, 1.3 m clear on the stoop's centre, standing open (drawn 70 degrees) as 1612's photograph and both pictures of 1620 show their entrance gates. No side gate: the house stands 0.92 m from its south lot line, less than the kit's gate needs between a pier and the wall (0.9 m clear past a 0.5 m pier), so there is no passage to gate and the iron runs unbroken from the lot line to the entrance (K11's T-3216 rule). The street line is parcel prairie_1608's street corners (data/street_grid/1904.json) carried into this frame, 8.995 m before the front. The lot's sides are the same parcel's, s -0.92 and 7.92. RECONSTRUCTED: the fence's kind, height and line, its gates and their set; liberty L-k11-fences-1600-block-3216."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1608's front is held. The walk is laid on the block's pictured fronts (1612's photograph shows a light paved walk from the public walk through its open entrance gateway to the stoop's foot, and 1616's and 1621's walks are built on it): flags from the stoop's foot through the entrance gate, the gate's width, to the inner edge of the public walk; the lawn covers the rest of the front yard inside the iron. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

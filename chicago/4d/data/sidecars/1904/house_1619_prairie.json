@@ -501,6 +501,41 @@
       "confidence": "reconstructed",
       "note": "K07's panelled door under a transom at the head of a straight stone stoop solved from the principal floor; the front yard is 3.8 m, the sheet's front at 19.2 m against the street line at 23.0 m."
     },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -0.68,
+          8.41
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216: no boundary across the front, a STATED RECONSTRUCTION. No picture of this front is held; the east side of the block's pictured fronts are open to the walk: 1621's and 1623's 1886 Building Budget drawings and 1625's 1890 Inland Architect photograph draw no fence, wall, coping or gate across their front yards (T-3221), and only 1637's engraving, at the block's south end, closes a front garden close before its house. So this front is built open, as its three nearer pictured neighbours are. The lot's sides are parcel prairie_1619's street corners (data/street_grid/1904.json) in this frame, s -0.68 and 8.41. RECONSTRUCTED; liberty L-k11-fences-1600-block-3216."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1619's front is held. The walk is laid as 1621's, 1623's and 1625's are on their pictures (T-3221): flags from the stoop's foot, 1.2 m wide, straight out across the open front to the inner edge of the public walk; the lawn covers the rest of the front yard. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
