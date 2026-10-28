@@ -125,6 +125,12 @@ def ringed(o):
     return o.get('style')=='north_entry_alcove' or (o['kind']=='arch' and o.get('style')!='pigeon_vent')
 
 
+def through_passage(o):
+    """The porte-cochere's court mouth: a through passage, not a panel of black glazing."""
+    return (o['kind']=='dark' and o.get('face')=='west' and o.get('at',0)>30
+            and o['z0']<.1 and o['u1']-o['u0']>2)
+
+
 def aperture(o):
     a,b,z0,z1 = o['u0'],o['u1'],o['z0'],o['z1']
     if o['kind'] == 'arch':
@@ -483,6 +489,13 @@ class DetailBuilder(MeshBuilder):
                 holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in aperture(o)])
                 cut=[(centre+radius*math.cos(math.pi*i/48),zs+radius*math.sin(math.pi*i/48))
                      for i in range(49)]
+            elif through_passage(o) and self.params.detail.get('underpass'):
+                # T-3218: the mouth's foot is sheet 4's lawn line on north grade, 0.2 ft
+                # over the model's grade where this wall's bottom course starts, and the
+                # passage floor is sunk below both (T-2976/T-2978). Cut down to the
+                # underpass floor, or that course hangs across the mouth as a brick bar.
+                floor=self.params.detail['underpass']['floor_z']
+                cut=aperture({**o,'z0':min(o['z0'],floor)})
             else:
                 cut=aperture(o)
             holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in cut])
@@ -861,8 +874,7 @@ def opening(b,o,courtyard=False):
     if kind=='fan':
         ornament.fan(b,o)
         return
-    if kind=='dark' and o.get('face')=='west' and o.get('at',0)>30 and z0<.1 and c-a>2:
-        # The porte-cochere is a through passage, not a panel of black glazing.
+    if through_passage(o):
         if o.get('corbels'):
             passage_corbels(b,o)
         return

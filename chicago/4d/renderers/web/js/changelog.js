@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2363, ts: '2026-10-28T01:48:59.704Z', date: 'Oct 27, 2026, 8:48 PM CT', title: 'No brick bar across Glessner\'s carriage way', kind: 'fix',
+    items: [
+      'A thin strip of brick no longer hangs across the courtyard end of Glessner\'s carriage passage. It was the wall\'s bottom course, left behind about two feet over the floor when the passage floor was lowered to the HABS drawings.',
+      'The courtyard opening now runs clear down to the passage floor between its brick sides, as sheet 4 draws it.',
+    ] },
   { v: 2362, ts: '2026-10-28T00:47:48.222Z', date: 'Oct 27, 2026, 7:47 PM CT', title: '1904 corners: stone slabs ramp out onto the street', kind: 'fix',
     items: [
       'Corner crossings now carry the walk level over the curb.',
