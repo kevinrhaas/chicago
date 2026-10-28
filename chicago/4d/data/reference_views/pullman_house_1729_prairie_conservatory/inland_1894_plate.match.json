@@ -66,7 +66,7 @@
   ],
   "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the stable's arcade on its west face, across the court from the drum: three round-headed arches, a broad open one between two narrower, their heads flatter than half-circles and their crowns about 3.0-3.1 m (x 1100-1490 px)",
@@ -115,18 +115,18 @@
     },
     {
       "what": "the belvedere's balustrade and the deck's cresting are open ironwork and balusters; the stable's lower roof shows as a narrow slate band under the upper storey where the plate shows a moulded cornice",
-      "status": "within tolerance",
-      "how": "T-3153: drawn as solid rails and a 0.4 m band; places and heights agree within about 0.3 m, so the difference is in openwork and relief under the bar (the same ruling 16555's record makes)"
+      "status": "open",
+      "how": "T-3153: drawn as solid rails and a 0.4 m band; places and heights agree within about 0.3 m, so the difference is in openwork and relief under the bar (the same ruling 16555's record makes) Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
-      "status": "within tolerance",
-      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof"
+      "status": "open",
+      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower and its dome broader than the build",
-      "status": "within tolerance",
-      "how": "two pictures disagree: Taylor's 16555, re-solved, fits the drum's heights within about 7 px; the drum's place along the wing agrees in all three cameras within about 0.3 m"
+      "status": "open",
+      "how": "two pictures disagree: Taylor's 16555, re-solved, fits the drum's heights within about 7 px; the drum's place along the wing agrees in all three cameras within about 0.3 m Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the house at the plate's left edge: its corner stands about 1 m east of where the plate shows the wing's stone face and the porch's terrace",
