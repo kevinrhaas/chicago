@@ -1076,3 +1076,45 @@ URI, returns more than every raise since §9 together and brings both trees unde
 reading of the limit. Storage hygiene only, as in §11 and §13: the boot payload budget,
 frame and Light limits, the 90 % warning and the duplicate guard are unchanged. Byte
 counts: `docs/RESEARCH/site-budget-T-3220/ceiling.json`.
+
+## 15. Each shared sheet ships once — bytes back, not a raise, T-3232
+
+§13 and §14 named the lever and this pulls it. On 2026-10-28 `dev` (`814ab5549`) the
+1,036 GLBs under `data/gltf/` embedded **116.483 MiB** of images, of which **23.636 MiB**
+were distinct: **92.847 MiB were copies** (more than §13's 66.3, because six textured
+houses landed in between). Every one of them was a KTX2 kit sheet.
+
+`tools/share_glb_sheets.mjs`, which `publish.sh` runs right after it copies `assets/web/`
+into the mirror, writes each image that two or more published GLBs carry once, to
+`data/gltf/sheets/<sha256 prefix>.ktx2`, and makes each of those GLBs name it through a
+plain glTF external buffer (`docs/GLB-CONTRACT.md` § Compression). An image that only one
+GLB carries stays embedded. Measured on that tree:
+
+| | before | after |
+|---|---:|---:|
+| the 40 GLBs that share a sheet, with their 52 sheets | 169.943 MiB | 77.110 MiB |
+| published tree (`validate.py`'s site line) | ≈ 416 MB | **323.30 MB** of 432 |
+| the 1904 year pack | 336.8 MB | 239.4 MB |
+
+The 1835 and 1812 packs hold no sheets, because a sheet goes only into the packs of the
+years whose GLBs name it (`write_year_packs.mjs`).
+
+**Only the published copies change.** The masters and derivatives under `assets/` are
+byte for byte what the emitters and the bake wrote, so `validate.py --stale`, the re-emit
+byte-identity checks and the bake see nothing new. The rewrite is declared in
+`check_published.mjs` and gated by `share_glb_sheets.mjs --check` (there and in
+`check.sh`): every rewritten GLB, read back with its sheets, has its source's JSON,
+bufferViews and meshopt streams; every sheet is named by its own hash and held by at
+least two GLBs.
+
+**What the renderer sees is unchanged.** The image still arrives as a bufferView, so
+`shared-images.js` still digests and decodes each picture once and texture residency
+still re-decodes from it. The one renderer change is that `scene-loader.js` and
+`terrain.js` parse a GLB with its directory as the resource path, which GLTFLoader needs
+to resolve the buffer's URI. A headless 1904 boot of the published tree, before and
+after, drew the same 836 meshes with the same 360 KTX2-textured. After, it fetched each
+of the 52 sheets with HTTP 200, with no failed request and no page error.
+
+Two 432 MiB allowances plus §14's 132.233 MiB stay under 1 GiB, and `dev` now has about
+109 MB of headroom inside its allowance. The allowance is not lowered here, because
+production still ships the copies until the next promotion.

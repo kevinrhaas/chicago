@@ -53,7 +53,7 @@ mkdirSync(path.join(APP, 'tools'), { recursive: true });
 mkdirSync(path.join(APP, 'renderers', 'web', 'js'), { recursive: true });
 mkdirSync(path.join(SITE, 'js'), { recursive: true });
 mkdirSync(path.join(SITE, 'walk', 'js'), { recursive: true });
-for (const f of ['stamp-changelog.mjs', 'changelog_shim.mjs', 'check_published.mjs', 'publish.sh']) {
+for (const f of ['stamp-changelog.mjs', 'changelog_shim.mjs', 'check_published.mjs', 'share_glb_sheets.mjs', 'publish.sh']) {
   cpSync(path.join(REPO, 'tools', f), path.join(APP, 'tools', f));
 }
 
