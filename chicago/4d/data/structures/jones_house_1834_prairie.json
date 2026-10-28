@@ -690,6 +690,34 @@
             "glessner_blog_2015_08_van_osdel"
           ],
           "note": "T-3184: the photograph shows the north flank's basement in the same light stone as the front's, up to the water table that runs round from the front (y 645-662 at the bay), and the brick only over it."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "turf",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.2
+            },
+            "grade_m": {
+              "front": 0.079,
+              "street": 0.083,
+              "per_m_s": -0.0015,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicagology_1834_jones_photo",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The photograph (turned back, as its camera reads it) shows the walk leaving the stair and curving north behind the low wall to its opening at the north end of the lot, a round bed in the angle. Built as a turned walk of flags, 1.2 m wide: out from the stair's foot, north along the wall's back 0.45 m clear of it, and out through the opening (s 11.63-13.075) to the public walk. The curve is laid as two square turns. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
         }
       }
     }

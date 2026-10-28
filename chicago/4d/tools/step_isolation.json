@@ -2824,6 +2824,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_house_walks.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_household_derivations.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4203,6 +4207,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_prairie_1904_street_furniture.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_prairie_1904_street_section.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4723,10 +4731,6 @@
       "wrote_ignored": []
     },
     "tools/placement_policy_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/lay_prairie_1904_street_furniture.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5875,6 +5879,10 @@
       "wrote_ignored": []
     },
     "tools/test_k08_tower_stage.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_hood_flare.py": {
       "wrote": [],
       "wrote_ignored": []
     },
