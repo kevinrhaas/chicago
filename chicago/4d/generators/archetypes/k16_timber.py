@@ -110,7 +110,7 @@ BOUNDARY_MATERIALS = {
     "fence_stone": {"color": (0.70, 0.68, 0.62), "roughness": 0.92, "class": "masonry"},
     # T-3205: the walks of a frame house's yard (k16_yard.py): flags a shade darker than the kerb,
     # and cinder in K14's colour (k01_frontage MATERIALS["yard_cinder"]) without its gravel map
-    "walk_stone": {"color": (0.62, 0.60, 0.56), "roughness": 0.9, "class": "masonry"},
+    "walk_stone": {"color": (0.63, 0.60, 0.54), "roughness": 0.9, "class": "masonry"},
     "walk_cinder": {"color": (0.30, 0.29, 0.27), "roughness": 0.95, "class": "ground"},
 }
 

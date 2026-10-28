@@ -593,6 +593,12 @@
        "surface": "cinder",
        "to_u_m": 0.0,
        "wear_tone": 0.78
+      },
+      "grade_m": {
+       "front": 0.018,
+       "street": 0.007,
+       "per_m_s": -0.0048,
+       "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
       }
      },
      "confidence": "reconstructed",

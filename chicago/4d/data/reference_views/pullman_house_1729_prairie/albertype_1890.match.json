@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6a95958edfaee6e2df35c89de8cb2b54321f16c88423a7092ff68ce2de142d47",
+  "glb_sha256": "2634a6651f41f52069af35ac7acdd229b05dc567cb3f22abcb7e15030416322f",
   "camera_sha256": "efed15b177939d01403a58cf4d34b863a4df5b6e853edeac73c492973aa2e42f",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
@@ -67,6 +67,11 @@
       "what": "the building east of the flank at the plate's right edge",
       "status": "not shown",
       "how": "cut by the vignette's edge, and before the 1892 east addition"
+    },
+    {
+      "what": "the low stone wall along Prairie Avenue and its piers at the walk",
+      "status": "not shown",
+      "how": "T-3205: at this vignette's scale the wall reads as a line along the parkway, which the render's wall follows; the piers are compared in detroit_det_4a08065 (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

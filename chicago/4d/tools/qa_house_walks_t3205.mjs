@@ -4,8 +4,8 @@
 // mouth looking up it ('gate'), and a walk: the visitor is put on the public walk square to the
 // door and walked toward it with the app's own walker (footprints, step-up rule and all) for up
 // to 14 s; the reading is how close they got to the stoop's foot.
-//   node tools/qa_house_walks_t3206.mjs            (after tools/publish.sh)
-//   QA_VIEWPORT=mobile QA_TAG=before node tools/qa_house_walks_t3206.mjs
+//   node tools/qa_house_walks_t3205.mjs            (after tools/publish.sh)
+//   QA_VIEWPORT=mobile QA_TAG=before node tools/qa_house_walks_t3205.mjs
 //   QA_ONLY=house_1828_prairie,...                  a subset
 import fs from 'node:fs';
 import http from 'node:http';

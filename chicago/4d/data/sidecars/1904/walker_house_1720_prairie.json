@@ -747,6 +747,12 @@
             11.3
           ],
           "to_u_m": 14.0
+        },
+        "grade_m": {
+          "front": 0.063,
+          "street": 0.057,
+          "per_m_s": -0.0067,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the walks are lifted onto it so they are not under it"
         }
       },
       "confidence": "reconstructed",

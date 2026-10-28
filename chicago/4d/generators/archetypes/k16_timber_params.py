@@ -24,6 +24,9 @@ OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
                  boxed, bracketed eave and a hip or flat roof; the kit porch on the street
                  wall with its steps; one brick stack
     roof_covering optional: the roof's colour
+    boundary     optional (T-3205): a `stone_coping_wall` on the street line, its kerb runs,
+                 posts and openings (archetypes/k16_yard.py)
+    yard         optional (T-3205): the front walk and service walk through those openings
 
 Nothing here imports Blender; `generators/mesh_inputs.py` hashes the dataclass this
 returns, so every field the builder reads is in it.
@@ -42,8 +45,9 @@ OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary", "basement")
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
 HOUSE_REQUIRED = ("frame_house",)
-HOUSE_OPTIONAL = ("roof_covering",)
-CONSUMED = frozenset(REQUIRED + OPTIONAL + HOUSE_REQUIRED)
+# T-3205: a whole house's street kerb and the walks through it (archetypes/k16_yard.py)
+HOUSE_OPTIONAL = ("roof_covering", "boundary", "yard")
+CONSUMED = frozenset(REQUIRED + OPTIONAL + HOUSE_REQUIRED + HOUSE_OPTIONAL)
 SIDES = ("east", "north", "west", "south")   # counter-clockwise from above, the walls' order
 ROOFS = ("hip", "flat", "gable")   # T-2398: a gable, its ridge along u or v
 KINDS = {"gable": "gable", "wing_wall": "clapboard_wall", "porch": "porch"}
@@ -70,6 +74,7 @@ class K16TimberParams:
     boundary: dict | None = None
     basement: dict | None = None
     frame_house: dict | None = None
+    yard: dict | None = None
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:

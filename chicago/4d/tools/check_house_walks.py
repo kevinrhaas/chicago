@@ -24,8 +24,8 @@ it requires:
      walking up it is not stopped short of the door.
 
 A house that fails and is in PENDING is reported and does not fail the gate: the 1600 and 1700
-blocks' houses were worked before this rule, and their lanes (T-3204, T-3205) empty the list as
-they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
+blocks' houses were worked before this rule, and their lanes (T-3204; T-3205 emptied the 1700
+block's) empty the list as they fix each one. A PENDING house that now passes DOES fail the gate, so the list cannot rot:
 take it out. So does a PENDING id that is not a worked 1904 house.
 
     python3 tools/check_house_walks.py --check       the gate (check.sh)
@@ -427,7 +427,7 @@ def main(argv=None) -> int:
             print(f"  {f}")
         return 1
     print(f"check_house_walks: ok — {n_ok} worked 1904 houses walked into from the public walk through an "
-          f"opening; {n_pend} pending on their lanes (T-3204, T-3205, T-3207)")
+          f"opening; {n_pend} pending on their lanes ({', '.join(sorted(set(PENDING.values()))) or 'none'})")
     return 0
 
 

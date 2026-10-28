@@ -2,7 +2,7 @@
   "structure_id": "house_1708_prairie",
   "view": "chicagology_townhouses",
   "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
-  "glb_sha256": "092359cfc94ff807e4bbdf02e4e0c078571c42de4844f2dbe1971bdead918b4f",
+  "glb_sha256": "28373b749f1cd2f9bd20da616db9bc49bde8d99b0665cd7dc6df60cf037eece8",
   "camera_sha256": "26df234fbaa5611b6507ad11d12ad448c1ed97dc82dc45ef20630fef89fd0752",
   "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
   "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/chicagology_townhouses-side-by-side.jpg",
@@ -57,6 +57,11 @@
       "what": "colour",
       "status": "not shown",
       "how": "T-3188: a monochrome photograph"
+    },
+    {
+      "what": "the iron fence on a stone curb along the street line, its square posts, and the gate at the stair's foot",
+      "status": "fixed",
+      "how": "T-3205: the K11 spear fence on its curb with the entrance gate drawn open (70 degrees) at the stair and a flagged walk in to the stair; fence, posts and gate stand at the render's left edge where the print's stand before 1708, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

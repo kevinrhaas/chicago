@@ -58734,19 +58734,7 @@
           "domain": "structure",
           "structure": "dexter_house_1721_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "dexter_house_1721_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.yard"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1708_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
         },
         {
           "domain": "structure",
@@ -58794,12 +58782,6 @@
           "domain": "structure",
           "structure": "house_1736_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1736_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.yard"
         },
         {
@@ -58818,19 +58800,7 @@
           "domain": "structure",
           "structure": "pullman_house_1729_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "pullman_house_1729_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.yard"
-        },
-        {
-          "domain": "structure",
-          "structure": "walker_house_1720_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
         },
         {
           "domain": "structure",
@@ -58856,7 +58826,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_1708_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.yard`, `house_1712_prairie.as_mapped_1904.form.yard`, `walker_house_1720_prairie.as_mapped_1904.form.yard`, `dexter_house_1721_prairie.as_mapped_1904.form.yard`, `house_1726_prairie.as_mapped_1904.form.yard`, `pullman_house_1729_prairie.as_mapped_1904.form.yard`, `house_1730_prairie.as_mapped_1904.form.yard`, `house_1736_prairie.as_mapped_1904.form.yard`, `house_1708_prairie.as_mapped_1904.form.boundary`, `kellogg_house_1709_prairie.as_mapped_1904.form.boundary`, `house_1712_prairie.as_mapped_1904.form.boundary`, `walker_house_1720_prairie.as_mapped_1904.form.boundary`, `dexter_house_1721_prairie.as_mapped_1904.form.boundary`, `house_1726_prairie.as_mapped_1904.form.boundary`, `pullman_house_1729_prairie.as_mapped_1904.form.boundary`, `house_1730_prairie.as_mapped_1904.form.boundary`, `house_1736_prairie.as_mapped_1904.form.boundary`."
+          "text": "`house_1708_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.yard`, `house_1712_prairie.as_mapped_1904.form.yard`, `walker_house_1720_prairie.as_mapped_1904.form.yard`, `dexter_house_1721_prairie.as_mapped_1904.form.yard`, `house_1726_prairie.as_mapped_1904.form.yard`, `pullman_house_1729_prairie.as_mapped_1904.form.yard`, `house_1730_prairie.as_mapped_1904.form.yard`, `house_1736_prairie.as_mapped_1904.form.yard`, `kellogg_house_1709_prairie.as_mapped_1904.form.boundary`, `house_1712_prairie.as_mapped_1904.form.boundary`, `house_1726_prairie.as_mapped_1904.form.boundary`, `house_1730_prairie.as_mapped_1904.form.boundary`."
         }
       ],
       "work_refs": [
