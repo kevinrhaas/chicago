@@ -1069,6 +1069,14 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 0.0 <= tp_ <= (sw / 2 + ring) - 0.15:
             raise ParamError(f"{what}.hood.taper_m {tp_}: each cheek leans in 0 m up to 0.15 m short of the middle")
         out["hood"] = {"shelf_m": sf, "shelf_proud_m": sp, "rise_m": hr, "lean_m": ln, "taper_m": tp_}
+        # T-1890: the hood's foot may FLARE, standing `flare_m` wider than the face each side and
+        # as far out in front of it, the shelf under it with it, and sweeping in to the top the
+        # taper and lean set (1801's, wider at their feet than the faces under them in HABS 1)
+        if "flare_m" in hd:
+            fl = float(hd["flare_m"])
+            if not 0.05 <= fl <= 0.3:
+                raise ParamError(f"{what}.hood.flare_m {fl}: a hood's foot flares 0.05-0.3 m past its face")
+            out["hood"]["flare_m"] = fl
         # T-1890: the face under the shelf may be SLATED as the hood is, its light in a pale
         # stone frame `frame_m` wide inside the surround (1801's, in the Taylor print and HABS 1)
         if hd.get("face", "stone") not in ("stone", "slate"):
