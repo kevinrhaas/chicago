@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2380, ts: '2026-10-28T10:38:40.023Z', date: 'Oct 28, 2026, 5:38 AM CT', title: 'Carved pilasters beside the Kimball house\'s upper loggia windows', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the two windows over the corner loggia, one on the avenue and one on 18th Street, now each stand between a pair of carved stone pilasters, as the c. 1895 photograph and the 1965 survey photograph show them.',
+      'Each pilaster rises from the belt course to a capital that carries the end of the window\'s cornice, so the cornice no longer hangs on small scrolled brackets. One diamond lozenge is carved on each shaft.',
+    ] },
   { v: 2379, ts: '2026-10-28T10:06:48.739Z', date: 'Oct 28, 2026, 5:06 AM CT', title: '1901 Prairie\'s porch gets carved capitals and scrolled stone cheeks', kind: 'improvement',
     items: [
       'The four columns of the Ream house\'s porch now have carved capitals, a bell of leaves under the abacus, as the 1898 photograph shows them.',
