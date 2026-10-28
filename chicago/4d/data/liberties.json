@@ -57920,7 +57920,7 @@
         }
       ],
       "recorded": "2026-10-27",
-      "revised": "2026-10-27",
+      "revised": "2026-10-28",
       "fields": [
         {
           "label": "Decision",
@@ -57969,6 +57969,18 @@
         {
           "label": "Still not built",
           "text": "the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them."
+        },
+        {
+          "label": "What is invented",
+          "text": "the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's)."
+        },
+        {
+          "label": "Still not built",
+          "text": "the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for later work."
         }
       ],
       "work_refs": [
