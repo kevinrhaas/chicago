@@ -281,6 +281,39 @@
             "robinson_1886_chicago_plate_10"
           ],
           "note": "No roof covering has been read for the pair. A flat roof behind a timber cornice on a Chicago frame house of the period was commonly laid in tar and gravel; the covering and its dark grey are RECONSTRUCTED and not modelled beyond the deck's colour."
+        },
+        "boundary": {
+          "value": {
+            "layout": "open",
+            "street_u_m": 14.47,
+            "lot_s_m": [
+              -0.025,
+              5.25
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3230 (piece 2 of T-3216; the owner, 2026-10-27: every worked house's walk to its door and its front boundaries, and where no picture shows them a stated reconstruction consistent with the block). No picture of this front is held. The east side of the 1600 block is drawn open where it is drawn at all: 1621's and 1623's 1886 drawings and 1625's 1890 photograph show no fence or kerb on the street line (T-3221), and 1613, 1615 and 1619, unpictured, were laid open on that reading (T-3229). So this front is laid open too (`layout: open`, archetypes/k16_yard.py): nothing on the street line, the whole front between the lot lines the opening. The 1911 sheet draws 1611 and its party-wall twin 1609 on one parcel, prairie_1607 (data/street_grid/1904.json), carried into the house's plan frame by the placement its sidecar holds (the transform that puts 1720's recorded street line, u 31.2, back on its parcel to the centimetre): the street line runs u 14.55 at the parcel's north line to 14.46 at its south, taken as u 14.47 where the walk meets it, on the porch stair's axis (s 4.25). The lot's north side is the party wall with 1609 (s -0.025); its south side is put on the house's own south wall (s 5.25), which stands 0.44 m past the parcel's south line (s 4.81) as the house was fitted, within the sheet's 3.08 m fit residual. RECONSTRUCTED: that the front stood open in 1904 (liberty L-k16-walks-1600-block-3230)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k16_yard",
+            "built": 1904,
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.2
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3230. A front walk in flags straight out from the porch stair's foot (read off the built steps) to the street line, the public walk's inner edge, 1.2 m wide in 0.9 m flags 0.06 m over the ground, the district's K14 walk sizes and the width 1613, 1615 and 1619 were given (T-3229). RECONSTRUCTED: the walk's line, width and surface; no picture shows them (liberty L-k16-walks-1600-block-3230). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py)."
         }
       }
     }
