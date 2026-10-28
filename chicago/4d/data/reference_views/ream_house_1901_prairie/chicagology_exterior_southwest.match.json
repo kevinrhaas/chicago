@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "13d1bb8948518ae3b91cd058c9e0d64f430691eb5354d015f45e47c6a9dbcc7a",
+  "glb_sha256": "ca61ed002a1e08b382c620f243bd2d9e3c64e2234ac4be7a3111873c37f5d0e8",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
@@ -55,8 +55,9 @@
       "status": "within tolerance"
     },
     {
-      "what": "the cornice: the print's is deep, on large paired blocks over a frieze about 0.6-0.8 m high, round the front, the canted corner and the flank; the render's K10 moulded cornice is thinner, its blocks single",
-      "status": "open"
+      "what": "the cornice: the print's is deep, a course of carved stone blocks (scrolled consoles, single and evenly spaced, dark panels between them) under its corona over a plain frieze, round the front, the canted corner and the flank (x 380-1200 px); now K10's moulded stone cornice over a 0.42 m stone frieze with the scrolled stone blocks about 0.8 m apart under the corona's soffit along the same run, one left out where the flank's front stack stands on the cornice. The band-to-corona depth builds 0.57 m where the print reads about 0.6-0.8 m; under the 1 ft bar",
+      "status": "fixed",
+      "how": "T-3186: wall_head.frieze {height_m 0.42, proud_m 0.025} and wall_head.blocks {spacing_m 0.8, height_m 0.45, projection_m 0.19, width_m 0.18} under the moulded stone cornice round the mansard (k10_frontage._stone_frieze_blocks)"
     },
     {
       "what": "the dormers' pediments: the print's are low triangular pediments with a level cornice across their foot and carved cheeks, the canted corner's the largest, its stone face with its scrolled cheeks about x 950-1115 px; the render's stand at K01's lowest pitch, 30 deg, without the level cornice or the carving, the canted corner's sash at the print's size (about 1.0 by 1.9 m) in a plain face about 0.6 m narrower",

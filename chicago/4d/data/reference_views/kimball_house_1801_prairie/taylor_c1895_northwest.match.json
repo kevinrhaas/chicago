@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e4de03de0aedc2b1e73bf02a7631835e2a25648a446f0007e2715f6169d5a787",
+  "glb_sha256": "83279e0ab106ef921c58bc13e91573a7d8c88ceb18cc1b338f145fc84a946608",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -187,7 +187,11 @@
       "status": "within tolerance"
     },
     {
-      "what": "the gabled section's loggia and pier (T-1890): behind the balustrade the print's third storey is an open loggia, dark, on slender posts (x 382-422, its head about 11.4 m), where the build lays a glazed mullioned and transomed pair of the same size and height (K06 has no open opening); and the print's pier at about u 0-0.9 (x 422-445), up to the cornice, is not built",
+      "what": "the gabled section's loggia (T-1890): behind the balustrade the print's third storey is an open loggia, dark, two openings on a slender post (x 382-422, its head about 11.4 m), where the build laid a glazed mullioned and transomed pair. T-1890 lays K06's open loggia in its place, the same opening on a 0.2 m post with no frame, sash or glass, carried back dark; the render's two openings now read dark either side of the post under the gable, as the print's do",
+      "status": "fixed"
+    },
+    {
+      "what": "the gabled section's pier (T-1890): the print's pier at about u 0-0.9 (x 422-445), up to the cornice, is not built",
       "status": "open"
     },
     {
