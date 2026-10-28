@@ -543,6 +543,10 @@ const COVERAGE = [
   ['renderers/web/js/street-furniture.js', [14], 'the 1904 street furniture: gas lamps (T-3199)'],
   ['data/street_furniture/', [14], 'the 1904 street furniture, generated from the grid'],
   ['tools/lay_prairie_1904_street_furniture.py', NONE, 'the street furniture layer — read by no renderer: its own --check in check.sh'],
+  // T-3203. The house lots' front yards: lawns, foundation shrubs, beds and pictured ivy.
+  ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: lawn, shrubs, beds, ivy (T-3203)'],
+  ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
+  ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
