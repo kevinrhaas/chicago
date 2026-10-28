@@ -35079,38 +35079,43 @@ overhead's form; a Sanborn sheet does not draw poles.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
 **Recorded:** 2026-10-27 (T-3202); amended 2026-10-28 (T-3225).
 
-### L-prairie-front-yards-3203 — The 1904 house lots' front yards: foundation shrubs, low beds and ivy, planted by rule on almost every lot
+### L-prairie-front-yards-3203 — The 1904 house lots' front yards: lawns as the photographs show them, and a few period plants by rule where no picture shows the lot
 
-**Decision:** every 1904 house lot of the drawn district whose house stands back from its lot line
-(149 lots) is planted (`data/front_yards/1904.json`, written by
-`tools/plant_prairie_1904_front_yards.py`): foundation shrubs 0.45-0.95 m off the house's walls along
-its front and the first 7 m of its sides, about 1.0-1.55 m apart, in three habits (a clipped
-evergreen, a loose flowering mound, a tall lilac-like shrub at a corner or a side), and one to three
-low beds cut in the lawn before the house (round, oval or a strip along the front), bedded out in
-one of four palettes (scarlet geraniums; white and pink; marigold yellow and orange; coleus). Which
-habits, how far apart, whether in clumps, how many beds and which palette are drawn per lot from a
-seed of the parcel's id, so no two neighbours match and a re-run lays the same yards. Nothing stands
-within 0.85 m of the lot line, on or within 0.45 m of a stoop, fence, pier or coping, within 0.35 m
-of a paved walk, or across a 2.7 m way from a front door straight to the lot line, all read off the
-houses' own baked models. The lawn is the ground's own sward. Pullman's yard at 1729 has the ivy over
-its west front and porch and the shrub border inside the 18th Street coping east of the house that
-the Detroit Publishing views show (attested); 1912's has the ivy over its front that a later
-photograph shows (inferred for 1904). No urn is placed: no picture read shows one on a stoop clearly
-enough to place it.
-**What it stands on:** the Detroit Publishing views of the Pullman house
-(`loc_det_4a08065_pullman_residence` and `loc_det_4a08066_pullman_residence`, 1890-1901: shrubs at
-the porch, ivy on the front and porch, a dense shrub border inside the coping along 18th Street), the Glessner House Museum's halftone of the finished Pullman house, the photograph of
-1912 Prairie (`chicagology_1912_prairie_exterior_photo`: ivy over the front; its electric lamp dates it after 1904),
-and the brief's reading of the district's pictures as kept front yards with foundation planting and
-low beds (tickets repo, `evidence/streetscape-1904-2026-10-27/BRIEF.md` § 7).
-**What is invented:** every shrub and bed but Pullman's border and the two houses' ivy; the three
-habits and their sizes; the spacing and the clearances; the beds, their shapes and their bedding;
-which lots are planted sparsely or in clumps; the ivy's exact extent on both pictured houses.
+**Decision:** the 1904 house lots of the drawn district whose house stands back from its lot line
+(149 lots) are planted by `tools/plant_prairie_1904_front_yards.py` into
+`data/front_yards/1904.json`, and drawn as grown plants on the parkway elms' leaf and bark atlases
+(T-3223 replaced T-3203's continuous foundation row of 1,354 lumps). Lots whose photographs show
+the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those pictures show them:
+mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit
+Publishing views show: ivy over the west front and porch, low shrubs at the porch's foot, young
+lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the
+ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn
+and the rest are planted in one of the period's few ways, drawn per lot from a seed of the
+parcel's id: a matched pair of shrubs at the stoop's foot (a sheared arborvitae ball, smooth
+hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvitae cone at a front
+corner of the house, a short group of two or three shrubs against the front, and on a deep lot
+now and then a young sugar maple or linden in the lawn and one round or oval bed of geraniums or
+coleus. Each plant keeps clear, from its crown's edge, of the house wall, every stoop, step,
+fence, coping and walk, a 2 m disk round every door, and a 1.6 m way from each front door to the
+lot line, all read off the houses' baked models; `--check` re-measures that against the models
+in every gate run. No urn is placed: no picture read shows one clearly enough to place it.
+**What it stands on:** the photographs of 1720 (`glessner_blog_1720_tyrrell_photo`), 1736
+(`glessner_blog_1736_mcbirney_c1890_photo`), 1801 (`taylor_c1895_kimball_residence_1801`), 1811
+(`chicagology_1811_ames_photo`), 1816 (`chicagology_1816_henderson_photo`), 1905
+(`chicagology_1905_field_photo`) and 2120 Prairie (`chicagology_2120_gorton_photo`); the Detroit
+Publishing views of the Pullman house (`loc_det_4a08065_pullman_residence` and
+`loc_det_4a08066_pullman_residence`, 1890-1901); the photograph of 1912 Prairie
+(`chicagology_1912_prairie_exterior_photo`: ivy over the front; its electric lamp dates it after
+1904). The species are the common nursery stock of 1890s American front yards; the reading is in
+`docs/RESEARCH/prairie_1904_front_yards.md`.
+**What is invented:** every plant on a lot no picture shows; which lots are planted and how; the
+species, sizes and spacing; the beds and their bedding; the ivy's exact extent on both pictured
+houses; the bare lots' lawns hide whatever a picture's fence or angle did not show.
 **How to resolve:** a dated photograph of a lot's front yard replaces that lot's rule planting with
 what it shows (its shrubs, beds and urns placed and graded attested); a nursery bill, a garden
 writer's account of a Prairie Avenue yard, or a society-page description would name species.
-**Ticket:** T-3203.
-**Recorded:** 2026-10-27 (T-3203).
+**Ticket:** T-3203, T-3223.
+**Recorded:** 2026-10-27 (T-3203); revised 2026-10-28 (T-3223).
 
 ### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
 **Recorded:** 2026-10-27.
@@ -35145,3 +35150,53 @@ through an opening in the front boundary and cross no building.
 drawing the walks.
 **Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.yard`, `wheeler_house_1812_prairie.as_built_1884.form.yard`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.yard`, `henderson_house_1816_prairie.as_mapped_1904.form.yard`, `dent_house_1823_prairie.as_mapped_1904.form.yard`, `marsh_house_1824_prairie.as_mapped_1904.form.yard`, `doane_house_1827_prairie.as_mapped_1904.form.yard`, `house_1828_prairie.as_mapped_1904.form.yard`, `jones_house_1834_prairie.as_mapped_1904.form.yard`, `ream_house_1901_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3206.
+### L-k14-walks-1600-block-3214 — 1612 and 1620 Prairie given flagged front walks through open entrance gates and cinder side walks, aged by the K14 kit
+**Recorded:** 2026-10-28.
+
+**Decision:** 1612 Prairie (Goodman) and 1620 Prairie (Law), whose K11 iron fronts already carried
+an entrance gate on the walk to the stoop and a gate across the south passage, are given a K14
+yard (T-3214): a lawn inside the fence, a flagged front walk from the foot of the stoop through the
+entrance gate to the inner edge of the public walk, bare earth under the open stair, and a cinder
+service walk from the side gate back down the south passage to the house's rear corner. Before
+this both showed a lawn running up to a closed gate and no walk at all. The entrance gates now
+stand open (drawn 70 degrees). **What is read, not invented.** 1612's photograph
+(chicagology_1612_prairie_photo) shows a light paved walk running in to the stoop's foot and the
+gateway there open, with two people standing in it; the 1874 Land Owner engraving and the 1898
+Tribune sketch of 1620 both draw the stair running straight down to the street line between the
+gate piers with no leaf across it. So the walk's line, the open gateway and the boundary's kind
+are the pictures'. **What is invented or held by the kit.** The walks' material (flags of the
+stoop's stone), width (the gate's), wear and height, the passage's cinder (the print sees 1612's
+passage only as light ground beside the fence and does not see 1620's at all), the lawn and its
+bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json), aged from each
+phase's own year (1869 for 1612; 1904 for 1620, whose record opens at the 1904 target although the
+engraving shows it standing by 1874). The gates' 70 degree opening is chosen. At 1620 the service
+walk spans the whole 7.7 m south side yard between the boundary wall and the house, as the kit lays
+it; that the side yard was cinder rather than lawn is not shown. **How to resolve:** a nearer or
+later photograph of either front at the walk, or of 1620's south side yard.
+**Covers:** `goodman_house_1612_prairie.as_built_1869.form.yard`, `law_house_1620_prairie.restored_1904.form.yard`.
+**Ticket:** T-3214.
+
+### L-k14-walks-1600-block-3215 — Walks and front boundaries of 1616, 1621, 1623, 1625 and 1637 Prairie read off their pictures; each house given a front walk from the public walk to its door
+**Recorded:** 2026-10-28.
+
+**Decision:** five worked 1904 houses on the 1600 block of Prairie Avenue are given a K14 yard: a
+lawn and a flagged front walk from the foot of the stoop to the inner edge of the public walk
+(T-3221, piece 1 of T-3215). Before this none of them had a walk. **What is read, not invented.**
+1621's and 1623's 1886 drawings (the Building Budget's plate of the Hamline and Farwell houses) and
+1625's 1890 Inland Architect photograph show no fence, wall, coping or gate across the front yard,
+so each is built with no boundary (`layout: open`), carried to 1904 on those pictures (inferred:
+they are fourteen to eighteen years before the scene). The paling fence 1625's photograph shows is
+on the open ground next door, as its match record already rules, and is not built. 1637's engraving
+brings the stoop down between its garden wall and its iron fence; the walk comes out through that
+gap. 1616 has no picture of its own front (the 1874 engraving of 1620 reads its boarded street line
+only to the plate's edge); its walk is a stated reconstruction on 1612's photograph, two doors
+south, through the boards' walk gate, whose leaves are now drawn open as 1612's and 1620's are.
+**What is invented or held by the kit.** Every walk's line is straight out from the stoop (1637's
+engraving curves it), and its width (the stoop's or the gate's), flags, joints and wear, the lawn
+and its bare strip are the kit's; none of the pictures shows a walk's material. No service walk is
+built: none of the pictures shows a side gate or a passage's floor, and 1616's boards run unbroken
+across its side yard's mouth. Each walk is checked by `tools/check_house_walks.py`.
+**How to resolve:** a photograph of each front from about 1900-1910, or a survey plat drawing the
+walks.
+**Covers:** `house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3221.

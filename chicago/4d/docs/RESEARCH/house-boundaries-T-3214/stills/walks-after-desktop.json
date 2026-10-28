@@ -1,0 +1,47 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "desktop",
+      "id": "goodman_house_1612_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-goodman_house_1612-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-goodman_house_1612-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.01,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "law_house_1620_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-law_house_1620-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-law_house_1620-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.06,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}
