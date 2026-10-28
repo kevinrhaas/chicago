@@ -27,3 +27,21 @@ image gate reads. Chicagology's print is the same negative and is read only to c
 museum's print shows; it takes no camera of its own. The house's later photographs (the mid-century
 and 2024 fronts, the 1972 survey photograph, the c. 2014 detail) and the 1800-1900 elevation drawing
 are T-3208's.
+
+## The later pictures, weighed (T-3208)
+
+Read from the image store, as evidence of their own dates, for what they confirm of the 1904 front.
+None is copied into this repository and no camera is solved on any of them: their rights are link
+only, and the oblique print governs what 1904 looked like.
+
+| library id | date | what it adds |
+|---|---|---|
+| `a19-cgy-1900-keith-exterior` (top) | mid-century | a square-on front: the corner bay, the door and two window columns north of it, round-headed lights under hoods with carved crowns on both storeys, the arched PAIR over the porch, the arched dormers and the bay crown's dormer, the terrace on brackets over the basement lights, the block newels at the stoop's foot. Its lower picture is a print of the oblique negative this folder's camera is solved on, so it adds no view |
+| `a19-cgy-1900-keith-2024` | 2024 | the same front in colour; modern paint, iron grilles in the principal lights and a stair rail, none of them 1904's |
+| `a19-gh-keith-1900-exterior-modern` | c. 2014 | the upper front close: each hood's crown a foliate cartouche over a moulded architrave on consoles; the upper sashes follow the arches; the pair over the porch two round lights under one segmental head. The cornice is the one rebuilt after 1978 (the museum's post, `glessner_blog_2014_11_elbridge_keith_house`) |
+| `a19-nrhp-keith-1972-photo` | 1972 | no file in the image store; only the library's summary is read (segmental heads, block newels, Corinthian porch), and nothing is built on it |
+| `a19-gh-prairie-1800-1900-elevations` | c. 1914 drawing | each house about 100 px wide: a mansard front with dormers and nothing finer |
+
+What T-3208 built from them and what stays open is written in the oblique view's match record
+(`data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.match.json`).
+

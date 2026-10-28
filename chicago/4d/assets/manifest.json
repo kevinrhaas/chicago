@@ -351,9 +351,9 @@
     "elbridge_keith_house_1900_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4283564,
+      "bytes": 4881320,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d73609267591bb149621abb4d5011dcd53e52c9b4c65001838f7c2247a5b41a6",
+      "inputs_sha256": "cff57b963b45a89fac5df9593111946308c0485bfdb6feafe1309d8b0cb273b7",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "elbridge_keith_house_1900_prairie"
