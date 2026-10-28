@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2382, ts: '2026-10-28T11:07:11.830Z', date: 'Oct 28, 2026, 6:07 AM CT', title: '1827 Prairie\'s porch gets its stone arches and front steps', kind: 'feature',
+    items: [
+      'The Doane house\'s porch at 1827 Prairie is now a stone arcade, as the old photograph shows it: two round arches across the front on three columns, and a third arch on its south side.',
+      'Its steps now climb straight in from the street under the south front arch, between stone cheeks, where before a flight ran across the porch\'s whole width.',
+    ] },
   { v: 2381, ts: '2026-10-28T10:45:46.134Z', date: 'Oct 28, 2026, 5:45 AM CT', title: 'Corner lamps and ramps match the photographs', kind: 'fix',
     items: [
       'Street lamps no longer stand on raised stone blocks. Only the Glessner corner\'s lamp keeps a stone pad, level with the walk, as the 1880s photograph shows.',
