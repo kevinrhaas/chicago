@@ -859,6 +859,13 @@ step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
 step "the 1904 street furniture re-lays from the street grid (T-3199)" \
   python3 tools/lay_prairie_1904_street_furniture.py --check
 
+# T-3225. ...and that file's --check also holds every pole, crossarm and wire clear of the 1904
+# structures (the owner, 2026-10-28: "some of the electrical poles and lines are intersecting
+# with buildings"). The self-test proves it by standing a pole in a building and a gable under a
+# crossarm, a roof under an alley span and a block under a trolley span; a fence under a span passes.
+selftest "the 1904 poles, crossarms and wires refuse to run into a building (T-3225)" \
+  python3 tools/lay_prairie_1904_street_furniture.py --self-test
+
 # T-3203. ...and the house lots' front yards: a lawn to each house, foundation shrubs, low beds
 # and the pictured ivy, laid clear of every stoop, fence, walk and door's way the 1904 houses'
 # baked models draw. The committed file is what the tool writes; when a house has been rebaked

@@ -35,6 +35,16 @@ only in pictures dated after 1904. The scene has no night, so no lamp is lit.
 GRADES. A lamp a picture shows where it stands is attested; the rest are reconstructed,
 recorded at docs/LIBERTIES.md L-prairie-street-lamps-3199. Deterministic: no randomness
 but a fixed per-face phase, so a re-run lays the same lamps.
+
+THE POLES AND WIRES (T-3202) stand clear of what is built (T-3225). The owner, 2026-10-28: "some
+of the electrical poles and lines are intersecting with buildings". The tool lays every 1904
+structure near a pole line (its baked model, git-carried, placed as buildings.js places it; a model
+git does not carry, Glessner's, as its footprint walled to 15 m; the context city's kept blocks as
+boxes) on a plan raster of heights, and holds each pole, its crossarm and each sagging wire clear of
+it. It refuses to write a placement that runs into a structure, and --check refuses a committed file
+that does, naming the pole or span and the structure:
+
+    python3 tools/lay_prairie_1904_street_furniture.py --self-test   # breaks the clearance four ways
 """
 from __future__ import annotations
 
@@ -654,7 +664,438 @@ def poly_at(pl, s):
     return pl[-1], unit(sub(pl[-1], pl[-2]))
 
 
-def lay_poles(grid, section, trees_doc, items):
+# --------------------------------------------------------------------------- what the poles stand clear of (T-3225)
+#
+# The owner, 2026-10-28, from an alley in the dev preview: "some of the electrical poles and lines
+# are intersecting with buildings". T-3202 kept the poles clear of the elms, lamps and hydrants
+# and of nothing built, so an alley pole 0.45 m inside the alley stood with its 2.4 m crossarm in
+# the gable of Glessner's coach house, and the wires, hung from that arm's outer pins 0.7 m over
+# the lot line, ran through the coach houses that stand on it. Everything below asks the question
+# of the structures' own baked models.
+
+BUILT_RES_M = 0.25             # the plan raster of what is built, metres a cell
+BUILT_FLAT_M = 0.12            # a triangle wholly below this lies on the ground (a walk, a yard)
+POLE_BODY_CLEAR_M = 0.15       # a pole's face from any wall, fence, stoop or roof edge
+ARM_CLEAR_M = 0.30             # a crossarm (and its insulators) over the highest roof beneath it
+WIRE_CLEAR_M = 0.30            # a wire over the highest roof, wall or fence beneath it
+UNTRACKED_TOP_M = 15.0         # a model git does not carry stands as its footprint, this tall...
+UNTRACKED_PAD_M = 0.6          # ...and this much wider, for the eaves and copings the footprint leaves out
+ALLEY_INSETS_M = (0.45, 0.9, 1.4, 1.9, 2.4)   # an alley pole's offset inside its edge, the first first
+ALLEY_SLIDES_M = tuple(x * sgn for x in (0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0) for sgn in (1, -1))
+INSET_COST = 2.0               # a metre further into the alley weighs as two metres along it
+OTHER_SIDE_COST = 8.0          # the alley's west side, only where the east side cannot take the pole
+SIDECARS = ROOT / "data" / "sidecars" / "1904"
+ASSETS = ROOT / "assets"
+CONTEXT = ROOT / "data" / "context" / "1904.json"
+CLEARANCE_NOTE = ("No pole, crossarm or wire touches a 1904 structure (T-3225): tested on the baked models and "
+                  "the context city's blocks as a plan raster of their heights, a pole's face 0.15 m off any wall, "
+                  "fence or roof edge, a crossarm 0.3 m over the roof beneath it, every wire 0.3 m over whatever it "
+                  "crosses as it sags. An alley pole the rule puts into a coach house slides along the alley, then "
+                  "stands further into it, then crosses to its west side; a span through a building steps its "
+                  "poles further in, or is not hung. `moved` lists the poles off the rule's spot, "
+                  "`spans_not_hung` the spans left out.")
+
+
+def read_glb(path):
+    """Each primitive's material name, positions (x, y, z) and triangles, from a binary glTF."""
+    import struct
+    import numpy as np
+    b = path.read_bytes()
+    jlen = struct.unpack("<I", b[12:16])[0]
+    j = json.loads(b[20:20 + jlen])
+    off = 20 + jlen
+    blen = struct.unpack("<I", b[off:off + 4])[0]
+    binc = b[off + 8:off + 8 + blen]
+    mats = [m.get("name", "") for m in j.get("materials", [])]
+
+    def acc(i):
+        a = j["accessors"][i]
+        v = j["bufferViews"][a["bufferView"]]
+        dt = {5126: np.float32, 5125: np.uint32, 5123: np.uint16, 5121: np.uint8}[a["componentType"]]
+        n = {"SCALAR": 1, "VEC2": 2, "VEC3": 3, "VEC4": 4}[a["type"]]
+        start = v.get("byteOffset", 0) + a.get("byteOffset", 0)
+        stride = v.get("byteStride", 0)
+        if stride and stride != n * np.dtype(dt).itemsize:
+            raw = np.frombuffer(binc, np.uint8, count=stride * a["count"], offset=start).reshape(a["count"], stride)
+            return raw[:, :n * np.dtype(dt).itemsize].copy().view(dt).reshape(a["count"], n)
+        return np.frombuffer(binc, dt, count=a["count"] * n, offset=start).reshape(a["count"], n)
+
+    out = []
+    for node in j.get("nodes", []):
+        if "mesh" not in node:
+            continue
+        for p in j["meshes"][node["mesh"]]["primitives"]:
+            if p.get("mode", 4) != 4:
+                continue
+            pos = acc(p["attributes"]["POSITION"]).astype(np.float64)
+            idx = acc(p["indices"]).reshape(-1, 3).astype(np.int64) if "indices" in p else \
+                np.arange(len(pos)).reshape(-1, 3)
+            out.append((mats[p["material"]] if "material" in p else "", pos, idx))
+    return out
+
+
+class Built:
+    """The 1904 structures near the pole lines, as plan rasters of the highest point built over
+    each cell (metres above the structure's own ground). One raster per region: each alley and
+    the street faces that carry poles, each widened to take the poles, their arms and the wires.
+
+    A structure is its baked model (data/sidecars/1904/<id>.json -> assets/<asset>, placed by
+    local_e, local_n and rotation_deg exactly as renderers/web/js/buildings.js places it: the
+    bearing turns it CLOCKWISE). A model git does not carry (Glessner's, rebuilt from its recovery
+    package by publish.sh) is read from its sidecar footprint instead, walled to UNTRACKED_TOP_M
+    and padded by UNTRACKED_PAD_M, so the tool writes the same file on every checkout."""
+
+    def __init__(self, rects):
+        import numpy as np
+        self.np = np
+        self.rects = []
+        for e0, n0, e1, n1 in rects:
+            w = int(math.ceil((e1 - e0) / BUILT_RES_M))
+            h = int(math.ceil((n1 - n0) / BUILT_RES_M))
+            self.rects.append((e0, n0, e1, n1, np.zeros((h, w), np.float32), np.full((h, w), -1, np.int32)))
+        self.names = []
+
+    def _sid(self, name):
+        self.names.append(name)
+        return len(self.names) - 1
+
+    def touches(self, e0, n0, e1, n1):
+        return any(e0 <= r[2] and e1 >= r[0] and n0 <= r[3] and n1 >= r[1] for r in self.rects)
+
+    def lay_points(self, sid, pts):
+        """pts: (N, 3) world e, n, height."""
+        np = self.np
+        for e0, n0, e1, n1, top, who in self.rects:
+            c = np.floor((pts[:, 0] - e0) / BUILT_RES_M).astype(np.int64)
+            r = np.floor((pts[:, 1] - n0) / BUILT_RES_M).astype(np.int64)
+            ok = (c >= 0) & (c < top.shape[1]) & (r >= 0) & (r < top.shape[0])
+            if not ok.any():
+                continue
+            c, r, z = c[ok], r[ok], pts[ok, 2].astype(np.float32)
+            np.maximum.at(top, (r, c), z)
+            who[r[top[r, c] == z], c[top[r, c] == z]] = sid
+
+    def lay_model(self, name, place, prims):
+        np = self.np
+        d = math.radians(place.get("rotation_deg") or 0.0)
+        cd, sd = math.cos(d), math.sin(d)
+        e, n = place["local_e"], place["local_n"]
+        sid = None
+        for mat, pos, idx in prims:
+            if any(g in mat.lower() for g in ("turf", "earth", "lawn", "grass")):
+                continue
+            we = e + pos[:, 0] * cd - pos[:, 2] * sd
+            wn = n - pos[:, 0] * sd - pos[:, 2] * cd
+            tri = np.stack([we, wn, pos[:, 1]], axis=1)[idx]          # (T, 3 corners, e n y)
+            tri = tri[tri[:, :, 2].max(axis=1) > BUILT_FLAT_M]
+            if not len(tri):
+                continue
+            lo, hi = tri[:, :, :2].min(axis=1), tri[:, :, :2].max(axis=1)
+            near = np.zeros(len(tri), bool)
+            for e0, n0, e1, n1, _, _ in self.rects:
+                near |= (lo[:, 0] <= e1) & (hi[:, 0] >= e0) & (lo[:, 1] <= n1) & (hi[:, 1] >= n0)
+            tri = tri[near]
+            if not len(tri):
+                continue
+            if sid is None:
+                sid = self._sid(name)
+            a, b, c = tri[:, 0], tri[:, 1], tri[:, 2]
+            edge = np.max(np.stack([np.hypot(*(b - a)[:, :2].T), np.hypot(*(c - b)[:, :2].T),
+                                    np.hypot(*(a - c)[:, :2].T)]), axis=0)
+            k = np.clip(np.ceil(edge / (BUILT_RES_M * 0.7)).astype(int), 1, 400)
+            for kk in np.unique(k):
+                sel = k == kk
+                uu, vv = np.meshgrid(np.arange(kk + 1), np.arange(kk + 1))
+                keep = (uu + vv) <= kk
+                u, v = uu[keep] / kk, vv[keep] / kk
+                w = 1 - u - v
+                pts = (a[sel, None] * w[None, :, None] + b[sel, None] * u[None, :, None]
+                       + c[sel, None] * v[None, :, None])
+                self.lay_points(sid, pts.reshape(-1, 3))
+
+    def lay_prism(self, name, poly, top_m, pad_m):
+        """A footprint walled to top_m, widened by pad_m."""
+        np = self.np
+        P = np.asarray(poly, float)
+        sid = None
+        for e0, n0, e1, n1, top, who in self.rects:
+            lo, hi = P.min(axis=0) - pad_m, P.max(axis=0) + pad_m
+            c0, r0 = max(0, int((lo[0] - e0) / BUILT_RES_M)), max(0, int((lo[1] - n0) / BUILT_RES_M))
+            c1 = min(top.shape[1], int((hi[0] - e0) / BUILT_RES_M) + 1)
+            r1 = min(top.shape[0], int((hi[1] - n0) / BUILT_RES_M) + 1)
+            if c1 <= c0 or r1 <= r0:
+                continue
+            rr, cc = np.mgrid[r0:r1, c0:c1]
+            pe, pn = e0 + (cc + 0.5) * BUILT_RES_M, n0 + (rr + 0.5) * BUILT_RES_M
+            inside = np.zeros(pe.shape, bool)
+            dist = np.full(pe.shape, np.inf)
+            for i in range(len(P)):
+                (ae, an), (be, bn) = P[i - 1], P[i]
+                cross = ((an > pn) != (bn > pn)) & (pe < ae + (pn - an) * (be - ae) / ((bn - an) or 1e-12))
+                inside ^= cross
+                ve, vn = be - ae, bn - an
+                L2 = ve * ve + vn * vn or 1.0
+                u = np.clip(((pe - ae) * ve + (pn - an) * vn) / L2, 0.0, 1.0)
+                dist = np.minimum(dist, np.hypot(pe - (ae + ve * u), pn - (an + vn * u)))
+            m = inside | (dist <= pad_m)
+            if not m.any():
+                continue
+            if sid is None:
+                sid = self._sid(name)
+            sub_top = top[r0:r1, c0:c1]
+            sub_who = who[r0:r1, c0:c1]
+            upd = m & (sub_top < top_m)
+            sub_top[upd] = top_m
+            sub_who[upd] = sid
+
+    def top_at(self, pts, radius=0.0):
+        """The highest point built within `radius` of each plan point: (heights, structure ids)."""
+        np = self.np
+        pts = np.asarray(pts, float).reshape(-1, 2)
+        best = np.zeros(len(pts), np.float32)
+        bwho = np.full(len(pts), -1, np.int32)
+        k = int(math.ceil(radius / BUILT_RES_M))
+        offs = [(dx * BUILT_RES_M, dy * BUILT_RES_M) for dx in range(-k, k + 1) for dy in range(-k, k + 1)
+                if (dx * dx + dy * dy) * BUILT_RES_M ** 2 <= (radius + BUILT_RES_M * 0.71) ** 2]
+        for dx, dy in offs:
+            q = pts + (dx, dy)
+            for e0, n0, e1, n1, top, who in self.rects:
+                c = np.floor((q[:, 0] - e0) / BUILT_RES_M).astype(np.int64)
+                r = np.floor((q[:, 1] - n0) / BUILT_RES_M).astype(np.int64)
+                ok = (c >= 0) & (c < top.shape[1]) & (r >= 0) & (r < top.shape[0])
+                h = np.zeros(len(q), np.float32)
+                w = np.full(len(q), -1, np.int32)
+                h[ok] = top[r[ok], c[ok]]
+                w[ok] = who[r[ok], c[ok]]
+                up = h > best
+                best[up] = h[up]
+                bwho[up] = w[up]
+        return best, bwho
+
+    def name(self, sid):
+        return self.names[sid] if sid >= 0 else "?"
+
+
+def tracked_assets():
+    import subprocess
+    try:
+        out = subprocess.run(["git", "ls-files", "-z", "assets"], cwd=ROOT, capture_output=True, check=True)
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return {s for s in out.stdout.decode().split("\0") if s}
+
+
+def pole_regions(grid):
+    """Where poles, arms and wires can be: each alley widened 5 m, the pole faces' street widened."""
+    xs = grid["cross_sections"]
+    faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
+    rects = []
+    for al in grid.get("alleys", []):
+        P = al["polygon_local_m"]
+        es, ns = [p[0] for p in P], [p[1] for p in P]
+        rects.append((min(es) - 5.0, min(ns) - 5.0, max(es) + 5.0, max(ns) + 5.0))
+    for fid in [GLESSNER_POLE["face"]] + TROLLEY_FACES:
+        f = faces[fid]
+        width = STREET_WIDTH_FT[f.rec["cross_section"]] * FT
+        pts = [f.at(s, a)[0] for s in (0.0, f.length) for a in (-4.0, width + 4.0)]
+        es, ns = [p[0] for p in pts], [p[1] for p in pts]
+        rects.append((min(es), min(ns), max(es), max(ns)))
+    return rects
+
+
+def in_poly(q, poly):
+    inside = False
+    for i in range(len(poly)):
+        a, b = poly[i - 1], poly[i]
+        if (a[1] > q[1]) != (b[1] > q[1]) and q[0] < a[0] + (q[1] - a[1]) * (b[0] - a[0]) / ((b[1] - a[1]) or 1e-12):
+            inside = not inside
+    return inside
+
+
+def context_box(e, n, w, d, bearing, grow=0.0):
+    """A context building's plan rectangle, as renderers/web/js/context.js corners()."""
+    t = math.radians(bearing)
+    u = (math.sin(t), math.cos(t))
+    v = (u[1], -u[0])
+    hd, hw = d / 2 + grow, w / 2 + grow
+    return [(e + su * u[0] * hd + sv * v[0] * hw, n + su * u[1] * hd + sv * v[1] * hw)
+            for su, sv in ((1, 1), (1, -1), (-1, -1), (-1, 1))]
+
+
+def lay_built(grid):
+    """Every 1904 structure that reaches a pole region, on a Built raster: the placed models, and
+    the faded context city's stand-in blocks (data/context/1904.json) the renderer keeps, each as
+    its box walled to its eave and roof rise."""
+    built = Built(pole_regions(grid))
+    tracked = tracked_assets()
+    footprints = []
+    for f in sorted(SIDECARS.glob("*.json")):
+        sc = json.loads(f.read_text())
+        pl = sc.get("placement") or {}
+        if "asset" not in sc or pl.get("local_e") is None:
+            continue
+        fp = (sc.get("footprint") or {}).get("polygon") or []
+        th = math.radians(float(pl.get("rotation_deg") or 0.0))
+        cth, sth = math.cos(th), math.sin(th)
+        world = [(pl["local_e"] + u * cth + v * sth, pl["local_n"] - u * sth + v * cth) for u, v in fp]
+        if len(world) >= 3:
+            footprints.append(world)
+        glb = ASSETS / sc["asset"]
+        carried = tracked is not None and f"assets/{sc['asset']}" in tracked and glb.exists()
+        if carried:
+            prims = read_glb(glb)
+            # a cheap first look: the model's own reach about its anchor
+            r = max((float(built.np.abs(p[:, [0, 2]]).max()) for _, p, _ in prims if len(p)), default=0.0)
+            if not built.touches(pl["local_e"] - r, pl["local_n"] - r, pl["local_e"] + r, pl["local_n"] + r):
+                continue
+            built.lay_model(sc["id"], pl, prims)
+        elif len(world) >= 3:
+            built.lay_prism(sc["id"], world, UNTRACKED_TOP_M, UNTRACKED_PAD_M)
+    if CONTEXT.exists():
+        ctx = json.loads(CONTEXT.read_text())
+        at = {k: i for i, k in enumerate(ctx["fields"]["buildings"])}
+        for k, b in enumerate(ctx["buildings"]):
+            e, n, w, d, brg = (b[at["e"]], b[at["n"]], b[at["width_m"]], b[at["depth_m"]], b[at["bearing_deg"]])
+            R = math.hypot(w, d) / 2 + 1.0
+            if not built.touches(e - R, n - R, e + R, n + R):
+                continue
+            # the renderer drops a block that touches a placed structure's footprint, grown 1 m
+            rect = context_box(e, n, w, d, brg, 1.0)
+            if any(in_poly((e, n), fp) or any(in_poly(c, fp) for c in rect) or any(in_poly(c, rect) for c in fp)
+                   for fp in footprints):
+                continue
+            built.lay_prism(f"context block {k} ({ctx['enums']['rule'][b[at['rule']]]})",
+                            context_box(e, n, w, d, brg), b[at["eave_m"]] + b[at["rise_m"]], 0.0)
+    return built
+
+
+def pin_offsets(m):
+    """Where a crossarm's pins stand along it, as renderers/web/js/street-furniture.js pinOffsets."""
+    n = m.get("pins", 0)
+    L = m.get("arm_len_m", 1.8)
+    if not n:
+        return []
+    half = math.ceil(n / 2)
+    out = []
+    for i in range(half):
+        z = 0.25 + (L / 2 - 0.35) * (0 if half == 1 else i / (half - 1)) + 0.05
+        out += [z, -z]
+    return sorted(out[:n])
+
+
+def arm_dir(heading_deg):
+    """A pole's crossarm direction in plan (east, north): its local z, square to heading_deg."""
+    a = math.radians(90.0 - heading_deg)
+    return (math.sin(a), -math.cos(a))
+
+
+def pole_hits(p, m, built):
+    """What a pole or its crossarm runs into: [(part, structure, height)]."""
+    out = []
+    r = m["butt_d_m"] / 2 + POLE_BODY_CLEAR_M
+    h, w = built.top_at([(p["e"], p["n"])], r)
+    if h[0] > BUILT_FLAT_M:
+        out.append(("pole", built.name(int(w[0])), float(h[0])))
+    if m.get("arms"):
+        y = m["height_m"] - m["arm_below_top_m"] - 0.06 - ARM_CLEAR_M
+        ax = arm_dir(p["heading_deg"])
+        half = m["arm_len_m"] / 2
+        ts = [i * 0.1 - half for i in range(int(round(2 * half / 0.1)) + 1)]
+        h, w = built.top_at([(p["e"] + ax[0] * t, p["n"] + ax[1] * t) for t in ts], 0.1)
+        i = int(h.argmax())
+        if h[i] > y:
+            out.append(("crossarm", built.name(int(w[i])), float(h[i])))
+    return out
+
+
+def wire_paths(w, poles, models, wire_model):
+    """Each wire of a span as (a, b, y_a, y_b, sag): plan ends, heights above ground, mid sag.
+    Mirrors renderers/web/js/street-furniture.js: a line span joins each pin to the pin on the
+    same side of the other pole's arm, seen along the span."""
+    if w["kind"] == "line":
+        a, b = poles[w["from"]], poles[w["to"]]
+        ma, mb = models[a["class"]], models[b["class"]]
+        span = math.dist((a["e"], a["n"]), (b["e"], b["n"])) or 1.0
+        d = ((b["e"] - a["e"]) / span, (b["n"] - a["n"]) / span)
+
+        def pins(p, m):
+            ax = arm_dir(p["heading_deg"])
+            pts = [(p["e"] + ax[0] * z, p["n"] + ax[1] * z) for z in pin_offsets(m)]
+            return sorted(pts, key=lambda v: (v[0] - p["e"]) * -d[1] + (v[1] - p["n"]) * d[0])
+        pa, pb = pins(a, ma), pins(b, mb)
+        n = min(len(pa), len(pb))
+        ya = ma["height_m"] - ma["arm_below_top_m"] + 0.24
+        yb = mb["height_m"] - mb["arm_below_top_m"] + 0.24
+        sag = wire_model["sag_frac"] * span
+        out = []
+        for i in range(n):
+            j = round(i * (len(pa) - 1) / max(1, n - 1))
+            k = round(i * (len(pb) - 1) / max(1, n - 1))
+            out.append((pa[j], pb[k], ya, yb, sag))
+        return out
+    t = wire_model["trolley"]
+    if w["kind"] == "trolley_span":
+        a, b = poles[w["from"]], poles[w["to"]]
+        h = models["trolley"]["span_at_m"]
+        return [((a["e"], a["n"]), (b["e"], b["n"]), h, h, t["span_sag_m"])]
+    if w["kind"] == "trolley_contact":
+        hangs = []
+        for ia, ib in w["between_spans"]:
+            a, b = poles[ia], poles[ib]
+            L = math.dist((a["e"], a["n"]), (b["e"], b["n"])) or 1.0
+            hangs.append((((a["e"] + b["e"]) / 2, (a["n"] + b["n"]) / 2), ((b["e"] - a["e"]) / L, (b["n"] - a["n"]) / L)))
+        g = t["contact_gap_m"] / 2
+        out = []
+        for s in (-1, 1):
+            p0 = (hangs[0][0][0] + hangs[0][1][0] * s * g, hangs[0][0][1] + hangs[0][1][1] * s * g)
+            p1 = (hangs[1][0][0] + hangs[1][1][0] * s * g, hangs[1][0][1] + hangs[1][1][1] * s * g)
+            out.append((p0, p1, t["contact_h_m"], t["contact_h_m"], 0.08))
+        return out
+    return []
+
+
+def span_hit(paths, built):
+    """The first place a wire comes within WIRE_CLEAR_M of what is built under it:
+    (structure, metres along, wire height, built height) or None."""
+    np = built.np
+    for a, b, ya, yb, sag in paths:
+        L = math.dist(a, b)
+        n = max(2, int(L / 0.1))
+        f = np.linspace(0.0, 1.0, n + 1)
+        pts = np.stack([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], axis=1)
+        y = ya + (yb - ya) * f - 4 * sag * f * (1 - f)
+        h, w = built.top_at(pts, 0.05)
+        bad = np.nonzero(h > y - WIRE_CLEAR_M)[0]
+        if len(bad):
+            i = int(bad[0])
+            return built.name(int(w[i])), float(f[i] * L), float(y[i]), float(h[i])
+    return None
+
+
+def wire_label(w):
+    if "between_spans" in w:
+        return " / ".join("-".join(s) for s in w["between_spans"])
+    return f"{w['from']} -> {w['to']}"
+
+
+def intersections(items, wires, models, wire_model, built):
+    """Every pole, crossarm or wire that runs into a 1904 structure, one line each."""
+    poles = {i["id"]: i for i in items if i["kind"] == "utility_pole"}
+    out = []
+    for p in poles.values():
+        for part, sid, h in pole_hits(p, models[p["class"]], built):
+            what = "stands in" if part == "pole" else "reaches"
+            out.append(f"{p['id']}: its {part} {what} {sid} (built {h:.2f} m high there)")
+    for w in wires:
+        hit = span_hit(wire_paths(w, poles, models, wire_model), built)
+        if hit:
+            sid, at, y, h = hit
+            out.append(f"{w['kind']} {wire_label(w)}: a wire runs through {sid} {at:.1f} m along "
+                       f"(wire {y:.2f} m, built {h:.2f} m)")
+    return out
+
+
+def lay_poles(grid, section, trees_doc, items, built):
     xs = grid["cross_sections"]
     faces = {f["id"]: Face(f, xs[f["cross_section"]]) for f in grid["faces"]}
     alleys = {a["id"]: a for a in grid.get("alleys", [])}
@@ -670,14 +1111,18 @@ def lay_poles(grid, section, trees_doc, items):
                 and all(math.dist(p, o) >= POLE_ITEM_CLEAR_M for o in others)
                 and all(poly_dist(p, c) >= CROSSING_CLEAR_M for c in crossings))
 
-    def on_face(face, s, across, lo, hi):
+    def built_clear(p, t, cls):
+        """The pole and its crossarm stand clear of every structure (T-3225)."""
+        return not pole_hits({"e": r2(p[0]), "n": r2(p[1]), "heading_deg": round(bearing(t), 1)}, POLE[cls], built)
+
+    def on_face(face, s, across, lo, hi, cls):
         blocked = blocked_intervals(face, walks, list(alleys.values()))
         k = 0
         while k * NUDGE_STEP_M <= NUDGE_MAX_M:
             for x in ((s,) if k == 0 else (s + k * NUDGE_STEP_M, s - k * NUDGE_STEP_M)):
                 if lo <= x <= hi and not any(a < x < b for a, b, _ in blocked):
                     p, t = face.at(x, across)
-                    if free(p):
+                    if free(p) and built_clear(p, t, cls):
                         return x, p, t
             k += 1
         return None
@@ -701,7 +1146,7 @@ def lay_poles(grid, section, trees_doc, items):
     # The face runs east to west; "past the alley" is toward Prairie, the smaller s.
     s0 = min(ss) - ALLEY_CLEAR_M - GLESSNER_POLE["past_alley_m"]
     across = face.park_to - POLE_CURB_INSET_M
-    hit = on_face(face, s0, across, 0.0, face.length)
+    hit = on_face(face, s0, across, 0.0, face.length, "street")
     if not hit:
         raise SystemExit("street furniture: no clear spot for Glessner's pole")
     names = {k: v.get("name_1904", k) for k, v in grid["streets"].items()}
@@ -714,7 +1159,7 @@ def lay_poles(grid, section, trees_doc, items):
     s = hit[0] + POLE_SPACING_M
     k = 1
     while s <= face.length - 6.0:
-        h = on_face(face, s, across, s - 4.0, face.length - 4.0)
+        h = on_face(face, s, across, s - 4.0, face.length - 4.0, "street")
         if h:
             line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
                                GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
@@ -724,51 +1169,156 @@ def lay_poles(grid, section, trees_doc, items):
     # ...and one more short of Indiana Avenue's corner, where the line goes on beyond the district.
     last_s = face.project((line18[-1]["e"], line18[-1]["n"]))[0]
     if face.length - 8.0 - last_s > 0.5 * POLE_SPACING_M:
-        h = on_face(face, face.length - 8.0, across, last_s + 10.0, face.length - 4.0)
+        h = on_face(face, face.length - 8.0, across, last_s + 10.0, face.length - 4.0, "street")
         if h:
             line18.append(pole(f"pole.18th#{k:02d}", h[1], h[2], "street", "inferred",
                                GLESSNER_POLE["sources"] + POLE_18TH_NOTE_SOURCES, "e18th",
                                liberty="L-prairie-utility-poles-3202", where=w18))
-    # 2. The alleys: a line down each, on its east side, an end pole in from each mouth.
-    ends = []
+    # 2. The alleys: a line down each, on its east side, an end pole in from each mouth. Each pole
+    #    stands clear of what is built (T-3225): where the rule's spot puts the pole or its crossarm
+    #    into a coach house, it slides along the alley, then steps further into it, and only then
+    #    crosses to the west side; where a span's wires would run through a building, the span's
+    #    poles step further into the alley until they clear it, or the span is not hung.
+    wire_model = {"sag_frac": WIRE_SAG_FRAC, "trolley": TROLLEY}
+    moved, spans_dropped = [], []
+
+    class Spot:
+        """An alley pole's place: its edge, the distance along it, and how far inside it."""
+
+        def __init__(self, pid, aid, side, edge, x, inset, dk):
+            self.pid, self.aid, self.side, self.edge, self.x, self.inset, self.dk = pid, aid, side, edge, x, inset, dk
+
+        def rec(self, inset=None):
+            q, t = poly_at(self.edge, self.x)
+            sgn = 1.0 if self.side == "east" else -1.0   # walking south, west is to the right
+            ins = self.inset if inset is None else inset
+            p = (q[0] + t[1] * sgn * ins, q[1] - t[0] * sgn * ins)
+            return {"id": self.pid, "e": r2(p[0]), "n": r2(p[1]), "heading_deg": round(bearing(t), 1),
+                    "class": "alley"}, p, t
+
+    def spot_ok(sp, inset=None):
+        r, p, t = sp.rec(inset)
+        return free(p) and not pole_hits(r, POLE["alley"], built)
+
+    def recs(*xs):
+        return {x["id"]: x for x in xs}
+
+    def span_ok(ra, rb):
+        w = {"kind": "line", "from": ra["id"], "to": rb["id"]}
+        return span_hit(wire_paths(w, recs(ra, rb), POLE, wire_model), built) is None
+
+    alley_lines = []   # per alley: (aid, [Spot])
     for aid in sorted(alleys):
         west, east = alley_edges(alleys[aid])
-        edge = east
-        L = poly_len(edge)
+        L = poly_len(east)
+        Lw = poly_len(west)
         n = max(1, round((L - 2 * POLE_MOUTH_IN_M) / POLE_SPACING_M))
         step = (L - 2 * POLE_MOUTH_IN_M) / n
-        line = []
+        spots = []
         for j in range(n + 1):
             s = POLE_MOUTH_IN_M + j * step
+            pid = f"pole.{aid.replace('alley_', 'alley.')}#{j:02d}"
+            # T-3202's own order first (the east side, 0.45 m in, up to 3 m along), then further
+            # along and further in, then the west side.
+            cands = []
+            for side, extra in (("east", 0.0), ("west", OTHER_SIDE_COST)):
+                for inset in ALLEY_INSETS_M:
+                    for dk in (0.0,) + ALLEY_SLIDES_M:
+                        if side == "east" and inset == ALLEY_INSETS_M[0] and abs(dk) <= 3.0:
+                            cost = abs(dk)
+                        else:
+                            cost = 3.0 + abs(dk) + INSET_COST * (inset - ALLEY_INSETS_M[0]) + extra
+                        cands.append((cost, side, inset, dk))
+            cands.sort(key=lambda c: c[0])
             got = None
-            for dk in [0] + [d * sgn for d in (0.5, 1.0, 1.5, 2.0, 2.5, 3.0) for sgn in (1, -1)]:
-                x = min(max(s + dk, 1.0), L - 1.0)
-                q, t = poly_at(edge, x)
-                inward = (t[1], -t[0])   # walking south on the east edge, west is to the right
-                p = (q[0] + inward[0] * POLE_ALLEY_INSET_M, q[1] + inward[1] * POLE_ALLEY_INSET_M)
-                if free(p):
-                    got = (p, t)
+            for _, side, inset, dk in cands:
+                edge, Le = (east, L) if side == "east" else (west, Lw)
+                x = min(max((s + dk) * Le / L, 1.0), Le - 1.0)
+                sp = Spot(pid, aid, side, edge, x, inset, dk)
+                if spot_ok(sp):
+                    got = sp
                     break
             if got:
-                line.append(pole(f"pole.{aid.replace('alley_', 'alley.')}#{j:02d}", got[0], got[1], "alley",
-                                 "reconstructed", [], "alley", liberty="L-prairie-utility-poles-3202",
-                                 alley=aid, where=f"in the alley {alleys[aid]['where']}"))
-        if line:
-            ends.append((aid, line[0], line[-1]))
-        for a, b in zip(line, line[1:]):
-            wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "reconstructed"})
-    # The alley lines run on across the cross streets where one alley's foot meets the next one's head.
+                spots.append(got)
+            else:
+                moved.append({"pole": pid, "dropped": "no clear place within 6 m along its alley, on either side"})
+        alley_lines.append((aid, spots))
+
+    # The spans: along each alley, then across the cross streets where one alley's foot meets the
+    # next one's head, then from Glessner's pole into the alley behind it. A span through a
+    # building first steps its alley poles further in (never Glessner's: its photograph places it).
+    spans = []   # [a, b, grade] where a, b are Spot or a fixed record
+    for aid, spots in alley_lines:
+        for a, b in zip(spots, spots[1:]):
+            spans.append([a, b, "reconstructed"])
+    ends = [(aid, sp[0], sp[-1]) for aid, sp in alley_lines if sp]
     for aid, head, foot in ends:
         for bid, head2, _ in ends:
-            if bid != aid and math.dist((foot["e"], foot["n"]), (head2["e"], head2["n"])) < 2 * POLE_MOUTH_IN_M + 66 * FT + ALLEY_LINE_JOIN_M \
-                    and abs(foot["e"] - head2["e"]) < ALLEY_LINE_JOIN_M and head2["n"] < foot["n"]:
-                wires.append({"from": foot["id"], "to": head2["id"], "kind": "line", "grade": "reconstructed"})
+            fr, hr = foot.rec()[0], head2.rec()[0]
+            if bid != aid and math.dist((fr["e"], fr["n"]), (hr["e"], hr["n"])) < 2 * POLE_MOUTH_IN_M + 66 * FT + ALLEY_LINE_JOIN_M \
+                    and abs(fr["e"] - hr["e"]) < ALLEY_LINE_JOIN_M and hr["n"] < fr["n"]:
+                spans.append([foot, head2, "reconstructed"])
+    head = next((h for aid, h, _ in ends if aid == GLESSNER_POLE["alley"]), None)
+    glessner_rec = {"id": line18[0]["id"], "e": line18[0]["e"], "n": line18[0]["n"],
+                    "heading_deg": line18[0]["heading_deg"], "class": "street"}
+    if head:
+        spans.append([glessner_rec, head, "inferred"])
+
+    def r_of(x, inset=None):
+        return x.rec(inset)[0] if isinstance(x, Spot) else x
+
+    kept = []
+    for sp in spans:
+        a, b, _ = sp
+        if span_ok(r_of(a), r_of(b)):
+            kept.append(sp)
+            continue
+        movable = [x for x in (a, b) if isinstance(x, Spot)]
+        fixed = False
+        for ins in ALLEY_INSETS_M:
+            trial = {x: max(x.inset, ins) for x in movable}
+            if all(trial[x] == x.inset for x in movable):
+                continue
+            if not all(spot_ok(x, trial[x]) for x in movable):
+                continue
+            ra = r_of(a, trial.get(a)) if isinstance(a, Spot) else a
+            rb = r_of(b, trial.get(b)) if isinstance(b, Spot) else b
+            if not span_ok(ra, rb):
+                continue
+            # ...and every span already hung from a pole that steps in still clears.
+            ok = True
+            for ka, kb, _ in kept:
+                if ka in trial or kb in trial:
+                    if not span_ok(r_of(ka, trial.get(ka)) if isinstance(ka, Spot) else ka,
+                                   r_of(kb, trial.get(kb)) if isinstance(kb, Spot) else kb):
+                        ok = False
+                        break
+            if ok:
+                for x in movable:
+                    x.inset = trial[x]
+                fixed = True
+                break
+        if fixed:
+            kept.append(sp)
+        else:
+            spans_dropped.append(f"{r_of(a)['id']} -> {r_of(b)['id']}")
+
+    for aid, spots in alley_lines:
+        for sp in spots:
+            rec, p, t = sp.rec()
+            pole(sp.pid, p, t, "alley", "reconstructed", [], "alley", liberty="L-prairie-utility-poles-3202",
+                 alley=aid, where=f"in the alley {alleys[aid]['where']}")
+            if sp.side != "east" or sp.inset != ALLEY_INSETS_M[0] or abs(sp.dk) > 3.0:
+                moved.append({"pole": sp.pid, "side": sp.side, "inset_m": sp.inset, "along_m": sp.dk})
+    for a, b, grade in kept:
+        if grade == "reconstructed":
+            wires.append({"from": r_of(a)["id"], "to": r_of(b)["id"], "kind": "line", "grade": grade})
     # 18th Street's line: along the parkway, and from Glessner's pole into the alley behind it.
     for a, b in zip(line18, line18[1:]):
         wires.append({"from": a["id"], "to": b["id"], "kind": "line", "grade": "inferred"})
-    head = next((h for aid, h, _ in ends if aid == GLESSNER_POLE["alley"]), None)
-    if head:
-        wires.append({"from": line18[0]["id"], "to": head["id"], "kind": "line", "grade": "inferred"})
+    for a, b, grade in kept:
+        if grade == "inferred":
+            wires.append({"from": r_of(a)["id"], "to": r_of(b)["id"], "kind": "line", "grade": grade})
     # 3. 22nd Street's trolley: poles on both curbs, a span wire between each pair, two contact
     #    wires along the street over the tracks.
     pairs = []
@@ -781,7 +1331,7 @@ def lay_poles(grid, section, trees_doc, items):
         step = (face.length - 12.0) / n
         for j in range(n + 1):
             s = 6.0 + j * step
-            h = on_face(face, s, across, 4.0, face.length - 4.0)
+            h = on_face(face, s, across, 4.0, face.length - 4.0, "trolley")
             if not h:
                 continue
             q, t = face.at(h[0], far_across)
@@ -799,16 +1349,18 @@ def lay_poles(grid, section, trees_doc, items):
     for (_, a1, b1), (_, a2, b2) in zip(pairs, pairs[1:]):
         wires.append({"between_spans": [[a1["id"], b1["id"]], [a2["id"], b2["id"]]], "kind": "trolley_contact",
                       "grade": "inferred", "sources": TROLLEY_SOURCES})
-    return poles, wires
+    return poles, wires, {"moved": moved, "spans_not_hung": spans_dropped}
 
 
-def build():
+def build(built=None):
     grid = json.loads(GRID.read_text())
     section = json.loads(SECTION.read_text()) if SECTION.exists() else None
     trees = json.loads(TREES.read_text()) if TREES.exists() else None
+    if built is None:
+        built = lay_built(grid)
     items = lay_lamps(grid, section, trees)
     items += lay_hydrants(grid, section, trees, items)
-    poles, wires = lay_poles(grid, section, trees, items)
+    poles, wires, cleared = lay_poles(grid, section, trees, items, built)
     items += poles
     order = {"corner": 0, "mid-block": 1}
     items.sort(key=lambda i: (i["kind"], order.get(i["place"], 9), i["id"]))
@@ -919,13 +1471,20 @@ def build():
             "utility_pole": {
                 "liberty": "L-prairie-utility-poles-3202",
                 "spacing_m": POLE_SPACING_M,
+                "clearance": {
+                    "pole_face_m": POLE_BODY_CLEAR_M, "crossarm_over_roof_m": ARM_CLEAR_M,
+                    "wire_over_roof_m": WIRE_CLEAR_M, "alley_insets_m": list(ALLEY_INSETS_M),
+                    "note": CLEARANCE_NOTE,
+                    "moved": cleared["moved"],
+                    "spans_not_hung": cleared["spans_not_hung"],
+                },
                 "note": ("Glessner's pole where the photograph shows it, on 18th Street's south parkway at the "
                          "stable's corner by the alley; the line on west from it to Indiana Avenue at about 34 m "
-                         "(Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley), and "
-                         "into the alley behind it; a line down every alley on its east side, its end poles 2.5 m in "
-                         "from the mouths and spanned across the cross streets where alleys meet; none on the "
-                         "Prairie Avenue parkways. Each pole clear of the elms, lamps, hydrants, carriage walks "
-                         "and alley mouths."),
+                         "(Taylor 2135 and the Detroit view show no pole on 18th Street east of the alley); a line "
+                         "down every alley on its east side, its end poles 2.5 m in from the mouths and spanned "
+                         "across the cross streets where alleys meet; none on the Prairie Avenue parkways. Each "
+                         "pole clear of the elms, lamps, hydrants, carriage walks and alley mouths, and every pole, "
+                         "crossarm and wire clear of the buildings, coach houses and fences."),
                 "note_by_class": {
                     "trolley": ("22nd Street's overhead: a pair of plain poles at about 34 m, one in the north "
                                 "parkway by the curb and one opposite it across the street, a span wire between "
@@ -966,14 +1525,101 @@ def dump(doc):
     return head + f',\n "items": [\n{line(items)}\n ],\n "wires": [\n{line(wires)}\n ]\n}}\n'
 
 
+def poles_clear(doc, built):
+    """T-3225: no pole, crossarm or wire of `doc` runs into a 1904 structure. [] when none does."""
+    return intersections(doc["items"], doc["wires"], doc["kinds"]["utility_pole"]["model_m"],
+                         doc["wire_model"], built)
+
+
+def self_test(built):
+    """Break the clearance check four ways (each must fire); the placement and a low fence pass."""
+    import copy
+    doc = build(built)
+    np = built.np
+    fails = 0
+
+    def expect(label, d, want, b=built):
+        nonlocal fails
+        got = poles_clear(d, b)
+        hit = [g for g in got if want in g] if want else got
+        ok = bool(hit) if want else not got
+        print(f"{'ok  ' if ok else 'FAIL'} {label}: " + ("; ".join(got[:2]) if got else "nothing intersects"))
+        fails += 0 if ok else 1
+
+    expect("the committed placement", doc, None)
+    poles = [i for i in doc["items"] if i["kind"] == "utility_pole" and i["class"] == "alley"]
+    p0 = poles[0]
+    # 1. a pole moved onto the highest point of the first structure laid
+    e0, n0, e1, n1, top, who = built.rects[0]
+    r, c = np.unravel_index(int(top.argmax()), top.shape)
+    d = copy.deepcopy(doc)
+    q = next(i for i in d["items"] if i["id"] == p0["id"])
+    q["e"], q["n"] = r2(e0 + (c + 0.5) * BUILT_RES_M), r2(n0 + (r + 0.5) * BUILT_RES_M)
+    expect("a pole stood in a building", d, f"{p0['id']}: its pole stands in")
+
+    # The rest add a made-up structure to a copy of the raster beside the first alley pole.
+    def with_box(name, centre, half_e, half_n, top_m):
+        b = copy.copy(built)
+        b.rects = [(re0, rn0, re1, rn1, t.copy(), w.copy()) for re0, rn0, re1, rn1, t, w in built.rects]
+        b.names = built.names + [name]
+        sid = len(b.names) - 1
+        xs = np.arange(centre[0] - half_e, centre[0] + half_e + 1e-9, BUILT_RES_M / 2)
+        ys = np.arange(centre[1] - half_n, centre[1] + half_n + 1e-9, BUILT_RES_M / 2)
+        gx, gy = np.meshgrid(xs, ys)
+        b.lay_points(sid, np.stack([gx.ravel(), gy.ravel(), np.full(gx.size, top_m)], axis=1))
+        return b
+    m = doc["kinds"]["utility_pole"]["model_m"]["alley"]
+    ax = arm_dir(p0["heading_deg"])
+    # 2. a tall narrow wall under the crossarm's end, clear of the pole itself
+    tip = (p0["e"] + ax[0] * (m["arm_len_m"] / 2 - 0.1), p0["n"] + ax[1] * (m["arm_len_m"] / 2 - 0.1))
+    expect("a gable under the crossarm", doc, f"{p0['id']}: its crossarm reaches self-test gable",
+           with_box("self-test gable", tip, 0.2, 0.2, m["height_m"]))
+    # 3. a roof under the middle of the first alley span, as high as the wires
+    w = next(x for x in doc["wires"] if x["kind"] == "line" and x["from"] == p0["id"])
+    p1 = next(i for i in doc["items"] if i["id"] == w["to"])
+    mid = ((p0["e"] + p1["e"]) / 2, (p0["n"] + p1["n"]) / 2)
+    expect("a roof under a span", doc, f"line {p0['id']} -> {p1['id']}: a wire runs through self-test roof",
+           with_box("self-test roof", mid, 1.5, 1.5, m["height_m"] - m["arm_below_top_m"]))
+    # 4. ...and a fence there is passed over
+    expect("a fence under a span (passes)", doc, None, with_box("self-test fence", mid, 1.5, 1.5, 1.8))
+    # 5. a trolley span wire through a building in 22nd Street
+    t = next(x for x in doc["wires"] if x["kind"] == "trolley_span")
+    a = next(i for i in doc["items"] if i["id"] == t["from"])
+    b = next(i for i in doc["items"] if i["id"] == t["to"])
+    mid = ((a["e"] + b["e"]) / 2, (a["n"] + b["n"]) / 2)
+    expect("a building under the trolley span", doc, "trolley_span", with_box("self-test block", mid, 2.0, 2.0, 8.0))
+    print(f"{'all four faults caught, the clear cases passed' if not fails else f'{fails} case(s) wrong'}")
+    return 1 if fails else 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
     a = ap.parse_args()
-    doc = build()
+    built = lay_built(json.loads(GRID.read_text()))
+    if a.self_test:
+        return self_test(built)
+    doc = build(built)
     text = dump(doc)
     json.loads(text)
+    hits = poles_clear(doc, built)
+    if hits:
+        print(f"street furniture: {len(hits)} pole(s), crossarm(s) or span(s) run into a 1904 structure (T-3225):")
+        for h in hits:
+            print(f"  {h}")
+        return 1
     if a.check:
+        have = OUT.read_text() if OUT.exists() else ""
+        if have:
+            committed = json.loads(have)
+            old = poles_clear(committed, built)
+            if old:
+                print(f"street furniture: the committed {OUT.relative_to(ROOT)} has {len(old)} pole(s), crossarm(s) "
+                      "or span(s) running into a 1904 structure (T-3225):")
+                for h in old:
+                    print(f"  {h}")
+                return 1
         have = OUT.read_text() if OUT.exists() else ""
         if have != text:
             print(f"street furniture: {OUT.relative_to(ROOT)} is not what the tool writes -- re-run "
