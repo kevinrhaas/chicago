@@ -45,6 +45,7 @@ sys.path.insert(0, str(HERE.parent))
 from archetypes.k01_frontage import Prim, _add, _cross, _dot, _mul, _sub, _unit  # noqa: E402
 from archetypes import k06_windows as K06  # noqa: E402
 from archetypes import k09_trim as K09  # noqa: E402
+from archetypes import k14_yard as K14  # noqa: E402
 
 ROOT = HERE.parents[1]
 DATA = ROOT / "data" / "components" / "prairie_1904" / "k16_timber.json"
@@ -89,6 +90,8 @@ ROLE_MATERIAL = {
     # T-3181: 1720's porch — its turned balustrades, the stair's cheeks and newels, and the iron
     # cresting round its deck, which takes the boundary's iron
     "rail": "trim", "baluster": "trim", "string": "trim", "newel": "trim", "cresting": "fence_iron",
+    # T-3222: 1638's front walk, flags of the boundary's stone (its plinths'): one slot, no new draw
+    "walk_flag": "fence_stone",
 }
 #: T-2425: how far behind a glazed door's glass the dark of the hall is laid
 GLAZED_HALL_M = 0.15
@@ -99,6 +102,7 @@ NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing
 NOT_TIMBER += ("roof_covering", "chimney")
 NOT_TIMBER += ("fence_bar", "fence_rail", "pier_finial", "fence_base", "pier_plinth")
 NOT_TIMBER += ("cresting",)
+NOT_TIMBER += ("walk_flag",)
 #: T-2456: the boundary's two materials, offered only to a house that builds one
 BOUNDARY_MATERIALS = {
     "fence_iron": {"color": (0.12, 0.12, 0.12), "roughness": 0.6, "metallic": 0.4, "class": "metal"},
@@ -2803,6 +2807,12 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
             pr.nrm = [_rot_y(q, k) for q in pr.nrm]
             absorb(house.prims.setdefault(role, Prim(role)), pr)
         house.meta["parts"]["boundary"] = triangles(bd)
+    if form.get("yard"):     # T-3222: a K14 front walk from the stair's foot out through the gateway
+        yd = Sample({"id": f"{st['id']}.yard", "kind": "yard", "use": "yard"}, data)
+        house.meta["yard"] = yard_walk(yd, form["yard"]["value"], parts, form, st["id"])
+        for role, pr in yd.prims.items():
+            absorb(house.prims.setdefault(role, Prim(role)), pr)
+        house.meta["parts"]["yard"] = triangles(yd)
     return house
 
 
@@ -2981,6 +2991,113 @@ def boundary(sm: Sample, bv: dict) -> dict:
             "gateway_clear_m": round(gate, 4), "piers": built}
 
 
+# -- T-3222: the front walk, a K14 walk laid by the K16 front ---------------------------------
+#
+# A K16 front had no walk: 1638's stair came down onto bare ground and its fence's gateway
+# opened on nothing, so the house could not be walked into from the street. K14 routes it
+# (`k14_yard._route`: straight out from the stair's foot when the opening is square to it,
+# otherwise out, turned along the boundary's back clear of it, and out through the opening to
+# the public walk), the condition kit wears it (`path_wear`, front_walk), and it is laid here
+# in flags, each leg its own, as `k14_yard.dress_open` lays them. Built in the house's frame
+# after its turn (u out of the front toward the street, s north along it, glTF (u, y, -s)), the
+# frame `tools/check_house_walks.py` reads, so only a front facing east takes one.
+
+WALK_ROLE = "walk_flag"
+
+
+def yard_walk(sm: Sample, yv: dict, parts: dict, form: dict, sid: str) -> dict:
+    """Lay the record's `yard.front_walk` and return what was built: the legs, the flags and the
+    GLB node's K14/K16 component instances (the walk, and the boundary's runs either side of
+    its gateway), which the walk gate reads."""
+    from archetypes import k14_condition as KC      # numpy, read only by a house with a yard
+    if form["layout"]["value"]["faces"] != "east":
+        raise ValueError(f"{sid}: a K16 yard is laid about a front facing east")
+    if not form.get("boundary"):
+        raise ValueError(f"{sid}: a K16 yard's walk comes in through its boundary's gateway, and none is named")
+    stoop = parts["porch_right"].meta.get("stoop")
+    if not stoop:
+        raise ValueError(f"{sid}: a K16 yard's walk starts at the porch stair's foot, and the porch has no stair")
+    bv = form["boundary"]["value"]
+    pv = bv["pier"]
+    hp = pv["plinth_m"] / 2
+    p0, p1 = sorted(q["centre_m"] for q in bv["piers"])
+    gate = (p0 + hp, p1 - hp)                        # between the plinths' faces
+    line = bv["street_line_m"]
+    inner = line - pv["plinth_m"]                    # the plinths' back faces, the boundary's back
+    axis = parts["porch_right"].O[0]                 # the porch's middle, the stair's axis
+    foot = stoop["foot_z_m"]
+    F = yv["front_walk"]
+    w, top, fk = float(F["width_m"]), float(F["top_m"]), 1.0 - float(F["wear_tone"])
+    legs = K14._route((foot, axis - w / 2, axis + w / 2), [gate], inner, line, w)
+    g = K14._grade_spec(yv)
+    cond, seed, built = KC.Condition(), KC.property_seed(sid), float(yv["built"])
+
+    def rise(u, s):        # the app's ground over the house's base (yard.grade_m): `front` at the front, `street` at the line
+        if g is None:
+            return 0.0
+        f, st_, k = float(g["front"]), float(g["street"]), float(g.get("per_m_s", 0.0))
+        t = min(1.0, max(0.0, u / line))
+        return max(0.0, f + (st_ - f) * t + k * (s - axis))
+
+    pr = sm.prims.setdefault(WALK_ROLE, Prim(WALK_ROLE))
+    nflags = 0
+    for li, (u0, u1, s0, s1, along) in enumerate(legs):
+        L = (u1 - u0) if along == "u" else (s1 - s0)
+        nf = max(1, round(L / float(F["flag_m"])))
+        fl = (L - (nf - 1) * K14.JOINT_M) / nf
+        cu, cs = (u0 + u1) / 2, (s0 + s1) / 2
+        half = ((s1 - s0) if along == "u" else (u1 - u0)) / 2
+        offs = (-half, -0.5, -0.25, 0.0, 0.25, 0.5, half)
+        for j in range(nf):
+            a0 = (u0 if along == "u" else s0) + j * (fl + K14.JOINT_M)
+            a1 = a0 + fl
+            q0, q1, r0, r1 = (a0, a1, s0, s1) if along == "u" else (u0, u1, a0, a1)
+            # the flag's top, a grid of rows along the leg and columns across it, each vertex
+            # toned by the wear across the walk's centre line at that point
+            if along == "u":
+                cols = sorted({min(s1, max(s0, cs + o)) for o in offs})
+                n = max(1, math.ceil((q1 - q0) / K14.ROW_U - 1e-9))
+                grid = [[(q0 + (q1 - q0) * i / n, s) for s in cols] for i in range(n + 1)]
+                wear = lambda u, s: cond.path_wear(s - cs, u, use="front_walk", built=built, seed=seed)
+            else:
+                cols = sorted({min(u1, max(u0, cu + o)) for o in offs})
+                n = max(1, math.ceil((r1 - r0) / K14.ROW_U - 1e-9))
+                grid = [[(u, r0 + (r1 - r0) * i / n) for u in cols] for i in range(n + 1)]
+                wear = lambda u, s: cond.path_wear(u - cu, s, use="front_walk", built=built, seed=seed)
+            for ra, rb in zip(grid, grid[1:]):
+                for c in range(len(ra) - 1):
+                    cell = [ra[c], ra[c + 1], rb[c + 1], rb[c]]
+                    if abs((cell[2][0] - cell[0][0]) * (cell[2][1] - cell[0][1])) < 1e-9:
+                        continue
+                    sm.face(WALK_ROLE, [(u, top + rise(u, s), -s) for u, s in cell], (0.0, 1.0, 0.0))
+                    for i in range(1, 5):
+                        x, _y, z = pr.pos[-i]
+                        pr.tone[-i] = round(1.0 - fk * float(wear(x, -z)), 5)
+            # its four edges down to its bed; the first abuts the stair's bottom riser
+            sides = [((q0, r0), (q1, r0), (0.0, 0.0, 1.0)), ((q0, r1), (q1, r1), (0.0, 0.0, -1.0)),
+                     ((q1, r0), (q1, r1), (1.0, 0.0, 0.0)), ((q0, r0), (q0, r1), (-1.0, 0.0, 0.0))]
+            if li == 0 and j == 0:
+                sides.pop()
+            for (ua, sa), (ub, sb), hint in sides:
+                sm.face(WALK_ROLE, [(ua, -K14.FLAG_SINK + rise(ua, sa), -sa), (ub, -K14.FLAG_SINK + rise(ub, sb), -sb),
+                                    (ub, top + rise(ub, sb), -sb), (ua, top + rise(ua, sa), -sa)], hint)
+            nflags += 1
+    rl = [[round(u0, 4), round(u1, 4), round(s0, 4), round(s1, 4), al] for u0, u1, s0, s1, al in legs]
+    s_lo, s_hi = bv["lot_s_m"]
+    x = line - hp                                    # the boundary's line, through the plinths' middles
+    runs = [(s_lo + bv["end_clear_m"], gate[0]), (gate[1], s_hi - bv["end_clear_m"])]
+    walk = {"id": K14.FRONT_WALK, "family": "yard", "instances": [{
+        "params": {"flags": nflags, "width_m": round(w, 4), "triangles": len(pr.idx) // 3, "legs_m": rl},
+        "sockets": {"stoop_foot": [round(legs[0][0], 4), top, round(-(legs[0][2] + legs[0][3]) / 2, 4)],
+                    "public_walk": [round(line, 4), top, round(-(legs[-1][2] + legs[-1][3]) / 2, 4)]}}]}
+    fence = {"id": "k16.boundary.street_fence", "family": "fence", "instances": [
+        {"params": {"run": i, "s_m": [round(a, 4), round(b, 4)]},
+         "sockets": {"end_a": [round(x, 4), 0.0, round(-a, 4)], "end_b": [round(x, 4), 0.0, round(-b, 4)]}}
+        for i, (a, b) in enumerate(runs)]}
+    return {"legs_m": rl, "flags": nflags, "gateway_s_m": [round(gate[0], 4), round(gate[1], 4)],
+            "components": [walk, fence]}
+
+
 def structure_materials(house: Sample, data: dict, form: dict) -> dict:
     """The materials a house draws, and only those; its roof takes the record's covering."""
     mats = materials(data)
@@ -2997,7 +3114,9 @@ def structure_glb(house: Sample, data: dict, form: dict, structure_id: str, phas
     name = f"{structure_id}__{phase_id}"
     return to_glb([house], data, node_name=name, mats=structure_materials(house, data, form), node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
-        "parts_triangles": house.meta["parts"]},
+        "parts_triangles": house.meta["parts"],
+        # T-3222: a house with a yard names its walk and its boundary's runs, as a K01 front does
+        **({"k16": {"components": house.meta["yard"]["components"]}} if house.meta.get("yard") else {})},
         extras={"ticket": "T-2323", "structure": f"data/structures/{structure_id}.json"})
 
 
