@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/goodman_house_1612_prairie__as_built_1869.glb",
-      "bytes": 4620872,
-      "sha256": "d6904c23d074e8fd2d085a9ad433dfbbd0d2357fdae5664079fed609f8f459a1",
+      "bytes": 5627124,
+      "sha256": "bc037658921a5d3309d9e670964a25cca806801a9d05e4c16ac51cc02ece9425",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,17 +17,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 24,
-        "materials": 24,
-        "triangles": 32612,
-        "vertices": 65067
+        "draw_primitives": 27,
+        "materials": 27,
+        "triangles": 35716,
+        "vertices": 74317
       },
       "texture": {
-        "images": 13,
-        "textures": 13,
-        "encoded_bytes": 2006105,
-        "pixels": 12031616,
-        "gpu_rgba8_mip_bytes": 64168619,
+        "images": 15,
+        "textures": 15,
+        "encoded_bytes": 2623823,
+        "pixels": 14128768,
+        "gpu_rgba8_mip_bytes": 75353429,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -37,7 +37,7 @@
           -12.1446
         ],
         "max": [
-          24.5,
+          28.4,
           15.7235,
           3.57
         ]
@@ -219,6 +219,27 @@
             1.2
           ],
           "uv_per_m_times_tile_m": 1
+        },
+        "yard_cinder": {
+          "median_uv_per_m": 0.5,
+          "fabric": "gravel",
+          "tile_m": [
+            2,
+            2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "yard_earth": {
+          "median_uv_per_m": 1
+        },
+        "yard_turf": {
+          "median_uv_per_m": 0.4167,
+          "fabric": "turf",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1
         }
       },
       "origin": {
@@ -244,8 +265,8 @@
     },
     "web": {
       "path": "assets/web/goodman_house_1612_prairie__as_built_1869.glb",
-      "bytes": 3435840,
-      "sha256": "e77c301ac202d9474140ab722181a0587b717999b31fc3ed1033e9d31c7606fc",
+      "bytes": 3834828,
+      "sha256": "53792cba27555c25a4b1fda82fb26a0dc20c8787f76939bece6e1534b32b031f",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -262,47 +283,47 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 24,
-        "materials": 24,
-        "triangles": 32612,
-        "vertices": 60750
+        "draw_primitives": 27,
+        "materials": 27,
+        "triangles": 35716,
+        "vertices": 62870
       },
       "texture": {
-        "images": 13,
-        "textures": 13,
-        "encoded_bytes": 2936456,
-        "pixels": 12058624,
-        "gpu_rgba8_mip_bytes": 64312661,
+        "images": 15,
+        "textures": 15,
+        "encoded_bytes": 3309670,
+        "pixels": 14155776,
+        "gpu_rgba8_mip_bytes": 75497472,
         "largest_px": 2048
       },
       "bbox_m": {
         "min": [
           -0.8946,
-          -0.1501,
-          -12.1451
+          -0.1495,
+          -12.1449
         ],
         "max": [
-          24.5,
-          15.7236,
-          3.5705
+          28.4,
+          15.723,
+          3.5703
         ]
       },
       "envelope_bbox_m": {
         "min": [
-          -0.0498,
-          1.1767,
-          -11.2507
+          -0.0506,
+          1.1777,
+          -11.2504
         ],
         "max": [
-          19.8496,
-          5.9996,
-          0.0004
+          19.8504,
+          5.9987,
+          0.0009
         ]
       },
-      "wall_base_y_m": 0.0003,
+      "wall_base_y_m": 0.0007,
       "below_grade_m": {
-        "iron": -0.1501,
-        "stoop_stone": -0.1005
+        "iron": -0.1495,
+        "stoop_stone": -0.0995
       },
       "faces": {
         "quantum_m": 0.001,
@@ -311,111 +332,121 @@
         "same_winding": 0,
         "back_to_back": 0,
         "shared_across_primitives": 0,
-        "position_step_m": 0.0003875,
+        "position_step_m": 0.000447,
         "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "bay_stone": {
-          "median_uv_per_m": 0.8336,
+          "median_uv_per_m": 0.8331,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0004
+          "uv_per_m_times_tile_m": 0.9998,
+          "below_quantization_floor": 57
         },
         "brick": {
-          "median_uv_per_m": 1.2031,
+          "median_uv_per_m": 1.2027,
           "fabric": "common_buff_common_6",
           "tile_m": [
             0.8636,
             0.8001
           ],
-          "uv_per_m_times_tile_m": 1.0001
+          "uv_per_m_times_tile_m": 0.9997,
+          "below_quantization_floor": 520
         },
         "brick_unit_body": {
-          "median_uv_per_m": 0.9855,
+          "median_uv_per_m": 0.9983,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 0.9855
+          "uv_per_m_times_tile_m": 0.9983,
+          "below_quantization_floor": 994
         },
         "brick_unit_grey_tan": {
-          "median_uv_per_m": 0.9844,
+          "median_uv_per_m": 1,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 0.9844
+          "uv_per_m_times_tile_m": 1,
+          "below_quantization_floor": 360
         },
         "brick_unit_hard_burnt": {
-          "median_uv_per_m": 0.9855,
+          "median_uv_per_m": 0.9989,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 0.9855
+          "uv_per_m_times_tile_m": 0.9989,
+          "below_quantization_floor": 208
         },
         "brick_unit_salmon_soft": {
-          "median_uv_per_m": 0.9855,
+          "median_uv_per_m": 1.0008,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 0.9855
+          "uv_per_m_times_tile_m": 1.0008,
+          "below_quantization_floor": 448
         },
         "dress_stone": {
-          "median_uv_per_m": 1.1086,
+          "median_uv_per_m": 1.1097,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 0.9977
+          "uv_per_m_times_tile_m": 0.9987
         },
         "k04_painted_tin_sheet": {
-          "median_uv_per_m": 0.8228,
+          "median_uv_per_m": 0.8191,
           "fabric": "painted_tin_sheet",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9874
+          "uv_per_m_times_tile_m": 0.9829,
+          "below_quantization_floor": 122
         },
         "limestone_trim": {
-          "median_uv_per_m": 1.1307,
+          "median_uv_per_m": 1.1096,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 1.0176
+          "uv_per_m_times_tile_m": 0.9986,
+          "below_quantization_floor": 1193
         },
         "mortar": {
-          "median_uv_per_m": 0.8333,
+          "median_uv_per_m": 0.8331,
           "fabric": "mortar",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1
+          "uv_per_m_times_tile_m": 0.9998,
+          "below_quantization_floor": 35
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8481,
+          "median_uv_per_m": 0.8326,
           "fabric": "limestone_lemont",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0177
+          "uv_per_m_times_tile_m": 0.9992,
+          "below_quantization_floor": 3253
         },
         "slate_covering": {
-          "median_uv_per_m": 0.4802,
+          "median_uv_per_m": 0.4803,
           "fabric": "tin_standing_seam_painted",
           "tile_m": [
             2.032,
@@ -424,13 +455,31 @@
           "uv_per_m_times_tile_m": 1
         },
         "stoop_stone": {
-          "median_uv_per_m": 0.8327,
+          "median_uv_per_m": 0.8336,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9992
+          "uv_per_m_times_tile_m": 1.0004
+        },
+        "yard_cinder": {
+          "median_uv_per_m": 0.5006,
+          "fabric": "gravel",
+          "tile_m": [
+            2,
+            2
+          ],
+          "uv_per_m_times_tile_m": 1.0011
+        },
+        "yard_turf": {
+          "median_uv_per_m": 0.4178,
+          "fabric": "turf",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0027
         }
       },
       "origin": {
@@ -445,12 +494,12 @@
           ]
         },
         "overhang_m": {
-          "west": 0.0498,
-          "east": 0.0496,
-          "north": 0.0007,
-          "south": 0.0004
+          "west": 0.0506,
+          "east": 0.0504,
+          "north": 0.0004,
+          "south": 0.0009
         },
-        "base_y_m": 0.0003,
+        "base_y_m": 0.0007,
         "ok": true
       }
     }
@@ -463,14 +512,14 @@
         "web": {
           "scale_ratio_minus_1": [
             0,
-            0.000013,
-            0.000064
+            -0.000063,
+            0.000038
           ],
           "wall_face_shift_m": [
-            0.0002,
+            -0.0006,
+            0.0004,
             -0.0004,
-            -0.0007,
-            0.0004
+            0.0009
           ],
           "ok": true
         }
