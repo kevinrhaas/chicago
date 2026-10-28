@@ -17,10 +17,10 @@
         }
       ],
       "grade": {
-        "front": 0.018,
-        "street": 0.007,
-        "street_s_lo": 0.022,
-        "street_s_hi": -0.007,
+        "front": 0.015,
+        "street": 0.004,
+        "street_s_lo": 0.019,
+        "street_s_hi": -0.01,
         "per_m_s": -0.0048
       },
       "walk": {
@@ -157,11 +157,11 @@
         }
       ],
       "grade": {
-        "front": 0.038,
-        "street": 0.038,
-        "street_s_lo": 0.053,
-        "street_s_hi": 0.025,
-        "per_m_s": -0.0047
+        "front": 0.036,
+        "street": 0.036,
+        "street_s_lo": 0.051,
+        "street_s_hi": 0.022,
+        "per_m_s": -0.0048
       },
       "walk": {
         "closest_to_foot_m": 0.12,
@@ -185,11 +185,11 @@
         }
       ],
       "grade": {
-        "front": 0.082,
-        "street": 0.107,
-        "street_s_lo": 0.096,
-        "street_s_hi": 0.116,
-        "per_m_s": 0.0033
+        "front": 0.076,
+        "street": 0.101,
+        "street_s_lo": 0.089,
+        "street_s_hi": 0.11,
+        "per_m_s": 0.0035
       },
       "walk": {
         "closest_to_foot_m": 0.16,

@@ -60,11 +60,7 @@ PENDING = {
     "house_1611_prairie": "T-3204",
     "house_1613_prairie": "T-3204",
     "house_1615_prairie": "T-3204",
-    "house_1616_prairie": "T-3204",
     "house_1619_prairie": "T-3204",
-    "house_1621_prairie": "T-3204",
-    "house_1623_prairie": "T-3204",
-    "house_1625_prairie": "T-3204",
     "house_1626_prairie": "T-3204",
     "house_1628_prairie": "T-3204",
     "house_1630_prairie": "T-3204",
@@ -72,7 +68,6 @@ PENDING = {
     "house_1636_prairie": "T-3204",
     "law_house_1620_prairie": "T-3204",
     "shortall_gregory_house_1638_prairie_front": "T-3204",
-    "spalding_house_1637_prairie": "T-3204",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
 }
 

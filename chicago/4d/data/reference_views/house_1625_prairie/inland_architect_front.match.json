@@ -2,8 +2,9 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6a17bccd76ac438d27daa6c9b0b80b0ea2380fe4e4d336186952523322025824",
+  "glb_sha256": "2a8186060fb21d5e9fd76d7a9a8af8e441459c53b59f128555d552e38892a2ca",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
+  "photo_sha256": "a237b1424e388c09a55cd371102bfb4c11789452f1cc1ed315abe9bedda26e5b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -151,7 +152,12 @@
       "what": "colour and tone: the photograph is monochrome; its stone reads mid-grey and rock-faced, the south wall's brick lighter",
       "status": "not shown",
       "how": "the stone is K02's brownstone on the Tribune's 'red stone' (quoted by chicagology, not yet a source record); L-k01-1625-mcbirney-tudor-2432"
+    },
+    {
+      "what": "the walk and the front boundary: the photograph shows the ground before the doorway paved up to its step and nothing across the front; the build had no walk",
+      "status": "fixed",
+      "how": "T-3221: the front built open (form.boundary layout open) and a flagged walk laid from the stoop's foot, its 1.6 m width, out to the public walk, where the side-by-side shows it before the door as the print's light paving is; the print's paving is too worn to read as flags or a width, so both are the K14 kit's (L-k14-walks-1600-block-3215)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

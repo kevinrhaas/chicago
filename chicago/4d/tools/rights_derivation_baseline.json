@@ -2877,6 +2877,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "spalding_house_1637_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "st_marys_church/frame_1833/footprint": {
       "kind": "structure",
       "blocked_sources": [

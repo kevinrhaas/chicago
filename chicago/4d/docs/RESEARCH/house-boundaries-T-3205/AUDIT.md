@@ -61,12 +61,11 @@ In scope but left alone:
 - `generators/archetypes/k16_yard.py` (new): K16 frame houses can now carry a kerb with posts,
   railing and openings, and flagged and cinder walks, written into the node extras as
   `k11.wall.stone_coping_wall` and `k14.yard.front_walk` so `check_house_walks.py` reads them.
-- `generators/archetypes/k14_yard.py`: a yard behind a coping wall may name `lawn: none`.
-  The six coping houses (1709, 1712, 1721, 1726, 1729, 1736) lay no turf: their grass is the
-  app's own ground, as 1720's is. This is what kept the published tree inside its 416 MB budget:
-  the turf sheet costs about 180 KB in every house GLB that lays it, and with it this PR read
-  416.164 MB; without it, 415.097. (1708's and 1730's iron and board fences keep the kit's
-  turf and cinder; their yard kit requires both.)
+- `generators/archetypes/k14_yard.py`: a yard may name `lawn: none`. All eight K01 houses here
+  lay no turf: their grass is the app's own ground, as 1720's is. This is what keeps the published
+  tree inside its 416 MB budget: the turf sheet costs about 180 KB in every house GLB that lays it.
+  With it this PR's publish read 416.164 MB; with none behind the six copings, 415.097; after dev
+  brought the 1600 block's yards (T-3221), 416.018, and with 1708 and 1730 also bare, under again.
 - `tools/check_house_walks.py`: the nine T-3205 PENDING lines are gone; every worked 1700-block
   house now passes.
 - Match records re-set after looking at each side-by-side, each with a T-3205 difference
