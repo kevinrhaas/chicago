@@ -2,7 +2,7 @@
   "structure_id": "walker_house_1720_prairie",
   "view": "tyrrell_front",
   "glb": "assets/gltf/walker_house_1720_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5c867eb131d923acb48b1071f81a4c48e947864a1fea5b448fa76e2bcc767d14",
+  "glb_sha256": "bada736ab2766c2710a7779a4070da29cac7f6866a53dff6badf4c4f2212e0f0",
   "camera_sha256": "52c93c6040c8c508e4bd10739e18ee995b829eadc9d5727d4efe755c529da3ad",
   "photo_sha256": "8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81",
   "side_by_side": "docs/RESEARCH/photo-match/walker_house_1720_prairie/tyrrell_front-side-by-side.jpg",
@@ -141,6 +141,11 @@
       "what": "the bay's angles read dark in the print where the render's posts are painted with its trim",
       "status": "within tolerance",
       "how": "the print is monochrome and the bands fall where the cresting's and the tree's shadows cross the bay; its posts, faces and lights are where the print puts them"
+    },
+    {
+      "what": "the low pale kerb along the street line with an iron railing on it, five round-topped stone posts (x 50, 290, 785, 955, 1135 px), and the paved way in between the posts at x 785 and 955",
+      "status": "fixed",
+      "how": "T-3205: the kerb 0.33 m with a 0.95 m railing, the five posts 1.2 m high at s 1.43-9.89, the paved way left open with a cinder walk through it; the render's posts within about 15 px of the print's. The print's railing runs on before the stair where the 1898 vignette (nearer 1904) draws an opening with a post either side: the opening is built, a disagreement recorded in the boundary's note (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
