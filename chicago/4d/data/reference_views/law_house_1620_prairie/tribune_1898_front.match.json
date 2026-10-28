@@ -2,8 +2,9 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "f27b5f1cb736cc28d799ba103a2e3d8be954272d8f07643c50284b184fb21e43",
+  "glb_sha256": "175dab5749704bf316589085b604eed3a82fe6d3545ec4d530d5f5cfcd5893f8",
   "camera_sha256": "dfa5031ea10d2db2d29acbe9a1192a9f021983a0d7e44dc675754544440b3299",
+  "photo_sha256": "3db2a4d538087137a20a521136c997d11f3eef726e74bf969d64ecc2ef6be133",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -42,7 +43,13 @@
     {
       "what": "colour and walling: a pen sketch",
       "status": "not shown"
+    },
+    {
+      "what": "gate: the sketch draws the flight rising straight from the gate between the piers with no leaf across it; the build's leaves were shut across the stair's foot",
+      "status": "fixed",
+      "how": "T-3214: the entrance leaves drawn open 70 degrees, the flagged walk laid from the stair's foot through the gate (K14 yard)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-3214, 2026-10-28, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg, after the walk, the open entrance gate and the yard were laid; the house itself is unchanged from the reviewed build, and the published 1904 app walked from the public walk to the stoop's foot at 1280x800 and 390x780 (docs/RESEARCH/house-boundaries-T-3214/)"
 }
