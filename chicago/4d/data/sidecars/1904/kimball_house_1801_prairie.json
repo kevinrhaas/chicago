@@ -1850,7 +1850,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -1872,7 +1872,7 @@
         "taylor_c1895_kimball_residence_1801",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The stair's walk in flags from its foot through the coping's opening to the public walk, 2.2 m wide (the stair's own width, as the photograph's paving runs); the lawn the photograph shows behind the coping across the whole front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The stair's walk in flags from its foot through the coping's opening to the public walk, 2.2 m wide (the stair's own width, as the photograph's paving runs); the lawn the photograph shows behind the coping across the whole front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

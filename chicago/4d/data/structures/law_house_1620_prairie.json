@@ -704,7 +704,7 @@
           "value": {
             "kit": "k14_condition",
             "built": 1904,
-            "lawn": "turf",
+            "lawn": "none",
             "grass_edge": "street_front",
             "under_stoop": "earth",
             "front_walk": {
@@ -724,7 +724,7 @@
             "land_owner_1874_05_homes_of_chicago_1620_law",
             "chicago_tribune_1898_01_09_prairie_widows"
           ],
-          "note": "T-3214 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures). Both pictures draw the stoop coming straight down to the street line between the gate piers (the 1874 Land Owner engraving at the lattice's gap; the 1898 Tribune sketch, its flight rising straight from the gate), so the walk is the short run from the stair's foot through that gate to the public walk. THE FRONT WALK in flags from the stoop's foot through the entrance gate to the public walk, the gate's width; THE SERVICE WALK in cinder from the side gate across the south side yard's mouth back to the house's rear corner (u 0), between the south boundary wall and the house's south wall; THE LAWN turf over the rest of the front yard, with the kit's bare strip at the wall foot and bare earth under the open stair. RECONSTRUCTED: neither picture sees the walk's floor or the side yard, so the flags, their width and wear, the cinder, the lawn and its strip are the K14 kit's (data/components/prairie_1904/k14_condition.json), aged from the phase's own year, 1904, as the kit's rule is (the engraving shows the house standing by 1874, but the record's documented range opens at the 1904 target and its building date is not read). Liberty L-k14-walks-1600-block-3214."
+          "note": "T-3214 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures). Both pictures draw the stoop coming straight down to the street line between the gate piers (the 1874 Land Owner engraving at the lattice's gap; the 1898 Tribune sketch, its flight rising straight from the gate), so the walk is the short run from the stair's foot through that gate to the public walk. THE FRONT WALK in flags from the stoop's foot through the entrance gate to the public walk, the gate's width; THE SERVICE WALK in cinder from the side gate across the south side yard's mouth back to the house's rear corner (u 0), between the south boundary wall and the house's south wall; THE LAWN turf over the rest of the front yard, with the kit's bare strip at the wall foot and bare earth under the open stair. RECONSTRUCTED: neither picture sees the walk's floor or the side yard, so the flags, their width and wear, the cinder, the lawn and its strip are the K14 kit's (data/components/prairie_1904/k14_condition.json), aged from the phase's own year, 1904, as the kit's rule is (the engraving shows the house standing by 1874, but the record's documented range opens at the 1904 target and its building date is not read). Liberty L-k14-walks-1600-block-3214. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }
