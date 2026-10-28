@@ -1,0 +1,118 @@
+{
+  "structure_id": "glessner_lee_house_1700_prairie",
+  "view": "ghm_christmas",
+  "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+  "glb_sha256": "148938aa166861bdb5e1b7eddd6df163cc269d6e75d545bc553441fecf6beacb",
+  "camera_sha256": "0a66885c0e3407c0f7438e6923dede1f8f9f56a32cb3dd4a386e47eb81b3b19a",
+  "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
+  "rendered_members": [
+    {
+      "structure_id": "glessner_lee_house_1700_prairie",
+      "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.059,
+        "local_n": -3093.615,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "148938aa166861bdb5e1b7eddd6df163cc269d6e75d545bc553441fecf6beacb"
+    },
+    {
+      "structure_id": "george_glessner_house_1706_prairie",
+      "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.171,
+        "local_n": -3104.665,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -5.4848602107582245e-05,
+        0,
+        11.05056758709686
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "1151eff1cc5455ade97f8aa393bac81326d1253f68838ac661ed441c6cd088b4"
+    },
+    {
+      "structure_id": "house_1708_prairie",
+      "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.577,
+        "local_n": -3112.161,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.329913419676367,
+        0,
+        18.550299111753638
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "092359cfc94ff807e4bbdf02e4e0c078571c42de4844f2dbe1971bdead918b4f"
+    }
+  ],
+  "group_sha256": "6600b1c0b0eb2ca98141a21902c8ffafa2a6e4f3b8ab00fb864a40cca465cb8a",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_lee_house_1700_prairie/ghm_christmas-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the pair seen from the north-east, its front, 1700's north wall and the mansard over both",
+      "status": "fixed",
+      "how": "T-3211: the same K01 pair; corners and cornice line render on the print's within a few pixels"
+    },
+    {
+      "what": "1700's north end wall carried up past the mansard's curb",
+      "status": "fixed",
+      "how": "T-3211: K05's side parapet on 1700's north wall, coped about 0.6 m over the curb"
+    },
+    {
+      "what": "the eight upper windows, the eight arched principal windows' places and the balconettes",
+      "status": "fixed",
+      "how": "T-3211: as built from Chicagology's photograph; they render on this print's within about 5 px"
+    },
+    {
+      "what": "both porches, 1706's at the south end and 1700's at the north, their columns, entablatures and balcony railings",
+      "status": "fixed",
+      "how": "T-3211: as built from the two cameras' triangulation; the balcony railings render on the print's lines"
+    },
+    {
+      "what": "the dormers",
+      "status": "within tolerance",
+      "how": "T-3211: the triangulated places render about 20-45 px off this print's, the other way from Chicagology's: the two camera fits disagree about the dormers' depth by about half a metre"
+    },
+    {
+      "what": "the large chimney at the party line with a fret panel over the deck",
+      "status": "within tolerance",
+      "how": "T-3211: the party wall's parapet and a stack beside it stand there; the fret panel is not built"
+    },
+    {
+      "what": "the iron fence before 1700",
+      "status": "within tolerance",
+      "how": "T-3211: the two pictures disagree about the fences (Chicagology shows 1700's front open), and the front boundaries are T-3205's"
+    },
+    {
+      "what": "ornament: keys, carving, dentils, capitals, the fret",
+      "status": "within tolerance",
+      "how": "T-3211: as in Chicagology's view, under a foot at this distance"
+    },
+    {
+      "what": "colour",
+      "status": "not shown",
+      "how": "T-3211: a monochrome print"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

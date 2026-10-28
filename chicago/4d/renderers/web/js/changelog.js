@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2383, ts: '2026-10-28T12:15:06.844Z', date: 'Oct 28, 2026, 7:15 AM CT', title: 'The Glessner townhouses at 1700 and 1706 Prairie, built from their photographs', kind: 'feature',
+    items: [
+      'The two Georgian townhouses John J. Glessner built for his children at 1700 and 1706 Prairie Avenue are no longer draft boxes. They stand as a mirrored pair: two brick storeys under one slate mansard with pedimented dormers and a light railing along the roof, round-arched windows with iron balconettes on the main floor, and at each outer end a stone porch on four columns with a balcony on top.',
+      'Both houses are built to the two photographs of their front, Chicagology\'s and the Glessner House Museum\'s Christmas print, through the same cameras that placed 1708 next door. The plan behind the front, with a three-storey range at each house\'s outer end, comes from the 1911 Sanborn map.',
+    ] },
   { v: 2382, ts: '2026-10-28T11:07:11.830Z', date: 'Oct 28, 2026, 6:07 AM CT', title: '1827 Prairie\'s porch gets its stone arches and front steps', kind: 'feature',
     items: [
       'The Doane house\'s porch at 1827 Prairie is now a stone arcade, as the old photograph shows it: two round arches across the front on three columns, and a third arch on its south side.',
