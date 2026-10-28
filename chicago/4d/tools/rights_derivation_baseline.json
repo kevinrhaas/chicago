@@ -590,6 +590,15 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "elbridge_keith_house_1900_prairie/as_mapped_1904/form.street_front_round_heads": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1900_keith_oblique_photo",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "elbridge_keith_house_1900_prairie/as_mapped_1904/form.street_front_trim": {
       "kind": "structure",
       "blocked_sources": [

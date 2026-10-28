@@ -155,7 +155,26 @@
       "sources": [
         "glessner_blog_1900_keith_oblique_photo"
       ],
-      "note": "Every street window in the photograph stands under a moulded hood on consoles. K09's cornice-hood lintel is the kit's nearest form and stands on both storeys; the photograph's round heads and the hoods' carved crowns are open in the match record (T-3208)."
+      "note": "Every street window in the photograph stands under a moulded hood. Since T-3208 the windows are cut round-headed (street_front_round_heads), whose arch band and key replace K09's cornice-hood lintel on the front; the lintel hood is kept as the trim the kit names for the record's other square-headed lights."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          0,
+          1
+        ],
+        "key": {
+          "width_m": 0.24,
+          "height_m": 0.28,
+          "proud_m": 0.07
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1900_keith_oblique_photo",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ],
+      "note": "T-3208: every street window in the oblique print is round-headed under a moulded hood that follows the arch, with a carved crown over it; the c. 2014 detail photograph in the Glessner House Museum's post (Prairie library a19-gh-keith-1900-exterior-modern) and the mid-century and 2024 fronts (a19-cgy-1900-keith-exterior, a19-cgy-1900-keith-2024) show the same heads, hoods and crowns on both storeys, the front's original 1870 stone. Built as K01's round-hooded light: K06's arch band carried spring to spring as the hood, and a key block standing for the carved crown. The crowns' foliate carving is not modelled (a block of their size and place); the window over the porch, which the pictures show as a PAIR of round lights under one wider head, is built as one round light (open in the match record)."
     },
     "wall_head": {
       "value": {
@@ -213,43 +232,40 @@
             "face": "street",
             "along_m": 5.9,
             "sash": {
-              "variant": "k06.opening.sash_2over2_flat",
+              "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.85,
               "height_m": 1.7,
               "sill_m": 0.3
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 30
+            "head": "round"
           },
           {
             "face": "street",
             "along_m": 9.3,
             "sash": {
-              "variant": "k06.opening.sash_2over2_flat",
+              "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.85,
               "height_m": 1.7,
               "sill_m": 0.3
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 30
+            "head": "round"
           },
           {
             "face": "south",
             "along_m": 13.0,
             "sash": {
-              "variant": "k06.opening.sash_2over2_flat",
+              "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.85,
               "height_m": 1.7,
               "sill_m": 0.3
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 30
+            "head": "round"
           }
         ]
       },
@@ -257,7 +273,7 @@
       "sources": [
         "glessner_blog_1900_keith_oblique_photo"
       ],
-      "note": "Through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): the mansard's straight steep faces rise from the cornice to the curb about 15.7 m over grade (its top edge read at the north corner and beside the bay); two dormers on the street face, one over the door's column and one between the two northern columns (about v 5.9 and 9.3 m, read off the photograph through the camera at the dormers' faces and set where the render from it lays them on the print), their sills about 12.2 m and their hoods' tops about 15.3 m; and one on the south face over the flank's front window column. The dormers' arched hoods are built as K05's gabled head, open in the match record."
+      "note": "Through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): the mansard's straight steep faces rise from the cornice to the curb about 15.7 m over grade (its top edge read at the north corner and beside the bay); two dormers on the street face, one over the door's column and one between the two northern columns (about v 5.9 and 9.3 m, read off the photograph through the camera at the dormers' faces and set where the render from it lays them on the print), their sills about 12.2 m and their hoods' tops about 15.3 m; and one on the south face over the flank's front window column. The dormers' arched hoods are built as K05's gabled head, open in the match record. T-3208: the dormers' heads are ARCHED in the oblique print, the mid-century and 2024 fronts and the c. 2014 detail (a round-headed light whose surround follows it, under a projecting hood on consoles); built as K05's round-headed dormer, the surround carried round the arch. The hood's flat cornice and consoles over the arch are not modelled (open in the match record only if over the bar: see it)."
     },
     "roof_covering": {
       "value": {
@@ -418,10 +434,11 @@
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
-        }
+        },
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the kit's two-over-two sash; the print shows the sash but not its muntins. Liberty L-k01-1900-keith-3207."
+      "note": "RECONSTRUCTED: the kit's two-over-two sash; the print shows the sash but not its muntins. T-3208: the round-headed street and bay lights take K06's round-headed sash under a fanlight, the kit's single round-headed hung sash; the c. 2014 detail shows the upper sash itself following the arch with no transom bar at the spring, a glazing-bar difference recorded within tolerance. Liberty L-k01-1900-keith-3207."
     },
     "entrance_kit": {
       "value": {
@@ -487,16 +504,32 @@
         "chamfer_m": 0.06,
         "runs": [
           {
-            "to_s_m": 4.4,
+            "to_s_m": -2.0,
+            "height_m": 0.8
+          },
+          {
+            "to_s_m": 3.95,
             "height_m": 0.45
+          },
+          {
+            "to_s_m": 4.4,
+            "height_m": 0.8
           },
           {
             "to_s_m": 7.0,
             "opening": true
           },
           {
-            "to_s_m": 12.975,
+            "to_s_m": 7.45,
+            "height_m": 0.8
+          },
+          {
+            "to_s_m": 12.5,
             "height_m": 0.45
+          },
+          {
+            "to_s_m": 12.975,
+            "height_m": 0.8
           }
         ]
       },
@@ -504,7 +537,7 @@
       "sources": [
         "glessner_blog_1900_keith_oblique_photo"
       ],
-      "note": "The photograph shows a low coped stone wall along the front of the lawn, with no fence on it, broken by the walk before the stoop: K11's stone coping wall, about 0.45 m high, open from s 4.4 to 7.0 m before the stoop (its width at the stoop's foot). Its line, 8.55 m before the front (just inside the sheet's street line), and its height are reconstructed; the photograph's square stone posts at the walk's opening and at the lot's corners are open in the match record."
+      "note": "The photograph shows a low coped stone wall along the front of the lawn, with no fence on it, broken by the walk before the stoop: K11's stone coping wall, about 0.45 m high, open from s 4.4 to 7.0 m before the stoop (its width at the stoop's foot). Its line, 8.55 m before the front (just inside the sheet's street line), and its height are reconstructed. T-3208: the photograph's square stone posts at the walk's opening and at the lot's two front corners are built as short runs of the wall raised to about 0.8 m, each about 0.45-0.5 m along it (read through the camera against the stoop's foot); they keep the wall's 0.35 m thickness where the print's posts are a little broader, which is within tolerance."
     },
     "bays": {
       "value": [
@@ -540,7 +573,7 @@
               "height_m": 6.0,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.65,
                   "clear_height_m": 2.85,
                   "sill_m": 2.55,
@@ -549,10 +582,11 @@
                     0.835
                   ],
                   "recess_m": 0.35,
-                  "why_not_ordinary": "the photograph's principal light in the bay's south-east cheek, about 2.55-5.4 m over grade through its camera like the front's"
+                  "why_not_ordinary": "the photograph's principal light in the bay's south-east cheek, about 2.55-5.4 m over grade through its camera like the front's; under a 0.1 m arch band (T-3208), so the band clears the cheek's 1.3 m face as the print's narrower cheek hoods do",
+                  "head_band_m": 0.1
                 },
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.9,
                   "clear_height_m": 2.85,
                   "sill_m": 2.55,
@@ -567,7 +601,7 @@
               "height_m": 5.04,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.65,
                   "clear_height_m": 2.35,
                   "sill_m": 0.85,
@@ -576,10 +610,11 @@
                     0.835
                   ],
                   "recess_m": 0.35,
-                  "why_not_ordinary": "the photograph's chamber light in the bay's south-east cheek, about 6.85-9.2 m over grade through its camera"
+                  "why_not_ordinary": "the photograph's chamber light in the bay's south-east cheek, about 6.85-9.2 m over grade through its camera; under a 0.1 m arch band (T-3208), so the band clears the cheek's 1.3 m face as the print's narrower cheek hoods do",
+                  "head_band_m": 0.1
                 },
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.9,
                   "clear_height_m": 2.35,
                   "sill_m": 0.85,
@@ -640,7 +675,7 @@
               "height_m": 6.0,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.9,
                   "clear_height_m": 2.85,
                   "sill_m": 2.55,
@@ -656,7 +691,7 @@
               "height_m": 3.7,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 0.9,
                   "clear_height_m": 2.35,
                   "sill_m": 0.85,
@@ -681,7 +716,7 @@
         "glessner_blog_1900_keith_oblique_photo",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "FRONT: the canted bay at the front's south end in the photograph, carried through both storeys and up through the cornice under a taller slated mansard crown of its own (the mid-century and 2024 fronts show the same). Its plan is read through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): its south-east cheek turns from the front's south corner (built 0.3 m in from it, the least pier K08 leaves at a corner, where the photograph shows the corner's dressed strip), its front stands about 0.93 m before the wall from v 1.22 to 3.38 m, and its north cheek returns to the front at v 4.3 m by symmetry (the cheek the camera cannot see). The 1911 sheet's outline bulges about 1.8 m at v 2.0-6.1 m there; the photograph is followed and the sheet's reading is in the match record. Each storey a light in each face at the front's heights. The crown's rise (4.0 m) is reconstructed: the print's frame cuts its top at about 15.3 m. SOUTH FLANK: the sheet's canted bay on the south wall (main part s28fp-1900-b1 p3, x 1371.1-1377.7, 1.15 m out), 7.0-13.6 m behind the front, two storeys under a low roof stopped about 0.6 m under the cornice's bed; its height, windows and roof are reconstructed (no picture shows it whole)."
+      "note": "FRONT: the canted bay at the front's south end in the photograph, carried through both storeys and up through the cornice under a taller slated mansard crown of its own (the mid-century and 2024 fronts show the same). Its plan is read through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): its south-east cheek turns from the front's south corner (built 0.3 m in from it, the least pier K08 leaves at a corner, where the photograph shows the corner's dressed strip), its front stands about 0.93 m before the wall from v 1.22 to 3.38 m, and its north cheek returns to the front at v 4.3 m by symmetry (the cheek the camera cannot see). The 1911 sheet's outline bulges about 1.8 m at v 2.0-6.1 m there; the photograph is followed and the sheet's reading is in the match record. Each storey a light in each face at the front's heights. The crown's rise (4.0 m) is reconstructed: the print's frame cuts its top at about 15.3 m. SOUTH FLANK: the sheet's canted bay on the south wall (main part s28fp-1900-b1 p3, x 1371.1-1377.7, 1.15 m out), 7.0-13.6 m behind the front, two storeys under a low roof stopped about 0.6 m under the cornice's bed; its height, windows and roof are reconstructed (no picture shows it whole). T-3208: the front bay's lights are round-headed under the arch band, as the oblique print, the mid-century and 2024 fronts and the c. 2014 detail show every one of them; the south flank's bay, which no picture shows whole, takes the same head (reconstructed, as the front's)."
     },
     "rear_wings": {
       "value": [
