@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947",
+  "glb_sha256": "a477a6cf378bbc64227c56f5c411de700fd1e11e747723024a06015a6f71f4b2",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947"
+      "glb_sha256": "a477a6cf378bbc64227c56f5c411de700fd1e11e747723024a06015a6f71f4b2"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -42,10 +42,10 @@
         16.293259561004927
       ],
       "rotation_y": 8.726646259971656e-05,
-      "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
+      "glb_sha256": "56726e0125f37a47c9691fe704ec90b57aea33c35e6dd4568e070f73b4976d52"
     }
   ],
-  "group_sha256": "775af07562823e2bcc725c2130a0e99e8cf8cf6784e53fb536a6e35fdd958a4f",
+  "group_sha256": "4d5a9d6b3704576da3c4dfb0486b3b620027ab53a012ba0ba0aec5f9e0006ab7",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -128,6 +128,11 @@
     {
       "what": "The north wall, the rear and the roof behind the curb, which the photograph does not see",
       "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1884-1904",
+      "status": "not shown",
+      "how": "the c. 1955 photograph does not reach the lot line clearly; the boundary is read off the Levy print and the c. 1888 view"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

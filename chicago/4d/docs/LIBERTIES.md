@@ -27358,9 +27358,10 @@ crossings exist where no picture reaches.
 
 **Decision:** at every 1904 corner where two faces of a block meet (28 corners; Calumet's curve at
 18th is a bend and has none), each face's walk is carried straight on across the other street's
-parkway and curb at its own width (6 ft; 5 ft on 16th Street), and its last 1.35 m (0.92 m on 16th
-Street's narrower parkway) is a dressed stone slab ramping from the walk's level down to the
-roadway. The curb's face is broken where the ramp runs through it. 56 crossings
+parkway and over the curb at its own width (6 ft; 5 ft on 16th Street) and level, and from the
+curb's face one dressed stone slab 15 cm thick runs 1.5 m out into the roadway, its top falling from
+the curb's top to 5 cm over the paving (T-3217: the first build sloped the walk down inside the
+parkway instead, which the pictures do not show). 56 crossings
 (`corner_crossings` in `data/street_section/1904.json`, laid by
 `tools/lay_prairie_1904_street_section.py`); the corner lamp's grass plot stands between each pair.
 **What it stands on:** J. W. Taylor's photograph no. 2135 of the Glessner corner, 18th and Prairie
@@ -27369,13 +27370,13 @@ top to the roadway, one each way across, the lamp's footing between them. The De
 view of the Pullman corner, north-east (`loc_det_4a08065_pullman_residence`): the walks carried
 across the parkway either side of a curbed grass corner, down to the roadway. These four crossings
 are attested; the owner, 2026-10-27: "there are ramps down into the street. they appear to be stone".
-**What is invented:** the crossings at the other 26 corners; the ramp's run and its plain dressed
-face; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
+**What is invented:** the crossings at the other 26 corners; the slab's run (1.5 m), thickness
+(15 cm) and plain dressed face, read roughly off the two pictures; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
 across the roadway itself.
 **How to resolve:** a photograph of any other corner of the district shows whether it had the same
 crossings; a Board of Local Improvements order or a city sidewalk specification of 1890-1905 fixes
-the ramp's slope and stone.
-**Ticket:** T-3200.
+the slab's run, thickness and stone.
+**Ticket:** T-3200, T-3217.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-27 (T-3200).
 
@@ -34927,6 +34928,25 @@ and the south hood standing wider than its face (HABS 1) are not built and stay 
 records. This supersedes the faces' stone in L-kimball-1801-deck-cresting-3000.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
+### L-kimball-1801-hood-flare-1890 — 1801 Prairie's dormer hoods flared out at their feet
+**Recorded:** 2026-10-27.
+
+**Decision:** the W. W. Kimball house's three hooded dormers (`mansard.dormers`, T-1890) stand their
+hoods' feet 0.2 m wider than the faces under them on each side and 0.2 m out in front of them, the
+shelf with them (`hood.flare_m`), and sweep in from there to the tops T-3000 laid: 0.4 m across on the
+street and 18th Street dormers, 0.81 m on the south one (its taper eased from 0.3 to 0.17 m a side).
+**What is read, not invented.** Harold Allen's HABS photograph 1 of June 1965
+(`habs_kimball_photo_01_sw_1965`) shows the south dormer nearly square on, its hood's foot about a
+third wider than the face and its top about half the foot; HABS photograph 2
+(`habs_kimball_photo_02_nw_1965`) shows the 18th Street hood broad at its foot and narrow at its top;
+the Taylor photograph of c. 1895 shows the street hood's cheek standing out of the slate at its foot.
+**What is invented or held by the kit.** The 0.2 m is one figure for all three, read off HABS 1 and the
+Taylor print; the prints' feet sweep out in a concave bell, which the build runs straight; the shelf
+stays the kit's stone slab where HABS 2 shows a slimmer moulding; the hoods' ridge cresting (HABS 2) is
+not built. The 18th Street hood's cheek still reads shallower than the Taylor print's at its top, which
+goes with the mansard's lower face and stays open in that record.
+**How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
+
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
 
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
@@ -35022,3 +35042,37 @@ overhead's form; a Sanborn sheet does not draw poles.
 **Ticket:** T-3202.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
 **Recorded:** 2026-10-27 (T-3202).
+
+### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
+**Recorded:** 2026-10-27.
+
+**Decision:** every worked 1904 house on the 1800 and 1900 blocks of Prairie Avenue except 1800
+(Glessner, left as built) is given a K14 yard: a lawn, a flagged front walk from the foot of its
+stoop to the inner edge of the public walk, and, where its pictures or its Sanborn sheet show a side
+passage, a service walk to the rear (T-3206). Before this only 1808 Prairie had a walk; the others
+showed a lawn running into a closed fence. **What is read, not invented.** The kind of front
+boundary is read from each house's pictures. 1801 (Taylor, c. 1895) has no fence, only a low coping
+edging the lawn along Prairie and 18th Street; it is built as a 0.35 m stone coping returned along
+18th, cut at the walk. 1811 (the Chicagology photograph) has a low rock-faced coping with openings at
+the walk and at the side walk; 1812 (Levy, and the c. 1888 view south-west down the block) low pale
+blocks, nothing across the stair's foot; 1815 a low coping with two square posts flanking its walk;
+1823 (the 1883 Newberry album) a low line with a post at a side-stoop walk. The iron fences of 1816,
+1824, 1827, 1828 and 1901, already photo-matched, are kept; their entrance gates now stand open, and
+1824's 5.45 m single side leaf, which no picture shows, becomes a 1.6 m gate. 1827's fence now ends
+at the stone pier its photograph shows at the lot's south corner. 1834's walk turns north behind its
+low wall to the wall's north opening, as its (mirrored) print shows. **What is invented or held by
+the kit.** The walks' widths (1.2-2.2 m), their flags and joints, the cinder or flagged service
+walks, the copings' sections, chamfers and exact heights, and where an opening falls within about
+0.5 m are the kit's or reconstructed; through 1811's camera the opening sits about 1 m south of
+where it is laid, and 1815's posts 0.2-0.45 m off, both recorded in their match records. 1828's two
+pictures disagree (an iron fence on the curb, a low solid stone wall); the fence is kept. The app stands each house on the lowest ground under
+its walls, and at 1827, 1828, 1834 and 1901 the ground rises 26-88 mm toward the street, enough to
+bury a yard laid at the base's grade; each yard is lifted onto that ground (`yard.grade_m`, a front
+rise, a street rise and a cross-fall measured in the published app), which is the app's ground, not
+evidence of a graded lawn. Each walk
+is checked by `tools/check_house_walks.py`: it must start at the stoop, reach the public walk, pass
+through an opening in the front boundary and cross no building.
+**How to resolve:** nearer or earlier photographs of each front at the walk, or a survey plat
+drawing the walks.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.yard`, `wheeler_house_1812_prairie.as_built_1884.form.yard`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.yard`, `henderson_house_1816_prairie.as_mapped_1904.form.yard`, `dent_house_1823_prairie.as_mapped_1904.form.yard`, `marsh_house_1824_prairie.as_mapped_1904.form.yard`, `doane_house_1827_prairie.as_mapped_1904.form.yard`, `house_1828_prairie.as_mapped_1904.form.yard`, `jones_house_1834_prairie.as_mapped_1904.form.yard`, `ream_house_1901_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3206.

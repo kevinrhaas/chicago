@@ -1077,6 +1077,13 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
 
+# T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
+# front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the
+# Taylor print): the foot and shelf flare_m wider and further out, the top unmoved, the slating
+# box spanning it; a hood without it as before; a flare under 0.05 or over 0.3 m refused.
+step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
+  python3 tools/test_k01_hood_flare.py
+
 # T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
 # decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
 # Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
@@ -1255,6 +1262,20 @@ step "the K11 ironwork kit lets every member into its carrier, keeps runs out of
 
 selftest "…and a lifted picket, a 6 mm rail, a curb across the gate, a one-hinge gate, a flat canopy or a missing pier still fails it" \
   python3 tools/check_ironwork_kit.py --self-test
+
+# T-3206. ...and every worked 1904 house can be walked into. The owner, 2026-10-27: "make sure
+# for the future that ... you have their walkways to their house correct and the front
+# gate/fence/borders ... others are missing, cant enter, or are just plain wrong". Read off the
+# built GLBs and the walker's own footprints: a K14 front walk from the stoop's foot to the
+# public walk's inner edge, that crosses the K11 boundary only at a gate or opening, and that no
+# solid footprint stands across. The 1600 and 1700 blocks' houses that fail it today are in its
+# PENDING list, each naming the lane that fixes it (T-3204, T-3205); a pending house that passes
+# fails the gate until it is taken out.
+step "every worked 1904 house has a walk from the public walk to its door, through an opening, that the walker can follow (T-3206)" \
+  python3 tools/check_house_walks.py --check
+
+selftest "…and no walk, a fence with no gate on the walk, a walk short of the public walk, a footprint across it, a coping run across it and a stale PENDING entry are each refused" \
+  python3 tools/check_house_walks.py --self-test
 
 # T-2320. ...and what stands at the back of the lot. The K12 kit's parts are sized in
 # data/components/prairie_1904/k12_coach_house.json and built by

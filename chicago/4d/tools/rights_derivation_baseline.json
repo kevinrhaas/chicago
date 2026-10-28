@@ -33,6 +33,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "coleman_ames_house_1811_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1811_ames_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "coleman_ames_house_1811_prairie/as_mapped_1904/form.front_pier": {
       "kind": "structure",
       "blocked_sources": [
@@ -48,6 +56,14 @@
       ],
       "sole_support": false,
       "confidence": "inferred"
+    },
+    "coleman_ames_house_1811_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1811_ames_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "dearborn_street_drawbridge/draw_1834/form.draw_lifting_gear": {
       "kind": "structure",
@@ -82,6 +98,14 @@
       "confidence": "inferred"
     },
     "dent_house_1823_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1823_dent_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "dent_house_1823_prairie/as_mapped_1904/form.boundary": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1823_dent_engraving"
@@ -384,6 +408,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "doane_house_1827_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1827_doane_exterior"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "elbridge_keith_house_1900_prairie/as_mapped_1904/form.bays": {
       "kind": "structure",
@@ -1194,6 +1226,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "henderson_house_1816_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "hogan_store/log_1831/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -1600,6 +1640,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "house_1828_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "james_kinzie_house/dwelling_1830/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -1814,6 +1862,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "jones_house_1834_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1834_jones_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "lake_house_construction/shell_1835/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -1975,6 +2031,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "marsh_house_1824_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1828_shipman_automobile"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "miller_house/log_frame_1827/form.construction": {
       "kind": "structure",
@@ -2331,6 +2395,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "ream_house_1901_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1901_ream_1898"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "robert_kinzie_store/store_1830/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -2372,6 +2444,14 @@
       "confidence": "inferred"
     },
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1815_sears_two_views"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "sears_meeker_house_1815_prairie/as_mapped_1904/form.boundary": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1815_sears_two_views"
@@ -2530,6 +2610,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "sears_meeker_house_1815_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1815_sears_two_views"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "shortall_gregory_house_1638_prairie_front/as_standing_1904/footprint": {
       "kind": "structure",

@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d55baf0a7d0bf8bde00ebff3df84846f6a1504b6920906f53b1547c84854f6c",
+  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -186,7 +186,12 @@
     {
       "what": "the north flank and the rear: the plate does not see them; built from the 1911 sheet's plan at the reconstructed tier",
       "status": "not shown"
+    },
+    {
+      "what": "the low rock-faced coping, its openings and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.45 m stone coping on the lot line in the sequence the three prints that reach the lot line agree on (a long run, the walk's opening a little south of the stair, a 0.4 m block, a gap, a long run); the K14 walk leaves the stair square and turns south behind the coping to the opening"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

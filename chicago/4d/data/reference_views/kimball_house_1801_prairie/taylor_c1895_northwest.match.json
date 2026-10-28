@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "813c37762f2793e8333f9cf4e0ea5520f0958eff4c7db132b387f035970868a3",
+  "glb_sha256": "09bf64d0b8695771f4fa1d2d902a559e4665613c199991f29f6808415f2acf6f",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -151,12 +151,12 @@
     {
       "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
       "status": "open",
-      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
+      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera. T-1890 (2026-10-27, the hoods' flare): through T-3074's camera the build's north-west curb corner still renders about 25-30 px over and east of the print's, and the 18th Street dormer's hood's cheek about 20 px shallower at its top than the print's, both as if the print's lower faces ran back further than the build's 69.1 degrees over 6.4 m; the deck's extent, the faces' pitch and the dormers' set-back are one question here."
     },
     {
       "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do",
-      "status": "open",
-      "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
+      "status": "fixed",
+      "how": "T-1890, re-read through T-3074's camera: the build's hoods rose straight from the face's own width and front, so their cheeks died out at the shelf, where the print's stand about 22 px (about 0.3-0.4 m) out of the slate at their feet. Each hood's foot now flares 0.2 m wider than its face each side and 0.2 m out in front of it, its shelf with it (hood.flare_m), sweeping in to the same narrow top. Re-rendered, the street dormer's lit cheek reads about 35 px at its top and 22 at its foot against the print's about 32 and 22. The 18th Street dormer's shaded cheek still reads about 35 px at its top against the print's about 57: that face's slate stands further forward of the hood's back than the print's does, which is the mansard's lower face and goes with the curb's difference below (L-kimball-1801-hood-flare-1890)"
     },
     {
       "what": "the hooded dormers' faces: the print's are slate with a pale frame round the light, where the build's were stone",
@@ -242,6 +242,11 @@
     {
       "what": "the flank stack's head (T-1890): the print's shaft reads round under a flared cap; the build's is square under a slab, its outline within about 0.3 m (HABS photograph 2 reads the shaft square)",
       "status": "within tolerance"
+    },
+    {
+      "what": "the low coping along the lawn on Prairie and 18th Street, and the walk to the stair",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.35 m stone coping on the street line, returned along 18th Street and cut where the K14 walk leaves the stair; the print shows a low edge to the lawn and no fence, which the render's low line reads as; height and section within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

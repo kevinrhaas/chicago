@@ -762,6 +762,75 @@
             "newberry_new_chicago_album_1883_residences"
           ],
           "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_line_m": 10.15,
+            "lot_s_m": [
+              -1.01,
+              16.43
+            ],
+            "thickness_m": 0.3,
+            "chamfer_m": 0.05,
+            "runs": [
+              {
+                "to_s_m": -0.65,
+                "height_m": 0.3
+              },
+              {
+                "to_s_m": -0.3,
+                "height_m": 0.75
+              },
+              {
+                "to_s_m": 1.6,
+                "opening": true
+              },
+              {
+                "to_s_m": 1.95,
+                "height_m": 0.75
+              },
+              {
+                "to_s_m": 16.43,
+                "height_m": 0.3
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "newberry_new_chicago_album_1883_residences",
+            "chicagology_1823_dent_engraving",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The 1883 album view (album_1883.json) draws a low line along the walk before the house, broken at the walk that comes out from the side stoop's foot, with a post at the break (x about 220 px on the 390 px vignette, s about 1.4 through its solved camera); the engraving shows no iron fence across the front. K11's stone coping wall, 0.3 m, on the parcel's street line (10.25 m from the front; data/street_grid/1904.json prairie_1823), open s -0.3-1.6 where the flight ends (s 1.4) and a 0.75 m post either side. The posts' pair, their height and the coping's section are reconstructed: the vignette is 390 px across."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "turf",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            },
+            "grade_m": {
+              "front": 0.013,
+              "street": 0.016,
+              "per_m_s": 0.0034,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "newberry_new_chicago_album_1883_residences",
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The side stoop's flight ends running north along the front (its foot at s 1.4); the walk leaves it there, from the flight's wall side out to the public walk through the coping's opening, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
         }
       }
     }

@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d55baf0a7d0bf8bde00ebff3df84846f6a1504b6920906f53b1547c84854f6c",
+  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
   "camera_sha256": "cb362fce20647693405877df9217185fbe854f22b072fdf325c232d8d6a9771c",
   "photo_sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/chicagology_photo-side-by-side.jpg",
@@ -87,7 +87,17 @@
     {
       "what": "the north flank and the rear: the camera stands south-west of the house",
       "status": "not shown"
+    },
+    {
+      "what": "the low rock-faced coping, its openings and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.45 m stone coping on the lot line in the sequence the three prints that reach the lot line agree on (a long run, the walk's opening a little south of the stair, a 0.4 m block, a gap, a long run); the K14 walk leaves the stair square and turns south behind the coping to the opening"
+    },
+    {
+      "what": "where the coping's openings fall along the lot line",
+      "status": "within tolerance",
+      "how": "registered on the stair, the print's opening and blocks fall within about 0.3 m of where they are laid; the walk's turn behind the coping is the kit's reading of the print's angled walk"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
