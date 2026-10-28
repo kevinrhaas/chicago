@@ -816,7 +816,7 @@
           "value": {
             "kit": "k14_condition",
             "built": 1904,
-            "lawn": "turf",
+            "lawn": "none",
             "grass_edge": "street_front",
             "under_stoop": "earth",
             "front_walk": {
@@ -842,7 +842,7 @@
             "chicagology_1901_ream_1898",
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate down the north passage to the house's rear corner. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206."
+          "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate down the north passage to the house's rear corner. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
         }
       }
     }
