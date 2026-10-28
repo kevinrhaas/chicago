@@ -89,6 +89,8 @@ const PRIORITY_LIFT_M = 0.003;
  *  parity test falls either way; one that fell outside took the roadway's level, and the
  *  curb's top ran down into the gutter in a pale slope (1,126 triangles, 28 faces). */
 const BAND_EDGE_M = 0.005;
+/** How near a ramp's edge a point still takes the ramp's level (T-3231). */
+const RAMP_EDGE_M = 0.005;
 /** T-2692: how far a roadway runs on under one ranked above it, which stands a few
  *  millimetres higher. Cut off flush, the step between them showed what lies under
  *  the higher one's edge, a dark hairline seen from low down along every such cut. */
@@ -798,9 +800,13 @@ export async function createStreetGrid({
   /** T-3200: the corner crossings, each face's walk carried on across the other street's
    *  parkway and over its curb, then one stone slab sloping from the curb's face out and
    *  down onto the roadway. */
-  const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => ({
-    x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]), rampBox: bboxOf(x.ramp),
-  }));
+  const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => {
+    const b = bboxOf(x.ramp);
+    return {
+      x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]),
+      rampBox: [b[0] - RAMP_EDGE_M, b[1] - RAMP_EDGE_M, b[2] + RAMP_EDGE_M, b[3] + RAMP_EDGE_M],
+    };
+  });
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
   const rampFoot = () => ROAD + CLASSES.carriageway.lift + MAX_PRIORITY * PRIORITY_LIFT_M + 0.002 - CLASSES.walk.lift;
@@ -825,7 +831,7 @@ export async function createStreetGrid({
   const offsetAt = (e, n) => {
     if (!section) return 0;
     for (const { x, rampBox } of crossings) {
-      if (!inBox(rampBox, e, n) || !pointInPolygon(e, n, x.ramp)) continue;
+      if (!inBox(rampBox, e, n) || !nearPolygon(e, n, x.ramp, RAMP_EDGE_M)) continue;
       const f = Math.max(0, Math.min(1, (acrossIn(x, e, n) - x.ramp_from_m) / (x.ramp_to_m - x.ramp_from_m)));
       const head = -FALL * x.ramp_from_m + CLASSES.curb.lift - CLASSES.walk.lift;   // the curb's top
       return (1 - f) * head + f * (rampFoot() + (x.lip_m ?? 0.05));

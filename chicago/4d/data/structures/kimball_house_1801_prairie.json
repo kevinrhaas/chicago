@@ -162,6 +162,20 @@
                   "lights_m": [
                     0.8
                   ]
+                },
+                "pilasters": {
+                  "width_m": 0.25,
+                  "proud_m": 0.06,
+                  "base_m": 0.12,
+                  "capital_m": 0.25,
+                  "gap_m": 0.1,
+                  "foot_m": 5.0,
+                  "lozenges": {
+                    "count": 1,
+                    "height_m": 0.55,
+                    "margin_m": 0.04,
+                    "relief_m": 0.015
+                  }
                 }
               },
               {
@@ -173,14 +187,29 @@
                   "lights_m": [
                     0.8
                   ]
+                },
+                "pilasters": {
+                  "width_m": 0.25,
+                  "proud_m": 0.06,
+                  "base_m": 0.12,
+                  "capital_m": 0.25,
+                  "gap_m": 0.1,
+                  "foot_m": 5.0,
+                  "lozenges": {
+                    "count": 1,
+                    "height_m": 0.55,
+                    "margin_m": 0.04,
+                    "relief_m": 0.015
+                  }
                 }
               }
             ]
           },
           "confidence": "reconstructed",
-          "note": "The two lights over the loggia, the avenue front's (front_bays 1.6) and the 18th Street flank's (side_bays 18.67), each stand in a moulded frame under a projecting head in the Taylor print (x 1016-1071 and 877-931 px), so the second storey wears the K09 kit's restrained surround, its two-fascia architrave round the light and its cornice hood on consoles, and the flank's light is named in `lights` to wear it too; the print's transom bar stands about 0.75-1.0 m under each head (y 680-700 px at the front, 676-694 on the flank, through T-3074's camera at about 57 px a metre), so each light carries an 0.8 m top light over a 0.1 m bar where K06's transom light is 0.45 m (T-1890). The profile is the kit's, not the print's own moulding, and the carved pilasters either side of each light are not built (L-kimball-1801-loggia-lights-1890). The principal storey's openings are the door and the bow's own lights, so its plain stone lintel dresses none on the front.",
+          "note": "The two lights over the loggia, the avenue front's (front_bays 1.6) and the 18th Street flank's (side_bays 18.67), each stand in a moulded frame under a projecting head in the Taylor print (x 1016-1071 and 877-931 px), so the second storey wears the K09 kit's restrained surround, its two-fascia architrave round the light and its cornice hood on consoles, and the flank's light is named in `lights` to wear it too; the print's transom bar stands about 0.75-1.0 m under each head (y 680-700 px at the front, 676-694 on the flank, through T-3074's camera at about 57 px a metre), so each light carries an 0.8 m top light over a 0.1 m bar where K06's transom light is 0.45 m (T-1890). Each light stands between two carved pilasters in the print (front x 1000-1010 and 1075-1085, flank 860-870 and 935-945 px), each rising from the belt under the sill to a carved capital beside the head that carries the head's band, and HABS 1965's photograph 2 shows the 18th Street pair sharply: a sunk-panelled shaft with one lozenge centred on it, about 0.55 m tall and nearly the shaft's width, under a foliate capital. So each named light carries `pilasters` (T-1890): a shaft 0.25 m broad (the Taylor print reads about 0.2 m, 10-11 px at about 50 px a metre on its foreshortened faces; HABS 2 about 0.3 m, its shaft against the light's clear width) and 0.06 m proud, standing 0.1 m clear of the architrave, on a base from the belt's top (5.0 m) under a capital standing where the kit's console hung, the hood run out over the capitals, and one lozenge 0.55 m tall centred on each shaft, carved 0.015 m proud as the bow's are (bays, T-2931). The profiles, the plain capitals (the pictures' are foliate) and the shaft's plain face (HABS 2's is a sunk panel) are the kit's and this reading, not the house's own carving (L-kimball-1801-loggia-lights-1890). The principal storey's openings are the door and the bow's own lights, so its plain stone lintel dresses none on the front.",
           "sources": [
-            "taylor_c1895_kimball_residence_1801"
+            "taylor_c1895_kimball_residence_1801",
+            "habs_kimball_photo_02_nw_1965"
           ]
         },
         "roof_form": {

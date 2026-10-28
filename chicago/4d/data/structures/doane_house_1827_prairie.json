@@ -303,12 +303,12 @@
           "note": "The sheet's stone range at the front's north end, 2.7 m deep in front of the west wall (s28fp-1827-b1 p1, u 24.4-27.2), read as the porch the photograph shows there: its floor is the landing the columns stand on."
         },
         "stoop_width_m": {
-          "value": 5.0,
+          "value": 1.9,
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "chicagology_1827_doane_exterior"
           ],
-          "note": "The porch's floor, as wide as the sheet's range (v 0.05-5.05); the flight is laid across it, where the photograph shows steps rising along the front from the north behind the street tree (open in the match record)."
+          "note": "T-3210 (piece 2 of T-3197): the flight, read through the Doane photograph's camera, rises straight in from the street under the street face's south arch, as wide as that arch's mouth (v 2.7-4.6), not across the porch's whole width. Its cheek on the south side shows as a pale coping from x 37, y 1515 px to x 112, y 1455, under a newel pedestal at x 85-112 px, y 1407-1455; its treads stand over the cheek to the north (x 0-82 px, y 1462-1492). Of the two readings the print leaves, the camera holds only this one. A cheek running along the front (u 27.1-28) rises south from v 3.3-4.2 at 0.45 m to v 4.6-5.5 at 1.2 m, 30 degrees, and would land on the floor (1.3 m) past the porch's south face. A flight straight in under the north arch would put its south cheek (v 2.5) at u 26.3-24.9, inside the porch under its floor. Straight in, with its south cheek at v 4.6, the coping runs from u 28.4, 0.52 m to u 27.05, 1.24 m (28 degrees, the stair's 29.5): it meets the floor at the porch's street edge (u 27.1), and the newel pedestal stands on the arcade's line. The floor carried on north to the porch's north end and south to its south face as terraces at the landing's height (the door, at v 2.55, stands on the north one). The width's last 0.1 m and the cheek's coping are within tolerance of the print's."
         },
         "entrance_bay": {
           "value": "south",
@@ -481,9 +481,34 @@
                     0.45
                   ],
                   "capital_m": 0.35,
-                  "respond_m": 0.15
+                  "respond_m": 0.15,
+                  "at_v_m": [
+                    0.35,
+                    2.55,
+                    4.75
+                  ]
+                },
+                "arches": {
+                  "faces": [
+                    "front",
+                    "right"
+                  ],
+                  "spring_m": 3.65,
+                  "rise_m": 0.85
+                },
+                "fabric": "stone"
+              },
+              "stoop_v_m": 3.65,
+              "terrace": [
+                {
+                  "side": "left",
+                  "to_v_m": 0.05
+                },
+                {
+                  "side": "right",
+                  "to_v_m": 5.05
                 }
-              }
+              ]
             }
           },
           "confidence": "inferred",
@@ -491,7 +516,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "chicagology_1827_doane_exterior"
           ],
-          "note": "The sheet's stone range at the front's north end (u 24.4-27.2, v 0.05-5.05) is the porch the photograph shows there behind the street tree: columns carrying a balustraded balcony at the second floor, built as the door's hood on columns with a railing over it. T-3189, through the re-solved camera: the entablature's foot at y 1175 px at the porch's south side (about 4.85 m over grade), its balcony's railing over it to y 1130 (about 5.4 m), its floor on the columns' bases at about y 1422 (about 1.6 m). Built with its soffit at 4.7 m, a 0.2 m fascia, a 0.12 m cornice and a 0.45 m railing (to about 5.5 m), so the balcony stops under the second storey's sills over the door's bay, which the kit will not stand a railing in front of; the print's entablature reads about 0.2 m and its railing about 0.45-0.5 m. Its round arches are not built (open in the match record)."
+          "note": "The sheet's stone range at the front's north end (u 24.4-27.2, v 0.05-5.05) is the porch the photograph shows there behind the street tree: columns carrying a balustraded balcony at the second floor, built as the door's hood on columns with a railing over it. T-3189, through the re-solved camera: the entablature's foot at y 1175 px at the porch's south side (about 4.85 m over grade), its balcony's railing over it to y 1130 (about 5.4 m), its floor on the columns' bases at about y 1422 (about 1.6 m). Built with its soffit at 4.7 m, a 0.2 m fascia, a 0.12 m cornice and a 0.45 m railing (to about 5.5 m), so the balcony stops under the second storey's sills over the door's bay, which the kit will not stand a railing in front of; the print's entablature reads about 0.2 m and its railing about 0.45-0.5 m. T-3210 (piece 2 of T-3197), through the same camera: the porch is an arcade in the front's stone (the print's spandrels and columns are the walls' pale stone), not joinery. On the street face two round arches on three columns, at v 0.35, 2.55 and 4.75: the print sees the south one whole (x 13-120 px), its crown at y about 1207 px (about 4.45 m) and the stone band over it to the entablature's foot, and the column between the two at x 0-15 px (v about 2.55, its capital's top at y about 1283, about 3.5 m); the north one is past the print's left edge and is built as its pair. On the south face one arch, from the respond on the wall (the print's column against the pavilion at x 233-253 px, about 0.3 m out) to the corner column behind the street tree, its capital at y about 1253-1283 (about 3.5-3.9 m). Built springing at 3.65 m off the capitals and rising 0.85 m, the front's two a true half round over their 1.7 m between capitals, the south one a half ellipse over its 2.0 m. RECONSTRUCTED: the north arch, the arches' mouldings (the print's archivolt is a thin line), and the consoles at the south end, which the arcade replaces."
         },
         "boundary": {
           "value": {
