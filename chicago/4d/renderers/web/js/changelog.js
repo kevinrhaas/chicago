@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2365, ts: '2026-10-28T02:39:50.071Z', date: 'Oct 27, 2026, 9:39 PM CT', title: '1904 gas lamps rebuilt to the photographs', kind: 'fix',
+    items: [
+      'New post read off the 1811 photograph: plain foot, leafed boss, slender shaft, bell capital.',
+      'Four scrolled arms carry the lantern; the ladder bar is shorter, its ends knobbed.',
+      'Clear lantern panes tapering out to a projecting rim; a steep pale roof and vent cap.',
+      'Corner footings stand taller, as in Taylor 2135.',
+    ] },
   { v: 2364, ts: '2026-10-28T01:55:25.688Z', date: 'Oct 27, 2026, 8:55 PM CT', title: 'Front yards planted along Prairie Avenue in 1904', kind: 'feature',
     items: [
       'The 1904 house lots are no longer bare grass: shrubs now line each house\'s front and the start of its sides, and most lawns have one to three low flower beds of scarlet geraniums, white and pink, marigolds or coleus. Each lot is planted a little differently, and nothing stands on a stoop, a front walk, a fence or the way to a door.',
