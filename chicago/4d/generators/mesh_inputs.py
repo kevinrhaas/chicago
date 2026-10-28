@@ -110,7 +110,8 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
                        # T-2425: and K09's ear clipper for 1638's pierced spandrels
-                       "k16_timber": ("k01_frontage.py", "k06_windows.py", "k09_trim.py"),
+                       # T-3205: and K16's yard, which routes its walk with K14's
+                       "k16_timber": ("k01_frontage.py", "k06_windows.py", "k09_trim.py", "k16_yard.py", "k14_yard.py"),
                        # T-2321: the coach house is cut with K09's mesh primitives, K01's vector
                        # helpers and K10's sweep (its party-wall coping)
                        "k12_coach_house": ("k09_trim.py", "k01_frontage.py", "k10_cornices.py")}
@@ -156,6 +157,9 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
             wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
             # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
             wanted += [gen / "archetypes" / "k08_bays.py"]
+        # T-3222: a K16 house with a yard has its walk routed by K14 and worn by the condition kit
+        if archetype == "k16_timber" and getattr(params, "yard", None):
+            wanted += [gen / "archetypes" / "k14_yard.py", gen / "archetypes" / "k14_condition.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -284,6 +288,10 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         for kit in ("k16_timber.json", "k06_windows.json"):
             f = ROOT / "data" / "components" / "prairie_1904" / kit
             doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
+        # T-3222: and a yard's walk is worn by the K14 kit's ground layers
+        if getattr(params, "yard", None):
+            k14 = ROOT / "data" / "components" / "prairie_1904" / "k14_condition.json"
+            doc["component_data"][k14.relative_to(ROOT).as_posix()] = _sha_file(k14)
     if arch == "k12_coach_house":
         # T-2321: the kit's parts (wall, storeys, roof, party wall, openings, workyard) are
         # data the builder reads

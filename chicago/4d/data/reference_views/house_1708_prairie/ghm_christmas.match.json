@@ -2,7 +2,7 @@
   "structure_id": "house_1708_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
-  "glb_sha256": "092359cfc94ff807e4bbdf02e4e0c078571c42de4844f2dbe1971bdead918b4f",
+  "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8",
   "camera_sha256": "4893b771de1fcf78fddee6fc5dbaa01fb16b33750e37c58a8956117510cefc7f",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "side_by_side": "docs/RESEARCH/photo-match/house_1708_prairie/ghm_christmas-side-by-side.jpg",
@@ -62,6 +62,11 @@
       "what": "the bay's south end, the south wall, the rear range and the roof deck",
       "status": "not shown",
       "how": "T-3188: outside the frame or turned away from the camera"
+    },
+    {
+      "what": "the iron fence and posts along the street line in the foreground, the walk in to the stair",
+      "status": "not shown",
+      "how": "T-3205: this frame holds 1708's stair only at its left edge and its fence falls outside it; the fence, gate and walk are compared in chicagology_townhouses and the street stills (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
