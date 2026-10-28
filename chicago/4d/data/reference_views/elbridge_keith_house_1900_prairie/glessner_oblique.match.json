@@ -2,7 +2,7 @@
   "structure_id": "elbridge_keith_house_1900_prairie",
   "view": "glessner_oblique",
   "glb": "assets/gltf/elbridge_keith_house_1900_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8c76c5849929032fe3a12155b368834378dd957d8d7442f7e6a1f860f05389af",
+  "glb_sha256": "3632372460a2be62bc7ebc95a660d2ccb1886bcd8da1d4b9e34d22d8fd8698a5",
   "camera_sha256": "b9b8e12b10a51ac7e8e2ee25256b6183637dcdd04713f89cef41a6f3170e6c99",
   "photo_sha256": "2bf412a3d0369c7619b25c5da579805f71d07fdf90ea1442b8013627be8df755",
   "side_by_side": "docs/RESEARCH/photo-match/elbridge_keith_house_1900_prairie/glessner_oblique-side-by-side.jpg",
@@ -37,23 +37,23 @@
       "status": "fixed"
     },
     {
-      "what": "every street window in the print is ROUND-HEADED under a moulded hood with a carved crown; the build cuts square-headed sash under K09's cornice hood. A K01 stone front lays round arches only as street_front_openings (1612's), which this piece did not take on — T-3208",
+      "what": "every street window ROUND-HEADED under a moulded hood with a carved crown (the print; the mid-century and 2024 fronts and the c. 2014 detail show the same heads on both storeys): T-3208 cuts each front light round-headed in the stone (street_front_round_heads), K06's arch band carried spring to spring as the hood and a key block on its crown for the carving, and the corner bay's lights the same; they render on the print's columns and crowns",
+      "status": "fixed"
+    },
+    {
+      "what": "the window over the porch is a PAIRED, arched window (two round lights under one wider head, about 1.25 m across; the c. 2014 detail and the 2024 front show it plainly); since T-3208 it is round-headed like its neighbours but still ONE light of the front's width, because a front laid by front_bays glazes every column with one K06 variant and K01's round-hooded light is a single sash",
       "status": "open"
     },
     {
-      "what": "the window over the porch is a PAIRED, arched window (two lights under one head, about 1.25 m wide); the build stands one sash of the front's width there — T-3208",
+      "what": "the south flank's front part is the same light STONE as the front in the print (the mid-century oblique, a print of the same negative, agrees; no later picture shows the flank); the build lays it in K03 brick, because the 1911 sheet records 'brick with stone front' and K01 returns stone along a flank only as a quoined return of at most 4 m, where the print shows about 6 m of flank and no quoins. Its windows there are square-headed, where the print's are round-headed under hoods",
       "status": "open"
     },
     {
-      "what": "the south flank's front part is the same light STONE as the front in the print; the build lays it in K03 brick, because the 1911 sheet records 'brick with stone front' and K01 returns stone along a flank only with a quoined corner the print does not show — T-3208 to weigh with the later pictures",
-      "status": "open"
+      "what": "the dormers' heads ARCHED: T-3208 builds all three as K05's round-headed dormer, the surround carried round the arch, where the gable heads stood; they render on the print's dormers",
+      "status": "fixed"
     },
     {
-      "what": "the dormers' heads are ARCHED under projecting hoods on consoles; built as K05's gabled head — T-3208",
-      "status": "open"
-    },
-    {
-      "what": "the bay's crown carries a DORMER on its front face (the print's x 600-680 px, and the mid-century and 2024 fronts); K08's mansard crown takes none — T-3208",
+      "what": "the bay's crown carries a DORMER on its front face (the print's x 600-680 px; the mid-century and 2024 fronts and the c. 2014 detail show it as an arched light under its own cornice); K08's mansard crown takes none, and nothing in the kit sets a dormer on a bay's roof",
       "status": "open"
     },
     {
@@ -65,7 +65,11 @@
       "status": "open"
     },
     {
-      "what": "the square stone posts at the walk's opening and at the lot's front corners, and the stoop's stone posts at its foot — T-3208",
+      "what": "the square stone posts at the walk's opening and at the lot's front corners: T-3208 raises the coping wall there to about 0.8 m for about 0.45-0.5 m (they render at the print's x 520-530 and 720-735 beside the walk); the stoop's two block newels at its foot (the print, the mid-century and 2024 fronts) are not built — see the next item",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop's two square block newels at its foot, about 1.2 m high with carved caps (the print's x 600 and 700; the mid-century and 2024 fronts), and its iron hand-rails: the build's stoop has solid stone cheeks and no newels. K11's coping wall stands one stair pier on one side only and K07's balustrade would add balusters no picture shows",
       "status": "open"
     },
     {
@@ -73,7 +77,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the corona over the bay reads about 1 m higher in the print than in the render at the bay's south cheek (y 181 against about 240 px), where the camera's fit and the 1911 sheet's bay disagree (the sheet bulges 1.8 m at v 2.0-6.1, the print 0.93 m at v 0.3-4.3); the print's reading is built; the residual is over the bar, so either the bay's cornice or the camera's fit at its corner is to be reworked by T-3208 against the later fronts",
+      "what": "the corona over the bay reads about 1 m higher in the print than in the render at the bay's south cheek (y 181 against about 240 px), where the camera's fit and the 1911 sheet's bay disagree (the sheet bulges 1.8 m at v 2.0-6.1, the print 0.93 m at v 0.3-4.3). Weighed against the mid-century and 2024 fronts: in both the bay's cornice runs level with the front's (the brackets and the corona continue round the bay unbroken), which is how it is built, so the difference is the camera's fit at the bay's corner rather than the cornice; it stays open until a camera solved on a front confirms it, since a re-fit is not this sign-off's",
       "status": "open"
     },
     {
@@ -83,6 +87,18 @@
     {
       "what": "the north flank, the rear and the sheet's frame range behind: the print does not see them; the south flank's canted bay stands behind the neighbour at the print's left",
       "status": "not shown"
+    },
+    {
+      "what": "the hoods' carving and the window surrounds: the pictures show each hood's crown as a foliate cartouche and a moulded architrave down each jamb on consoles; built as the arch band and a plain key block, without the jamb mouldings. Under 0.15 m proud and a carving's detail: within tolerance",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the round-headed lights' glazing: the c. 2014 detail shows each upper sash following the arch; K06's round-headed hung sash puts a transom bar on the spring under a fanlight. A glazing bar: within tolerance",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the coping wall's posts are the wall's 0.35 m thickness where the print's are a little broader (about 0.5 m): under the bar, within tolerance",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
