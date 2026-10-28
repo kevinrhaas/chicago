@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2385, ts: '2026-10-28T13:24:05.718Z', date: 'Oct 28, 2026, 8:24 AM CT', title: 'The 1904 houses download about 93 MB less', kind: 'improvement',
+    items: [
+      'Houses built from the same kit now share one copy of each brick, stone and wood texture, where every house used to carry its own.',
+      'The 1904 year kept on your device for offline use is about a third smaller, and every house looks exactly as it did.',
+    ] },
   { v: 2384, ts: '2026-10-28T12:59:29.995Z', date: 'Oct 28, 2026, 7:59 AM CT', title: 'Walks to the four timber houses of the 1600 block', kind: 'feature',
     items: [
       'You can now walk up to the front doors of the four wooden houses at 1601, 1609, 1611 and 1630 Prairie. Each has a stone-flagged walk from the sidewalk to its porch steps.',
