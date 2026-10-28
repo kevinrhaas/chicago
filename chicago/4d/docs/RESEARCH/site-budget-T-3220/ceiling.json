@@ -1,0 +1,43 @@
+{
+ "ticket": "T-3220",
+ "measured": "2026-10-28",
+ "method": "dev published with tools/publish.sh and read with tools/site_budget.py; the deployed github-pages artifact downloaded from the Actions API and its artifact.tar listed with tar tv, sizes summed by top directory (MiB = 1,048,576 B)",
+ "dev_publish": {
+  "commit": "00d814a9",
+  "mib": 415.800,
+  "files": 5566,
+  "budget_mib_before": 416,
+  "headroom_mib": 0.200
+ },
+ "deployed_artifact": {
+  "workflow_run_branch": "main",
+  "created": "2026-10-28T07:00:09Z",
+  "tar_bytes": 926074880,
+  "content_mib": 874.898,
+  "by_directory_mib": {
+   "4d/dev": 415.824,
+   "4d": 326.840,
+   "pre-fire": 47.880,
+   "prairie-1904": 46.974,
+   "rebuilding-1870s": 37.333,
+   "rest": 0.047
+  },
+  "other_content_mib": 132.233,
+  "committed_site_other_bytes": 135408963,
+  "committed_site_other_mib": 129.136
+ },
+ "blocked_prs": {
+  "1384": {"ticket": "T-3211", "adds_mib": 3.99},
+  "1408": {"ticket": "T-3229", "adds_mib": 2.10}
+ },
+ "allowance": {
+  "budget_mib_after": 432,
+  "two_trees_plus_other_mib": 996.233,
+  "under_gib_mib": 27.767,
+  "largest_under_gib_mib": 445.883,
+  "decimal_gb_mib": 953.674,
+  "two_trees_at_dev_today_mib": 963.833
+ },
+ "pages_limit_text": "Published GitHub Pages sites may be no larger than 1 GB.",
+ "follow_up": "T-3232"
+}

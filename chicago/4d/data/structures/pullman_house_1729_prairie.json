@@ -577,6 +577,22 @@
             "chamfer_m": 0.06,
             "runs": [
               {
+                "to_s_m": 4.3,
+                "height_m": 0.9
+              },
+              {
+                "to_s_m": 4.9,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 6.5,
+                "opening": true
+              },
+              {
+                "to_s_m": 7.1,
+                "height_m": 1.2
+              },
+              {
                 "to_s_m": 28.051,
                 "height_m": 0.9
               }
@@ -590,7 +606,7 @@
           "sources": [
             "loc_det_4a08065_pullman_residence"
           ],
-          "note": "The photograph's low stone wall along the Prairie Avenue line, on piers at the walk. T-3160: and on round the corner along 18th Street on the lot's south line (side_return), the print's low stone wall at x 640-685 px, 0.9 m as the Prairie run, from the corner back to x 35.0 (the print's x 693, u 35.0), where the print's run of posts on a lower curb begins (not built: its posts and rail are too fine to read here)."
+          "note": "The photograph's low stone wall along the Prairie Avenue line, on piers at the walk. T-3160: and on round the corner along 18th Street on the lot's south line (side_return), the print's low stone wall at x 640-685 px, 0.9 m as the Prairie run, from the corner back to x 35.0 (the print's x 693, u 35.0), where the print's run of posts on a lower curb begins (not built: its posts and rail are too fine to read here). T-3205: the walk's way through it. Through the print's camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json) the wall stops either side of a gap at x 195-225 px between two square piers standing over its top (x 180-195 and 225-237), on the street line at s 4.9-6.5 and 3.9-4.9, 6.5-7.6: square before the stair (its axis s 5.0), which the print shows behind the wall at x 300-370. Built as an opening s 4.9-6.5 between 0.6 m piers 1.2 m high (the print's piers stand about 0.6 m over the 0.9 m wall, 1.5 m; 1.2 m is the kit's ceiling for a coping run, within the 0.3 m bar). RECONSTRUCTED: the piers' section (liberty L-k14-walks-1700-block-3205)."
         },
         "bays": {
           "value": [
@@ -944,6 +960,34 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "T-3160, through the Detroit print's solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json): the arcade on the 18th Street flank (x 598-685 px) is a one-storey block standing out from the flank, not arches in its wall. Its west end is seen nearly square to the camera (its round arch is as wide as it is high, about 15 px a metre either way), its south front edge-on past the corner pier (about 5 px a metre along it). Its west face meets the flank at x 598 (u 21.4, s 6.35); the west arch's jambs at x 610 and 645 put it 0.81-3.18 m out (span 2.37 m), its crown at y 410 and springing at about 428 (6.0 and 4.85 m); the corner pier at x 645-668 and the south front's arch at x 668-678 put the front 4.27 m out and its arch at s 7.78-10.05 (span 2.27 m); the pier at x 678-685 ends where the tree and the building beyond take over (s 11.7). The entablature's soffit at y 402 (6.5 m), the balustrade's base at y 397 and its top at 389 (about 6.85 and 7.4 m). The block's east end is a bounded design: closed at s 11.48 by a corner pier the size of the west one, with an arch mirroring the west end's, so the carriage passes through (L-pullman-1729-porte-cochere-3160). The 1911 sheet draws the one-storey 'porte-cochere' (s20fp-1729-b1 p4) at u 15-20, 2-5.4 m out (s 7.75-12.75), 1.4 m east of and 1.1 m further out than the print's; the print, the nearer witness to what stood, governs the build, and the disagreement is written into the match record."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            },
+            "grade_m": {
+              "front": 0.083,
+              "street": 0.108,
+              "per_m_s": 0.0035,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot out to the wall's opening, where it jogs 0.7 m south behind the wall to pass between the piers (the opening reads 0.7 m south of the stair's axis), and on to the public walk; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
         }
       }
     }

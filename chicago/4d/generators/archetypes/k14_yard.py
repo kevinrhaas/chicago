@@ -39,6 +39,14 @@ the wall's back clear of it, and out through the opening, each leg its own flags
 is optional there, and runs down the side passage the record names (`side`) through an opening
 across its mouth. Every leg is written into the front walk's instance (`legs_m`), which
 `tools/check_house_walks.py` reads off the GLB.
+
+T-3215: `dress_open` also lays the yard of a front with no boundary (`layout: open`: 1621's and
+1623's 1886 drawings, 1625's 1890 photograph), whose one opening is the lot's whole front and
+whose lawn runs out to the public walk, and of a front garden (`layout: front_garden`, 1637's
+engraving), whose walk comes out from the stoop's foot through the gap the stoop's flight leaves
+between the garden's wall and its fence. And a boarded street line that closes its side yard's
+mouth unbroken (1616's, `k11.fence.side_boards` with no side gate) lays no service walk: there is
+no gate for one to come through.
 """
 
 from __future__ import annotations
@@ -61,6 +69,9 @@ SURFACES = {"turf": "yard_turf", "earth": "yard_earth", "cinder": "yard_cinder",
             "stone_flags": "stoop_stone"}
 UP = (0.0, 1.0, 0.0)
 LAWN, FRONT_WALK, SERVICE_WALK = "k14.yard.lawn", "k14.yard.front_walk", "k14.yard.service_walk"
+# the boundary layouts whose yard `dress_open` lays: a coping wall (T-3206), an open front and a
+# front garden (T-3215), each handing K14 its back face (`inner_x_m`) and its openings
+OPEN_LAYOUTS = (k11_frontage.COPING, k11_frontage.OPEN, k11_frontage.GARDEN)
 
 
 def spec(params) -> dict | None:
@@ -70,18 +81,22 @@ def spec(params) -> dict | None:
         return None
     if not getattr(params, "boundary", None):
         raise ValueError("a yard is laid inside a K11 boundary, and this record names none")
-    if params.boundary.get("layout") == k11_frontage.COPING:
+    if params.boundary.get("layout") in OPEN_LAYOUTS:
         return open_spec(params, y)
-    if not params.boundary.get("side_gate") and params.boundary.get("layout") != "stone_posts_rails":
+    # T-3215: a boarded street line unbroken across the side yard's mouth (1616's) has no side
+    # gate, and its yard no service walk
+    boarded = params.boundary.get("fence") == k11_frontage.BOARDS
+    if not params.boundary.get("side_gate") and params.boundary.get("layout") != "stone_posts_rails" \
+            and not (boarded and "service_walk" not in y):
         raise ValueError("a yard's service walk runs through the K11 side gate, and this boundary names none")
-    if y.get("lawn") != "turf":
-        raise ValueError("yard.lawn builds 'turf' alone")
+    if y.get("lawn") not in ("turf", "none"):
+        raise ValueError("yard.lawn: 'turf', or 'none' for the app's own ground (T-3205)")
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
-    fw, sw = y.get("front_walk") or {}, y.get("service_walk") or {}
-    if fw.get("surface") != "stone_flags" or sw.get("surface") != "cinder":
-        raise ValueError("yard builds a stone_flags front walk and a cinder service walk")
-    for name, w in (("front_walk", fw), ("service_walk", sw)):
+    fw, sw = y.get("front_walk") or {}, y.get("service_walk")
+    if fw.get("surface") != "stone_flags" or (sw is not None and sw.get("surface") not in ("cinder", "stone_flags")):
+        raise ValueError("yard builds a stone_flags front walk and a cinder (or, T-3205, stone_flags) service walk")
+    for name, w in (("front_walk", fw), ("service_walk", sw or {"wear_tone": 1.0})):
         if not 0.62 <= float(w["wear_tone"]) <= 1.0:
             raise ValueError(f"yard.{name}.wear_tone {w['wear_tone']} is under the kit's floor (0.62)")
     if not 0.3 <= float(fw["flag_m"]) <= 1.8:
@@ -215,7 +230,7 @@ def _dress(a, y):
     p = a.p
     if not getattr(a, "boundary", None):
         raise ValueError("the yard is laid after the K11 boundary, and none was built")
-    if p.boundary.get("layout") == k11_frontage.COPING:
+    if p.boundary.get("layout") in OPEN_LAYOUTS:
         return dress_open(a, y)
     K = _cond()
     cond = K.Condition()
@@ -279,12 +294,14 @@ def _dress(a, y):
         e = [(wall_u(s), wall_u(s) + strip(s)) for s in (s0, s1)]
         earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (curb_in, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
+    if y.get("lawn") == "none":         # T-3205: the app's own ground is the lawn
+        lawn_rows = []
     lawn_tris = sum(_up_grid(a, SURFACES["turf"], r, conf) for r in lawn_rows)
     earth_tris = sum(_up_grid(a, SURFACES["earth"], r, conf) for r in earth_rows + under_rows)
     widths = [strip(s) for s in edges if not st0 <= s <= st1]
 
     # -- the service walk: cinder down the side passage, worn along its centre ------------
-    S = y["service_walk"]
+    S = y.get("service_walk") or {"wear_tone": 1.0}     # T-3215: none behind unbroken boards
     sk = 1.0 - float(S["wear_tone"])
     c = (wall_face + 0.0) / 2
     half = (0.0 - wall_face) / 2
@@ -305,10 +322,14 @@ def _dress(a, y):
                          for s in cols])
         return rows
 
-    to_u = float(S["to_u_m"])
-    service_tris = _up_grid(a, SURFACES["cinder"], walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, LAWN_Y), conf)
-    sa, sb = b["side_gate_s_m"]
-    service_tris += _up_grid(a, SURFACES["cinder"], walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, LAWN_Y), conf)
+    service_tris = 0
+    if "service_walk" in y:
+        to_u = float(S["to_u_m"])
+        # T-3205: flags stand a hair over the ground as the open yard's do; cinder lies on it
+        sm, y_s = SURFACES[S["surface"]], LAWN_Y + (0.004 if S["surface"] == "stone_flags" else 0.0)
+        service_tris = _up_grid(a, sm, walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, y_s), conf)
+        sa, sb = b["side_gate_s_m"]
+        service_tris += _up_grid(a, sm, walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, y_s), conf)
 
     # -- the front walk: stone flags from the stoop's foot to the public walk -------------
     F = y["front_walk"]
@@ -347,9 +368,10 @@ def _dress(a, y):
                                     "wear_tone_min": round(1.0 - fk * float(cond.path_wear(0.0, foot, use="front_walk", built=built, seed=seed)), 4),
                                     "triangles": flag_tris},
                {"stoop_foot": (foot, top, -p.stoop_s_m(door.s_m)), "public_walk": (public, top, -p.stoop_s_m(door.s_m))})
-    a.instance(SERVICE_WALK, "yard", {"length_m": round(public - to_u, 4), "width_m": round(2 * half, 4),
-                                      "triangles": service_tris},
-               {"rear_end": (to_u, LAWN_Y, -c), "gate": (pier_in, LAWN_Y, -(sa + sb) / 2)})
+    if "service_walk" in y:
+        a.instance(SERVICE_WALK, "yard", {"length_m": round(public - to_u, 4), "width_m": round(2 * half, 4),
+                                          "triangles": service_tris},
+                   {"rear_end": (to_u, LAWN_Y, -c), "gate": (pier_in, LAWN_Y, -(sa + sb) / 2)})
     a.yard = {"lawn_triangles": lawn_tris, "earth_triangles": earth_tris, "flag_triangles": flag_tris,
               "service_triangles": service_tris, "strip_m": [round(min(widths), 4), round(max(widths), 4)],
               "stoop_s_m": [round(st0, 4), round(st1, 4)], "bays": len(bays)}
@@ -364,9 +386,11 @@ PASSAGE_CLEAR_M = 0.45   # a turned walk's cross leg stands this far off the wal
 
 def open_spec(params, y: dict) -> dict:
     """`yard` inside a `stone_coping_wall`: as `spec`, but the walk names its width (no gate
-    sizes it), and the service walk is optional and names the passage it runs down."""
-    if y.get("lawn") != "turf":
-        raise ValueError("yard.lawn builds 'turf' alone")
+    sizes it), and the service walk is optional and names the passage it runs down. Its
+    `lawn` may be 'none' (T-3205): no turf is laid, the yard's grass is the app's own ground
+    (as a K16 frame house's is, archetypes/k16_yard.py), and the turf sheet is not shipped."""
+    if y.get("lawn") not in ("turf", "none"):
+        raise ValueError("yard.lawn: behind a coping wall 'turf', or 'none' for the app's own ground")
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
     fw = y.get("front_walk") or {}
@@ -498,7 +522,7 @@ def dress_open(a, y):
         mid = (s0 + s1) / 2
         if stoop and st0 <= mid <= st1:
             under_rows.append([[(x, LAWN_Y, -s, 1.0) for x in (D, foot)] for s in (s0, s1)])
-            if not (straight_from_foot and w0 <= mid <= w1):
+            if not (straight_from_foot and w0 <= mid <= w1) and inner > foot + 0.05:
                 lawn_rows.append([[(x, LAWN_Y, -s, 1.0) for x in (foot, inner)] for s in (s0, s1)])
             continue
         e = [(wall_u(s), wall_u(s) + strip(s)) for s in (s0, s1)]
@@ -506,6 +530,8 @@ def dress_open(a, y):
             earth_rows.append([[(u, LAWN_Y, -s, 1.0) for u in pair] for s, pair in zip((s0, s1), e)])
         lawn_rows.append([[(pair[1], LAWN_Y, -s, 1.0), (inner, LAWN_Y, -s, 1.0)] for s, pair in zip((s0, s1), e)])
     lawn_tris = earth_tris = 0          # integer counts, added left to right (T-2363)
+    if y.get("lawn") == "none":         # T-3205: the app's own ground is the lawn
+        lawn_rows = []
     for r in lawn_rows:
         lawn_tris += _up_grid(a, SURFACES["turf"], r, conf)
     for r in earth_rows + under_rows:

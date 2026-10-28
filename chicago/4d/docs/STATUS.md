@@ -1,3 +1,35 @@
+## T-3213 — 1904 on a phone back under its 400 MiB memory ceiling (2026-10-28)
+
+Dev had drifted over the 1904 phone's memory ceiling unseen — 409.4 MB on
+0fc818209 (CI 417.4), 412.1 on 1f999039e here — because the memory job runs
+nightly on main and on pushes that touch its own tools, never on dev. Three cuts,
+none of them visible, read from a heap snapshot and the GL meter:
+
+- **An untextured structures batch carries no `uv`.** Every structures geometry
+  was given one (zeros when the GLB had none), and three uploads every attribute
+  a geometry has whether a program reads it or not. Relief derives its own
+  metric uv from the position, and no patch on a structures material reads the
+  attribute, so a batch whose material holds no texture drops it before it is
+  built. The 1904 town's largest batch (37,739 pieces, 2.1 M vertices) is that
+  kind, its uv float32: GPU buffers 158.1 -> 139.8 MB on the phone, and the same
+  bytes out of the page and the GPU on desktop, which keeps its arrays.
+- **The batches drop their update ranges.** Each `addGeometry` leaves a
+  `{ start, count }` on every attribute and the index; three clears them after a
+  partial upload, never after the first, whole one. About 12 MB of JS heap.
+- **The view-occlusion backings share one identity and one scratch matrix**
+  instead of holding a pair each in their closures. About 4 MB of JS heap.
+
+Same machine, same hour (`docs/measurements/T-3213-memory.json` against
+`T-3213-memory-dev.json`): 1904 phone 412.1 -> 377.5 MB, 1904 desktop 1222.3 ->
+1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and
+192.3 -> 192.0. The ceiling stays 400 (the rule's x 1.1 would raise it to 425);
+the re-read is written onto the row as `reread_by`. **Unverified:** CI has read
+this row about 8 MB above this machine before, so the margin there is about 14 MB,
+not 22; and front-yard plantings (T-3203) and further Prairie work will spend it.
+Not taken: the 1904 railway's hidden zones keep about 14 MB of instance matrices
+that are never uploaded at spawn; building those zones only when first reached
+would save most of it.
+
 ## T-3123 — Lake House roof-cap semantics (2026-10-25)
 
 The July 1835 Lake House worksite now omits its roof cap: `roof_type: none` no

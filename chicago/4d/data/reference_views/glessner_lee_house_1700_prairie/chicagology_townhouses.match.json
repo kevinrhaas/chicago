@@ -162,6 +162,10 @@
       "what": "the rear range, the rear and the roof deck",
       "status": "not shown",
       "how": "T-3211: turned away from the camera"
+    },
+    {
+      "what": "the front walk, railing and gate: the photograph shows each of the pair's stoops reached by a walk from the public walk through a gate in the spear-headed iron railing that runs on from 1708 before the pair's fronts; the build lays neither 1700's walk nor its railing or gate, so check_house_walks finds no way in (held PENDING on T-3212, the pair's open ticket)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

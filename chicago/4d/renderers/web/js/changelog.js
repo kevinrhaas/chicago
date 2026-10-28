@@ -1,4 +1,66 @@
 export const CHANGELOG = [ // newest first
+  { v: 2377, ts: '2026-10-28T08:07:54.441Z', date: 'Oct 28, 2026, 3:07 AM CT', title: 'Room for the next Prairie Avenue houses in the published town', kind: 'chore',
+    items: [
+      'The published town had filled its storage allowance, which held back two finished pieces of work: 1700 and 1706 Prairie, and the walks and gates of the 1600 block.',
+      'The allowance grows from 416 to 432 MiB. That figure was checked against what the site actually deploys, and the rest of the site turned out to weigh 132 MiB, not 129.',
+      'The lasting fix now has a ticket: each shared texture sheet gets shipped once, where today the houses carry 66 MiB of copies between them.',
+    ] },
+  { v: 2376, ts: '2026-10-28T08:03:52.431Z', date: 'Oct 28, 2026, 3:03 AM CT', title: 'Front doors kept clear of shrubs and ivy', kind: 'fix',
+    items: [
+      'No shrub, tree or patch of ivy now stands in front of a house\'s front door, its stoop or its porch front: each door keeps a wide clear way out to the street. The Pullman house\'s porch no longer has plants in front of its door.',
+    ] },
+  { v: 2375, ts: '2026-10-28T08:03:52.431Z', date: 'Oct 28, 2026, 3:03 AM CT', title: 'Front walks and ways in for the 1700-block Prairie houses', kind: 'feature',
+    items: [
+      'Nine houses from 1708 to 1736 Prairie now have a flagged walk from the sidewalk to the front steps.',
+      '1720 Walker gains its photographed stone kerb, iron railing and round-topped posts, with an opening at the stair.',
+      'Pullman\'s and McBirney\'s low stone walls now open where their photographs show the gap, so you can walk in.',
+      '1721 Dexter\'s low coping has a post either side of its walk, as in its 1888 photograph; 1730 keeps the board fence of its 1874 engraving, now with gates.',
+      '1708\'s iron gates stand open; 1709, 1712 and 1726, unpictured at the street, take the block\'s low coping.',
+      'Side walks run back to the rear at 1708, 1720 and 1730.',
+    ] },
+  { v: 2374, ts: '2026-10-28T06:52:00.845Z', date: 'Oct 28, 2026, 1:52 AM CT', title: '1638 Prairie\'s gateway now leads to its porch stair on flags', kind: 'feature',
+    items: [
+      'The timber house at 1638 Prairie gets a front walk. It comes in through the gateway between the two gate piers, runs north along the back of the fence and turns to the foot of the porch stair.',
+      'Through the old photograph\'s camera, the flags land where the picture shows pale ground: in the gateway and at the bottom of the stair. The rest of the walk is hidden by the hedge, so its line is a reconstruction, noted under the house\'s liberties.',
+    ] },
+  { v: 2373, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: '1904 alley poles and wires no longer run through coach houses', kind: 'fix',
+    items: [
+      'Ten utility poles in the alleys behind Prairie Avenue and Calumet Avenue now stand a little further into the alley, so the poles, their crossarms and their wires clear the coach houses and stables on the alley line, Glessner\'s stable among them.',
+      'The wire that ran from Glessner\'s pole on 18th Street over the corner of his stable into the alley is gone; that alley\'s line is fed across 18th Street from the alley to the north.',
+      'No pole, crossarm or wire in the 1904 scene now touches a building.',
+    ] },
+  { v: 2372, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: '1812 Prairie\'s door glass no longer shows through the house', kind: 'fix',
+    items: [
+      'The side light beside 1812 Prairie\'s front door and the lights over its transom now show a dark hall behind the glass, where before they looked straight through the unbuilt house to the yard behind.',
+    ] },
+  { v: 2371, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: 'Stone walls no longer speckle or flicker as you walk', kind: 'fix',
+    items: [
+      'The mortar behind each stone now always draws behind the stone\'s face, near or far.',
+      '1801 and 1827 Prairie\'s flanks, and the stone houses down the street, read as clean coursed stone again.',
+    ] },
+  { v: 2370, ts: '2026-10-28T06:22:46.213Z', date: 'Oct 28, 2026, 1:22 AM CT', title: 'Walks and open gates at 1612 and 1620 Prairie', kind: 'feature',
+    items: [
+      '1612 Prairie (Goodman) and 1620 Prairie (Law) now have a flagged walk from the sidewalk through the front gate to the steps, where before the lawn ran up to a shut gate.',
+      'Their entrance gates now stand open, as the 1612 photograph and both pictures of 1620 show them.',
+      'A cinder side walk runs from each south gate back down the side passage to the rear.',
+    ] },
+  { v: 2369, ts: '2026-10-28T04:54:00.889Z', date: 'Oct 27, 2026, 11:54 PM CT', title: '1904 sits lighter on a phone', kind: 'fix',
+    items: [
+      'The 1904 town holds about 35 MB less on a phone, back under its memory ceiling, so the tab is less likely to be killed mid-walk.',
+      'Nothing on screen changes: the savings are copies and coordinates the renderer kept but never drew with.',
+    ] },
+  { v: 2368, ts: '2026-10-28T04:50:39.154Z', date: 'Oct 27, 2026, 11:50 PM CT', title: 'Real shrubs, flowers and young trees in the 1904 front yards', kind: 'improvement',
+    items: [
+      'The front-yard plants are now grown like the street elms, with branches and leaves: lilacs, spiraea, hydrangeas and roses in flower, sheared arborvitae, young maples and lindens, and beds of geraniums or coleus. The rows of green lumps are gone.',
+      'Yards follow the photographs. Lots whose pictures show a bare lawn behind the fence are bare lawn; the Pullman house keeps its ivy, porch shrubs, young trees and 18th Street border. Other lots get a pair at the steps, a shrub at a corner or a small group, and about a third stay plain lawn.',
+      'Nothing stands in a doorway, on the steps or across a walk: every plant is measured from its edge against the houses\' doors, stoops, walks and fences, and the build checks it.',
+    ] },
+  { v: 2367, ts: '2026-10-28T04:17:05.176Z', date: 'Oct 27, 2026, 11:17 PM CT', title: 'Front walks at 1616, 1621, 1623, 1625 and 1637 Prairie', kind: 'feature',
+    items: [
+      'Five more 1600-block houses now have a flagged walk from the sidewalk to their front steps, where before the lawn or bare ground ran up to the stoop.',
+      '1621, 1623 and 1625 stay open to the street, as their 1886 drawings and 1890 photograph show: no fence or wall across the front.',
+      '1637\'s walk comes out between its garden wall and iron fence, where the engraving draws it, and 1616\'s gate now stands open onto its walk.',
+    ] },
   { v: 2366, ts: '2026-10-28T02:51:54.909Z', date: 'Oct 27, 2026, 9:51 PM CT', title: 'The Kimball house\'s windows over the loggia are framed', kind: 'change',
     items: [
       'The two windows over the Kimball house\'s loggia, on Prairie Avenue and on 18th Street, now stand in moulded frames under projecting heads, with their transoms lowered to where the c. 1895 Taylor photograph shows them.',

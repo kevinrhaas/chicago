@@ -273,6 +273,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "dexter_house_1721_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "ghm_blog_1721_dexter_c1888"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "dexter_house_1721_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "ghm_blog_1721_dexter_c1888"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "doane_house_1827_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
       "blocked_sources": [
@@ -1679,6 +1695,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "house_1708_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "house_1736_prairie/as_mapped_1904/form.boundary": {
       "kind": "structure",
       "blocked_sources": [
@@ -1798,6 +1822,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "house_1736_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "house_1828_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
@@ -3020,6 +3052,14 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "slough_log_bridge/log_1833/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -3173,6 +3213,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "st_marys_church/frame_1833/footprint": {
       "kind": "structure",
@@ -3339,6 +3387,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "walker_house_1720_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1720_tyrrell_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "walker_house_1720_prairie/as_mapped_1904/form.frame_house": {
       "kind": "structure",
       "blocked_sources": [
@@ -3346,6 +3402,14 @@
       ],
       "sole_support": false,
       "confidence": "inferred"
+    },
+    "walker_house_1720_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1720_tyrrell_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
     },
     "walker_meeting_house/log_1831/form.construction": {
       "kind": "structure",

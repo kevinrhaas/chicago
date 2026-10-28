@@ -152,6 +152,12 @@ step "The sun's shadow biases hold the same fraction of a shadow texel on every 
 selftest "The shadow-bias check refuses the fixed-length biases that blotched the 1835 shed on a phone (T-3054)" \
   node tools/check_shadow_bias.mjs --self-test
 
+step "A coursed wall's mortar floor is drawn behind the stone faces lying on it, so the two never fight for a pixel (T-3226)" \
+  node tools/check_joint_floor.mjs
+
+selftest "The joint-floor check refuses a missing seat, a forward offset and a batch key blind to the offset (T-3226)" \
+  node tools/check_joint_floor.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
@@ -859,13 +865,24 @@ step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
 step "the 1904 street furniture re-lays from the street grid (T-3199)" \
   python3 tools/lay_prairie_1904_street_furniture.py --check
 
-# T-3203. ...and the house lots' front yards: a lawn to each house, foundation shrubs, low beds
-# and the pictured ivy, laid clear of every stoop, fence, walk and door's way the 1904 houses'
-# baked models draw. The committed file is what the tool writes; when a house has been rebaked
-# since, it is held instead to every planting still clearing what is built, so a rebake that
-# moves nothing a yard touches stays green and one that does names the planting it buried.
-step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3203)" \
+# T-3225. ...and that file's --check also holds every pole, crossarm and wire clear of the 1904
+# structures (the owner, 2026-10-28: "some of the electrical poles and lines are intersecting
+# with buildings"). The self-test proves it by standing a pole in a building and a gable under a
+# crossarm, a roof under an alley span and a block under a trolley span; a fence under a span passes.
+selftest "the 1904 poles, crossarms and wires refuse to run into a building (T-3225)" \
+  python3 tools/lay_prairie_1904_street_furniture.py --self-test
+
+# T-3203, T-3223. ...and the house lots' front yards: lawns as the photographs show them, a few
+# period shrubs, young trees and beds where no picture shows the lot, and the pictured ivy. Every
+# planting, measured from its crown's edge, is held to clearing every house wall, stoop, step,
+# fence, walk, door and front door's way the 1904 houses' baked models draw, whatever the file;
+# then the file is what the tool writes, or merely behind a rebake that moved nothing a yard
+# touches. The self-test plants a shrub on a door's way, beside a door and in a house, and each
+# must be refused.
+step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3203, T-3223)" \
   python3 tools/plant_prairie_1904_front_yards.py --check
+selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
+  python3 tools/plant_prairie_1904_front_yards.py --self-test
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
