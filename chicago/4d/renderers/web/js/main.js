@@ -2299,6 +2299,9 @@ async function boot() {
   const frontYards = await createFrontYards({
     dataBase: layerBase('front_yards'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('front_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
+    grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
+    mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
   });
   scene3d.add(frontYards.group);
   api.frontYards = frontYards;
@@ -2384,6 +2387,7 @@ async function boot() {
     world.setSunDate(seasonDate(s, loaded.scene.target_date));
     contextCity.setSeason?.(s);
     await seasonPlants(s);
+    await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);

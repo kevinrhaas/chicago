@@ -208,6 +208,8 @@ export async function createStreetTrees({
     assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
     lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems, fade: true,
   });
+  // T-3223: the front yards' shrubs and lawn trees grow on these same atlases.
+  out.materials = mats;
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {

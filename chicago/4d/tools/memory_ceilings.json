@@ -179,6 +179,21 @@
           "gpu_buffers": 102.6,
           "gpu_textures": 97.7
         },
+        "reread_by": {
+          "ticket": "T-3213",
+          "on": "2026-10-28T00:18:00Z",
+          "build": "1f999039e+T-3213",
+          "reading": "docs/measurements/T-3213-memory.json",
+          "before": "docs/measurements/T-3213-memory-dev.json",
+          "reading_mb": {
+            "total": 377.5,
+            "js_heap": 99.3,
+            "arraybuffers": 81.8,
+            "gpu_buffers": 139.8,
+            "gpu_textures": 56.5
+          },
+          "note": "dev had drifted over this ceiling unseen (409.4 on 0fc818209 on 2026-10-27, CI 417.4; 412.1 on 1f999039e here) as the 1904 streetscape and parkway work landed, because this job does not run on dev pushes. Brought back under it, ceiling unchanged: the untextured structures batches no longer carry a uv nothing reads (gpu buffers 158.1 -> 139.8), the batches drop the update ranges every addGeometry left behind once three has uploaded them whole (js heap -12), and the view-occlusion backings share one identity and one scratch matrix (js heap -4). 412.1 -> 377.5 MB on the same machine the same hour; every other row fell or held (1904 desktop 1222.3 -> 1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and 192.3 -> 192.0). The rule would set 377.5 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+        },
         "lowered_by": {
           "ticket": "T-2828",
           "on": "2026-10-19T01:26:58.745Z",

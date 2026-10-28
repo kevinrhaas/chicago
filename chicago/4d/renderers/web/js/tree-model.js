@@ -355,6 +355,57 @@ export const ARCH = {
     droop: 0.04, clump: 0.28, clumpMin: 0.12, density: 1.30, gaps: 0.20, leaf: 'willow', bark: 'smooth',
     farBins: [3, 2], sides: PRAIRIE_SIDES,
   },
+  // T-3223 — THE 1904 FRONT YARDS' GARDEN PLANTS (front-yards.js). The nursery
+  // shrubs a Prairie Avenue yard was planted from in the 1890s: lilac, a tall
+  // clump of grey upright stems with broad heart leaves; Van Houtte's spiraea,
+  // a fountain of thin canes arching to the ground; the smooth hydrangea, a
+  // low dome of soft stems carrying its white July heads; the garden rose; and
+  // the American arborvitae, sheared to a cone or a ball. The bedding plants of
+  // the round beds are grown on the same path at their own small size: the
+  // scarlet geranium's mound of round leaves and umbels, and coleus. Habits, not measurements of a plant that
+  // grew (docs/LIBERTIES.md L-prairie-front-yards-3203).
+  syringa_vulgaris: {
+    crown: 'irregular', crownBase: 0.16, fork: 'decurrent', stems: [6, 10], scaffolds: [0, 0],
+    stemSplay: 13, limbAngle: 12, rise: 0.05, twist: 0.30, order2: [4, 34], order3: [2, 38],
+    droop: 0.05, clump: 0.20, clumpMin: 0.26, density: 1.35, gaps: 0.16, leaf: 'heart', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES, stemK: 0.7,
+  },
+  spiraea_vanhouttei: {
+    crown: 'round', crownBase: 0.04, fork: 'decurrent', stems: [12, 18], scaffolds: [0, 0],
+    stemSplay: 38, limbAngle: 26, rise: -0.05, twist: 0.20, order2: [4, 42], order3: [0, 0],
+    droop: 0.42, clump: 0.20, clumpMin: 0.13, density: 1.55, gaps: 0.10, leaf: 'elm', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, stemK: 0.75,
+  },
+  hydrangea_arborescens: {
+    crown: 'round', crownBase: 0.05, fork: 'decurrent', stems: [10, 15], scaffolds: [0, 0],
+    stemSplay: 22, limbAngle: 18, rise: 0.02, twist: 0.20, order2: [3, 40], order3: [0, 0],
+    droop: 0.10, clump: 0.26, clumpMin: 0.16, density: 1.55, gaps: 0.08, leaf: 'heart', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 6, stemK: 0.7,
+  },
+  rosa_garden: {
+    crown: 'round', crownBase: 0.10, fork: 'decurrent', stems: [6, 9], scaffolds: [0, 0],
+    stemSplay: 22, limbAngle: 18, rise: 0.01, twist: 0.35, order2: [3, 46], order3: [0, 0],
+    droop: 0.14, clump: 0.26, clumpMin: 0.12, density: 1.45, gaps: 0.14, leaf: 'compound', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, stemK: 0.7,
+  },
+  thuja_occidentalis: {
+    crown: 'cone', crownBase: 0.02, fork: 'excurrent', stems: [1, 1], scaffolds: [30, 40],
+    limbAngle: 62, rise: 0.10, twist: 0.20, order2: [3, 40], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.18, density: 2.0, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
+    farBins: [3, 2], shellK: 22,
+  },
+  thuja_globe: {
+    crown: 'round', crownBase: 0.03, fork: 'decurrent', stems: [5, 8], scaffolds: [0, 0],
+    stemSplay: 30, limbAngle: 30, rise: 0.04, twist: 0.20, order2: [4, 44], order3: [0, 0], droop: 0.0,
+    clump: 0.26, clumpMin: 0.15, density: 1.8, gaps: 0.02, leaf: 'scale', bark: 'shaggy_strips',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 26, stemK: 0.6,
+  },
+  pelargonium_bed: {
+    crown: 'round', crownBase: 0.06, fork: 'decurrent', stems: [6, 9], scaffolds: [0, 0],
+    stemSplay: 28, limbAngle: 30, rise: 0.02, twist: 0.30, order2: [2, 46], order3: [0, 0],
+    droop: 0.04, clump: 0.2, clumpMin: 0.07, density: 1.4, gaps: 0.04, leaf: 'heart', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES, shellK: 5, stemK: 0.55,
+  },
 };
 
 /** A species with no habit of its own grows as the form its record names. */
@@ -640,7 +691,9 @@ function growSkeleton(spec, arch, rnd) {
       // A clear bole to the fork, then the scaffolds. The trunk does not stop
       // at the fork: it runs on as the strongest scaffold (the leader), so the
       // limbs leave a tapering stem rather than the cut top of a post.
-      const forkY = Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
+      // T-3223: a garden shrub's stems run up through its crown (`stemK` of its height),
+      // where the wild shrubs' stop at 0.8 m and branch, and a bedding plant is shorter than that.
+      const forkY = arch.stemK ? H * arch.stemK : Math.max(0.8, baseY * (nStems > 1 ? 0.55 : 0.92));
       const trunk = branch([0, 0, 0], dir0, forkY / Math.max(0.3, dir0[1]), sr, sr * 0.86, 0, { rise: 0.01 });
       const top = trunk.pts[trunk.pts.length - 1];
       const topR = trunk.rad[trunk.rad.length - 1];
@@ -700,7 +753,9 @@ function growSkeleton(spec, arch, rnd) {
     }
   }
   // Fill the crown's shell where branching left it bare, on the nearest wood.
-  const shellN = Math.round((R * R * 0.9 + crownH * R * 0.3) * arch.density * 0.18 * SHELL_K);
+  // T-3223: a sheared or massed plant (the front yards' arborvitae, a bed's geraniums) is
+  // all shell, so its habit asks for more of it (`shellK`).
+  const shellN = Math.round((R * R * 0.9 + crownH * R * 0.3) * arch.density * 0.18 * SHELL_K * (arch.shellK ?? 1));
   for (let i = 0; i < shellN; i++) {
     const t = rnd();
     const az = rnd() * Math.PI * 2;
@@ -945,6 +1000,17 @@ const LEAF_GAIN = 2.0;
  *  so a bloom's vertex colour comes back to the record's. */
 const BLOOM_CAST = [1.02, 0.77, 1.40];
 const SHELL_K = 7.0;
+/** T-3223 — the solid garden blooms (`bloom.shape`): how many florets make one, how far it
+ *  stands up off its clump (in radii), how squat it is, its sphere's segments near, and the
+ *  share of the upper clumps that carry one. */
+const BLOOM_SHAPES = {
+  umbel: { florets: 3, lift: 1.4, squash: 0.9, segs: [4, 3], share: 0.6 },
+  head: { florets: 6, lift: 0.5, squash: 0.8, segs: [5, 3], share: 0.5 },
+  cup: { florets: 3, lift: 0.3, squash: 0.7, segs: [5, 3], share: 0.75 },
+};
+/** The pale bark texel a solid bloom is drawn off is about this dark (linear), so its
+ *  vertex colour is lifted by this much to come back to the flower's. */
+const BLOOM_FLAT_GAIN = 2.6;
 
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
 const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
@@ -1011,6 +1077,30 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
       const d = b2 + sides + 1;
       buf.tri(a, b2, c);
       buf.tri(b2, d, c);
+    }
+  }
+}
+
+/** T-3223: a solid bloom, a small low sphere squashed by `sy`, drawn with the wood off one
+ *  flat texel of the smooth bark tile. */
+function blob(buf, at, r, sy, colour, [seg, rings], flex) {
+  const uv = atlasUV(BARK_GRID, BARK_TILES.smooth, 0.5, 0.5);
+  const base = buf.count;
+  for (let j = 0; j <= rings; j++) {
+    const th = (j / rings) * Math.PI;
+    for (let i = 0; i <= seg; i++) {
+      const ph = (i / seg) * Math.PI * 2;
+      const n = [Math.sin(th) * Math.cos(ph), Math.cos(th), Math.sin(th) * Math.sin(ph)];
+      const shade = 0.78 + 0.22 * (n[1] * 0.5 + 0.5);
+      buf.vert([at[0] + n[0] * r, at[1] + n[1] * r * sy, at[2] + n[2] * r], n, mul(colour, shade), uv, flex);
+    }
+  }
+  for (let j = 0; j < rings; j++) {
+    for (let i = 0; i < seg; i++) {
+      const a = base + j * (seg + 1) + i;
+      const b = a + seg + 1;
+      buf.tri(a, a + 1, b);
+      buf.tri(a + 1, b + 1, b);
     }
   }
 }
@@ -1112,6 +1202,7 @@ const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.02 };
 export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skeleton = null, leafCover = 1, leafScale = 1,
   coarse = false } = {}) {
   if (spec.form === 'vine_drape') return buildVineTemplate(spec, seed, lod, { conf });
+  if (spec.form === 'vine_wall') return buildWallVineTemplate(spec, seed, lod, { conf, leafCover });
   const rnd = mulberry32(seed);
   const arch = archFor(spec);
   // T-2810: a dead tree is its species' skeleton, grown whole and then broken.
@@ -1267,13 +1358,32 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     const low = clamp01((bloom.height_frac ?? 0.8) - 0.35);
     const size = ((bloom.size_m?.[0] ?? 0.04) + (bloom.size_m?.[1] ?? 0.08)) * (lod === 'near' ? 1.3 : 2.2);
     let alt = 0;
+    // T-3223: a garden flower with a shape of its own is a solid bloom, not a leaf spray
+    // tinted: a geranium's umbel of florets on its stalk, a hydrangea's round white head,
+    // a rose. They are drawn with the wood (no cut-out), off one flat texel of the pale
+    // bark tile, so the vertex colour is the flower's.
+    const shaped = BLOOM_SHAPES[bloom.shape];
+    const share = shaped?.share ?? 0.55;
     for (const c of clumps) {
-      if (c.at[1] < sk.H * low || brnd() > 0.55) continue;
+      if (c.at[1] < sk.H * low || brnd() > share) continue;
       if (lod === 'mid' && (alt++ & 1)) continue;
       const rel = sub(c.at, centre);
       const outward = norm(add(norm([rel[0], rel[1] * 0.6, rel[2]]), [0, 0.6, 0]));
       const at = add(c.at, mul(outward, c.r * 0.55));
-      card(leaves, at, outward, size, sunTile, bc, outward, 0.5, brnd, outward);
+      if (!shaped) {
+        card(leaves, at, outward, size, sunTile, bc, outward, 0.5, brnd, outward);
+        continue;
+      }
+      const r = (bloom.size_m[0] + (bloom.size_m[1] - bloom.size_m[0]) * brnd()) / 2;
+      const fc = linearRGB((br << 16) | (bg << 8) | bb).map((v) => v * BLOOM_FLAT_GAIN * (0.85 + brnd() * 0.3));
+      const top = add(at, [0, shaped.lift * r, 0]);
+      const segs = lod === 'near' ? shaped.segs : [4, 3];
+      if (shaped.florets) {
+        for (let f = 0; f < shaped.florets; f++) {
+          const o = mul(randUnit(brnd), r * 0.55);
+          blob(wood, add(top, [o[0], Math.abs(o[1]) * 0.5, o[2]]), r * 0.55, 0.9, fc, segs, 0.55);
+        }
+      } else blob(wood, top, r, shaped.squash, fc, segs, 0.55);
     }
   }
   // A bare template (a dead tree, a winter crown) still hands the leaf batch
@@ -1351,6 +1461,8 @@ function deadSkeleton(sk, kind, rnd) {
  *  against the anchor spacing. Coarser levels carry the same curtain on fewer,
  *  larger cards, as a tree's levels do. */
 const VINE_LOD = { near: [1, 1.5], mid: [2, 2.6], far: [4, 4.6], distant: [8, 8.6] };
+/** T-3223: the wall ivy's leaf spacing at each level, metres. */
+const VINE_SPACING = { near: 0.16, mid: 0.26, far: 0.5, distant: 1.0 };
 
 /**
  * T-2810 — A VINE ON AN EDGE TREE, built in the tree's frame with its open
@@ -1456,6 +1568,96 @@ export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {})
     crownR: W / 2,
     trunkR: 0.035,
     clumps: anchors.length,
+    skeleton: { vine: true },
+  };
+}
+
+/**
+ * T-3223 — IVY ON A HOUSE WALL (front-yards.js): Boston ivy as the Detroit Publishing
+ * views of the Pullman house show it, a mat of three-lobed leaves held flat against
+ * the wall, thick at the foot, thinning upward to a ragged top, its edges loose, with a
+ * few woody stems climbing out of the ground under it. Built in the wall's frame: the
+ * wall is the plane x = 0, the leaves stand off it toward +x (the instance's yaw turns
+ * +x out of the wall), z runs along it; `crownW` is its width and `h` its height.
+ */
+export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, leafCover = 1 } = {}) {
+  const rnd = mulberry32(seed);
+  const lrnd = mulberry32(seed ^ 0x3223);
+  const H = (spec.h[0] + spec.h[1]) / 2;
+  const W = spec.crownW ? (spec.crownW[0] + spec.crownW[1]) / 2 : Math.max(1.2, H * 0.4);
+  // The top edge, a smooth random walk: tongues of ivy climbing ahead of the mat.
+  const TOP_COLS = 12;
+  const top = [];
+  let tv = rnd();
+  for (let c = 0; c <= TOP_COLS; c++) { tv = clamp01(tv + (rnd() - 0.5) * 0.55); top.push(tv); }
+  const topAt = (u) => {
+    const f = ((u + 1) / 2) * TOP_COLS; const c = Math.min(TOP_COLS - 1, Math.floor(f));
+    return lerp(top[c], top[c + 1], f - c);
+  };
+  const [sunTile, clumpTile] = LEAF_TILES[spec.leaf] ?? LEAF_TILES.maple;
+  const dark = linearRGB(spec.dark ?? 0x2f4a22);
+  const light = linearRGB(spec.light ?? 0x6d8f3e);
+  const sp = VINE_SPACING[lod] ?? VINE_SPACING.near;
+  const leaves = new Buf();
+  const wood = new Buf();
+  // Two layers, as a wall of Boston ivy is seen: a dense, shaded under-mat of massed leaf
+  // close on the brick, and over it the sunlit leaves held out on their stalks, shingled,
+  // each turned its own way, so the mat has no rows and the wall shows only at the edges.
+  const layers = lod === 'near' || lod === 'mid'
+    ? [{ step: sp * 1.7, size: sp * 3.2, off: [0.02, 0.05], tile: clumpTile, lit: [0.05, 0.3], keep: 1 },
+      { step: sp, size: sp * 2.3, off: [0.06, 0.16], tile: sunTile, lit: [0.3, 0.75], keep: 0.9 }]
+    : [{ step: sp, size: sp * 2.6, off: [0.04, 0.12], tile: clumpTile, lit: [0.15, 0.6], keep: 1 }];
+  for (const L of layers) {
+    const cols = Math.max(2, Math.round(W / L.step));
+    const rows = Math.max(2, Math.round(H / L.step));
+    for (let c = 0; c <= cols; c++) {
+      for (let r = 0; r <= rows; r++) {
+        const u = clamp01((c + (lrnd() - 0.5) * 0.9) / cols) * 2 - 1;
+        const y = ((r + (lrnd() - 0.5) * 0.9) / rows) * H;
+        const edge = 1 - Math.pow(Math.abs(u), 5);
+        const yTop = H * (0.6 + 0.4 * topAt(u)) * (0.7 + 0.3 * edge);
+        if (y < 0 || y > yTop) continue;
+        const up = y / H;
+        // Thinner toward the ragged top and the loose side edges.
+        const fringe = Math.min(1, (yTop - y) / (L.step * 2.5));
+        if (lrnd() > L.keep * (0.35 + 0.65 * fringe) * (0.5 + 0.5 * edge) * leafCover) continue;
+        const at = [lerp(L.off[0], L.off[1], lrnd()), y, u * W * 0.5];
+        const lit = clamp01(lerp(L.lit[0], L.lit[1], lrnd()) + 0.15 * up);
+        const tint = 0.86 + lrnd() * 0.28;
+        const colour = dark.map((v, j) => lerp(v, light[j], 0.15 + lit * 0.75) * lerp(0.7, 1, lit) * tint * LEAF_GAIN);
+        // A leaf's stalk is below its blade; each turned its own way in the wall's plane.
+        const th = (lrnd() - 0.5) * Math.PI * 1.4;
+        const facing = norm([1, (lrnd() - 0.3) * 0.5, (lrnd() - 0.5) * 0.5]);
+        card(leaves, at, [0.25, Math.cos(th), Math.sin(th)], L.size * (0.85 + lrnd() * 0.35), L.tile, colour,
+          [1, 0.15, 0], 0.12 + 0.2 * up, lrnd, facing);
+      }
+    }
+  }
+  const strands = lod === 'near' ? 3 : 1;
+  const barkTile = BARK_TILES.shaggy_strips;
+  const barkTint = barkLinear(spec.bark ?? 0x6b5a48, 'shaggy');
+  for (let i = 0; i < strands; i++) {
+    const z0 = ((i + 0.5) / strands - 0.5) * W * 0.6;
+    const pts = [];
+    const rad = [];
+    for (let j = 0; j <= 4; j++) {
+      const t = j / 4;
+      pts.push([0.03, t * H * 0.45, z0 + Math.sin(t * 5 + i) * 0.12]);
+      rad.push(lerp(0.025, 0.01, t));
+    }
+    tube(wood, { pts, rad, order: 1 }, lod === 'near' ? 4 : 3, barkTile, barkTint, () => 0);
+  }
+  if (!leaves.count) {
+    for (let i = 0; i < 3; i++) leaves.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);
+    leaves.tri(0, 1, 2);
+  }
+  return {
+    wood: wood.build(0, conf),
+    leaves: leaves.build(1, conf),
+    height: H,
+    crownR: W / 2,
+    trunkR: 0.025,
+    clumps: layers.length,
     skeleton: { vine: true },
   };
 }
