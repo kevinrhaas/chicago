@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 830,
+  "count": 831,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58803,6 +58803,52 @@
       ],
       "work_refs": [
         "T-3206"
+      ]
+    },
+    {
+      "id": "L-k14-walks-1600-block-3214",
+      "title": "1612 and 1620 Prairie given flagged front walks through open entrance gates and cinder side walks, aged by the K14 kit",
+      "section": "per_subject",
+      "subjects": [
+        "goodman_house_1612_prairie",
+        "law_house_1620_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "law_house_1620_prairie",
+          "phase": "restored_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-28."
+        },
+        {
+          "label": "Decision",
+          "text": "1612 Prairie (Goodman) and 1620 Prairie (Law), whose K11 iron fronts already carried an entrance gate on the walk to the stoop and a gate across the south passage, are given a K14 yard: a lawn inside the fence, a flagged front walk from the foot of the stoop through the entrance gate to the inner edge of the public walk, bare earth under the open stair, and a cinder service walk from the side gate back down the south passage to the house's rear corner. Before this both showed a lawn running up to a closed gate and no walk at all. The entrance gates now stand open (drawn 70 degrees). **What is read, not invented.** 1612's photograph ('1612 S. Prairie Ave.' Photograph of the Joseph Goodman (later Studebaker, then…) shows a light paved walk running in to the stoop's foot and the gateway there open, with two people standing in it; the 1874 Land Owner engraving and the 1898 Tribune sketch of 1620 both draw the stair running straight down to the street line between the gate piers with no leaf across it. So the walk's line, the open gateway and the boundary's kind are the pictures'. **What is invented or held by the kit.** The walks' material (flags of the stoop's stone), width (the gate's), wear and height, the passage's cinder (the print sees 1612's passage only as light ground beside the fence and does not see 1620's at all), the lawn and its bare strip are the K14 kit's (the k14 condition data), aged from each phase's own year (1869 for 1612; 1904 for 1620, whose record opens at the 1904 target although the engraving shows it standing by 1874). The gates' 70 degree opening is chosen. At 1620 the service walk spans the whole 7.7 m south side yard between the boundary wall and the house, as the kit lays it; that the side yard was cinder rather than lawn is not shown."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or later photograph of either front at the walk, or of 1620's south side yard."
+        },
+        {
+          "label": "Covers",
+          "text": "`goodman_house_1612_prairie.as_built_1869.form.yard`, `law_house_1620_prairie.restored_1904.form.yard`."
+        }
+      ],
+      "work_refs": [
+        "T-3214"
       ]
     },
     {

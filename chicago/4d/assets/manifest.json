@@ -1020,9 +1020,9 @@
     "goodman_house_1612_prairie__as_built_1869.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4620872,
+      "bytes": 5627124,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d9cb4c8143f91e3189b8503e35e7835a5530f1b7ecaccc59ae71032f991f73ca",
+      "inputs_sha256": "a7db020faa3bd79359270c52d91406603a16db8fb45b2c8ca608f8f827adbaee",
       "kind": "generated",
       "phase_id": "as_built_1869",
       "structure_id": "goodman_house_1612_prairie"
@@ -3502,9 +3502,9 @@
     "law_house_1620_prairie__restored_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 6876476,
+      "bytes": 7788476,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1cd121fa6a95e53cdcd45215f8a4bd6effea681fabb40803696d60c54c089fff",
+      "inputs_sha256": "463ce2a6bcc4d7121e2177beff725559489939ad2ca845ce369f47a111eae3e5",
       "kind": "generated",
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"
