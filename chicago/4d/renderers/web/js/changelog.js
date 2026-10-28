@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2366, ts: '2026-10-28T02:51:54.909Z', date: 'Oct 27, 2026, 9:51 PM CT', title: 'The Kimball house\'s windows over the loggia are framed', kind: 'change',
+    items: [
+      'The two windows over the Kimball house\'s loggia, on Prairie Avenue and on 18th Street, now stand in moulded frames under projecting heads, with their transoms lowered to where the c. 1895 Taylor photograph shows them.',
+    ] },
   { v: 2365, ts: '2026-10-28T02:39:50.071Z', date: 'Oct 27, 2026, 9:39 PM CT', title: '1904 gas lamps rebuilt to the photographs', kind: 'fix',
     items: [
       'New post read off the 1811 photograph: plain foot, leafed boss, slender shaft, bell capital.',
