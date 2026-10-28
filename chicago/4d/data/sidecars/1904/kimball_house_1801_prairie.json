@@ -149,11 +149,38 @@
       "value": {
         "by_storey": [
           "k01.flat_lintel",
-          "k01.flat_lintel"
+          "k09.surround.rowhouse_restrained"
+        ],
+        "lights": [
+          {
+            "wall": "k01.wall.street_front",
+            "s_m": 1.6,
+            "storey": 1,
+            "tiers": {
+              "bar_m": 0.1,
+              "lights_m": [
+                0.8
+              ]
+            }
+          },
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 18.67,
+            "storey": 1,
+            "tiers": {
+              "bar_m": 0.1,
+              "lights_m": [
+                0.8
+              ]
+            }
+          }
         ]
       },
       "confidence": "reconstructed",
-      "note": "Plain stone lintels: the photograph's carved pilasters and moulded surrounds are T-2922's."
+      "note": "The two lights over the loggia, the avenue front's (front_bays 1.6) and the 18th Street flank's (side_bays 18.67), each stand in a moulded frame under a projecting head in the Taylor print (x 1016-1071 and 877-931 px), so the second storey wears the K09 kit's restrained surround, its two-fascia architrave round the light and its cornice hood on consoles, and the flank's light is named in `lights` to wear it too; the print's transom bar stands about 0.75-1.0 m under each head (y 680-700 px at the front, 676-694 on the flank, through T-3074's camera at about 57 px a metre), so each light carries an 0.8 m top light over a 0.1 m bar where K06's transom light is 0.45 m (T-1890). The profile is the kit's, not the print's own moulding, and the carved pilasters either side of each light are not built (L-kimball-1801-loggia-lights-1890). The principal storey's openings are the door and the bow's own lights, so its plain stone lintel dresses none on the front.",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ]
     },
     "roof_form": {
       "value": "mansard",
