@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2367, ts: '2026-10-28T04:17:05.176Z', date: 'Oct 27, 2026, 11:17 PM CT', title: 'Front walks at 1616, 1621, 1623, 1625 and 1637 Prairie', kind: 'feature',
+    items: [
+      'Five more 1600-block houses now have a flagged walk from the sidewalk to their front steps, where before the lawn or bare ground ran up to the stoop.',
+      '1621, 1623 and 1625 stay open to the street, as their 1886 drawings and 1890 photograph show: no fence or wall across the front.',
+      '1637\'s walk comes out between its garden wall and iron fence, where the engraving draws it, and 1616\'s gate now stands open onto its walk.',
+    ] },
   { v: 2366, ts: '2026-10-28T02:51:54.909Z', date: 'Oct 27, 2026, 9:51 PM CT', title: 'The Kimball house\'s windows over the loggia are framed', kind: 'change',
     items: [
       'The two windows over the Kimball house\'s loggia, on Prairie Avenue and on 18th Street, now stand in moulded frames under projecting heads, with their transoms lowered to where the c. 1895 Taylor photograph shows them.',
