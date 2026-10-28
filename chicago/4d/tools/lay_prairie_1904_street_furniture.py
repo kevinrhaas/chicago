@@ -20,7 +20,8 @@ houses mid-block (1811, opposite 1721, 1708, 1816, 1905, 2120, 2140). So:
   * one lamp at every intersection corner of the district's drawn streets, on the parkway
     in the corner square where two sidewalk spaces meet, 1.5 ft inside both curbs: that is
     the curb-return corner, between where the two corner crossings land (Taylor 2135 shows
-    it on a small stone footing between the two crossing ramps), and clear of both walks;
+    it on a stone pad level with the walk between the two crossing ramps; the other corners
+    have none, the Pullman and Tucker corners being grass), and clear of both walks;
   * the pictured mid-block lamps at their pictured lots, on the parkway just off the walk
     (the 1811, 1905 and 2120 photographs show them there);
   * and the rest of each face at a reconstructed spacing, about one per 160 ft, staggered
@@ -88,7 +89,7 @@ LAMP = {
     "rim_m": {"w": 0.48, "h": 0.035},
     "roof_m": {"top": 3.03, "w_top": 0.1},
     "vent_m": {"w": 0.14, "h": 0.05},
-    "footing_m": {"w": 0.95, "h": 0.28},
+    "footing_m": {"w": 0.8, "h": 0.02},
 }
 
 # The pictured corner lamps: (streets, the corner's quadrant of the crossing) -> what shows it.
@@ -114,6 +115,11 @@ ATTESTED_CORNERS = {
                 "east parkway's corner.",
     },
 }
+
+# T-3231: the one corner a picture shows on a stone pad (Taylor 2135, level with the walk
+# between the crossing ramps). The owner doubted the raised footings once drawn at every
+# corner; the Pullman and Tucker pictures show their posts in grass.
+FOOTING_CORNERS = {(frozenset({"prairie", "e18th"}), "SW")}
 
 # The pictured mid-block lamps: on Prairie Avenue's parkway at a lot, read off each picture.
 # `at` is the share of the way along the lot's frontage from its north end.
@@ -385,7 +391,7 @@ def lay_lamps(grid, section, trees_doc):
         cid = f"lamp.corner.{c['streets'][0]}.{c['streets'][1]}.{c['quadrant'].lower()}"
         item = {
             "id": cid, "kind": "gas_lamp", "e": r2(P[0]), "n": r2(P[1]),
-            "heading_deg": round(c["heading"], 1), "footing": True,
+            "heading_deg": round(c["heading"], 1), "footing": key in FOOTING_CORNERS,
             "place": "corner", "streets": c["streets"], "corner": c["quadrant"],
             "faces": sorted(f.id for f in c["faces"]),
             "grade": "attested" if att else "reconstructed",
@@ -1386,9 +1392,9 @@ def build(built=None):
                 "name": "gas street lamp",
                 "form": ("A cast-iron post: a plain round foot on a plinth, a moulded collar, a leafed boss at "
                          "knee height, a slender shaft, a bell capital under a knobbed ladder bar, four scrolled "
-                         "arms carrying a clear four-sided lantern that tapers out to a projecting rim, a steep "
-                         "four-sided roof, a vent cap and a knob; painted iron. About 3.1 m. Corner lamps stand "
-                         "on a stone footing."),
+                         "arms bent up into the foot of a clear four-sided lantern that tapers out to an iron waist "
+                         "band, a steep glazed top on iron hips, a small cap, vent and knob; painted iron. About "
+                         "3.1 m. The Glessner corner's lamp stands on a stone pad level with the walk."),
                 "form_grade": "attested",
                 "form_sources": ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
                                  "chicagology_2140_photo_b"],
@@ -1451,7 +1457,8 @@ def build(built=None):
                 "tree_clear_m": TREE_CLEAR_M,
                 "note": ("A lamp at every intersection corner of the district's drawn streets, in the corner square "
                          "1.5 ft inside both curbs (the curb-return corner, between where the two crossings land), "
-                         "on a stone footing; the pictured mid-block lamps at their lots; the rest of every face "
+                         "on the parkway (the Glessner corner's on a stone pad level with the walk, as Taylor 2135 "
+                         "shows); the pictured mid-block lamps at their lots; the rest of every face "
                          "at about 160 ft, the two sides of a street staggered, on the parkway 0.4 m off the walk, "
                          "each moved along the parkway clear of an elm, a carriage walk or an alley mouth. A corner "
                          "where a face meets a curved return (Calumet at 18th) has no corner of its own."),
