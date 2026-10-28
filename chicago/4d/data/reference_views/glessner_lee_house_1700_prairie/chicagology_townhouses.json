@@ -1,0 +1,32 @@
+{
+ "structure_id": "glessner_lee_house_1700_prairie",
+ "scene": "1904",
+ "also_render": [
+  "george_glessner_house_1706_prairie",
+  "house_1708_prairie"
+ ],
+ "source_id": "chicagology_1700_1706_townhouses_photo",
+ "library_image": "a16-cgy-1700-1706-townhouses",
+ "photo": "../../sources/assets/thorne_1708_photos_t3188/townhouses_1700_1706_chicagology.jpg",
+ "image_px": [
+  1955,
+  1200
+ ],
+ "principal_px": [
+  977.5,
+  925.7
+ ],
+ "focal_px": 3173.6,
+ "eye": [
+  44.14,
+  -23.21,
+  1.6
+ ],
+ "yaw_deg": -54.05,
+ "sun_uvy": [
+  0.7,
+  -0.45,
+  0.55
+ ],
+ "solve": "T-3188's camera on this picture (data/reference_views/house_1708_prairie/chicagology_townhouses.json), carried into 1700 Prairie's own frame by T-1871: this frame's origin stands at u -0.33, v 18.55 in 1708's frame, turned as 1708's is (-0.581 degrees), so the eye moves by (+0.33, -18.55) m and nothing else changes. That solve, fitted on the townhouses' own front (both corners and the party line from the 1911 sheet, the foot and the line under the main cornice), reads: Chicagology's photograph of 1700-1706 Prairie (the image store's 1955 x 1200 px copy), 1708 Prairie's north end at its left edge, x 0-150. The townhouses' cornice FALLS toward 1700, so the camera stood south-east of them across Prairie Avenue looking west-north-west. FITTED TOGETHER with the other picture of the pair by T-3188, as level cameras (the downpipes and quoins stand vertical) with the principal point's x at the picture's middle, on the townhouses' street front, which the 1911 sheet (trace s20fp-1700-b1, read in this frame) puts in 1708's own front plane at u 12.77: its south corner at v 7.5 (1706's quoins against 1708's front), the party line between 1706 and 1700 at v 18.55 (the downpipe) and the north corner at v 29.75; the foot of the front (grade) and the line under the townhouses' main cornice, one unknown height shared by both pictures, observed at those three places and at three to five more points along each line. THE SCALE IS THE EYE'S: a single front fixes the camera only up to a trade between its distance and its focal length, so the eye is set 1.6 m over the lawn at the foot of the front (a standing photographer on the walk); that puts the townhouses' cornice line 8.4 m up, their basement and two storeys under the mansard, which is how they read. An eye at 1.4 or 1.8 m fits the pixels equally (rms 4.4 px) and scales every height read through it by -12 or +12 per cent; the heights below are those of the 1.6 m eye. Here: the cornice line at x 148, 500, 800, 1030, 1300 and 1648 (y 262 to 440), the foot at x 1030, 1150, 1500 and 1648. SOLVED: the eye at u 43.81, v -4.66 (across Prairie Avenue, about 31 m before the front and 4.7 m south of 1708's south wall), yaw -54.05, focal 3174 px, the horizon at y 925.7; residuals within about 10 px (the cornice's south end, where its return stands proud, is the worst). READ THROUGH IT at 1708's north end (about v 6.2-7.5): the second storey's sill 5.82 m and head 7.51 m, the third's sill 9.39 m (the Christmas print reads 5.74 and 9.19: they agree within 0.2 m), the entrance hood's foot 4.25 m and top 4.65 m with a drop under its north end at 3.3 m, the fence's foot at 0.0 m. The cornice and everything over the third storey's sill are outside the frame. LIGHT: the front is lit raking from the left and the porches cast to the north, so the sun stands in the south-east (sun_uvy)."
+}
