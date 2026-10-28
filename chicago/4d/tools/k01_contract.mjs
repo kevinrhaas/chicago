@@ -176,7 +176,7 @@ const r4 = (v) => Math.round(v * 1e4) / 1e4;
 const roundBox = (b) => ({ min: b.min.map(r4), max: b.max.map(r4) });
 
 /** Measure one GLB by the contract's rules. `envelope` names the wall materials. */
-export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum_m, library = [], meshopt = null }) {
+export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum_m, uv_floor_quanta = 0, library = [], meshopt = null }) {
   const { json, bin } = parseGlb(buf);
   const needsMeshopt = (json.extensionsUsed || []).includes('EXT_meshopt_compression');
   const ctx = { json, bin, views: new Map(), meshopt: needsMeshopt ? (meshopt || await decoder()) : null };
@@ -218,7 +218,14 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
       const tc = prim.attributes.TEXCOORD_0 !== undefined ? readAccessor(ctx, prim.attributes.TEXCOORD_0) : null;
       const idx = prim.indices !== undefined ? readAccessor(ctx, prim.indices)
         : Uint32Array.from({ length: count }, (_, i) => i);
+      // T-3224: on a quantized tier, a triangle thinner than uv_floor_quanta position
+      // steps has its area set by the rounding, not the surface — a few-millimetre brick
+      // return at a 0.45 mm step is ~10% off, and every brick shares that relief, so the
+      // median moves. Those are left out of the UV density and counted; a float tier
+      // (step 0) keeps every triangle.
+      const floor = step * uv_floor_quanta;
       const densities = [];
+      let thin = 0;
       for (let t = 0; t + 2 < idx.length; t += 3) {
         triangles++;
         const a = idx[t], b = idx[t + 1], c = idx[t + 2];
@@ -242,14 +249,19 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
           const area = Math.hypot(cx, cy, cz) / 2;
           const uvArea = Math.abs((tc[b * 2] - tc[a * 2]) * (tc[c * 2 + 1] - tc[a * 2 + 1])
             - (tc[c * 2] - tc[a * 2]) * (tc[b * 2 + 1] - tc[a * 2 + 1])) / 2;
-          if (area > 1e-4 && uvArea > 0) densities.push(Math.sqrt(uvArea / area));
+          if (area > 1e-4 && uvArea > 0) {
+            // shortest altitude = twice the area over the longest edge
+            if (floor && 2 * area / Math.max(d(a, b), d(b, c), d(c, a)) < floor) thin++;
+            else densities.push(Math.sqrt(uvArea / area));
+          }
         }
       }
-      if (densities.length) {
+      if (densities.length || thin) {
         densities.sort((x, y) => x - y);
-        const row = uv.get(mat) || { triangles: 0, medians: [] };
+        const row = uv.get(mat) || { triangles: 0, thin: 0, medians: [] };
         row.triangles += densities.length;
-        row.medians.push([densities[densities.length >> 1], densities.length]);
+        row.thin += thin;
+        if (densities.length) row.medians.push([densities[densities.length >> 1], densities.length]);
         uv.set(mat, row);
       }
     }
@@ -282,6 +294,8 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
   // metric UVs: TEXCOORD_0 is surface metres / the fabric's tile_m
   const uvRows = {};
   for (const [mat, row] of [...uv.entries()].sort()) {
+    // every triangle under the floor: nothing the quantized tier can say about its UVs
+    if (!row.medians.length) { uvRows[mat] = { below_quantization_floor: row.thin }; continue; }
     row.medians.sort((x, y) => x[0] - y[0]);
     let acc = 0, median = row.medians[0][0];
     for (const [m, n] of row.medians) { acc += n; if (acc >= row.triangles / 2) { median = m; break; } }
@@ -298,6 +312,7 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
       median_uv_per_m: r4(median),
       ...(fabric ? { fabric: fabric.name, tile_m: fabric.tile_m, uv_per_m_times_tile_m: r4(median * tile) } : {}),
       ...(xform ? { texture_transform_scale: xform.map(r4) } : {}),
+      ...(row.thin ? { below_quantization_floor: row.thin } : {}),
     };
   }
   return {
@@ -421,7 +436,7 @@ export function contractProblems(c) {
   need(c.handedness?.variants?.join(',') === 'l,r', 'handedness.variants must be [l, r]');
   need(/sha256/.test(c.seed?.rule || ''), 'seed.rule must derive the seed from a hash, never a clock or a counter');
   const m = c.measures || {};
-  for (const k of ['quantum_m', 'base_tolerance_m', 'inset_tolerance_m', 'max_overhang_m', 'tier_scale_ratio', 'uv_tolerance']) {
+  for (const k of ['quantum_m', 'base_tolerance_m', 'inset_tolerance_m', 'max_overhang_m', 'tier_scale_ratio', 'uv_tolerance', 'uv_floor_quanta']) {
     need(typeof m[k] === 'number' && m[k] > 0, `measures.${k} must be a positive number`);
   }
   need(m.coincident_faces_allowed_new === 0, 'a component built to the contract may emit no coincident face');
@@ -472,7 +487,7 @@ async function measure() {
     const buf = readFileSync(abs);
     const sha256 = createHash('sha256').update(buf).digest('hex');
     const row = await measureGlb(new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength),
-      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, library });
+      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, uv_floor_quanta: m.uv_floor_quanta, library });
     row.origin = originVerdict(row.envelope_bbox_m, row.wall_base_y_m, footprint, m);
     tiers[tier] = { path: file, bytes: buf.length, sha256, ...row };
     console.log(`${tier}: ${row.mesh.triangles} triangles, ${row.mesh.draw_primitives} primitives, ${row.faces.coincident} coincident faces`);
@@ -555,7 +570,7 @@ async function measureAsset(structureId) {
   for (const [tier, file] of files) {
     const buf = readFileSync(path.join(APP, file));
     const row = await measureGlb(new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength),
-      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, library });
+      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, uv_floor_quanta: m.uv_floor_quanta, library });
     row.origin = originVerdict(row.envelope_bbox_m, row.wall_base_y_m, footprint, m);
     tiers[tier] = { path: file, bytes: buf.length, sha256: sha256Of(path.join(APP, file)), ...row };
     console.log(`${tier}: ${row.mesh.triangles} triangles, ${row.mesh.draw_primitives} primitives, ${row.faces.coincident} coincident faces`);
@@ -627,8 +642,9 @@ function check() {
     + (measures.length ? `; ${measures.length} assembly built to it (${measures.map((mm) => `${mm.structure_id} ${mm.tiers.full.mesh.triangles} triangles, ${mm.verdicts.coincident_faces.counts.full} coincident`).join('; ')}), every verdict ok` : ''));
 }
 
-/** A GLB from plain triangles: one node, one primitive per entry. */
-function syntheticGlb(prims, node = {}, step = 0) {
+/** A GLB from plain triangles: one node, one primitive per entry. `uv` writes
+ * TEXCOORD_0 as the true (x, y) in metres — metric UVs, taken before any quantizing. */
+function syntheticGlb(prims, node = {}, step = 0, uv = false) {
   const parts = [], views = [], accessors = [], primitives = [];
   let off = 0;
   const push = (arr, target) => {
@@ -647,7 +663,12 @@ function syntheticGlb(prims, node = {}, step = 0) {
     accessors.push({ bufferView: push(pos, 34962), componentType: step ? 5122 : 5126, count: n, type: 'VEC3', min, max });
     const ix = new Uint32Array([...Array(n).keys()]);
     accessors.push({ bufferView: push(ix, 34963), componentType: 5125, count: n, type: 'SCALAR' });
-    primitives.push({ attributes: { POSITION: accessors.length - 2 }, indices: accessors.length - 1, material: 0 });
+    const attributes = { POSITION: accessors.length - 2 };
+    if (uv) {
+      accessors.push({ bufferView: push(new Float32Array(tris.flat(1).flatMap((p) => [p[0], p[1]])), 34962), componentType: 5126, count: n, type: 'VEC2' });
+      attributes.TEXCOORD_0 = accessors.length - 1;
+    }
+    primitives.push({ attributes, indices: accessors.length - 1 - (uv ? 1 : 0), material: 0 });
   }
   const bin = Buffer.concat(parts);
   const json = {
@@ -712,6 +733,24 @@ async function selfTest() {
   ok(relief.ok && relief.wall_face_shift_m[0] === 0.02, 'one wall face pulled in 2 cm is relief, reported, and not scale drift');
   const half = walls(0, 0);
   ok(!driftVerdict(half, { min: half.min.map((v) => v * 1.002), max: half.max.map((v) => v * 1.002) }, drift).ok, 'a tier uniformly scaled by 0.2% has drifted');
+  // T-3224: metric UVs on a quantized tier. One square metre of face, and five strips
+  // 1.4 steps tall that the encoder rounds to 1 — their area 29% short, so the plain
+  // median reads the rounding. Above the floor only the face is read, and says so.
+  const s5 = 0.0005, face = [[[0, 0, 0], [1, 0, 0], [0, 1, 0]], [[1, 0, 0], [1, 1, 0], [0, 1, 0]]];
+  const strips = [0, 1, 2, 3, 4].map((i) => [[0, 2 + i / 10, 0], [2, 2 + i / 10, 0], [0, 2 + i / 10 + 1.4 * s5, 0]]);
+  const uvOpts = { ...opts, quantum_m: 0.0001 };
+  const uvOf = (mm) => mm.metric_uv.granite;
+  m = await measureGlb(syntheticGlb([[...face, ...strips]], {}, s5, true), uvOpts);
+  ok(Math.abs(uvOf(m).median_uv_per_m - 1) > 0.1, 'with no floor, thin strips on a quantized tier move the median UV density');
+  m = await measureGlb(syntheticGlb([[...face, ...strips]], {}, s5, true), { ...uvOpts, uv_floor_quanta: 50 });
+  ok(uvOf(m).median_uv_per_m === 1 && uvOf(m).below_quantization_floor === 5,
+    'above the quantization floor the face alone is read, metric, and the strips left out are counted');
+  m = await measureGlb(syntheticGlb([[...face, ...strips]], {}, 0, true), { ...uvOpts, uv_floor_quanta: 50 });
+  ok(uvOf(m).below_quantization_floor === undefined, 'a float tier keeps every triangle: the floor is in position steps, and it has none');
+  m = await measureGlb(syntheticGlb([strips], {}, s5, true), { ...uvOpts, uv_floor_quanta: 50 });
+  ok(uvOf(m).median_uv_per_m === undefined && uvOf(m).below_quantization_floor === 5,
+    'a material wholly under the floor reports no density, not a false one');
+
   const inStone = await measureGlb(syntheticGlb([[A]], {}), { ...opts, band: [0.5, 2] });
   ok(inStone.envelope_bbox_m.min[1] === 1 && inStone.envelope_bbox_m.max[1] === 1, 'the storey band leaves out the wall geometry below it');
 

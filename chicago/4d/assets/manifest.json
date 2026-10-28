@@ -1022,7 +1022,7 @@
       "baked_ao": false,
       "bytes": 5627124,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "274bd270814dad73986644341ab97155b9463cd3fe2c164d62dffc5185becc75",
+      "inputs_sha256": "74401c78d075ab8fe413c9ccaf678e0bd5375375a8f5a31d46e9f39807c192bc",
       "kind": "generated",
       "phase_id": "as_built_1869",
       "structure_id": "goodman_house_1612_prairie"
@@ -3504,7 +3504,7 @@
       "baked_ao": false,
       "bytes": 7788476,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b9336ac767d5f6cee810559732fba292c475fac3ea2460cd89a25efff13848c1",
+      "inputs_sha256": "4ee6a2787873e57acc27210a87eed5aeb2c37774e192200a624ec9d4b0df4b0d",
       "kind": "generated",
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"

@@ -2,8 +2,9 @@
   "structure_id": "house_1623_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
-  "glb_sha256": "20379778b92638376e458c782761dcf1b7fe4469c18fcade8e72745bbe3f385b",
+  "glb_sha256": "1a27e7ece0656abecbb207398a83b4d87050967724b7aeeb7be66b3dfa54afc8",
   "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
+  "photo_sha256": "42f335117613488291ef19d96ac74b083784672f18d333697cdef81b908c34f3",
   "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -121,7 +122,12 @@
       "what": "colour and tone: the drawing is a monochrome pen plate",
       "status": "not shown",
       "how": "the stone (Lemont limestone), brick and paint are reconstructed, L-k01-1623-farwell-oriel-front-2433"
+    },
+    {
+      "what": "the walk and the front boundary: the drawing's stoop rises straight up from the ground before the house between its rails, no fence, wall or gate across the front; the build had no walk",
+      "status": "fixed",
+      "how": "T-3221: the front built open (form.boundary layout open) and a flagged walk laid from the stoop's foot, its 1.7 m width, out to the public walk; the walk's flags and line are the K14 kit's, the drawing showing none (L-k14-walks-1600-block-3215)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
