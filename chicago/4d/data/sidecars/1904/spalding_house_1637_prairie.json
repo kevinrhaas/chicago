@@ -982,7 +982,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -998,7 +998,7 @@
         "glessner_blog_1637_spalding_remodel_engraving",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3215 (the owner, 2026-10-27). The engraving of Spalding's remodel (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json) brings the stoop's flight down between the garden wall's end pier and the iron fence's first post, and draws a light walk at its foot curving out to the street. So the walk is laid in flags from the stoop's foot, its width (1.8 m), out through that gap (form.boundary: s 0.87 to 7.55) to the inner edge of the public walk, 10.2 m before the street front, straight where the engraving curves it; the lawn covers the garden inside the wall and fence. No side gate or passage is drawn, so no service walk is built. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215."
+      "note": "T-3215 (the owner, 2026-10-27). The engraving of Spalding's remodel (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json) brings the stoop's flight down between the garden wall's end pier and the iron fence's first post, and draws a light walk at its foot curving out to the street. So the walk is laid in flags from the stoop's foot, its width (1.8 m), out through that gap (form.boundary: s 0.87 to 7.55) to the inner edge of the public walk, 10.2 m before the street front, straight where the engraving curves it; the lawn covers the garden inside the wall and fence. No side gate or passage is drawn, so no service walk is built. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1600-block-3215. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

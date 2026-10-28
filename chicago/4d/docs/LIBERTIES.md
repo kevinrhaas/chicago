@@ -35379,6 +35379,39 @@ gateway and crosses no footprint.
 **Ticket:** T-3222.
 **Recorded:** 2026-10-28 (T-3222).
 
+### L-street-ground-seams-3233 — The 1904 ground drawn as one ground: the walk's one-foot margin and every K14 front lawn are the app's own grass, and one paving wears into the next
+
+**Decision:** three ways the 1904 streets and yards were drawn are changed, so that no hard
+straight line of colour or texture lies on the grass or the ground (T-3233; the owner,
+2026-10-28: *"we dont want harsh linear transitions like that on the ground and grass"*).
+**The margin.** The one-foot margin between the lot line and the walk (the 1905 code's sec. 2062,
+`data/street_grid/1904.json`, `bands.margin`) is drawn as the lot's own ground, the app's terrain,
+not as a band of the parkway's mown turf as L296 drew it: that band was a straight strip of another
+green between every lawn and the walk, and lay over the end of every house's front walk. It is
+still grass, which is all L296's bounds and HABS no. 3 (a grass strip between the walk and the wall
+on 18th Street c. 1923) say of it; its tone is now the yard's, which no source states either.
+**The front lawns.** The nineteen K14 yards that laid the kit's turf sheet (1612, 1616, 1620,
+1621, 1623, 1625, 1637, 1801, 1808, 1811, 1812, 1815, 1816, 1823, 1824, 1827, 1828, 1834 and
+1901 Prairie) lay none now (`yard.lawn: none`, as T-3205's 1700-block yards already did): their
+lawn is the app's own ground, so a front lawn meets its side yard and the margin with no seam. The
+kit's bare strip at the wall foot, the earth under each open stair and the flagged walks stay as
+they were. Where the app's ground and the kit's turf differed in tone, a visitor now sees the
+app's: neither tone is a claim about 1904.
+**The crossings.** Where a wider segment of a street runs on through a crossing beside a narrower
+one (Prairie Avenue 16th-18th beside 18th-20th at 18th Street; Indiana and Calumet at 20th), the
+0.35 m strip beside the narrower one is paved as the avenue on the near side of the crossing,
+where it lies inside the wider roadway, and dropped only where it stands over a sidewalk. Before,
+it was dropped on both sides, and the cut-away ground showed as a flat pale strip down the gutter.
+And the worn fade of a cross street's paving into the avenue's (T-2475) now runs on past the cross
+street's curb lines over the avenue's gutter and wears out there, where it stopped square; how far
+one paving wears into the next is ours, as it was.
+**How to resolve:** a photograph of a Prairie Avenue lot line before 1905 showing what covered
+the foot inside the walk (a sod edge, a coping, bare earth), or of a front lawn's edge against its
+side yard.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3233.
+**Recorded:** 2026-10-28 (T-3233).
+
 ### L-k16-walks-1600-block-3230 — the four unpictured K16 frame houses of the 1600 block (1601, 1609, 1611, 1630 Prairie): their walks and front boundaries, reconstructed from their side of the block
 
 **Decision:** No picture of these four fronts is held, so each follows its own side of the block
