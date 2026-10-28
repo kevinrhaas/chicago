@@ -2,8 +2,9 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "f27b5f1cb736cc28d799ba103a2e3d8be954272d8f07643c50284b184fb21e43",
+  "glb_sha256": "175dab5749704bf316589085b604eed3a82fe6d3545ec4d530d5f5cfcd5893f8",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
+  "photo_sha256": "ece6ea5d877f60e649e7e2cdbac51101ec8a9d29db76f38d410d97ad573ede19",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -94,7 +95,17 @@
     {
       "what": "the hood over the door: the engraving draws an entablature over the door (soffit about 6.0 m, top about 6.9 m over grade on T-2437's camera, x 507-585 px, its south end meeting the bay window's hood) with a low rail on its flat top under the window over the door; the build's was the K09 kit's small stone cornice hood on two scrolled consoles just over the door's head. T-2480 builds the drawn hood, in the bay window's hood joinery (its consoles and modillions), railed on its top as a small balcony",
       "status": "fixed"
+    },
+    {
+      "what": "walk and gate: the engraving draws the stair coming down to the street line in the lattice's gap between the gate piers, no leaf across it; the build had both entrance leaves shut and no walk",
+      "status": "fixed",
+      "how": "T-3214: the entrance leaves drawn open 70 degrees and a K14 yard laid, its flagged walk from the stair's foot through the gate to the public walk"
+    },
+    {
+      "what": "the walk's floor and the south side yard: hidden behind the lattice and the fence's base",
+      "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-3214, 2026-10-28, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg, after the walk, the open entrance gate and the yard were laid; the house itself is unchanged from the reviewed build, and the published 1904 app walked from the public walk to the stoop's foot at 1280x800 and 390x780 (docs/RESEARCH/house-boundaries-T-3214/)"
 }

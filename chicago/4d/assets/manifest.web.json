@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__draft_1904.glb": "e0e660dd4d59fad53946a89cb7131babd9d202ae183bab58695ce2638e197477",
@@ -110,7 +111,7 @@
     "glessner_house__as_built_1887.glb": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
     "glessner_lee_house_1700_prairie__draft_1904.glb": "dadbf9aacd2c243c705aacf6e099cd0863ceb7c0e51db99bdda5238c6789b27d",
     "glessner_lee_house_1700_prairie_coach_house__draft_1904.glb": "aac821af8625f8037165939c1b676393a73d2f063a49b2334469002873b763d5",
-    "goodman_house_1612_prairie__as_built_1869.glb": "d6904c23d074e8fd2d085a9ad433dfbbd0d2357fdae5664079fed609f8f459a1",
+    "goodman_house_1612_prairie__as_built_1869.glb": "bc037658921a5d3309d9e670964a25cca806801a9d05e4c16ac51cc02ece9425",
     "goodman_house_1612_prairie_coach_house__draft_1904.glb": "765abce6b532d2c405e2d9854041f23b3d64ecb9d28879c1e72e1ab1a9357168",
     "goss_cobb_saddlery__shop_1833.glb": "65ddad1ac29c0c15c7e0d1925baad9e23a33fd6b0ef0ae359a80d3b6257b7ae9",
     "green_tree_tavern__frame_1833.glb": "d2ce4d0ac6bcd66111382dc93504d3b5467287438ceb280a47672898954a0c5d",
@@ -364,7 +365,7 @@
     "landing_camp_west__camp_1835.glb": "62ced6e64a6cd9d9f8306ae6108a58f46c4d53ebee668332a1d801be1dc7cb94",
     "lasalle_lake_house__documented_1834.glb": "8a2c1eda84cedbec34c8d026502ef7c6f00dde5885dd42f2d8928e1f3bf3ab1f",
     "lasalle_slough_crossing__crossing_1835.glb": "9b56e061cb58e48b726daa140423ddf1cefd43a96096aa7027b4b9b9d639911c",
-    "law_house_1620_prairie__restored_1904.glb": "f27b5f1cb736cc28d799ba103a2e3d8be954272d8f07643c50284b184fb21e43",
+    "law_house_1620_prairie__restored_1904.glb": "175dab5749704bf316589085b604eed3a82fe6d3545ec4d530d5f5cfcd5893f8",
     "law_house_1620_prairie_coach_house__draft_1904.glb": "46b748e1aee7ffa90b8dc86c1ab7127dbcb3f9c9097da34aafb506ce1fcaa625",
     "lee_house_1812__lee_1812.glb": "8ef7879e57d237a37eba3d3db0e1b438c93e1a26d633abb149b3204849803d87",
     "lees_place_cabin_1812__lees_place_1812.glb": "aacc7218e1880430627540ab0b538ab5115427e2f81ff6969d69d48bc3a71e11",
