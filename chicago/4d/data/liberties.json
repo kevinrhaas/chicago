@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 830,
+  "count": 831,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58802,6 +58802,74 @@
       ],
       "work_refs": [
         "T-3206"
+      ]
+    },
+    {
+      "id": "L-k14-walks-1600-block-3215",
+      "title": "Walks and front boundaries of 1616, 1621, 1623, 1625 and 1637 Prairie read off their pictures; each house given a front walk from the public walk to its door",
+      "section": "per_subject",
+      "subjects": [
+        "house_1616_prairie",
+        "house_1621_prairie",
+        "house_1623_prairie",
+        "house_1625_prairie",
+        "spalding_house_1637_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1616_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1621_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1625_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-10-28."
+        },
+        {
+          "label": "Decision",
+          "text": "five worked 1904 houses on the 1600 block of Prairie Avenue are given a K14 yard: a lawn and a flagged front walk from the foot of the stoop to the inner edge of the public walk. Before this none of them had a walk. **What is read, not invented.** 1621's and 1623's 1886 drawings (the Building Budget's plate of the Hamline and Farwell houses) and 1625's 1890 Inland Architect photograph show no fence, wall, coping or gate across the front yard, so each is built with no boundary (`layout: open`), carried to 1904 on those pictures (inferred: they are fourteen to eighteen years before the scene). The paling fence 1625's photograph shows is on the open ground next door, as its match record already rules, and is not built. 1637's engraving brings the stoop down between its garden wall and its iron fence; the walk comes out through that gap. 1616 has no picture of its own front (the 1874 engraving of 1620 reads its boarded street line only to the plate's edge); its walk is a stated reconstruction on 1612's photograph, two doors south, through the boards' walk gate, whose leaves are now drawn open as 1612's and 1620's are. **What is invented or held by the kit.** Every walk's line is straight out from the stoop (1637's engraving curves it), and its width (the stoop's or the gate's), flags, joints and wear, the lawn and its bare strip are the kit's; none of the pictures shows a walk's material. No service walk is built: none of the pictures shows a side gate or a passage's floor, and 1616's boards run unbroken across its side yard's mouth. Each walk is checked by the house walks check."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of each front from about 1900-1910, or a survey plat drawing the walks."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`."
+        }
+      ],
+      "work_refs": [
+        "T-3221",
+        "T-3215"
       ]
     },
     {

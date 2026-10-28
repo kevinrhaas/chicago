@@ -952,7 +952,7 @@
         "chicagology_1638_prairie_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "PLACEHOLDER"
+      "note": "T-3222 (piece 2 of T-3215; the owner, 2026-10-27: walks, gates and boundaries to the pictures). A K14 front walk the K16 generator lays (k16_timber.yard_walk): K14's router takes it out from the porch stair's foot, along the fence's back clear of the gate piers' plinths, and out through the gateway between them to the street line, in 0.9 m flags of the plinths' stone worn by the condition kit. The gateway and the stair are read off the photograph (chicagology_1638_prairie_photo, through the camera T-2523 solved): it shows pale ground in the gateway and at the stair's foot behind the fence, where the walk lands in the render (data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.match.json). The hedge hides the rest of the yard, so the line along the fence, the 1.2 m width and the flags are RECONSTRUCTED (the district's K14 walk sizes). No grade_m: the app's ground rises 2-21 mm over the house's bed under the walk (tools/qa_house_walks_t3222.mjs), less than the flags' 0.06 m. Liberty L-k16-1638-walk-3222; stills docs/RESEARCH/house-boundaries-T-3222/."
     },
     "function": {
       "value": "residence",
