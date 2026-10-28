@@ -334,7 +334,8 @@ class Entrance(Opening):
         column `width_m` between its posts and divided in `rows` panes by bars to the arch."""
         w, pw = fc["width_m"], mu["width_m"]
         xs0, xs1 = fan.s0 + st, fan.s1 - st
-        (c1, c2) = centres
+        # T-3236: or at `offsets_m` from the mouth's axis, the pair set even about it
+        (c1, c2) = fc.get("offsets_m") or centres
         edges = [xs0, c1 - w / 2 - pw, c1 - w / 2, c1 + w / 2, c1 + w / 2 + pw, c2 - w / 2 - pw, c2 - w / 2,
                  c2 + w / 2, c2 + w / 2 + pw, xs1]
         if any(b - a < 0.1 for a, b in zip(edges[::2], edges[1::2])):
@@ -368,7 +369,8 @@ class Entrance(Opening):
     def _leaf(self, a, b, y0, y1, d, hinge) -> bool:
         """A panelled leaf: its framing at the stop, panels sunk behind; glazed rows glass."""
         v, p = self.v, self.data["parts"]
-        lf = p["leaf"]
+        # T-3236: a house's own leaf — its panels' sinking and a raised field in each
+        lf = {**p["leaf"], **(v.get("leaf") or {})}
         cols, rows = v["panels"]
         st, ms = lf["stile_m"], lf["mid_stile_m"]
         rails_y = v.get("rails_y_m", [lf["lock_rail_y_m"]] * (rows - 1))
@@ -404,6 +406,22 @@ class Entrance(Opening):
                     self.plane("glass_leaf", cell, depth)
                     self.panes.append({"sash": "leaf", "poly": cell, "depth_m": depth, "col": i // 2, "row": row})
                     glass = True
+                elif lf.get("raised_field"):
+                    # T-3236: a raised field (1812's, the owner's report that the door read flat):
+                    # the panel's ground sunk `panel_recess_m`, bevels rising from its edge to a
+                    # field `margin_m` in and `proud_m` before the ground
+                    rf = lf["raised_field"]
+                    mg, up = rf["margin_m"], rf["proud_m"]
+                    inner = box(xs[i] + mg, xs[i + 1] - mg, ys[j] + mg, ys[j + 1] - mg)
+                    top = depth - up
+                    cx, cy = (xs[i] + xs[i + 1]) / 2, (ys[j] + ys[j + 1]) / 2
+                    for k_ in range(4):
+                        (a0, a1), (b0, b1) = cell[k_], cell[(k_ + 1) % 4]
+                        (i0, i1), (j0, j1) = inner[k_], inner[(k_ + 1) % 4]
+                        hx, hy = (a0 + b0) / 2 - cx, (a1 + b1) / 2 - cy
+                        self.face("leaf", [self.P(a0, a1, depth), self.P(b0, b1, depth), self.P(j0, j1, top),
+                                           self.P(i0, i1, top)], (hx, hy, 1.0))
+                    self.plane("leaf", inner, top)
                 else:
                     self.plane("leaf", cell, depth)
         # the leaf's foot, which the gap leaves open to view

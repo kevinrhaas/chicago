@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "a477a6cf378bbc64227c56f5c411de700fd1e11e747723024a06015a6f71f4b2",
+  "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "a477a6cf378bbc64227c56f5c411de700fd1e11e747723024a06015a6f71f4b2"
+      "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -42,10 +42,10 @@
         16.293259561004927
       ],
       "rotation_y": 8.726646259971656e-05,
-      "glb_sha256": "56726e0125f37a47c9691fe704ec90b57aea33c35e6dd4568e070f73b4976d52"
+      "glb_sha256": "59521db4702ef32d0b230441543843ffb88c1af62bd10d423e6cac95cd34a077"
     }
   ],
-  "group_sha256": "4d5a9d6b3704576da3c4dfb0486b3b620027ab53a012ba0ba0aec5f9e0006ab7",
+  "group_sha256": "a954ccb42021878b4665f3fa2bdf4f0f8b735375816364491dbd15545bbd962e",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -106,8 +106,8 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the porch arch's south jamb stands on the projection's face, the opening's edge at x about 328 px and its moulding at 324-327, about 0.25 m south of the projection's corner (x 340), where the build's mouth had stood clear of the projection; built so (T-3135), the arch cut into the projection's corner, and re-rendered its moulding draws at x 325-331. The arch's north jamb (x about 444) is on the main front, where the projection's plane would put it at 471-475 (L-k07-1812-porch-arch-jamb-3135)",
-      "status": "fixed"
+      "what": "Owner ruling (T-3236, 2026-10-28, the owner's report from the street: 'the windows are not aligned/centered correctly on the north side ... the door is not centered, and the left edging around the door is not on the face of the north side, like the right edging'): this photograph too stands the porch arch's south jamb on the projection's face (the opening's edge at x about 328 px, about 0.25 m south of the corner at 340) and the north bay's windows off its middle; built with the arch, the second storey's north window and the small arched window centred on the bay and the arch clear of the projection (L-k01-1812-wheeler-bay-3236)",
+      "status": "owner ruling"
     },
     {
       "what": "Third storey: the small arched window glazed as a plain sash, where Levy's print shows it filled with a patterned light; the patterned light is built for 1904 from Levy's print, the plain sash taken for later (T-3091)",
@@ -135,5 +135,5 @@
       "how": "the c. 1955 photograph does not reach the lot line clearly; the boundary is read off the Levy print and the c. 1888 view"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

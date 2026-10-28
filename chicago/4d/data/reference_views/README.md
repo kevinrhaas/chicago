@@ -38,7 +38,9 @@ side-by-side, a `verdict` (`unreviewed` | `differs` | `matches`) and `difference
 visitor on the street would notice it), `fixed`, `not shown` (the picture cannot say: colour in
 a monochrome print, a face it does not see), or `within tolerance` (T-3153: under about 1 ft /
 0.3 m, a pixel offset, or a gap two pictures or two camera fits disagree about; say what was
-read). Only `open` blocks `matches`. `photo_match.mjs` keeps the verdict while the GLB and camera are unchanged, and sets it
+read), or `owner ruling` (T-3236: the owner, looking at the building against its picture, asked
+for it built otherwise; say what the picture shows, what was built and which ticket ruled it).
+Only `open` blocks `matches`. `photo_match.mjs` keeps the verdict while the GLB and camera are unchanged, and sets it
 back to `unreviewed` when either changes — a building only matches a picture someone has looked
 at.
 
