@@ -4292,6 +4292,16 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# T-3232: a texture sheet two or more published GLBs carry ships once, under
+# data/gltf/sheets/, and each GLB names it as an external buffer. The committed GLBs
+# are untouched, so this is the gate on the shipped form: every rewritten GLB, its
+# sheets read back in, is its assets/web source view for view.
+selftest "shared sheets: one copy, the repack exact, a changed sheet or byte refused (T-3232)" \
+  node tools/share_glb_sheets.mjs --self-test
+
+step "the published GLBs read back to their sources through their shared sheets (T-3232)" \
+  node tools/share_glb_sheets.mjs ../../site/4d --check
+
 # The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
 # page's own createFrontage and the page uploads it. This refuses a prebuild whose
 # inputs — the records, the heightfield, every module the build loaded — have moved

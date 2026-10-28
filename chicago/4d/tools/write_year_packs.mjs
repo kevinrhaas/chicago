@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSy
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { planUpdate } from '../renderers/web/js/year-pack.js';
+import { sheetsNamedBy } from './share_glb_sheets.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT4D = path.resolve(HERE, '..');
@@ -66,8 +67,12 @@ function listFiles(site, rel = '') {
  * Glessner file to recognise it, and counting that put 59 MB in every year's pack.
  * A GLB nothing names also goes to every year: a pack that holds a file too many
  * costs bytes, a pack that misses one breaks offline.
+ *
+ * T-3232: a shared texture sheet (data/gltf/sheets/) is named inside the GLBs that use
+ * it, not by any record, so `sheetsOf(glb)` reads those names and a sheet belongs to
+ * every year its GLBs belong to — to every year, if one of them does.
  */
-export function glbOwners(files, read) {
+export function glbOwners(files, read, sheetsOf = () => []) {
   const owners = new Map();
   const add = (glb, owner) => (owners.get(glb) || owners.set(glb, new Set()).get(glb)).add(owner);
   for (const rel of files) {
@@ -76,6 +81,11 @@ export function glbOwners(files, read) {
     const every = rel.startsWith('data/terrain/');
     if (!year && !every) continue;
     for (const m of read(rel).matchAll(GLB_REF)) add(`data/${m[0]}`, year || '*');
+  }
+  for (const rel of files) {
+    if (!/^data\/gltf\/.+\.glb$/.test(rel)) continue;
+    const of = owners.get(rel) ?? new Set(['*']);
+    for (const sheet of sheetsOf(rel)) for (const o of of) add(sheet, o);
   }
   return owners;
 }
@@ -140,7 +150,8 @@ export function writeYearPacks(site) {
     writeFileSync(path.join(site, year, 'app.webmanifest'), `${JSON.stringify(appManifest(year), null, 1)}\n`);
   }
   const files = listFiles(site).filter((rel) => !rel.startsWith('packs/')).sort();
-  const owners = glbOwners(files, (rel) => readFileSync(path.join(site, rel), 'utf8'));
+  const owners = glbOwners(files, (rel) => readFileSync(path.join(site, rel), 'utf8'),
+    (rel) => sheetsNamedBy(site, rel));
   const sums = new Map();
   const sum = (rel) => sums.get(rel) || sums.set(rel, (() => {
     const bytes = readFileSync(path.join(site, rel));
@@ -206,6 +217,16 @@ function selfTest() {
   ok(y1835.has('data/gltf/terrain__e1834.glb'), 'a terrain GLB is in every pack');
   ok(y1835.has('data/gltf/loose.glb'), 'a GLB nothing names stays in (missing one breaks offline)');
   ok(!y1835.has('data/sidecars/1904/b.json') && y1835.has('data/sidecars/1835/a.json'), 'sidecars split by year');
+  // T-3232: a shared sheet goes where the GLBs that name it go.
+  const sheetFiles = [...files, 'data/gltf/sheets/0123456789abcdef.ktx2', 'data/gltf/sheets/fedcba9876543210.ktx2'];
+  const named = { 'data/gltf/b__1904.glb': ['data/gltf/sheets/0123456789abcdef.ktx2'],
+    'data/gltf/loose.glb': ['data/gltf/sheets/fedcba9876543210.ktx2'] };
+  const sheetOwners = glbOwners(sheetFiles, (rel) => text[rel] || '', (rel) => named[rel] ?? []);
+  const s1835 = new Set(yearFiles(sheetFiles, '1835', sheetOwners));
+  ok(!s1835.has('data/gltf/sheets/0123456789abcdef.ktx2')
+    && yearFiles(sheetFiles, '1904', sheetOwners).includes('data/gltf/sheets/0123456789abcdef.ktx2'),
+    'a sheet only a 1904 GLB names is in the 1904 pack and not 1835\'s (T-3232)');
+  ok(s1835.has('data/gltf/sheets/fedcba9876543210.ktx2'), 'a sheet a GLB of every year names is in every pack (T-3232)');
   ok(y1835.has('data/prebuilt/1835/frontage.bin.gz') && !yearFiles(files, '1904', owners).includes('data/prebuilt/1835/frontage.bin.gz'),
     'a year\'s prebuilt layers are in its own pack and no other (T-2677)');
   ok(y1835.has('1835/index.html') && !y1835.has('1904/index.html'), 'each pack holds its own door only');
