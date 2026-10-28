@@ -2,8 +2,9 @@
   "structure_id": "house_1736_prairie",
   "view": "mcbirney_c1890_photo",
   "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0a927c40e88471cfc642b6e9f49e41eacf0ee6b4fa8151de3f643766df44f94b",
+  "glb_sha256": "6bd9a5e3816ebae5056d05f2dd61c56a1aadf1d095290505f24a923867922cf7",
   "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
+  "photo_sha256": "c3b9a67372ccd09aea1798b29b39dc484d5e4d3c13ea10e2afe03df2d2b16062",
   "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -95,7 +96,12 @@
       "what": "the south flank on 18th Street, the north wall, the rear and the roof behind the street face: the camera stands square to the front",
       "status": "not shown",
       "how": "T-2994: the 18th Street wall's three canted bays, built off the 1911 sheet (the nearest stands 4.3 m behind the front and 0.85 m out), stand behind the front's south corner and the veranda from this camera; the side-by-side was re-rendered on the new GLB and shows no change"
+    },
+    {
+      "what": "the low pale wall along the street line either side of the stair's foot, its piers at the opening",
+      "status": "fixed",
+      "how": "T-3205: a 0.74 m coping to the opening at s 3.9-4.9 and 0.95 m beyond, the walk in from the opening and turned to the stair; the photograph's wall stands about as high as the render's to within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

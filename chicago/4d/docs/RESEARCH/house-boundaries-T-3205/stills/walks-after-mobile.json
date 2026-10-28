@@ -1,0 +1,212 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "mobile",
+      "id": "house_1708_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1708-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.015,
+        "street": 0.004,
+        "street_s_lo": 0.019,
+        "street_s_hi": -0.01,
+        "per_m_s": -0.0048
+      },
+      "walk": {
+        "closest_to_foot_m": 0.02,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "kellogg_house_1709_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-kellogg_house_1709-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.025,
+        "street": 0.009,
+        "street_s_lo": 0,
+        "street_s_hi": 0.021,
+        "per_m_s": 0.0035
+      },
+      "walk": {
+        "closest_to_foot_m": 0.21,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1712_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1712-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.059,
+        "street": 0.046,
+        "street_s_lo": 0.061,
+        "street_s_hi": 0.031,
+        "per_m_s": -0.005
+      },
+      "walk": {
+        "closest_to_foot_m": 0.29,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "walker_house_1720_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-walker_house_1720-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.063,
+        "street": 0.057,
+        "street_s_lo": 0.078,
+        "street_s_hi": 0.038,
+        "per_m_s": -0.0067
+      },
+      "walk": {
+        "closest_to_foot_m": 0.09,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "dexter_house_1721_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-dexter_house_1721-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.024,
+        "street": 0.02,
+        "street_s_lo": 0,
+        "street_s_hi": 0.038,
+        "per_m_s": 0.0063
+      },
+      "walk": {
+        "closest_to_foot_m": 0.13,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1726_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1726-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.036,
+        "street": 0.036,
+        "street_s_lo": 0.051,
+        "street_s_hi": 0.022,
+        "per_m_s": -0.0048
+      },
+      "walk": {
+        "closest_to_foot_m": 0.12,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "pullman_house_1729_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-pullman_house_1729-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.076,
+        "street": 0.101,
+        "street_s_lo": 0.089,
+        "street_s_hi": 0.11,
+        "per_m_s": 0.0035
+      },
+      "walk": {
+        "closest_to_foot_m": 0.16,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1730_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1730-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.026,
+        "street": 0.031,
+        "street_s_lo": 0.038,
+        "street_s_hi": 0.02,
+        "per_m_s": -0.003
+      },
+      "walk": {
+        "closest_to_foot_m": 0.1,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1736_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1736-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.017,
+        "street": 0.027,
+        "street_s_lo": 0.032,
+        "street_s_hi": 0.021,
+        "per_m_s": -0.0018
+      },
+      "walk": {
+        "closest_to_foot_m": 0.03,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}
