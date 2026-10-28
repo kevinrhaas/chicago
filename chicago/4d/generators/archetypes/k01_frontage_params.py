@@ -2415,6 +2415,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"0.1-0.4 m course 0.05-0.5 m proud, corbels 0.1-0.6 m wide, 0.05 m apart at "
                                  f"least, down to 1.5 m under the line), not {ct}")
             st["corbel_table"] = {k_: float(ct[k_]) for k_ in sorted(keys)}
+        if "light_tier" in e:
+            # T-1890: a bay holding an OPEN opening (1801's gabled section's loggia) has no sash,
+            # blind or curtain there for its light tier to drop, so it may state its own light-tier
+            # triangle ratio, with its reason; check_bay_kit holds it to 0.65 and to such a bay
+            lt = e["light_tier"]
+            if not isinstance(lt, dict) or set(lt) != {"max_triangle_ratio", "why"} or not str(lt["why"]).strip() \
+                    or not 0.55 < float(lt["max_triangle_ratio"]) <= 0.65:
+                raise ParamError(f"bays: {e['id']}'s light_tier takes max_triangle_ratio (over 0.55, at most 0.65) "
+                                 f"and why, not {lt}")
+            v["light_tier"] = {"max_triangle_ratio": float(lt["max_triangle_ratio"]), "why": str(lt["why"])}
         if "pilasters" in e:
             # T-2931: carved pilasters at the ends of a stone bay's runs (1801's bow and its south
             # pavilion, from the Taylor photograph), one a storey on a base, under a capital
