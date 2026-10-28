@@ -34948,22 +34948,31 @@ goes with the mansard's lower face and stays open in that record.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
 ### L-kimball-1801-loggia-lights-1890 — 1801 Prairie's lights over the loggia in the kit's moulded surround
-**Recorded:** 2026-10-28.
+**Recorded:** 2026-10-28; amended 2026-10-28 when the pilasters were built.
 
 **Decision:** the W. W. Kimball house's two second-storey lights over the loggia, the avenue front's
 (`front_bays` 1.6) and the 18th Street flank's (`side_bays` 18.67), each stand in the K09 kit's restrained
 surround (`street_front_trim`, T-1890): a two-fascia architrave round the light and a cornice hood on two
 consoles over it; the flank's light is named in `street_front_trim.lights` so a side wall's light wears its
 storey's head as the front's does. Each carries an 0.8 m fixed top light over a 0.1 m stone bar (`lights`
-tiers) where K06's transom light is 0.45 m.
+tiers) where K06's transom light is 0.45 m. Each light stands between two pilasters (`lights[].pilasters`): a
+shaft 0.25 m broad and 0.06 m proud on a base from the belt's top at 5.0 m, 0.1 m clear of the architrave,
+under a capital that carries the hood's end in place of the kit's console (the hood run out over the
+capitals), with one lozenge 0.55 m tall carved 0.015 m proud and centred on each shaft.
 **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
 through T-3074's camera at about 57 px a metre, shows each light in a moulded frame under a projecting head
 (x 1016-1071 px at the front, 877-931 on the flank) and its transom bar about 0.75-1.0 m under the head
-(y 680-700 px at the front, 676-694 on the flank).
-**What is invented or held by the kit.** The architrave's and hood's profiles and the consoles are the kit's
-generic ones, not the print's mouldings; the bar is the wall's stone where the print's may be the frame's; the
-light stays K01's 1.15 m where the print's reads about 1.2 m; the carved pilasters either side of each light,
-with their capitals and lozenges, are not built and stay open in the Taylor match record.
+(y 680-700 px at the front, 676-694 on the flank); and each light between two pilasters (x 1000-1010 and
+1075-1085 at the front, 860-870 and 935-945 on the flank) rising from the belt under the sill to carved
+capitals beside the head. HABS 1965's photograph 2 (`habs_kimball_photo_02_nw_1965`, surviving fabric that
+the Taylor print shows too) shows the 18th Street pair sharply: one lozenge, about 0.55 m tall and nearly
+the shaft's width, centred on each shaft, under a foliate capital.
+**What is invented or held by the kit.** The architrave's and hood's profiles are the kit's generic ones, not
+the print's mouldings; the bar is the wall's stone where the print's may be the frame's; the light stays
+K01's 1.15 m where the print's reads about 1.2 m. The pilasters' width is a mean of two readings (the Taylor
+print's about 0.2 m, HABS 2's about 0.3 m); their capitals are plain blocks where both pictures' are
+foliate; their shafts are plain where HABS 2's are sunk-panelled; their bases stand on the belt behind the
+balcony, where HABS 2 shows a carved block under each at about the sill.
 **How to resolve:** a nearer photograph of the loggia's upper storey, or the house's drawings.
 
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
