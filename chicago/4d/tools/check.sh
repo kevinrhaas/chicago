@@ -881,7 +881,7 @@ selftest "the 1904 poles, crossarms and wires refuse to run into a building (T-3
 # must be refused.
 step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3203, T-3223)" \
   python3 tools/plant_prairie_1904_front_yards.py --check
-selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house (T-3223)" \
+selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
