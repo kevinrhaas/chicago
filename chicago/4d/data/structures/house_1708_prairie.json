@@ -365,7 +365,7 @@
        "variant": "k11.gate.walk_gate_on_piers",
        "leaves": 2,
        "clear_m": 1.3,
-       "drawn_deg": 0
+       "drawn_deg": 70
       },
       "side_gate": {
        "variant": "k11.gate.walk_gate_on_piers",
@@ -381,7 +381,7 @@
      "sources": [
       "chicagology_1700_1706_townhouses_photo"
      ],
-     "note": "The Chicagology photograph shows an iron railing of spear-headed bars on a low curb along the walk before 1708's north end, running on before 1706: K11's spear-on-curb fence just inside the street line (8.9 m before the front, the walk at 9.17 m), a walk gate on piers at the stoop. Its height and gates are the kit's (reconstructed). K11 gates an iron front's side passage at least 0.9 m clear, and the slot between 1708 and 1712 is 0.77 m, shared by the two lots, so the fence runs on 1.06 m past the south corner, 1.0 m of it before 1712's lot, and gates the slot there (liberty L-k01-1708-thorne-3188)."
+     "note": "The Chicagology photograph shows an iron railing of spear-headed bars on a low curb along the walk before 1708's north end, running on before 1706: K11's spear-on-curb fence just inside the street line (8.9 m before the front, the walk at 9.17 m), a walk gate on piers at the stoop. Its height and gates are the kit's (reconstructed). K11 gates an iron front's side passage at least 0.9 m clear, and the slot between 1708 and 1712 is 0.77 m, shared by the two lots, so the fence runs on 1.06 m past the south corner, 1.0 m of it before 1712's lot, and gates the slot there (liberty L-k01-1708-thorne-3188). T-3205: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1700-block-3205)."
     },
     "bays": {
      "value": [
@@ -575,6 +575,38 @@
       "sanborn_1911_chicago_v3_sheet_20"
      ],
      "note": "The 1911 sheet's outline behind the front block (trace s20fp-1708-b1, read in this frame): the three-storey brick body runs on 9.3 m behind it, its south wall stepped in 1.37 m to a light court, and from it 'a narrow 2-storey brick wing running west toward the alley' (census s20-1708-a1), 2.55 m wide against the north lot line, 7 m long. The range's storeys and every window are reconstructed: no picture shows the rear."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.6,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      },
+      "service_walk": {
+       "surface": "stone_flags",
+       "to_u_m": 0.0,
+       "wear_tone": 0.78
+      },
+      "grade_m": {
+       "front": 0.018,
+       "street": 0.007,
+       "per_m_s": -0.0048,
+       "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chicagology_1700_1706_townhouses_photo",
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk, and the cinder service walk from the side gate back down the slot between 1708 and 1712. The Chicagology photograph and the 1901 construction view show 1708's railing and its north end; neither shows the walk, which is the block's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget. The service walk is laid in flags, not cinder: the cinder sheet (about 190 KB a house) would put the published tree over its 416 MB budget, and no picture shows this walk's surface."
     }
    }
   }

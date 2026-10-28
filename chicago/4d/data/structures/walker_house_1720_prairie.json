@@ -638,6 +638,130 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "No roof covering has been read for 1720: the photograph sees only the eave of a low hip. A low-pitched Italianate hip of the late 1860s was commonly covered in painted tin; its dark grey is reconstructed."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_u_m": 31.2,
+            "lot_s_m": [
+              -12.11,
+              12.61
+            ],
+            "thickness_m": 0.35,
+            "round_top": true,
+            "runs": [
+              {
+                "to_s_m": 1.255,
+                "height_m": 0.33,
+                "rail_m": 0.95
+              },
+              {
+                "to_s_m": 1.605,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 3.0,
+                "height_m": 0.33,
+                "rail_m": 0.95
+              },
+              {
+                "to_s_m": 3.35,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 4.85,
+                "opening": true
+              },
+              {
+                "to_s_m": 5.2,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 6.985,
+                "height_m": 0.33,
+                "rail_m": 0.95
+              },
+              {
+                "to_s_m": 7.335,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 8.315,
+                "opening": true
+              },
+              {
+                "to_s_m": 8.665,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 9.715,
+                "height_m": 0.33,
+                "rail_m": 0.95
+              },
+              {
+                "to_s_m": 10.065,
+                "post": true,
+                "height_m": 1.2
+              },
+              {
+                "to_s_m": 12.61,
+                "height_m": 0.33,
+                "rail_m": 0.95
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_1720_tyrrell_photo",
+            "chicago_tribune_1898_01_09_prairie_widows",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures; 1720 had none, so a visitor met the lawn and no way in). The Tyrrell photograph (before 1878) shows the street line through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json: grade at the posts' feet, y 1045-1060 px, puts them 15.1 m from the eye, u 31.3, on the 1904 parcel's line, data/street_grid/1904.json prairie_1720, u 31.2): a low pale kerb, its top about 0.33 m up, with an iron railing on it to about 0.95 m, and white round-topped stone posts about 1.2 m high and 0.35 m square at x 50, 290, 785, 955 and 1135 px (s 1.43, 3.30, 7.16, 8.49 and 9.89). Between 785 and 955 the railing stops and a paved way runs in; between 50 and 290 the print shows lawn to the walk. The Tribune's 1898 vignette, the nearer picture to 1904, draws a low railing either side of the stair and a post either side of its foot, the walk coming straight out between them. Built: the kerb with its railing along the whole line (the vignette's railing runs on south of the stair, where the older print shows lawn: the two pictures disagree there), the photograph's five posts, an opening at the stair's foot 1.5 m clear between the photograph's post at s 3.3 and a sixth post the vignette draws (s 5.0), and the photograph's paved way between the posts at s 7.16 and 8.49 left open. The kerb's top is rounded across, as its survivor photographed in place in 2015 (Prairie library a16-ghm-blog-1720-walker-curbstone-2015, read from the image store's copy; link only, so forms only). RECONSTRUCTED: the railing's bars and rails (the print does not resolve them), the sixth post's place, the kerb's and railing's run past the print's edges to the lot lines (liberty L-k14-walks-1700-block-3205)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k16_yard",
+            "built": 1904,
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.3
+            },
+            "service_walk": {
+              "surface": "cinder",
+              "opening_s_m": [
+                7.38,
+                8.27
+              ],
+              "width_m": 0.89,
+              "turn_u_m": 24.0,
+              "passage_s_m": [
+                10.4,
+                11.3
+              ],
+              "to_u_m": 14.0
+            },
+            "grade_m": {
+              "front": 0.063,
+              "street": 0.057,
+              "per_m_s": -0.0067,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the walks are lifted onto it so they are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "glessner_blog_1720_tyrrell_photo",
+            "chicago_tribune_1898_01_09_prairie_widows",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205. The front walk in flags from the stair's foot straight out between the posts to the public walk, 1.3 m wide, as the 1898 vignette draws it; and a cinder walk in through the photograph's paved way between the posts at s 7.16-8.49, along the porch's front and back down the north passage (the 1911 sheet's 2.6 m between the house and the lot line) to the rear. RECONSTRUCTED: both walks' widths, surfaces and courses past what the pictures show (liberty L-k14-walks-1700-block-3205). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py)."
         }
       }
     }

@@ -472,8 +472,12 @@
             "chamfer_m": 0.06,
             "runs": [
               {
-                "to_s_m": 4.3,
+                "to_s_m": 3.9,
                 "height_m": 0.74
+              },
+              {
+                "to_s_m": 4.9,
+                "opening": true
               },
               {
                 "to_s_m": 7.79,
@@ -492,7 +496,7 @@
             "glessner_blog_1736_mcbirney_c1890_photo",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-2961: the photograph's low pale wall along the street line, read through its camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), where the Prairie Avenue street line stands 18.9 m from the eye at 47.4 px/m and grade on it at y 536 px (the walk's own edge reads at y 535-537, which checks the camera). Its top reads at y 501 px from x 212 to 440 (0.74 m) and at y 491 px from x 476 to 628 (0.95 m); the step lies behind the street tree at x 456-472, s 4.2-4.6 m on the line, built at 4.3. The taller run ends at x 628 px, s 7.79, which is where the 1904 parcel's north lot line (data/street_grid/1904.json prairie_1736) meets the street line in this frame: the photograph and the parcel agree there without being fitted to each other. The line is the street grid's: the front stands 9.07 m behind it, and the lot runs s -0.65 to 7.79 along it (the parcel's corners taken into the house's frame). The wall's material is the Glessner House Museum's 2015 photograph of the McBirney curbstone still in place on the lot line (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015, read 2026-10-21 from the image store's copy, sha256 e00ecb6a…; link only, so forms only are read): squared limestone blocks with a chamfered top arris, stepping up at one block, as the c. 1890 wall steps up. The wall reads continuous across the stair's line in the print (x 490-540 and 562-600 px), so no opening is cut; whatever gave onto the walk is hidden behind the tree or the ice wagon, and nothing is built for it. Nothing turns the 18th Street corner: no picture shows a return. The pier is the stair's: at the foot of its south cheek, whose top rakes down to it, x 475-507 px, its top at y 462, 1.55 m over grade at the foot's distance (and 1.56 m were it on the street line, so the height does not rest on where it stands); its lower part is hidden behind the street wall. RECONSTRUCTED: the wall's thickness (0.35 m) and the chamfer (0.06 m), the pier's section (0.6 m under a 0.06 m cap; the print's 32 px include its cap's shadow), and that the stone is limestone in c. 1890 as in 2015 (L-k01-1736-mcbirney-veranda-2933)."
+          "note": "T-2961: the photograph's low pale wall along the street line, read through its camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), where the Prairie Avenue street line stands 18.9 m from the eye at 47.4 px/m and grade on it at y 536 px (the walk's own edge reads at y 535-537, which checks the camera). Its top reads at y 501 px from x 212 to 440 (0.74 m) and at y 491 px from x 476 to 628 (0.95 m); the step lies behind the street tree at x 456-472, s 4.2-4.6 m on the line, built at 4.3. The taller run ends at x 628 px, s 7.79, which is where the 1904 parcel's north lot line (data/street_grid/1904.json prairie_1736) meets the street line in this frame: the photograph and the parcel agree there without being fitted to each other. The line is the street grid's: the front stands 9.07 m behind it, and the lot runs s -0.65 to 7.79 along it (the parcel's corners taken into the house's frame). The wall's material is the Glessner House Museum's 2015 photograph of the McBirney curbstone still in place on the lot line (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015, read 2026-10-21 from the image store's copy, sha256 e00ecb6a…; link only, so forms only are read): squared limestone blocks with a chamfered top arris, stepping up at one block, as the c. 1890 wall steps up. The wall reads continuous across the stair's line in the print (x 490-540 and 562-600 px), so no opening is cut; whatever gave onto the walk is hidden behind the tree or the ice wagon, and nothing is built for it. Nothing turns the 18th Street corner: no picture shows a return. The pier is the stair's: at the foot of its south cheek, whose top rakes down to it, x 475-507 px, its top at y 462, 1.55 m over grade at the foot's distance (and 1.56 m were it on the street line, so the height does not rest on where it stands); its lower part is hidden behind the street wall. RECONSTRUCTED: the wall's thickness (0.35 m) and the chamfer (0.06 m), the pier's section (0.6 m under a 0.06 m cap; the print's 32 px include its cap's shadow), and that the stone is limestone in c. 1890 as in 2015 (L-k01-1736-mcbirney-veranda-2933). T-3205 (the owner: some fronts 'cant enter'): the wall is not continuous at the step. Read again, the low run's top ends at the street tree's edge (x 440 px, s 3.86), the taller run starts behind the stair's pier (x 477-490, s 4.6-4.95), and between them, at x 460-477 (s 4.3-4.6), the print shows the stone at grade, not a wall's top (its top line at y 527 against the ground's 536). That gap is the walk's opening; its two edges are hidden by the tree and the pier, so it is built s 3.9-4.9, 1.0 m, the most the print allows, and the low run ends there instead of at 4.3. The ground-level stone in the gap (a sill, or a step's top) is not built. RECONSTRUCTED: the opening's two edges (liberty L-k14-walks-1700-block-3205)."
         },
         "mansard": {
           "value": {
@@ -724,6 +728,34 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "T-2962: the 18th Street wall's three projections read off the 1911 sheet's raster (trace s20fp-1736-b1's outline, pixels x 2738-3049, y 6045-6062) in the record's frame, the wall at v 0 and each about 0.85 m out, every one drawn CANTED, its face shorter than its foot. REAR: yellow, frame, u 3.37-6.01 at the wall, its face 3.94-5.36. MIDDLE: pink, brick, u 9.42-12.75 at the wall, its face 9.93-12.21; the mansard's dashed curb turns down into its rear cheek, so it rises under the roof. FRONT: yellow, frame, u 15.97-19.17 at the wall, its face 16.48-18.51; the trace's rule read it as a frame porch (p4), but the sheet draws it in solid lines, closed and canted like the rear one, not in a porch's dashes, so it is a frame bay. Neither frame bay carries a storey figure, so each is built one storey, a bay window to the principal floor, as 1730's yellow bay is (T-2934); the brick bay is built two storeys to a flat top 0.65 m under the eave, under its own roof, because K01 cannot carry the mansard's face out over a bay. RECONSTRUCTED: the heights, the one window a storey on each face, the blank cheeks, the sash, the roofs, and the frame bays' boards in K08's dark painted timber against the painted brick (the kit's colour, as 1626's and 1730's frame bays wear it; the sheet gives fabric, not paint). No picture sees this wall (the c. 1890 camera is square to the front)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.0
+            },
+            "grade_m": {
+              "front": 0.017,
+              "street": 0.027,
+              "per_m_s": -0.0018,
+              "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3205, tools/qa_house_walks_t3205.mjs): the yard is lifted onto it so the lawn and the walk are not under it"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "glessner_blog_1736_mcbirney_c1890_photo",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot, turned south behind the wall to the opening at s 3.9-4.9 (the print shows the wall whole before the stair), and out to the public walk, 1.0 m wide as the opening allows; the lawn across the front. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
         }
       }
     }
