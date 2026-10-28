@@ -51,7 +51,6 @@ MARGIN = 0.05       # a leg must clear a laid run's end by this much to pass bes
 # The houses worked before this gate, which fail it today, each with the lane that fixes it.
 # Those lanes take their entries out as they fix them; a passing entry fails the gate.
 PENDING = {
-    "goodman_house_1612_prairie": "T-3204",
     "house_1600_prairie": "T-3204",
     "house_1601_prairie": "T-3204",
     "house_1604_prairie": "T-3204",
@@ -66,7 +65,6 @@ PENDING = {
     "house_1630_prairie": "T-3204",
     "house_1634_prairie": "T-3204",
     "house_1636_prairie": "T-3204",
-    "law_house_1620_prairie": "T-3204",
     "shortall_gregory_house_1638_prairie_front": "T-3204",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
 }

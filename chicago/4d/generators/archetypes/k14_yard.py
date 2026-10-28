@@ -94,8 +94,8 @@ def spec(params) -> dict | None:
     if y.get("grass_edge") != "street_front":
         raise ValueError("yard.grass_edge runs along 'street_front' alone")
     fw, sw = y.get("front_walk") or {}, y.get("service_walk")
-    if fw.get("surface") != "stone_flags" or (sw is not None and sw.get("surface") != "cinder"):
-        raise ValueError("yard builds a stone_flags front walk and a cinder service walk")
+    if fw.get("surface") != "stone_flags" or (sw is not None and sw.get("surface") not in ("cinder", "stone_flags")):
+        raise ValueError("yard builds a stone_flags front walk and a cinder (or, T-3205, stone_flags) service walk")
     for name, w in (("front_walk", fw), ("service_walk", sw or {"wear_tone": 1.0})):
         if not 0.62 <= float(w["wear_tone"]) <= 1.0:
             raise ValueError(f"yard.{name}.wear_tone {w['wear_tone']} is under the kit's floor (0.62)")
@@ -325,9 +325,11 @@ def _dress(a, y):
     service_tris = 0
     if "service_walk" in y:
         to_u = float(S["to_u_m"])
-        service_tris = _up_grid(a, SURFACES["cinder"], walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, LAWN_Y), conf)
+        # T-3205: flags stand a hair over the ground as the open yard's do; cinder lies on it
+        sm, y_s = SURFACES[S["surface"]], LAWN_Y + (0.004 if S["surface"] == "stone_flags" else 0.0)
+        service_tris = _up_grid(a, sm, walk_rows(to_u, pier_in, wall_face, c + half, "service_walk", c, sk, offs, y_s), conf)
         sa, sb = b["side_gate_s_m"]
-        service_tris += _up_grid(a, SURFACES["cinder"], walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, LAWN_Y), conf)
+        service_tris += _up_grid(a, sm, walk_rows(pier_in, public, sa + JOINT_M, sb, "service_walk", c, sk, offs, y_s), conf)
 
     # -- the front walk: stone flags from the stoop's foot to the public walk -------------
     F = y["front_walk"]

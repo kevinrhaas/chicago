@@ -2,8 +2,9 @@
   "structure_id": "goodman_house_1612_prairie",
   "view": "front_from_southeast",
   "glb": "assets/gltf/goodman_house_1612_prairie__as_built_1869.glb",
-  "glb_sha256": "d6904c23d074e8fd2d085a9ad433dfbbd0d2357fdae5664079fed609f8f459a1",
+  "glb_sha256": "bc037658921a5d3309d9e670964a25cca806801a9d05e4c16ac51cc02ece9425",
   "camera_sha256": "f8cd5114ceb8c081dee53fc3ba91a93a06a6a7925fabbd5e050a5756dacafe8e",
+  "photo_sha256": "5e3e3d3c6360a045de4b7a1d7b897a9f463c3969a9ef716612ba77e89ed1eeb4",
   "side_by_side": "docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -55,8 +56,17 @@
     {
       "what": "three bays, entrance in the middle; round-arched paired upper lights, tall principal windows and paired basement lights, each under a long keystone; banded stone to the frieze; frontispiece and arched portico; iron guards and grilles; fence on iron posts",
       "status": "fixed"
+    },
+    {
+      "what": "front walk and gate: the print shows a light paved walk running in from the public walk to the stoop's foot and the gateway there standing open, two people in it; the build had lawn to the stoop and both entrance leaves shut",
+      "status": "fixed",
+      "how": "T-3214: a K14 yard, its flagged front walk from the stoop's foot through the entrance gate to the public walk, the gate's leaves drawn open 70 degrees"
+    },
+    {
+      "what": "the south passage's floor and the ground outside its gate: the print shows light ground and a shrub before the fence's south end, the build the kit's cinder walk; a monochrome print gives a tone, not a material, and the planting is the front-yard plantings' (T-3203)",
+      "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2369, 2026-10-12, side by side at docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg, and on 1:1 crops of the portico, the stoop, the oriel and the frieze with the render's edges laid over the print"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-3214, 2026-10-28, side by side at docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg, after the walk, the open entrance gate and the yard were laid; the house itself is unchanged from the reviewed build, and the published 1904 app walked from the public walk to the stoop's foot at 1280x800 and 390x780 (docs/RESEARCH/house-boundaries-T-3214/)"
 }
