@@ -2865,6 +2865,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
+                    # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
+                    **({"seat_walls": True} if e.get("seat_walls") is True else {}),
                     # T-3101: a canted cheek seats the bay part by part on its wall
                     **({"canted": True} if any(float((e.get("plan") or {}).get(k, 0.0))
                                                for k in ("cant_left_m", "cant_right_m")) else {}),
@@ -5027,11 +5029,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         door_kit["transom_beam"] = {"depth_m": dp, "cap_m": cap, "bead_m": bead}
     if "fanlight_columns" in door_kit_in:
         fc = door_kit_in["fanlight_columns"]
-        if "side_light" not in door_kit or not isinstance(fc, dict) or set(fc) != {"width_m", "rows"} \
+        if "side_light" not in door_kit or not isinstance(fc, dict) \
+                or not {"width_m", "rows"} <= set(fc) <= {"width_m", "rows", "offsets_m"} \
                 or not 0.1 <= float(fc["width_m"]) <= 0.5 or not 1 <= int(fc["rows"]) <= 8:
             raise ParamError("entrance_kit.fanlight_columns takes width_m (0.1-0.5 m) and rows (1-8), over a "
-                             "side-lit mouth")
+                             "side-lit mouth (and offsets_m)")
         door_kit["fanlight_columns"] = {"width_m": float(fc["width_m"]), "rows": int(fc["rows"])}
+        # T-3236: the two columns at `offsets_m` from the mouth's axis, not over the leaves' meeting
+        # and the pier (1812's, the owner's report: the fanlight set even under the arch)
+        if "offsets_m" in fc:
+            off = [float(x) for x in fc["offsets_m"]]
+            if len(off) != 2 or not -door_w / 2 + 0.2 < off[0] < off[1] < door_w / 2 - 0.2:
+                raise ParamError(f"entrance_kit.fanlight_columns.offsets_m {fc['offsets_m']}: two offsets from the "
+                                 f"mouth's axis, south to north, 0.2 m inside its {door_w} m")
+            door_kit["fanlight_columns"]["offsets_m"] = off
+    # T-3236: the leaves' own joinery (1812's, the owner's report that the door read flat):
+    # `panels` [across, up] on `rails_y_m`, the panels sunk `panel_recess_m` with a raised field
+    # `margin_m` in and `proud_m` before their ground, and the joinery's `color` (linear RGB)
+    if "leaf" in door_kit_in:
+        lv = door_kit_in["leaf"]
+        need = {"panels", "rails_y_m", "panel_recess_m", "raised_field", "color"}
+        if not isinstance(lv, dict) or set(lv) != need or set(lv["raised_field"]) != {"margin_m", "proud_m"}:
+            raise ParamError(f"entrance_kit.leaf takes {sorted(need)}; raised_field takes margin_m and proud_m")
+        cols, rows = (int(x) for x in lv["panels"])
+        ry = [float(x) for x in lv["rails_y_m"]]
+        rec, mg, up = float(lv["panel_recess_m"]), float(lv["raised_field"]["margin_m"]), float(lv["raised_field"]["proud_m"])
+        col = [float(x) for x in lv["color"]]
+        if not 1 <= cols <= 3 or not 1 <= rows <= 5 or len(ry) != rows - 1 or ry != sorted(ry) \
+                or not 0.01 <= rec <= 0.05 or not 0.02 <= mg <= 0.12 or not 0.0 < up < rec \
+                or len(col) != 3 or not all(0.0 <= c <= 1.0 for c in col):
+            raise ParamError(f"entrance_kit.leaf {lv}: 1-3 panels across and 1-5 up on rows-1 rising rails, sunk "
+                             f"0.01-0.05 m, the field 0.02-0.12 m in and raised less than the sinking, a linear RGB")
+        door_kit["leaf"] = {"panels": [cols, rows], "rails_y_m": ry, "panel_recess_m": rec,
+                            "raised_field": {"margin_m": mg, "proud_m": up}, "color": col}
     # T-2910: a loggia behind the arch (1801's, the Taylor photograph): a room `v_m` [from, to]
     # along the front and `depth_m` behind its face, its floor the door's, a flat ceiling
     # `ceiling_m` over it, the porch door in its back wall; and `side_arch`, a round arch

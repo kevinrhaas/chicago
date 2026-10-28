@@ -28,6 +28,13 @@
  * it every closer look found a smaller gap and filed it: Glessner took 115 tickets after
  * the gate opened, fixed 110 differences, and re-filed its own sign-off five times.
  *
+ * AN OWNER RULING (T-3236). A difference the owner asked for, looking at the building against
+ * its picture, is `owner ruling`: the build departs from the picture on purpose, and the
+ * difference says what the picture shows, what was built and the ticket that ruled it. It never
+ * blocks `matches`. 1812 Prairie's entrance bay is the first: both photographs set its windows
+ * and porch arch about 0.3 m south of the bay's middle and cut the arch into the projection's
+ * corner; the owner, 2026-10-28, asked for them centred on the bay with the arch on its face.
+ *
  *   data/reference_views/<structure_id>/<view>.json        the camera (photo_match.mjs's header)
  *   data/reference_views/<structure_id>/<view>.match.json  the match record (photo_match writes it;
  *                                                         the builder sets verdict + differences)
@@ -49,7 +56,7 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 export let VIEWS_DIR = path.join(ROOT, 'data/reference_views');   // the self-test points it at a temp copy
 const CAMERA_KEYS = ['structure_id', 'photo', 'image_px', 'principal_px', 'focal_px', 'eye', 'yaw_deg', 'solve'];
 const VERDICTS = ['unreviewed', 'differs', 'matches'];
-const DIFF_STATUS = ['open', 'fixed', 'not shown', 'within tolerance'];
+const DIFF_STATUS = ['open', 'fixed', 'not shown', 'within tolerance', 'owner ruling'];
 
 const sha = (f) => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
 
@@ -182,7 +189,9 @@ function selfTest() {
     fs.writeFileSync(path.join(dir, 'front.match.json'), JSON.stringify({ verdict: 'matches', differences: [{ what: 'cornice 0.2 ft low', status: 'within tolerance' }] }));
     ok(!gateFor([id]).some((b) => /needs "what" and a status|still open/.test(b)), 'a difference within tolerance is well formed and does not hold "matches" open (T-3153)');
     fs.writeFileSync(path.join(dir, 'front.match.json'), JSON.stringify({ verdict: 'matches', differences: [{ what: 'cornice', status: 'close enough' }] }));
-    ok(gateFor([id]).some((b) => /needs "what" and a status/.test(b)), 'a status outside the four is still malformed');
+    ok(gateFor([id]).some((b) => /needs "what" and a status/.test(b)), 'a status outside the five is still malformed');
+    fs.writeFileSync(path.join(dir, 'front.match.json'), JSON.stringify({ verdict: 'matches', differences: [{ what: 'door centred where the picture has it off', status: 'owner ruling' }] }));
+    ok(!gateFor([id]).some((b) => /needs "what" and a status|still open/.test(b)), 'an owner ruling is well formed and does not hold "matches" open (T-3236)');
     // Exercise the actual closing gate, not only the fingerprint helper. The
     // camera and match live in the temporary view tree; real scene assets are read.
     const anchor = 'first_fort_dearborn_blockhouse_nw';
