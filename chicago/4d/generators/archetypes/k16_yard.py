@@ -22,6 +22,10 @@ What the record's `boundary` (`layout: stone_coping_wall`) names, and what is bu
            over grade: square bars at the kit's pitch between a bottom and a top rail.
   opening  a run `{to_s_m, opening: true}` lays nothing: the walk passes there.
 
+Or the record's `boundary` is `layout: open` (T-3230), as a K01 front's is (k11_frontage.open_front):
+`street_u_m` and `lot_s_m` and nothing else. No kerb, post or railing is laid; the whole street
+line between the lot lines is the opening, so the front walk runs straight out to it.
+
 What its `yard` names:
 
   front walk  stone flags from the stair's foot (read off the built steps) out through the
@@ -43,6 +47,7 @@ import math
 from . import k14_yard
 
 COPING = "stone_coping_wall"
+OPEN = "open"           # T-3230: no boundary laid, the whole front the opening (k11_frontage.OPEN)
 FLAG_SINK = 0.05
 JOINT_M = 0.01
 ARC = 6                 # segments in a half-round top
@@ -56,13 +61,19 @@ def spec(form: dict) -> tuple[dict | None, dict | None]:
     y = (form.get("yard") or {}).get("value")
     if b is None and y is None:
         return None, None
-    if b is None or b.get("layout") != COPING:
-        raise ValueError("a frame house's yard is laid inside a `stone_coping_wall` boundary")
+    if b is None or b.get("layout") not in (COPING, OPEN):
+        raise ValueError("a frame house's yard is laid inside a `stone_coping_wall` or an `open` boundary")
     s0, s1 = b["lot_s_m"]
-    if not 0.2 <= b.get("thickness_m", 0) <= 0.6:
+    if b["layout"] == OPEN:
+        extra = set(b) - {"layout", "street_u_m", "lot_s_m"}
+        if extra:
+            raise ValueError(f"boundary layout open lays nothing, so it names no {sorted(extra)}")
+        if not isinstance(b.get("street_u_m"), (int, float)) or not s0 + 0.9 <= s1:
+            raise ValueError("boundary layout open: street_u_m, and lot_s_m at least 0.9 m apart")
+    elif not 0.2 <= b.get("thickness_m", 0) <= 0.6:
         raise ValueError("stone_coping_wall: thickness_m 0.2-0.6 m")
     last = s0
-    for r in b["runs"]:
+    for r in b.get("runs", []) if b["layout"] == COPING else ():
         if r.get("opening"):
             if not last + 0.9 <= r["to_s_m"]:
                 raise ValueError(f"stone_coping_wall run {r}: an opening is at least 0.9 m wide")
@@ -75,7 +86,7 @@ def spec(form: dict) -> tuple[dict | None, dict | None]:
             if "rail_m" in r and not r["height_m"] + 0.3 <= r["rail_m"] <= 1.5:
                 raise ValueError(f"stone_coping_wall run {r}: a railing 0.3 m or more over its kerb, to 1.5 m")
         last = r["to_s_m"]
-    if abs(last - s1) > 1e-6:
+    if b["layout"] == COPING and abs(last - s1) > 1e-6:
         raise ValueError(f"stone_coping_wall: the runs end at s {last}, not on the north lot line {s1}")
     if y is not None:
         fw = y.get("front_walk") or {}
@@ -194,7 +205,7 @@ def dress(house, form: dict) -> dict | None:
         return None
     fh = form["frame_house"]["value"]
     D = fh["blocks"][0]["rect_uv"][2]
-    uo, T = b["street_u_m"], b["thickness_m"]
+    uo, T = b["street_u_m"], b.get("thickness_m", 0.0)
     inner = uo - T
     s_lo, s_hi = b["lot_s_m"]
     roles = ("coping", "kerb_post", "kerb_rail", "kerb_bar", "yard_flag", "yard_cinder")
@@ -202,7 +213,9 @@ def dress(house, form: dict) -> dict | None:
     steps = [q for r in ("step_riser", "step_tread") for q in house.prims[r].pos] if "step_riser" in house.prims else []
     marks = {r: len(house.prims[r].pos) if r in house.prims else 0 for r in roles}
     runs, last, bars = [], s_lo, 0
-    for r in b["runs"]:
+    if b["layout"] == OPEN:      # T-3230: nothing laid, the whole line the opening
+        runs.append((s_lo, s_hi, None))
+    for r in b.get("runs", []):
         a, c = last, r["to_s_m"]
         if r.get("opening"):
             runs.append((a, c, None))
@@ -216,9 +229,14 @@ def dress(house, form: dict) -> dict | None:
             runs.append((a, c, r["height_m"]))
         last = c
     openings = [[round(a, 4), round(c, 4)] for a, c, h in runs if h is None]
-    comps = [{"id": "k11.wall." + COPING, "family": "wall", "instances": [{
-        "params": {"thickness_m": T, "lot_s_m": [s_lo, s_hi], "runs": b["runs"], "round_top": bool(b.get("round_top"))},
-        "sockets": {"street": [uo, 0.0, 0.0]}}]}]
+    if b["layout"] == OPEN:      # as k11_frontage.open_front writes it: the line's two ends, no run
+        comps = [{"id": "k11.boundary.open", "family": "boundary", "instances": [{
+            "params": {"lot_s_m": [s_lo, s_hi]},
+            "sockets": {"south": [uo, 0.0, -s_lo], "north": [uo, 0.0, -s_hi]}}]}]
+    else:
+        comps = [{"id": "k11.wall." + COPING, "family": "wall", "instances": [{
+            "params": {"thickness_m": T, "lot_s_m": [s_lo, s_hi], "runs": b["runs"], "round_top": bool(b.get("round_top"))},
+            "sockets": {"street": [uo, 0.0, 0.0]}}]}]
     out = {"kerb_runs": [[round(a, 4), round(c, 4), h] for a, c, h in runs if h is not None],
            "openings_s_m": openings, "railing_bars": bars, "inner_u_m": round(inner, 4)}
     if y is None:
