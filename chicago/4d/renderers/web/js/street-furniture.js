@@ -12,8 +12,9 @@
  *
  * HOW. Every lamp is the same post, so each part of it (the iron, the lantern's glass,
  * the stone footing at a corner) is one procedural geometry drawn INSTANCED, at two
- * levels by distance from the eye: the near set at full detail (fluted column, moulded
- * base, ladder bar, tapered lantern, cap and finial) casting the sun's shadow, and the
+ * levels by distance from the eye: the near set at full detail (foot, collar, leafed
+ * boss, shaft, capital, ladder bar, scrolled arms, tapered lantern, rim, roof and vent;
+ * T-3219, read off the 1811 photograph) casting the sun's shadow, and the
  * far set as a plain post and lantern that casts none. Past the far ring a lamp is not
  * drawn. The phone's `light` tier pulls both rings in and casts nothing. The sets are
  * re-dealt only when the eye has moved a few metres, from a list of about a hundred.
@@ -83,59 +84,105 @@ const square = (wTop, wBottom, h, open = false) => at(
 
 /**
  * The lamp post, in the post's own frame: y up from the ground it stands on, local x
- * along the street. `m` is the data file's `model_m`. Returns { iron, glass } for the
- * near level and the far level.
+ * along the street. `m` is the data file's `model_m` (T-3219: read off the 1811
+ * photograph, the clearest post of the district, against Taylor 2135 and 2140's
+ * second view). From the ground: a plain round foot on a plinth, a moulded collar, the
+ * leafed boss, a slender shaft, the capital under the ladder bar, a stem whose four
+ * scrolled arms carry the lantern's foot, the lantern tapering out to a projecting rim,
+ * a steep four-sided roof, its vent cap and a knob. Returns { iron, tin, glass } for the
+ * near level and the far level, with the lantern's tinned top as `tin`.
  */
 function lampGeometry(m) {
-  const lan = m.lantern_m ?? { foot: 2.42, top: 2.86, w_foot: 0.22, w_top: 0.40 };
-  const [dBot, dTop] = m.column_d_m ?? [0.15, 0.10];
-  const baseH = m.base_h_m ?? 0.45;
-  const bw = (m.base_w_m ?? 0.36) / 2;
-  const colTop = (m.ladder_bar_m?.at ?? 2.32) + 0.04;
-  // The fluted column: a sixteen-sided taper whose every other vertex is pressed in.
-  const col = new THREE.CylinderGeometry(dTop / 2, dBot / 2, colTop - baseH, 16, 3);
-  const P = col.attributes.position;
-  for (let i = 0; i < P.count; i += 1) {
-    const x = P.getX(i); const z = P.getZ(i);
-    const th = Math.atan2(z, x);
-    const k = 1 - 0.13 * (0.5 + 0.5 * Math.cos((m.flutes ?? 8) * th));
-    P.setX(i, x * k); P.setZ(i, z * k);
+  const H = m.height_m ?? 3.12;
+  const foot = m.foot_m ?? { r: 0.115, plinth_r: 0.135, to: 0.59 };
+  const collar = m.collar_m ?? { to: 0.7, r: 0.12 };
+  const boss = m.boss_m ?? { to: 0.97, r: 0.12, leaves: 8 };
+  const [rS0, rS1] = m.shaft_r_m ?? [0.065, 0.055];
+  const cap = m.capital_m ?? { from: 2.03, to: 2.2, r: 0.085 };
+  const bar = m.ladder_bar_m ?? { at: 2.23, w: 0.36 };
+  const lan = m.lantern_m ?? { foot: 2.45, top: 2.77, w_foot: 0.17, w_top: 0.44 };
+  const rim = m.rim_m ?? { w: 0.48, h: 0.035 };
+  const roof = m.roof_m ?? { top: 3.03, w_top: 0.1 };
+  const vent = m.vent_m ?? { w: 0.14, h: 0.05 };
+  const stemTop = lan.foot - 0.1;
+  // The turned iron from the ground to the capital's top: plinth, foot, collar mouldings,
+  // the boss, the shaft and the capital's bell, one lathe.
+  const turned = lathe([
+    [0, 0], [foot.plinth_r, 0], [foot.plinth_r, 0.04], [foot.r + 0.01, 0.07], [foot.r, 0.09],
+    [foot.r, foot.to - 0.03], [collar.r * 0.92, foot.to - 0.01], [collar.r, foot.to + 0.02],
+    [collar.r, foot.to + 0.05], [collar.r * 0.8, foot.to + 0.07], [collar.r * 0.86, collar.to - 0.02],
+    [collar.r * 0.75, collar.to],
+    [boss.r * 0.8, collar.to + 0.02], [boss.r, collar.to + (boss.to - collar.to) * 0.35],
+    [boss.r * 0.95, collar.to + (boss.to - collar.to) * 0.7], [boss.r * 0.62, boss.to - 0.02],
+    [rS0 + 0.012, boss.to], [rS0 + 0.012, boss.to + 0.03], [rS0, boss.to + 0.05],
+    [rS1, cap.from - 0.03], [rS1 + 0.012, cap.from - 0.01], [rS1 + 0.012, cap.from + 0.01],
+    [cap.r * 0.8, cap.from + 0.05], [cap.r, cap.from + (cap.to - cap.from) * 0.55],
+    [cap.r * 0.85, cap.to - 0.03], [cap.r * 0.95, cap.to - 0.015], [cap.r * 0.95, cap.to],
+    [rS1 * 0.7, cap.to], [rS1 * 0.7, stemTop], [0.05, stemTop + 0.02], [0.03, stemTop + 0.05], [0, stemTop + 0.05],
+  ], 16);
+  // The boss's leaves: its widest band pressed into lobes, as the 1811 print's acanthus reads.
+  {
+    const P = turned.attributes.position;
+    const y0 = collar.to + 0.01; const y1 = boss.to - 0.01;
+    for (let i = 0; i < P.count; i += 1) {
+      const y = P.getY(i);
+      if (y <= y0 || y >= y1) continue;
+      const x = P.getX(i); const z = P.getZ(i);
+      const th = Math.atan2(z, x);
+      const f = Math.sin(Math.PI * (y - y0) / (y1 - y0));
+      const k = 1 - 0.14 * f * (0.5 - 0.5 * Math.cos((boss.leaves ?? 8) * th));
+      P.setX(i, x * k); P.setZ(i, z * k);
+    }
+    turned.computeVertexNormals();
   }
-  col.computeVertexNormals();
+  const h = lan.top - lan.foot;
+  const dw = (lan.w_top - lan.w_foot) / 2;
+  // A bar from (x0, y0, z0) to (x1, y1, z1), `t` thick.
+  const rod = (a, b, t) => {
+    const d = new THREE.Vector3(b[0] - a[0], b[1] - a[1], b[2] - a[2]);
+    const g = new THREE.BoxGeometry(t, d.length(), t);
+    g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize()));
+    g.translate((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2);
+    return g;
+  };
+  const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
   const near = {
     iron: merge([
-      // The moulded base: a plinth, a torus, a waisted drum and a cap that takes the column.
-      lathe([[0, 0], [bw, 0], [bw, 0.06], [bw * 0.85, 0.09], [bw * 0.85, 0.15], [bw * 0.66, 0.2],
-        [bw * 0.6, 0.32], [bw * 0.72, 0.36], [bw * 0.72, 0.4], [dBot / 2 + 0.01, baseH], [0, baseH]], 12),
-      at(col, baseH + (colTop - baseH) / 2),
-      // The knop under the ladder bar and the lantern's seat.
-      at(lathe([[0, 0], [0.05, 0], [0.07, 0.04], [0.05, 0.08], [lan.w_foot / 2, 0.1], [0, 0.1]], 10), colTop - 0.02),
-      // The ladder bar, across the post along the street, the lamplighter's rest.
-      at(new THREE.BoxGeometry(m.ladder_bar_m?.w ?? 0.52, 0.03, 0.03), m.ladder_bar_m?.at ?? 2.32),
-      // The lantern's frame: its foot, its four corner bars, its top band.
-      at(square(lan.w_foot + 0.03, lan.w_foot + 0.03, 0.035), lan.foot),
-      ...[[1, 1], [1, -1], [-1, 1], [-1, -1]].map(([sx, sz]) => {
-        const h = lan.top - lan.foot; const dw = (lan.w_top - lan.w_foot) / 2;
-        const g = new THREE.BoxGeometry(0.018, Math.hypot(h, dw * Math.SQRT2), 0.018);
-        g.rotateZ(-sx * Math.atan2(dw, h) * 0.7071); g.rotateX(sz * Math.atan2(dw, h) * 0.7071);
-        g.translate(sx * (lan.w_foot + lan.w_top) / 4, lan.foot + h / 2, sz * (lan.w_foot + lan.w_top) / 4);
-        return g;
-      }),
-      at(square(lan.w_top + 0.05, lan.w_top + 0.05, 0.04), lan.top),
-      // The pyramidal cap, its chimney and finial.
-      at(square(0.02, lan.w_top + 0.08, (m.cap_top_m ?? 3.0) - lan.top - 0.02), (lan.top + (m.cap_top_m ?? 3.0)) / 2 + 0.01),
-      at(new THREE.CylinderGeometry(0.03, 0.035, 0.05, 8), (m.cap_top_m ?? 3.0) - 0.01),
-      at(new THREE.ConeGeometry(0.02, (m.finial_top_m ?? 3.1) - (m.cap_top_m ?? 3.0), 6), ((m.finial_top_m ?? 3.1) + (m.cap_top_m ?? 3.0)) / 2 + 0.02),
+      turned,
+      // The ladder bar, across the post along the street, the lamplighter's rest, its ends knobbed.
+      at(new THREE.BoxGeometry(bar.w, 0.022, 0.022), bar.at),
+      ...[1, -1].map((s) => { const g = new THREE.SphereGeometry(0.018, 6, 4); g.translate(s * bar.w / 2, bar.at, 0); return g; }),
+      // The four scrolled arms from the stem to the lantern's foot.
+      ...corners.map(([sx, sz]) => rod([sx * 0.025, stemTop - 0.04, sz * 0.025],
+        [sx * (lan.w_foot / 2 + 0.03), lan.foot - 0.01, sz * (lan.w_foot / 2 + 0.03)], 0.014)),
+      // The lantern's foot ring, its four corner bars and a middle bar on each face.
+      at(square(lan.w_foot + 0.02, lan.w_foot + 0.02, 0.03), lan.foot),
+      ...corners.map(([sx, sz]) => rod([sx * lan.w_foot / 2, lan.foot, sz * lan.w_foot / 2],
+        [sx * lan.w_top / 2, lan.top, sz * lan.w_top / 2], 0.016)),
+      ...[[1, 0], [-1, 0], [0, 1], [0, -1]].map(([sx, sz]) => rod([sx * lan.w_foot / 2, lan.foot, sz * lan.w_foot / 2],
+        [sx * lan.w_top / 2, lan.top, sz * lan.w_top / 2], 0.009)),
     ]),
-    glass: merge([at(square(lan.w_top - 0.01, lan.w_foot - 0.01, lan.top - lan.foot - 0.04, true), (lan.foot + lan.top) / 2)]),
+    // The projecting rim, the steep roof, the vent's cap and the knob: tinned sheet, which
+    // the 1811 print and Taylor 2135 both show pale against the dark post.
+    tin: merge([
+      at(square(rim.w, rim.w, rim.h), lan.top + rim.h / 2),
+      at(square(roof.w_top, rim.w - 0.03, roof.top - lan.top - rim.h), (lan.top + rim.h + roof.top) / 2),
+      at(square(roof.w_top * 0.8, roof.w_top * 0.8, vent.h * 0.6), roof.top + vent.h * 0.3),
+      at(square(0.02, vent.w, vent.h * 0.5), roof.top + vent.h * 0.85),
+      at(new THREE.SphereGeometry(0.022, 8, 5), H - 0.022),
+    ]),
+    glass: merge([at(square(lan.w_top - 0.012, lan.w_foot - 0.004, h - 0.01, true), (lan.foot + lan.top) / 2)]),
   };
   const far = {
     iron: merge([
-      at(new THREE.CylinderGeometry(bw * 0.6, bw, baseH, 6), baseH / 2),
-      at(new THREE.CylinderGeometry(dTop / 2, dBot / 2, colTop - baseH, 5), baseH + (colTop - baseH) / 2),
-      at(square(0.02, lan.w_top + 0.08, (m.cap_top_m ?? 3.0) - lan.top), (lan.top + (m.cap_top_m ?? 3.0)) / 2),
+      at(new THREE.CylinderGeometry(foot.r, foot.plinth_r, boss.to, 6), boss.to / 2),
+      at(new THREE.CylinderGeometry(rS1, rS0, stemTop - boss.to, 5), (boss.to + stemTop) / 2),
     ]),
-    glass: merge([at(square(lan.w_top, lan.w_foot, lan.top - lan.foot), (lan.foot + lan.top) / 2)]),
+    tin: merge([
+      at(square(rim.w, rim.w, rim.h), lan.top + rim.h / 2),
+      at(square(roof.w_top, rim.w - 0.03, roof.top - lan.top - rim.h), (lan.top + rim.h + roof.top) / 2),
+    ]),
+    glass: merge([at(square(lan.w_top, lan.w_foot, h), (lan.foot + lan.top) / 2)]),
   };
   return { near, far };
 }
@@ -358,8 +405,11 @@ export async function createStreetFurniture({
     poles[k].classes.push(c);
   }
   const mats = {
-    iron: new THREE.MeshStandardMaterial({ color: 0x2c312b, roughness: 0.55, metalness: 0.35 }),
-    glass: new THREE.MeshStandardMaterial({ color: 0xb9c3bd, roughness: 0.12, metalness: 0.1, side: THREE.DoubleSide }),
+    iron: new THREE.MeshStandardMaterial({ color: 0x343a34, roughness: 0.6, metalness: 0.3 }),
+    tin: new THREE.MeshStandardMaterial({ color: 0xd0d4ce, roughness: 0.45, metalness: 0.05 }),
+    // Clear panes: the 1811 print sees the street through them, so they read light only where
+    // they catch the sky, never as a lit box.
+    glass: new THREE.MeshStandardMaterial({ color: 0xe2e8e6, roughness: 0.08, metalness: 0.15, transparent: true, opacity: 0.6, depthWrite: false, side: THREE.DoubleSide }),
     stone: new THREE.MeshStandardMaterial({ color: 0xbab3a3, roughness: 0.92, metalness: 0 }),
     // The Detroit view prints the hydrant lighter than the lamp posts: a mid-grey paint.
     hydrant: new THREE.MeshStandardMaterial({ color: 0x6f6e66, roughness: 0.6, metalness: 0.25 }),
@@ -370,6 +420,7 @@ export async function createStreetFurniture({
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
     { name: 'lamp-iron', geo: lamp, key: 'iron', mat: mats.iron, lift: (it) => (it.footing ? footH : 0), on: isLamp },
+    { name: 'lamp-tin', geo: lamp, key: 'tin', mat: mats.tin, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
@@ -408,7 +459,7 @@ export async function createStreetFurniture({
       meshes.push(mesh);
     }
   }
-  for (const g of [lamp.near.iron, lamp.near.glass, lamp.far.iron, lamp.far.glass, footing.near, footing.far,
+  for (const g of [lamp.near.iron, lamp.near.tin, lamp.near.glass, lamp.far.iron, lamp.far.tin, lamp.far.glass, footing.near, footing.far,
     hydrant.near, hydrant.far]) g.dispose();
   for (const { geo: g } of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
 

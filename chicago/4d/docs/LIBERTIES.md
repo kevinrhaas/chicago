@@ -34997,6 +34997,25 @@ not built. The 18th Street hood's cheek still reads shallower than the Taylor pr
 goes with the mansard's lower face and stays open in that record.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
+### L-kimball-1801-loggia-lights-1890 — 1801 Prairie's lights over the loggia in the kit's moulded surround
+**Recorded:** 2026-10-28.
+
+**Decision:** the W. W. Kimball house's two second-storey lights over the loggia, the avenue front's
+(`front_bays` 1.6) and the 18th Street flank's (`side_bays` 18.67), each stand in the K09 kit's restrained
+surround (`street_front_trim`, T-1890): a two-fascia architrave round the light and a cornice hood on two
+consoles over it; the flank's light is named in `street_front_trim.lights` so a side wall's light wears its
+storey's head as the front's does. Each carries an 0.8 m fixed top light over a 0.1 m stone bar (`lights`
+tiers) where K06's transom light is 0.45 m.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+through T-3074's camera at about 57 px a metre, shows each light in a moulded frame under a projecting head
+(x 1016-1071 px at the front, 877-931 on the flank) and its transom bar about 0.75-1.0 m under the head
+(y 680-700 px at the front, 676-694 on the flank).
+**What is invented or held by the kit.** The architrave's and hood's profiles and the consoles are the kit's
+generic ones, not the print's mouldings; the bar is the wall's stone where the print's may be the frame's; the
+light stays K01's 1.15 m where the print's reads about 1.2 m; the carved pilasters either side of each light,
+with their capitals and lozenges, are not built and stay open in the Taylor match record.
+**How to resolve:** a nearer photograph of the loggia's upper storey, or the house's drawings.
+
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
 
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
@@ -35009,8 +35028,10 @@ two corner crossings. Seven lamps stand where a photograph shows them in front o
 eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
-same: a fluted column on a moulded base, a ladder bar, a four-sided lantern tapering out to its top,
-a pyramidal cap and a finial, about 3.1 m. The scene has no night, so none is lit.
+same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
+collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four
+scrolled arms, a clear four-sided lantern tapering out to a projecting rim, a steep pale roof, a vent
+cap and a knob, about 3.1 m. The scene has no night, so none is lit.
 **What it stands on:** the post's form from the 1811 photograph (`chicagology_1811_ames_photo`),
 J. W. Taylor's no. 2135 (`taylor_2135_glessner_exterior_1887_1889`) and the second 2140 photograph
 (`chicagology_2140_photo_b`); the corner lamps from those and from the Detroit Publishing Pullman
@@ -35023,11 +35044,12 @@ dated after it.
 **What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; the footing at every corner, where Taylor 2135 shows one; one post for the
-whole district, at the measures read off three pictures; a lantern drawn as plain glass.
+whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
+the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
-**Ticket:** T-3199.
+**Ticket:** T-3199, T-3219.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
 
@@ -35092,6 +35114,39 @@ overhead's form; a Sanborn sheet does not draw poles.
 **Ticket:** T-3202.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md` § 3.
 **Recorded:** 2026-10-27 (T-3202).
+
+### L-prairie-front-yards-3203 — The 1904 house lots' front yards: foundation shrubs, low beds and ivy, planted by rule on almost every lot
+
+**Decision:** every 1904 house lot of the drawn district whose house stands back from its lot line
+(149 lots) is planted (`data/front_yards/1904.json`, written by
+`tools/plant_prairie_1904_front_yards.py`): foundation shrubs 0.45-0.95 m off the house's walls along
+its front and the first 7 m of its sides, about 1.0-1.55 m apart, in three habits (a clipped
+evergreen, a loose flowering mound, a tall lilac-like shrub at a corner or a side), and one to three
+low beds cut in the lawn before the house (round, oval or a strip along the front), bedded out in
+one of four palettes (scarlet geraniums; white and pink; marigold yellow and orange; coleus). Which
+habits, how far apart, whether in clumps, how many beds and which palette are drawn per lot from a
+seed of the parcel's id, so no two neighbours match and a re-run lays the same yards. Nothing stands
+within 0.85 m of the lot line, on or within 0.45 m of a stoop, fence, pier or coping, within 0.35 m
+of a paved walk, or across a 2.7 m way from a front door straight to the lot line, all read off the
+houses' own baked models. The lawn is the ground's own sward. Pullman's yard at 1729 has the ivy over
+its west front and porch and the shrub border inside the 18th Street coping east of the house that
+the Detroit Publishing views show (attested); 1912's has the ivy over its front that a later
+photograph shows (inferred for 1904). No urn is placed: no picture read shows one on a stoop clearly
+enough to place it.
+**What it stands on:** the Detroit Publishing views of the Pullman house
+(`loc_det_4a08065_pullman_residence` and `loc_det_4a08066_pullman_residence`, 1890-1901: shrubs at
+the porch, ivy on the front and porch, a dense shrub border inside the coping along 18th Street), the Glessner House Museum's halftone of the finished Pullman house, the photograph of
+1912 Prairie (`chicagology_1912_prairie_exterior_photo`: ivy over the front; its electric lamp dates it after 1904),
+and the brief's reading of the district's pictures as kept front yards with foundation planting and
+low beds (tickets repo, `evidence/streetscape-1904-2026-10-27/BRIEF.md` § 7).
+**What is invented:** every shrub and bed but Pullman's border and the two houses' ivy; the three
+habits and their sizes; the spacing and the clearances; the beds, their shapes and their bedding;
+which lots are planted sparsely or in clumps; the ivy's exact extent on both pictured houses.
+**How to resolve:** a dated photograph of a lot's front yard replaces that lot's rule planting with
+what it shows (its shrubs, beds and urns placed and graded attested); a nursery bill, a garden
+writer's account of a Prairie Avenue yard, or a society-page description would name species.
+**Ticket:** T-3203.
+**Recorded:** 2026-10-27 (T-3203).
 
 ### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
 **Recorded:** 2026-10-27.

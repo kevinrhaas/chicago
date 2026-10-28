@@ -2467,6 +2467,9 @@ class Assembly:
             v["rise_over_span"] = op.rise_over_span
         if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
             v["panes"] = [1, 1]
+        lt = k09_frontage.light(self.p, op)
+        if lt and lt.get("tiers"):   # T-1890: its transom where its picture draws it (`street_front_trim.lights`)
+            v["tiers"] = dict(lt["tiers"])
         if not entry["well"]:
             v["well"] = False
         return v
@@ -2495,6 +2498,8 @@ class Assembly:
             roles["iron"] = "iron"
         if head:   # T-2410: the kit's arch band is this head's hood
             roles["head"] = head_mat or stone_trim
+        if o.v.get("tiers"):   # T-1890: a tier's bar is the wall's dressed stone, as K08's is the bay's
+            roles["mullion"] = stone_trim
         self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
     def front_tympanum(self, op):
