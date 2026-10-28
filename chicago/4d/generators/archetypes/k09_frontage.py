@@ -19,6 +19,8 @@ What the record's `street_front_trim` names, and what is built for it:
   apron            the kit's bounded foliate panel under each window of the storeys it
                    names, centred between the basement light's lintel and the sill, or
                    (`apron_over_belt`, T-2526) between the storey's belt course and the sill
+  lights           (T-1890) single lights by wall, place and storey: a side wall's wears its
+                   storey's head as the front's do, and any may carry its own transom tiers
   shelf            (T-2531) over the apron, the light stood on a tablet proud of the wall over
                    a moulded shelf under its sill, the panel hung from the shelf's foot
 
@@ -85,11 +87,22 @@ def _storey(params, op) -> int:
     return max(k for k, f in enumerate(floors) if op.sill_m >= f - 1e-6)
 
 
+def light(params, op) -> dict | None:
+    """T-1890: the `street_front_trim.lights` entry naming this light (its wall, place and
+    storey), or None."""
+    t = spec(params)
+    if not t or op.component != "k01.opening.sash_flat":
+        return None
+    return next((e for e in t.get("lights", ()) if e["wall"] == op.wall and abs(e["s_m"] - op.s_m) < 1e-6
+                 and e["storey"] == _storey(params, op)), None)
+
+
 def head(params, op) -> str:
     """The head an opening takes: a kit trim id, or K01's flat lintel."""
     t = spec(params)
     # T-3186: a canted corner's face is the front's own, turned: its windows wear the front's heads
-    if not t or op.wall not in ("k01.wall.street_front", "k01.wall.cant"):
+    # T-1890: and a side wall's light the record names in `lights` wears its storey's head
+    if not t or (op.wall not in ("k01.wall.street_front", "k01.wall.cant") and light(params, op) is None):
         return FLAT
     if op.component == "k01.opening.door_leaf":
         return t.get("entrance") or FLAT
