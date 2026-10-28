@@ -35335,6 +35335,40 @@ gateway and crosses no footprint.
 **Ticket:** T-3222.
 **Recorded:** 2026-10-28 (T-3222).
 
+### L-k16-walks-1600-block-3230 — the four unpictured K16 frame houses of the 1600 block (1601, 1609, 1611, 1630 Prairie): their walks and front boundaries, reconstructed from their side of the block
+
+**Decision:** No picture of these four fronts is held, so each follows its own side of the block
+(T-3230, piece 2 of T-3216; the owner, 2026-10-27: every worked house's walk to its door and its
+front boundaries, and where no picture shows them a stated reconstruction consistent with the
+block). **East side, 1601, 1609 and 1611:** laid open (`layout: open`, which
+`archetypes/k16_yard.py` now lays as `k11_frontage.open_front` does: nothing on the street line,
+the whole front between the lot lines the opening), because 1621's and 1623's 1886 drawings and
+1625's 1890 photograph draw that side open (T-3221), and 1613, 1615 and 1619 were laid open on
+that reading (T-3229). **West side, 1630:** closed the way the K16 kit closes a frame house (as
+1720's): a squared stone kerb 0.35 m through on the street line, 0.32 m high, with an iron railing
+on it to 0.83 m (the base and bar heights of 1638's photograph, the block's other timber house),
+from lot line to lot line, and an opening 1.5 m clear on the porch stair's axis between two stone
+posts 0.35 m square and 1.2 m high (1720's posts), with no leaf in it, as at 1638. Every pictured
+west front of the block closes its street line and opens it only at the walk (1612, 1616, 1620,
+1638), and the seven unpictured K01 houses of that side were closed on the same reading (T-3229).
+**Each walk** is 1.2 m of 0.9 m stone flags 0.06 m over the ground (the district's K14 walk
+sizes), straight out from the porch stair's foot to the street line, the public walk's inner edge.
+**What is read, not invented.** The street and lot lines: the 1904 parcels'
+(`data/street_grid/1904.json`, off the 1911 sheet), carried into each house's plan frame by the
+placement its sidecar holds, the transform that puts 1720's recorded street line back on its
+parcel to the centimetre. 1609 and 1611 share one parcel (prairie_1607); the line between their
+lots is their party wall, and 1611's south lot line is put on its own south wall, 0.44 m past the
+parcel's line as the house was fitted. **What is invented.** That the fronts stood open or closed
+as their side of the block does, the kerb, railing and posts at 1630 and their sizes, the
+opening's width and place, and each walk's line, width and surface. `tools/check_house_walks.py`
+reads every walk and 1630's kerb off the GLB: each starts at the stair, reaches the public walk,
+passes the boundary only at its opening and crosses no footprint.
+**How to resolve:** a photograph, drawing or plat of any of the four fronts, or of a neighbour's
+that shows them.
+**Covers:** `house_1601_prairie.as_mapped_1904.form.boundary`, `house_1601_prairie.as_mapped_1904.form.yard`, `house_1609_prairie.as_mapped_1904.form.boundary`, `house_1609_prairie.as_mapped_1904.form.yard`, `house_1611_prairie.as_mapped_1904.form.boundary`, `house_1611_prairie.as_mapped_1904.form.yard`, `house_1630_prairie.as_mapped_1904.form.boundary`, `house_1630_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3230.
+**Recorded:** 2026-10-28 (T-3230).
+
 ### L-kimball-1801-gable-loggia-1890 — 1801 Prairie's gabled section given an open loggia in its top storey
 
 **Decision:** the W. W. Kimball house's gabled section on 18th Street (`bays` p_gable, its third storey)
