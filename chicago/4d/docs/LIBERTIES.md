@@ -35406,6 +35406,32 @@ that shows them.
 **Ticket:** T-3230.
 **Recorded:** 2026-10-28 (T-3230).
 
+### L-k01-1812-wheeler-bay-3236 — 1812 Prairie's entrance bay centred at the owner's ask: its windows and porch arch on the bay's middle, the arch clear of the projection, and the door's panels
+
+**Decision:** the owner, 2026-10-28, looking at George H. Wheeler's house at 1812 Prairie from the
+street (T-3236): *"the windows are not aligned/centered correctly on the north side of the
+building. the top window is close but the 2nd story is off, and the door is not centered, and the
+left edging around the door is not on the face of the north side, like the right edging"*, *"the
+door is a bit hard to see, it looks flat"*. Both photographs (Albert Levy's print and the c. 1955
+photograph) set the north bay's second-storey window, the small arched window over it and the
+porch arch's mouth on one axis about 0.33 m south of the bay's middle, and run the arch's south
+jamb and moulding down the south projection's corner (L-k07-1812-porch-arch-jamb-3135). The build
+departs from both on purpose: the three stand on the bay's middle, 6.775 m along the front
+(halfway between the projection's north face at 5.05 m and the north corner at 8.5 m); the arch's
+mouth is 2.65 m (the prints' reads about 3.0 m), from 5.45 to 8.1 m, on the same 0.79 m rise, its
+moulded ring on the bay's own face with an equal 0.25 m rock-faced pier each side, and the
+projection's corner stands whole. The side light is 0.95 m (it had been 1.04 m) so the leaves keep
+1.41 m. The fanlight's two columns of small panes stand 0.42 m either side of the arch's axis,
+roughly even about the mouth as the Levy print has them. The door is set 0.55 m back in the arch
+(0.32 m before) and each leaf is three raised-and-fielded panels on rails at 0.95 and 1.9 m in a
+dark varnish: the photographs draw the leaves dark and too dark to read, so the panels, their
+sinking and the finish's colour are invented. The match records carry the departure as an
+`owner ruling`, a status added to the image gate for it.
+**How to resolve:** a sharper print of the entrance, a drawing of the front, or the owner's word
+to put the bay back on the photographs' axis.
+**Ticket:** T-3236.
+**Recorded:** 2026-10-28 (T-3236).
+
 ### L-kimball-1801-gable-loggia-1890 — 1801 Prairie's gabled section given an open loggia in its top storey
 
 **Decision:** the W. W. Kimball house's gabled section on 18th Street (`bays` p_gable, its third storey)

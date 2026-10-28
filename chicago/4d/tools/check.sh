@@ -4181,6 +4181,12 @@ step "a filing fault is refused at the prompt, and a queue fault no diff carries
 step "photo follow-ups stop: no run-filed tickets on a photo-gated house, no split sign-off" \
   node tools/test_ticket_photo_stop.mjs
 
+# 2026-10-28. A split parent's image gate is closed by its LAST piece: `split` closes the
+# parent without asking the gate and its pieces carry no gate section, so 1729 Prairie's
+# T-1881 and T-1934 closed through twelve pieces while the house's records said `differs`.
+step "a split parent's image gate is asked when its last piece closes" \
+  node tools/test_ticket_split_gate.mjs
+
 # T-1548. `done` refuses to close a ticket a committed file still records as live work
 # — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
 # T-1299 as #26), each found hours later by a different run from a red gate. The

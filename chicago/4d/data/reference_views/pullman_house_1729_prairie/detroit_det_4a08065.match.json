@@ -45,8 +45,8 @@
     },
     {
       "what": "the curb's step between the mansard's sections: 2-3 px in the print, about 0.15 m",
-      "status": "within tolerance",
-      "how": "T-3158: under the good-enough bar; the curb runs level"
+      "status": "open",
+      "how": "T-3158: under the good-enough bar; the curb runs level Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the cornice broken forward over each pier, the piers' heads breaking the deep frieze under it",
@@ -151,6 +151,10 @@
       "what": "the low stone wall along Prairie Avenue, the gap at x 195-225 px between two square piers standing over it, the walk through the gap to the stair",
       "status": "fixed",
       "how": "T-3205: an opening s 4.9-6.5 between 0.6 m piers 1.2 m high (the print's stand about 1.5 m, 0.3 m over the coping kit's ceiling, within the bar), the 0.9 m wall either side, the walk from the gap to the stair with a 0.7 m jog (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the owner's report, 2026-10-28: the stepped front and the south (18th Street) face are way off the photographs; the Prairie front and the flank are built as flat faces under one continuous mansard where the pictures show pavilions breaking forward under their own raised mansard sections",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

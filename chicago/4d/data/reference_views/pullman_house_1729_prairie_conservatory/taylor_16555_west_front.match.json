@@ -66,7 +66,7 @@
   ],
   "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the palm house: a round drum standing out of the wing's south face, about 7.6 m across its entablature (x 350-500 px), its centre 12.1 m east of the house wall",
@@ -105,8 +105,8 @@
     },
     {
       "what": "the balustrades are open balusters, the columns round with bases and capitals, the wall rusticated with pilasters either side of the drum, and urns on the terrace piers",
-      "status": "within tolerance",
-      "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
+      "status": "open",
+      "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the wing's face reads darker than the stable's in the print",
@@ -150,8 +150,8 @@
     },
     {
       "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course",
-      "status": "within tolerance",
-      "how": "T-3192's ruling, unchanged: the line is in place; the difference is in relief"
+      "status": "open",
+      "how": "T-3192's ruling, unchanged: the line is in place; the difference is in relief Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
     },
     {
       "what": "the stable's lantern, the stack at the front's east end and the deck's east end",
@@ -166,6 +166,10 @@
       "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb",
       "status": "within tolerance",
       "how": "T-3205: looked at again with the house's walks rebaked; the 18th Street side is not this record's building nor the house's way in (the Prairie front's is), and T-3160 left the run of posts unbuilt because the print does not resolve them. Not built; recorded as the lot's remaining gap (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the owner's report, 2026-10-28: the conservatory and the stable are way off the photographs; the render is plain massing (a faceted drum, flat parapets, a blank wall) where the print shows a colonnaded palm house, balustraded terraces and a carved stable",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

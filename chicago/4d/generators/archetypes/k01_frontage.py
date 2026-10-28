@@ -214,6 +214,9 @@ MATERIALS = {
     "blind": {"color": (0.80, 0.74, 0.60), "roughness": 0.95},
     "curtain": {"color": (0.42, 0.16, 0.13), "roughness": 0.9},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
+    # T-3236: a record's own leaves in their own finish (entrance_kit leaf.color), the joinery's
+    # colour until one names it
+    "door_leaf_varnish": {"color": (0.29, 0.17, 0.085), "roughness": 0.55},
     # T-2304: K07's hardware (k07_entrances.json parts.hardware): the knob on its rose
     "door_iron": {"color": (0.17, 0.16, 0.15), "roughness": 0.45},
     # T-2310: the K09 kit's carving (capital leaves) apart from its dressed trim
@@ -624,6 +627,11 @@ class Assembly:
                     self.spec[slot]["color"] = tuple(round(min(1.0, f * t), 4)
                                                      for f, t in zip(params.wall_paint, tint))
                     self.fabric[slot] = None
+        # T-3236: the door's leaves in their own finish (1812's dark varnish, as both photographs
+        # show them), their frame and the fanlight's bars keeping the joinery's own
+        lc = ((params.entrance_kit or {}).get("leaf") or {}).get("color")
+        if lc:
+            self.spec["door_leaf_varnish"]["color"] = tuple(float(x) for x in lc)
         # T-3093: the front's brick toned (1812's), its brick bays with it
         self.front_brick = "brick_front" if params.front_brick_tone else "brick"
         if params.front_brick_tone:
@@ -2766,7 +2774,10 @@ class Assembly:
         # from the cornice and deck over them
         pts = [q for pr in built.prims.values() for q in pr.pos]
         parts = [pts]
-        if b.get("canted"):
+        # T-3236: and so does a bay set `seat_walls` (1812's projection: its cornice's 0.2 m over
+        # the porch arch's south pier dressed that pier's stones smooth from the floor up, where the
+        # north pier is rock-faced like the rest of the front)
+        if b.get("canted") or b.get("seat_walls"):
             wt = built.meta["wall_top_m"]
             low = [q for q in pts if q[1] < wt - 0.01 and q[2] < 0.02]
             parts = [low + [(min(q[0] for q in low), wt, 0.0)], [q for q in pts if q[1] >= wt - 0.01]]
@@ -3164,6 +3175,11 @@ class Assembly:
         for k in ("transom_beam", "fanlight_columns"):
             if p.entrance_kit.get(k):
                 v[k] = p.entrance_kit[k]
+        # T-3236: the leaves' own panels, rails and raised fields
+        lv = p.entrance_kit.get("leaf")
+        if lv:
+            v["panels"], v["rails_y_m"] = lv["panels"], lv["rails_y_m"]
+            v["leaf"] = {k: lv[k] for k in ("panel_recess_m", "raised_field") if k in lv}
         # T-2817: a porch's door at the back of the arch, off its axis
         pd = p.entrance_kit.get("porch_door")
         if pd:
@@ -3280,6 +3296,8 @@ class Assembly:
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
         roles = {r: (m or body_mat) for r, m in self.K07_ROLES.items()}
+        if ((p.entrance_kit or {}).get("leaf") or {}).get("color"):   # T-3236
+            roles["leaf"] = "door_leaf_varnish"
         # T-2960: a painted timber balustrade, and the deck of a veranda open beneath, in the
         # walls' paint as the veranda's posts are
         if (p.entrance_kit.get("balustrade") or {}).get("fabric") == "painted_timber":
