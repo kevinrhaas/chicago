@@ -347,76 +347,84 @@
           "uv_per_m_times_tile_m": 1
         },
         "bay_stone": {
-          "median_uv_per_m": 0.6225,
+          "median_uv_per_m": 0.6228,
           "fabric": "granite_rock_faced",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9961
+          "uv_per_m_times_tile_m": 0.9965,
+          "below_quantization_floor": 3902
         },
         "brick": {
-          "median_uv_per_m": 1.2032,
+          "median_uv_per_m": 1.2033,
           "fabric": "common_buff_common_6",
           "tile_m": [
             0.8636,
             0.8001
           ],
-          "uv_per_m_times_tile_m": 1.0002
+          "uv_per_m_times_tile_m": 1.0002,
+          "below_quantization_floor": 570
         },
         "brick_unit_body": {
-          "median_uv_per_m": 1.0076,
+          "median_uv_per_m": 0.9985,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 1.0076
+          "uv_per_m_times_tile_m": 0.9985,
+          "below_quantization_floor": 2208
         },
         "brick_unit_grey_tan": {
-          "median_uv_per_m": 1.0076,
+          "median_uv_per_m": 0.9991,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 1.0076
+          "uv_per_m_times_tile_m": 0.9991,
+          "below_quantization_floor": 772
         },
         "brick_unit_hard_burnt": {
-          "median_uv_per_m": 1.0076,
+          "median_uv_per_m": 1.0002,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 1.0076
+          "uv_per_m_times_tile_m": 1.0002,
+          "below_quantization_floor": 656
         },
         "brick_unit_salmon_soft": {
-          "median_uv_per_m": 1.0076,
+          "median_uv_per_m": 0.9985,
           "fabric": "common_buff",
           "tile_m": [
             1,
             1
           ],
-          "uv_per_m_times_tile_m": 1.0076
+          "uv_per_m_times_tile_m": 0.9985,
+          "below_quantization_floor": 968
         },
         "dress_stone": {
-          "median_uv_per_m": 1.1094,
+          "median_uv_per_m": 1.1097,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 0.9985
+          "uv_per_m_times_tile_m": 0.9987,
+          "below_quantization_floor": 1043
         },
         "limestone_trim": {
-          "median_uv_per_m": 1.12,
+          "median_uv_per_m": 1.1116,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 1.008
+          "uv_per_m_times_tile_m": 1.0004,
+          "below_quantization_floor": 2733
         },
         "mortar": {
           "median_uv_per_m": 0.8331,
@@ -425,16 +433,18 @@
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9998
+          "uv_per_m_times_tile_m": 0.9997,
+          "below_quantization_floor": 22
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.626,
+          "median_uv_per_m": 0.624,
           "fabric": "granite_rock_faced",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 1.0016
+          "uv_per_m_times_tile_m": 0.9984,
+          "below_quantization_floor": 3925
         },
         "slate_covering": {
           "median_uv_per_m": 0.4802,
@@ -446,13 +456,14 @@
           "uv_per_m_times_tile_m": 0.9999
         },
         "stoop_stone": {
-          "median_uv_per_m": 1.1114,
+          "median_uv_per_m": 1.1099,
           "fabric": "dressed_trim",
           "tile_m": [
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 1.0003
+          "uv_per_m_times_tile_m": 0.9989,
+          "below_quantization_floor": 5638
         },
         "yard_cinder": {
           "median_uv_per_m": 0.4995,
