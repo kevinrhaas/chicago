@@ -1,0 +1,117 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s.",
+  "results": [
+    {
+      "label": "desktop",
+      "id": "house_1601_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1601-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1601-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.003,
+        "street": 0,
+        "street_s_lo": 0.002,
+        "street_s_hi": 0.001,
+        "per_m_s": -0.0002
+      },
+      "walk": {
+        "closest_to_foot_m": 0.01,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1609_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1609-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1609-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.005,
+        "street": -0.001,
+        "street_s_lo": -0.005,
+        "street_s_hi": 0.005,
+        "per_m_s": 0.0017
+      },
+      "walk": {
+        "closest_to_foot_m": 0.34,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1611_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1611-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1611-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.009,
+        "street": 0.006,
+        "street_s_lo": -0.002,
+        "street_s_hi": 0.013,
+        "per_m_s": 0.0025
+      },
+      "walk": {
+        "closest_to_foot_m": 0.3,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1630_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1630-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1630-gate.jpg",
+          "problems": []
+        }
+      ],
+      "grade": {
+        "front": 0.018,
+        "street": 0.009,
+        "street_s_lo": 0.007,
+        "street_s_hi": 0.013,
+        "per_m_s": 0.001
+      },
+      "walk": {
+        "closest_to_foot_m": 0.32,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}

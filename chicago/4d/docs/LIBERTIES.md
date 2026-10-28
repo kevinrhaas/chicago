@@ -34141,6 +34141,7 @@ the house and brings the match record to `matches`.
 **Revised:** 2026-10-27 (T-3196, piece 1 of T-3195) — **the basement grilles, the tower's corbel blocks, and the window bay's and the pavilion's lights put back where the print has them.** Read off the photograph through its re-solved camera: an iron grille in the basement light under the pavilion's centre light, in the one under the window bay south of it and in a tall one in the tower's narrow north-west face, each running from about grade to about 1.0 m; a row of corbel blocks under the tower's crown, about eleven to its broad face; the window bay at v 12.05 (T-3171's 12.9 came from the camera since re-solved), and the pavilion's narrow lights close beside its wide one. Invented: the grilles' pattern, K08's four uprights and a ring under the head (three in the tower's narrow light) for the print's bars scrolling from a centre stem into an arch; the lights' sills held at 0.17 m and heads at 1.02 m (the kit's head stone under the pavilion's and the tower's band at 1.3 m, the band their basement storey's, for the print's water table), over a plinth lowered to 0.05 m on the pavilion and the tower; the tower's narrow light the width of the light over it, the print seeing it nearly edge on; the blocks plain, 0.16 m across, 0.35 m deep and 0.2 m out, where the print's are stepped under; and the dormer over the window bay held at v 12.25, about 0.25 m south of the print's, by the kit's clearance from the pavilion's crown. The carved tympana, the crown's slated cheeks and the porch's arches and steps are T-3197's.
 **Revised:** 2026-10-27 (T-3209, piece 1 of T-3197) — **the carved tympana and the crown's slated cheeks.** Read off the photograph through its re-solved camera: a carved panel over every light of the pavilion and of the window bay south of it, under one segmental arch over the pavilion's three principal-floor lights (the centre's own arch over it), an arched one over its second floor's centre light and level ones over the narrow lights beside it, a carved segmental tympanum and a shallow segmental hood over the window bay's two; the attic's outer parts slated as cheeks either side of a stone face that carries its three lights; the crown's cornice about at the pavilion's face. Invented: the carving, a row of stone lozenges and bosses on each panel standing for the print's foliage, which is finer than its pixels; the panels' and hoods' sizes (a 0.12 m lintel, arches rising 0.2-0.45 m, hoods 0.06-0.08 m deep), fitted to where the render's edges fall on the print's; the window bay's second-floor hood's dentilled band, the same row of leaves; the cheeks 1.0 m wide each side and plumb, where the print's south cheek flares a little at its foot; and the crown's cornice at 0.2 m past the pavilion. The colonnettes between the pavilion's lights and the porch's arches and steps are not built (T-3210 owns the porch).
 **Revised:** 2026-10-28 (T-3210, piece 2 of T-3197) — **the porch's arches and its steps.** Read off the photograph through its re-solved camera: the porch an arcade in the front's stone, two round arches on the street face on three columns (the print sees the south one whole and the column between them) and one on the south face from the wall to the corner column; the flight straight in from the street under the street face's south arch, as wide as its mouth, between a cheek on each side, the porch's floor carried on north and south of it. Invented: the north arch, past the print's edge, built as the south one's pair; the arches' springing (3.65 m) and rise (0.85 m) fitted to where the render's edges fall on the print's, plain, with no archivolt moulding; the south face's arch on the flat respond where the print stands a column against the pavilion; the consoles at the porch's south end taken away for the arcade; the flight's north cheek, which no picture sees; and its treads and risers, the stair's own.
+**Revised:** 2026-10-28 (T-3191, the house's sign-off) — **the rear part's step out on the south flank, the crown re-pitched, the tower's hoods, and two more pictures.** From the 1911 sheet: the rear 14.6 m of the south flank stands 1.6 m out, built as a flank step in the front's stone. From the photograph through its re-solved camera: the crown's point about 1.2 m behind the pavilion's face, so its street end is pitched at 65 degrees and its sides at 45.5 over an attic 0.3 m lower; and segmental carved hoods over the tower's principal-floor pair. The Glessner House blog's copy of the photograph and the Tribune's 1927 night photograph of the fire are given cameras (the first carried through a 0.40 px map, the second fitted to eight points). Invented: the step's height (to the main cornice), its flat tin deck under the mansard, its plain stone face and its three windows a storey (the flank's own, moved onto it); the crown's 5.5 m run back into the main roof, the least the kit allows, which no picture shows; the hoods' size (rising 0.15 m) and their carving, the tympana's lozenges and bosses; and the same hoods on the unseen south-east face's pair. Left open in the match record: the porch's low parapet on its south face, the tower's roundel, and the crown's slates rising from inside its cornice.
 
 
 
@@ -35377,3 +35378,37 @@ gateway and crosses no footprint.
 **Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.yard`.
 **Ticket:** T-3222.
 **Recorded:** 2026-10-28 (T-3222).
+
+### L-k16-walks-1600-block-3230 — the four unpictured K16 frame houses of the 1600 block (1601, 1609, 1611, 1630 Prairie): their walks and front boundaries, reconstructed from their side of the block
+
+**Decision:** No picture of these four fronts is held, so each follows its own side of the block
+(T-3230, piece 2 of T-3216; the owner, 2026-10-27: every worked house's walk to its door and its
+front boundaries, and where no picture shows them a stated reconstruction consistent with the
+block). **East side, 1601, 1609 and 1611:** laid open (`layout: open`, which
+`archetypes/k16_yard.py` now lays as `k11_frontage.open_front` does: nothing on the street line,
+the whole front between the lot lines the opening), because 1621's and 1623's 1886 drawings and
+1625's 1890 photograph draw that side open (T-3221), and 1613, 1615 and 1619 were laid open on
+that reading (T-3229). **West side, 1630:** closed the way the K16 kit closes a frame house (as
+1720's): a squared stone kerb 0.35 m through on the street line, 0.32 m high, with an iron railing
+on it to 0.83 m (the base and bar heights of 1638's photograph, the block's other timber house),
+from lot line to lot line, and an opening 1.5 m clear on the porch stair's axis between two stone
+posts 0.35 m square and 1.2 m high (1720's posts), with no leaf in it, as at 1638. Every pictured
+west front of the block closes its street line and opens it only at the walk (1612, 1616, 1620,
+1638), and the seven unpictured K01 houses of that side were closed on the same reading (T-3229).
+**Each walk** is 1.2 m of 0.9 m stone flags 0.06 m over the ground (the district's K14 walk
+sizes), straight out from the porch stair's foot to the street line, the public walk's inner edge.
+**What is read, not invented.** The street and lot lines: the 1904 parcels'
+(`data/street_grid/1904.json`, off the 1911 sheet), carried into each house's plan frame by the
+placement its sidecar holds, the transform that puts 1720's recorded street line back on its
+parcel to the centimetre. 1609 and 1611 share one parcel (prairie_1607); the line between their
+lots is their party wall, and 1611's south lot line is put on its own south wall, 0.44 m past the
+parcel's line as the house was fitted. **What is invented.** That the fronts stood open or closed
+as their side of the block does, the kerb, railing and posts at 1630 and their sizes, the
+opening's width and place, and each walk's line, width and surface. `tools/check_house_walks.py`
+reads every walk and 1630's kerb off the GLB: each starts at the stair, reaches the public walk,
+passes the boundary only at its opening and crosses no footprint.
+**How to resolve:** a photograph, drawing or plat of any of the four fronts, or of a neighbour's
+that shows them.
+**Covers:** `house_1601_prairie.as_mapped_1904.form.boundary`, `house_1601_prairie.as_mapped_1904.form.yard`, `house_1609_prairie.as_mapped_1904.form.boundary`, `house_1609_prairie.as_mapped_1904.form.yard`, `house_1611_prairie.as_mapped_1904.form.boundary`, `house_1611_prairie.as_mapped_1904.form.yard`, `house_1630_prairie.as_mapped_1904.form.boundary`, `house_1630_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3230.
+**Recorded:** 2026-10-28 (T-3230).

@@ -1,0 +1,22 @@
+{
+ "structure_id": "doane_house_1827_prairie",
+ "library_image": "a18-cgy-1827-fire-1927",
+ "photo": "../../sources/assets/doane_1827_photo_t3171/doane_1827_tribune_1927_fire.jpg",
+ "image_px": [
+  1400,
+  1265
+ ],
+ "principal_px": [
+  700.0,
+  1833.7
+ ],
+ "focal_px": 5689.0,
+ "eye": [
+  56.71,
+  56.23,
+  1.34
+ ],
+ "yaw_deg": 218.19,
+ "sky": "overcast",
+ "solve": "Solved by T-3191 on the Chicago Tribune's night photograph of 1 January 1927 (the image store's 1400 x 1265 px copy of Chicagology's scan): the house burning, seen from the south-west across Prairie Avenue, its roofs black against the smoke. Little of it can be read: a halftone, at night, lit from inside. What can be read is eight points on four things the build places independently: the pavilion's crown, its iron finial and the crown's point (x 322, y 428 and x 320, y 485 px); the pair of lit lights in the tower's top storey on its broad south-west face, under its tall hip (heads and sills at x 685, y 705 and 890, and x 792, y 700 and 885); and the lit dormer over the window bay south of the pavilion (x 492, y 795 and 950). FIT: eye, heading, focal length and horizon, the principal point taken at the frame's centre across (freeing it moves nothing: 14.0 px against 14.1), a level camera. It puts the eye at u 56.7, v 56.2, 1.3 m over the house's grade (across the avenue, about 40 m south of the house), heading 218.2 degrees, f 5689 px (a long lens, or a small part of the plate enlarged), the horizon at y 1834 px, under the frame. RESIDUALS: 14.1 px RMS, 21 at most (about 0.12 and 0.18 m at the house: the lit lights are 1.57 m and about 185 px tall); the crown's finial wants to stand about 20 px shorter than the build's 1.0 m and the dormer's light a little shorter. UNCERTAINTY: eight points on three heights; distance and focal length trade along one valley, so the camera is good for where things stand against each other, not for a size read off it alone. The tall roof at the centre is the tower's hip; the stack at the right (x 925-1040 px) is not fitted. LIGHT: night, the windows lit from inside and the sky lit by the fire; rendered overcast, so the comparison is of silhouettes and openings, not of light."
+}

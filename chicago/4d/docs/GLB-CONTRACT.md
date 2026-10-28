@@ -270,6 +270,17 @@ retired. The check is what makes that change safe, because it can compare the tw
 |---|---|---|
 | archival master | uncompressed `.glb` | `assets/gltf/` (committed, not published) |
 | web derivative | `EXT_meshopt_compression`, **or the master passed through where compressing it is bigger** | `assets/web/` → published |
+| published copy | the derivative, with each image two or more published GLBs embed moved to an external buffer, `sheets/<sha256 prefix>.ktx2` (T-3232) | `data/gltf/` on the site only |
+
+**The shared sheets are a publish-time transform, not a change to what a generator emits**
+(T-3232). Neither the master nor the derivative changes: `tools/share_glb_sheets.mjs`, run by
+`publish.sh`, rewrites only the published copies, and `--check` reads each one back to its
+`assets/web/` source view for view. The image keeps its `bufferView` and its `mimeType`; only
+the buffer under it becomes a plain glTF 2.0 external buffer with a `uri`. The one thing it
+asks of a renderer is standard glTF: **parse a GLB with its own directory as the resource
+path** (`GLTFLoader.parse(bytes, new URL('.', glbUrl).href, …)`), because GLTFLoader resolves
+a buffer URI by appending it to that path. A file URL there resolves `sheets/…` against
+`house.glbsheets/…`, the buffer 404s and the house does not load.
 
 The master is the source of truth; derivatives regenerate from it. Meshopt over Draco: it
 decodes far faster with no per-file WASM cold start, which matters more than bytes for ~150

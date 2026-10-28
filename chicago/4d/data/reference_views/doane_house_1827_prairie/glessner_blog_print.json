@@ -1,0 +1,28 @@
+{
+ "structure_id": "doane_house_1827_prairie",
+ "source_id": "chicagology_1827_doane_exterior",
+ "library_image": "a18-gh-doane-exterior",
+ "photo": "../../sources/assets/doane_1827_photo_t3171/doane_1827_glessner_blog_print.jpg",
+ "image_px": [
+  561,
+  600
+ ],
+ "principal_px": [
+  286.9,
+  450.8
+ ],
+ "focal_px": 1385.7,
+ "pixel_aspect": 1.0011,
+ "eye": [
+  65.53,
+  41.69,
+  2.79
+ ],
+ "yaw_deg": 234.45,
+ "sun_uvy": [
+  1.0,
+  0.6,
+  1.0
+ ],
+ "solve": "Carried by T-3191 from T-3176's camera on the Chicagology copy (chicagology_doane_exterior.json), because this print IS that photograph: not a second exposure but a toned copy of the same negative, cropped a little wider (it shows the coach house at the right) and resampled. SIFT finds 1,923 matches between the two and 1,656 of them fit one affine map within 0.40 px rms (0.78 px at the 95th percentile), spread over the whole picture (Chicagology x 13-1431, y 94-1754): the street tree's twigs, the fence, the tower's crest and the flank all land together, which two exposures cannot do. The map, Chicagology px to this print's px: x' = 0.33582 x + 0.00002 y + 44.456, y' = -0.000005 x + 0.33545 y + 3.465, a scale of 0.33582 across and 0.33545 down (pixel_aspect 1.0011) and no turn worth carrying (under 0.01 degrees). So the eye, heading and light are that camera's (u 65.53, v 41.69, 2.79 m over grade, yaw 234.45), the principal point is its (722.0, 1333.5) carried through the map, and the focal length is its 4131 px times the vertical scale. Everything that camera reads, and every way it misses, it reads and misses here; what this copy adds is the strip at its right edge, the south flank's far end and the coach house beyond it."
+}
