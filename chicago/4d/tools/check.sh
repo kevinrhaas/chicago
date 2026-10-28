@@ -1189,6 +1189,10 @@ step "a K01 front block rounds a corner in its own stone (T-3006)" \
 # its window column, and the cornice, the mansard, the gutter and the curb's cresting turn it.
 step "a K01 main body cuts a corner on a canted face, carried through the cornice and the mansard (T-3186)" \
   python3 tools/test_k01_cant_corner.py
+# T-3186: a portico's columns carved at the capital (1901's Corinthian shafts, the 1898
+# photograph) and a scrolled stoop beside open terraces, its sweep falling straight by `bow`.
+step "a K01 portico's capitals carved and a scrolled stoop beside its open terraces (T-3186)" \
+  python3 tools/test_k01_porch_capitals_cheeks.py
 
 # T-3093. 1812 Prairie's sign-off keys: a street front's brick toned apart from its side walls
 # (`street_front_brick`), a carved band's `interlace` of two crossing straps, and a dress oval's
