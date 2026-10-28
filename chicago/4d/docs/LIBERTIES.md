@@ -34927,6 +34927,25 @@ and the south hood standing wider than its face (HABS 1) are not built and stay 
 records. This supersedes the faces' stone in L-kimball-1801-deck-cresting-3000.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
+### L-kimball-1801-hood-flare-1890 — 1801 Prairie's dormer hoods flared out at their feet
+**Recorded:** 2026-10-27.
+
+**Decision:** the W. W. Kimball house's three hooded dormers (`mansard.dormers`, T-1890) stand their
+hoods' feet 0.2 m wider than the faces under them on each side and 0.2 m out in front of them, the
+shelf with them (`hood.flare_m`), and sweep in from there to the tops T-3000 laid: 0.4 m across on the
+street and 18th Street dormers, 0.81 m on the south one (its taper eased from 0.3 to 0.17 m a side).
+**What is read, not invented.** Harold Allen's HABS photograph 1 of June 1965
+(`habs_kimball_photo_01_sw_1965`) shows the south dormer nearly square on, its hood's foot about a
+third wider than the face and its top about half the foot; HABS photograph 2
+(`habs_kimball_photo_02_nw_1965`) shows the 18th Street hood broad at its foot and narrow at its top;
+the Taylor photograph of c. 1895 shows the street hood's cheek standing out of the slate at its foot.
+**What is invented or held by the kit.** The 0.2 m is one figure for all three, read off HABS 1 and the
+Taylor print; the prints' feet sweep out in a concave bell, which the build runs straight; the shelf
+stays the kit's stone slab where HABS 2 shows a slimmer moulding; the hoods' ridge cresting (HABS 2) is
+not built. The 18th Street hood's cheek still reads shallower than the Taylor print's at its top, which
+goes with the mansard's lower face and stays open in that record.
+**How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
+
 ### L-prairie-street-lamps-3199 — The 1904 district's gas lamps: one at every street corner and one about every 160 ft of parkway, most of them placed by rule
 
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
