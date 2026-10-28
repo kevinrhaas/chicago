@@ -2,7 +2,7 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2635e3a1de3f46d0e6231977996dda055eb5ac79f1115bbab3a36cd71e660ce4",
+  "glb_sha256": "3fdf874c9052e13d510e350a5670c4d1e569f0b4d31a5d6a5cb81137f01a00f2",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
@@ -120,6 +120,11 @@
       "what": "the trees, the walk and the area railings",
       "status": "not shown",
       "how": "outside the building record"
+    },
+    {
+      "what": "the low line before the house and the walk",
+      "status": "within tolerance",
+      "how": "the engraving shows a low line along the lot; T-3206's coping and walk read as it"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

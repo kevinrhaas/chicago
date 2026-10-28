@@ -1,0 +1,29 @@
+{
+ "id": "glessner_blog_1900_keith_oblique_photo",
+ "type": "photograph",
+ "citation": "'1900 PA' [the Elbridge G. Keith house, 1900 S. Prairie Avenue, from the avenue to the south-east]. Unknown photographer, undated sepia print. Reproduced in Glessner House Museum, 'Elbridge Keith House', The Story of a House (blog), 3 November 2014; the same photograph is reproduced on chicagology.com's 1906 S. Prairie page, where it is captioned as the Edson Keith house.",
+ "author": "unknown photographer",
+ "date": "undated (after the 1880s mansard; the Prairie library brackets it 1885-1930)",
+ "describes_date": "1885-1930",
+ "repository": "Glessner House Museum blog (secondary reproduction; the original holder is not named). Prairie library images a19-gh-keith-1900-historic (the museum's print, 1294 x 974 px) and a19-cgy-1906-keith-photo (Chicagology's print of the same photograph, 957 x 708 px), both recorded there as 'link only'; the project's reference copies are the image store's (kevinrhaas/chicago-images, prairie-1904/files/<id>.jpg), committed since T-3207 at data/sources/assets/keith_1900_photos_t3207/ with their attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+ "locator": "The photograph captioned '1900 PA' in the post: the street front from its north corner to the canted corner bay at its south end, the bay's south-east cheek and front, the porch and its balcony, the stoop and the terrace across the front, the bracketed cornice, the mansard with its dormers and the bay's own taller crown; the south flank's front part, seen steeply. A rock-faced stone house stands to its left (south) and a brick Second Empire house with an oriel to its right (north).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A museum blog's reproduction of a historic photograph whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copies committed for the image gate (T-3207) are the store's, unaltered, with their attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3207, piece 1 of T-1897) from the image store's reference copies: the museum's print, 1294 x 974 px sepia, sha256 2bf412a3d0369c7619b25c5da579805f71d07fdf90ea1442b8013627be8df755, and Chicagology's, 957 x 708 px, sha256 7d053c5e4a01ac406e4152e83afd89e5798a923ca65c43ed954a05d236a1cc2e — the same negative, Chicagology's cropped tighter and greyscale.",
+ "note": "The one period picture of 1900 Prairie this project holds. A smooth light stone house of two tall storeys over a raised basement: at the front's south end a canted bay carried through both storeys and up through the cornice under a taller mansard crown of its own with one dormer on its front; north of it the porch at the head of a broad stoop, two columns carrying an entablature whose top is a balcony before a paired, arched window; north of that two window columns; every street window round-headed under a moulded hood with a carved crown; a raised terrace before the front at the principal floor, the stoop coming off it towards the street; a deep cornice on paired brackets over a frieze, turned round the bay and along the south flank; a slated mansard over it with two hooded dormers on the front north of the bay. The print is tilted about 3.5 degrees and taken from low down (the camera's solve). The museum's caption makes it 1900; Chicagology's caption for the same photograph makes it 1906, which the T-1837 study rules a misattribution (the house still standing at 1900 is this one, window for window).",
+ "what_it_supplies": [
+  "the street front's composition: the canted corner bay, the porch and balcony, the window columns, the terrace and stoop, the cornice, the mansard and its dormers, and the bay's crown",
+  "the heights of the principal floor, both storeys' windows, the frieze and the cornice through the photograph's camera",
+  "the tone of the walls: a light smooth stone"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: the print is undated, after the 1880s mansard",
+  "the north flank, the rear and the rear range",
+  "the south flank behind its front few metres"
+ ]
+}

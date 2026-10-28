@@ -2,7 +2,7 @@
   "structure_id": "jones_house_1834_prairie",
   "view": "glessner_photo",
   "glb": "assets/gltf/jones_house_1834_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c4e87cd7ff6080e30883d77c61eb21f4b325911150f33c761ccf9b6bb8926af2",
+  "glb_sha256": "7e42dea425dab804234f00d70428d27f3405088236c76ac69a5e33875c9deb1c",
   "camera_sha256": "c3c2ac309fef60b5376ac5dbfb21bf4025c21f8cf748baf9aa2031e6084dea7b",
   "photo_sha256": "4180b8c58b74f7611529056a55633e18f01a35f37ad769ebda8bfefeff219283",
   "side_by_side": "docs/RESEARCH/photo-match/jones_house_1834_prairie/glessner_photo-side-by-side.jpg",
@@ -172,6 +172,11 @@
       "what": "K03's projecting brick course at the second floor on the north flank, which the print does not draw",
       "status": "within tolerance",
       "how": "one brick course proud by a few centimetres"
+    },
+    {
+      "what": "the walk behind the low wall",
+      "status": "within tolerance",
+      "how": "the walk T-3206 lays turns north behind the wall to its opening; this view reads it as the chicagology print does"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

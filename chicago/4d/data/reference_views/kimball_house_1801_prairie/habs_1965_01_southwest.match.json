@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "813c37762f2793e8333f9cf4e0ea5520f0958eff4c7db132b387f035970868a3",
+  "glb_sha256": "63197f7ed7ae57becfb221935fd781b4b50258cfd83642320bb32084ae7b269f",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -108,6 +108,11 @@
     {
       "what": "the 18th Street tower, rebuilt on its corbelled stage by T-1890 from the Taylor print and HABS photograph 2: it stands on the north wall, which this camera cannot see; nor the east turret, whose finial and eaves it also sized; nothing this picture shows changed",
       "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1904",
+      "status": "not shown",
+      "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
