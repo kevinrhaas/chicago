@@ -6,8 +6,9 @@
  * tools/trace_prairie_1904_grid.py from the Sanborn 1911 sheets 20, 28 and 35):
  *
  *   carriageways   curb line to curb line, one polygon per street segment
- *   faces          the four bands of every block's sidewalk space, measured from
- *                  the street line: a 1-ft margin, the walk, the parkway, the curb
+ *   faces          the bands of every block's sidewalk space, measured from the
+ *                  street line: the walk, the parkway, the curb (the 1-ft margin
+ *                  inside the walk is the lot's own ground, T-3233)
  *   alleys         at their drawn widths
  *   parcels        as lines: the lots on both faces of Prairie Avenue, and (T-2116) the
  *                  Indiana and Calumet frontage lots and the cross-street corners
@@ -74,7 +75,6 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
 const CLASSES = {
   carriageway: { lift: 0.03, colour: 0x7a7066, offset: -8, tier: 'inferred' },
   alley: { lift: 0.035, colour: 0x857a6c, offset: -9, tier: 'inferred' },
-  margin: { lift: 0.05, colour: 0x7c8a66, offset: -10, tier: 'inferred' },
   parkway: { lift: 0.05, colour: 0x7c8a66, offset: -10, tier: 'reconstructed' },
   walk: { lift: 0.055, colour: 0xc2bdb2, offset: -11, tier: 'reconstructed' },
   curb: { lift: 0.06, colour: 0xd9d5cc, offset: -12, tier: 'reconstructed' },
@@ -82,8 +82,13 @@ const CLASSES = {
 /** T-2481: how much of the Season setting's snow each class keeps, and whether it
  *  is grass (1): the lawns' snow lies, the alleys' is part trodden, the travelled
  *  roadways' mostly trodden and the walks swept. */
-const SEASON_KIND = { carriageway: 0.3, alley: 0.5, margin: 1, parkway: 1, walk: 0.15, curb: 0.2 };
+const SEASON_KIND = { carriageway: 0.3, alley: 0.5, parkway: 1, walk: 0.15, curb: 0.2 };
 const PRIORITY_LIFT_M = 0.003;
+/** T-3233: how near a face's band edge a point still takes the sidewalk space's level.
+ *  The curb's outer corners lie exactly on the curb line, the roadway's edge, where the
+ *  parity test falls either way; one that fell outside took the roadway's level, and the
+ *  curb's top ran down into the gutter in a pale slope (1,126 triangles, 28 faces). */
+const BAND_EDGE_M = 0.005;
 /** T-2692: how far a roadway runs on under one ranked above it, which stands a few
  *  millimetres higher. Cut off flush, the step between them showed what lies under
  *  the higher one's edge, a dark hairline seen from low down along every such cut. */
@@ -98,9 +103,12 @@ const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 const SEAM_M = 1.6;
 /** The fade overlay's height above the highest roadway, so it never fights one. */
 const SEAM_LIFT_M = 0.004;
-const SEAM_VERTEX_DECL = 'attribute float seam;\nvarying float vChiSeam;\nvarying vec2 vChiSeamXZ;\n';
-const SEAM_VERTEX_ASSIGN = '\n  vChiSeam = seam;\n  vChiSeamXZ = (modelMatrix * vec4(transformed, 1.0)).xz;\n';
+// T-3233: and `seamEnd`, metres from each END of the run of fade along its edge (where the
+// lower roadway's own side lines cross the higher one), so the fade wears out there too.
+const SEAM_VERTEX_DECL = 'attribute float seam;\nattribute vec2 seamEnd;\nvarying float vChiSeam;\nvarying vec2 vChiSeamEnd;\nvarying vec2 vChiSeamXZ;\n';
+const SEAM_VERTEX_ASSIGN = '\n  vChiSeam = seam;\n  vChiSeamEnd = seamEnd;\n  vChiSeamXZ = (modelMatrix * vec4(transformed, 1.0)).xz;\n';
 const SEAM_FRAGMENT_DECL = `varying float vChiSeam;
+varying vec2 vChiSeamEnd;
 varying vec2 vChiSeamXZ;
 float chiSeamHash(vec2 p) {
   vec3 p3 = fract(vec3(p.xyx) * 0.1031);
@@ -114,10 +122,14 @@ float chiSeamNoise(vec2 p) {
 }
 `;
 /** Opaque on the edge it starts from, gone SEAM_M on, ragged between: the noise
- *  is weighted to vanish at both ends so the overlay meets each paving exactly. */
+ *  is weighted to vanish at both ends so the overlay meets each paving exactly. T-3233:
+ *  within SEAM_M of either end of its run the fade is rounded off, so where the lower
+ *  roadway's own side line crosses the higher one (a cross street's curb line carried
+ *  over the avenue's gutter) the worn paving does not stop on a straight cut either. */
 const SEAM_FRAGMENT_ALPHA = `
   {
-    float chiS = clamp(vChiSeam, 0.0, 1.0);
+    float chiB = clamp(1.0 - min(vChiSeamEnd.x, vChiSeamEnd.y) / ${SEAM_M.toFixed(2)}, 0.0, 1.0);
+    float chiS = clamp(length(vec2(clamp(vChiSeam, 0.0, 1.0), chiB)), 0.0, 1.0);
     float chiN = (chiSeamNoise(vChiSeamXZ * 0.9) - 0.5) * 0.9 + (chiSeamNoise(vChiSeamXZ * 4.1) - 0.5) * 0.45;
     float chiK = chiS + chiN * sin(3.14159265 * chiS);
     diffuseColor.a *= 1.0 - smoothstep(0.0, 1.0, chiK);
@@ -201,6 +213,21 @@ function pointInPolygon(e, n, poly) {
     if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
   }
   return inside;
+}
+
+/** Inside `poly`, or within `eps` of its edge. T-3231: a ramp's own corners lie exactly
+ *  on its edge, where the parity test can fall either way; a head corner that fell
+ *  outside it (and outside the face's bands, whose edge it also is) took the roadway's
+ *  level, and the slab's head dropped off the curb at 26 of 112 corners. */
+function nearPolygon(e, n, poly, eps) {
+  if (pointInPolygon(e, n, poly)) return true;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i, i += 1) {
+    const [ax, ay] = poly[j]; const [bx, by] = poly[i];
+    const dx = bx - ax; const dy = by - ay; const L2 = dx * dx + dy * dy || 1;
+    const t = Math.max(0, Math.min(1, ((e - ax) * dx + (n - ay) * dy) / L2));
+    if (Math.hypot(e - ax - t * dx, n - ay - t * dy) <= eps) return true;
+  }
+  return false;
 }
 
 /** Twice the signed area of a plan polygon: positive counter-clockwise. */
@@ -757,11 +784,12 @@ export async function createStreetGrid({
     return b;
   };
   const inBox = (b, e, n) => e >= b[0] && e <= b[2] && n >= b[1] && n <= b[3];
+  const grownBox = (b, d) => [b[0] - d, b[1] - d, b[2] + d, b[3] + d];
   const sideFaces = (grid.faces ?? []).map((f) => {
     const quads = Object.values(f.bands ?? {}).flat();
     const xs = grid.cross_sections?.[f.cross_section] ?? {};
     return {
-      f, quads, box: bboxOf(quads.flat()), line: f.street_line_local_m ?? [],
+      f, quads, box: grownBox(bboxOf(quads.flat()), BAND_EDGE_M), line: f.street_line_local_m ?? [],
       W: (xs.sidewalk_space_ft?.value ?? 14) * FT,
     };
   });
@@ -803,7 +831,7 @@ export async function createStreetGrid({
     }
     let s = -1; let W = 0;
     for (const sf of sideFaces) {
-      if (!inBox(sf.box, e, n) || !sf.quads.some((q) => pointInPolygon(e, n, q))) continue;
+      if (!inBox(sf.box, e, n) || !sf.quads.some((q) => nearPolygon(e, n, q, BAND_EDGE_M))) continue;
       const a = acrossOf(sf.line, e, n);
       if (a > s) { s = a; W = sf.W; }
     }
@@ -819,16 +847,15 @@ export async function createStreetGrid({
   const MAX_PRIORITY = Math.max(0, ...Object.values(surfaces?.carriageways ?? {}).map((x) => x?.priority ?? 0));
   const bufFor = (cls, surface, priority, seam = false) => {
     const c = CLASSES[cls];
-    const shared = cls === 'margin' ? 'parkway' : cls;   // the foot and the parkway are one turf
     // A seam overlay is one draw per paving, whatever its priority: it lies over
     // the highest roadway there is.
-    const key = seam ? `${shared}|${surface?.material ?? 'none'}|seam` : `${shared}|${surface?.material ?? 'none'}|${priority}`;
+    const key = seam ? `${cls}|${surface?.material ?? 'none'}|seam` : `${cls}|${surface?.material ?? 'none'}|${priority}`;
     if (!bufs.has(key)) {
       bufs.set(key, {
-        key, cls: shared, material: surface?.material ?? null, priority: seam ? 0 : priority,
+        key, cls, material: surface?.material ?? null, priority: seam ? 0 : priority,
         lift: seam ? c.lift + MAX_PRIORITY * PRIORITY_LIFT_M + SEAM_LIFT_M : c.lift + priority * PRIORITY_LIFT_M,
         offset: c.offset - priority * 0.3,
-        pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null,
+        pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null, seamEnd: seam ? [] : null,
       });
     }
     return bufs.get(key);
@@ -839,15 +866,19 @@ export async function createStreetGrid({
    * number (the band width, for a walk or a curb tile that spans its band) or null
    * for flat-tone surfaces with no maps.
    */
-  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, polys = [] } = {}) => {
+  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, seamEnds = null, polys = [] } = {}) => {
     const buf = bufFor(cls, surface, priority, !!seam);
     // A seam overlay's vertices carry how far into the fade they stand, 0 on the
     // edge of the roadway it runs under, 1 SEAM_M on.
-    let seamAt = null;
+    let seamAt = null; let seamEndAt = null;
     if (seam) {
       const [p, q] = seam;
       const t = sub(q, p); const L = len(t) || 1;
       seamAt = (e, n) => Math.min(1, Math.abs((t[0] * (n - p[1]) - t[1] * (e - p[0])) / L) / SEAM_M);
+      // T-3233: metres along the edge from each end of the run this overlay is part of
+      const [lo, hi] = seamEnds ?? [-Infinity, Infinity];
+      const along = (e, n) => (t[0] * (e - p[0]) + t[1] * (n - p[1])) / L;
+      seamEndAt = (e, n) => [Math.min(1e3, along(e, n) - lo), Math.min(1e3, hi - along(e, n))];
     }
     const lib = surface ? library.get(surface.material) : null;
     const along = tileAlong ?? lib?.along ?? 4;
@@ -871,7 +902,7 @@ export async function createStreetGrid({
           if (worldLaid) buf.uv.push((northSouth ? n : e) / along, (northSouth ? e : n) / along);
           else buf.uv.push(u / along, v / across);
           buf.conf.push(level);
-          if (seamAt) buf.seam.push(seamAt(e, n));
+          if (seamAt) { buf.seam.push(seamAt(e, n)); buf.seamEnd.push(...seamEndAt(e, n)); }
         }
       }
     };
@@ -964,6 +995,11 @@ export async function createStreetGrid({
     w.margins = [];
     w.extra = [];
   });
+  /** T-3233: whether a piece stands in some face's sidewalk space (its centroid in a band). */
+  const onSidewalk = (poly) => {
+    const c = poly.reduce((a, p) => [a[0] + p[0] / poly.length, a[1] + p[1] / poly.length], [0, 0]);
+    return sideFaces.some((sf) => inBox(sf.box, c[0], c[1]) && sf.quads.some((q) => pointInPolygon(c[0], c[1], q)));
+  };
   const above = [];   // every piece of the roadways ranked higher: { poly (ccw), box, way }
   // T-2692: the hair-thin pieces handed to the roadway above, which give way in turn to
   // any lower roadway crossing them: { polys (ccw), box }.
@@ -1043,10 +1079,14 @@ export async function createStreetGrid({
       for (const sl of slivers) {
         if (sl.box[2] < box[0] || sl.box[0] > box[2] || sl.box[3] < box[1] || sl.box[1] > box[3]) continue;
         // What is left past the crossing's far side is a stub a few metres long standing
-        // out over the corner's gutter and curb, where neither roadway is: dropped.
+        // out over the corner's gutter and curb, where neither roadway is: dropped. T-3233:
+        // only there. The stub on the crossing's NEAR side lies inside the wider roadway it
+        // was cut from, with no sidewalk under it, and dropping it left a hole 0.35 m wide
+        // down the gutter at four corners (Prairie at 18th, Indiana and Calumet at 20th),
+        // where the ground under the roadway, cut away, showed as a flat pale strip.
         sl.polys = sl.polys.flatMap((q) => {
           const { pieces, covered } = minusConvex(q, poly);
-          return covered ? pieces.filter((x) => perimeterOf(x) / 2 >= SLIVER_STUB_M).map(ccwOf) : [q];
+          return covered ? pieces.filter((x) => perimeterOf(x) / 2 >= SLIVER_STUB_M || !onSidewalk(x)).map(ccwOf) : [q];
         });
       }
     }
@@ -1061,8 +1101,29 @@ export async function createStreetGrid({
       roadStandSurfaces.push({ polygons: [...quads, ...polys.map(p => p.poly)],
         lift: CLASSES.carriageway.lift + w.priority * PRIORITY_LIFT_M });
     }
+    // T-3233: the run each margin belongs to along its edge — the margins of one edge that
+    // touch, merged — whose two ends the fade is rounded off at.
+    const runs = new Map();
     for (const m of w.margins) {
-      push('carriageway', w.id, [], w.tier, w.surface, { priority: w.priority, seam: m.edge, polys: [m] });
+      const [p, q] = m.edge; const t = sub(q, p); const L = len(t) || 1;
+      const ts = m.poly.map((x) => (t[0] * (x[0] - p[0]) + t[1] * (x[1] - p[1])) / L);
+      m.span = [Math.min(...ts), Math.max(...ts)];
+      const key = m.edge.flat().map((v) => v.toFixed(3)).join();
+      if (!runs.has(key)) runs.set(key, []);
+      runs.get(key).push(m);
+    }
+    for (const ms of runs.values()) {
+      ms.sort((a, b) => a.span[0] - b.span[0]);
+      let run = [];
+      const close = () => { const lo = run[0].span[0]; const hi = Math.max(...run.map((x) => x.span[1])); for (const x of run) x.run = [lo, hi]; run = []; };
+      for (const m of ms) {
+        if (run.length && m.span[0] > Math.max(...run.map((x) => x.span[1])) + 0.05) close();
+        run.push(m);
+      }
+      if (run.length) close();
+    }
+    for (const m of w.margins) {
+      push('carriageway', w.id, [], w.tier, w.surface, { priority: w.priority, seam: m.edge, seamEnds: m.run, polys: [m] });
       out.census.seams += 1;
     }
   }
@@ -1087,6 +1148,15 @@ export async function createStreetGrid({
   for (const f of grid.faces ?? []) {
     const xs = grid.cross_sections?.[f.cross_section] ?? {};
     for (const [band, quads] of Object.entries(f.bands ?? {})) {
+      // T-3233: the one-foot margin inside the walk is grass, and it is the lot's own ground,
+      // not a band of turf. Laid in the parkway's turf it drew a straight strip of another
+      // green between every lawn and the walk, over the end of every house's front walk; the
+      // field's ground is never cut under it, so the yard's grass now runs on to the walk.
+      // Its surface record still stands (street_surfaces `bands.margin`), and is counted.
+      if (band === 'margin') {
+        if (surfaceOf(surfaces, 'band', null, band, f.id)) out.census.surfaced += 1;
+        continue;
+      }
       if (!CLASSES[band]) continue;
       const s = surfaceOf(surfaces, 'band', null, band, f.id);
       const b = (xs.bands ?? []).find((x) => x.band === band);
@@ -1177,6 +1247,7 @@ export async function createStreetGrid({
       // T-2475: the seam overlay fades out across its margin, raggedly, as a worn
       // edge of one paving over the next. Blended, so it writes no depth.
       geo.setAttribute('seam', new THREE.Float32BufferAttribute(buf.seam, 1));
+      geo.setAttribute('seamEnd', new THREE.Float32BufferAttribute(buf.seamEnd, 2));
       mat.transparent = true;
       mat.depthWrite = false;
     }
