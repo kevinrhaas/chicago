@@ -1,37 +1,47 @@
 #!/usr/bin/env python3
-"""Plant the 1904 district's front yards: foundation shrubs, low beds, creeper (T-3203).
+"""Plant the 1904 district's front yards: garden shrubs, young trees, a bed, ivy (T-3203, T-3223).
 
-    python3 tools/plant_prairie_1904_front_yards.py           # write data/front_yards/1904.json
-    python3 tools/plant_prairie_1904_front_yards.py --check   # the committed file is what this writes
+    python3 tools/plant_prairie_1904_front_yards.py              # write data/front_yards/1904.json
+    python3 tools/plant_prairie_1904_front_yards.py --check      # the committed file is what this writes,
+                                                                 # and nothing it plants blocks a door
+    python3 tools/plant_prairie_1904_front_yards.py --self-test  # each fault the check refuses, planted
 
-THE ASK (the owner, 2026-10-27, thread "Improve 1904 Prairie streetscape"): *"plants in front
-of the houses they seem to be missing flora on the property"*. Every house lot of the drawn
-district was the field's bare sward from its lot line to its front wall, with nothing planted.
+THE ASK. The owner, 2026-10-27, thread "Improve 1904 Prairie streetscape": *"plants in front of
+the houses they seem to be missing flora on the property"*. T-3203 planted 1,354 shrubs, a
+continuous foundation row on nearly every lot, drawn as lumps. The owner, 2026-10-28: *"I find
+the bushes and plants and flowers added to be very low quality ... make sure they don't block
+doorways, etc and are positioned correctly to not block the doors"* (T-3223).
 
-WHAT THE PICTURES SHOW, and what is therefore graded as what (the brief's section 7,
-tickets/evidence/streetscape-1904-2026-10-27/BRIEF.md):
+WHAT THE PICTURES SHOW (docs/RESEARCH/prairie_1904_front_yards.md). Read again, lot by lot, the
+district's photographs show MOWN LAWN behind the iron fence or the stone coping, the stoop, and
+the parkway elms outside; most show no shrub at all: 1801, 1811, 1816, 1905, 2120 and the 1720
+and 1736 houses. Those lots are drawn as the pictures show them, bare (`BARE`). The plantings a
+picture does show are Pullman's: ivy over the west front and the porch, a few low shrubs at the
+porch's foot, staked young trees in the lawn, and a border of shrubs inside the 18th Street
+coping (both Detroit Publishing views); and 1912's ivy, in a print dated after 1904 (inferred).
+Nothing records what grew on any other lot, so the rest is RECONSTRUCTED and kept to what the
+pictures make likely (docs/LIBERTIES.md L-prairie-front-yards-3203): a third of the lots left as
+open lawn, the others planted in one of the period's few ways, seeded by the parcel's id so a
+re-run lays the same yard and no two neighbours match:
 
-  * the Detroit Publishing views of the Pullman house (LC-D4-4a08065, -4a08066, 1890s) show
-    ivy over the west front and the porch, and a dense border of shrubs inside the coping
-    along 18th Street east of the house: ATTESTED, at Pullman's;
-  * the photograph of 1912 Prairie (the Moulton-Lowden house; an electric street lamp dates
-    the print after 1904) shows ivy over the north part of the front and the round bay up to
-    the third storey: INFERRED for 1904 (ivy of that reach is years old when photographed);
-  * no picture read here shows an urn on a stoop clearly enough to place one, so none is placed;
-  * nothing records species, beds or shrubs lot by lot. Every other lot gets the district's
-    common treatment, RECONSTRUCTED (docs/LIBERTIES.md L-prairie-front-yards-3203): foundation
-    shrubs along the front and the first metres of the sides, and one to three low beds cut in
-    the lawn before the house, all varied per lot by a seed taken from the parcel's id, so a re-run lays the same yard and no two neighbours match.
+  * a matched pair of shrubs either side of the stoop's foot (a sheared arborvitae ball, a
+    hydrangea, a spiraea or a rose);
+  * a lilac or an arborvitae at a front corner of the house;
+  * a short group of two or three shrubs against the front, between the stoop and a corner;
+  * on a deep lot, now and then a young maple or linden in the lawn, and a round bed of
+    geraniums or coleus cut in it.
 
-WHAT IT READS, so the planting keeps clear of what is built. Every 1904 structure's baked
-model (data/sidecars/1904/*.json -> assets/gltf/*.glb, placed by the sidecar's local_e,
-local_n and rotation_deg exactly as renderers/web/js/buildings.js places it) is laid on a
-0.25 m plan raster of the district: what stands tall is the house, what stands low is a stoop,
-a fence, a pier or a coping, what lies flat is a paved walk, and a door's leaf names the line
-of the walk to it, kept clear from the door to the lot line. The traced Sanborn footprints
-(data/traces/prairie_1904_footprints_s*.json) are laid as well, so a house whose model is
-not in the checkout (Glessner's) is still a house. The lots, their street lines and the
-frame each yard is measured in are the T-0474 grid's (data/street_grid/1904.json).
+WHAT IT KEEPS CLEAR, measured from each plant's EDGE (its crown's half-width), not its centre.
+Every 1904 structure's baked model (data/sidecars/1904/*.json -> assets/gltf/*.glb, placed as
+renderers/web/js/buildings.js places it) is laid on a 0.25 m plan raster: what stands tall is the
+house, what stands low is a stoop, a step, a fence, a pier or a coping, what lies flat is a walk,
+and a door's leaf, at any height a raised first floor sets it (DOOR_FOOT_M), is a door. A plant
+keeps clear of the house's wall, a stoop and its steps, a fence or coping, a walk, a disk of
+DOOR_RADIUS_M round every door of the lot's houses, and a way DOOR_WAY_M wide from every front
+door straight to the lot line. The traced Sanborn footprints (data/traces/) are laid as houses
+too, so a house whose model is not in the checkout (Glessner's) still is one. `--check` holds
+the committed file to those rules against the models as they stand now (a rebake that moves a
+stoop under a shrub fails and names it), and to being what this tool writes.
 
 It writes data/front_yards/1904.json, which renderers/web/js/front-yards.js draws.
 """
@@ -67,14 +77,19 @@ TALL_M = 2.6               # ... and one reaching above this is the house itself
 FLAT_M = 0.12              # a triangle wholly below this lies on the ground (a walk, a yard surface)
 GROUND_MATS = ("turf", "earth", "lawn", "grass")   # a yard surface the lawn may lie beside, not a walk
 DOOR_MATS = ("door_leaf", "draft_door", "k16_door", "k12_door")
-DOOR_CLEAR_M = 1.35        # half the clear way kept from a door to the lot line
-SHRUB_WALL_M = (0.45, 0.95)   # a foundation shrub's centre, off the house's wall
-SIDE_REACH_M = 7.0         # foundation planting runs this far back along a side wall
-LOT_LINE_CLEAR_M = 0.85    # nothing nearer the street line (the boundary, its coping and gate)
+DOOR_FOOT_M = 4.5          # a door leaf whose foot is below this is an entrance (a raised first floor's)
+DOOR_RADIUS_M = 2.0        # no plant's edge nearer a door (in plan) than this
+DOOR_WAY_M = 1.6           # half the clear way kept from a front door straight to the lot line
+STOOP_GAP_M = 0.45         # a plant's edge off a stoop, a step or a porch (low work by the house)
+STOOP_REACH_M = 1.2        # low work this near the house is a stoop's, not a fence's
+WALL_GAP_M = 0.12          # a plant's edge off the house's wall
+LOW_GAP_M = 0.25           # ... off a fence, a coping or a pier
+PAVED_GAP_M = 0.2          # ... off a walk
+LOT_LINE_CLEAR_M = 0.85    # ... and off the street line (the boundary, its coping and gate)
 SIDE_LINE_CLEAR_M = 0.40   # ... or the side lot lines
-LOW_CLEAR_M = 0.45         # from a stoop, fence, pier or coping
-PAVED_CLEAR_M = 0.35       # from a walk
+SIDE_REACH_M = 6.0         # a corner shrub stands no further back along a side wall than this
 MIN_YARD_M = 1.6           # a house nearer its lot line than this has no front yard to plant
+CHECK_SLACK_M = 0.12       # --check lets a rebake move a stoop or a wall this much under a plant
 
 # What the pictures show, lot by lot (see the module doc).
 PICTURED = {
@@ -87,6 +102,11 @@ PICTURED = {
         "border": {"edge": "high_s", "d_m": [18.0, 62.0], "inset_m": 1.1, "grade": "attested",
                    "note": "A dense border of shrubs inside the coping along 18th Street, east of the house "
                            "(LC-D4-4a08066, right of the house)."},
+        "stoop": {"plant": "spiraea", "grade": "attested",
+                  "note": "Low shrubs at the foot of the porch, either side of its steps (LC-D4-4a08065)."},
+        "trees": {"plant": "linden", "count": 3, "grade": "attested",
+                  "note": "Young trees, staked, in the lawn between the coping and the house front "
+                          "(LC-D4-4a08065)."},
     },
     "prairie_1912": {
         "sources": ["chicagology_1912_prairie_exterior_photo"],
@@ -97,24 +117,38 @@ PICTURED = {
                             "of that reach was growing years before it."},
     },
 }
-
-# The shrubs a lot is planted from. A form is a shape and a habit, not a species claim.
-FORMS = {
-    "clipped": {"name": "clipped evergreen", "r": [0.35, 0.55], "h": [0.6, 1.0],
-                "note": "a sheared, rounded foundation shrub (box, yew or arborvitae kept low)"},
-    "mound": {"name": "flowering shrub", "r": [0.5, 0.8], "h": [0.8, 1.5],
-              "note": "a loose deciduous mound (spiraea, hydrangea, snowball, barberry)"},
-    "tall": {"name": "tall shrub", "r": [0.7, 1.0], "h": [1.7, 2.5],
-             "note": "a lilac or syringa grown up at a corner of the house"},
+# The lots a photograph shows with a bare lawn: drawn bare (the trees in those prints stand in
+# the parkway, outside the fence, and are the parkway's own).
+BARE = {
+    "prairie_1801": ("taylor_c1895_kimball_residence_1801", "The photograph shows the lawn open to the house."),
+    "prairie_1811": ("chicagology_1811_ames_photo", "The photograph shows the lawn open either side of the stoop."),
+    "prairie_1816": ("chicagology_1816_henderson_photo", "The photograph shows bare ground behind the iron fence."),
+    "prairie_1905": ("chicagology_1905_field_photo", "The photograph shows the yard bare behind the iron fence."),
+    "prairie_2120": ("chicagology_2120_gorton_photo", "The photograph shows the yard bare behind the fence and posts."),
+    "prairie_1720": ("glessner_blog_1720_tyrrell_photo", "The photograph shows the yard bare before the porch."),
+    "prairie_1736": ("glessner_blog_1736_mcbirney_c1890_photo", "The photograph shows the lawn open before the porch."),
 }
-BEDS = {"round": "a round bed cut in the lawn", "oval": "an oval bed", "border": "a narrow strip bed"}
-SCHEMES = [   # each lot takes one: which forms it is planted from, and their shares
-    {"clipped": 0.75, "mound": 0.2, "tall": 0.05},
-    {"clipped": 0.35, "mound": 0.55, "tall": 0.1},
-    {"clipped": 0.1, "mound": 0.75, "tall": 0.15},
-    {"clipped": 1.0},
-    {"mound": 0.85, "tall": 0.15},
-]
+
+# The plants a yard is planted from, as front-yards.js grows them (YARD_PLANTS there): each
+# plant's height band, and its crown's width band (the renderer grows its crown to it).
+PLANTS = {
+    "lilac": {"name": "common lilac", "h": [2.2, 3.2], "w": [1.8, 2.6]},
+    "spiraea": {"name": "Van Houtte's spiraea", "h": [1.3, 1.8], "w": [1.7, 2.3]},
+    "hydrangea": {"name": "smooth hydrangea, in flower", "h": [0.9, 1.25], "w": [1.1, 1.5]},
+    "rose": {"name": "garden rose, in flower", "h": [0.9, 1.3], "w": [0.8, 1.2]},
+    "arborvitae": {"name": "American arborvitae, sheared to a cone", "h": [2.0, 3.2], "w": [0.9, 1.3]},
+    "globe": {"name": "arborvitae sheared to a ball", "h": [0.8, 1.15], "w": [0.9, 1.25]},
+    "maple": {"name": "young sugar maple", "h": [5.5, 8.5], "w": [2.6, 4.0]},
+    "linden": {"name": "young linden", "h": [5.0, 8.0], "w": [2.6, 4.2]},
+}
+BEDS = {"round": "a round bed cut in the lawn, bedded out", "oval": "an oval bed, bedded out"}
+# Each lot takes one way of planting (its share of the reconstructed lots).
+SCHEMES = [("lawn", 0.26), ("stoop", 0.32), ("corners", 0.24), ("group", 0.18)]
+# ... and a stoop pair or a group takes a shrub at a corner too on this share of its lots.
+WITH_CORNER = 0.4
+PAIRS = ["globe", "globe", "hydrangea", "spiraea", "rose"]
+CORNER = ["lilac", "lilac", "arborvitae"]
+GROUP = ["hydrangea", "spiraea", "rose", "globe"]
 
 
 def seed_of(key: str) -> int:
@@ -228,12 +262,13 @@ class Plan:
             self.lay_triangles(self.tall, tri[stand & (hi >= TALL_M)])
             self.lay_triangles(self.low, tri[stand & (hi < TALL_M)])
             if any(name.startswith(m) for m in DOOR_MATS):
-                low_door = lo < 1.0 + float(np.median(lo)) if len(lo) else False
-                sel = (lo < 2.5) & low_door
+                # Every leaf whose foot stands below a raised first floor's: the front door at the
+                # top of a high stoop is an entrance as much as a door at grade (T-3223: T-3203's
+                # 2.5 m cut missed the raised doors of 39 lots, and planted across them).
+                sel = lo < DOOR_FOOT_M
                 if sel.any():
                     pts = tri[sel].reshape(-1, 2)
-                    # one door per structure at its lowest leaves' middle; a draft has one front door
-                    for cl in cluster(pts, 2.0):
+                    for cl in cluster(pts, 1.5):
                         self.doors.append((float(cl[0]), float(cl[1]), sid))
 
     def lay_polygon(self, mask, poly):
@@ -293,139 +328,283 @@ def lot_frame(p):
     return a, su, nu, float(np.linalg.norm(b - a))
 
 
-def plant_lot(p, plan: Plan, house, low, paved, sids):
-    fr = lot_frame(p)
-    if fr is None:
+class Yard:
+    """One lot's window of the plan in the lot's own frame (s along the street line, d into the
+    lot), with how much room a plant has at every cell: the half-width a crown may have there
+    and keep its edge off the house, a stoop, a fence, a walk, a door and the lot's lines."""
+
+    def __init__(self, p, plan: Plan, house, sids):
+        self.ok = False
+        fr = lot_frame(p)
+        if fr is None:
+            return
+        A, su, nu, width = fr
+        self.A, self.su, self.nu, self.width = A, su, nu, width
+        poly = np.asarray(p["polygon_local_m"], float)
+        e0, n0 = poly.min(axis=0) - 3.0
+        e1, n1 = poly.max(axis=0) + 3.0
+        c0, r0 = max(int((e0 - plan.e0) / RES), 0), max(int((n0 - plan.n0) / RES), 0)
+        c1, r1 = min(int((e1 - plan.e0) / RES) + 1, plan.w), min(int((n1 - plan.n0) / RES) + 1, plan.h)
+        self.r0, self.c0 = r0, c0
+        rr, cc = np.mgrid[r0:r1, c0:c1]
+        pe, pn = plan.centre(rr, cc)
+        self.pe, self.pn = pe, pn
+        s = (pe - A[0]) * su[0] + (pn - A[1]) * su[1]
+        d = (pe - A[0]) * nu[0] + (pn - A[1]) * nu[1]
+        self.s, self.d = s, d
+        inlot = inside(pe, pn, poly)
+        self.inlot = inlot
+        Hw = house[r0:r1, c0:c1]
+        H = Hw & inlot
+        if not H.any():
+            return
+        front = float(np.where(H, d, np.inf).min())
+        self.front = front
+        self.H = H
+        low = plan.low[r0:r1, c0:c1]
+        paved = plan.paved[r0:r1, c0:c1]
+        dh = ndimage.distance_transform_edt(~Hw) * RES
+        stoop = low & (dh <= STOOP_REACH_M)
+        fence = low & ~stoop
+        # The lot's doors: every door of a structure on it, in the window.
+        self.doors = []
+        keep = np.zeros(H.shape, bool)
+        for de, dn, sid in plan.doors:
+            if sid not in sids:
+                continue
+            ds = (de - A[0]) * su[0] + (dn - A[1]) * su[1]
+            dd = (de - A[0]) * nu[0] + (dn - A[1]) * nu[1]
+            if not (-3 <= ds <= width + 3) or dd > front + 30:
+                continue
+            keep |= (pe - de) ** 2 + (pn - dn) ** 2 <= DOOR_RADIUS_M ** 2
+            front_door = -0.5 <= ds <= width + 0.5 and dd <= front + 8.0
+            if front_door:
+                keep |= (np.abs(s - ds) <= DOOR_WAY_M) & (d <= dd + 0.5) & (d >= -1)
+            self.doors.append((r2(ds), r2(dd), front_door))
+        self.keep = keep
+        edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
+        self.terms = {
+            "the house's wall": dh - WALL_GAP_M,
+            "a stoop or its steps": edt(stoop) - STOOP_GAP_M,
+            "a fence, coping or pier": edt(fence) - LOW_GAP_M,
+            "a walk": edt(paved) - PAVED_GAP_M,
+            "a door or the way to it": edt(keep),
+            "the lot's lines": np.minimum(np.minimum(d - LOT_LINE_CLEAR_M, s - SIDE_LINE_CLEAR_M),
+                                          width - SIDE_LINE_CLEAR_M - s),
+        }
+        room = np.minimum.reduce(list(self.terms.values()))
+        room[~inlot | Hw] = -1
+        self.room = room
+        self.dh = dh
+        self.dstoop = self.terms["a stoop or its steps"] + STOOP_GAP_M
+        self.ok = True
+
+    def world(self, i):
+        return r2(self.pe.flat[i]), r2(self.pn.flat[i])
+
+    def at(self, e, n):
+        r = int((n - (self.pn[0, 0] - RES / 2)) / RES)
+        c = int((e - (self.pe[0, 0] - RES / 2)) / RES)
+        return (r, c) if 0 <= r < self.room.shape[0] and 0 <= c < self.room.shape[1] else None
+
+    def why(self, rc, r):
+        """The rule a plant of half-width r at cell rc breaks, or None."""
+        if not self.inlot[rc]:
+            return "outside its lot"
+        if self.H[rc]:
+            return "inside the house"
+        near = [f"{name} ({max(0.0, t[rc]):.2f} m of room for {r:.2f})" for name, t in self.terms.items()
+                if t[rc] < r - CHECK_SLACK_M]
+        return f"too near {', '.join(near)}" if near else None
+
+
+def plant_lot(p, plan: Plan, house, sids):
+    y = Yard(p, plan, house, sids)
+    if not y.ok:
         return None
-    A, su, nu, width = fr
-    poly = np.asarray(p["polygon_local_m"], float)
-    e0, n0 = poly.min(axis=0) - 1.0
-    e1, n1 = poly.max(axis=0) + 1.0
-    c0, r0 = max(int((e0 - plan.e0) / RES), 0), max(int((n0 - plan.n0) / RES), 0)
-    c1, r1 = min(int((e1 - plan.e0) / RES) + 1, plan.w), min(int((n1 - plan.n0) / RES) + 1, plan.h)
-    rr, cc = np.mgrid[r0:r1, c0:c1]
-    pe, pn = plan.centre(rr, cc)
-    s = (pe - A[0]) * su[0] + (pn - A[1]) * su[1]
-    d = (pe - A[0]) * nu[0] + (pn - A[1]) * nu[1]
-    inlot = inside(pe, pn, poly)
-    H = house[r0:r1, c0:c1] & inlot
-    if not H.any():
-        return None
-    # the house front: the nearest house cell to the street line, column by column
-    d_house = np.where(H, d, np.inf)
-    front = float(d_house.min())
+    front = y.front
     if front < MIN_YARD_M or front > 30:
         return None
     rng = random.Random(seed_of(p["id"]))
-
-    # the door line(s): every door of a structure on this lot within the front's reach
-    corridor = np.zeros(H.shape, bool)
-    doors = []
-    for de, dn, sid in plan.doors:
-        if sid not in sids:
-            continue
-        ds = (de - A[0]) * su[0] + (dn - A[1]) * su[1]
-        dd = (de - A[0]) * nu[0] + (dn - A[1]) * nu[1]
-        if not (-0.5 <= ds <= width + 0.5) or dd > front + 8.0:
-            continue
-        doors.append((r2(ds), r2(dd)))
-        corridor |= (np.abs(s - ds) <= DOOR_CLEAR_M) & (d <= dd + 0.5) & (d >= -1)
-
-    dist_house = ndimage.distance_transform_edt(~H) * RES
-    dist_low = ndimage.distance_transform_edt(~(low[r0:r1, c0:c1])) * RES
-    dist_paved = ndimage.distance_transform_edt(~(paved[r0:r1, c0:c1] | corridor)) * RES
-    reach = front + SIDE_REACH_M
-    usable = (inlot & ~H & (d >= LOT_LINE_CLEAR_M) & (s >= SIDE_LINE_CLEAR_M) & (s <= width - SIDE_LINE_CLEAR_M)
-              & (dist_low >= LOW_CLEAR_M) & (dist_paved >= PAVED_CLEAR_M) & (d <= reach))
-
-    def world(i):
-        return r2(pe.flat[i]), r2(pn.flat[i])
-
-    scheme = rng.choice(SCHEMES)
-    forms = list(scheme)
-    weights = [scheme[f] for f in forms]
-    spacing = rng.uniform(1.0, 1.55)
-    shrubs = []
-    taken = []
-
-    def free_of(e, n, gap):
-        return all(math.hypot(e - x, n - y) >= gap for x, y in taken)
-
-    # foundation shrubs: cells hugging the house, front first, then the sides' first metres
-    band = usable & (dist_house >= SHRUB_WALL_M[0]) & (dist_house <= SHRUB_WALL_M[1])
-    idx = np.flatnonzero(band)
-    order = sorted(idx, key=lambda i: (d.flat[i] > front + 0.9, rng.random()))
-    gaps = rng.random() < 0.35   # some lots plant in clumps with lawn between them
-    for i in order:
-        e, n = world(i)
-        if not free_of(e, n, spacing):
-            continue
-        if gaps and rng.random() < 0.3:
-            taken.append((e, n))
-            continue
-        f = rng.choices(forms, weights)[0]
-        if f == "tall" and d.flat[i] < front - 0.2:
-            f = "mound"   # a lilac at a corner or a side, not across a front's windows
-        spec = FORMS[f]
-        shrubs.append([e, n, r2(rng.uniform(*spec["r"])), r2(rng.uniform(*spec["h"])), f,
-                       r2(rng.uniform(0, 1))])
-        taken.append((e, n))
-
-    # a pictured border (Pullman's along 18th Street)
+    s, d, room = y.s, y.d, y.room
     pic = PICTURED.get(p["id"], {})
+    shrubs, trees, beds, taken = [], [], [], []
+
+    def clear_of_others(e, n, r, k=1.0):
+        return all(math.hypot(e - x, n - yy) >= (r + rr) * k for x, yy, rr in taken)
+
+    def size(key):
+        pl = PLANTS[key]
+        t = rng.random()
+        h = pl["h"][0] + (pl["h"][1] - pl["h"][0]) * t
+        w = (pl["w"][0] + pl["w"][1]) / 2 * h / ((pl["h"][0] + pl["h"][1]) / 2)
+        return r2(h), r2(w)
+
+    def best(mask, score, r, k=1.0):
+        """The best-scoring cell of `mask` with room for half-width r, clear of what is planted."""
+        idx = np.flatnonzero(mask & (room >= r))
+        if not len(idx):
+            return None
+        for i in idx[np.argsort(score.flat[idx], kind="stable")][:400]:
+            e, n = y.world(i)
+            if clear_of_others(e, n, r, k):
+                return i
+        return None
+
+    def put(key, i, grade=None, h=None, w=None):
+        if h is None:
+            h, w = size(key)
+        e, n = y.world(i)
+        row = [e, n, key, h, w] + ([grade] if grade else [])
+        (trees if key in ("maple", "linden") else shrubs).append(row)
+        taken.append((e, n, 0.4 if key in ("maple", "linden") else w / 2))
+        return h, w
+
+    # the house's front, its first metres along the sides, and its corners
+    Hf = y.H & (d <= front + 1.0)
+    s_lo, s_hi = float(s[Hf].min()), float(s[Hf].max())
+    hug = lambda r, reach=0.55: (y.dh <= r + WALL_GAP_M + reach) | (y.dstoop <= r + STOOP_GAP_M + reach)
+    front_doors = sorted([dd for dd in y.doors if dd[2]], key=lambda dd: dd[1])
+    bare = BARE.get(p["id"])
+    if bare:
+        scheme = "pictured bare"
+    elif pic:
+        scheme = "pictured"
+    else:
+        roll = rng.random()
+        acc = 0.0
+        scheme = SCHEMES[-1][0]
+        for name, share in SCHEMES:
+            acc += share
+            if roll < acc:
+                scheme = name
+                break
+
+    # A house drawn with no front door (an unworked draft) has no stoop to flank and no known
+    # way in, so its planting keeps off the front altogether: only beside its corners.
+    if not front_doors and scheme in ("stoop", "group"):
+        scheme = "corners"
+
+    if scheme == "stoop" or "stoop" in pic:
+        if front_doors:
+            ds0 = front_doors[0][0]
+            key = pic["stoop"]["plant"] if "stoop" in pic else rng.choice(PAIRS)
+            h, w = size(key)
+            r = w / 2
+            zone = hug(r) & (d <= front + 1.5)
+            left = best(zone & (s < ds0), np.abs(s - ds0) + 0.4 * np.abs(d - front), r)
+            right = best(zone & (s > ds0), np.abs(s - ds0) + 0.4 * np.abs(d - front), r)
+            if left is not None and right is not None:
+                g = pic.get("stoop", {}).get("grade")
+                put(key, left, g, h, w)
+                put(key, right, g, h, w)
+            elif scheme == "stoop":
+                # no room for a matched pair at this stoop: a pair or nothing, never one
+                scheme = "corners"
+        elif scheme == "stoop":
+            scheme = "corners"
+
+    extra_corner = scheme in ("stoop", "group") and rng.random() < WITH_CORNER
+    if scheme == "corners" or extra_corner:
+        both = scheme == "corners" and rng.random() < 0.5
+        corners = [(s_lo, -1), (s_hi, 1)]
+        rng.shuffle(corners)
+        for cs, side in corners[: 2 if both else 1]:
+            key = rng.choice(CORNER)
+            h, w = size(key)
+            r = w / 2
+            zone = hug(r, 0.7) & (d <= front + SIDE_REACH_M) & (d >= front - r - 1.0)
+            if not front_doors:
+                zone &= (s < s_lo) | (s > s_hi)
+            target_s = cs + side * (r + 0.2)
+            i = best(zone, np.hypot(s - target_s, d - (front + 0.6)), r)
+            if i is not None:
+                put(key, i, None, h, w)
+
+    if scheme == "group":
+        key = rng.choice(GROUP)
+        h, w = size(key)
+        r = w / 2
+        zone = hug(r, 0.45) & (d <= front + 0.8)
+        cand = np.flatnonzero(zone & (room >= r))
+        if len(cand):
+            i0 = int(cand[rng.randrange(len(cand))])
+            e0, n0 = y.world(i0)
+            n_ = rng.choice([2, 3, 3])
+            step = w * 0.92
+            sgn = rng.choice([-1, 1])
+            for k in range(n_):
+                ts = s.flat[i0] + sgn * k * step
+                i = best(zone, np.hypot(s - ts, d - d.flat[i0]), r, 0.85)
+                if i is None:
+                    break
+                if k and math.hypot(s.flat[i] - ts, d.flat[i] - d.flat[i0]) > 0.6:
+                    break
+                put(key, i, None, h, w)
+
+    # a pictured border (Pullman's along 18th Street), kept off the coping as every plant is
     if "border" in pic:
         bd = pic["border"]
-        edge_s = bd["inset_m"] if bd["edge"] == "low_s" else width - bd["inset_m"]
+        edge_s = bd["inset_m"] if bd["edge"] == "low_s" else y.width - bd["inset_m"]
         dd = bd["d_m"][0]
         while dd <= bd["d_m"][1]:
-            e = A[0] + su[0] * edge_s + nu[0] * dd
-            n = A[1] + su[1] * edge_s + nu[1] * dd
-            r, c = int((n - plan.n0) / RES) - r0, int((e - plan.e0) / RES) - c0
-            if 0 <= r < H.shape[0] and 0 <= c < H.shape[1] and not H[r, c] and dist_low[r, c] >= 0.3 \
-                    and dist_paved[r, c] >= PAVED_CLEAR_M:
-                f = "mound" if rng.random() < 0.7 else "tall"
-                shrubs.append([r2(e), r2(n), r2(rng.uniform(0.6, 0.85)), r2(rng.uniform(1.3, 2.1)), f,
-                               r2(rng.uniform(0, 1)), "attested"])
-                taken.append((r2(e), r2(n)))
-            dd += rng.uniform(1.0, 1.3)
+            key = "spiraea" if rng.random() < 0.7 else "lilac"
+            h, w = size(key)
+            i = best((np.abs(d - dd) <= 0.6) & (np.abs(s - edge_s) <= 1.2), np.abs(s - edge_s) + np.abs(d - dd), w / 2, 0.8)
+            if i is not None:
+                put(key, i, bd["grade"], h, w)
+            dd += rng.uniform(1.4, 1.9)
 
-    # low beds in the lawn before the house
-    beds = []
-    area = float((usable & (d < front)).sum()) * RES * RES
-    want = 0 if area < 14 else min(3, 1 + int(area // 45))
-    if want and rng.random() < 0.15:
-        want -= 1
-    open_lawn = usable & (d < front - 1.0) & (d >= 1.4)
-    clear = ndimage.distance_transform_edt(open_lawn) * RES
-    for _ in range(want):
-        kind = rng.choice(["round", "round", "oval", "border"])
-        a_ = rng.uniform(0.7, 1.15) if kind != "border" else rng.uniform(1.6, 2.6)
-        b_ = a_ if kind == "round" else (a_ * rng.uniform(0.55, 0.75) if kind == "oval" else rng.uniform(0.35, 0.5))
-        need = (a_ if kind == "round" else max(a_, b_)) + 0.35
-        cand = np.flatnonzero(clear >= need)
-        cand = [i for i in cand if free_of(*world(i), need + 0.5)]
-        if not cand:
-            break
-        i = rng.choice(cand)
-        e, n = world(i)
-        # a strip bed lies along the front; the others square to the lot
-        heading = math.degrees(math.atan2(su[0], su[1]))
-        beds.append([e, n, r2(a_), r2(b_), r2(heading % 360), kind, rng.randrange(4)])
-        taken.append((e, n))
-        yy, xx = np.ogrid[:clear.shape[0], :clear.shape[1]]
-        rr_, cc_ = np.unravel_index(i, clear.shape)
-        clear[(yy - rr_) ** 2 + (xx - cc_) ** 2 <= ((need + 0.6) / RES) ** 2] = 0
+    # young trees: Pullman's, pictured; elsewhere, now and then on a deep lot
+    want_trees = 0
+    tree_key = None
+    if "trees" in pic:
+        want_trees, tree_key = pic["trees"]["count"], pic["trees"]["plant"]
+    elif not bare and front >= 7.0 and rng.random() < 0.25:
+        want_trees, tree_key = 1, rng.choice(["maple", "linden"])
+    if want_trees:
+        lawn = (y.dh >= 3.5) & (d >= 2.0) & (d <= front - 2.0) & (y.terms["a walk"] >= 0.9) \
+            & (y.terms["a door or the way to it"] >= 1.2)
+        for k in range(want_trees):
+            if "trees" in pic:
+                # spread through the lawn as the views show them: each as far from every
+                # other planting as the lawn allows
+                near = np.full(room.shape, 30.0)
+                for x, yy, _ in taken:
+                    near = np.minimum(near, np.hypot(y.pe - x, y.pn - yy))
+                score = -near + rng.random() * 0.01
+            else:
+                frac = s / max(1.0, y.width)
+                score = np.minimum(np.abs(frac - 0.18), np.abs(frac - 0.82)) + 0.02 * np.abs(d - front * 0.45)
+            i = best(lawn, score, 0.4, 1.0)
+            if i is None:
+                break
+            put(tree_key, i, pic.get("trees", {}).get("grade"))
+
+    # a bed in the lawn: on a quarter of the planted lots deep enough to hold one
+    if not bare and scheme != "lawn" and front >= 6.5 and rng.random() < 0.25:
+        kind = rng.choice(["round", "round", "oval"])
+        a_ = rng.uniform(0.85, 1.15) if kind == "round" else rng.uniform(1.2, 1.5)
+        b_ = a_ if kind == "round" else a_ * rng.uniform(0.55, 0.7)
+        R = max(a_, b_)
+        lawn = (d <= front - R - 1.2) & (y.terms["a walk"] >= R + 0.5) & (y.terms["a door or the way to it"] >= R + 0.6)
+        i = best(lawn, -room + 0.3 * np.abs(d - front * 0.5), R + 0.3, 1.0)
+        if i is not None:
+            e, n = y.world(i)
+            heading = math.degrees(math.atan2(y.su[0], y.su[1]))
+            beds.append([e, n, r2(a_), r2(b_), r2(heading % 360), kind, rng.randrange(4)])
+            taken.append((e, n, R))
 
     # creeper on the walls a picture shows it on
     creeper = []
     if "creeper" in pic:
         cr = pic["creeper"]
-        # a wall that faces the street: the house stands just behind the cell, into the lot
+        H = y.H
         sh = int(round(0.5 / RES))
-        behind = ndimage.shift(H.astype(np.uint8), (-nu[1] * sh, -nu[0] * sh), order=0, cval=0) > 0
-        hug = (inlot & ~H & (dist_house <= 0.3) & behind & (d < front + 6.0) & (dist_paved >= 0.2)
-               & (dist_low >= 0.15))
-        cand = list(np.flatnonzero(hug))
+        behind = ndimage.shift(H.astype(np.uint8), (-y.nu[1] * sh, -y.nu[0] * sh), order=0, cval=0) > 0
+        hugc = (y.inlot & ~H & (y.dh <= 0.3) & behind & (d < front + 6.0) & (y.terms["a walk"] >= 0.0)
+                & (y.terms["a door or the way to it"] >= 0.0))
+        cand = list(np.flatnonzero(hugc))
         rng.shuffle(cand)
         cand.sort(key=lambda i: s.flat[i])
         last = -9.0
@@ -435,23 +614,27 @@ def plant_lot(p, plan: Plan, house, low, paved, sids):
             last = s.flat[i]
             if rng.random() > cr["cover"]:
                 continue
-            e, n = world(i)
-            creeper.append([e, n, r2(math.degrees(math.atan2(-nu[0], -nu[1])) % 360),
+            e, n = y.world(i)
+            creeper.append([e, n, r2(math.degrees(math.atan2(-y.nu[0], -y.nu[1])) % 360),
                             r2(rng.uniform(1.2, 1.9)), r2(rng.uniform(*cr["height_m"]))])
 
-    grade = "reconstructed"
-    return {
+    out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
         "addresses": p.get("addresses_1911", []),
-        "frame": {"origin": [r2(A[0]), r2(A[1])], "along": [round(float(su[0]), 5), round(float(su[1]), 5)],
-                  "into": [round(float(nu[0]), 5), round(float(nu[1]), 5)], "width_m": r2(width)},
-        "front_m": r2(front), "doors": doors, "scheme": SCHEMES.index(scheme),
-        "grade": grade, "shrubs": shrubs, "beds": beds, "creeper": creeper,
-        **({"pictured": {k: v for k, v in pic.items() if k in ("sources", "pictures")},
-            "pictured_notes": {k: {"grade": v["grade"], "note": v["note"]} for k, v in pic.items()
-                               if isinstance(v, dict) and "grade" in v}} if pic else {}),
+        "frame": {"origin": [r2(y.A[0]), r2(y.A[1])], "along": [round(float(y.su[0]), 5), round(float(y.su[1]), 5)],
+                  "into": [round(float(y.nu[0]), 5), round(float(y.nu[1]), 5)], "width_m": r2(y.width)},
+        "front_m": r2(front), "doors": [[a, b] for a, b, f in y.doors if f], "scheme": scheme,
+        "grade": "attested" if bare else "reconstructed",
+        "shrubs": shrubs, "trees": trees, "beds": beds, "creeper": creeper,
     }
-
+    if bare:
+        out["pictured"] = {"sources": [bare[0]]}
+        out["pictured_notes"] = {"bare": {"grade": "attested", "note": bare[1]}}
+    elif pic:
+        out["pictured"] = {k: v for k, v in pic.items() if k in ("sources", "pictures")}
+        out["pictured_notes"] = {k: {"grade": v["grade"], "note": v["note"]} for k, v in pic.items()
+                                 if isinstance(v, dict) and "grade" in v}
+    return out
 
 # ---------------------------------------------------------------- the district
 
@@ -503,38 +686,45 @@ def build(laid=None):
     grid, parcels, plan, house, by_parcel = laid or lay_district()
     lots = []
     for p in parcels:
-        lot = plant_lot(p, plan, house, plan.low, plan.paved, by_parcel.get(p["id"], set()))
+        lot = plant_lot(p, plan, house, by_parcel.get(p["id"], set()))
         if lot:
             lots.append(lot)
     lots.sort(key=lambda l: l["parcel"])
+    schemes = {}
+    for l in lots:
+        schemes[l["scheme"]] = schemes.get(l["scheme"], 0) + 1
     summary = {
         "lots": len(lots),
         "shrubs": sum(len(l["shrubs"]) for l in lots),
+        "trees": sum(len(l["trees"]) for l in lots),
         "beds": sum(len(l["beds"]) for l in lots),
         "creeper_patches": sum(len(l["creeper"]) for l in lots),
-        "attested_shrubs": sum(1 for l in lots for s in l["shrubs"] if len(s) > 6),
-        "lots_with_a_door_line": sum(1 for l in lots if l["doors"]),
+        "attested_plants": sum(1 for l in lots for s in l["shrubs"] + l["trees"] if len(s) > 5),
+        "lots_with_a_door": sum(1 for l in lots if l["doors"]),
+        "schemes": dict(sorted(schemes.items())),
     }
     return {
-        "_doc": "The 1904 district's front yards (T-3203): foundation shrubs along each house lot's front "
-                "and the first metres of its sides, low beds in the lawn before the house, and creeper where a "
-                "picture shows it. GENERATED by "
+        "_doc": "The 1904 district's front yards (T-3203, T-3223): garden shrubs, young trees, a bed and ivy, "
+                "each lot planted as its photograph shows it or, unpictured, in one of the period's few ways, "
+                "and kept clear of every door, stoop, walk and fence. GENERATED by "
                 "tools/plant_prairie_1904_front_yards.py from data/street_grid/1904.json, the 1904 "
                 "sidecars' baked models and the traced Sanborn footprints -- do not hand-edit; re-run the "
-                "tool. Local ENU metres of data/datum.json. shrubs: [e, n, radius_m, height_m, form, tone, "
-                "(grade if not the lot's)]; beds: [e, n, half_length_m, half_width_m, heading_deg, kind, "
-                "palette]; creeper: [e, n, facing_deg, width_m, height_m]. The lawn is the ground's own sward.",
-        "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3203",
+                "tool. Local ENU metres of data/datum.json. shrubs and trees: [e, n, plant, height_m, "
+                "crown_width_m, (grade if not the lot's)]; beds: [e, n, half_length_m, half_width_m, "
+                "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m]. The lawn is "
+                "the ground's own sward.",
+        "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
         "generated_by": "tools/plant_prairie_1904_front_yards.py",
         "liberty": LIBERTY,
-        "forms": FORMS, "beds": BEDS,
+        "plants": PLANTS, "beds": BEDS,
         "placement": {
-            "raster_m": RES, "shrub_wall_m": list(SHRUB_WALL_M), "side_reach_m": SIDE_REACH_M,
-            "lot_line_clear_m": LOT_LINE_CLEAR_M, "door_clear_m": DOOR_CLEAR_M, "low_clear_m": LOW_CLEAR_M,
-            "paved_clear_m": PAVED_CLEAR_M, "min_yard_m": MIN_YARD_M,
-            "note": "Shrubs stand 0.45-0.95 m off the house's walls, clear of the lot line, its boundary, every "
-                    "stoop, pier and paved walk, and of a 2.7 m way from each front door straight to the lot "
-                    "line; beds stand in the open lawn before the house. Seeded by the parcel's id.",
+            "raster_m": RES, "door_radius_m": DOOR_RADIUS_M, "door_way_half_m": DOOR_WAY_M,
+            "stoop_gap_m": STOOP_GAP_M, "wall_gap_m": WALL_GAP_M, "low_gap_m": LOW_GAP_M,
+            "paved_gap_m": PAVED_GAP_M, "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
+            "schemes": dict(SCHEMES),
+            "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, "
+                    "coping and walk, a 2 m disk round every door, and a 3.2 m way from each front door to "
+                    "the lot line. Lots a photograph shows bare are bare. Seeded by the parcel's id.",
         },
         "summary": summary,
         "lots": lots,
@@ -542,76 +732,104 @@ def build(laid=None):
 
 
 def collisions(data, laid) -> list[str]:
-    """Every planting the committed file lays that now stands on something built: in a house,
-    on a stoop, fence, pier or walk, or across a door's way. A rebake that moves a stoop or a
-    walk under a shrub is what this catches; one that moves nothing a yard touches is not."""
+    """Every planting the file lays that now breaks a clearance against the models as they stand:
+    in a house, on or against a stoop, a step, a fence or a walk, or across a door or its way. A
+    rebake that moves a stoop under a shrub is what this catches; one that moves nothing a yard
+    touches is not (CHECK_SLACK_M of drift is allowed)."""
     grid, parcels, plan, house, by_parcel = laid
-    near_low = ndimage.distance_transform_edt(~plan.low) * RES
-    near_paved = ndimage.distance_transform_edt(~plan.paved) * RES
+    by_id = {p["id"]: p for p in parcels}
     out = []
-
-    def cell(e, n):
-        r, c = int((n - plan.n0) / RES), int((e - plan.e0) / RES)
-        return (r, c) if 0 <= r < plan.h and 0 <= c < plan.w else None
-
     for lot in data["lots"]:
-        A = np.array(lot["frame"]["origin"]); su = np.array(lot["frame"]["along"]); nu = np.array(lot["frame"]["into"])
-        doors = []
-        for de, dn, sid in plan.doors:
-            if sid in by_parcel.get(lot["parcel"], set()):
-                ds = (de - A[0]) * su[0] + (dn - A[1]) * su[1]
-                dd = (de - A[0]) * nu[0] + (dn - A[1]) * nu[1]
-                if -0.5 <= ds <= lot["frame"]["width_m"] + 0.5 and dd <= lot["front_m"] + 8.0:
-                    doors.append((ds, dd))
-        things = [("shrub", s[0], s[1], 0.0) for s in lot["shrubs"]] + \
-                 [("bed", b[0], b[1], min(b[2], b[3]) * 0.5) for b in lot["beds"]]
-        for kind, e, n, pad in things:
-            rc = cell(e, n)
+        p = by_id.get(lot["parcel"])
+        if p is None:
+            out.append(f"{lot['parcel']}: no such lot in the street grid")
+            continue
+        y = Yard(p, plan, house, by_parcel.get(lot["parcel"], set()))
+        if not y.ok:
+            if lot["shrubs"] or lot["trees"] or lot["beds"]:
+                out.append(f"{lot['parcel']}: planted, but no house stands on it now")
+            continue
+        an = lambda w: ("an " if w[0] in "aeiou" else "a ") + w
+        things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]] + \
+                 [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4) for t in lot["trees"]] + \
+                 [("a bed", b[0], b[1], max(b[2], b[3])) for b in lot["beds"]]
+        for name, e, n, r in things:
+            rc = y.at(e, n)
             if rc is None:
+                out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N is outside the lot's window")
                 continue
-            ds = (e - A[0]) * su[0] + (n - A[1]) * su[1]
-            dd = (e - A[0]) * nu[0] + (n - A[1]) * nu[1]
-            why = None
-            if house[rc]:
-                why = "inside a house"
-            elif near_low[rc] < 0.25 + pad:
-                why = "on a stoop, fence, pier or coping"
-            elif near_paved[rc] < 0.15 + pad:
-                why = "on a paved walk"
-            elif any(abs(ds - x) < DOOR_CLEAR_M - 0.3 and dd <= y for x, y in doors):
-                why = "across the way to a front door"
+            why = y.why(rc, r)
             if why:
-                out.append(f"{lot['parcel']}: a {kind} at {e:.2f} E, {n:.2f} N stands {why}")
+                out.append(f"{lot['parcel']}: {name} at {e:.2f} E, {n:.2f} N stands {why}")
     return out
+
+
+def self_test() -> int:
+    """Plant each fault the check refuses on a real lot, and prove it is refused."""
+    laid = lay_district()
+    data = build(laid)
+    ok = True
+
+    def case(label, mutate, want):
+        nonlocal ok
+        d = json.loads(json.dumps(data))
+        mutate(d)
+        bad = collisions(d, laid)
+        hit = any(want in b for b in bad)
+        ok &= hit
+        print(f"   self-test | {'ok  ' if hit else 'FAIL'} the check refuses {label}"
+              + (f": {bad[0]}" if bad else ""))
+
+    clean = collisions(data, laid)
+    print(f"   self-test | {'ok  ' if not clean else 'FAIL'} the planted file passes its own check"
+          + (f": {clean[0]}" if clean else ""))
+    ok &= not clean
+    lot = next(l for l in data["lots"] if l["doors"] and l["shrubs"] and l["front_m"] >= 4)
+    A = np.array(lot["frame"]["origin"]); su = np.array(lot["frame"]["along"]); nu = np.array(lot["frame"]["into"])
+    ds, dd = lot["doors"][0]
+    at = lambda s_, d_: [r2(A[0] + su[0] * s_ + nu[0] * d_), r2(A[1] + su[1] * s_ + nu[1] * d_)]
+
+    def shrub_at(s_, d_):
+        def m(d):
+            l = next(x for x in d["lots"] if x["parcel"] == lot["parcel"])
+            l["shrubs"].append([*at(s_, d_), "globe", 1.0, 1.0])
+        return m
+    case("a shrub on the way to a front door", shrub_at(ds, max(1.5, lot["front_m"] - 2.5)), "a door")
+    case("a shrub beside a front door", shrub_at(ds + 1.2, min(dd, lot["front_m"]) - 0.7), "door")
+    case("a shrub in the house", shrub_at(ds, dd + 3.0), "inside the house")
+    return 0 if ok else 1
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
+    if args.self_test:
+        return self_test()
     laid = lay_district()
     data = build(laid)
     text = json.dumps(data, indent=1, ensure_ascii=False) + "\n"
     if args.check:
-        # THE CHECK ASKS TWO QUESTIONS, because the yards stand on the baked houses, and every
-        # house ticket rebakes one. Byte for byte is the first: the committed file is what the
-        # tool writes. When it is not, the file is held to what matters instead, that no
-        # planting it lays stands in a house, on a stoop, fence or walk, or across a door's
-        # way, against the models as they stand now; so a rebake that moves nothing a yard
-        # touches does not turn the gate red, and one that does says what moved.
+        # THE CHECK ASKS TWO QUESTIONS, because the yards stand on the baked houses and every
+        # house ticket rebakes one. Whatever the file, no planting in it may stand in a house,
+        # against a stoop, a step, a fence or a walk, or across a door or its way, against the
+        # models as they stand now (T-3223). Then: it is what the tool writes; a file merely
+        # behind a rebake that moved nothing a yard touches passes, and says to refresh it.
         if not OUT.exists():
             print(f"{OUT.relative_to(ROOT)} is missing: run tools/plant_prairie_1904_front_yards.py", file=sys.stderr)
             return 1
-        if OUT.read_text() == text:
-            print(f"front yards: {OUT.relative_to(ROOT)} is what the tool writes ({data['summary']})")
-            return 0
         bad = collisions(json.loads(OUT.read_text()), laid)
         if bad:
             for line in bad[:20]:
                 print(f"  {line}", file=sys.stderr)
-            print(f"{OUT.relative_to(ROOT)}: {len(bad)} planting(s) now stand on something built: "
-                  "re-run tools/plant_prairie_1904_front_yards.py", file=sys.stderr)
+            print(f"{OUT.relative_to(ROOT)}: {len(bad)} planting(s) stand on something built or across a "
+                  "door's way: re-run tools/plant_prairie_1904_front_yards.py", file=sys.stderr)
             return 1
+        if OUT.read_text() == text:
+            print(f"front yards: {OUT.relative_to(ROOT)} is what the tool writes, and every planting clears "
+                  f"every door, stoop, walk and fence ({data['summary']})")
+            return 0
         print(f"front yards: {OUT.relative_to(ROOT)} is behind the models (a house was rebaked since), "
               "and every planting still clears what is built; re-run the tool to refresh it")
         return 0
