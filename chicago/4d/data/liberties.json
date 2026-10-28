@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 836,
+  "count": 837,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59402,6 +59402,34 @@
         "T-3216",
         "T-3221",
         "T-3229"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-gable-loggia-1890",
+      "title": "1801 Prairie's gabled section given an open loggia in its top storey",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house's gabled section on 18th Street (`bays` p gable, its third storey) carries an open loggia where later work laid a glazed mullioned and transomed pair: K06's new open opening (k06.opening.loggia open pair), the same 2.0 by 1.9 m opening on the same 9.5 m sill under the same 11.4 m head and moulded surround, cut as two openings on a 0.2 m stone post with no frame, sash or glass, the hole carried on past its reveal and capped, in the kit's dark backing finish. **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), through later work's camera, shows the gabled section's top storey behind the oriel's balustrade as dark and open (x 382-422 px, its head about 11.4 m), two openings either side of a slender post, under the coped gable. **What is invented or held by the kit.** The loggia's depth, its floor, its back wall and whatever stood in it are not seen, so the void runs back the bay kit's recess depth (0.55 m behind the face) in one dark finish; the post is the kit's square stone mullion, about the print's width, where the print's may be a turned colonnette; the surround is the kit's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the 18th Street flank, or the house's drawings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3001",
+        "T-3074"
       ]
     },
     {

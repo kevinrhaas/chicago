@@ -27,7 +27,8 @@ clause is a rule here:
   support    a bay on grade stands on its plinth; an oriel's corbel courses each oversail
              the one below by no more than the data's ratio and the lowest still bears
   light      the light tier keeps the full tier's silhouette and costs at most a set
-             fraction of its triangles
+             fraction of its triangles (T-1890: a bay holding an open opening, a loggia's,
+             may state its own fraction up to 0.65, with its reason)
   costs      every variant inside its triangle budget, at both tiers
   specimen   the committed specimen GLB is the generator's bytes
 """
@@ -550,9 +551,22 @@ def rule_doubled(b):
     return []
 
 
-def rule_light(full, light, data):
+def rule_light(full, light, data, v=None):
     fails = []
     cv = data["curves"]["light"]
+    ratio = cv["max_triangle_ratio"]
+    lt = (v or {}).get("light_tier")
+    if lt:
+        # T-1890: a bay may state its own ratio, with its reason, only for an OPEN opening it
+        # holds (a loggia's: no sash, blind or curtain there for the light tier to drop)
+        k06 = {x["id"]: x for x in K.K6.load()["variants"]}
+        if not any(k06.get(w["opening"], {}).get("operation") == "open" for st in v["storeys"] for w in st["windows"]):
+            fails.append("light: a bay states its own light_tier ratio but holds no open opening to warrant it")
+        elif not str(lt.get("why", "")).strip() or not cv["max_triangle_ratio"] < lt["max_triangle_ratio"] <= 0.65:
+            fails.append(f"light: a bay's own light_tier ratio {lt.get('max_triangle_ratio')} must lie over "
+                         f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
+        else:
+            ratio = lt["max_triangle_ratio"]
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
@@ -563,9 +577,9 @@ def rule_light(full, light, data):
         fails.append(f"silhouette: the light tier's extent is {dev * 1000:.1f} mm off the full tier's "
                      f"(allowed {cv['max_sagitta_m'] * 1000:.0f} mm)")
     tf, tl = K.triangles(full), K.triangles(light)
-    if tl > cv["max_triangle_ratio"] * tf:
+    if tl > ratio * tf:
         fails.append(f"light: the light tier costs {tl} triangles, {tl / tf:.2f} of the full tier's {tf} "
-                     f"(allowed {cv['max_triangle_ratio']})")
+                     f"(allowed {ratio})")
     return fails
 
 
@@ -581,7 +595,7 @@ def check_variant(v, data, full=None, light=None):
     tracer = Tracer(full)
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
             + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
-            + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data)
+            + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
             + rule_costs(full, data, "full") + rule_costs(light, data, "light"))
 
 
@@ -672,6 +686,9 @@ def self_test(data) -> int:
     def m_coarse(d):
         d["curves"]["light"]["max_seg_deg"] = 40.0
 
+    def m_light_own(d):   # T-1890: a bay's own ratio, with no open opening to warrant it
+        _v(d, "k08.bay.canted")["light_tier"] = {"max_triangle_ratio": 0.6, "why": "no reason"}
+
     cases = [
         ("a window off the end of its run", m_pier, "k08.bay.canted", "pier:"),
         ("two windows on one run, side by side into each other", m_overlap, "k08.bay.bowed", "overlap:"),
@@ -686,6 +703,7 @@ def self_test(data) -> int:
         ("a bay over its budget", m_budget, "k08.bay.bowed", "costs:"),
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),
+        ("a glazed bay stating its own light-tier ratio", m_light_own, "k08.bay.canted", "holds no open opening"),
     ]
     bad = 0
     for name, mut, vid, want in cases:
