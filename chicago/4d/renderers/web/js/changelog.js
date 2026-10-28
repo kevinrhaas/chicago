@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2387, ts: '2026-10-28T14:21:33.563Z', date: 'Oct 28, 2026, 9:21 AM CT', title: '1904 streets and yards: no hard lines across the grass and paving', kind: 'fix',
+    items: [
+      'The green strip between the lawns and the sidewalk is gone: each yard\'s grass now runs right up to the walk, and the front walks meet it.',
+      'Nineteen front lawns on Prairie Avenue now share the ground\'s own grass, so a lawn no longer ends in a straight line at its side yard (1801 Prairie\'s, for one).',
+      'The curb tops no longer dip into the gutter, and the flat pale strips beside the corner ramps at Prairie and 18th, and at Indiana and Calumet at 20th, are paved over.',
+      'Where a cross street\'s paving wears into the avenue\'s, the fade now softens at the corners too, instead of stopping on a straight edge.',
+    ] },
   { v: 2386, ts: '2026-10-28T13:34:09.705Z', date: 'Oct 28, 2026, 8:34 AM CT', title: '1827 Prairie\'s south flank steps out, and its pavilion roof is reshaped', kind: 'feature',
     items: [
       'The back half of the Doane house\'s south side now steps 1.6 m out from the front half, in stone to the main cornice, as the 1911 fire-insurance map draws it.',
