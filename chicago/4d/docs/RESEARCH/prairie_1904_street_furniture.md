@@ -39,12 +39,24 @@ checked against Taylor 2135 and the second 2140 view:
 | lantern | clear panes, a corner bar and a middle bar on each face, tapering from about 0.17 m at its foot (2.45 m) to 0.44 m at a projecting rim (2.77 m) | milky panes, 0.22-0.40 m | clear panes, both bars, the taper and the rim |
 | roof | a steep four-sided roof, pale like the rim (tinned sheet), to a vent cap and a knob at about 3.1 m | a dark pyramidal cap and a finial | the steep roof, vent cap and knob, pale |
 
+**T-3231, read again at the owner's word** ("the top of the lamp post ... there are glass what looks
+like panels in the photos like the bottom part and those two pieces that come up ... they curve and
+join, they dont stick up"). Enlarged, the 1811 print's lantern top is not sheet: the trees behind
+show through it as through the lower panes, between four iron hips, under a small cap. The arms do
+not run straight to the lantern's corners; they bend out of a collar on the stem and turn up into
+the foot's corners, a cup under the lantern. So the top is drawn glazed on iron hips, with an iron
+waist band where the two glasses meet, a small pale cap, vent and knob, and the four arms are bent
+bars ending in the foot's corners.
+
 Taylor 2135's post shows a taller flared foot and no boss at its scale; one post still stands for
 all, and the 1811 form is the one read whole. Before and after:
 ![1811 and Taylor 2135 against the new post, and T-3199's](street-furniture-3219/lamp-before-after.jpg)
 
 **At the corners.** Taylor 2135: the post stands on a small square stone footing at the curb corner,
-between the two crossing ramps. The Detroit view and the museum's halftone of the finished Pullman
+between the two crossing ramps, its top level with the walk; T-3199 drew that as a block standing
+0.16-0.28 m proud of the parkway at every corner, which the owner doubted (T-3231). Now only the
+Glessner corner has it, as a stone pad level with the walk; every other corner lamp stands on the
+parkway. The Detroit view and the museum's halftone of the finished Pullman
 house: the Pullman corner (north-east of 18th and Prairie) has its post in a curbed grass plot at the
 curb corner. The Greene stereograph shows the Tucker corner (north-west of 22nd and Prairie) the same
 way, c. 1876-81. The Ward engraving of 1887 draws one at the east parkway's corner at 20th Street.

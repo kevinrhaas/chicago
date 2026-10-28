@@ -34971,8 +34971,10 @@ with their capitals and lozenges, are not built and stay open in the Taylor matc
 **Decision:** a cast-iron gas lamp post stands at every intersection corner of the district's drawn
 streets (28 corners) and along every block face's parkway (`data/street_furniture/1904.json`,
 written by `tools/lay_prairie_1904_street_furniture.py`). A corner lamp stands in the corner square
-where the two sidewalk spaces meet, 1.5 ft inside both curbs, on a small stone footing, between the
-two corner crossings. Seven lamps stand where a photograph shows them in front of a house (1801/1811,
+where the two sidewalk spaces meet, 1.5 ft inside both curbs, between the two corner crossings; the
+Glessner corner's on a stone pad level with the walk, as Taylor 2135 shows it, the rest on the
+parkway (T-3231: the owner doubted the raised footings once drawn at every corner, and the Pullman
+and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811,
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
 eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
@@ -34980,8 +34982,9 @@ of a street staggered, on the parkway 0.4 m off the walk, moved along the parkwa
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
 same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
 collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four
-scrolled arms, a clear four-sided lantern tapering out to a projecting rim, a steep pale roof, a vent
-cap and a knob, about 3.1 m. The scene has no night, so none is lit.
+arms bent up into the lantern's foot, a clear four-sided lantern tapering out to an iron waist band,
+a steep glazed top on iron hips (T-3231: the 1811 print sees the trees through it), a small cap, a
+vent and a knob, about 3.1 m. The scene has no night, so none is lit.
 **What it stands on:** the post's form from the 1811 photograph (`chicagology_1811_ames_photo`),
 J. W. Taylor's no. 2135 (`taylor_2135_glessner_exterior_1887_1889`) and the second 2140 photograph
 (`chicagology_2140_photo_b`); the corner lamps from those and from the Detroit Publishing Pullman
@@ -34993,13 +34996,14 @@ they stand before. That 1904 is gas: every electric standard in the Prairie libr
 dated after it.
 **What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
-the pictures show four; the footing at every corner, where Taylor 2135 shows one; one post for the
+the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
-the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass.
+the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the
+glazed top's frame drawn as a plain cup and four hips.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
-**Ticket:** T-3199, T-3219.
+**Ticket:** T-3199, T-3219, T-3231.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
 
