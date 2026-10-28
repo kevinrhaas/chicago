@@ -35419,19 +35419,20 @@ the pair's corner. The pair's fronts are a mirrored composition, so each house's
 its outer side only (`boundary.runs`, a K11 option added for this: `["south"]` at 1706, `["north"]` at
 1700), and neither has a side passage or a side gate, the pair being built to its lot's lines.
 **What is invented or held by the kit.** The gateways' places along the street line are set square to
-each flight (K11's rule): T-3211's camera, fitted on the townhouses' front alone, cannot place things
-nine metres before that front to better than a few metres, so the photograph's gateway does not
-confirm or refute the place. The railing's line stands 8.7 m before the front, about 0.2 m inside
+each flight (K11's rule, its walk running straight). T-3211's camera, fitted on the townhouses' front
+alone, cannot place things nine metres before that front to better than a few metres; the 1901
+construction photograph's oblique camera (T-3212) can, to about 0.15 m, and it puts 1706's gateway
+about 1.6 m south of the one laid: written open in 1706's `ghm_construction_1901` match record. The railing's line stands 8.7 m before the front, about 0.2 m inside
 1708's, because the pair's record puts the public walk 0.3 m nearer the houses than 1708's does. The
 railing's bars and height, the posts' section and height (1708's), the gates' leaves and their state
 (open, 70 degrees), the walks' width, flags and wear, and the bare strip at the wall foot are the
 kits'. No lawn is laid (`lawn: none`): the yards' grass is the app's own ground. No `grade_m` is set:
 the app's ground under the pair's yards was not measured (1708's, beside it, rises 7-18 mm, under the
-flags' 60 mm). The 1901 construction photograph shows an earlier railing, on a stone curb, running
-from 1708's past the pair's party line with piers before 1706's door: that is the railing of the
-building years (perhaps the old house at 1702's), argued in the pair's `ghm_construction_1901` match
-records, and is not built for 1904.
-**How to resolve:** a photograph showing the pair's yards nearer the street line, or a second camera
-on Chicagology's picture fitted on the curb and the stair feet as well as the front.
+flags' 60 mm). The 1901 construction photograph shows the railing already standing during the
+build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there,
+as Chicagology's later photograph shows it: so it is read as the 1904 railing.
+**How to resolve:** a K11 gateway set off its flight's axis with a walk that turns to it (1706's, about
+1.6 m south); a photograph showing the pair's yards nearer the street line, or a second camera on
+Chicagology's picture fitted on the curb and the stair feet as well as the front.
 **Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.boundary`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.boundary`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3212.

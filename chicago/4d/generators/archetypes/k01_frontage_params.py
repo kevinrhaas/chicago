@@ -1797,8 +1797,11 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
              and o.component != "k01.opening.area_light"]
     for j, b in enumerate(si.get("balconettes") or ()):
         need = {"from_s_m", "to_s_m", "floor_m", "proud_m", "height_m", "slab_m", "consoles"}
-        if set(b) != need:
-            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)}")
+        # T-3212: `before_light: true`, a guard standing before the foot of a light that runs
+        # down behind it to a sill over the shelf (1700-1706 Prairie's principal windows: the
+        # 1901 construction photograph's openings and Chicagology's sashes)
+        if set(b) - {"before_light"} != need or b.get("before_light", True) is not True:
+            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)} (and before_light: true)")
         s0, s1, fl, d, h, sl, n = (float(b["from_s_m"]), float(b["to_s_m"]), float(b["floor_m"]),
                                    float(b["proud_m"]), float(b["height_m"]), float(b["slab_m"]), b["consoles"])
         if not (0.6 <= s1 - s0 <= 3.0 and 0.15 <= d <= 0.9 and 0.6 <= h <= 1.1 and 0.08 <= sl <= 0.25
@@ -1806,7 +1809,13 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
             raise ParamError(f"street_front_iron.balconettes[{j}]: 0.6-3.0 m long, 0.15-0.9 m proud, a guard "
                              f"0.6-1.1 m high on a slab 0.08-0.25 m deep, on 0 or 2-4 consoles")
         over = [o for o in front if s0 < o.s_m < s1 and o.sill_m > fl]
-        if not over or any(o.sill_m < fl + h - 0.05 for o in over):
+        if b.get("before_light"):
+            low = min(over, key=lambda o: o.sill_m) if over else None
+            if low is None or not fl + sl <= low.sill_m < fl + h - 0.05 \
+                    or any(o.sill_m < fl + h - 0.05 for o in over if o is not low):
+                raise ParamError(f"street_front_iron.balconettes[{j}] before_light: a light's sill stands over "
+                                 f"the shelf ({fl + sl:.2f} m) and under the guard's top ({fl + h:.2f} m)")
+        elif not over or any(o.sill_m < fl + h - 0.05 for o in over):
             raise ParamError(f"street_front_iron.balconettes[{j}] stands under a street window, its guard "
                              f"under the sill ({fl + h:.2f} m)")
         bals.append({"from_s_m": s0, "to_s_m": s1, "floor_m": fl, "proud_m": d, "height_m": h, "slab_m": sl,

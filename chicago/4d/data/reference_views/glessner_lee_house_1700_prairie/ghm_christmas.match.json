@@ -2,7 +2,7 @@
   "structure_id": "glessner_lee_house_1700_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
-  "glb_sha256": "148938aa166861bdb5e1b7eddd6df163cc269d6e75d545bc553441fecf6beacb",
+  "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583",
   "camera_sha256": "0a66885c0e3407c0f7438e6923dede1f8f9f56a32cb3dd4a386e47eb81b3b19a",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "148938aa166861bdb5e1b7eddd6df163cc269d6e75d545bc553441fecf6beacb"
+      "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583"
     },
     {
       "structure_id": "george_glessner_house_1706_prairie",
@@ -42,7 +42,7 @@
         11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "1151eff1cc5455ade97f8aa393bac81326d1253f68838ac661ed441c6cd088b4"
+      "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -61,10 +61,10 @@
         18.550299111753638
       ],
       "rotation_y": 0,
-      "glb_sha256": "092359cfc94ff807e4bbdf02e4e0c078571c42de4844f2dbe1971bdead918b4f"
+      "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8"
     }
   ],
-  "group_sha256": "6600b1c0b0eb2ca98141a21902c8ffafa2a6e4f3b8ab00fb864a40cca465cb8a",
+  "group_sha256": "56efdd107941fb3268e6519fa03c6d465243b8d6a3c2db4daa57fc2bd24b37b6",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_lee_house_1700_prairie/ghm_christmas-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -81,7 +81,7 @@
     {
       "what": "the eight upper windows, the eight arched principal windows' places and the balconettes",
       "status": "fixed",
-      "how": "T-3211: as built from Chicagology's photograph; they render on this print's within about 5 px"
+      "how": "T-3211: as built from Chicagology's photograph; they render on this print's within about 5 px T-3212: the arched lights now run down behind the balconettes to a sill about 1.45 m over grade."
     },
     {
       "what": "both porches, 1706's at the south end and 1700's at the north, their columns, entablatures and balcony railings",
@@ -101,7 +101,7 @@
     {
       "what": "the iron fence before 1700",
       "status": "within tolerance",
-      "how": "T-3211: the two pictures disagree about the fences (Chicagology shows 1700's front open), and the front boundaries are T-3205's"
+      "how": "T-3211: the two pictures disagree about the fences (Chicagology shows 1700's front open), and the front boundaries are T-3205's T-3212: 1700's railing is now built from its gateway at the foot of its flight north to the lot line, on its curb, the gates on dark iron posts standing open; the print's railing runs on past the lot line before the next lot, which is that lot's to build. The gateway's place along the street line is not read through this camera (fitted on the front alone; see the 1901 record)."
     },
     {
       "what": "ornament: keys, carving, dentils, capitals, the fret",
@@ -112,7 +112,12 @@
       "what": "colour",
       "status": "not shown",
       "how": "T-3211: a monochrome print"
+    },
+    {
+      "what": "the pair's walks: a flagged walk from each flight's foot to the public walk through open gates",
+      "status": "fixed",
+      "how": "T-3212"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

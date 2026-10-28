@@ -1,0 +1,30 @@
+{
+ "id": "glessner_blog_1700_1706_construction_1901_photo",
+ "type": "photograph",
+ "citation": "Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie Avenue, under construction, 1901. Photograph by George Glessner. Reproduced by the Glessner House Museum, 'George Glessner, photographer', The Story of a House (blog), 12 January 2015.",
+ "author": "George Glessner (per the blog; the caption names no photographer)",
+ "date": "1901",
+ "describes_date": "1901",
+ "repository": "Glessner House Museum blog 'The Story of a House' (the museum's George Glessner photographs, per the blog). Prairie library images a16-ghm-blog-1700-1706-construction-1901 and st-ghm-1700-1706-under-construction-1901, the same picture catalogued twice, their rights recorded there as 'pending - permission requested' (rights-requests/ghm-george-glessner-2026-10.md); the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1700-1706-construction-1901.jpg), committed since T-3212 at data/sources/assets/glessner_1700_1706_construction_1901_t3212/ with its attribution.",
+ "url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+ "locator": "The whole photograph, 675 x 494 px: 1708 Prairie at the left edge, the pair's street front from 1706's south corner to 1700's north corner (1700's front half behind a young street tree), 1638 Prairie's gable at the right edge.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "Permission for the museum's scans was requested on 2026-10-02 and is pending; the photographs are unpublished works by George Glessner (d. 1929). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3212) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-28 (T-3212) from the image store's reference copy, 675 x 494 px greyscale (sha256 1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b). Both library entries say the camera faced south-west; 1708 stands nearest at the left and the pair's cornice falls toward 1700, so it stood SOUTH-east of the pair looking north-west (T-3212's camera).",
+ "note": "The pair in the summer of 1901, a year before the Glessner and Lee families moved in (1902): the brick shell finished to its cornice, the slate mansard and its pedimented dormers and chimneys up, every window opening still unglazed. Neither porch is built: 1706's door is a wide opening under a stone lintel with a sign board on it, and the stone string course under the principal storey's sills is already laid. Before the pair a spear railing on a stone curb runs on from 1708's to a pair of capped piers before 1706's south part and stops there (through T-3212's camera, at about 0.6-2.3 m and 2.8 m north of 1706's south corner); in the yard a builder's timber shed and sand heaps; a young tree on the parkway before 1700; overhead wires. It is evidence of 1901, not of 1904: what it shows unfinished, or not yet built, is argued in the pair's match records (data/reference_views/*/ghm_construction_1901.match.json), not copied.",
+ "what_it_supplies": [
+  "the pair's street front under construction: the places and heights of its openings, its string course, cornice line and mansard",
+  "the dormers, the chimneys and the party line's downpipe in 1901",
+  "the railing and curb before 1706 in 1901, its gateway and its end, and the builder's yard",
+  "1708 Prairie's north end and 1638 Prairie's gable in 1901"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the photograph is monochrome",
+  "the porches, the balconettes and the glazing, which were not yet built",
+  "1700's north half, hidden behind the street tree",
+  "the 1904 state of the yards"
+ ]
+}

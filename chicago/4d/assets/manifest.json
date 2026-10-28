@@ -970,9 +970,9 @@
     "george_glessner_house_1706_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4258740,
+      "bytes": 4258748,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d55f3256b5c8debda858eee0069b5bc85ceb8d8e33d075b47155dc5c4afff089",
+      "inputs_sha256": "b8924d9321544332a1c364fcfb0163f14af8ef7f024a44d129402879def56d56",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "george_glessner_house_1706_prairie"
@@ -1000,9 +1000,9 @@
     "glessner_lee_house_1700_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4263416,
+      "bytes": 4263424,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "03b329a4eda35f4e0e59afb4db198f9168eac111f5089fec9ffcf286968fe6e0",
+      "inputs_sha256": "a42229121dc5aa4088a0ca2bb8fd899352384a3e715a55fc15beec7c1db34c94",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "glessner_lee_house_1700_prairie"

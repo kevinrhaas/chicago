@@ -323,7 +323,8 @@
         "proud_m": 0.3,
         "height_m": 0.65,
         "slab_m": 0.1,
-        "consoles": 0
+        "consoles": 0,
+        "before_light": true
        },
        {
         "from_s_m": 8.58,
@@ -332,16 +333,18 @@
         "proud_m": 0.3,
         "height_m": 0.65,
         "slab_m": 0.1,
-        "consoles": 0
+        "consoles": 0,
+        "before_light": true
        }
       ]
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
-      "glessner_blog_1708_1706_1700_christmas_photo"
+      "glessner_blog_1708_1706_1700_christmas_photo",
+      "glessner_blog_1700_1706_construction_1901_photo"
      ],
-     "note": "Chicagology's photograph shows an iron balconette on a stone shelf before each round-arched principal window outside the porch, about 1.3-1.95 m over grade and a little wider than the light; its diamond panel is not built (the kit's plain bars)."
+     "note": "Chicagology's photograph shows an iron balconette on a stone shelf before each round-arched principal window outside the porch, about 1.3-1.95 m over grade and a little wider than the light; its diamond panel is not built (the kit's plain bars). T-3212: each guard stands before the foot of its light (before_light), the sash running down behind it to a sill just over the shelf's slab, as Chicagology's photograph shows and the 1901 construction photograph's unglazed openings confirm."
     },
     "side_bays": {
      "value": [],
@@ -364,9 +367,9 @@
     "sash_by_storey": {
      "value": [
       {
-       "sill_above_floor_m": 1.0,
+       "sill_above_floor_m": 0.45,
        "width_m": 1.15,
-       "height_m": 2.85
+       "height_m": 3.4
       },
       {
        "sill_above_floor_m": 0.35,
@@ -377,9 +380,10 @@
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
-      "glessner_blog_1708_1706_1700_christmas_photo"
+      "glessner_blog_1708_1706_1700_christmas_photo",
+      "glessner_blog_1700_1706_construction_1901_photo"
      ],
-     "note": "Read through Chicagology's camera: the principal storey's lights about 1.2 m wide (built at the contract's widest, 1.15 m) from about 2.0 m over grade to the arches' crowns about 4.85-4.9 m; the upper storey's about 1.15 m wide from about 5.5 m to 7.45 m."
+     "note": "Read through Chicagology's camera: the principal storey's lights about 1.2 m wide (built at the contract's widest, 1.15 m) to the arches' crowns about 4.85-4.9 m; the upper storey's about 1.15 m wide from about 5.5 m to 7.45 m. T-3212: the principal lights' sills stand about 1.4 m over grade, not 2.0 m: the 1901 construction photograph, its openings still unglazed, shows each opening's foot at about 1.37 m through its camera (data/reference_views/*/ghm_construction_1901.json), and Chicagology's shows the sashes running down behind the balconettes to a sill level with their shelf (1.3 m), where T-3211 had read the light's foot at the railing's top rail. The sill is set at 1.45 m (0.45 m over the principal floor, just over the balconette's 0.1 m slab on its 1.3 m shelf) and the light runs 3.4 m to the crown."
     },
     "window_kit": {
      "value": {
@@ -602,9 +606,10 @@
      },
      "confidence": "inferred",
      "sources": [
-      "chicagology_1700_1706_townhouses_photo"
+      "chicagology_1700_1706_townhouses_photo",
+      "glessner_blog_1700_1706_construction_1901_photo"
      ],
-     "note": "Chicagology's photograph (after 1902) shows the spear-headed iron railing on a low curb running on from before 1708 along 1706's front to a pair of capped piers at the walk to 1706's porch, and stopping there: north of the walk 1706's front, like 1700's, lies open to its lawn behind a low edging stone (T-3212). K11's spear-on-curb railing just inside the street line, 8.7 m before the front: the pair's record puts the public walk 8.9 m out (1708's 9.17 m, the two records 0.3 m apart on one walk), and K11 keeps the curb and piers 0.05 m clear of it, so this line stands about 0.2 m inside 1708's, under a foot, the entrance a pair of walk gates square to the stoop, hung on cast-iron posts with no urn (`posts`, as 1708's): the photograph's gateway posts are dark iron, capped, not stone. The pair is built to its lot's side lines (1706 against 1708, 1700 against the party line), so neither front has a side passage or a side gate (boundary.runs, T-3212). RECONSTRUCTED: the railing's height, the posts' section and height (1708's) and the gates' leaves are the kit's, and the leaves are drawn standing open into the yard, 70 degrees, so the way in reads open from the street, as at 1708 (no picture shows them; liberty L-k14-walks-1700-1706-3212). The 1901 construction photograph (the library's a16-ghm-blog-1700-1706-construction-1901, its camera data/reference_views/<this house>/ghm_construction_1901.json) shows a different, earlier railing on a stone curb running on from 1708's past the party line, with piers before 1706's door and at the party line: that is the railing of 1901, during the build, and is not the one laid here (the match record argues it)."
+     "note": "Chicagology's photograph (after 1902) shows the spear-headed iron railing on a low curb running on from before 1708 along 1706's front to a pair of capped piers at the walk to 1706's porch, and stopping there: north of the walk 1706's front, like 1700's, lies open to its lawn behind a low edging stone (T-3212). K11's spear-on-curb railing just inside the street line, 8.7 m before the front: the pair's record puts the public walk 8.9 m out (1708's 9.17 m, the two records 0.3 m apart on one walk), and K11 keeps the curb and piers 0.05 m clear of it, so this line stands about 0.2 m inside 1708's, under a foot, the entrance a pair of walk gates square to the stoop, hung on cast-iron posts with no urn (`posts`, as 1708's): the photograph's gateway posts are dark iron, capped, not stone. The pair is built to its lot's side lines (1706 against 1708, 1700 against the party line), so neither front has a side passage or a side gate (boundary.runs, T-3212). RECONSTRUCTED: the railing's height, the posts' section and height (1708's) and the gates' leaves are the kit's, and the leaves are drawn standing open into the yard, 70 degrees, so the way in reads open from the street, as at 1708 (no picture shows them; liberty L-k14-walks-1700-1706-3212). The 1901 construction photograph (the library's a16-ghm-blog-1700-1706-construction-1901, its camera data/reference_views/<this house>/ghm_construction_1901.json) shows this railing already standing during the build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there; through that camera 1706's gateway stood about 1.6 m south of the one laid square to the flight (open in 1706's match record: K11 lays a gateway only on its flight's axis)."
     },
     "yard": {
      "value": {

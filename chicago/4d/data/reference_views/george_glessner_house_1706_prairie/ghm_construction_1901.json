@@ -1,0 +1,32 @@
+{
+ "structure_id": "george_glessner_house_1706_prairie",
+ "scene": "1904",
+ "also_render": [
+  "glessner_lee_house_1700_prairie",
+  "house_1708_prairie"
+ ],
+ "library_image": "a16-ghm-blog-1700-1706-construction-1901",
+ "source_id": "glessner_blog_1700_1706_construction_1901_photo",
+ "photo": "../../sources/assets/glessner_1700_1706_construction_1901_t3212/ghm_1700_1706_construction_1901.jpg",
+ "image_px": [
+  675,
+  494
+ ],
+ "principal_px": [
+  337.5,
+  402.0
+ ],
+ "focal_px": 848.0,
+ "eye": [
+  38.84,
+  -18.3,
+  1.6
+ ],
+ "yaw_deg": -41.05,
+ "sun_uvy": [
+  0.55,
+  -0.6,
+  0.6
+ ],
+ "solve": "T-3212: the Glessner House Museum's photograph of the pair under construction in 1901 (the image store's 675 x 494 px copy, sha256 1ff92f17...). THE LIBRARY HOLDS IT TWICE: a16-ghm-blog-1700-1706-construction-1901 and st-ghm-1700-1706-under-construction-1901 have the same image URL and the same bytes, so the ticket's 'two construction photographs' are one picture, solved once. Both entries say the camera faced south-west; it faced NORTH-west: 1708's bay and hooded door stand at the left edge, nearest, the townhouses' cornice FALLS toward 1700 at the right, and 1638's steep Gothic gable stands beyond 1700's north corner at the right edge, so it stood south-east of the pair, across Prairie Avenue. FITTED as a level camera (the quoins and the downpipe at the party line stand vertical) with the principal point's x at the picture's middle, on 1706's four second-storey windows and the first of 1700's, as the pair's records place them (T-3211, from Chicagology's and the Christmas print's cameras: on the street front, centres at v 1.65, 4.24, 6.79 and 9.33 in 1706's frame and 1.62 in 1700's, 1.15 m wide, sills 5.5 m and heads 7.45 m over grade): thirteen corners, read off the openings (unglazed in 1901, so their edges are sharp): w1 x 158.4-182.4, y 246-297.6; w2 x 210-232, y 255.6-305; w3 x 258-277, head y 263.6; w4 x 300.4-318, head y 271; 1700's first, south jamb x 350, head y 279. THE SCALE IS THE EYE'S, as in T-3188's solves: with the eye's height free the fit runs it down to 0.34 m (rms 1.7 px), a height no photographer stood at, because one front seen across a narrow band of heights fixes the camera only up to a trade between its distance and its height; so the eye is set 1.6 m over the walk. An eye at 1.4 or 1.8 m fits equally (rms 1.8 and 2.0 px) and moves the eye about 0.7 m along the line of sight. SOLVED: the eye at u 38.84, v -18.30 in 1706's frame (across Prairie Avenue, about 26 m before the front and 18 m south of 1706's south corner, before 1712), yaw -41.05, focal 848 px, the horizon at y 402.0; rms 1.9 px, every residual under 3 px. CHECKED on what it was not fitted to: the line under the pair's main cornice (8.3 m) projects at x 133, y 217 at 1706's south corner (the print: about x 137, y 217), y 256.5 at the party line (the print: about 251) and x 466, y 282 at 1700's north corner (the print: about x 470, y 277); 1708's cornice top (13.55 m, T-3188) at its north corner projects at y 72, where the print draws it. LIGHT: the street front is lit, and in every opening the north reveal is lit and the south one in shade, so the sun stands in the south-east (sun_uvy)."
+}
