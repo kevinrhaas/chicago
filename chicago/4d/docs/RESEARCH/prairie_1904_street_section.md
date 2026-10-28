@@ -70,12 +70,21 @@ street. they appear to be stone"*.
 | `a16-pullman-det-4a08065` | `loc_det_4a08065_pullman_residence` | the Pullman corner (NE): the walks carried across the parkway either side of a curbed grass corner with the lamp, down to the roadway | that corner's two crossings, attested |
 
 So at each of the 28 corners where two faces of a block meet (Calumet's curve at 18th is a bend and
-has none), each face's walk runs straight on across the other street's parkway and curb at its own
-width, and its last 1.35 m (0.92 m on 16th Street's narrower parkway) is a stone slab ramping down to
-the roadway: `corner_crossings` in `data/street_section/1904.json`, 56 crossings, laid by the same
-tool. `street-grid.js` cuts the parkway and the curb out under each crossing, lays the walk and the
-ramp, breaks the curb's face where the ramp runs through it, closes each ramp's sides with a stone
-cheek, and gives the walker the ramp's slope. The corner lamp's plot stands between each pair
-(T-3199). Liberty: L-prairie-corner-crossings-3200.
+has none), each face's walk runs straight on across the other street's parkway and over the curb at
+its own width and level, and from the curb's face one dressed stone slab, 15 cm thick, runs 1.5 m out
+into the roadway, its top falling from the curb's top to 5 cm over the paving at its foot:
+`corner_crossings` in `data/street_section/1904.json`, 56 crossings, laid by the same tool.
+`street-grid.js` cuts the parkway and the curb out under each crossing, lays the walk over them, lays
+the slab's sloping top on the roadway with its two sides and its foot standing to its thickness, and
+gives the walker the slab's slope. The curb's face runs on unbroken behind the slab. The corner
+lamp's plot stands between each pair (T-3199). Liberty: L-prairie-corner-crossings-3200.
 
-![the Glessner (top) and Pullman (bottom) corners at 18th, before and after T-3200](prairie_1904_street_section/corner-ramps-before-after.jpg)
+**T-3217 (2026-10-28).** The first build (T-3200) sloped the walk's last 1.35 m down inside the
+parkway and broke the curb for it, so at the curb it read as a bevel that sank under the road. The
+owner, 2026-10-27, with a screenshot of it: *"they dont go down into the street like the photos ...
+make them a single piece or pieces ramped down into onto the street like the photos"*. Read again,
+both pictures carry the walk level over the curb and set the slab beyond it, in the roadway: Taylor
+2135's two slabs start at the curb's top and lie on the dirt road with a dark gap under their sides;
+the Detroit view's south-west and south-east slabs show their thickness at their sides and foot.
+
+![Taylor 2135's corner; the first build (the owner's screenshot); the slabs now, from Taylor's stand](prairie_1904_street_section/corner-ramps-before-after.jpg)

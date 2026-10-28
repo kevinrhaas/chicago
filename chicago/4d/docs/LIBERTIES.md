@@ -27358,9 +27358,10 @@ crossings exist where no picture reaches.
 
 **Decision:** at every 1904 corner where two faces of a block meet (28 corners; Calumet's curve at
 18th is a bend and has none), each face's walk is carried straight on across the other street's
-parkway and curb at its own width (6 ft; 5 ft on 16th Street), and its last 1.35 m (0.92 m on 16th
-Street's narrower parkway) is a dressed stone slab ramping from the walk's level down to the
-roadway. The curb's face is broken where the ramp runs through it. 56 crossings
+parkway and over the curb at its own width (6 ft; 5 ft on 16th Street) and level, and from the
+curb's face one dressed stone slab 15 cm thick runs 1.5 m out into the roadway, its top falling from
+the curb's top to 5 cm over the paving (T-3217: the first build sloped the walk down inside the
+parkway instead, which the pictures do not show). 56 crossings
 (`corner_crossings` in `data/street_section/1904.json`, laid by
 `tools/lay_prairie_1904_street_section.py`); the corner lamp's grass plot stands between each pair.
 **What it stands on:** J. W. Taylor's photograph no. 2135 of the Glessner corner, 18th and Prairie
@@ -27369,13 +27370,13 @@ top to the roadway, one each way across, the lamp's footing between them. The De
 view of the Pullman corner, north-east (`loc_det_4a08065_pullman_residence`): the walks carried
 across the parkway either side of a curbed grass corner, down to the roadway. These four crossings
 are attested; the owner, 2026-10-27: "there are ramps down into the street. they appear to be stone".
-**What is invented:** the crossings at the other 26 corners; the ramp's run and its plain dressed
-face; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
+**What is invented:** the crossings at the other 26 corners; the slab's run (1.5 m), thickness
+(15 cm) and plain dressed face, read roughly off the two pictures; a crossing in line with the walk rather than turned toward the corner; no flagged crossing
 across the roadway itself.
 **How to resolve:** a photograph of any other corner of the district shows whether it had the same
 crossings; a Board of Local Improvements order or a city sidewalk specification of 1890-1905 fixes
-the ramp's slope and stone.
-**Ticket:** T-3200.
+the slab's run, thickness and stone.
+**Ticket:** T-3200, T-3217.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-27 (T-3200).
 
