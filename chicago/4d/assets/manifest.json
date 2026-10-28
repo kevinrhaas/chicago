@@ -1205,7 +1205,7 @@
       "baked_ao": false,
       "bytes": 1715752,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "f0a04cd286fd5168ac5e4816d9193aecb37bdf4126164e66070868ea02dc23bd",
+      "inputs_sha256": "52ee57c66d905caa73a8cdd6cce5255aa4fd23209bf322a1d447a783f273f28b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1601_prairie"
@@ -1235,7 +1235,7 @@
       "baked_ao": false,
       "bytes": 753840,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "74bf47886fc8472c00dfdc4e0b42d394da1fd871222971f1b028f395ed1f4759",
+      "inputs_sha256": "03eed9811de712b09a3d583fb2e775c1e94193491d48e15d3324269ed4cf8eae",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1609_prairie"
@@ -1245,7 +1245,7 @@
       "baked_ao": false,
       "bytes": 831340,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "ff8ceac7a86321ee664f463fde856e943aace45c09dba5c4cf9f282233825d47",
+      "inputs_sha256": "aac057cb12f61e8abc0d89d0a3ce64e7b4905e8c30be03d15568467d6eb8e262",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1611_prairie"
@@ -1435,7 +1435,7 @@
       "baked_ao": false,
       "bytes": 1669612,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "864df424a9ea223441c14313edaab3ca37aa2f4d9080e435e37ef8282a9a404f",
+      "inputs_sha256": "98c58f3d716d497b7e75699bcc293a8cd181d7b16bd32a10d9f6b02de99db61b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1630_prairie"
@@ -9140,9 +9140,9 @@
     "shortall_gregory_house_1638_prairie_front__as_standing_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 4005144,
+      "bytes": 4096960,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "5486a5dcb5d9b7e53b5e3a3e9e83e83bfb5c65dbfd5b2fa93826b8373585db73",
+      "inputs_sha256": "c08b312c11ee5d21e44a6f9c0178058ed9e2823fbaa081a5d7bb52cf8d42bfc1",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "shortall_gregory_house_1638_prairie_front"
@@ -9416,7 +9416,7 @@
       "baked_ao": false,
       "bytes": 3227872,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "5f28dd2dc55222393be3c0befdb47a8c49189f9a6b81a22e1c27a170c76fe7c9",
+      "inputs_sha256": "b445a399d9072d3b5df8252d28ef83a1df2276a71f8767d48a8e38a036317df4",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "walker_house_1720_prairie"

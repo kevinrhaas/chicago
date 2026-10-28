@@ -65,7 +65,6 @@ PENDING = {
     "house_1630_prairie": "T-3204",
     "house_1634_prairie": "T-3204",
     "house_1636_prairie": "T-3204",
-    "shortall_gregory_house_1638_prairie_front": "T-3204",
     "dexter_house_1721_prairie": "T-3205",
     "house_1708_prairie": "T-3205",
     "house_1712_prairie": "T-3205",
@@ -399,12 +398,20 @@ def self_test() -> int:
     case("a PENDING house that passes is refused (take it out)", ex, {"h": sc}, {"h": "T-0000"}, True)
     e = copy.deepcopy(ex); e["k01"]["components"] = []
     case("a PENDING house that fails is reported, not refused", e, {"h": sc}, {"h": "T-0000"}, False)
+    # T-3222: a K16 front names its walk and its fence's runs under "k16", the runs by their ends
+    k16 = {"k16": {"components": [copy.deepcopy(ex["k01"]["components"][0]), {
+        "id": "k16.boundary.street_fence", "family": "fence", "instances": [
+            {"params": {}, "sockets": {"end_a": [15.85, 0.0, 1.0], "end_b": [15.85, 0.0, -3.3]}},
+            {"params": {}, "sockets": {"end_a": [15.85, 0.0, -4.7], "end_b": [15.85, 0.0, -9.0]}}]}]}}
+    case("a K16 walk through its fence's gateway passes", k16, {"h": sc}, {}, False)
+    e = copy.deepcopy(k16); e["k16"]["components"][1]["instances"][1]["sockets"]["end_a"] = [15.85, 0.0, -3.3]
+    case("a K16 walk across its fence's run is refused", e, {"h": sc}, {}, True)
     fails, _ = run([], lambda s, p: ex, {"h": sc}, {"ghost": "T-0000"})
     ok = bool(fails)
     print(f"   self-test | {'ok  ' if ok else 'FAIL'} a PENDING id that is not a worked house is refused: "
           f"{fails[0] if fails else 'passes'}")
     bad += not ok
-    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {13 - bad} of 13 cases")
+    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {15 - bad} of 15 cases")
     return 1 if bad else 0
 
 
