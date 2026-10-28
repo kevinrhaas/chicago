@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2368, ts: '2026-10-28T04:50:39.154Z', date: 'Oct 27, 2026, 11:50 PM CT', title: 'Real shrubs, flowers and young trees in the 1904 front yards', kind: 'improvement',
+    items: [
+      'The front-yard plants are now grown like the street elms, with branches and leaves: lilacs, spiraea, hydrangeas and roses in flower, sheared arborvitae, young maples and lindens, and beds of geraniums or coleus. The rows of green lumps are gone.',
+      'Yards follow the photographs. Lots whose pictures show a bare lawn behind the fence are bare lawn; the Pullman house keeps its ivy, porch shrubs, young trees and 18th Street border. Other lots get a pair at the steps, a shrub at a corner or a small group, and about a third stay plain lawn.',
+      'Nothing stands in a doorway, on the steps or across a walk: every plant is measured from its edge against the houses\' doors, stoops, walks and fences, and the build checks it.',
+    ] },
   { v: 2367, ts: '2026-10-28T04:17:05.176Z', date: 'Oct 27, 2026, 11:17 PM CT', title: 'Front walks at 1616, 1621, 1623, 1625 and 1637 Prairie', kind: 'feature',
     items: [
       'Five more 1600-block houses now have a flagged walk from the sidewalk to their front steps, where before the lawn or bare ground ran up to the stoop.',
