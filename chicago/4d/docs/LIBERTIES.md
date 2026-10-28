@@ -34959,8 +34959,10 @@ two corner crossings. Seven lamps stand where a photograph shows them in front o
 eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
-same: a fluted column on a moulded base, a ladder bar, a four-sided lantern tapering out to its top,
-a pyramidal cap and a finial, about 3.1 m. The scene has no night, so none is lit.
+same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
+collar, a leafed boss at knee height, a slender shaft, a bell capital, a knobbed ladder bar, four
+scrolled arms, a clear four-sided lantern tapering out to a projecting rim, a steep pale roof, a vent
+cap and a knob, about 3.1 m. The scene has no night, so none is lit.
 **What it stands on:** the post's form from the 1811 photograph (`chicagology_1811_ames_photo`),
 J. W. Taylor's no. 2135 (`taylor_2135_glessner_exterior_1887_1889`) and the second 2140 photograph
 (`chicagology_2140_photo_b`); the corner lamps from those and from the Detroit Publishing Pullman
@@ -34973,11 +34975,12 @@ dated after it.
 **What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; the footing at every corner, where Taylor 2135 shows one; one post for the
-whole district, at the measures read off three pictures; a lantern drawn as plain glass.
+whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
+the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
-**Ticket:** T-3199.
+**Ticket:** T-3199, T-3219.
 **Review:** `docs/RESEARCH/prairie_1904_street_furniture.md`.
 **Recorded:** 2026-10-27 (T-3199).
 
