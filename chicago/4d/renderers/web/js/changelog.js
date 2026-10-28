@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2362, ts: '2026-10-28T00:47:48.222Z', date: 'Oct 27, 2026, 7:47 PM CT', title: '1904 corners: stone slabs ramp out onto the street', kind: 'fix',
+    items: [
+      'Corner crossings now carry the walk level over the curb.',
+      'One stone slab per crossing slopes from the curb out onto the roadway, as in the photographs.',
+      'The slab\'s sides and foot show its thickness; the curb runs on unbroken behind it.',
+    ] },
+  { v: 2361, ts: '2026-10-28T00:43:23.284Z', date: 'Oct 27, 2026, 7:43 PM CT', title: 'The Kimball house\'s dormer hoods flare out at their feet', kind: 'improvement',
+    items: [
+      'The three slate hoods on 1801 Prairie\'s mansard dormers now stand wider than the windows below them and sweep in to a narrow top, as the c. 1895 Taylor photograph and the 1965 HABS photographs show them.',
+    ] },
   { v: 2360, ts: '2026-10-28T00:11:34.562Z', date: 'Oct 27, 2026, 7:11 PM CT', title: 'Front walks and gates for the 1800-block Prairie houses', kind: 'feature',
     items: [
       'Eleven houses from 1801 to 1901 Prairie now have a flagged walk from the sidewalk to the front steps.',
