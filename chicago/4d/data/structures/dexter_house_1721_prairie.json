@@ -813,6 +813,69 @@
             "inland_architect_1891_06_dexter_plate"
           ],
           "note": "The 1891 plate shows the recessed front's parapet solid from the north-west corner for about 1.5 m (x 503-593 px through the solved camera), then turned balusters on a plinth under a rail to the forward block's return (x 593-705 px). The balusters are built square (the kit's bar), their turning not modelled. Inferred: the stretch is the plate's, the plinth, rail and balusters read in proportion."
+        },
+        "boundary": {
+          "value": {
+            "layout": "stone_coping_wall",
+            "street_line_m": 13.7,
+            "lot_s_m": [
+              -1.24,
+              19.34
+            ],
+            "thickness_m": 0.35,
+            "chamfer_m": 0.05,
+            "runs": [
+              {
+                "to_s_m": 0.6,
+                "height_m": 0.4
+              },
+              {
+                "to_s_m": 0.9,
+                "height_m": 0.9
+              },
+              {
+                "to_s_m": 2.7,
+                "opening": true
+              },
+              {
+                "to_s_m": 3.0,
+                "height_m": 0.9
+              },
+              {
+                "to_s_m": 19.34,
+                "height_m": 0.4
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "ghm_blog_1721_dexter_c1888",
+            "inland_architect_1891_06_dexter_plate",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The c. 1888 winter photograph shows a low squared stone coping along the street line, cut where the walk comes out from the house, a capped stone post standing either side of the cut about twice the coping's height (x 440-490 and 530-555 px); the 1891 plate's own coping is as low (its camera stands at grade, so its depth cannot be read off it). Built on the public walk's inner edge (the parcel's line, data/street_grid/1904.json prairie_1721, stands 0.1-0.2 m into the walk there), 0.4 m, the cut 1.8 m square to the stair with a 0.3 m post 0.9 m high either side. RECONSTRUCTED: the section, the cut's width and the posts' size (liberty L-k14-walks-1700-block-3205)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "turf",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.9,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.5
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "ghm_blog_1721_dexter_c1888",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the cut between the posts to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205."
         }
       }
     }

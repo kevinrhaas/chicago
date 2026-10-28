@@ -743,6 +743,59 @@
       ],
       "note": "The pieces the 1911 sheet draws behind the main body's rear wall (census s20-1709-a1, '2B, 1B and 2B brick rear pieces and a round frame porch'; trace s20fp-1709-b1), in the house's frame: the '2B' north piece 10.8 m deep from v 2.3 to 8.0 (local x 1433.5-1444.3, y -3103.7 to -3109.4); the '2B' south piece 5.5 m deep from v 8.0 to 12.5, its south-east corner canted on the sheet and built square here; and the '1B' end 2.9 m deep from v 2.3 to 6.4 behind the north piece. Their floors, storeys, windows and flat tin decks are the kits'."
     },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 7.54,
+        "lot_s_m": [
+          -1.01,
+          29.55
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.05,
+        "runs": [
+          {
+            "to_s_m": 1.0,
+            "height_m": 0.35
+          },
+          {
+            "to_s_m": 2.8,
+            "opening": true
+          },
+          {
+            "to_s_m": 29.55,
+            "height_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "rand_mcnally_1893_views_prairie_east_1701_1815",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture read shows 1709's front yard close enough to say what bounded it: the 1893 Rand McNally strip draws the house behind its trees and lamp posts at too small a scale. Built as the block's own boundary, a low squared stone coping on the street line (the line of the 1904 parcel, data/street_grid/1904.json prairie_1709, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.5
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's cut to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

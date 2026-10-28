@@ -454,6 +454,58 @@
       ],
       "note": "The pieces the 1911 sheet draws behind the rear wall (T-1840 census s20-1712-a1, '2B brick rear wing with a 1-storey frame end'; trace s20fp-1712-b1 p2), whose PLACE and storey counts are read from the map and whose form is K01's reconstruction, measured in this frame: (1) REAR_WING, u -7.65 to 0, v 2.0 to 8.8: the brick piece lettered '2B', two storeys over a basement, its floors on the main body's so its courses run on, narrower than the main body by 2.0 m on the south and 1.85 m on the north. (2) FRAME_END, u -9.2 to -7.65, v 2.0 to 5.5: the yellow (frame) strip across the south part of the wing's rear, with no storey figure, built one storey from near grade in painted timber, as 1730's rear porch is. Heights, windows, the flat painted-tin decks, their fascias and overhang are RECONSTRUCTED: the sheet prints storeys, not heights, and no opening."
     },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 8.96,
+        "lot_s_m": [
+          -4.16,
+          11.36
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.05,
+        "runs": [
+          {
+            "to_s_m": 1.05,
+            "height_m": 0.35
+          },
+          {
+            "to_s_m": 2.85,
+            "opening": true
+          },
+          {
+            "to_s_m": 11.36,
+            "height_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture of 1712's front in its own time is held: the 1893 Rand McNally strip is too small to read a boundary off, and the 1939-1942 views show the Kodak plant that replaced it. Built as the block's own boundary, a low squared stone coping on the street line (the 1904 parcel's, data/street_grid/1904.json, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph and its curbstone, still in place in 2015) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.5
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's cut to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

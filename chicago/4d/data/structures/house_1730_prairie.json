@@ -572,6 +572,59 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "The sheet's rear range, printed '2B' (the census row's 'rear 2B'): brick, the front block's full width (v 1.0-8.9) and 10.3 m deep (u 23.1-33.4), two storeys under a flat deck, its north wall on the lot line and blank; and the one-storey frame porch ('1', yellow) on its rear wall's north part (u 21.7-23.1, v 5.4-8.8), built closed in painted timber as 1613's is. Heights, deck and windows RECONSTRUCTED."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 9.0,
+            "lot_s_m": [
+              -9.91,
+              7.91
+            ],
+            "fence": "k11.fence.side_boards",
+            "board_height_m": 1.5,
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 70
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": -8.2,
+              "drawn_deg": 0
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The only picture of 1730 in its own time, the May 1874 Land Owner vignette of A. A. Dewey's house (Prairie library a16-cgy-landowner-1874-1730-dewey, read from the image store's copy; not yet a source record here), draws a close-boarded fence along the whole street line, about as high as the basement, and no gate in it: K11's board fence 1.5 m just inside the street line (the 1904 parcel's, data/street_grid/1904.json prairie_1730), as 1616's front is built from the same issue's plate of 1620. The entrance gate on the walk, standing open, and the side gate across 1.6 m of the south yard's mouth at the lot line are the kit's; the vignette shows neither. RECONSTRUCTED: the fence kept from 1874 to 1904, its height and both gates (liberty L-k14-walks-1700-block-3205)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "turf",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.6,
+              "top_m": 0.06,
+              "wear_tone": 0.9
+            },
+            "service_walk": {
+              "surface": "cinder",
+              "to_u_m": 0.0,
+              "wear_tone": 0.78,
+              "band": "gate"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk; the cinder service walk from the side gate back along the south lot line, the gate's width. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205."
         }
       }
     }
