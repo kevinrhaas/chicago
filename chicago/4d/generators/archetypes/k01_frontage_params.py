@@ -5175,7 +5175,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
-        extra = {"columns", "railing_fabric", "fabric"}
+        # T-3210: and turn round arches between them (1827's porch)
+        extra = {"columns", "railing_fabric", "fabric", "arches"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -5243,6 +5244,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError("entrance_kit.hood.columns.carved takes tiers (1 or 2) and abacus_m, 0.03 m "
                                      "up to 0.08 m short of the columns' capital")
                 door_kit["hood"]["columns"]["carved"] = {"tiers": int(cv["tiers"]), "abacus_m": float(cv["abacus_m"])}
+            # T-3210: a round-arched arcade on the columns (1827's porch, the Doane photograph):
+            # on the front, an arch from capital to capital between each pair of columns; on an
+            # end (`left` the low-v end, `right` the high-v), one from the respond on the wall to
+            # the end column. Each a half ellipse `rise_m` high over its clear span, springing at
+            # `spring_m` off the capitals, under a spandrel wall to the soffit
+            if "arches" in hd:
+                ar = hd["arches"]
+                if not {"faces", "spring_m", "rise_m"} <= set(ar) <= {"faces", "spring_m", "rise_m"} or \
+                        not ar["faces"] or not set(ar["faces"]) <= {"front", "left", "right"} or \
+                        len(set(ar["faces"])) != len(ar["faces"]):
+                    raise ParamError("entrance_kit.hood.arches takes faces (front, left, right), spring_m and rise_m")
+                sp, ri = float(ar["spring_m"]), float(ar["rise_m"])
+                floor = float(val("principal_floor_m"))
+                if not 0.1 <= ri <= 1.5 or sp - cap < floor + ph + 0.5 or sp + ri > float(hd["soffit_m"]) - 0.05:
+                    raise ParamError(f"entrance_kit.hood.arches: a {ri} m rise (0.1-1.5) springing at {sp} m must "
+                                     f"clear the columns' plinths with a shaft and stand under the soffit "
+                                     f"({hd['soffit_m']} m) by 0.05 m")
+                door_kit["hood"]["arches"] = {"faces": list(ar["faces"]), "spring_m": sp, "rise_m": ri}
         if "fabric" in hd:
             if hd["fabric"] != "stone" or "columns" not in hd:
                 raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "
