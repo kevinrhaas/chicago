@@ -519,7 +519,7 @@
       "value": {
         "kit": "k14_condition",
         "built": 1904,
-        "lawn": "turf",
+        "lawn": "none",
         "grass_edge": "street_front",
         "under_stoop": "earth",
         "front_walk": {
@@ -534,7 +534,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1619's front is held. The walk is laid as 1621's, 1623's and 1625's are on their pictures (T-3221): flags from the stoop's foot, 1.2 m wide, straight out across the open front to the inner edge of the public walk; the lawn covers the rest of the front yard. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216."
+      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1619's front is held. The walk is laid as 1621's, 1623's and 1625's are on their pictures (T-3221): flags from the stoop's foot, 1.2 m wide, straight out across the open front to the inner edge of the public walk; the lawn covers the rest of the front yard. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
     },
     "function": {
       "value": "residence",

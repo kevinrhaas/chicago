@@ -35346,7 +35346,9 @@ picture of these fronts is held. The walks follow the pattern of the block's pic
 side a walk runs through the entrance gate, at the gate's width. On the east side it runs straight
 out across the open front, 1.2 m wide, as 1621's, 1623's and 1625's do (T-3221). **What is invented
 or held by the kit.** The kit supplies the walk's line, flags, width, joints and wear, and the lawn
-with its bare strip. No service walk is built. Each walk is checked by
+with its bare strip. The lawn is the app's own ground (`yard.lawn: none`), not the kit's turf
+sheet, as L-street-ground-seams-3233 rules for every K14 front lawn, so it meets the side yards
+and the margin with no seam. No service walk is built. Each walk is checked by
 `tools/check_house_walks.py`.
 **How to resolve:** a photograph of each front from about 1900-1910, or a survey plat drawing the
 walks.
