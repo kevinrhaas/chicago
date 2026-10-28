@@ -81,6 +81,8 @@ PENDING = {
     "house_1736_prairie": "T-3205",
     "kellogg_house_1709_prairie": "T-3205",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
+    "george_glessner_house_1706_prairie": "T-3205",  # onto K01 by T-3211 (#1384) after this gate was written; the 1700 block's walks are T-3205's
+    "glessner_lee_house_1700_prairie": "T-3205",     # the same
     "pullman_house_1729_prairie": "T-3205",
     "walker_house_1720_prairie": "T-3205",
 }
