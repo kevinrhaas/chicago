@@ -64,11 +64,21 @@ NUDGE_STEP_M = 0.25
 NUDGE_MAX_M = 6.0
 CORNER_MIN_SIN = math.sin(math.radians(45))   # two faces meeting at less than this are a curve, not a corner
 
+# T-3219: the post as the 1811 photograph shows it whole and near (its heights scaled from the
+# print to a 3.12 m lamp), checked against Taylor 2135 and 2140's second view.
 LAMP = {
-    "height_m": 3.1, "base_w_m": 0.36, "base_h_m": 0.45, "column_d_m": [0.15, 0.10],
-    "flutes": 8, "ladder_bar_m": {"at": 2.32, "w": 0.52}, "lantern_m": {"foot": 2.42, "top": 2.86,
-    "w_foot": 0.22, "w_top": 0.40}, "cap_top_m": 3.0, "finial_top_m": 3.1,
-    "footing_m": {"w": 0.95, "h": 0.16},
+    "height_m": 3.12,
+    "foot_m": {"r": 0.115, "plinth_r": 0.135, "to": 0.59},
+    "collar_m": {"to": 0.7, "r": 0.12},
+    "boss_m": {"to": 0.97, "r": 0.12, "leaves": 8},
+    "shaft_r_m": [0.065, 0.055],
+    "capital_m": {"from": 2.03, "to": 2.2, "r": 0.085},
+    "ladder_bar_m": {"at": 2.23, "w": 0.36},
+    "lantern_m": {"foot": 2.45, "top": 2.77, "w_foot": 0.17, "w_top": 0.44},
+    "rim_m": {"w": 0.48, "h": 0.035},
+    "roof_m": {"top": 3.03, "w_top": 0.1},
+    "vent_m": {"w": 0.14, "h": 0.05},
+    "footing_m": {"w": 0.95, "h": 0.28},
 }
 
 # The pictured corner lamps: (streets, the corner's quadrant of the crossing) -> what shows it.
@@ -822,14 +832,17 @@ def build():
         "kinds": {
             "gas_lamp": {
                 "name": "gas street lamp",
-                "form": ("A fluted cast-iron post on a moulded base, a ladder bar under the lantern, a four-sided "
-                         "glass lantern tapering out to its top, a pyramidal cap and a finial; painted iron. About "
-                         "3 m. Corner lamps stand on a small stone footing."),
+                "form": ("A cast-iron post: a plain round foot on a plinth, a moulded collar, a leafed boss at "
+                         "knee height, a slender shaft, a bell capital under a knobbed ladder bar, four scrolled "
+                         "arms carrying a clear four-sided lantern that tapers out to a projecting rim, a steep "
+                         "four-sided roof, a vent cap and a knob; painted iron. About 3.1 m. Corner lamps stand "
+                         "on a stone footing."),
                 "form_grade": "attested",
                 "form_sources": ["chicagology_1811_ames_photo", "taylor_2135_glessner_exterior_1887_1889",
                                  "chicagology_2140_photo_b"],
                 "form_note": ("Read off the 1811 photograph, Taylor's no. 2135 and the second 2140 photograph, the "
-                              "three that show a post whole and near. Every lamp is drawn with that one post. 1904 "
+                              "three that show a post whole and near; its parts and heights from the 1811 print, "
+                              "the clearest (T-3219). Every lamp is drawn with that one post. 1904 "
                               "is gas: electric standards appear only in pictures dated after it. The scene is a "
                               "July morning with no night, so no lamp is lit."),
                 "model_m": LAMP,
