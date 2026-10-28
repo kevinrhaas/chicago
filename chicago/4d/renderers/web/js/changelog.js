@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2360, ts: '2026-10-28T00:11:34.562Z', date: 'Oct 27, 2026, 7:11 PM CT', title: 'Front walks and gates for the 1800-block Prairie houses', kind: 'feature',
+    items: [
+      'Eleven houses from 1801 to 1901 Prairie now have a flagged walk from the sidewalk to the front steps.',
+      'Their front boundaries follow the photographs: low stone copings at 1801, 1811, 1812, 1815 and 1823, cut where the walk passes through.',
+      'The iron fences at 1816, 1824, 1827, 1828 and 1901 now have their gates standing open.',
+      '1827\'s fence ends at the stone pier its photograph shows, and 1834\'s walk turns behind its low wall to the opening.',
+      'Side walks lead to the rear where the pictures or the fire-insurance map show a passage.',
+      'A new check refuses any finished 1904 house without a walk through an opening to its door.',
+    ] },
+  { v: 2359, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1900 Prairie stands as the Keith house in its photograph', kind: 'feature',
+    items: [
+      '1900 Prairie Avenue, Elbridge Keith\'s house, is no longer a draft box: a smooth limestone front, two tall storeys over a raised basement, under a slated mansard with dormers and a deep cornice on paired brackets.',
+      'At its south corner a canted bay rises through both storeys and up past the cornice under its own slate crown, and a porch on columns at the head of a broad stoop carries a balcony, with a raised terrace running along the front, as the old photograph of the house shows them.',
+      'The photograph is now the house\'s picture, so it is built to it and compared against it from the photographer\'s own viewpoint. The card says what is still to come, such as the round-headed windows and their carved hoods.',
+    ] },
+  { v: 2358, ts: '2026-10-27T23:46:10.139Z', date: 'Oct 27, 2026, 6:46 PM CT', title: '1904 corners: stone ramps down to the street', kind: 'feature',
+    items: [
+      'Every corner of the district now has two crossings, the walk carried on to the curb.',
+      'Each ends in a dressed stone ramp down to the roadway; the curb breaks for it.',
+      'Pictured at the Glessner and Pullman corners of 18th and Prairie; elsewhere by rule.',
+      'Walk down a ramp: the walker follows its slope.',
+    ] },
   { v: 2357, ts: '2026-10-27T23:01:05.632Z', date: 'Oct 27, 2026, 6:01 PM CT', title: 'The Kimball house\'s tower cone rises to its photographs', kind: 'improvement',
     items: [
       '1801 Prairie\'s corner tower now has a steeper slate cone, its tip about half a metre higher, so the tower\'s finial stands where the c. 1895 Taylor photograph and the 1965 HABS photograph both put it.',

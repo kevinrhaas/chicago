@@ -1,0 +1,44 @@
+{
+ "structure_id": "elbridge_keith_house_1900_prairie",
+ "source_id": "glessner_blog_1900_keith_oblique_photo",
+ "library_image": "a19-gh-keith-1900-historic",
+ "photo": "../../sources/assets/keith_1900_photos_t3207/keith_1900_oblique_glessner.jpg",
+ "image_px": [
+  1294,
+  974
+ ],
+ "principal_px": [
+  647.0,
+  409.4
+ ],
+ "focal_px": 1827.0,
+ "eye": [
+  47.29,
+  -19.27,
+  0.94
+ ],
+ "yaw_deg": 310.05,
+ "basis_right_up_forward": [
+  [
+   0.6514,
+   0.75639,
+   0.05957
+  ],
+  [
+   0.11015,
+   -0.17195,
+   0.97893
+  ],
+  [
+   -0.7507,
+   0.63111,
+   0.19532
+  ]
+ ],
+ "sun_uvy": [
+  0.8,
+  -0.35,
+  0.8
+ ],
+ "solve": "Fitted by T-3207 (piece 1 of T-1897) to the museum's print alone (the image store's 1294 x 974 px copy), against the 1911 sheet's plan (s28fp-1900-b1). The footprint frame's u runs toward Prairie Avenue (east) from the main body's rear wall and v north from its south wall; the front stands at u 19.9 and the north wall at v 12.3. The print is NOT level: the house's verticals lean right by about 3.5 degrees and converge upward, a hand camera tilted up about 11 degrees and rolled, so the camera carries a full basis rather than a yaw alone. Twelve observations fitted by least squares for twelve unknowns (eye, heading, tilt, roll, focal length, the principal point's height, the cornice's corona height, the corner bay's front corner, and one point along the south flank's eave), with the principal floor held at 2.2 m (the stoop's eleven risers) and the principal point's x at the frame's centre: the cornice's corona at the front's north corner (x 967, y 323 px), at the bay's turn from the south flank (494, 181) and at the bay's cheek-to-front corner (600, 189); the wall's foot at the principal floor at the north corner (921, 733) and the south corner (470, 692); and the south flank's eave at x 243, y 268. The fit closes on them exactly, so it was CHECKED on what it did not fit: the door's axis lands at x 721 (the print's 712), the two northern window columns at x 804 and 875 (the print's 790 and 872), the bay's north cheek at x 699 (the print's bend near 690), and the render from it lays the front's window crowns, the north corner's cornice and both street dormers within about 10-15 px of the print (the side-by-side). PLACE: the eye at u 47.3 (about 27 m before the front, on the avenue's far side), v -19.3 (about 19 m south of the house's south wall) and 0.94 m over the house's grade: a box camera held at the waist, as the print's horizon low on the stoop says. The distance and the tilt trade against each other and against the focal length; this is the near solution, kept because it puts the camera on the avenue. HEIGHTS through it: the principal windows' sills about 2.55 m and crowns about 5.4 m; the chamber windows' sills 6.65-7.05 m and crowns about 9.2 m; the porch's entablature about 5.8-6.4 m; the brackets' feet about 10.4 m and the corona about 11.7 m; the mansard's curb about 15.7 m and the dormers' hoods about 15.3 m. WHAT IT SAYS ABOUT THE PLAN: the corner bay's front stands about 0.93 m before the front from v 1.22 to 3.38 m, its south-east cheek turning from the south corner, where the 1911 sheet's outline bulges about 1.8 m from v 2.0 to 6.1 m; the photograph is followed. Only the bay's projection is read: the front's own line is the sheet's. LIGHT: the front and the bay lit and the south flank a shade darker, soft shadows under the cornice and the porch's entablature: a sun in the east-south-east, high (sun_uvy)."
+}
