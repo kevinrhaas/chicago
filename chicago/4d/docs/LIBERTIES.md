@@ -33622,7 +33622,7 @@ Prairie front's three bays, the portico's balcony, two dormers' places, the wall
 Every height rests on the camera's distance (its `solve`). Brownstone is the register's word (row
 pa-1729-5); the print is monochrome.
 **What is invented.** The walls' thickness; the mansard's deck and its pitch; the eave's overhang;
-the treads; the north flank's, the 18th Street flank's and the rear's windows (no picture read here
+the treads; the north flank's and the rear's windows, and the 18th Street flank's until T-3161 read them off Taylor's photograph no. 1445 (no picture read here
 places them); the stacks' places; the rainwater; the sash pattern; the basement lights; the
 south-east block's storey, windows, brick and flat deck. The north-west block stands 1.2 m out (the
 sheet draws it 1.53 m past the built north wall) and the 18th Street pavilion 6.0 m wide and 1.2 m
@@ -33634,7 +33634,7 @@ arcade on the 18th Street flank, the round bay on the north flank and the wall's
 open on the match record for T-1881.
 **How to resolve:** T-1881 builds those and brings the match record to `matches`; T-1934 refines
 the stable, ranges and porte-cochere in `pullman_house_1729_prairie_ranges`.
-**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.north_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`
+**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_front_m`, `pullman_house_1729_prairie.as_mapped_1904.form.wall_thickness_side_m`, `pullman_house_1729_prairie.as_mapped_1904.form.service_wall_brick`, `pullman_house_1729_prairie.as_mapped_1904.form.roof_pitch_deg`, `pullman_house_1729_prairie.as_mapped_1904.form.eave_overhang_m`, `pullman_house_1729_prairie.as_mapped_1904.form.stair_tread_m`, `pullman_house_1729_prairie.as_mapped_1904.form.side_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.rear_bays`, `pullman_house_1729_prairie.as_mapped_1904.form.basement_lights`, `pullman_house_1729_prairie.as_mapped_1904.form.chimneys`, `pullman_house_1729_prairie.as_mapped_1904.form.rainwater`, `pullman_house_1729_prairie.as_mapped_1904.form.window_kit`, `pullman_house_1729_prairie.as_mapped_1904.form.street_front_trim`
 **Ticket:** T-1880.
 **Review:** `docs/RESEARCH/k01-1729-pullman-1880/README.md`.
 **Recorded:** 2026-10-25 (T-1880).
@@ -34604,6 +34604,8 @@ plate's cameras, and brings every 1901 match record to `matches`.
 
 **Revised:** 2026-10-27 (T-3186) — **the canted south-west corner is built** (`form.cant_corner`, K01's new main-body cut): 1.83 m back each way as the south-west camera reads it, its face laid in the front's ashlar on the front's beds, a window under the front's moulded head in each storey at the storey's sash, and the moulded cornice, the eave gutter, the mansard's faces and the curb's cresting turned round it on two mitres; a fifth dormer stands centred on its lower slope at the middle street dormer's size. **Still invented there:** the basement light under the face's column (the prints show the area behind the fence; the light is the front's, reasoned from one under every principal window), the windows' widths (the storey's ordinary sash, the prints' read within the camera's spread), and the 0.2 m pier K01 keeps between a flank window and the cut, which moves the flank's first window column 0.25 m back (s 2.65). The cant dormer's carved scroll cheeks are not built, its stone face about 0.6 m narrower than the print's. **Still not built:** the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records.
 
+**Revised:** 2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them. **What is invented:** the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's). **Still not built:** the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for T-3186.
+
 ### L-k01-1900-keith-3207 — 1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph
 
 **Decision:** the house at 1900 Prairie Avenue, Elbridge G. Keith's (T-3207, piece 1 of T-1897), is
@@ -35087,7 +35089,7 @@ overhead's form; a Sanborn sheet does not draw poles.
 (T-3223 replaced T-3203's continuous foundation row of 1,354 lumps). Lots whose photographs show
 the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those pictures show them:
 mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit
-Publishing views show: ivy over the west front and porch, low shrubs at the porch's foot, young
+Publishing views show: ivy over the west front (off the porch, below), young
 lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the
 ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn
 and the rest are planted in one of the period's few ways, drawn per lot from a seed of the
@@ -35096,9 +35098,13 @@ hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvit
 corner of the house, a short group of two or three shrubs against the front, and on a deep lot
 now and then a young sugar maple or linden in the lawn and one round or oval bed of geraniums or
 coleus. Each plant keeps clear, from its crown's edge, of the house wall, every stoop, step,
-fence, coping and walk, a 2 m disk round every door, and a 1.6 m way from each front door to the
-lot line, all read off the houses' baked models; `--check` re-measures that against the models
-in every gate run. No urn is placed: no picture read shows one clearly enough to place it.
+fence, coping and walk, a 2 m disk round every door, and a 5.2 m-wide way from each front door
+to the lot line, so a door and its stoop or porch front are seen clear from the street (T-3227,
+after Pullman's porch was planted in front of its door), widened to the whole front of the stoop
+or porch the door opens onto, up to 4.5 m either side of the door; ivy keeps its whole width off
+that way. So Pullman's porch-foot shrubs, which the Detroit views do show, are left out: the owner
+ruled that nothing stands in front of a door.
+All of it is read off the houses' baked models, and `--check` re-measures it in every gate run. No urn is placed: no picture read shows one clearly enough to place it.
 **What it stands on:** the photographs of 1720 (`glessner_blog_1720_tyrrell_photo`), 1736
 (`glessner_blog_1736_mcbirney_c1890_photo`), 1801 (`taylor_c1895_kimball_residence_1801`), 1811
 (`chicagology_1811_ames_photo`), 1816 (`chicagology_1816_henderson_photo`), 1905
