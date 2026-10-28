@@ -258,7 +258,20 @@ WIDE_RANGE_YEARS = 12
 # ceiling by 62.864. Levers measured, not pulled: 66.309 MiB of KTX2 sheets embedded
 # again and again across the houses' GLBs, and 7.18 MB of transport masters no runtime
 # fetch reads. docs/SITE-BUDGET.md section 13 has the numbers.
-SITE_BUDGET_MB = 416
+# T-3220, 2026-10-28: measured whole-tree re-budget, 416 -> 432 MiB. dev (00d814a9)
+# published 415.800 MiB, 0.200 left, so #1384 (T-3211, 1700 and 1706 Prairie, +3.99)
+# and #1408 (T-3229, the 1600 block's walks, +2.10) were complete and red on this line
+# alone. The transport-masters lever was already pulled (T-3084); no identical files
+# over 64 KiB. The ceiling is now read from the DEPLOYED artifact, not restated: the
+# github-pages artifact of 2026-10-28T07:00Z unpacks to 874.898 MiB - /4d/dev/ 415.824,
+# /4d/ 326.840, other content 132.233 (not 129.136: /prairie-1904/ is republished from
+# its package at deploy time and reads 46.974 against the committed 43.876). Two 432 MiB
+# allowances plus 132.233 total 996.233 MiB, under 1 GiB by 27.767. Pages says "1 GB"
+# without a unit: read as 10^9 B (953.674 MiB), two trees at today's dev ALREADY exceed
+# it, so no raise is the answer there - T-3232 (each KTX2 kit sheet shipped once, 66.309
+# MiB of copies) is. Storage hygiene only: boot payload, frame/Light limits, the 90 %
+# warning and the duplicate guard are unchanged. docs/SITE-BUDGET.md section 14.
+SITE_BUDGET_MB = 432
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

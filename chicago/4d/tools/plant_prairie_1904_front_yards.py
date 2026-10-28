@@ -37,7 +37,7 @@ renderers/web/js/buildings.js places it) is laid on a 0.25 m plan raster: what s
 house, what stands low is a stoop, a step, a fence, a pier or a coping, what lies flat is a walk,
 and a door's leaf, at any height a raised first floor sets it (DOOR_FOOT_M), is a door. A plant
 keeps clear of the house's wall, a stoop and its steps, a fence or coping, a walk, a disk of
-DOOR_RADIUS_M round every door of the lot's houses, and a way DOOR_WAY_M wide from every front
+DOOR_RADIUS_M round every door of the lot's houses, and a way 2 x DOOR_WAY_M wide from every front
 door straight to the lot line. The traced Sanborn footprints (data/traces/) are laid as houses
 too, so a house whose model is not in the checkout (Glessner's) still is one. `--check` holds
 the committed file to those rules against the models as they stand now (a rebake that moves a
@@ -78,8 +78,11 @@ FLAT_M = 0.12              # a triangle wholly below this lies on the ground (a 
 GROUND_MATS = ("turf", "earth", "lawn", "grass")   # a yard surface the lawn may lie beside, not a walk
 DOOR_MATS = ("door_leaf", "draft_door", "k16_door", "k12_door")
 DOOR_FOOT_M = 4.5          # a door leaf whose foot is below this is an entrance (a raised first floor's)
+PORCH_HALF_MAX_M = 4.5     # a porch or stoop front kept clear runs at most this far either side of its door
 DOOR_RADIUS_M = 2.0        # no plant's edge nearer a door (in plan) than this
-DOOR_WAY_M = 1.6           # half the clear way kept from a front door straight to the lot line
+DOOR_WAY_M = 2.6           # half the clear way kept from a front door straight to the lot line: the
+                           # door seen from the street, its porch or stoop front included (T-3223,
+                           # the owner on Pullman's porch: "plants in front of the pullman house doors")
 STOOP_GAP_M = 0.45         # a plant's edge off a stoop, a step or a porch (low work by the house)
 STOOP_REACH_M = 1.2        # low work this near the house is a stoop's, not a fence's
 WALL_GAP_M = 0.12          # a plant's edge off the house's wall
@@ -369,6 +372,7 @@ class Yard:
         # The lot's doors: every door of a structure on it, in the window.
         self.doors = []
         keep = np.zeros(H.shape, bool)
+        stoops, _ = ndimage.label(stoop)
         for de, dn, sid in plan.doors:
             if sid not in sids:
                 continue
@@ -380,6 +384,13 @@ class Yard:
             front_door = -0.5 <= ds <= width + 0.5 and dd <= front + 8.0
             if front_door:
                 keep |= (np.abs(s - ds) <= DOOR_WAY_M) & (d <= dd + 0.5) & (d >= -1)
+                # ...and the whole front of the stoop or porch the door opens onto, whatever its
+                # width (T-3227: Pullman's porch is wider than the door's way)
+                near = stoops * (((pe - de) ** 2 + (pn - dn) ** 2) <= DOOR_RADIUS_M ** 2 + 1.0)
+                for k in np.unique(near[near > 0]):
+                    ss = s[stoops == k]
+                    lo_, hi_ = max(ss.min(), ds - PORCH_HALF_MAX_M), min(ss.max(), ds + PORCH_HALF_MAX_M)
+                    keep |= (s >= lo_ - 0.3) & (s <= hi_ + 0.3) & (d <= dd + 0.5) & (d >= -1)
             self.doors.append((r2(ds), r2(dd), front_door))
         self.keep = keep
         edt = lambda m: ndimage.distance_transform_edt(~m) * RES if m.any() else np.full(m.shape, 99.0)
@@ -614,9 +625,13 @@ def plant_lot(p, plan: Plan, house, sids):
             last = s.flat[i]
             if rng.random() > cr["cover"]:
                 continue
+            w = r2(rng.uniform(1.2, 1.9))
+            # the patch's whole width off a door and its way, not just its middle
+            if y.terms["a door or the way to it"].flat[i] < w / 2:
+                continue
             e, n = y.world(i)
             creeper.append([e, n, r2(math.degrees(math.atan2(-y.nu[0], -y.nu[1])) % 360),
-                            r2(rng.uniform(1.2, 1.9)), r2(rng.uniform(*cr["height_m"]))])
+                            w, r2(rng.uniform(*cr["height_m"]))])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
@@ -723,7 +738,7 @@ def build(laid=None):
             "paved_gap_m": PAVED_GAP_M, "lot_line_clear_m": LOT_LINE_CLEAR_M, "min_yard_m": MIN_YARD_M,
             "schemes": dict(SCHEMES),
             "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, "
-                    "coping and walk, a 2 m disk round every door, and a 3.2 m way from each front door to "
+                    "coping and walk, a 2 m disk round every door, and a 5.2 m way from each front door to "
                     "the lot line. Lots a photograph shows bare are bare. Seeded by the parcel's id.",
         },
         "summary": summary,
@@ -753,6 +768,13 @@ def collisions(data, laid) -> list[str]:
         things = [(an(PLANTS[s[2]]["name"]), s[0], s[1], s[4] / 2) for s in lot["shrubs"]] + \
                  [(an(PLANTS[t[2]]["name"]), t[0], t[1], 0.4) for t in lot["trees"]] + \
                  [("a bed", b[0], b[1], max(b[2], b[3])) for b in lot["beds"]]
+        # ivy hugs the wall, so only a door and its way bound it: its whole width clear of them
+        for c in lot["creeper"]:
+            rc = y.at(c[0], c[1])
+            if rc is not None and y.terms["a door or the way to it"][rc] < c[3] / 2 - CHECK_SLACK_M:
+                out.append(f"{lot['parcel']}: ivy at {c[0]:.2f} E, {c[1]:.2f} N stands too near a door or "
+                           f"the way to it ({max(0.0, y.terms['a door or the way to it'][rc]):.2f} m of room "
+                           f"for {c[3] / 2:.2f})")
         for name, e, n, r in things:
             rc = y.at(e, n)
             if rc is None:
@@ -797,6 +819,13 @@ def self_test() -> int:
     case("a shrub on the way to a front door", shrub_at(ds, max(1.5, lot["front_m"] - 2.5)), "a door")
     case("a shrub beside a front door", shrub_at(ds + 1.2, min(dd, lot["front_m"]) - 0.7), "door")
     case("a shrub in the house", shrub_at(ds, dd + 3.0), "inside the house")
+
+    def ivy_at(s_, d_):
+        def m(d):
+            l = next(x for x in d["lots"] if x["parcel"] == lot["parcel"])
+            l["creeper"].append([*at(s_, d_), 270.0, 1.5, 5.0])
+        return m
+    case("ivy on the wall beside a front door", ivy_at(ds + 1.0, dd - 0.3), "ivy at")
     return 0 if ok else 1
 
 
