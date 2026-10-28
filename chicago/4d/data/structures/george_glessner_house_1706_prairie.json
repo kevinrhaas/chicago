@@ -577,6 +577,54 @@
       "sanborn_1911_chicago_v3_sheet_20"
      ],
      "note": "The 1911 sheet's trace (s20fp-1700-b1) behind the front block: a three-storey range 8.15 m deep and about 4.6 m wide along the pair's south wall, the court between the two houses' ranges open. Its storeys carry the house's floors; its windows and flat roof are reconstructed."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 8.7,
+      "lot_s_m": [
+       0.0,
+       11.05
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "runs": [
+       "south"
+      ],
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.55
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1700_1706_townhouses_photo"
+     ],
+     "note": "Chicagology's photograph (after 1902) shows the spear-headed iron railing on a low curb running on from before 1708 along 1706's front to a pair of capped piers at the walk to 1706's porch, and stopping there: north of the walk 1706's front, like 1700's, lies open to its lawn behind a low edging stone (T-3212). K11's spear-on-curb railing just inside the street line, 8.7 m before the front: the pair's record puts the public walk 8.9 m out (1708's 9.17 m, the two records 0.3 m apart on one walk), and K11 keeps the curb and piers 0.05 m clear of it, so this line stands about 0.2 m inside 1708's, under a foot, the entrance a pair of walk gates square to the stoop, hung on cast-iron posts with no urn (`posts`, as 1708's): the photograph's gateway posts are dark iron, capped, not stone. The pair is built to its lot's side lines (1706 against 1708, 1700 against the party line), so neither front has a side passage or a side gate (boundary.runs, T-3212). RECONSTRUCTED: the railing's height, the posts' section and height (1708's) and the gates' leaves are the kit's, and the leaves are drawn standing open into the yard, 70 degrees, so the way in reads open from the street, as at 1708 (no picture shows them; liberty L-k14-walks-1700-1706-3212). The 1901 construction photograph (the library's a16-ghm-blog-1700-1706-construction-1901, its camera data/reference_views/<this house>/ghm_construction_1901.json) shows a different, earlier railing on a stone curb running on from 1708's past the party line, with piers before 1706's door and at the party line: that is the railing of 1901, during the build, and is not the one laid here (the match record argues it)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.6,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chicagology_1700_1706_townhouses_photo"
+     ],
+     "note": "T-3212 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). Chicagology's photograph shows 1706's walk coming out from its stoop through the piers to the public walk; the walk is laid in flags from the stoop's foot through the gate. RECONSTRUCTED: the flags, their width and wear, and the bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-1706-3212. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1708. No service walk: the pair has no side passage. No grade_m is set: the app's ground over the pair's base was not measured in this run (1708's beside it rises 7-18 mm, under the flags' 60 mm)."
     }
    }
   }
