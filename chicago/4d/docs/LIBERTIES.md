@@ -35284,3 +35284,21 @@ gateway and crosses no footprint.
 **Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.yard`.
 **Ticket:** T-3222.
 **Recorded:** 2026-10-28 (T-3222).
+
+### L-kimball-1801-gable-loggia-1890 — 1801 Prairie's gabled section given an open loggia in its top storey
+
+**Decision:** the W. W. Kimball house's gabled section on 18th Street (`bays` p_gable, its third storey)
+carries an open loggia where T-3001 laid a glazed mullioned and transomed pair: K06's new open opening
+(`k06.opening.loggia_open_pair`, T-1890), the same 2.0 by 1.9 m opening on the same 9.5 m sill under the
+same 11.4 m head and moulded surround, cut as two openings on a 0.2 m stone post with no frame, sash or
+glass, the hole carried on past its reveal and capped, in the kit's dark backing finish.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+through T-3074's camera, shows the gabled section's top storey behind the oriel's balustrade as dark and
+open (x 382-422 px, its head about 11.4 m), two openings either side of a slender post, under the coped gable.
+**What is invented or held by the kit.** The loggia's depth, its floor, its back wall and whatever stood in
+it are not seen, so the void runs back the bay kit's recess depth (0.55 m behind the face) in one dark
+finish; the post is the kit's square stone mullion, about the print's width, where the print's may be a
+turned colonnette; the surround is the kit's.
+**How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-28 (T-1890).
