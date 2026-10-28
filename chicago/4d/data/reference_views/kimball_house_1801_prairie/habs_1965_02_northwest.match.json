@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fbac10a363a725d129bc5ce30b2b06e2045f417c208b4e0bded6aa5acece1247",
+  "glb_sha256": "09bf64d0b8695771f4fa1d2d902a559e4665613c199991f29f6808415f2acf6f",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -96,6 +96,11 @@
     {
       "what": "the wall dormer's carving (T-1890): the print's fan is finely ribbed in a moulded arch and its pinnacles crocketed; the build lays thirteen plain rays, a ring and a hub, and plain pinnacles, at the print's size",
       "status": "within tolerance"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1904",
+      "status": "not shown",
+      "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
     },
     {
       "what": "the 18th Street hooded dormer's hood (T-1890): the print's slated front stands wider than the face at its foot and sweeps in to a narrow top under a pale cresting along its ridge, where the build's hood rose straight from the face's own width; the hood now flares 0.2 m wider than the face each side and 0.2 m out at its foot and keeps its 0.4 m top, its foot within about 5 px of the print's and its top about 13 px narrower. The print's foot sweeps out in a concave bell where the build's runs straight, its shelf is a slim moulding where the build's is a 0.12 m stone slab, and its ridge cresting is not built",

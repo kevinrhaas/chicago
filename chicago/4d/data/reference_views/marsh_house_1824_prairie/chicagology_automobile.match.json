@@ -2,7 +2,7 @@
   "structure_id": "marsh_house_1824_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/marsh_house_1824_prairie__as_mapped_1904.glb",
-  "glb_sha256": "11bd7991af0ad01ffc8d58be8731489fab69cda84762dc38e5877afb542ce543",
+  "glb_sha256": "8f4b0524f399f95c2bf818427d6929c5c6b4c38ea111089a5efaebb0d40b5094",
   "camera_sha256": "e77f48605f00878ec01bfab6e225d92ea34c01a141a18abe2a5955a0c78bec36",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/marsh_house_1824_prairie/chicagology_automobile-side-by-side.jpg",
@@ -67,6 +67,11 @@
       "what": "the Pomeroy photograph (glessner_blog_1824_pomeroy_italianate, before about 1880)",
       "status": "not shown",
       "how": "it shows the villa before the stone front of about 1880, so it is not a picture of the 1904 house's front; no copy is committed and no camera is solved on it (its source record says what it is read for)"
+    },
+    {
+      "what": "the walk, the open entrance gate and the side gate",
+      "status": "fixed",
+      "how": "T-3206 adds the K14 walk, stands the entrance gate open and narrows the 5.45 m single side leaf no picture shows to a 1.6 m gate, with a cinder walk down the passage"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

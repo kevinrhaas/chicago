@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fbac10a363a725d129bc5ce30b2b06e2045f417c208b4e0bded6aa5acece1247",
+  "glb_sha256": "09bf64d0b8695771f4fa1d2d902a559e4665613c199991f29f6808415f2acf6f",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -242,6 +242,11 @@
     {
       "what": "the flank stack's head (T-1890): the print's shaft reads round under a flared cap; the build's is square under a slab, its outline within about 0.3 m (HABS photograph 2 reads the shaft square)",
       "status": "within tolerance"
+    },
+    {
+      "what": "the low coping along the lawn on Prairie and 18th Street, and the walk to the stair",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.35 m stone coping on the street line, returned along 18th Street and cut where the K14 walk leaves the stair; the print shows a low edge to the lawn and no fence, which the render's low line reads as; height and section within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
