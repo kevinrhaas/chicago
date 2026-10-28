@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e4de03de0aedc2b1e73bf02a7631835e2a25648a446f0007e2715f6169d5a787",
+  "glb_sha256": "83279e0ab106ef921c58bc13e91573a7d8c88ceb18cc1b338f145fc84a946608",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -105,6 +105,10 @@
     {
       "what": "the 18th Street hooded dormer's hood (T-1890): the print's slated front stands wider than the face at its foot and sweeps in to a narrow top under a pale cresting along its ridge, where the build's hood rose straight from the face's own width; the hood now flares 0.2 m wider than the face each side and 0.2 m out at its foot and keeps its 0.4 m top, its foot within about 5 px of the print's and its top about 13 px narrower. The print's foot sweeps out in a concave bell where the build's runs straight, its shelf is a slim moulding where the build's is a 0.12 m stone slab, and its ridge cresting is not built",
       "status": "within tolerance"
+    },
+    {
+      "what": "1965 fabric: the gabled section's loggia glazed in, a sash in each of its two openings under the gable; the c. 1895 Taylor print shows it open, and the 1904 build follows the print (T-1890)",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

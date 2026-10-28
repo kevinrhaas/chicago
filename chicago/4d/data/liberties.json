@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 837,
+  "count": 838,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58138,6 +58138,18 @@
         {
           "label": "Still not built",
           "text": "the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for later work."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-28 (T-3186) — **the cornice carries its blocks over a frieze.** Enlarged, both pictures show under the moulded cornice's corona a course of carved stone blocks — scrolled consoles with squared heads, single and evenly spaced with dark panels between them, not paired as first read — standing on a plain frieze whose foot is a moulded band just over the chamber heads, round the front, the canted corner and the flank. Built as `wall_head.frieze` (0.42 m under the cornice's foot, 25 mm proud) and `wall_head.blocks` (K10's scrolled console in the walls' stone, 0.45 m high under the corona's soffit, 0.18 m wide, 0.19 m out, about 0.8 m apart; 57 of them, one left out where the flank's front stack stands on the cornice), new to the moulded stone cornice round a mansard (`k10_frontage._stone_frieze_blocks`); both match records mark the cornice fixed."
+        },
+        {
+          "label": "What is invented",
+          "text": "the blocks' carving (the kit's generic scroll, not the prints' carving, which they do not resolve), their projection (the most the corona's soffit covers) and the frieze's height, which is the most the chamber heads leave under the cornice — so the band-to-corona depth builds 0.57 m where the prints read about 0.6-0.8 m, under the 1 ft bar; the panels between the blocks are not modelled."
+        },
+        {
+          "label": "Still not built",
+          "text": "the cheeks' row of small openings under their tops, and the 1893 plate's camera, the 1896 reprint and the elevation drawing."
         }
       ],
       "work_refs": [
@@ -59416,6 +59428,34 @@
       ],
       "work_refs": [
         "T-3236"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-gable-loggia-1890",
+      "title": "1801 Prairie's gabled section given an open loggia in its top storey",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house's gabled section on 18th Street (`bays` p gable, its third storey) carries an open loggia where later work laid a glazed mullioned and transomed pair: K06's new open opening (k06.opening.loggia open pair), the same 2.0 by 1.9 m opening on the same 9.5 m sill under the same 11.4 m head and moulded surround, cut as two openings on a 0.2 m stone post with no frame, sash or glass, the hole carried on past its reveal and capped, in the kit's dark backing finish. **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), through later work's camera, shows the gabled section's top storey behind the oriel's balustrade as dark and open (x 382-422 px, its head about 11.4 m), two openings either side of a slender post, under the coped gable. **What is invented or held by the kit.** The loggia's depth, its floor, its back wall and whatever stood in it are not seen, so the void runs back the bay kit's recess depth (0.55 m behind the face) in one dark finish; the post is the kit's square stone mullion, about the print's width, where the print's may be a turned colonnette; the surround is the kit's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the 18th Street flank, or the house's drawings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3001",
+        "T-3074"
       ]
     },
     {

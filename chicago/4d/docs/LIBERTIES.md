@@ -34657,6 +34657,8 @@ plate's cameras, and brings every 1901 match record to `matches`.
 **Revised:** 2026-10-27 (T-3186) — **the canted south-west corner is built** (`form.cant_corner`, K01's new main-body cut): 1.83 m back each way as the south-west camera reads it, its face laid in the front's ashlar on the front's beds, a window under the front's moulded head in each storey at the storey's sash, and the moulded cornice, the eave gutter, the mansard's faces and the curb's cresting turned round it on two mitres; a fifth dormer stands centred on its lower slope at the middle street dormer's size. **Still invented there:** the basement light under the face's column (the prints show the area behind the fence; the light is the front's, reasoned from one under every principal window), the windows' widths (the storey's ordinary sash, the prints' read within the camera's spread), and the 0.2 m pier K01 keeps between a flank window and the cut, which moves the flank's first window column 0.25 m back (s 2.65). The cant dormer's carved scroll cheeks are not built, its stone face about 0.6 m narrower than the print's. **Still not built:** the stoop's swept cheeks, the porch's Corinthian capitals and the cornice's paired blocks: open on both match records.
 
 **Revised:** 2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them. **What is invented:** the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's). **Still not built:** the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for T-3186.
+**Revised:** 2026-10-28 (T-3186) — **the cornice carries its blocks over a frieze.** Enlarged, both pictures show under the moulded cornice's corona a course of carved stone blocks — scrolled consoles with squared heads, single and evenly spaced with dark panels between them, not paired as first read — standing on a plain frieze whose foot is a moulded band just over the chamber heads, round the front, the canted corner and the flank. Built as `wall_head.frieze` (0.42 m under the cornice's foot, 25 mm proud) and `wall_head.blocks` (K10's scrolled console in the walls' stone, 0.45 m high under the corona's soffit, 0.18 m wide, 0.19 m out, about 0.8 m apart; 57 of them, one left out where the flank's front stack stands on the cornice), new to the moulded stone cornice round a mansard (`k10_frontage._stone_frieze_blocks`); both match records mark the cornice fixed. **What is invented:** the blocks' carving (the kit's generic scroll, not the prints' carving, which they do not resolve), their projection (the most the corona's soffit covers) and the frieze's height, which is the most the chamber heads leave under the cornice — so the band-to-corona depth builds 0.57 m where the prints read about 0.6-0.8 m, under the 1 ft bar; the panels between the blocks are not modelled. **Still not built:** the cheeks' row of small openings under their tops, and the 1893 plate's camera, the 1896 reprint and the elevation drawing.
+
 
 ### L-k01-1900-keith-3207 — 1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph
 
@@ -35429,3 +35431,21 @@ sinking and the finish's colour are invented. The match records carry the depart
 to put the bay back on the photographs' axis.
 **Ticket:** T-3236.
 **Recorded:** 2026-10-28 (T-3236).
+
+### L-kimball-1801-gable-loggia-1890 — 1801 Prairie's gabled section given an open loggia in its top storey
+
+**Decision:** the W. W. Kimball house's gabled section on 18th Street (`bays` p_gable, its third storey)
+carries an open loggia where T-3001 laid a glazed mullioned and transomed pair: K06's new open opening
+(`k06.opening.loggia_open_pair`, T-1890), the same 2.0 by 1.9 m opening on the same 9.5 m sill under the
+same 11.4 m head and moulded surround, cut as two openings on a 0.2 m stone post with no frame, sash or
+glass, the hole carried on past its reveal and capped, in the kit's dark backing finish.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+through T-3074's camera, shows the gabled section's top storey behind the oriel's balustrade as dark and
+open (x 382-422 px, its head about 11.4 m), two openings either side of a slender post, under the coped gable.
+**What is invented or held by the kit.** The loggia's depth, its floor, its back wall and whatever stood in
+it are not seen, so the void runs back the bay kit's recess depth (0.55 m behind the face) in one dark
+finish; the post is the kit's square stone mullion, about the print's width, where the print's may be a
+turned colonnette; the surround is the kit's.
+**How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-28 (T-1890).
