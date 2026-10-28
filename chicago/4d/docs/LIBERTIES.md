@@ -35131,3 +35131,28 @@ through an opening in the front boundary and cross no building.
 drawing the walks.
 **Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.yard`, `wheeler_house_1812_prairie.as_built_1884.form.yard`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.yard`, `henderson_house_1816_prairie.as_mapped_1904.form.yard`, `dent_house_1823_prairie.as_mapped_1904.form.yard`, `marsh_house_1824_prairie.as_mapped_1904.form.yard`, `doane_house_1827_prairie.as_mapped_1904.form.yard`, `house_1828_prairie.as_mapped_1904.form.yard`, `jones_house_1834_prairie.as_mapped_1904.form.yard`, `ream_house_1901_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3206.
+
+### L-k14-walks-1600-block-3215 — Walks and front boundaries of 1616, 1621, 1623, 1625 and 1637 Prairie read off their pictures; each house given a front walk from the public walk to its door
+**Recorded:** 2026-10-28.
+
+**Decision:** five worked 1904 houses on the 1600 block of Prairie Avenue are given a K14 yard: a
+lawn and a flagged front walk from the foot of the stoop to the inner edge of the public walk
+(T-3221, piece 1 of T-3215). Before this none of them had a walk. **What is read, not invented.**
+1621's and 1623's 1886 drawings (the Building Budget's plate of the Hamline and Farwell houses) and
+1625's 1890 Inland Architect photograph show no fence, wall, coping or gate across the front yard,
+so each is built with no boundary (`layout: open`), carried to 1904 on those pictures (inferred:
+they are fourteen to eighteen years before the scene). The paling fence 1625's photograph shows is
+on the open ground next door, as its match record already rules, and is not built. 1637's engraving
+brings the stoop down between its garden wall and its iron fence; the walk comes out through that
+gap. 1616 has no picture of its own front (the 1874 engraving of 1620 reads its boarded street line
+only to the plate's edge); its walk is a stated reconstruction on 1612's photograph, two doors
+south, through the boards' walk gate, whose leaves are now drawn open as 1612's and 1620's are.
+**What is invented or held by the kit.** Every walk's line is straight out from the stoop (1637's
+engraving curves it), and its width (the stoop's or the gate's), flags, joints and wear, the lawn
+and its bare strip are the kit's; none of the pictures shows a walk's material. No service walk is
+built: none of the pictures shows a side gate or a passage's floor, and 1616's boards run unbroken
+across its side yard's mouth. Each walk is checked by `tools/check_house_walks.py`.
+**How to resolve:** a photograph of each front from about 1900-1910, or a survey plat drawing the
+walks.
+**Covers:** `house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3221.
