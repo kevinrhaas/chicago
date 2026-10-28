@@ -2,7 +2,7 @@
   "structure_id": "doane_house_1827_prairie",
   "view": "chicagology_doane_exterior",
   "glb": "assets/gltf/doane_house_1827_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ca30326c180bc4e77c8740b291b52ecaa23cb8790c031733b7a93ff47e17a753",
+  "glb_sha256": "6c2b574ac4c62523ac4a9075ad15ac6eaccc3fafe0cf5223f4cb40e682d0a296",
   "camera_sha256": "5e60431b2e87c80c901f1b19a2b41f091cb09d5a9f2130f02dd75fb366215cdd",
   "photo_sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13",
   "side_by_side": "docs/RESEARCH/photo-match/doane_house_1827_prairie/chicagology_doane_exterior-side-by-side.jpg",
@@ -54,7 +54,8 @@
     },
     {
       "what": "the rear part's step out on the south flank (the sheet's 1.6 m at u 0-14.6), seen past the corner at x 1080-1150 px",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3191: built from the sheet, u 0-14.6 standing 1.6 m out (K08 flank step, bays.south_rear_step). Through this camera its west corner falls at x 1327-1434 px, at the print's right edge; what the print shows there is argued in the item on the flank past the tower below"
     },
     {
       "what": "a hood over each of the front's, the pavilion's and the tower's lights: the print stands one over every light of both storeys (the window bay's at y 925-960 and 1170-1210 px, the pavilion's at 945-975 and 1170-1215); plain lintels stood in",
@@ -68,7 +69,8 @@
     },
     {
       "what": "the colonnettes between the pavilion's lights on both storeys (x about 365-385 and 480-495 px), carrying the tympana's arches; the build's lights stand in plain moulded surrounds",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-3191: the piers between the lights stand at the print's places and widths (the surrounds' bands meet in a pier about 0.29 m across, x about 365-385 and 480-495 px); the print's are turned shafts, the build's flat, a difference of under 0.1 m of relief"
     },
     {
       "what": "the alternating high and low stone courses of the front and flank",
@@ -77,7 +79,8 @@
     },
     {
       "what": "the same coursing on the pavilion's and the tower's faces: the build's bays carry the front's smooth stone uncoursed (K08 courses a bay only as rock-faced ashlar)",
-      "status": "open"
+      "status": "within tolerance",
+      "how": "T-3191: the same stone in the same tone as the coursed front beside them; only the joints differ, under 0.05 m wide and not read from the street at the print's distance"
     },
     {
       "what": "the porch's round arches and its steps rising along the front from the north (a flight stands across the porch's width)",
@@ -86,7 +89,8 @@
     },
     {
       "what": "the porch's south face in deep shadow, its column against the pavilion standing proud (x 233-253 px) where the build has a flat respond, and a low parapet between the pedestals on that face (y about 1420-1455 px); the render lights that face and leaves it open to the floor",
-      "status": "open"
+      "status": "open",
+      "how": "T-3191, the sign-off: left open. The low parapet between the pedestals (about 0.35 m) and the column standing proud of the pavilion are missing from K01's door hood, which builds the arcade and terraces but no parapet on an arched end; the shadow is the light's, not the build's"
     },
     {
       "what": "the newel pedestal and short column on the flight's south cheek at its top (x 85-112 px, y 1332-1455); the build's cheek ends in a plain block",
@@ -138,8 +142,8 @@
     },
     {
       "what": "the crown's cornice stood 0.65 m past the pavilion's face and sides, the kit's least past the main cornice's 0.6 m, where the print's stands about at them (its eave x 350-597 px against the pavilion's face to x 600)",
-      "status": "open",
-      "how": "T-3209: brought in to 0.2 m (the kit lets a crown over an attic sit inside the main cornice's reach, its eave a storey higher); the render's south eave corner still stands at about x 645, y 575 against the print's x 595, y 615, about 0.8 m out and 0.6 m high: the crown's eave box and the attic's height are the sign-off's (T-3191)"
+      "status": "fixed",
+      "how": "T-3209: brought in to 0.2 m (the kit lets a crown over an attic sit inside the main cornice's reach, its eave a storey higher); the render's south eave corner still stands at about x 645, y 575 against the print's x 595, y 615, about 0.8 m out and 0.6 m high: the crown's eave box and the attic's height are the sign-off's (T-3191); T-3191: the attic 0.3 m lower (attic_m 2.6), so the crown's cornice corner renders at about x 600, y 580-595 against the print's x 597, y 600-615; its side fascia's return to the main roof (to x about 645) stands where the print shows the main curb's cornice at the same height (within tolerance)"
     },
     {
       "what": "the attic's three lights: the print's carry arched transom heads under carved hoods (y about 627-690 px); the build's flat transoms stand in",
@@ -148,8 +152,8 @@
     },
     {
       "what": "the crown's pitch: through the re-solved camera (T-3189) the print's crown rises about 3.0 m (its cornice at y 588 px, 12.1 m, its point at y 407, 15.1 m) over a half-width of about 3.4 m, about 41 degrees; the build's stands at 47, the nearest the kit's slated crown allows (over 45), so its point renders at y about 347 px, about 0.75 m over the print's",
-      "status": "open",
-      "how": "T-3209: with the cornice brought in to 0.2 m the crown's half-width falls from 3.38 to 2.93 m at the same 47 degrees, and its point now renders at y about 375 px against the print's 407 (about 0.4 m over, from 0.75)"
+      "status": "fixed",
+      "how": "T-3209: with the cornice brought in to 0.2 m the crown's half-width falls from 3.38 to 2.93 m at the same 47 degrees, and its point now renders at y about 375 px against the print's 407 (about 0.4 m over, from 0.75); T-3191: the print's point is about 1.2 m behind the pavilion's face, not over the middle of a square crown: the street end pitched at 65 degrees and the sides at 45.5 put it at x 490, y about 400 px against the print's x 490, y 405"
     },
     {
       "what": "the crown's finial: the print's is a wrought iron cross-like finial about 1 m tall (y 355-410 px); the build turns the deck's iron finial (T-3000) to the same height",
@@ -172,7 +176,8 @@
     },
     {
       "what": "the tower's lights: the print's carry segmental hoods over the principal floor's pair and a roundel between the second floor's (y 1130-1160 px); T-3194's moulded surrounds and level hoods stand in",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3191: the principal floor's pair under segmental carved hoods (k08 tympanum, rising 0.15 m), rendering at y about 1158-1195 px against the print's 1170-1200; the print's are carved finer (within tolerance). The roundel is the next item"
     },
     {
       "what": "the tower's slated hip: the print's flares a little at its foot (a bellcast about 0.2 m out over the bottom metre); the build's runs straight at one pitch",
@@ -195,6 +200,21 @@
       "what": "the walk and the entrance gate",
       "status": "fixed",
       "how": "T-3206: the K14 walk runs from the porch flight to the public walk; the entrance gate stands open"
+    },
+    {
+      "what": "the roundel between the tower's principal-floor lights over their hoods (x about 965-995 px, y 1130-1165, about 0.35 m across)",
+      "status": "open",
+      "how": "T-3191, the sign-off: left open; K08 sets a roundel only on a storey's head frieze, whose band the print does not show and which would cross the new hoods"
+    },
+    {
+      "what": "the crown's slates: the print's rise from about 0.6 m inside its cornice's edge (the south edge at x 545 px at y 555, its cornice to x 600), steeper than its sides read at the point, so no south slope shows past the hip; the build's sides rise from the fascia at 45.5 degrees and show about 70 px (0.8 m) of south slope past the print's outline at y 540",
+      "status": "open",
+      "how": "T-3191, the sign-off: left open; K05's hipped crown lays every plane from the fascia's edge at one side pitch, and a pitch steep enough to hide the slope lifts the point about 3 m over the print's"
+    },
+    {
+      "what": "the south flank past the tower and its stacks, seen through this camera: the print's flank closes up to about x 1386 px (the Glessner copy, which runs wider, then shows the coach house's front at x 1447-1538 with sky over it), where the camera puts the main block's rear corner at x 1734 and the step's at 1827; and the print's stack tops stand at y about 613 and 729 against the build's 435 and 499",
+      "status": "within tolerance",
+      "how": "T-3191: two fits disagree, not the build: no level camera holds both the sheet's plan of the front and corner (T-3176's 23 readings) and the flank's close-up. Forced to put the rear corner at x 1440, the best fit misses the front by 15 px RMS and 28 at most (against 4.4 and 10), and takes back T-3171's short lens. So the flank's far end, the step and the stacks' heights are not read through it; the step stands on the sheet, and the stacks where T-3171 put them. The Tribune's 1927 night photograph puts a stack at about u 20 behind the tower (tribune_1927_fire.match.json), which this print does not hold either"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
