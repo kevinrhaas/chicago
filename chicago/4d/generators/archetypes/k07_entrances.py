@@ -249,6 +249,7 @@ class Entrance(Opening):
         st = sa["stile_m"]
         top = day.top_y if head.kind == "flat" else head.spring
         has_glass = False
+        mouth = day   # T-3228: the backing closes the whole mouth, side light and fanlight included
         sl = v.get("side_light")
         if sl and head.kind != "flat":
             # T-2952: a broad arch's mouth (1812's, the Levy print): the transom at the spring, the
@@ -303,7 +304,7 @@ class Entrance(Opening):
         if has_glass:
             deepest = max(pn["depth_m"] for pn in self.panes)
             d_back = deepest + p["backing"]["depth_m"]
-            outline = day.outline()
+            outline = mouth.outline()
             self.tube("backing", outline, rev + fr["depth_m"], d_back)
             self.plane("backing", outline, d_back)
             self.meta["depth_backing_m"] = round(d_back, 4)

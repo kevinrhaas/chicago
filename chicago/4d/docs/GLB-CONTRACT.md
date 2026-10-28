@@ -235,6 +235,14 @@ is no longer a convention nobody promised to keep.
 chimney, by its material name. Those names have no single writer and no pin, and the
 `walk_surface_m` row's argument still stands for every one of them.
 
+### Joint floors — `mortar` (PROPOSED 2026-10-28, T-3226)
+
+| thing | convention |
+|---|---|
+| a primitive's material named `mortar` | a JOINT FLOOR: laid under coursed stones (K02's `k01_frontage.stone()`, its copings and arches; Glessner's own builder) at the fabric's joint recess, 1 to 6 mm behind the faces that cover it, so that every joint has a floor. It is meant to be seen in the joints only. |
+| what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
+| what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
+
 ### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
 
 The paragraph above refuses a wall's material name as a licence, and this section does not

@@ -1,6 +1,6 @@
-# T-3216 — walks and front boundaries of the ten unpictured worked 1600-block Prairie houses
+# T-3229 (piece of T-3216) — walks and front boundaries of the ten unpictured worked 1600-block Prairie houses
 
-Piece 3 of T-3204 (the owner, 2026-10-27: every worked house's walk to its door, its gates and
+T-3216 is piece 3 of T-3204 and was split by K01 and K16 build; T-3229 is its K01 half, T-3230 the four timber houses (the owner, 2026-10-27: every worked house's walk to its door, its gates and
 its boundaries to its pictures; where no picture shows them, a stated reconstruction consistent
 with the block).
 
