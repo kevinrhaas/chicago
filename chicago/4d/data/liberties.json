@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 828,
+  "count": 829,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58774,6 +58774,46 @@
       ],
       "work_refs": [
         "T-3206"
+      ]
+    },
+    {
+      "id": "L-k16-1638-walk-3222",
+      "title": "1638 Prairie's front walk: in through the gateway between its two piers, north along the fence's back and west to the porch stair's foot, in flags of the plinths' stone",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1638 Prairie (the K16 timber house) is given a front walk, which the K16 generator could not lay before: the house's stair came down on bare ground and the gateway between its two gate piers opened on nothing. The walk is a K14 walk: K14's router (k14 yard._route) takes it out from the stair's foot (u 5.02 m, on the porch's axis at s 6.53 m), turns it along the boundary's back 0.45 m clear of the plinths, and brings it out through the gateway between the plinths' faces (s -0.18 to 1.075 m) to the street line, the public walk's inner edge (u 10.8 m); the condition kit's front walk wear tones its flags, as on the district's other K14 walks. **What is read, not invented.** The gateway, between the two piers the photograph shows ([1638 S. Prairie Avenue — Shortall / Gregory house.] Halftone photograph of the…, 's reading), and the stair it leads to, at the north end of the front. Through the photograph's camera the print shows pale ground in the gateway and at the stair's foot behind the fence, and the walk as built lands in both (the match record). **What is invented or held by the kit.** Everything between: the hedge hides the yard behind the fence in the print, so the walk's line along the fence's back, its width (1.2 m, the gateway's clear less the kit's margins), its flags (0.9 m, 0.06 m over the ground, the district's K14 walks' sizes) and their stone (the plinths', one slot) are reconstructed. The app's ground rises 2-21 mm over the house's bed under the walk (measured in the published app, the qa house walks t3222 tool), less than a flag stands over it, so no grade (m) lift is laid. the house walks check reads the walk and the fence's two runs either side of the gateway off the GLB: it starts at the stair, reaches the public walk, passes the fence only at its gateway and crosses no footprint."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or later photograph of 1638's yard, or a survey plat drawing the walk."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.yard`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-3222)."
+        }
+      ],
+      "work_refs": [
+        "T-3222",
+        "T-2524"
       ]
     },
     {

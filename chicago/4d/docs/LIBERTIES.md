@@ -35109,3 +35109,29 @@ through an opening in the front boundary and cross no building.
 drawing the walks.
 **Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.yard`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.yard`, `wheeler_house_1812_prairie.as_built_1884.form.yard`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.yard`, `henderson_house_1816_prairie.as_mapped_1904.form.yard`, `dent_house_1823_prairie.as_mapped_1904.form.yard`, `marsh_house_1824_prairie.as_mapped_1904.form.yard`, `doane_house_1827_prairie.as_mapped_1904.form.yard`, `house_1828_prairie.as_mapped_1904.form.yard`, `jones_house_1834_prairie.as_mapped_1904.form.yard`, `ream_house_1901_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3206.
+
+### L-k16-1638-walk-3222 — 1638 Prairie's front walk: in through the gateway between its two piers, north along the fence's back and west to the porch stair's foot, in flags of the plinths' stone
+
+**Decision:** 1638 Prairie (the K16 timber house) is given a front walk (T-3222), which the K16
+generator could not lay before: the house's stair came down on bare ground and the gateway between
+its two gate piers opened on nothing. The walk is a K14 walk: K14's router (`k14_yard._route`)
+takes it out from the stair's foot (u 5.02 m, on the porch's axis at s 6.53 m), turns it along the
+boundary's back 0.45 m clear of the plinths, and brings it out through the gateway between the
+plinths' faces (s -0.18 to 1.075 m) to the street line, the public walk's inner edge (u 10.8 m);
+the condition kit's front_walk wear tones its flags, as on the district's other K14 walks. **What is
+read, not invented.** The gateway, between the two piers the photograph shows (`chicagology_1638_prairie_photo`,
+T-2524's reading), and the stair it leads to, at the north end of the front. Through the photograph's
+camera the print shows pale ground in the gateway and at the stair's foot behind the fence, and the
+walk as built lands in both (the match record, T-3222). **What is invented or held by the kit.**
+Everything between: the hedge hides the yard behind the fence in the print, so the walk's line along
+the fence's back, its width (1.2 m, the gateway's clear less the kit's margins), its flags (0.9 m,
+0.06 m over the ground, the district's K14 walks' sizes) and their stone (the plinths', one slot) are
+reconstructed. The app's ground rises 2-21 mm over the house's bed under the walk (measured in the
+published app, tools/qa_house_walks_t3222.mjs), less than a flag stands over it, so no `grade_m` lift
+is laid. `tools/check_house_walks.py` reads the walk and the fence's two runs either side of the
+gateway off the GLB: it starts at the stair, reaches the public walk, passes the fence only at its
+gateway and crosses no footprint.
+**How to resolve:** a nearer or later photograph of 1638's yard, or a survey plat drawing the walk.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.yard`.
+**Ticket:** T-3222.
+**Recorded:** 2026-10-28 (T-3222).
