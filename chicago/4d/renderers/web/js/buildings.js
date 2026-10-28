@@ -408,6 +408,7 @@ function perVertexScalars(material) {
  */
 function materialKey(m) {
   const near = (v) => (typeof v === 'number' ? v.toFixed(3) : '-');
+  const offset = m.polygonOffset ? `${m.polygonOffsetFactor}/${m.polygonOffsetUnits}` : '-';
   return [
     m.type,
     m.emissive?.getHexString() ?? '-',
@@ -416,8 +417,38 @@ function materialKey(m) {
     m.roughnessMap?.uuid ?? '-',
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
-    m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's',
+    m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's', offset,
   ].join('|');
+}
+
+/**
+ * THE JOINT FLOOR DRAWS BEHIND THE STONE IT LIES UNDER — T-3226.
+ *
+ * A coursed stone wall (K02, `k01_frontage.stone()`) lays a `mortar` floor under
+ * every stone's whole cell, 1 to 6 mm behind the stone's face (the fabric's
+ * `joint.recess_m`), so every joint has a floor and no stone is open behind. The
+ * floor is meant to be seen only in the joints. But the web derivative stores a
+ * house's positions on a 14-bit lattice over its own box (`web_derivatives.sh`),
+ * 2.8 mm a rung at 1801 Prairie, which rounds a 2 mm recess onto the face itself,
+ * and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway. So the face
+ * and the floor fought for the same pixels: the owner saw it on 2026-10-28 as
+ * 1827 and 1801 Prairie's flanks "speckled" and shimmering as he walked, and the
+ * houses down the street flickering until he came close.
+ *
+ * The floor is drawn a few depth steps behind whatever lies in its plane. That
+ * moves depth only — no vertex, no colour, no light, no draw call (the floor
+ * already batches on its own map) — so a joint looks as it did, and a stone face
+ * wins wherever it covers its floor, at any distance and on any lattice. Keyed on
+ * the material name `mortar`, docs/GLB-CONTRACT.md § Joint floors.
+ * `tools/check_joint_floor.mjs` holds it.
+ */
+export const JOINT_FLOOR = Object.freeze({ names: Object.freeze(['mortar']), factor: 1, units: 4 });
+export function seatJointFloor(material) {
+  if (!JOINT_FLOOR.names.includes(material?.name)) return false;
+  material.polygonOffset = true;
+  material.polygonOffsetFactor = JOINT_FLOOR.factor;
+  material.polygonOffsetUnits = JOINT_FLOOR.units;
+  return true;
 }
 
 /**
@@ -551,6 +582,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
       tintKeithStone(material, record);
+      seatJointFloor(material);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);

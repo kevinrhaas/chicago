@@ -152,6 +152,12 @@ step "The sun's shadow biases hold the same fraction of a shadow texel on every 
 selftest "The shadow-bias check refuses the fixed-length biases that blotched the 1835 shed on a phone (T-3054)" \
   node tools/check_shadow_bias.mjs --self-test
 
+step "A coursed wall's mortar floor is drawn behind the stone faces lying on it, so the two never fight for a pixel (T-3226)" \
+  node tools/check_joint_floor.mjs
+
+selftest "The joint-floor check refuses a missing seat, a forward offset and a batch key blind to the offset (T-3226)" \
+  node tools/check_joint_floor.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
