@@ -161,14 +161,24 @@
               "k01.wall.side.south",
               "k01.wall.street_front",
               "k01.wall.side.north"
-            ]
+            ],
+            "frieze": {
+              "height_m": 0.42,
+              "proud_m": 0.025
+            },
+            "blocks": {
+              "spacing_m": 0.8,
+              "height_m": 0.45,
+              "projection_m": 0.19,
+              "width_m": 0.18
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1901_ream_1898",
             "chicagology_1901_ream_exterior"
           ],
-          "note": "A deep cornice on large paired blocks over a frieze at the wall head, carried round the front and both flanks, in both photographs (the exterior view shows it turning the south-west corner and running the south flank's whole length). K10's moulded stone cornice; the blocks' pairing is the kit's spacing (the match record)."
+          "note": "A deep cornice over a frieze at the wall head, carried round the front and both flanks, in both photographs (the exterior view shows it turning the south-west corner and running the south flank's whole length). K10's moulded stone cornice. T-3186: enlarged, both prints show under its corona a course of carved stone blocks, scrolled consoles each with a squared head, single and at an even spacing with dark panels between them, standing on a plain frieze whose foot is a moulded band just over the chamber windows' heads; the earlier reading of them as paired is not what the enlargements show. Built as K10's scrolled console in the walls' stone, its top under the corona's soffit, 0.45 m high and 0.18 m wide, about 0.8 m apart (in the 1898 front view about 23 px apart at about 3.7 cm a pixel along the foreshortened front, and about 17 px high at about 2.7 cm), and the frieze 0.42 m under the cornice's foot, the most the chamber heads leave under it: the pictures read the frieze and blocks together about 0.6-0.8 m high from the band to the corona, and the build's band-to-corona is 0.57 m. The blocks' projection (0.19 m) is the most the corona's soffit covers, and their carving is the kit's generic scroll."
         },
         "roof_form": {
           "value": "mansard",
