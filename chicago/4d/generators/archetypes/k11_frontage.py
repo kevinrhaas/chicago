@@ -41,6 +41,11 @@ What the record's `boundary` names, and what is built for it:
             a pier at the foot of the stoop's cheek (1736's c. 1890 photograph; its
             curbstone, photographed in place in 2015). No gate and no opening.
 
+  open      (T-3215) `layout: open`: no boundary at all. 1621's and 1623's 1886 drawings
+            and 1625's 1890 photograph show each front yard running straight out to the
+            public walk with no fence, wall or coping across it, so nothing is laid; the
+            yard's walk (K14) comes out from the stoop across the lot's whole open front.
+
 A generic kit part is allowed here because 1808's own boundary is not read in any source
 this project holds (k11_ironwork.json `restrictions`: a generic part never stands in place
 of a documented one). The north side, against 1800 (Glessner), is left open: the yard
@@ -74,6 +79,8 @@ GARDEN = "front_garden"
 # T-2961: a low wall of squared stone blocks along the street line, its top's street arris
 # chamfered (1736's c. 1890 photograph, and its surviving curbstone photographed in 2015)
 COPING = "stone_coping_wall"
+# T-3215: a front yard with no boundary across it (1621's and 1623's drawings, 1625's photograph)
+OPEN = "open"
 
 
 def _kit():
@@ -95,6 +102,8 @@ def spec(params) -> dict | None:
         return garden_spec(params, t)
     if t.get("layout") == COPING:
         return coping_spec(params, t)
+    if t.get("layout") == OPEN:
+        return open_spec(params, t)
     if t.get("fence") not in FENCES:
         raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
     for g in ("entrance_gate", "side_gate"):
@@ -198,6 +207,8 @@ def dress(a):
         return garden(a, t)
     if t.get("layout") == COPING:
         return coping_wall(a, t)
+    if t.get("layout") == OPEN:
+        return open_front(a, t)
     K = _kit()
     data = K.load()
     P = data["parts"]
@@ -464,7 +475,24 @@ def garden(a, t):
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4),
                   "stoop_cheeks_s_m": [round(c, 4) for c in cheeks],
                   "wall_s_m": [round(wa, 4), round(wb, 4)], "wall_piers_s_m": [round(x, 3) for x in wv.meta["piers"]],
-                  "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts]}
+                  "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts],
+                  # T-3215: the line's back face, and the gaps it leaves (the stoop's, between the
+                  # wall's end and the fence's), for the K14 walk that comes out through them
+                  "inner_x_m": round(line - max(P["curb"]["width_m"], P["wall"]["thickness_m"]) / 2, 4),
+                  "openings_s_m": _gaps(p.boundary["lot_s_m"], [(wa, wb), (fa, fb)])}
+
+
+def _gaps(lot, runs, least=0.9):
+    """The stretches of the lot's front, south to north, that no run stands on and that are
+    at least a walk's width (`least`) across."""
+    out, lo = [], lot[0]
+    for a, b in sorted(runs):
+        if a - lo >= least:
+            out.append([round(lo, 4), round(a, 4)])
+        lo = max(lo, b)
+    if lot[1] - lo >= least:
+        out.append([round(lo, 4), round(lot[1], 4)])
+    return out
 
 
 def stone_boundary(a,t):
@@ -658,3 +686,38 @@ def coping_wall(a, t):
                   # T-3206: the wall's back face, and the runs it leaves open
                   "inner_x_m": round(line - T, 4),
                   "openings_s_m": [[round(r[0], 4), round(r[1], 4)] for r in runs if r[2] is None]}
+
+
+# -----------------------------------------------------------------------------------
+# T-3215: an open front — no boundary across the yard
+# -----------------------------------------------------------------------------------
+
+def open_spec(params, t):
+    """`layout: open`: the lot's sides (`lot_s_m`, holding the street front) and nothing else.
+    No fence, wall, gate or coping is named, so none may be."""
+    extra = set(t) - {"layout", "lot_s_m"}
+    if extra:
+        raise ValueError(f"boundary layout open lays nothing, so it names no {sorted(extra)}")
+    s0, s1 = t["lot_s_m"]
+    if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
+        raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
+    return t
+
+
+def open_front(a, t):
+    """Lay `layout: open` (open_spec): nothing. The stoop's foot is read off its built mesh
+    as the coping wall reads it, and the whole front out to the public walk is the opening
+    the K14 walk passes."""
+    p = a.p
+    D = p.depth_m
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
+    reach = max(2.0, p.stoop_width_m / 2 + 0.1)
+    feet = [q[0] for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < reach]
+    public = D + p.entrance_kit["front_yard_m"]
+    south, north = t["lot_s_m"]
+    a.instance("k11.boundary.open", "boundary", {"lot_s_m": [south, north]},
+               {"south": (public, 0.0, -south), "north": (public, 0.0, -north)})
+    a.boundary = {"line_x_m": round(public, 4), "stoop_foot_x_m": round(max(feet), 4) if feet else None,
+                  "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [], "fence_posts_s_m": [],
+                  "wall_piers_x_m": [], "inner_x_m": round(public, 4),
+                  "openings_s_m": [[round(south, 4), round(north, 4)]]}
