@@ -437,6 +437,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const groups = new Map();
   const sourceRoles = new WeakMap();
   const viewOccluders = [];
+  /**
+   * T-3213: what every backing's `active()` compares against — identity is read
+   * and never written, and the scratch is filled and read inside one synchronous
+   * call — so one of each serves them all. Each closure held its own pair: about
+   * 4 MB of a 1904 phone's heap.
+   */
+  const OCCLUDER_IDENTITY = new THREE.Matrix4(), occluderScratch = new THREE.Matrix4();
   /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
   const planarSources = [];
   let planarOn = true;
@@ -803,6 +810,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
     // batch's: a batch takes its attribute set from its first geometry, and every
     // geometry in it must be packed to the one scale its shader divides by.
+    // T-3213: a batch whose material samples no texture has nothing to read a uv
+    // with — the walls' and roofs' relief derive theirs from the position
+    // (wall-relief.js, roof-relief.js), and no patch on a structures material reads
+    // the attribute — but three uploads every attribute a geometry carries, read or
+    // not. The 1904 town's largest batch is untextured and its uv float32 (the
+    // tiling ones stay float, compact-attributes.js): about 17 MB of a phone's GPU
+    // buffers, drawn by nothing. The key holds every map, so the whole bucket agrees.
+    if (!Object.values(bucket.material).some((v) => v?.isTexture)) {
+      for (const e of bucket.entries) e.geo.deleteAttribute('uv');
+    }
     const plan = compactPlan(bucket.entries.map((e) => e.geo));
     const toneScale = toneScaleOf(bucket.entries.map((e) => e.geo));
     bucket.material.userData.chiToneScale = toneScale;
@@ -864,8 +881,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // `placement` below is the INSTANCE matrix, dequantize included, which is
       // the one that turns this geometry's positions into the world (T-2575).
       if (occludesView) {
-        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=new THREE.Matrix4();
-        const identity=new THREE.Matrix4(), m=batch.material;
+        // T-3213: `identity` and `current` are the layer's one pair (below the
+        // occluder list), not two more matrices in every backing's closure.
+        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=occluderScratch;
+        const identity=OCCLUDER_IDENTITY, m=batch.material;
         const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
         // Only the existing opaque, aperture-cut backing, under its known
         // position-preserving shaders. Visibility/transform changes fail open.
@@ -952,6 +971,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
+    // T-3213: every addGeometry above left an update range on each attribute and
+    // the index, and three clears those only after a PARTIAL upload — the first
+    // upload sends the whole array and keeps them. About 12 MB of `{ start, count }`
+    // in a 1904 phone's heap, for buffers that are uploaded whole anyway. An empty
+    // list means "upload all of it", so dropping them changes no byte on the GPU.
+    for (const attribute of [...Object.values(batch.geometry.attributes), batch.geometry.index]) {
+      attribute?.clearUpdateRanges();
+    }
     group.add(batch);
     batches.push(batch);
     // T-2786: every entry's geometry is in the batch now. `dispose()` above frees
