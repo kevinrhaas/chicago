@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2391, ts: '2026-10-28T17:50:55.158Z', date: 'Oct 28, 2026, 12:50 PM CT', title: 'The Pullman estate no longer claims to match its photographs', kind: 'fix',
+    items: [
+      'The Pullman house, palm house, stable and 18th Street glasshouses are marked as not yet matching their photographs. They don\'t, and their rework has started.',
+      'The built-so-far walk no longer lists the 18th Street glasshouses among the buildings that match their pictures.',
+      'A building whose work was split into smaller jobs can no longer finish without matching its pictures.',
+    ] },
+  { v: 2390, ts: '2026-10-28T17:50:55.158Z', date: 'Oct 28, 2026, 12:50 PM CT', title: 'An open loggia under the Kimball house\'s 18th Street gable', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the top storey of the gabled section on 18th Street is now an open loggia behind its stone balustrade: two dark openings on a slender post under the gable, where a glazed window stood before, as the c. 1895 photograph shows it.',
+    ] },
   { v: 2389, ts: '2026-10-28T16:10:31.588Z', date: 'Oct 28, 2026, 11:10 AM CT', title: '1901 Prairie\'s cornice gets its carved stone blocks', kind: 'change',
     items: [
       'The Ream house at 1901 Prairie now carries the deep cornice its two photographs show: a course of carved stone blocks under the cornice, standing on a plain frieze, all the way round the front, the cut corner and the side.',
