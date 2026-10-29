@@ -226,3 +226,200 @@ def dress(a):
 
 def _sub_(u, v):
     return (u[0] - v[0], u[1] - v[1], u[2] - v[2])
+
+
+# -- T-3241: a corner porch on the street front ---------------------------------------
+# 1701 Prairie's, in Chicagology's photograph and on the 1911 sheet (the stone '1' piece on
+# the front's north end): a one-storey stone arcade standing out from the front at its
+# corner, on the principal floor's stone podium, its openings arched, under an entablature
+# and a balustrade at the second floor. The porte-cochere's walls, entablature and
+# balustrade, laid on the street front, with a podium under the openings and more than one
+# arch a face (`corner_porch`; docs/LIBERTIES.md L-k01-hibbard-1701-3241).
+
+PORCH_KEYS = {"s_m", "out_m", "thickness_m", "floor_m", "spring_m", "head_m", "arches", "entablature", "balustrade"}
+PORCH_PIER_M = 0.2      # the least pier a porch arch leaves at either side, a column's
+
+
+def resolve_porch(spec, *, width, openings, bays) -> dict:
+    """The record's `corner_porch`, checked against the house: on the street front, from
+    one corner, clear of the door and of every bay, each arch inside its face with a pier
+    left either side, its crown under the entablature."""
+    if not spec:
+        return {}
+    if not isinstance(spec, dict) or set(spec) != PORCH_KEYS:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)}")
+    s0, s1 = sorted(float(x) for x in spec["s_m"])
+    out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
+    ys, H = float(spec["spring_m"]), float(spec["head_m"])
+    if not (s0 == 0.0 or s1 == width) or not 2.5 <= s1 - s0 <= 8.0 or s1 > width:
+        raise ParamError(f"corner_porch.s_m [{s0}, {s1}]: 2.5-8 m along the front from one of its corners (0 or {width})")
+    if not 0.8 <= out <= 4.0 or not 0.2 <= t <= 0.8 or t > out - 0.4:
+        raise ParamError("corner_porch: 0.8-4 m out, its walls 0.2-0.8 m thick with at least 0.4 m inside them")
+    if not 0.0 <= fl <= 3.0 or not fl + 1.5 <= ys < H <= 9.0:
+        raise ParamError("corner_porch: a 0-3 m podium, the arches springing at least 1.5 m over it, under the entablature")
+    E, B = spec["entablature"], spec["balustrade"]
+    if set(E) != ENT_KEYS or set(B) != BAL_KEYS or len(B["rail_m"]) != 2:
+        raise ParamError("corner_porch.entablature takes height_m and proud_m; its balustrade height_m, post_m, "
+                         "baluster_m, pitch_m and rail_m [width, depth]")
+    eh, ep = float(E["height_m"]), float(E["proud_m"])
+    bh, bp, bb, bpi = (float(B[k]) for k in ("height_m", "post_m", "baluster_m", "pitch_m"))
+    rw, rd = (float(x) for x in B["rail_m"])
+    if not (0.15 <= eh <= 0.8 and 0.0 <= ep <= 0.4 and 0.4 <= bh <= 1.2 and 0.1 <= bp <= 0.5
+            and 0.03 <= bb <= 0.2 and bb + 0.05 <= bpi <= 0.5 and 0.05 <= rw <= bp and 0.05 <= rd <= bh / 3):
+        raise ParamError("corner_porch: a 0.15-0.8 m entablature up to 0.4 m proud; a 0.4-1.2 m balustrade on "
+                         "0.1-0.5 m posts, 0.03-0.2 m balusters at a wider pitch, its rail no wider than a post")
+    lengths = {"low_end": out, "front": s1 - s0, "high_end": out}
+    arches = []
+    for j, ar in enumerate(spec["arches"]):
+        if set(ar) != {"face", "centre_m", "span_m"} or ar["face"] not in FACES:
+            raise ParamError(f"corner_porch.arches[{j}] takes face ({', '.join(FACES)}), centre_m and span_m")
+        c, w = float(ar["centre_m"]) - (s0 if ar["face"] == "front" else 0.0), float(ar["span_m"])
+        L = lengths[ar["face"]]
+        lo = t if ar["face"] == "front" else 0.0
+        hi = L - t
+        if not 0.4 <= w <= 4.0 or c - w / 2 < lo + PORCH_PIER_M - 1e-6 or c + w / 2 > hi - PORCH_PIER_M + 1e-6:
+            raise ParamError(f"corner_porch.arches[{j}]: a 0.4-4 m arch on its {L:.2f} m face leaving a "
+                             f"{PORCH_PIER_M} m pier each side")
+        if ys + w / 2 > H - 0.15:
+            raise ParamError(f"corner_porch.arches[{j}]: its crown ({ys + w / 2:.2f} m) stands within 0.15 m "
+                             f"of the entablature at {H} m")
+        for a in arches:
+            if a["face"] == ar["face"] and abs(a["centre_m"] - c) < (a["span_m"] + w) / 2 + PORCH_PIER_M - 1e-6:
+                raise ParamError(f"corner_porch.arches[{j}]: it leaves no {PORCH_PIER_M} m pier beside the arch at "
+                                 f"{a['centre_m']:.2f} m on its face")
+        arches.append({"face": ar["face"], "centre_m": c, "span_m": w})
+    arches.sort(key=lambda a: (FACES.index(a["face"]), a["centre_m"]))
+    for o in openings:   # the door is never behind it; the lights it stands before show through its arches
+        if o.wall == "k01.wall.street_front" and o.component == "k01.opening.door_leaf" \
+                and o.s_m + o.width_m / 2 > s0 - ep - 0.1 and o.s_m - o.width_m / 2 < s1 + ep + 0.1:
+            raise ParamError(f"corner_porch (s {s0}-{s1}) stands before the door at s {o.s_m}")
+    for b in bays:
+        if b["wall"] == "k01.wall.street_front":
+            b0, b1 = b["span_m"]
+            if b1 > s0 - ep - 0.05 and b0 < s1 + ep + 0.05:
+                raise ParamError(f"corner_porch (s {s0}-{s1}) runs into the bay {b['id']} (s {b0:.2f}-{b1:.2f})")
+    return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
+            "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
+            "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
+
+
+def dress_porch(a):
+    """The corner porch's walls on their podium, its floor, entablature and balustrade."""
+    from .k01_frontage import Y, _add, _mul
+    p, pc = a.p, a.p.corner_porch
+    D = p.depth_m
+    conf = p.worst_conf("footprint", "corner_porch")
+    O, R, N = (D, 0.0, 0.0), (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)
+    P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+    mat = "bay_stone"
+    pr = a.prim(mat)
+    (s0, s1), out, t = pc["s_m"], pc["out_m"], pc["thickness_m"]
+    fl, ys, H = pc["floor_m"], pc["spring_m"], pc["head_m"]
+    seed = a.instance("k01.corner_porch", "corner_porch",
+                      {"s0_m": s0, "s1_m": s1, "out_m": out, "floor_m": fl, "spring_m": ys, "head_m": H,
+                       "arches": len(pc["arches"])},
+                      {"deck": P((s0 + s1) / 2, H + pc["entablature"]["height_m"], out / 2)})
+    bf, bh, be = a.basis(mat, O, R, Y, seed), a.basis(mat, O, R, N, seed), a.basis(mat, O, N, Y, seed)
+    quad = lambda pts, n, b: pr.face(pts, n, b, conf)
+    up, down = Y, _mul(Y, -1)
+    walls = {
+        "front": (lambda a_, y, w: P(s0 + a_, y, out - w), N, s1 - s0, bf, be),
+        "low_end": (lambda a_, y, w: P(s0 + w, y, a_), _mul(R, -1), out - t, be, bf),
+        "high_end": (lambda a_, y, w: P(s1 - w, y, a_), R, out - t, be, bf),
+    }
+    for face, (at, nf, L, b_face, b_end) in walls.items():
+        ni = _mul(nf, -1)
+        along = _sub_(at(1.0, 0.0, 0.0), at(0.0, 0.0, 0.0))
+        ars = [ar for ar in pc["arches"] if ar["face"] == face]
+        for w, n in ((0.0, nf), (t, ni)):
+            x = 0.0
+            for ar in ars:
+                c, r = ar["centre_m"], ar["span_m"] / 2
+                quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(x, H, w)], n, b_face)
+                if fl > 0.0:   # the podium under the opening
+                    quad([at(c - r, 0.0, w), at(c + r, 0.0, w), at(c + r, fl, w), at(c - r, fl, w)], n, b_face)
+                for k in range(SEGMENTS):
+                    t0, t1 = math.pi * k / SEGMENTS, math.pi * (k + 1) / SEGMENTS
+                    x0, y0 = c + r * math.cos(t0), ys + r * math.sin(t0)
+                    x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
+                    quad([at(x0, y0, w), at(x0, H, w), at(x1, H, w), at(x1, y1, w)], n, b_face)
+                x = c + r
+            quad([at(x, 0.0, w), at(L, 0.0, w), at(L, H, w), at(x, H, w)], n, b_face)
+        for ar in ars:
+            c, r = ar["centre_m"], ar["span_m"] / 2
+            for x, k in ((c - r, 1.0), (c + r, -1.0)):   # the jambs, podium to springing
+                quad([at(x, fl, 0.0), at(x, ys, 0.0), at(x, ys, t), at(x, fl, t)], _mul(along, k), b_end)
+            if fl > 0.0:   # the opening's sill on the podium
+                quad([at(c - r, fl, 0.0), at(c + r, fl, 0.0), at(c + r, fl, t), at(c - r, fl, t)], up, bh)
+            for k in range(SEGMENTS):   # the arch's soffit, turned through the wall
+                t0, t1 = math.pi * k / SEGMENTS, math.pi * (k + 1) / SEGMENTS
+                tm = (t0 + t1) / 2
+                x0, y0 = c + r * math.cos(t0), ys + r * math.sin(t0)
+                x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
+                n = _add(_mul(along, -math.cos(tm)), _mul(Y, -math.sin(tm)))
+                quad([at(x0, y0, 0.0), at(x1, y1, 0.0), at(x1, y1, t), at(x0, y0, t)], n, bh)
+    for s_, n in ((s0, _mul(R, -1)), (s1, R)):   # the front wall's ends, its corners turned
+        quad([P(s_, 0.0, out - t), P(s_, 0.0, out), P(s_, H, out), P(s_, H, out - t)], n, be)
+    # the porch's floor on the podium, inside its walls
+    quad([P(s0 + t, fl, 0.0), P(s1 - t, fl, 0.0), P(s1 - t, fl, out - t), P(s0 + t, fl, out - t)], up, bh)
+
+    eh, ep = pc["entablature"]["height_m"], pc["entablature"]["proud_m"]
+    S0, S1, Dd, y1 = s0 - ep, s1 + ep, out + ep, H + eh
+    if s0 == 0.0:   # flush with the side wall at the corner, as the sheet draws it
+        S0 = s0
+    if s1 == p.width_m:
+        S1 = s1
+    quad([P(S0, y1, 0.0), P(S1, y1, 0.0), P(S1, y1, Dd), P(S0, y1, Dd)], up, bh)
+    quad([P(S0, H, Dd), P(S1, H, Dd), P(S1, y1, Dd), P(S0, y1, Dd)], N, bf)
+    for s_, n in ((S0, _mul(R, -1)), (S1, R)):
+        quad([P(s_, H, 0.0), P(s_, H, Dd), P(s_, y1, Dd), P(s_, y1, 0.0)], n, be)
+    quad([P(s0 + t, H, 0.0), P(s1 - t, H, 0.0), P(s1 - t, H, out - t), P(s0 + t, H, out - t)], down, bh)
+    if ep > 0:
+        quad([P(S0, H, out), P(S1, H, out), P(S1, H, Dd), P(S0, H, Dd)], down, bh)
+        if S0 < s0:
+            quad([P(S0, H, 0.0), P(s0, H, 0.0), P(s0, H, out), P(S0, H, out)], down, bh)
+        if S1 > s1:
+            quad([P(s1, H, 0.0), P(S1, H, 0.0), P(S1, H, out), P(s1, H, out)], down, bh)
+
+    B = pc["balustrade"]
+    pm, bm, (rw, rd) = B["post_m"], B["baluster_m"], B["rail_m"]
+    y2, y3 = y1, y1 + B["height_m"]
+    yr = y3 - rd
+    e = 0.04
+    Ls, Rs, F = S0 + e, S1 - e, Dd - e
+
+    def box(a0, a1, b0, b1, d0, d1, skip=()):
+        f = {"front": ([P(a0, b0, d1), P(a1, b0, d1), P(a1, b1, d1), P(a0, b1, d1)], N, bf),
+             "back": ([P(a0, b0, d0), P(a1, b0, d0), P(a1, b1, d0), P(a0, b1, d0)], _mul(N, -1), bf),
+             "top": ([P(a0, b1, d0), P(a1, b1, d0), P(a1, b1, d1), P(a0, b1, d1)], up, bh),
+             "bottom": ([P(a0, b0, d0), P(a1, b0, d0), P(a1, b0, d1), P(a0, b0, d1)], down, bh),
+             "left": ([P(a0, b0, d0), P(a0, b0, d1), P(a0, b1, d1), P(a0, b1, d0)], _mul(R, -1), be),
+             "right": ([P(a1, b0, d0), P(a1, b0, d1), P(a1, b1, d1), P(a1, b1, d0)], R, be)}
+        for k, (pts, n, b) in f.items():
+            if k not in skip:
+                quad(pts, n, b)
+
+    for a0, d0 in ((Ls, F - pm), (Rs - pm, F - pm), (Ls, 0.0), (Rs - pm, 0.0)):
+        box(a0, a0 + pm, y2, y3, d0, d0 + pm, skip=("bottom",) + (("back",) if d0 == 0.0 else ()))
+    fr = (F - pm / 2 - rw / 2, F - pm / 2 + rw / 2)
+    box(Ls + pm, Rs - pm, yr, y3 - 0.02, *fr, skip=("left", "right"))
+    mid = lambda x, y_: (x + y_) / 2
+    for a0 in (Ls, Rs - pm):
+        ac = (mid(a0, a0 + pm) - rw / 2, mid(a0, a0 + pm) + rw / 2)
+        box(*ac, yr, y3 - 0.02, pm, F - pm, skip=("back", "front"))
+
+    def balusters(lo, hi, along_s, fixed):
+        n = max(1, math.floor((hi - lo) / B["pitch_m"]))
+        step = (hi - lo) / (n + 1)
+        for i in range(1, n + 1):
+            m = lo + i * step
+            if along_s:
+                box(m - bm / 2, m + bm / 2, y2, yr, fixed - bm / 2, fixed + bm / 2, skip=("bottom", "top"))
+            else:
+                box(fixed - bm / 2, fixed + bm / 2, y2, yr, m - bm / 2, m + bm / 2, skip=("bottom", "top"))
+        return n
+    nb = balusters(Ls + pm, Rs - pm, True, mid(*fr))
+    for a0 in (Ls, Rs - pm):
+        nb += balusters(pm, F - pm, False, mid(a0, a0 + pm))
+    a.seat((O, R, N), [(s, y, 0.0) for s in (S0, S1) for y in (0.0, y3)], "k01.corner_porch")
+    a.corner_porch_meta = {"arches": len(pc["arches"]), "balusters": nb, "top_m": round(y3, 4)}
