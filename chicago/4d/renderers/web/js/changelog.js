@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2394, ts: '2026-10-29T04:34:14.075Z', date: 'Oct 28, 2026, 11:34 PM CT', title: 'Walks, fences and gates for ten more 1600-block Prairie houses', kind: 'feature',
+    items: [
+      '1600, 1604, 1608, 1613, 1615, 1619, 1626, 1628, 1634 and 1636 Prairie now have a flagged walk from the sidewalk to their front steps. Before, you could not walk up to their doors.',
+      'No picture of these fronts survives, so each one follows the pictured houses on its own side of the street. On the west side, an iron fence runs along the sidewalk with its gate standing open at the walk, as at 1612 and 1620. On the east side, the fronts are open to the street, as at 1621, 1623 and 1625.',
+      'Both are marked as reconstructions in the house\'s sources, with the reasoning, so you can tell which parts are read from a picture and which are inferred from the block.',
+    ] },
   { v: 2393, ts: '2026-10-29T01:49:26.095Z', date: 'Oct 28, 2026, 8:49 PM CT', title: 'Pullman\'s palm house now looks like its 1890s photographs', kind: 'improvement',
     items: [
       'The palm house at 1729 Prairie is an open colonnade again: round columns with bases and capitals, dark glass between them and a moulded cornice above.',

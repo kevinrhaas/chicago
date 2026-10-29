@@ -1,0 +1,375 @@
+{
+  "method": "Actual published /1904/ app; stills at 1280x800 full and 390x780 light; the walk is walker.update(0.1 s, forward) from the public walk toward the stoop foot, at most 14 s. Run in four batches of five houses (desktop, mobile), merged here.",
+  "results": [
+    {
+      "label": "desktop",
+      "id": "house_1600_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1600-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1600-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.28,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1604_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1604-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1604-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.04,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1608_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1608-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1608-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.3,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1613_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1613-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1613-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.17,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1615_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1615-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1615-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.17,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1619_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1619-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1619-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.05,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1626_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1626-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1626-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.23,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1628_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1628-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1628-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.24,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1634_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1634-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1634-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.2,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "desktop",
+      "id": "house_1636_prairie",
+      "stands": [
+        {
+          "name": "front",
+          "file": "after-desktop-house_1636-front.jpg",
+          "problems": []
+        },
+        {
+          "name": "gate",
+          "file": "after-desktop-house_1636-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.2,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1600_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1600-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.28,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1604_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1604-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.04,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1608_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1608-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.3,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1613_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1613-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.17,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1615_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1615-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.17,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1619_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1619-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.05,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1626_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1626-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.23,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1628_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1628-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.24,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1634_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1634-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.2,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    },
+    {
+      "label": "mobile",
+      "id": "house_1636_prairie",
+      "stands": [
+        {
+          "name": "gate",
+          "file": "after-mobile-house_1636-gate.jpg",
+          "problems": []
+        }
+      ],
+      "walk": {
+        "closest_to_foot_m": 0.2,
+        "blocked_frames": 0,
+        "reached": true
+      }
+    }
+  ]
+}
