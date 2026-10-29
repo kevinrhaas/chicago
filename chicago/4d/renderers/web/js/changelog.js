@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2404, ts: '2026-10-29T09:31:28.097Z', date: 'Oct 29, 2026, 4:31 AM CT', title: 'The Kimball house\'s 18th Street corner turns round, as photographed', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the tall section on the 18th Street side now has a rounded west corner above its row of corbels, with one small window in the curve and a stone railing on top. The c. 1895 and 1965 photographs both show it this way. Before, the corner was square.',
+    ] },
   { v: 2403, ts: '2026-10-29T08:40:51.825Z', date: 'Oct 29, 2026, 3:40 AM CT', title: '1901 Prairie\'s stoop cheeks pierced, and its photograph dated', kind: 'improvement',
     items: [
       'The two stone cheeks beside the Ream house\'s front steps are now pierced by a row of five openings under their coping, as the photographs show them.',
