@@ -35846,6 +35846,31 @@ tall lights, which both pictures show.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
 
+### L-pullman-dome-place-3164 — The Pullman conservatory's dome stood north of its transept's middle, as both its pictures place it
+
+**Decision:** the drum and ribbed dome stood over the transept's middle (u 6.3), where the 1911 sheet's
+cross arms and the 1894 Inland plate's transept end put the crossing. Through the two solved cameras
+(`inland_1894_pullman_conservatory`, `aic_lowe_pullman_conservatory_c1897`) the dome's finial stands at
+x 1370 on the plate and x 896 in Lowe's print, about 25 and 20 px east of the render's: on the nave's axis
+that is a dome centred at u 4.45 and 4.5, 1.8 m north of the transept's middle, so the drum and dome now
+stand at u 4.5 (`drum.centre_m`, new in the K13 pavilion) and the transept is left where it fits. Read
+again at that depth, the drum's top is 9.7-9.8 m (built 9.75; it was 10.0), the dome's crown 12.3 m on the
+plate and 12.7 m in Lowe (built 12.5; it was 13.1), and the finial is a turned ornament about 1.3 m tall
+(built to that profile, `dome.finial_profile`; it was a 0.5 m stick). **What is invented.** The dome's
+place ACROSS the nave: both cameras see the conservatory from nearly the same bearing, so a shift of the
+dome 0.6 m west reads in both pictures as the same 20-25 px as a shift of 1.8 m north; the north reading
+is taken because it keeps the dome on the nave's axis, as a symmetrical pavilion's would be, and because
+the drum's top, read at the nearer depth, agrees in both pictures without a change of height. Also the
+finial's profile (foot, bulb, neck, knob and spike, read at about 0.02 m a pixel off the plate) and its
+iron's colour, which the monochrome pictures do not give. **What is not.** The dome's place along the
+nave's axis and its height, which both pictures read alike.
+**How to resolve:** a picture from the conservatory's east or west side, or a plan of it, places the dome
+across the nave and settles its place against the transept.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
+
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
