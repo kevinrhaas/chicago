@@ -51,16 +51,6 @@ MARGIN = 0.05       # a leg must clear a laid run's end by this much to pass bes
 # The houses worked before this gate, which fail it today, each with the lane that fixes it.
 # Those lanes take their entries out as they fix them; a passing entry fails the gate.
 PENDING = {
-    "house_1600_prairie": "T-3204",
-    "house_1604_prairie": "T-3204",
-    "house_1608_prairie": "T-3204",
-    "house_1613_prairie": "T-3204",
-    "house_1615_prairie": "T-3204",
-    "house_1619_prairie": "T-3204",
-    "house_1626_prairie": "T-3204",
-    "house_1628_prairie": "T-3204",
-    "house_1634_prairie": "T-3204",
-    "house_1636_prairie": "T-3204",
     "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
     "george_glessner_house_1706_prairie": "T-3212",  # onto K01 by T-3211 (#1384) after T-3205 worked the 1700 block; the missing walk is an open gap in its chicagology match record, the pair's open ticket owns it
     "glessner_lee_house_1700_prairie": "T-3212",     # the same
