@@ -14,6 +14,14 @@
     ],
     "tremont_house_1": [
       {
+        "label": "gale-reading",
+        "summary": "Smaller two-storey, 30 x 20 ft reading of Gale’s retrospective text; not the pictured canonical form or a dated enlargement.",
+        "test_fixture": false,
+        "phase": "frame_1833",
+        "sidecar": "sidecars/1835/versions/tremont_house_1/gale-reading.json",
+        "asset": "gltf/versions/tremont_house_1/gale-reading/tremont_house_1__frame_1833.glb"
+      },
+      {
         "label": "gifford-reading",
         "summary": "Undated Gifford three-storey picture reading; reconstructed larger scale and colour disagree with Gale’s 1835-framed text.",
         "test_fixture": false,

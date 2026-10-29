@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2417, ts: '2026-10-29T17:44:47.340Z', date: 'Oct 29, 2026, 12:44 PM CT', title: '1801 Prairie\'s stone wall gable stands at its south-east corner', kind: 'improvement',
+    items: [
+      'The Kimball house\'s south wall now rises at its rear corner into the steep coped stone gable that the 1965 survey photograph shows behind the rear chimney, with a pair of small windows at its foot just over the cornice.',
+      'Its height, outline and windows were matched to the photograph; its depth and the half the chimney hides are our reconstruction, and the cornice that should run on beneath it is still to come.',
+    ] },
+  { v: 2416, ts: '2026-10-29T17:02:38.005Z', date: 'Oct 29, 2026, 12:02 PM CT', title: 'Tremont\'s pictured hotel and Green Tree\'s wagon bay', kind: 'improvement',
+    items: [
+      'The first Tremont keeps Gifford\'s pictured three storeys and shutters, with the yellow walls Gale described. Gale\'s smaller two-storey account remains a separately labelled version; no dated enlargement is claimed.',
+      'Tremont\'s Images card now opens Gifford\'s attributed drawing. Its original publication and rights remain unresolved; this is the owner\'s approved reference copy.',
+      'Green Tree\'s south wall has seven sash on each floor: the lower middle doorway gives way to the pictured window. Gray\'s later doorway recollection remains explicit counterevidence, and the enclosed-annex discrepancy remains open.',
+      'Green Tree\'s existing open wagon bay and covered wagon stand beside the front gable along the same north wall. Their exact July-1835 presence and dimensions remain reconstructed. The freed yard space admits two reconstructed fuel ricks and a chopping block under the existing household rule.',
+    ] },
   { v: 2415, ts: '2026-10-29T16:43:01.013Z', date: 'Oct 29, 2026, 11:43 AM CT', title: 'Pullman\'s 18th Street wall runs on past the palm house', kind: 'improvement',
     items: [
       'The low stone wall along 18th Street now carries on past the Pullman house, in front of the palm house and the stable, as the 1894 Inland Architect plate shows it.',

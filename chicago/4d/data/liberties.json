@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 859,
+  "count": 860,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -13600,12 +13600,21 @@
         {
           "label": "Recorded",
           "text": "2026-08-18."
+        },
+        {
+          "label": "Front-end station",
+          "text": "Amended 2026-10-26: front-end attachment on the same north wall. The actual verified Trowbridge/Gale 1902 plate, captioned 1835 (The Green Tree Tavern in 1835 (published 1902), plate facing p.35 / scan n55), shows the open bay beside the viewer-left of the main front gable. The former rear-end station above is superseded: the same 4.05 by 3.20 m bay now ends at the inn's front plane on the existing north wall, and its covered wagon shares the derived centre. This is an 8.14 m westward change on the current 12.19 m wall, not a coordinate read off a drawing. The inn, its doors, the bay dimensions and roof heights, wagon, materials and counts stay unchanged. The named plate is a retrospective depiction; the exact July-1835 presence and station remain `reconstructed`, as do all dimensions. No 1859 photograph is used. The enclosed Andreas gabled annex masses and Gray's separate building additions remain unresolved; this open yard roof does not settle their identity or date. Actual corner clearance, grounding and a full-scene picture comparison govern this placement; an isolated building-asset render cannot validate a procedural shed."
+        },
+        {
+          "label": "Actual app validation (2026-10-29)",
+          "text": "Both published viewport sizes show the open bay and covered wagon at the front-end station, dry ground contact, the existing fuel ricks and chopping block, and a clear primary entrance approached at two and three metres. The selected compressed inn asset and credited Trowbridge source are verified, in Normal and By grade. This validates the finite yard and sash corrections; the substantial enclosed annex remains a separate OPEN discrepancy on original other work."
         }
       ],
       "work_refs": [
         "T-0080",
         "T-0083",
-        "T-0075"
+        "T-0075",
+        "T-2376"
       ]
     },
     {
@@ -52502,12 +52511,6 @@
           "domain": "structure",
           "structure": "tremont_house_1",
           "phase": "frame_1833",
-          "aspect": "form.paint"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
           "aspect": "form.shutters"
         },
         {
@@ -52521,8 +52524,12 @@
       "revised": null,
       "fields": [
         {
+          "label": "Historical coverage before sourced yellow (2026-10-26)",
+          "text": "Tremont House (the first) wall height (m), Tremont House (the first) elevation scheme, Tremont House (the first) shutters, Tremont House (the first) footprint, Tremont House (the first) paint, Tremont House (the first) gallery"
+        },
+        {
           "label": "Covers",
-          "text": "`tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`"
+          "text": "`tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.gallery`"
         },
         {
           "label": "Decision",
@@ -52551,10 +52558,19 @@
         {
           "label": "Recorded",
           "text": "2026-10-23."
+        },
+        {
+          "label": "Paint evidence update",
+          "text": "2026-10-26: Gale 1902, printed p.51 (Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Chicago: Fleming H.…), supplies the yellow description adopted as inferred paint for the pictured primary hotel. The earlier coverage list is retained above as history; only its now-obsolete claim that the paint enum is invented is retired. The renderer's exact yellow RGB/trim palette and surface response remain declared reconstruction in “two-storey default and picture alternative”, without mislabelling the sourced enum as an unsubstantiated choice. Footprint, working wall height, concealed elevation arrangement, shutter colour/sections and gallery treatment still owe the active claims above."
+        },
+        {
+          "label": "Current picture review",
+          "text": "2026-10-26: the fresh canonical comparison and actual published mobile/desktop native reviews support the gifford match data: matches, with no visitor-noticeable architectural gap left in the sole distinct Gifford drawing. Earlier open-detail notes above record the first refinement, not additional current blockers. Pixel/sub-foot pose/camera differences are within later work tolerance; monochrome pigment, isolated street context and absolute metre scale are not shown. Gale is disclosed textual disagreement in the optional smaller two-storey version, not a second picture or a dated enlargement claim. Full checked ending and PR #1337's DEV merge remain pending at this source update."
         }
       ],
       "work_refs": [
-        "T-2385"
+        "T-2385",
+        "T-3153"
       ]
     },
     {
@@ -52684,6 +52700,18 @@
         {
           "label": "Recorded",
           "text": "2026-10-23."
+        },
+        {
+          "label": "South-side middle sash",
+          "text": "Amended 2026-10-26. This supersedes the earlier statement that the side entrance replaces the middle lower bay. The held Andreas reproduction (\"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…) and Trowbridge's actual plate in Gale 1902, facing p.35 / scan n55 (The Green Tree Tavern in 1835 (published 1902)), show a sash pattern across the long elevation: seven stations on both floors, including a clear sash at the middle lower station. Trowbridge's nearest lower sash is partly occluded by the hanging sign and people; the reading does not invent its hidden panes. The 1835 model therefore leaves side entrance unasserted (`null`) and uses the existing stock sash at all seven south-wall stations. The opening pattern is inferred from these retrospective pictures; no exact July-1835 absence of a door is attested. John Gray's later recollection of an entrance “on the Lake street front about the middle of the long side” remains substantial counterevidence, recorded through \"Green Tree Tavern.\" Chicagology. Transcribing the Inter Ocean of 1 July 1883… (1883 publication; Gray's landlord period 1838–41), and is retained in the structure note. The choice follows the pictures for this model; it does not disprove Gray, date an alteration or use that check-required text source for new geometry. The original Andreas plate is undated despite the reproduction's 1838 caption. Trowbridge's 1835 caption is retrospective. The seven existing stations, inferred wall assignment, reconstructed equal spacing and stock 0.85 × 1.35 m sash with 0.75 m sill remain the same model controls. No footprint, placement, roof, front door, opposite elevation, wagon-bay station or existing fuel rule is changed by this sash correction. The disputed enclosed annex remains unresolved. No 1859 photograph supplies geometry. This amendment describes the form choice; actual export, comparison and app validation remain required before an image-match claim."
+        },
+        {
+          "label": "South-side sash native result",
+          "text": "Canonical one-target master and WEB export completed 2026-10-26. Only the middle opening's 56 triangles change; 2,522 other triangles, all material definitions and all other physical assets remain exact. The old door and panels give way to the existing stock sash, with 0.75 m sill and 0.85 m glass width. These are model controls, not archival measurements. Actual new-master photo comparison and app validation remain pending; no matching verdict is claimed."
+        },
+        {
+          "label": "South-side sash comparison",
+          "text": "The new canonical master was rendered at the unchanged registered Andreas camera and the actual side-by-side was reviewed on 2026-10-26. The middle lower station now reads as the pictured sash; that bounded opening difference is fixed. The whole comparison remains DIFFERS because the separate enclosed annex massing is still open. Gray's later doorway account and the inferred date limits stand. The isolated master comparison does not test the compressed WEB, procedural wagon bay, terrain or picture/source cards in the full app; those remain owed."
         }
       ],
       "work_refs": [
@@ -58725,6 +58753,22 @@
         {
           "label": "Recorded",
           "text": "2026-10-26 (T-2385)."
+        },
+        {
+          "label": "Revised primary interpretation (2026-10-29)",
+          "text": "The pictured three-storey, shuttered hotel is restored as the canonical scene model after the earlier two-storey proposal landed in other work. Gale is textual contrary evidence, not a second picture that excuses a missing pictured storey. Keep the existing reconstructed15.24x9.14m envelope and7.8m walls, three short/five long bays, four stacks, raised entries, roof spar and established street-facing planes. The smaller two-storey9.144x6.096m/5.45m Gale interpretation remains explicitly selectable as `gale-reading`. The existing `gifford-reading` URL is retained unchanged for compatibility; no dated enlargement or exact July1835section is established."
+        },
+        {
+          "label": "Yellow finish",
+          "text": "Gale1902p51 supplies inferred yellow colour compatible with Gifford's monochrome drawing. Exact stock yellow/trim/surface response remain reconstructed. Original Gifford copyright/publication/collection credit remain unresolved; the owner approved attributed project reference use, not a public-domain finding."
+        },
+        {
+          "label": "Validation boundary",
+          "text": "Current selectednativebake, source-boundcanonical capture/directreview, bothpublishedviewports, actualpreflight andqualifiedcodePRmerge are still required. No older two-storeycheck is a pass for this correctedcurrenttree."
+        },
+        {
+          "label": "Actual picture and app validation (2026-10-29)",
+          "text": "The fresh canonical comparison and scoped image gate pass. Both published viewport sizes show the canonical three-storey form and optional Gale reading, flags at their explicit staff anchors, grounded entries, the selected compressed assets and credited sources. Both full Gifford viewers show the drawing with its creator, Chicagology link and reference-copy label; no historical observer position is invented. The current host original rights remain unresolved. The c093 phone reading was 392.0 MiB against the unchanged 400 MiB ceiling. The larger envelope also re-derives the existing town lodging apportionment; its fixed class total and all 157 lodging-card people, identities, assignments and non-note facts remain unchanged. Only capacity explanations and model-ledger metadata refresh. These completed reviews retain their actual dated inputs; final current code checks and qualified dev merge are separate."
         }
       ],
       "work_refs": [
@@ -60567,6 +60611,39 @@
         "T-3241",
         "T-3242",
         "T-1876"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-se-wall-gable-1890",
+      "title": "1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the roof's south-east corner had nothing over the main cornice where HABS photograph 1 (June 1965, Harold Allen for HABS, 'View: west (Prairie Ave.) and south (court)…) shows what the match record had called a tall pinnacle. Read off the print itself it is a WALL GABLE: a steep coped stone gable rising from the main cornice at the south wall's rear corner, just behind the rear stack, its east cheek carried down the corner as a plain pier, a plain point at its apex with no finial and no pinnacle on its kneeler, and a pair of small dark lights on a mullion at its foot. **What is read.** From the print, against the rear stack's cap, which the build and the print share: the apex about 4.4 m over the cornice, the east foot about 1.2 m from the apex along the wall, the east cheek on the corner, the lights' rows just over the cornice. Built (bays.p se gable): K08's full-height projection, 2.3 m wide and flush with the rear corner, carried up past the mansard's eave to a 10.1 m wall top under a coped gable of pitch 2.85 (apex about 13.0 m), the lights K06's mullioned casement pair at 1.6 by 0.75 m. A shallow pavilion carried up past a mansard's eave had been the street front's alone; the generator now lays one on a side wall the same way (shallow bay cutters, the gutter's stops). **What is invented or held by the kit.** The gable's depth: the print sees its face only, so it stands the kit's shallow 0.1 m proud of the wall from grade, where the print may have it flush below the cornice. Its west half is behind the stack in the print, so its width is the east half's doubled. The lights' frames and sash are the kit's. **What is still open.** The print carries the main cornice on under the lights to the corner; the build stops the eave box at the gable's west cheek, so the cornice is missing across the gable's width."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the HABS drawings' south or east elevation, or a view of the rear, gives the gable's width, depth and the cornice's run under it."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3047"
       ]
     },
     {
