@@ -624,6 +624,15 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "george_glessner_house_1706_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "george_glessner_house_1706_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
@@ -717,6 +726,7 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
       "sole_support": true,
@@ -744,6 +754,7 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
       "sole_support": true,
@@ -775,6 +786,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "george_glessner_house_1706_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
     },
     "glessner_house/as_built_1887/footprint": {
       "kind": "structure",
@@ -1072,6 +1091,15 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "glessner_lee_house_1700_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "glessner_lee_house_1700_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
@@ -1174,6 +1202,7 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
       "sole_support": true,
@@ -1201,6 +1230,7 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
       "sole_support": true,
@@ -1232,6 +1262,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "glessner_lee_house_1700_prairie/as_mapped_1904/form.yard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
     },
     "goodman_house_1612_prairie/as_built_1869/form.bays": {
       "kind": "structure",

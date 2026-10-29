@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "chicagology_townhouses",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1151eff1cc5455ade97f8aa393bac81326d1253f68838ac661ed441c6cd088b4",
+  "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9",
   "camera_sha256": "1b3c45c138977ed0cea9859e6a8cab9c4848f047b491dacc9b2564cd37d30936",
   "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1151eff1cc5455ade97f8aa393bac81326d1253f68838ac661ed441c6cd088b4"
+      "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -42,7 +42,7 @@
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "148938aa166861bdb5e1b7eddd6df163cc269d6e75d545bc553441fecf6beacb"
+      "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -61,12 +61,12 @@
         7.499731524656778
       ],
       "rotation_y": 0,
-      "glb_sha256": "092359cfc94ff807e4bbdf02e4e0c078571c42de4844f2dbe1971bdead918b4f"
+      "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8"
     }
   ],
-  "group_sha256": "3b3eb9cdaff714013207fd3e9a9bca92270900c30c0a482af47a1afeb8568f94",
+  "group_sha256": "3a5b256be8fb71c6de18ee0dd377d00a4013a0ff13ffe4330a48f26b91247c44",
   "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/chicagology_townhouses-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the pair's brick front of two storeys over a low basement, eight windows wide, under one dormered mansard",
@@ -86,7 +86,7 @@
     {
       "what": "an iron balconette on a stone shelf before each arched window",
       "status": "fixed",
-      "how": "T-3211: K01's balconette (1834's kit, laid now on a brick front too) about 1.3-1.95 m over grade, 1.5 m long and 0.3 m out"
+      "how": "T-3211: K01's balconette (1834's kit, laid now on a brick front too) about 1.3-1.95 m over grade, 1.5 m long and 0.3 m out T-3212: the arched lights now run down behind each balconette to a sill about 1.45 m over grade, just over its shelf, as the sashes here show (the 1901 construction photograph's unglazed openings end at about 1.37 m); they had stopped at the guard's top, 2.0 m."
     },
     {
       "what": "each house's stone porch at its outer end: four columns along its front, a plain entablature and an iron balcony railing on its deck",
@@ -165,8 +165,14 @@
     },
     {
       "what": "the front walk, railing and gate: the photograph shows each of the pair's stoops reached by a walk from the public walk through a gate in the spear-headed iron railing that runs on from 1708 before the pair's fronts; the build lays neither 1706's walk nor its railing or gate, so check_house_walks finds no way in (held PENDING on T-3212, the pair's open ticket)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3212: each house now has a flagged walk from the foot of its porch's flight to the public walk through a pair of gates, hung on dark iron posts and standing open; the spear railing on its curb runs on from 1708's along 1706's front to 1706's gateway and stops, 1706's front north of it and 1700's south of its flight lie open, and 1700's railing runs from its own gateway past the pair's north corner to the lot line, as this photograph shows (tools/check_house_walks.py: both pass)"
+    },
+    {
+      "what": "the gateways' places along the street line: here 1706's gateway posts stand at about x 390-590, the render's at about x 800-980; this camera was fitted on the townhouses' front alone and its own solve says it trades distance for focal length, so it cannot place anything nine metres before the front to within a few metres (the render's own stair feet, 3.4 m out, already land about 100 px off). The gateway is read instead through the 1901 construction photograph's oblique camera, which places the street line to about 0.15 m; that reading is written, open, in ghm_construction_1901.match.json",
+      "status": "within tolerance",
+      "how": "T-3212: laid square to each flight, K11's rule; see the 1901 record"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
