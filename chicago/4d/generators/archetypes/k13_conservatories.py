@@ -72,7 +72,7 @@ ROLE_MATERIAL = {
     "wall": "house_wall", "ground": "ground",
     "host_band": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
-    "sky_glass": "glass_sky",
+    "sky_glass": "glass_sky", "sash": "sash",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -101,6 +101,9 @@ def materials(data: dict) -> dict:
         # Beman's glass catching a pale sky, for the glazing that stands outside a house's one
         # transparent envelope where the pictures read it light, not dark
         "glass_sky": {"color": (0.60, 0.64, 0.66), "roughness": 0.2},
+        # T-3164: the sash bars of the range's masonry windows, which the plate reads dark against
+        # their pale panes; the paint's colour is reconstructed
+        "sash": {"color": (0.20, 0.19, 0.16), "roughness": 0.7},
     }
 
 
@@ -1775,19 +1778,49 @@ def masonry_walls(h: House, ms: dict):
                bottom=True)
         if not wn:                                      # a plain wall, its coping only
             continue
-        n = max(1, int((L - wn["margin_m"] * 2) / wn["spacing_m"] + 1e-9))
-        step = (L - wn["margin_m"] * 2) / n
+        m0 = wn["margin_m"]                             # T-3164: the far end's margin may differ
+        m1 = wn.get("margin_end_m", m0)
+        n = max(1, int((L - m0 - m1) / wn["spacing_m"] + 1e-9))
+        step = (L - m0 - m1) / n
         for i in range(n + 1):                          # a pilaster at each bay line
-            x = wn["margin_m"] + step * i
+            x = m0 + step * i
             za, zb = sorted((zf - sz * 0.02, zf + sz * pil["out_m"]))
             _prism(h, "stonework", [(x - pil["width_m"] / 2, za), (x + pil["width_m"] / 2, za),
                                     (x + pil["width_m"] / 2, zb), (x - pil["width_m"] / 2, zb)], 0.0, H - 0.02)
+        for c in ms.get("courses", ()):                 # T-3164: string courses the length of the wall
+            za, zb = sorted((zf - sz * 0.03, zf + sz * c["out_m"]))     # its back clear of the pilasters'
+            _prism(h, "stonework", [(-c["out_m"], za), (L + c["out_m"], za), (L + c["out_m"], zb),
+                                    (-c["out_m"], zb)], c["from_m"], c["to_m"])
+        lt, pn = wn.get("lights"), wn.get("panel")
         for i in range(n):                              # a window in each bay
-            x = wn["margin_m"] + step * (i + 0.5)
+            x = m0 + step * (i + 0.5)
             a, b = x - wn["width_m"] / 2, x + wn["width_m"] / 2
+            y0, y1 = wn["sill_m"], wn["head_m"]
             zw = zf + sz * 0.01
-            h.face("opening", [(a, wn["sill_m"], zw), (b, wn["sill_m"], zw), (b, wn["head_m"], zw),
-                               (a, wn["head_m"], zw)], (0.0, 0.0, sz))
+            if not lt:
+                h.face("opening", [(a, y0, zw), (b, y0, zw), (b, y1, zw), (a, y1, zw)], (0.0, 0.0, sz))
+            else:
+                # T-3164: the Inland plate reads these panes pale against dark sash bars, so the
+                # window is the pale substitute glass under its frame and muntins
+                h.face("sky_glass", [(a, y0, zw), (b, y0, zw), (b, y1, zw), (a, y1, zw)], (0.0, 0.0, sz))
+                bw, zb_ = lt["bar_m"], zw + sz * 0.01
+                bars = [(a + (b - a) * k / lt["across"], None) for k in range(lt["across"] + 1)]
+                bars += [(None, y0 + (y1 - y0) * k / lt["up"]) for k in range(lt["up"] + 1)]
+                for bx, by in bars:
+                    if by is None:                      # the uprights a few mm prouder than the rails
+                        u0, u1, zu = max(a, bx - bw / 2), min(b, bx + bw / 2), zb_ + sz * 0.005
+                        q = [(u0, y0, zu), (u1, y0, zu), (u1, y1, zu), (u0, y1, zu)]
+                    else:
+                        v0, v1 = max(y0, by - bw / 2), min(y1, by + bw / 2)
+                        q = [(a, v0, zb_), (b, v0, zb_), (b, v1, zb_), (a, v1, zb_)]
+                    h.face("sash", q, (0.0, 0.0, sz))
+            if pn:                                      # T-3164: the sunk panel under the sill
+                pa, pb = x - pn["width_m"] / 2, x + pn["width_m"] / 2
+                p0, p1, m = pn["from_m"], pn["to_m"], pn["moulding_m"]
+                za, zb = sorted((zf - sz * 0.025, zf + sz * pn["out_m"]))
+                for r in ((pa, pb, p0, p0 + m), (pa, pb, p1 - m, p1), (pa, pa + m, p0 + m, p1 - m),
+                          (pb - m, pb, p0 + m, p1 - m)):
+                    _prism(h, "stonework", [(r[0], za), (r[1], za), (r[1], zb), (r[0], zb)], r[2], r[3])
     po = ms.get("porch")
     if po:
         x0, x1, D, ph = po["from_m"], po["to_m"], po["depth_m"], po["height_m"]
@@ -1898,6 +1931,37 @@ def pavilion(h: House, ps: dict):
             h.face("sky_glass", end, (0.0, q1 - q0, sgn * (y1 - y0)))
         za, zb = sorted((zw - sgn * 0.05, ze + sgn * po))
         _prism(h, "stonework", [(xa - po, za), (xb + po, za), (xb + po, zb), (xa - po, zb)], 0.0, pod + 0.01)
+        bd = tr.get("band")
+        if bd:
+            # T-3164: the upright glass between the podium and the springing, which the Inland
+            # plate reads as dark lights in pale frames at eye level, not the roof's sky-lit glass:
+            # a dark pane a few cm proud of the substitute glass on the end and both sides, and
+            # its frames over it at an even spacing
+            y0, y1, bw, sp = pod + 0.01, he, bd["bar_m"], bd["lights_m"]
+            o1, o2 = 0.02 + po, 0.03 + po
+            walls = [((xa, ze + sgn * o1), (xb, ze + sgn * o1), (0.0, 0.0, sgn), ze + sgn * o2)]
+            for x, sx in ((xa, -1.0), (xb, 1.0)):
+                walls.append(((x + sx * o1, zw), (x + sx * o1, ze), (sx, 0.0, 0.0), x + sx * o2))
+            for (pa, pb, nrm, far) in walls:
+                along_x = nrm[2] != 0.0
+                h.face("opening", [(pa[0], y0, pa[1]), (pb[0], y0, pb[1]), (pb[0], y1, pb[1]), (pa[0], y1, pa[1])], nrm)
+                a0, a1 = (pa[0], pb[0]) if along_x else (pa[1], pb[1])
+                n = max(1, round(abs(a1 - a0) / sp))
+                pts = [a0 + (a1 - a0) * k / n for k in range(n + 1)]
+                for k, t in enumerate(pts):          # the uprights, the end ones inside the run
+                    c = min(max(t, min(a0, a1) + bw / 2), max(a0, a1) - bw / 2)
+                    q0, q1 = c - bw / 2, c + bw / 2
+                    if along_x:
+                        h.face("dome_rib", [(q0, y0, far), (q1, y0, far), (q1, y1, far), (q0, y1, far)], nrm)
+                    else:
+                        h.face("dome_rib", [(far, y0, q0), (far, y0, q1), (far, y1, q1), (far, y1, q0)], nrm)
+                f2 = far + (nrm[2] if along_x else nrm[0]) * 0.005
+                for yy in (y0 + bw / 2, (y0 + y1) / 2 + bd.get("transom_m", 0.0), y1 - bw / 2):   # sill, transom, head
+                    v0, v1 = yy - bw / 2, yy + bw / 2
+                    if along_x:
+                        h.face("dome_rib", [(a0, v0, f2), (a1, v0, f2), (a1, v1, f2), (a0, v1, f2)], nrm)
+                    else:
+                        h.face("dome_rib", [(f2, v0, a0), (f2, v0, a1), (f2, v1, a1), (f2, v1, a0)], nrm)
         h.meta["plan_extra_m2"] = h.meta.get("plan_extra_m2", 0.0) + tw * reach
         # glazing bars: a rib up each long slope, standing 3 cm proud
         ribs(h, arm, xa, xb, ze, sgn, zin, hip, tr.get("rib_spacing_m", 0.6))

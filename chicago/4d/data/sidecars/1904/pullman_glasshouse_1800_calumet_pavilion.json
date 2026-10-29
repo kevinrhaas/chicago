@@ -129,16 +129,21 @@
             "rise_m": 5.75,
             "section": "elliptic",
             "rib_spacing_m": 0.9,
-            "hip_m": 1.5
+            "hip_m": 1.5,
+            "band": {
+              "lights_m": 0.85,
+              "bar_m": 0.12,
+              "transom_m": 0.15
+            }
           },
           "drum": {
-            "radius_m": 2.05,
+            "radius_m": 2.25,
             "sides": 8,
             "base_m": 8.3,
             "top_m": 10.0
           },
           "dome": {
-            "radius_m": 2.0,
+            "radius_m": 2.2,
             "segments": 20,
             "rings": 4,
             "rise_m": 3.1,

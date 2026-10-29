@@ -1,6 +1,6 @@
 {
   "id": "pullman_lodge_1800_calumet",
-  "name": "Pullman estate (1800 S. Calumet Avenue): the two-storey brick lodge between the glasshouse ranges",
+  "name": "Pullman estate (1800 S. Calumet Avenue): the two-storey stone lodge between the glasshouse ranges",
   "aka": [
     "1800 S. Calumet Avenue",
     "Pullman gardener's lodge"
@@ -15,7 +15,7 @@
     "note": "The 1911 sheet letters it 'D', a dwelling, at the angle of the two glasshouse ranges; the sheet-28 census reads it as the estate's gardener's lodge (s28-pullman-garden-lodge, tier reconstructed): nothing names its occupant or use beyond the 1911 'D'."
   },
   "review_required": false,
-  "research_note": "T-3164 (piece 1 of T-1934): built on the district draft's builder (generators/archetypes/prairie_draft.py) because no kit carries a small service dwelling yet, and exempt from the draft rules' re-derivation because the rules' skip names it (as T-2538 did for 1801). Read off sheet 28 by hand: the colour trace would follow this copy's pink wash, which runs diagonally into the east glasshouse range rather than stopping at the lodge's dashed east line. Heights, roof and openings are the draft rules' brick-family values (L-pullman-glasshouses-1800-calumet-3164). T-3165 refines it to the pictures.",
+  "research_note": "T-3164 (piece 1 of T-1934): built on the district draft's builder (generators/archetypes/prairie_draft.py) because no kit carries a small service dwelling yet, and exempt from the draft rules' re-derivation because the rules' skip names it (as T-2538 did for 1801). Read off sheet 28 by hand: the colour trace would follow this copy's pink wash, which runs diagonally into the east glasshouse range rather than stopping at the lodge's dashed east line. Heights, roof and openings are the draft rules' brick-family values (L-pullman-glasshouses-1800-calumet-3164). T-3165 refines it to the pictures. T-3164 re-entered (2026-10-28): rebuilt to the 1894 Inland plate's north front, in stone under a crested deck roof; see draft_elevation's note for what the plate still shows that this does not.",
   "phases": [
     {
       "id": "as_standing_1904",
@@ -79,12 +79,13 @@
           "note": "The sheet prints '2' on the lodge: two storeys."
         },
         "construction": {
-          "value": "brick",
-          "confidence": "inferred",
+          "value": "stone",
+          "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory"
           ],
-          "note": "Washed pink, the sheet's brick, in its north-west corner; the wash's diagonal run into the glasshouse is read as the colourist's, not the wall's."
+          "note": "T-3164 re-entered: the 1894 Inland plate shows the lodge's north front in coursed rock-faced stone like the east range it adjoins, not brick; the 1911 sheet's pink wash in its north-west corner is read as the colourist's, as its diagonal run into the glasshouse already was. The sheet's '2' stands."
         },
         "draft_plan": {
           "value": {
@@ -93,14 +94,22 @@
                 "id": "r1",
                 "role": "main",
                 "storeys": 2,
-                "roof": "hip",
+                "roof": "hip_deck",
                 "rect": [
                   0.0,
                   0.0,
                   8.949,
                   11.578
                 ],
-                "from": "the sheet's lodge outline, read by hand (T-3164)"
+                "from": "the sheet's lodge outline, read by hand (T-3164); its roof the plate's: a steep hip cut off at a crested lead deck",
+                "pitch_deg": 52,
+                "deck_m": 3.7,
+                "deck_insets_m": [
+                  2.8,
+                  3.1,
+                  2.9,
+                  2.9
+                ]
               }
             ],
             "lot_v": [
@@ -111,31 +120,115 @@
           },
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory"
           ],
-          "note": "One rectangle, the whole outline: the sheet draws no wing or bay on it."
+          "note": "One rectangle, the whole outline: the sheet draws no wing or bay on it. T-3164 re-entered: the roof is the plate's, a steep hip (about 52 degrees) stopped at a flat deck 3.7 m over the eave inside an iron cresting, the deck's north edge reading x 1010-1105 on the plate (2.8 m in from the east eave, 3.1 m from the west); the deck's depth is reconstructed at the same pitch."
         },
         "draft_elevation": {
           "value": {
-            "kind": "house",
+            "kind": "service",
             "seed": 3164,
-            "principal_floor_m": 0.6,
+            "principal_floor_m": 0.0,
             "storey_heights_m": [
-              3.4,
-              3.1,
-              3.0,
-              3.0
+              5.5,
+              2.7
             ],
             "roof_pitch_deg": 38,
             "mansard_lower_m": 3.0,
             "front_bays": 3,
             "entrance": "south",
             "side_spacing_m": 2.6,
-            "chimneys": 1,
+            "chimneys": 0,
             "brackets": false,
             "attic_dormers": false,
             "stone": "stone",
-            "features": [],
+            "features": [
+              {
+                "kind": "stable_dress",
+                "dressed_faces": [
+                  "r1:v0"
+                ],
+                "arcade": {
+                  "part": "r1",
+                  "side": "v0",
+                  "centres": [
+                    0.51,
+                    1.65,
+                    3.35
+                  ],
+                  "spans_m": [
+                    0.5,
+                    1.0,
+                    1.45
+                  ],
+                  "spring_m": 4.55,
+                  "pier_m": 0.4,
+                  "open": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "rises_m": [
+                    0.05,
+                    0.05,
+                    0.05
+                  ]
+                },
+                "courses": [
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s0": -0.2,
+                    "s1": 4.3,
+                    "y_m": 4.65
+                  },
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s0": -0.2,
+                    "s1": 4.3,
+                    "y_m": 5.3
+                  },
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s0": -0.2,
+                    "s1": 4.3,
+                    "y_m": 5.51
+                  },
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s0": -0.2,
+                    "s1": 4.3,
+                    "y_m": 5.72
+                  }
+                ],
+                "windows": [
+                  {
+                    "part": "r1",
+                    "side": "v0",
+                    "s": 2.33,
+                    "sill_m": 6.1,
+                    "w_m": 0.75,
+                    "h_m": 0.9
+                  }
+                ],
+                "stacks": [
+                  {
+                    "at": [
+                      2.4,
+                      8.0
+                    ],
+                    "w_m": 1.0,
+                    "d_m": 0.7,
+                    "from_m": 8.0,
+                    "top_m": 11.8
+                  }
+                ]
+              }
+            ],
             "v_toward": "south",
             "draft_label": {
               "pass": "T-3164",
@@ -146,9 +239,10 @@
           },
           "confidence": "reconstructed",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory"
           ],
-          "note": "RECONSTRUCTED on the draft rules' brick-family values: a hipped roof over two storeys, three bays on its alley front with the door at the south end, one stack, no dormers. Nothing describes the lodge beyond the sheet's '2' and 'D' (L-pullman-glasshouses-1800-calumet-3164)."
+          "note": "T-3164 RE-ENTERED against the 1894 Inland plate (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json; 25.8 px/m at the lodge, grade y 931, its north-east corner at x 948, 25.5 px/m along the front): the north front is a tall ground storey, a loggia of three openings between round columns (dark x 955-967, 977-1003 and 1015-1052, so 0.5, 1.0 and 1.45 m wide at 0.51, 1.65 and 3.35 m west of the east wall, the columns between them about 0.45 m) under an entablature whose underside reads y 812 (4.6 m); a balcony band y 775-795 (5.3-6.0 m) across it; one small upper sash over the middle opening, x 998-1017 and y 751-773 (0.75 m wide, 6.1-7.0 m); and the eave at y 720 (8.2 m), so storeys of 5.5 and 2.7 m over grade. The plate shows no stack on the slopes it sees; the Lowe photograph (c. 1897) shows one rising behind the east slope, so the draft's stack (which the rules had stood on the north-west, in the plate's view) is moved there, 2.4 m in from the east wall and 8 m back, its top 11.8 m (the print's stack top about 15 px under the deck's cresting), its place behind the slope RECONSTRUCTED. STILL OPEN against the plate: the bowed north-east corner and the flared eave over it, the balcony's curved front and its balustrade, the columns' roundness (the loggia is drawn as dark openings in the wall between piers), the finials at the deck's corners, and the lower hipped roof over the front's west part (x 1055-1135). UNRESOLVED: neither the plate nor the Lowe photograph shows the lodge's east face or east slope over the east range's coping (both show sky and a railing there), which the sheet's 11.6 m-deep two-storey outline and the two solved cameras, both standing east of the lodge, say should show; either the two-storey block is shallower than the sheet draws or the cameras stand further west than solved, and this record keeps the sheet's outline until that is read. RECONSTRUCTED: the west and south fronts, which no picture shows, keep the draft rules' sash and the south door (L-pullman-glasshouses-1800-calumet-3164). WHAT T-3164 FIRST BUILT: RECONSTRUCTED on the draft rules' brick-family values: a hipped roof over two storeys, three bays on its alley front with the door at the south end, one stack, no dormers. Nothing describes the lodge beyond the sheet's '2' and 'D' (L-pullman-glasshouses-1800-calumet-3164)."
         }
       }
     }
