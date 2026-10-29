@@ -2312,6 +2312,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                             or not 0.2 <= float(w.get("clear_width_m", 1.0)) <= 0.45 or not w.get("why_not_ordinary"):
                         raise ParamError(f"bays: {e['id']}'s narrow light is `narrow: true` on a single double-hung "
                                          f"(or transomed) K06 opening 0.2-0.45 m across that says why (why_not_ordinary)")
+                # T-1890: a door in a bay's lowest storey (1801's side door under its frontispiece,
+                # HABS photograph 2): `door: true` on a K06 door, its sill on grade, the bay on
+                # grade, so it runs down through the plinth to the step
+                if "door" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    if w["door"] is not True or v6.get("operation") != "door_glazed" or v["base"] != "grade" \
+                            or st is not v["storeys"][0] or abs(float(w["sill_m"])) > 1e-9:
+                        raise ParamError(f"bays: {e['id']}'s door is `door: true` on a K06 door (door_glazed), "
+                                         f"sill_m 0, in the lowest storey of a bay standing on grade")
                 # T-1879: open louvred shutters folded back beside a bay's light, and an iron
                 # guard on a stone slab before its foot (1721's bows and forward block, the 1891
                 # plate). In the light's own frame, so a bow bends them with it
