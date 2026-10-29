@@ -1,0 +1,28 @@
+{
+ "id": "glessner_blog_1701_hibbard_rear_photo",
+ "type": "photograph",
+ "citation": "[William G. Hibbard house, 1701 S. Prairie Avenue - rear (east) side with the 1874 addition.] Halftone photograph; original source not named. Reproduced by the Glessner House Museum, 'Prairie Avenue in 1874', The Story of a House (blog), 16 June 2014.",
+ "author": "unknown photographer (halftone)",
+ "date": "undated (after 1874; the Prairie library's dating, probably 1880s-1890s)",
+ "describes_date": "after 1874",
+ "repository": "Reproduced by the Glessner House Museum (blog); original source not named. Prairie library image a16-ghm-blog-1701-hibbard-rear, recorded there as 'link only'; the project's reference copy is the image store's (prairie-1904/files/a16-ghm-blog-1701-hibbard-rear.jpg), committed since T-3240 at data/sources/assets/hibbard_1701_photos_t3240/ with its attribution.",
+ "url": "https://glessnerhouse.blogspot.com/2014/06/prairie-avenue-in-1874.html",
+ "locator": "The whole halftone, 675 x 456 px: the 1874 range at the right, the main block's rear and its veranda at the left.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A blog reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-29 (T-3240) from the image store's reference copy, 675 x 456 px greyscale.",
+ "note": "The rear of the Hibbard house from the yard south-east of it: the 1874 brick range (the blog's 'addition') with round-headed lights, a corbelled oriel on its south face, a heavy bracketed cornice and a high stone basement over the lawn falling toward the lake; the main block's rear with a two-level columned veranda, its balustrades and its steps to the lawn; the main block's railed roof deck and stacks above.",
+ "what_it_supplies": [
+  "the rear range's height, faces and lights through its solved camera (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json)",
+  "the oriel, the veranda and the steps (for T-3242)",
+  "the main block's deck rail from behind"
+ ],
+ "what_it_does_not_supply": [
+  "colour",
+  "the north side",
+  "a date"
+ ]
+}

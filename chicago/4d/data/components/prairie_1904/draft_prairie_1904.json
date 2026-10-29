@@ -1002,7 +1002,8 @@
     "s20-1709-f": "1709 Prairie, the Palmer Kellogg successor, now stands as the K01 frontage kellogg_house_1709_prairie (T-1877, package N17 of T-1837), which refines this draft in place under the draft's own id: the '3B' main body on K01 with the sheet's diagonal corner bay on its south-west corner, the canted bay on its south wall and the frame bay on its north wall on K08, and the sheet's '2B', '2B' and '1B' rear pieces on K01's rear wings, its elevation read off the 1893 Rand McNally drawing; the draft stands no second building beside it.",
     "s20-1708-f": "1708 Prairie, the three-storey brick house attached to 1706, now stands as the K01 frontage house_1708_prairie (T-3188, piece 2 of T-1872), which refines this draft in place under the draft's own id: the sheet's front block with its canted bay on the south part of the front, the three-storey range behind it and the '2-storey brick wing running west toward the alley', its front read off the Christmas print and Chicagology's photograph of 1700-1706; the draft stands no second building beside it.",
     "s20-1700-f": "1700 Prairie, the Glessner-Lee townhouse, the north unit of the pair, now stands as the K01 frontage glessner_lee_house_1700_prairie (T-3211, piece 1 of T-1871), which refines this draft in place under the draft's own id: the sheet's front block and the three-storey range behind its north end, its front read off Chicagology's photograph and the Christmas print of the pair (the dormered mansard, the arched principal windows, the porch on columns at its north end); the draft stands no second building beside it. Its coach house stays a draft.",
-    "s20-1706-f": "1706 Prairie, the George Glessner townhouse, the south unit of the pair, now stands as the K01 frontage george_glessner_house_1706_prairie (T-3211, piece 1 of T-1871), which refines this draft in place under the draft's own id: the sheet's front block and the three-storey range behind its south end, its front read off the same two photographs, mirrored on 1700's; the draft stands no second building beside it."
+    "s20-1706-f": "1706 Prairie, the George Glessner townhouse, the south unit of the pair, now stands as the K01 frontage george_glessner_house_1706_prairie (T-3211, piece 1 of T-1871), which refines this draft in place under the draft's own id: the sheet's front block and the three-storey range behind its south end, its front read off the same two photographs, mirrored on 1700's; the draft stands no second building beside it.",
+    "s20-1701-f": "1701 Prairie, the Hibbard house, now stands as the K01 frontage hibbard_house_1701_prairie (T-3240, piece 1 of T-1875), which refines this draft in place under the draft's own id: the sheet's main block with its canted bay and the 1874 rear range behind its north half, read off the sheet and two photographs (Chicagology's of the front from the south-west, the Glessner House Museum's of the rear); the porch, the lower south range and the veranda are T-3241's and T-3242's; the draft stands no second building beside it. Its coach house stays a draft."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1586,6 +1587,8 @@
       "attic_dormers": true,
       "entrance": "centre",
       "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's.",
+      "house_id": "hibbard_house_1701_prairie",
+      "house_address": "1701",
       "built": {
         "value": 1869,
         "confidence": "attested",
