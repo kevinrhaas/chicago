@@ -3960,15 +3960,24 @@ class Assembly:
                    if cr.get("eave_m") and cr["over_bay"] == b["id"] else self.p.eave_m + 10.0)
             far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
             near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
-            inner = [(-behind, s0 + 0.005), (proud + 0.005, s0 + 0.005), (proud + 0.005, s1 - 0.005),
-                     (-behind, s1 - 0.005)]
-            if b.get("flush_corner") == "right":
-                inner[2:] = [(proud + 0.005, s1), (-behind, s1)]
-            if b.get("flush_corner") == "left":
-                inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
-            out.append(k5.extrude(Q(inner), yf - 0.5, top, P, "wall", "wall", "wall"))
-            outer = [(proud, near), (2.0, near), (2.0, far), (proud, far)]
-            out.append(k5.extrude(Q(outer), yf - 0.5, top, P, "return", "wall", "wall"))
+            if b["wall"] == "k01.wall.street_front":   # in (u, v) as T-3047 laid them, to the bit
+                inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005),
+                         (D + proud + 0.005, s1 - 0.005), (D - behind, s1 - 0.005)]
+                if b.get("flush_corner") == "right":
+                    inner[2:] = [(D + proud + 0.005, s1), (D - behind, s1)]
+                if b.get("flush_corner") == "left":
+                    inner[:2] = [(D - behind, s0), (D + proud + 0.005, s0)]
+                outer = [(D + proud, near), (D + 2.0, near), (D + 2.0, far), (D + proud, far)]
+            else:
+                inner = [(-behind, s0 + 0.005), (proud + 0.005, s0 + 0.005), (proud + 0.005, s1 - 0.005),
+                         (-behind, s1 - 0.005)]
+                if b.get("flush_corner") == "right":
+                    inner[2:] = [(proud + 0.005, s1), (-behind, s1)]
+                if b.get("flush_corner") == "left":
+                    inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
+                inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
+            out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
+            out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
             ch = k01_frontage_params.chamfer_of(b)
@@ -4897,12 +4906,15 @@ class Assembly:
         # face round a corner it is flush with, each end stopped (`stop_ends`)
         stop_ends = []
         for b, s0, s1, proud, _ in self.shallow_bays():
-            # T-1890: on its own wall's run, round a corner onto the run before or after it
-            i = side_of[b["wall"]]
-            d0 = (starts[i - 1] + lens[i - 1] - A + proud if b.get("flush_corner") == "left"
-                  else starts[i] + lead[b["wall"]] + s0)
-            d1 = (starts[(i + 1) % n_runs] + A - proud if b.get("flush_corner") == "right"
-                  else starts[i] + lead[b["wall"]] + s1)
+            d0 = starts[3] + D + A + proud if b.get("flush_corner") == "left" else A + s0
+            d1 = starts[1] + A - proud if b.get("flush_corner") == "right" else A + s1
+            if b["wall"] != "k01.wall.street_front":
+                # T-1890: on a side wall's own run, round a corner onto the run before or after it
+                i = side_of[b["wall"]]
+                d0 = (starts[i - 1] + lens[i - 1] - A + proud if b.get("flush_corner") == "left"
+                      else starts[i] + lead[b["wall"]] + s0)
+                d1 = (starts[(i + 1) % n_runs] + A - proud if b.get("flush_corner") == "right"
+                      else starts[i] + lead[b["wall"]] + s1)
             ch = k01_frontage_params.chamfer_of(b)   # T-3048: round a chamfer, at its back
             if ch is not None:
                 d0, d1 = (starts[3] + D + A - ch[2], d1) if ch[0] == "left" else (d0, starts[1] + A + ch[2])
