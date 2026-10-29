@@ -640,10 +640,11 @@ class Assembly:
                                                  zip(self.spec[slot]["color"], params.front_brick_tone))
         if params.stone:
             st = params.stone
+            trim = st.get("trim_face", st["trim"])   # T-1881: or the walling's own stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
-                                     ("limestone_trim", st["trim"], st["trim_roughness"]),
+                                     ("limestone_trim", trim, st["trim_roughness"]),
                                      # T-2366: the dressings proud of the front, the trim's stone
-                                     ("dress_stone", st["trim"], round(st["trim_roughness"] + 0.02, 3))):
+                                     ("dress_stone", trim, round(st["trim_roughness"] + 0.02, 3))):
                 self.fabric[slot] = fab
                 self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
             # T-2350: a bay laid in the front's own stone (`front_stone`) wears its K02 fabric
@@ -2628,6 +2629,10 @@ class Assembly:
         if b["fabric"] == "frame" and self.p.stone.get("all_round"):
             roles = roles | {"plinth": "bay_stone"}   # T-2788: the house's stone carried out under it
         cover = K08_COVERS[v["roof"]["covering"]]
+        if v["roof"].get("slated_as_house"):   # T-1881: in the house's own lower-face slate
+            if self.p.roof_form != "mansard":
+                raise ValueError(f"{b['id']} is slated as the house's mansard, on a house with none")
+            cover = "mansard_slate" if self.p.roof.get("lower_covering") else "slate_covering"
         if b.get("finial_fabric"):   # T-1890: a finial in a sheet metal of its own, not the cap's slate
             roles = roles | {"finial": k01_frontage_params.FINIAL_FABRICS[b["finial_fabric"]]}
         for role, src in built.prims.items():
@@ -3344,7 +3349,7 @@ class Assembly:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
                                  f"the opening at s = {o.s_m}")
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
-            if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and \
+            if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
@@ -5305,6 +5310,11 @@ def build(params, structure_id: str):
             (frame, t), mat = frames[op.wall]
             if p.on_frontispiece(op):   # T-2753: laid on the proud frontispiece's face
                 frame = a.frontispiece_frame(frame)
+            elif op.component == "k01.opening.door_leaf" and p.entrance_block():
+                # T-1881: laid on the face of the forward block that carries it
+                O_, R_, N_ = frame
+                proud = max(z for _, z in p.entrance_block()["variant"]["plan"]["points"])
+                frame = (_add(O_, _mul(N_, proud)), R_, N_)
             a.opening(op, frame, t, mat, "limestone_trim", coursed=all_round or op.wall == "k01.wall.street_front")
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
@@ -5411,6 +5421,8 @@ def build(params, structure_id: str):
         for o in p.openings:
             if under is not None and o.head_m + 0.30 <= under:
                 continue
+            if bay.get("entrance") and o.component == "k01.opening.door_leaf":
+                continue   # T-1881: the door it carries is on its face
             if o.wall == bay["wall"] and bay["span_m"][0] < o.s_m < bay["span_m"][1] \
                     and o.sill_m - 0.15 < top:
                 raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "

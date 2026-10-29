@@ -11,6 +11,9 @@
   571.1
  ],
  "focal_px": 1451.0,
+ "near_m": 10,
+ "scene": "1904",
+ "flora": {"front_yards": ["prairie_1729"], "street_trees_m": 70, "season": "winter"},
  "eye": [
   87.53,
   43.82,
