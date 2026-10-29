@@ -111,8 +111,11 @@ def spec(params) -> dict | None:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
     if "entrance_gate" not in t:
         raise ValueError("boundary.entrance_gate: every front is gated on the walk to its door")
-    # T-2455: only a boarded street line may close the side yard's mouth without a gate
-    if "side_gate" not in t and FENCES[t["fence"]] != "boards":
+    # T-2455: only a boarded street line may close the side yard's mouth without a gate.
+    # T-3216: unless there is no passage to gate: a house built so near its south lot line that
+    # less than the gate's own clear is left between them (the 1600 block's row fronts), whose
+    # iron runs on unbroken from the lot line to the entrance
+    if "side_gate" not in t and FENCES[t["fence"]] != "boards" and _side_passage_m(t) >= _gate_clear_min():
         raise ValueError(f"boundary.side_gate: an iron front gates its side passage; only {BOARDS!r} may close it")
     if FENCES[t["fence"]] == "boards":
         if not 1.2 <= t.get("board_height_m", 0) <= 2.2:
@@ -151,6 +154,16 @@ def spec(params) -> dict | None:
         if b["to_u_m"] >= 0.0:
             raise ValueError("boundary.side_fence.to_u_m: the boards run back past the house's rear wall")
     return t
+
+
+def _gate_clear_min() -> float:
+    return _kit().load()["parts"]["gate"]["clear_min_m"]
+
+
+def _side_passage_m(t) -> float:
+    """T-3216: the clear a side gate could have between its pier on the south lot line and the
+    house's south wall (s 0), as `dress` would hang one there."""
+    return 0.0 - (t["lot_s_m"][0] + _kit().load()["parts"]["pier"]["section_m"])
 
 
 def _to_fence(mesh, line):
@@ -285,12 +298,14 @@ def dress(a):
     # the entrance's, and from the entrance's to an end post whose curb stops on the north
     # lot line
     s0 = sb + ps if S else s_south
+    if not S and style != "boards":
+        s0 = s_south + 0.12                                     # T-3216: its end post's curb stops on the lot line
     if style == "boards":
         H = t["board_height_m"]
         south = _board_run(var, s0, ea - ps, H, "south run")
         north = _board_run(var, eb + ps, n_end, H, "north run")
     else:
-        south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
+        south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name if S else None, host_b=pe1.name)
         if FE:
             end = var.pier(n_end + Pr["section_m"] / 2, urn=False)      # T-3206: a stone pier, its cap plain
             north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name, host_b=end.name)
@@ -320,7 +335,7 @@ def dress(a):
         for pc in wv.pieces:
             _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    posts = len(south) + len(north) - (0 if style == "boards" else 3)
+    posts = len(south) + len(north) - (0 if style == "boards" else 3 if S else 2)
     run = {"length_m": round((ea - ps) - s0 + n_end - (eb + ps), 4), "runs": 2, "posts": posts}
     if style == "boards":
         run["height_m"] = t["board_height_m"]
