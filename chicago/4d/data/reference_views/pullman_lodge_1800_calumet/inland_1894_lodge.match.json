@@ -1,0 +1,141 @@
+{
+  "structure_id": "pullman_lodge_1800_calumet",
+  "view": "inland_1894_lodge",
+  "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
+  "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215",
+  "camera_sha256": "7036f9b11ed1afe84af6222beaace90fe085ac8c33532566a5ccbc9dd67a9486",
+  "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_lodge_1800_calumet",
+      "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.535,
+        "local_n": -3274.685,
+        "rotation_deg": 178.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1468.881,
+        "local_n": -3238.358,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        1.0108724267342477,
+        0,
+        36.35058159007709
+      ],
+      "rotation_y": 1.5707963267948963,
+      "glb_sha256": "81f5840332b7f85c827aa5aa2446fdf3d4637cf53e250366fce961296b210147"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_north",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_north__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.115,
+        "local_n": -3250.978,
+        "rotation_deg": 88.986,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0.0003982107478252561,
+        0,
+        23.710720124901787
+      ],
+      "rotation_y": 1.5707963267948963,
+      "glb_sha256": "90ecaa7328e04d6c3da52efb09fe4475df0195fce7925a199b0c1eab8812b2c1"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1470.613,
+        "local_n": -3279.134,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0.0007448988499858394,
+        0,
+        -4.44968363427405
+      ],
+      "rotation_y": 3.141592653589793,
+      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
+    },
+    {
+      "structure_id": "pullman_glasshouse_1800_calumet_east_end",
+      "glb": "assets/gltf/pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1487.476,
+        "local_n": -3280.504,
+        "rotation_deg": -1.014,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -16.835369870940344,
+        0,
+        -6.117888795052961
+      ],
+      "rotation_y": 3.141592653589793,
+      "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
+    }
+  ],
+  "group_sha256": "091ee2b2ddaecab7f6c354c2f465b93dd914b49393f2e29f0f3929b2d12bc4f8",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the lodge: a two-storey stone building, a tall ground storey with a loggia of three openings under an entablature, a balcony band, one small upper sash, and a steep hipped roof to a flat deck inside an iron cresting",
+      "status": "fixed",
+      "how": "T-3164: rebuilt from the draft's brick block (eave 7.1 m, plain hip, stack on the north-west) to the plate's: stone, storeys of 5.5 and 2.7 m (eave 8.2 m), openings at 0.51, 1.65 and 3.35 m, the band at 5.3-5.9 m, the deck 3.7 m over the eave with its cresting; eave, deck, band and openings fall within about 5 px of the plate's"
+    },
+    {
+      "what": "its height: the eave and the deck's cresting",
+      "status": "fixed",
+      "how": "T-3164 (#1429): through the plate's camera both fall within a few pixels"
+    },
+    {
+      "what": "the loggia's lower storey",
+      "status": "not shown",
+      "how": "in the 1904 scene the 1911 sheet's north glass range stands in front of it, where this picture (1894-97) shows garden (L-pullman-conservatory-3179)"
+    },
+    {
+      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
+      "status": "open",
+      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
+    },
+    {
+      "what": "the lodge's bowed north-east corner with the flared eave over it, the balcony's curved front and balustrade, round columns in the loggia, finials at the deck's corners, and the lower hipped roof over the front's west part",
+      "status": "open",
+      "how": "T-3164: the draft builder draws the loggia as dark openings between square piers and a flat banded balcony; the bow, the balcony's curve and the second roof are not built"
+    },
+    {
+      "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "status": "open",
+      "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

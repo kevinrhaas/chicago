@@ -35626,3 +35626,23 @@ view of its front its bow and balcony.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-28 (T-3164).
+
+### L-pullman-pavilion-front-3164 — The Pullman conservatory's north front read as its pictures show it: a band of round-headed lights and the planted shade behind the great arch
+
+**Decision:** the owner, 2026-10-28, found the conservatory's great arched glass front rendered "as an
+opaque gable over a black opening". Through the solved cameras of the 1894 Inland plate
+(`inland_1894_pullman_conservatory`) and the c. 1897 Lowe photograph (`aic_lowe_pullman_conservatory_c1897`):
+the band of upright glazing between the podium (2.3 m) and the springing (3.6 m) is round-headed lights
+in white framing, four each side of the arched entrance, and the same along the east flank north of the
+transept; behind the great arch the glass reads dark over its lower half, against planting in shade, with
+the light of the roof glazing over it. **What is invented.** The count of lights, read off the
+photograph's north front; the planting drawn as one shaded volume inside the nave to about 5.2 m, not as
+a planted scene; the west flank's band, which neither picture sees, left as the kit's glass because the
+house is at its triangle budget. **What is not.** The plan and every height are T-3179's. The lodge's own
+two views (`data/reference_views/pullman_lodge_1800_calumet/`) are the pavilion's two cameras carried
+unchanged into the lodge's frame, so its open items are judged against the pictures in its own record.
+**How to resolve:** a sharper print of the north front settles the lights' count and their tracery.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
