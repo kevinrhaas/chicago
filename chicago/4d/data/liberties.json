@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 841,
+  "count": 842,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59708,6 +59708,34 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-k11-1736-coping-3234",
+      "title": "1736 Prairie's front wall laid one height with its opening on the stair's line and turned along 18th Street; the stair's pier left out",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the coping wall before 1736 Prairie (McBirney) is reworked at the owner's call (the owner, 2026-10-28: *\"the walkway curves and it likely would be straight, the walls boorder on the exterior only come in the front of the house not the side, and there is an odd column near the stairs, and the wall is of irregular height … whatever is best documented\"*). **What the c. 1890 print reads and is now set aside.** earlier work read the print through its camera: a 0.74 m run to the street tree, a gap of about 1 m at s 3.9-4.9 (its edges hidden), a 0.95 m run behind the stair's pier to the north lot line, a 1.55 m pier at the foot of the stair's south cheek, and nothing turning the corner. Built that way, the walk had to turn south behind the wall to reach the gap, the wall stepped up mid-front, and the pier stood free beside the stair. **What is built now.** The opening is on the stair's line, s 5.0-6.3, so the walk runs straight from the stair's foot to the public walk, as a city front walk ran; the wall is one height, the print's low run's 0.74 m, as the 2015 photograph of the McBirney curbstone shows one course of squared blocks along the walk; no pier is built, the stair's cheeks ending in their own newels at its foot; and the wall turns the 18th Street corner on the south lot line and runs back to 0.3 m short of the front canted bay, whose projection stands over the lot line. The print's step to 0.95 m, its pier and its gap are recorded in the record's note and not built. No picture shows the corner, the side or the opening's place, so all three are reconstructed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of 1736 Prairie from 18th Street or from the north showing the wall's corner, or of its stair's foot clear of the street trees."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-3234)."
+        }
+      ],
+      "work_refs": [
+        "T-3234",
+        "T-2961",
+        "T-3205"
       ]
     },
     {
