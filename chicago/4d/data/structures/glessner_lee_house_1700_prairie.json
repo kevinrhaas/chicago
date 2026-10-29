@@ -119,9 +119,14 @@
      "note": "RECONSTRUCTED: the rules' brick side wall; the south wall is the party wall between the pair. Liberty L-k01-1700-1706-glessner-1871."
     },
     "service_wall_brick": {
-     "value": "common_buff_common_6",
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the one K03 panel k03_brick lays on the side and rear walls; the pictures are monochrome. Liberty L-k01-1700-1706-glessner-1871."
+     "value": "rough_red_brown_running",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1700_1706_townhouses_photo",
+      "glessner_blog_1708_1706_1700_christmas_photo",
+      "glessner_blog_1700_1706_construction_1901_photo"
+     ],
+     "note": "T-3244: all three photographs print the brick darker than the house's own slate, which a buff brick cannot do on a blue or orthochromatic plate; Chicagology's (the clearest) prints it at 0.05-0.08 of the porches' white paint, the other two lighter (a print with compressed highlights, and the fresh wall of 1901). A red brick: the K03 library's red-brown (predicted 0.10-0.13) sits nearer all three than its pressed red (0.03-0.06), and Chicagology's close view shows light joints between the courses, which the pressed red's tight dark joints would hide. The bond is not readable, so the library's running bond; the units cut from the same brick. Write-up: docs/RESEARCH/colour-1700-block-T-3244/README.md."
     },
     "street_front_trim": {
      "value": {
@@ -161,9 +166,9 @@
       "cornice": "k10.cornice.bracketed_timber",
       "paint": {
        "color": [
-        0.72,
-        0.7,
-        0.62
+        0.86,
+        0.85,
+        0.8
        ]
       },
       "bracket_m": {
@@ -177,7 +182,7 @@
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show a deep classical cornice painted light across the pair (its tone the prints' near-white; the paint's hue is reconstructed), a dentil course under a close row of modillions, its soffit about 8.3 m over grade. K01 lays K10's bracketed timber cornice, its brackets made small to stand for the modillions (they stand further apart than the photograph's, and the dentils are not cut)."
+     "note": "Both photographs show a deep classical cornice painted light across the pair (its tone the prints' near-white; the paint's hue is reconstructed), a dentil course under a close row of modillions, its soffit about 8.3 m over grade. K01 lays K10's bracketed timber cornice, its brackets made small to stand for the modillions (they stand further apart than the photograph's, and the dentils are not cut). T-3244: the paint is white (linear 0.86, 0.85, 0.80): the cornice prints at the top of each picture's range with the porches' columns, as white lead does beside the red brick (docs/RESEARCH/colour-1700-block-T-3244/README.md)."
     },
     "roof_form": {
      "value": "mansard",
@@ -262,14 +267,15 @@
         ],
         "painted": true
        }
-      }
+      },
+      "dormer_fabric": "painted"
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide, the kit's widest dormer light), the pediments' peaks about 11.4-11.9 m; the party wall carried up through the roof between the two houses (1706's north wall, which 1700's south hip dies against), and 1700's north end wall carried up past the curb as the Christmas print shows it, coped about 0.6 m over the curb; and an openwork railing about 0.9 m high along the deck's street edge (a white-painted fret in the photograph, laid as K10's cresting pattern in the eave's painted timber: the pattern is the kit's, not the fret's)."
+     "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide, the kit's widest dormer light), the pediments' peaks about 11.4-11.9 m; the party wall carried up through the roof between the two houses (1706's north wall, which 1700's south hip dies against), and 1700's north end wall carried up past the curb as the Christmas print shows it, coped about 0.6 m over the curb; and an openwork railing about 0.9 m high along the deck's street edge (a white-painted fret in the photograph, laid as K10's cresting pattern in the eave's painted timber: the pattern is the kit's, not the fret's). T-3244: the dormers' faces and pediments are painted timber in the cornice's white, as all three pictures print them, not limestone."
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -518,7 +524,6 @@
          ]
         },
         "railing_fabric": "iron",
-        "fabric": "stone",
         "centre_v_m": 8.325,
         "under_head_m": 3.7
        },
@@ -540,7 +545,7 @@
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show each house's door under a stone porch at its outer end: four Ionic columns along its front (read through both cameras at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner), a plain entablature about 4.0-4.75 m over grade and an iron balcony railing on its deck to about 5.5 m (built 0.6 m high, so its top clears the upper sills). The porch's depth, about 1.9 m, is triangulated on its corners from the two cameras. The flight's place is reconstructed."
+     "note": "Both photographs show each house's door under a stone porch at its outer end: four Ionic columns along its front (read through both cameras at about 1.15, 2.25, 3.9 and 5.0 m from the outer corner), a plain entablature about 4.0-4.75 m over grade and an iron balcony railing on its deck to about 5.5 m (built 0.6 m high, so its top clears the upper sills). The porch's depth, about 1.9 m, is triangulated on its corners from the two cameras. The flight's place is reconstructed. T-3244: the porch is painted timber in the cornice's white, not stone: its columns, entablature and deck print white with the cornice and sash in all three pictures, never in the tone of the stone sills and keystones (docs/RESEARCH/colour-1700-block-T-3244/README.md)."
     },
     "rear_wings": {
      "value": [
@@ -646,6 +651,22 @@
       "chicagology_1700_1706_townhouses_photo"
      ],
      "note": "T-3212 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). Chicagology's photograph shows 1700's stoop coming down by the railing's start; the walk is laid in flags from the stoop's foot through the gate to the public walk. RECONSTRUCTED: the flags, their width and wear, and the bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-1706-3212. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1708. No service walk: the pair has no side passage. No grade_m is set: the app's ground over the pair's base was not measured in this run (1708's beside it rises 7-18 mm, under the flags' 60 mm)."
+    },
+    "sash_paint": {
+     "value": {
+      "color": [
+       0.86,
+       0.85,
+       0.8
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1700_1706_townhouses_photo",
+      "glessner_blog_1708_1706_1700_christmas_photo",
+      "glessner_blog_1700_1706_construction_1901_photo"
+     ],
+     "note": "T-3244: the sash and frames print white in all three pictures, with the porch columns; painted the cornice's white, not the kit's dark green."
     }
    }
   }

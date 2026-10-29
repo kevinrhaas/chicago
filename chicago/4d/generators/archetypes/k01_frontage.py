@@ -632,8 +632,16 @@ class Assembly:
         lc = ((params.entrance_kit or {}).get("leaf") or {}).get("color")
         if lc:
             self.spec["door_leaf_varnish"]["color"] = tuple(float(x) for x in lc)
-        # T-3093: the front's brick toned (1812's), its brick bays with it
-        self.front_brick = "brick_front" if params.front_brick_tone else "brick"
+        # T-3244: a house laid in another K03 panel (1700/1706's red-brown) wears it in every
+        # slot that wears the common one, each slot's roughness kept as far off the panel's
+        # as it was (the web derivative's reason, above), and its units cut from that brick
+        if params.service_wall_brick and params.service_wall_brick != k03_brick.PANEL:
+            self._k03_panel(params.service_wall_brick, [k for k in MATERIALS if self.fabric[k] == f"k03:{k03_brick.PANEL}"])
+        # T-3093: the front's brick toned (1812's), its brick bays with it; T-3244: or laid in
+        # its own panel (1708's red-brown over its stone basement)
+        self.front_brick = "brick_front" if params.front_brick_tone or params.front_brick_panel else "brick"
+        if params.front_brick_panel:
+            self._k03_panel(params.front_brick_panel, ["brick_front", "bay_brick"], units=False)
         if params.front_brick_tone:
             for slot in ("brick_front", "bay_brick"):
                 self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
@@ -661,6 +669,11 @@ class Assembly:
             self.fabric["dormer_stone"] = params.stone["fabric"]
             self.spec["dormer_stone"] = dict(self.spec["dormer_stone"], fabric=params.stone["fabric"], color=(1.0, 1.0, 1.0),
                                              roughness=round(params.stone["fabric_roughness"] + 0.01, 3))
+        # T-3244: painted timber dormers wear the cornice's paint, a shade rougher (a slot of
+        # their own still: the web derivative would merge two identical ones by name)
+        if params.mansard and params.mansard.get("dormer_fabric") == "painted":
+            self.fabric["dormer_stone"] = None
+            self.spec["dormer_stone"] = dict(self.spec["fascia"], roughness=round(self.spec["fascia"]["roughness"] + 0.01, 3))
         # T-1881: and the mansard's dormers the record faces in the front's stone (1729's)
         if params.mansard and params.mansard.get("dormer_fabric") == "front_stone":
             if not params.stone:
@@ -676,6 +689,8 @@ class Assembly:
                 fab = params.stone["fabric"] if slot == "bay_stone" else params.stone["trim"]
                 self.fabric[slot] = fab
                 self.spec[slot] = dict(self.spec[slot], fabric=fab, color=(1.0,1.0,1.0))
+        if params.sash_color:   # T-3244: the record's own paint
+            self.spec["sash"]["color"] = params.sash_color
         # T-2904: an apron the record lays in the front's stone (1625's print reads it darker
         # than the oriel's dressed walls and stippled, as the rock-faced front is) wears the
         # front's K02 walling, a shade rougher; any other wears the bay's own stone, as it did
@@ -689,6 +704,18 @@ class Assembly:
             self.spec["bay_apron"] = dict(self.spec["bay_stone"], roughness=round(self.spec["bay_stone"]["roughness"] + 0.01, 3))
         self.footprints: dict[tuple, list] = {}
         self.bay_holes: dict[str, list] = {}   # T-3047: a shallow bay's recesses, by host wall
+
+    def _k03_panel(self, panel, slots, units=True):
+        """T-3244: lay `slots` in K03 panel `panel` and, with `units`, cut the units from its brick."""
+        new, base = f"k03:{panel}", k03_brick.ROUGHNESS[f"k03:{k03_brick.PANEL}"]
+        for k in slots:
+            self.fabric[k] = new
+            self.spec[k]["roughness"] = round(k03_brick.ROUGHNESS[new] + self.spec[k]["roughness"] - base, 3)
+        if units:
+            body = f"k03:{k03_brick.PANELS[panel]}"
+            for k, tint in k03_brick.unit_tints(k03_brick.PANELS[panel]).items():
+                self.fabric[k] = body
+                self.spec[k] |= {"color": tint, "roughness": k03_brick.ROUGHNESS[body]}
 
     def seat(self, frame, pts, kind):
         """Note the (s, y) extent of what a kit laid on a wall's face — its points at or
@@ -713,8 +740,9 @@ class Assembly:
         """The K02/K03 fabric id a slot weathers as, or None for a slot the kit leaves alone:
         every K03 brick slot, and the K02 walling and trim of a stone front and its bays."""
         st = self.p.stone
-        if MATERIALS[name].get("condition"):
-            return k03_brick.FABRIC
+        if MATERIALS[name].get("condition"):   # T-3244: the brick its panel is laid in
+            fab = self.fabric[name].removeprefix("k03:")
+            return k03_brick.PANELS.get(fab, fab)
         if st and name in ("rough_stone_trim", "bay_stone", "bay_apron"):
             return st["fabric"]
         if st and name == "limestone_trim":
@@ -994,7 +1022,7 @@ class Assembly:
                 for h in holes if len(h) > 4]
         phase = None
         if MATERIALS[mat].get("courses"):  # T-2291: the bond turns the quoin
-            phase = k03_brick.phase_u(cid, length, self.tiles[MATERIALS[mat]["fabric"]][0])
+            phase = k03_brick.phase_u(cid, length, self.tiles[self.fabric[mat] or MATERIALS[mat]["fabric"]][0])
         b = self.basis(mat, O, R, Y, seed, phase)
         pr = self.prim(mat)
         for i in range(len(sb) - 1):
@@ -1649,7 +1677,7 @@ class Assembly:
         brick = k.get("brick_above_m") if beds is None else None
         if brick is not None:
             P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-            bb = self.basis(self.front_brick, O, R, Y, 0, k03_brick.phase_u(cid, length, self.tiles[MATERIALS["brick"]["fabric"]][0]))
+            bb = self.basis(self.front_brick, O, R, Y, 0, k03_brick.phase_u(cid, length, self.tiles[self.fabric[self.front_brick] or MATERIALS["brick"]["fabric"]][0]))
         for ci, (ya, yb, kind) in enumerate(courses):
             trim = kind in ("coping", "belt", "band")
             spec = tk if trim else wk
@@ -1846,7 +1874,7 @@ class Assembly:
                     if ba is not None and min(q[1] for q in pts) >= ba - 1e-6:
                         # T-2914: a spandrel over the brick line is brick, flush, its bond the wall's
                         bb = self.basis(self.front_brick, O, R, Y, 0, k03_brick.phase_u(
-                            "k01.wall.street_front", self.p.width_m, self.tiles[MATERIALS["brick"]["fabric"]][0]))
+                            "k01.wall.street_front", self.p.width_m, self.tiles[self.fabric["brick"] or MATERIALS["brick"]["fabric"]][0]))
                         self.prim(self.front_brick).face([P(*q) for q in pts], N, bb, conf)
                         continue
                     self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
