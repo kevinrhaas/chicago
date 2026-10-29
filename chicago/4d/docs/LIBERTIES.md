@@ -36089,6 +36089,29 @@ elevation, settles the bay's slate and where it meets the main face.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
 
+### L-k01-1729-pullman-bay-dormers-1881 — 1729 Prairie's dormers on its forward block and 18th Street pavilion, placed off its photographs, their sizes reconstructed
+
+**Decision:** T-1881 stood three of the Pullman house's (`pullman_house_1729_prairie`) round-headed dormers on the
+mansards of the two projections that carry their own (`bays.p_forward` and `bays.p_18th`, each now taking
+`mansard_dormers`), where until now the K08 bay kit could lay none and the three stood on the main mansard behind the
+projections, hidden by them. **What is read.** The Detroit print (LC-D4-12551) draws one dormer on the forward
+section's own mansard, centred on the section: through its solved camera the hood at x 322-353 px, about v 4.2 on the
+block's face. Taylor's photograph no. 1445 draws two on the 18th Street pavilion's mansard, each over a window group:
+over the pair (the light at x 657-670) and over the triple (739-750), so at s 10.0 and 15.4, the groups' own places.
+Each is round-headed under an eared hood, as the main mansard's are (L-k01-1729-pullman-belt-hoods-1881). **What is
+invented.** The forward block's dormer keeps the size the main mansard's north-west dormer had (a 0.8 x 1.6 m light in
+a 0.3 m surround). The pavilion's two are 0.7 x 1.6 m in a 0.2 m surround, narrower than the main mansard's: the
+photograph reads their lights about 0.7 m across at about 15 px a metre, and the dormer over the pair stands 0.85 m
+from the pavilion's west hip, where nothing wider stays clear of it. Their heights, sills and hoods are the main
+mansard's. **What is not resolved.** The forward block itself stands about 1 m south of where the Detroit print draws
+its section (the print's block about v 1.2-7.3 at its eaves, the build's 1.7-8.8), so the dormer sits north of the
+block's middle where the print has it in the middle; and the 1890 Albertype draws the flank's dormers elsewhere than
+Taylor's photograph does. Both stay on the match records. **How to resolve:** the CHM 1905 views, still to be solved,
+see the front and the flank closer.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`, `detroit_det_4a08065-side-by-side.jpg` and `albertype_1890-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-29 (T-1881).
+
 ### L-k01-hibbard-1701-3240 — 1701 Prairie, the Hibbard house, refined from the district draft to a K01 main block and rear range read off the 1911 sheet and two photographs
 
 **Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.entrance_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`
