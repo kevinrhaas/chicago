@@ -43,6 +43,16 @@
  * A zone's full rail section is laid only while the eye is near it (T-2775): laid
  * for the whole yard at load it was 82 MB a phone kept and never drew.
  *
+ * THE FAR GROUND IS A COARSER COPY ON A PHONE (T-3247). The ground is cut at the
+ * heightfield's 2.5 m cell, and a phone looking down the yard drew 225,000 to
+ * 245,000 of those triangles 600 m and more away, where its terrain is already
+ * the 15 m base (main.js GROUND_DETAIL_REACH_LIGHT_M). Each surface is laid a
+ * second time at 15 m edges, with the same stations, tints and material, and at
+ * `light` each 40 m piece draws the fine cut inside the ground reach and the
+ * coarse one past it. Hiding the far ground instead turned the yard green from
+ * the air. `full` and `balanced` draw the fine cut everywhere, as before, and a
+ * page that opens at either lays no copy.
+ *
  * A scene that does not list `railway` hands this no data base and it draws
  * nothing (T-1739). A failed fetch draws nothing and records a problem; maps that
  * do not arrive leave flat tones and a problem.
@@ -66,6 +76,10 @@ const TUFT = 'foliage/grass_tuft';
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
 /** Longest triangle edge after draping: the heightfield's own cell. */
 const MAX_EDGE_M = 2.5;
+/** The far copy's longest edge (T-3247): the base terrain's own cell. */
+const FAR_EDGE_M = 15;
+/** The far copy's bed stations, every this many metres of track. */
+const FAR_BED_STATION_M = 20;
 /** Each ground surface's lift over the heightfield and its draw order. */
 const GROUND = {
   // the face is steep and bends over at its crest: it stands higher and is pulled
@@ -78,11 +92,12 @@ const GROUND = {
 };
 /** The zone length along the yard, metres of northing. */
 const ZONE_M = 110;
-/** Per level: full section within `near`, ties and far rails at all within `ties`, tufts within `tufts`. */
+/** Per level: full section within `near`, ties and far rails at all within `ties`, tufts within `tufts`,
+ *  the fine ground within `ground` and its coarse copy past it (T-3247). */
 const REACH = {
-  full: { near: 130, ties: 650, tufts: 240, rocks: 110 },
-  balanced: { near: 100, ties: 480, tufts: 170, rocks: 85 },
-  light: { near: 60, ties: 220, tufts: 100, rocks: 50 },
+  full: { near: 130, ties: 650, tufts: 240, rocks: 110, ground: Infinity },
+  balanced: { near: 100, ties: 480, tufts: 170, rocks: 85, ground: Infinity },
+  light: { near: 60, ties: 220, tufts: 100, rocks: 50, ground: 240 },
 };
 /** Wet stone: the tone a block or the face takes at and under the waterline. */
 const WET = [0.52, 0.56, 0.48];
@@ -167,26 +182,26 @@ function trackPath(line, terrain) {
 
 /**
  * A ribbon given as stations across it ([e_a, n_a, e_b, n_b] each), draped on the
- * heightfield with no triangle edge longer than MAX_EDGE_M, its two long edges faded
+ * heightfield with no triangle edge longer than `edge` (MAX_EDGE_M), its two long edges faded
  * to nothing over `fade` metres so the ground it lies on shows through at the seam.
  * UVs are world metres on the yard's own axes, so beds, cinders and verges share a
  * grain where they overlap.
  */
-function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false }) {
+function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false, edge = MAX_EDGE_M }) {
   const { pos, uv, col, conf, idx } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
     const [ae1, an1, be1, bn1] = stations[i + 1];
     const along = Math.max(Math.hypot(ae1 - ae0, an1 - an0), Math.hypot(be1 - be0, bn1 - bn0));
     const width = Math.max(Math.hypot(be0 - ae0, bn0 - an0), Math.hypot(be1 - ae1, bn1 - an1), 1e-3);
-    const nu = Math.max(1, Math.ceil(along / MAX_EDGE_M));
+    const nu = Math.max(1, Math.ceil(along / edge));
     const f = Math.min(0.45, fade / width);
     // `fineNear`: only the last metres before the b edge are cut at `across`, the rest
     // at the heightfield's own cell — a face bends over at its crest, nowhere else
     const vs = [0, f];
     const fine = fineNear > 0 ? Math.min(1 - 2 * f, fineNear / width) : 1 - 2 * f;
     const coarse = 1 - 2 * f - fine;
-    const nc = coarse > 1e-6 ? Math.max(1, Math.ceil((width * coarse) / MAX_EDGE_M)) : 0;
+    const nc = coarse > 1e-6 ? Math.max(1, Math.ceil((width * coarse) / edge)) : 0;
     for (let j = 1; j <= nc; j += 1) vs.push(f + (coarse * j) / nc);
     const nf = Math.max(1, Math.ceil((width * fine) / across));
     for (let j = 1; j < nf; j += 1) vs.push(f + coarse + (fine * j) / nf);
@@ -245,19 +260,9 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
   }
 }
 
-async function groundMesh(name, out, kind, lib, confidence) {
+/** A ground surface's material. Its fine cut and its far copy share it (T-3247). */
+function groundMaterial(name, kind, lib, confidence) {
   const g = GROUND[kind];
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
-  geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
-  // T-2806: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
-  const col = new Uint8Array(out.col.length);
-  for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
-  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
-  geo.computeVertexNormals();
-  geo.computeBoundingSphere();
   const mat = new THREE.MeshStandardMaterial({
     color: lib ? 0xffffff : g.colour, roughness: 1, metalness: 0, vertexColors: true,
     transparent: true, depthWrite: false,
@@ -272,6 +277,22 @@ async function groundMesh(name, out, kind, lib, confidence) {
   mat.name = name;
   confidence?.patch(mat);
   mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}`;
+  return mat;
+}
+
+async function groundMesh(name, out, kind, mat) {
+  const g = GROUND[kind];
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(out.uv, 2));
+  // T-2806: a tint and a fade are bytes, not floats (16 bytes a corner down to 4)
+  const col = new Uint8Array(out.col.length);
+  for (let i = 0; i < col.length; i += 1) col[i] = Math.round(Math.max(0, Math.min(1, out.col[i])) * 255);
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 4, true));
+  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(out.conf, 1));
+  geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
+  geo.computeVertexNormals();
+  geo.computeBoundingSphere();
   // T-2219: a courtyard view was submitting all 74k ballast/cinder triangles
   // whenever any part of the kilometre-long yard entered the frustum. Use the
   // same exact 40-m ground cells as terrain; keep UVs, alpha and pick surfaces.
@@ -659,45 +680,58 @@ export async function createRailway({
   // arrays stayed reachable as long as the layer did: 74 MB of JS heap in 1904.
   const scratch = [];
   const buffers = () => { const b = { pos: [], uv: [], col: [], conf: [], idx: [] }; scratch.push(b); return b; };
-  const cinders = buffers();
+  // T-3247: on a page that opens at `light`, every surface is laid twice, at the
+  // heightfield's cell and as its far copy at the base terrain's, from the same
+  // stations and options, with one material. A page that opens higher lays no copy
+  // and draws the fine cut everywhere at any level, as before.
+  const farGround = [];
+  const withFar = Number.isFinite(REACH[detail]?.ground);
+  const surface = (name, kind, lib, runs) => {
+    const fine = buffers(); const far = withFar ? buffers() : null;
+    for (const [stations, opts, farStations = stations] of runs) {
+      ribbon(stations, { ...opts, out: fine });
+      if (far) ribbon(farStations, { ...opts, out: far, edge: FAR_EDGE_M, across: opts.across ?? FAR_EDGE_M });
+    }
+    const mat = groundMaterial(name, kind, lib, confidence);
+    if (far) farGround.push(groundMesh(`${name}-far`, far, kind, mat));
+    return groundMesh(name, fine, kind, mat);
+  };
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
-  ribbon(row.cinders ?? [], {
+  const cinders = [[row.cinders ?? [], {
     terrain, lift: GROUND.cinders.lift, fade: GROUND.cinders.fade, axis, span: ground?.along ?? 4,
-    level: tierLevel(spec.ballast?.tier ?? 'inferred'), out: cinders,
-  });
-  const verge = buffers();
+    level: tierLevel(spec.ballast?.tier ?? 'inferred'),
+  }]];
   const vergeLib = maps.get(spec.verges?.material ?? 'weedy_verge');
-  for (const v of row.verges ?? []) {
-    ribbon(v.stations ?? [], {
-      terrain, lift: GROUND.verge.lift, fade: GROUND.verge.fade, axis, span: vergeLib?.along ?? 3,
-      level: tierLevel(spec.verges?.tier ?? 'reconstructed'), out: verge,
-    });
-  }
-  const bed = buffers();
+  const verges = (row.verges ?? []).map((v) => [v.stations ?? [], {
+    terrain, lift: GROUND.verge.lift, fade: GROUND.verge.fade, axis, span: vergeLib?.along ?? 3,
+    level: tierLevel(spec.verges?.tier ?? 'reconstructed'),
+  }]);
   const bedLib = maps.get(spec.ballast?.material ?? 'cinder_ballast');
   const halfBed = spec.ballast?.bed_half_width_m ?? 1.75;
-  tracks.forEach((t, i) => {
+  const beds = tracks.map((t, i) => {
     const p = paths[i];
-    const st = [];
+    const st = []; const stFar = [];
     for (let s = 0; s <= p.length + 1e-6; s += 5) {
       const a = p.at(Math.min(s, p.length));
       st.push([a.e - a.tn * halfBed, a.n + a.te * halfBed, a.e + a.tn * halfBed, a.n - a.te * halfBed]);
+      if (s % FAR_BED_STATION_M === 0) stFar.push(st.at(-1));
     }
     if (p.length % 5 > 0.5) {
       const a = p.at(p.length);
       st.push([a.e - a.tn * halfBed, a.n + a.te * halfBed, a.e + a.tn * halfBed, a.n - a.te * halfBed]);
     }
-    ribbon(st, {
+    if (stFar.at(-1) !== st.at(-1)) stFar.push(st.at(-1));
+    return [st, {
       terrain, lift: GROUND.bed.lift, fade: GROUND.bed.fade, axis, span: bedLib?.along ?? 2,
-      level: Math.max(tierLevel(spec.ballast?.tier ?? 'inferred'), tierLevel(t.geometry_tier)), out: bed,
-    });
+      level: Math.max(tierLevel(spec.ballast?.tier ?? 'inferred'), tierLevel(t.geometry_tier)),
+    }, stFar];
   });
   // T-2600: each surface is laid here and partitioned on the job pool, all five
   // at once; they are awaited below, in this order, so the group is the same.
   const groundJobs = [
-    groundMesh('railway-cinders', cinders, 'cinders', ground, confidence),
-    groundMesh('railway-verges', verge, 'verge', vergeLib, confidence),
-    groundMesh('railway-ballast-beds', bed, 'bed', bedLib, confidence),
+    surface('railway-cinders', 'cinders', ground, cinders),
+    surface('railway-verges', 'verge', vergeLib, verges),
+    surface('railway-ballast-beds', 'bed', bedLib, beds),
   ];
 
   /* ---- the lake edge (T-2479): the stone face and the made ground ---- */
@@ -706,27 +740,25 @@ export async function createRailway({
   const edgeJobs = [];
   if (edgeSpec && lake && (lake.face ?? []).length >= 2) {
     const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
-    const face = buffers();
     const faceLib = maps.get(edgeSpec.face?.material ?? 'riprap_limestone');
-    ribbon(lake.face, {
+    const face = [[lake.face, {
       terrain, lift: GROUND.face.lift, fade: GROUND.face.fade, axis, span: faceLib?.along ?? 4,
-      level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'), out: face,
+      level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'),
       // darker than a block's face: between the blocks near the eye it is their shadow
       tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.88),
       // the face bends over at its crest: a coarse ribbon's chord would pass under the
       // ground there and the grass would show through, so it is cut finely across
       across: 0.5, fineNear: 1.2,
       drape: true,
-    });
-    const made = buffers();
+    }]];
     const madeLib = maps.get(edgeSpec.made_ground?.material ?? 'made_ground');
-    ribbon(row.made_ground ?? [], {
+    const made = [[row.made_ground ?? [], {
       terrain, lift: GROUND.made.lift, fade: GROUND.made.fade, axis, span: madeLib?.along ?? 4,
-      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6, fineNear: 1.2,
-    });
+      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), across: 0.6, fineNear: 1.2,
+    }]];
     edgeJobs.push(
-      groundMesh('railway-lake-face', face, 'face', faceLib, confidence),
-      groundMesh('railway-made-ground', made, 'made', madeLib, confidence),
+      surface('railway-lake-face', 'face', faceLib, face),
+      surface('railway-made-ground', 'made', madeLib, made),
     );
     for (let i = 0; i + 1 < lake.crest.length; i += 1) {
       out.census.edge_m += Math.hypot(lake.crest[i + 1][0] - lake.crest[i][0], lake.crest[i + 1][1] - lake.crest[i][1]);
@@ -735,6 +767,7 @@ export async function createRailway({
   }
   // One await over both, so a surface that fails leaves no other one unheard.
   const laid = await Promise.all([...groundJobs, ...edgeJobs]);
+  const farLaid = await Promise.all(farGround);
   for (const b of scratch) { b.pos = null; b.uv = null; b.col = null; b.conf = null; b.idx = null; }
   scratch.length = 0;
   const groundMeshes = laid.slice(0, groundJobs.length);
@@ -742,6 +775,26 @@ export async function createRailway({
   for (const m of [...groundMeshes, ...edgeMeshes]) {
     group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m);
   }
+  // T-3247: the far copies join hidden, each after its own surface's cut; `update`
+  // shows them piece by piece past the ground reach. Each piece's box is kept so a
+  // frame measures it without asking the batch.
+  const pieceBoxes = (m) => {
+    const box = new THREE.Box3(); const n = m.instanceCount;
+    const b = new Float32Array(n * 6); const shown = new Uint8Array(n);
+    for (let i = 0; i < n; i += 1) {
+      m.getBoundingBoxAt(m.getGeometryIdAt(i), box);
+      box.min.toArray(b, i * 6); box.max.toArray(b, i * 6 + 3);
+      shown[i] = m.getVisibleAt(i) ? 1 : 0;
+    }
+    return { mesh: m, b, shown };
+  };
+  const groundPairs = farLaid.map((far, i) => {
+    group.add(far); geometries.push(far);
+    far.userData.farCopyOf = laid[i].name;
+    far.visible = false;
+    out.census.farGroundTriangles = (out.census.farGroundTriangles ?? 0) + far.userData.spatialBatch.triangles;
+    return { fine: pieceBoxes(laid[i]), far: pieceBoxes(far) };
+  });
 
   /* ---- zones along the yard: rails, ties and tufts ---- */
   const ns = tracks.flatMap((t) => t.centreline_local_m.map(([, n]) => n));
@@ -1130,11 +1183,45 @@ export async function createRailway({
   applyDetail();
   out.setDetail = (next) => { if (REACH[next]) { level = next; applyDetail(); } };
 
+  /** T-3247: a piece shown or hidden, written only when it changes. */
+  const showPieces = (p, test) => {
+    const { mesh, b, shown } = p;
+    for (let i = 0; i < shown.length; i += 1) {
+      const want = test(b, i * 6) ? 1 : 0;
+      if (want !== shown[i]) { mesh.setVisibleAt(i, want === 1); shown[i] = want; }
+    }
+  };
+  /** Per frame: the fine ground within the ground reach, its far copy past it. A
+   *  piece of the fine cut draws if any of it is inside the reach and a piece of
+   *  the copy if any of it is outside, so between them every point is covered:
+   *  where a piece's edge crosses the reach, both draw (the same tones, overlaid). */
+  const updateGround = (cx, cy, cz, reach) => {
+    const r2 = reach * reach;
+    const nearest = (b, o) => {
+      const dx = Math.max(b[o] - cx, 0, cx - b[o + 3]); const dy = Math.max(b[o + 1] - cy, 0, cy - b[o + 4]);
+      const dz = Math.max(b[o + 2] - cz, 0, cz - b[o + 5]);
+      return dx * dx + dy * dy + dz * dz;
+    };
+    const farthest = (b, o) => {
+      const dx = Math.max(Math.abs(b[o] - cx), Math.abs(b[o + 3] - cx));
+      const dy = Math.max(Math.abs(b[o + 1] - cy), Math.abs(b[o + 4] - cy));
+      const dz = Math.max(Math.abs(b[o + 2] - cz), Math.abs(b[o + 5] - cz));
+      return dx * dx + dy * dy + dz * dz;
+    };
+    const finite = Number.isFinite(reach) && groundPairs.length > 0;
+    for (const { fine, far } of groundPairs) {
+      showPieces(fine, finite ? (b, o) => nearest(b, o) < r2 : () => true);
+      far.mesh.visible = finite;
+      if (finite) showPieces(far, (b, o) => farthest(b, o) >= r2);
+    }
+  };
+
   /** Per frame: which zones draw in full, which far, which not at all. */
   out.update = (camera) => {
     if (!camera) return;
     const r = REACH[level];
     const cx = camera.position.x; const cz = camera.position.z; const cy = camera.position.y;
+    updateGround(cx, cy, cz, r.ground);
     for (const z of zones) {
       // distance from the eye to the zone's span of northing, and to its middle across
       const n = -cz;

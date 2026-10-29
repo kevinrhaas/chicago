@@ -30041,7 +30041,9 @@ planters in `trees.js` and `street-trees.js`.
 that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the
 cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase
 and the black willow's leaning stems), set by hand and judged by eye against how living trees of the
-species look. The atlases are painted from code; no photograph is sampled. Repeating a few variants
+species look. The atlases are painted from code; one photograph is sampled, a modern American elm
+leaf (`bioimages_ulmus_americana_11688`, CC BY 4.0), whose veins and mottle fill the elm's painted
+blades since T-3247: it is the species' leaf surface, not evidence about any tree. Repeating a few variants
 makes neighbouring trees of a species siblings, not individuals.
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
