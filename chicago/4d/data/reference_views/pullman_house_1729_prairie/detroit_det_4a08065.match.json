@@ -16,7 +16,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 29,
+    "street_trees": 31,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "d2a593f254d0375faf6049eb3022827e005a4b4ace916884e051130a185a14b6",
+  "flora_sha256": "e07eb18283fae239a23458fed464db898a75111ccd98ae2c603f6a624729f4cd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -225,7 +225,7 @@
       "how": "T-1881: the forward block 6.5 m wide and 2.95 m proud (v 2.0-8.5) with banded corner piers; the pavilion 2.47 m out with the pair and triple of narrow lights over the porte-cochere; the porte-cochere at the 1911 sheet's s 8.25-12.75, 5.97 m out, arches 4.0, 10.8 and 4.0 m on centre with 2.2 m spans; within about 10 px of Taylor's photograph and the Detroit print"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 864-1048 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture"
     },
