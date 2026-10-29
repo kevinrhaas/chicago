@@ -1,0 +1,30 @@
+{
+ "structure_id": "pullman_lodge_1800_calumet",
+ "scene": "1904",
+ "also_render": [
+  "pullman_glasshouse_1800_calumet_pavilion",
+  "pullman_glasshouse_1800_calumet_north",
+  "pullman_glasshouse_1800_calumet_east",
+  "pullman_glasshouse_1800_calumet_east_end"
+ ],
+ "library_image": "a16-inland-1894-pullman-conservatory",
+ "photo": "../../sources/assets/pullman_1800_glasshouses_t3179/inland_1894_pullman_conservatory.jpg",
+ "image_px": [
+  2000,
+  1409
+ ],
+ "principal_px": [
+  1005,
+  885
+ ],
+ "focal_px": 2001,
+ "eye": [
+  -10.66,
+  -75.33,
+  1.75
+ ],
+ "yaw_deg": 9.7,
+ "solve": "T-3164: the lodge's own view of the picture the pavilion's inland_1894_conservatory camera was solved on (that camera's solve is the fit: its plan points include this lodge's north-east corner). Carried unchanged into the lodge record's frame (u west, v south, from its north-east corner; the pavilion's frame turned by 90.000 degrees, its origin at u 36.35, v 1.01 there): eye u -10.66, v -75.33, heading 9.7 degrees, the focal length, principal point and eye height as solved. It shows the lodge's north face and roof from the north-east; the conservatory hides the face west of about 5 m along it, and the range hides its east wall. LIGHT: no shadow is cast on the drive, the lawn or the walls (an overcast sky), so the render takes the overcast key.",
+ "source_id": "inland_1894_pullman_conservatory",
+ "sky": "overcast"
+}
