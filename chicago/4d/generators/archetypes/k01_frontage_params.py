@@ -5278,10 +5278,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         ters = ters if isinstance(ters, list) else [ters] if ters else []
         if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
-                or set(cf) - {"kind", "foot_block_m", "bow", "pierced"}:
+                or set(cf) - {"kind", "foot_block_m", "bow", "pierced", "head_m"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
                              "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m, "
-                             "with a bow and pierced")
+                             "with a bow, pierced and a head_m")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5289,6 +5289,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if not 0.2 <= fb <= 1.0:
                 raise ParamError("entrance_kit.cheek_form.foot_block_m: a scroll's foot block is 0.2-1.0 m tall")
             door_kit["cheek_form"]["foot_block_m"] = fb
+        # T-3186: the cheek's head `head_m` over the landing, under the columns' pedestals beside
+        # it (1901's, the 1898 print), in place of the scrolled cheek's own 0.85 m
+        if "head_m" in cf:
+            hm = float(cf["head_m"])
+            if not 0.5 <= hm <= 1.0:
+                raise ParamError("entrance_kit.cheek_form.head_m: a scrolled cheek's head stands 0.5-1.0 m "
+                                 "over the landing")
+            door_kit["cheek_form"]["head_m"] = hm
         # T-3186: the sweep's power, 1 a straight rake onto the roll up to 2, the concave fall
         if "bow" in cf:
             bw = float(cf["bow"])

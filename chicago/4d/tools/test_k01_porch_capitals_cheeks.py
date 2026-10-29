@@ -9,7 +9,8 @@ the porch's terraces open either side of the stoop. So:
   * `entrance_kit.hood.columns.carved` carves each column's capital as a bell of leaves in
     one or two tiers under an abacus (the bay columns' carving, T-2887), in `carved_trim`;
   * `cheek_form: scrolled` may stand beside open terraces at the landing's depth, and its
-    `bow` sets the sweep's fall, 1 straight down the rake to 2, the concave default;
+    `bow` sets the sweep's fall, 1 straight down the rake to 2, the concave default, and
+    `head_m` its head over the landing in place of the kit's 0.85 m;
   * a record naming neither builds as before (every other mesh's bytes are held by
     `generators/*_emit.py --check`), and every refusal says why.
 
@@ -66,8 +67,8 @@ p = KP.from_phase(st["phases"][0], st)
 cols = p.entrance_kit["hood"]["columns"]
 check(cols.get("carved") == {"tiers": 2, "abacus_m": 0.1},
       f"1901's porch columns carry carved capitals: {cols.get('carved')}")
-check(p.entrance_kit.get("cheek_form") == {"kind": "scrolled", "bow": 1.0,
-                                           "pierced": {"count": 5, "hole_m": [0.32, 0.2], "under_m": 0.12, "span_m": 2.5}},
+check(p.entrance_kit.get("cheek_form") == {"kind": "scrolled", "foot_block_m": 0.4, "head_m": 0.6, "bow": 1.0,
+                                           "pierced": {"count": 5, "hole_m": [0.3, 0.2], "under_m": 0.12, "span_m": 2.0}},
       f"1901's stoop takes scrolled cheeks falling straight, pierced: {p.entrance_kit.get('cheek_form')}")
 
 a = K1.build(p, SID)
@@ -94,12 +95,30 @@ try:
 except ValueError as ex:
     check("within 0.05 m of the tread" in str(ex), f"refused: openings run down to the foot ({ex})")
 
+# T-3186: nor past the roll, onto the foot block (1901's 2.5 m once the flight shortened to 2.2 m)
+try:
+    past = variant(lambda d: d["cheek_form"]["pierced"].update(span_m=2.5, hole_m=[0.32, 0.2]))
+    K1.build(KP.from_phase(past["phases"][0], past), SID)
+    check(False, "refused: openings run past the roll (it was built)")
+except ValueError as ex:
+    check("past its roll" in str(ex), f"refused: openings run past the roll ({ex})")
+
 # the bow moves the cheeks, and only them (a concave fall is too low over the treads for the openings)
 bowed = variant(lambda d: (d["cheek_form"].update(bow=2.0), d["cheek_form"].pop("pierced")))
 a = e
 c = K1.build(KP.from_phase(bowed["phases"][0], bowed), SID)
 check(c.prims["stoop_stone"].pos != a.prims["stoop_stone"].pos and c.prims["carved_trim"].pos == carved.pos,
       "the concave bow lays the cheeks apart from the straight one, the capitals unmoved")
+
+# T-3186: the cheeks' heads stand `head_m` over the landing; without it, the kit's 0.85 m and
+# the cheeks alone move (the openings follow the top, so the solid cheek is compared)
+kitted = variant(lambda d: (d["cheek_form"].pop("head_m"), d["cheek_form"].pop("pierced")))
+k = K1.build(KP.from_phase(kitted["phases"][0], kitted), SID)
+check(max(y for _, y, _ in k.prims["stoop_stone"].pos) > max(y for _, y, _ in e.prims["stoop_stone"].pos) - 1e-9
+      and k.prims["stoop_stone"].pos != e.prims["stoop_stone"].pos and k.prims["carved_trim"].pos == carved.pos,
+      "without head_m the cheeks stand at the kit's 0.85 m, higher than 1901's 0.6 m, the capitals unmoved")
+refused(variant(lambda d: d["cheek_form"].update(head_m=0.3)), "a cheek's head under 0.5 m", "0.5-1.0 m")
+refused(variant(lambda d: d["cheek_form"].update(head_m=1.2)), "a cheek's head over 1.0 m", "0.5-1.0 m")
 
 # refusals
 refused(variant(lambda d: d["hood"]["columns"]["carved"].update(tiers=3)), "three tiers of leaves", "tiers (1 or 2)")

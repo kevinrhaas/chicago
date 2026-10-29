@@ -591,14 +591,15 @@ class Entrance(Opening):
                 if carved or st.get("cheek_form") == "scrolled":
                     self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r,
                                          st.get("scroll_block_m", 0.0), st.get("scroll_bow"),
-                                         st.get("scroll_pierced"), (L, n, r, g))
+                                         st.get("scroll_pierced"), (L, n, r, g), st.get("scroll_head_m"))
                     if Dq > L:
                         self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
                     elif sgn in psides and not carved:
                         # T-3186: an open terrace at the landing's depth takes that side of the
                         # landing, so the cheek's head stands on its front edge, its back end above
                         # the deck faced toward the wall (1901's portico)
-                        self.quad("cheek", [(si,0,L),(so,0,L),(so,.85,L),(si,.85,L)],(0,0,-1))
+                        hh = st.get("scroll_head_m", .85)
+                        self.quad("cheek", [(si,0,L),(so,0,L),(so,hh,L),(si,hh,L)],(0,0,-1))
                     else:
                         self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
                     continue
@@ -1547,7 +1548,7 @@ class Entrance(Opening):
             a0 = o1 + m + k * (w + m)
             self._tablet("cheek", to3, a0, a0 + w, b0, b1, h, (float(sgn), 0.0, 0.0))
 
-    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0,bow=None,pierced=None,fl=None):
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0,bow=None,pierced=None,fl=None,head=None):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
         # the concavity. T-2565: both pictures end it at the street in a rolled foot,
         # a stone scroll lying across the cheek and standing proud of its outer face,
@@ -1555,15 +1556,18 @@ class Entrance(Opening):
         # T-2984: or the roll stands `blk` up on a plain foot block under its front half
         # (1811's plate), the sweep running down onto its crown there
         # T-3186: or the sweep's power `bow` from 1 (a straight rake onto the roll, 1901's
-        # print) toward 2, the concave fall every scrolled cheek had before it
+        # print) toward 2, the concave fall every scrolled cheek had before it; and its head
+        # `head` over the landing where a picture puts it lower than the kit's 0.85 m (1901's)
         rr = .2
         Fc = F - rr
         base = -R + blk
-        end = base + 2 * rr; peak = .85 if not terrace else 1.0
+        end = base + 2 * rr; peak = head if head is not None else .85 if not terrace else 1.0
         top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** (2 if bow is None else bow)
         N=32
         # T-3186: a row of openings through both cheeks under their coping (1901's, the 1893 plate)
         holes = self._scrolled_holes(pierced, start, top, fl) if pierced else []
+        if holes and holes[-1][1] > Fc + 1e-9:   # T-3186: the row ends on the cheek, not past its roll
+            raise ValueError(f"a scrolled cheek's openings run to {holes[-1][1]:.3f} m out, past its roll at {Fc:.3f} m")
         u0 = pierced["under_m"] if pierced else 0.0
         u1 = u0 + (pierced["hole_m"][1] if pierced else 0.0)
         cuts = sorted({round(start + (Fc - start) * i / N, 9) for i in range(N + 1)} |
@@ -1590,9 +1594,14 @@ class Entrance(Opening):
                                                     "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
         # the roll: its inner end set 15 mm back from the flight's face, its outer end 30 mm proud
         s_in, s_out = si + sgn * .015, so + sgn * .03
-        self.quad("cheek", [(si, -R, Fc), (s_in, -R, Fc), (s_in, end, Fc), (si, end, Fc)], OUT)
-        # the last step's end, in front of the roll's recessed inner end
-        self.quad("cheek", [(si, -R, Fc), (si, -R, F), (si, low, F), (si, low, Fc)], (-sgn, 0, 0))
+        # (T-3186: from the foot block's top, whose own face stands under it)
+        self.quad("cheek", [(si, base, Fc), (s_in, base, Fc), (s_in, end, Fc), (si, end, Fc)], OUT)
+        # the last step's end, in front of the roll's recessed inner end (T-3186: above the
+        # foot block's own face there, which would draw it twice)
+        if blk == 0.0:
+            self.quad("cheek", [(si, -R, Fc), (si, -R, F), (si, low, F), (si, low, Fc)], (-sgn, 0, 0))
+        elif base < low:
+            self.quad("cheek", [(si, base, Fc), (si, base, F), (si, low, F), (si, low, Fc)], (-sgn, 0, 0))
         K = 20
         ring = [(base + rr + rr * math.sin(2 * math.pi * k / K), Fc + rr * math.cos(2 * math.pi * k / K)) for k in range(K)]
         for k in range(K):
