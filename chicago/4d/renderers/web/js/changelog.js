@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2410, ts: '2026-10-29T13:34:05.544Z', date: 'Oct 29, 2026, 8:34 AM CT', title: 'The Pullman house gains its belt course and hooded dormers', kind: 'improvement',
+    items: [
+      'A deep moulded belt course now runs under the second-floor windows, round the Prairie Avenue front, its bays and the whole 18th Street side, as the 1890s photographs show it.',
+      'Each dormer on the mansard is framed in a carved stone hood with ears, faced in the house\'s own brownstone instead of a pale trim.',
+      'Still to come: the dormers on the front and side pavilions\' roofs, and the pediment over the large front dormer.',
+    ] },
   { v: 2409, ts: '2026-10-29T12:56:15.086Z', date: 'Oct 29, 2026, 7:56 AM CT', title: 'The Kimball house\'s south bay goes under its roof', kind: 'improvement',
     items: [
       'On the Kimball house\'s south side the heavy stone cornice now runs the whole wall and wraps the canted bay, and the slate roof comes down over the bay to meet it, as the 1965 survey photograph shows. Before, the bay stopped short under a small roof of its own.',
