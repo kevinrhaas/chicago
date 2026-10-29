@@ -274,7 +274,10 @@ class K01FrontageParams:
             return self.mansard["ridge_m"]
         if self.roof_form == "gable":    # T-2459: the ridge parallel to the front
             return self.gable["ridge_m"]
-        return round(self.eave_m + self.width_m / 2 * math.tan(math.radians(self.roof_pitch_deg)), 4)
+        # T-3240: a hip's ridge stands half the plan's narrower side over the eave, which is the
+        # front's half for every hip that runs front to back and the depth's for one along it
+        return round(self.eave_m + min(self.width_m, self.depth_m) / 2
+                     * math.tan(math.radians(self.roof_pitch_deg)), 4)
 
 
 CONSUMED = frozenset({
@@ -4429,10 +4432,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     _within(pitch, prange, "roof_pitch_deg")
     # T-2541: a gable's ridge runs along the street front (T-2459), so its length is the
     # front's and a front block wider than it is deep (1811's) has one; only a hip's runs
-    # front to back and needs the side walls longer than the front
-    if not flat and not mansard and not gable and depth <= width:
-        raise ParamError("a hip roof over this plan needs the side walls longer than the "
-                         "front, or its ridge has no length")
+    # front to back and needs the side walls longer than the front. T-3240: or one wider than
+    # it is deep runs its hip's ridge along the front (1701's main block, 12.5 m deep and 14.7 m
+    # along the street under the low hip its photograph shows); K05's hip is cut the same way
+    # either way round, and only a square plan, whose ridge would have no length, is refused
+    if not flat and not mansard and not gable and depth <= width and width - depth < 0.5:
+        raise ParamError("a hip roof over this plan needs its side walls and its front at least "
+                         "0.5 m apart in length, or its ridge has no length")
+    if not flat and not mansard and not gable and depth < width and (val("dormer") or val("slope_dormers")):
+        raise ParamError("a hip whose ridge runs along the front carries no K05 dormer: the dormer "
+                         "is cut into a street hip that runs front to back")
 
     # T-2369: a door below the principal floor opens on a vestibule whose own flight climbs
     # the rest indoors: the record reads that floor off a source, between grade and the hall
