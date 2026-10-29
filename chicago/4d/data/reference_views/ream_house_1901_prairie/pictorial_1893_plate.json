@@ -1,0 +1,27 @@
+{
+ "structure_id": "ream_house_1901_prairie",
+ "source_id": "rand_mcnally_pictorial_chicago_1893_ream",
+ "library_image": "a19-pictorial-1893-ream",
+ "photo": "../../sources/assets/ream_1901_photos_t1903/pictorial_1893_ream_plate.jpg",
+ "image_px": [
+  995,
+  715
+ ],
+ "principal_px": [
+  632.4,
+  429.9
+ ],
+ "focal_px": 1476.1,
+ "eye": [
+  57.4,
+  32.43,
+  5.54
+ ],
+ "yaw_deg": 244.84,
+ "sun_uvy": [
+  0.7,
+  0.8,
+  1.0
+ ],
+ "solve": "Carried by T-3186 from the 1898 front view's camera (chicagology_1898_front.json), because the plate and that print are one photograph: the chicagology copy is this plate cropped. The reference copy is the image store's display copy of Pictorial Chicago's 1893 page (1600 x 1233 px) turned upright, rotated 1.45 degrees to undo the plate's skew on its page, and cropped to the plate (995 x 715 px). Fitted image to image on their edge maps (gradient magnitude after a 1.5 px blur, normalized cross-correlation over the whole frame, scale, rotation and shift free): scale 1.00489, rotation 0.0004 degrees, shift (10.35, 15.73) px, correlation 0.961; at each of the eight points the 1898 camera was fitted to (the front's north corner at the cornice's bed and base course, the front's south end where the canted corner turns, the south flank's canted bay at its west corner and its cheek's and front's corners), a 50 px patch matches with no shift at 0.5 px steps (correlation 0.94-0.99). So the eye, the yaw and the light are the 1898 camera's, unchanged; the focal length is its 1468.9 px times 1.00489, and the principal point its (619.0, 412.2) mapped through the fit. Every caveat of that solve carries over with it, the eye's distance first (50-70 m out fit within 3-4 px)."
+}

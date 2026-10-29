@@ -66,8 +66,9 @@ p = KP.from_phase(st["phases"][0], st)
 cols = p.entrance_kit["hood"]["columns"]
 check(cols.get("carved") == {"tiers": 2, "abacus_m": 0.1},
       f"1901's porch columns carry carved capitals: {cols.get('carved')}")
-check(p.entrance_kit.get("cheek_form") == {"kind": "scrolled", "bow": 1.0},
-      f"1901's stoop takes scrolled cheeks falling straight: {p.entrance_kit.get('cheek_form')}")
+check(p.entrance_kit.get("cheek_form") == {"kind": "scrolled", "bow": 1.0,
+                                           "pierced": {"count": 5, "hole_m": [0.32, 0.2], "under_m": 0.12, "span_m": 2.5}},
+      f"1901's stoop takes scrolled cheeks falling straight, pierced: {p.entrance_kit.get('cheek_form')}")
 
 a = K1.build(p, SID)
 carved = a.prims.get("carved_trim")
@@ -80,8 +81,22 @@ b = K1.build(KP.from_phase(plain["phases"][0], plain), SID)
 check("carved_trim" not in b.prims or not b.prims["carved_trim"].idx,
       "without `carved` the capitals are plain blocks")
 
-# the bow moves the cheeks, and only them
-bowed = variant(lambda d: d["cheek_form"].update(bow=2.0))
+# T-3186: the openings cut the cheeks, and only them; a solid cheek has fewer faces
+solid = variant(lambda d: d["cheek_form"].pop("pierced"))
+e = K1.build(KP.from_phase(solid["phases"][0], solid), SID)
+check(len(a.prims["stoop_stone"].idx) > len(e.prims["stoop_stone"].idx) and e.prims["carved_trim"].pos == carved.pos,
+      f"the pierced cheeks carry their openings' reveals ({len(a.prims['stoop_stone'].idx) // 3} triangles against "
+      f"{len(e.prims['stoop_stone'].idx) // 3} solid), the capitals unmoved")
+try:
+    long = variant(lambda d: d["cheek_form"]["pierced"].update(span_m=3.7))
+    K1.build(KP.from_phase(long["phases"][0], long), SID)
+    check(False, "refused: openings run down to the foot, where the cheek is too low over the treads (it was built)")
+except ValueError as ex:
+    check("within 0.05 m of the tread" in str(ex), f"refused: openings run down to the foot ({ex})")
+
+# the bow moves the cheeks, and only them (a concave fall is too low over the treads for the openings)
+bowed = variant(lambda d: (d["cheek_form"].update(bow=2.0), d["cheek_form"].pop("pierced")))
+a = e
 c = K1.build(KP.from_phase(bowed["phases"][0], bowed), SID)
 check(c.prims["stoop_stone"].pos != a.prims["stoop_stone"].pos and c.prims["carved_trim"].pos == carved.pos,
       "the concave bow lays the cheeks apart from the straight one, the capitals unmoved")
@@ -93,6 +108,9 @@ refused(variant(lambda d: d["hood"]["columns"]["carved"].update(abacus_m=0.4)), 
 refused(variant(lambda d: d["hood"]["columns"]["carved"].update(leaves=8)), "a stray key on the carving", "tiers (1 or 2)")
 refused(variant(lambda d: d["cheek_form"].update(bow=0.5)), "a bow under 1 (a convex sweep)", "power of 1")
 refused(variant(lambda d: d["cheek_form"].update(bow=2.5)), "a bow over 2", "power of 1")
+refused(variant(lambda d: d["cheek_form"]["pierced"].update(count=13)), "thirteen openings to a cheek", "count 1-12")
+refused(variant(lambda d: d["cheek_form"]["pierced"].pop("span_m")), "openings with no span along the sweep", "span_m 0.3-6")
+refused(variant(lambda d: d["cheek_form"]["pierced"].update(side="left")), "a stray key on the openings", "count 1-12")
 refused(variant(lambda d: d["terrace"][0].update(out_m=3.0)), "a scrolled cheek beside a terrace deeper than the landing",
         "only open, at the landing's depth")
 refused(variant(lambda d: d["terrace"][1].update(parapet={"height_m": 0.8, "thickness_m": 0.2, "holes": [1, 4], "hole_m": [0.15, 0.15]})),

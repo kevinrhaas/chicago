@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2403, ts: '2026-10-29T08:40:51.825Z', date: 'Oct 29, 2026, 3:40 AM CT', title: '1901 Prairie\'s stoop cheeks pierced, and its photograph dated', kind: 'improvement',
+    items: [
+      'The two stone cheeks beside the Ream house\'s front steps are now pierced by a row of five openings under their coping, as the photographs show them.',
+      'The 1893 Pictorial Chicago plate of the house joins its sources: it is the same photograph long captioned 1898, so the picture dates from 1893 or before.',
+      'The steps themselves still stand taller beside the porch than the pictures show; that is the next thing to match.',
+    ] },
   { v: 2402, ts: '2026-10-29T07:51:18.234Z', date: 'Oct 29, 2026, 2:51 AM CT', title: 'Walks and gates for the Glessner townhouses, 1700-1706 Prairie', kind: 'feature',
     items: [
       'Each of the two houses now has a flagstone walk from the sidewalk to its porch steps, through a pair of iron gates standing open.',
