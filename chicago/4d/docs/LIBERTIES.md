@@ -34106,8 +34106,9 @@ the street wall square before the stair.
 the hood are centred there, and the readings (columns, door, gap) each sit within 0.3-0.5 m of it at the
 print's 13-14 px a metre. The inner columns' 3.9 m spacing is the reading's; their places are moved up to
 0.3 m to be symmetric on the axis. The outer columns at the hood's ends stay a bounded design
-(L-pullman-1729-portico-3159). The balustrade's section (0.9 m, 0.3 m newels, turned balusters every
-0.2 m) is the K07 stone stoop's; the print shows the rails but not their profile.
+(L-pullman-1729-portico-3159). The balustrade's section (0.9 m, 0.36 m newels, turned balusters every
+0.2 m) is the K07 stone stoop's, its newels 0.03 m proud of the 0.3 m cheek each side so no face
+is drawn twice; the print shows the rails but not their profile.
 **How to resolve:** a closer picture of the portico (the Albertype plate, the CHM 1905 views) fixes
 the columns' places and the balusters; if it puts the door off the block's centre, the axis moves with
 it, door, stair and gate together.
