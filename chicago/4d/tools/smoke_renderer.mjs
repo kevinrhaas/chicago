@@ -4456,6 +4456,7 @@ for (const [label, viewport, touch] of [
       // Controls copy only observed points into local arithmetic, never moving a
       // scene vertex or changing a renderer/material to make the check pass.
       const benchPoints = [];
+      const ownedWagonPoints = [];
       let shedOutsideBay = 0;
       const shedFrame = (sh, e, n) => {
         const b = ((sh.bearing_deg ?? 0) * Math.PI) / 180;
@@ -4464,6 +4465,22 @@ for (const [label, viewport, touch] of [
       };
       const inShedBay = (sh, frame) => Math.abs(frame.along) <= sh.length_m / 2 + 0.4
         && Math.abs(frame.out) <= sh.depth_m / 2 + 0.5;
+      // Exact ownership must not exempt a displaced tongue from the original
+      // 4.6 m wagon radius. Measure every owned vertex against its OWN anchor,
+      // including points outside the shed bay, before accepting its geometry.
+      const measureOwnedWagon = (points) => {
+        let maxRadius = 0;
+        let outsideBay = 0;
+        for (const point of points) {
+          const at = point.record.at_local_enu_m;
+          maxRadius = Math.max(maxRadius, Math.hypot(point.e - at[0], point.n - at[1]));
+          const sh = sheds.find((shed) => shed.id === point.record.under_shed);
+          if (!sh || !inShedBay(sh, shedFrame(sh, point.e, point.n))) outsideBay++;
+        }
+        return { vertices: points.length, outsideBay, maxRadius };
+      };
+      const acceptsOwnedWagon = (measurement) => measurement.vertices > 0
+        && measurement.outsideBay > 0 && measurement.maxRadius <= 4.6;
       const measureShedPoint = (sh, e, n, y) => {
         const frame = shedFrame(sh, e, n);
         shedVerts++;
@@ -4515,6 +4532,7 @@ for (const [label, viewport, touch] of [
             continue;
           }
           if (owned?.kind === 'wagon') {
+            ownedWagonPoints.push({ e, n, record: owned.record });
             const sh = sheds.find((s) => s.id === owned.record.under_shed);
             // Preserve the original tongue rule: owned wagon vertices beyond
             // its bay remain wagon geometry rather than inflating the roof.
@@ -4575,6 +4593,17 @@ for (const [label, viewport, touch] of [
       ownerControls.displacementRejected = displacedBench.length > 0
         && displacedBench.some((point) => Math.hypot(point.e - point.record.at_local_enu_m[0],
           point.n - point.record.at_local_enu_m[1]) > 1.0);
+      const ownedWagonBounds = measureOwnedWagon(ownedWagonPoints);
+      const displacedWagon = ownedWagonPoints.map((point) => ({ ...point }));
+      const tonguePoint = displacedWagon.find((point) => {
+        const sh = sheds.find((shed) => shed.id === point.record.under_shed);
+        return sh && !inShedBay(sh, shedFrame(sh, point.e, point.n));
+      });
+      if (tonguePoint) tonguePoint.e = tonguePoint.record.at_local_enu_m[0] + 10;
+      const displacedWagonBounds = measureOwnedWagon(displacedWagon);
+      ownerControls.wagonCleanAccepted = acceptsOwnedWagon(ownedWagonBounds);
+      ownerControls.wagonDisplacementRejected = !!tonguePoint
+        && displacedWagonBounds.outsideBay > 0 && !acceptsOwnedWagon(displacedWagonBounds);
       const verts = geos.reduce(
         (t, geo) => t + (geo.getAttribute('position')?.count ?? 0), 0);
       return {
@@ -4621,6 +4650,9 @@ for (const [label, viewport, touch] of [
         exactOwnerCount: exactOwnership.count,
         expectedOwnerCount: expectedObjects.length,
         ownerControls,
+        ownedWagonBounds,
+        displacedWagonBounds,
+        ownedWagonAccepted: acceptsOwnedWagon(ownedWagonBounds),
         shedOutsideBay,
         benches,
         pileVerts,
@@ -4815,8 +4847,11 @@ for (const [label, viewport, touch] of [
       goods.expectedOwnerCount > 0 && goods.exactOwnerCount === goods.expectedOwnerCount
         && goods.exactOwnerErrors.length === 0,
       `${goods.exactOwnerCount}/${goods.expectedOwnerCount} emitted owners; ${goods.exactOwnerErrors.join('; ')}`);
-    check(`${label}: exact owners reject missing, unknown, misassigned, overlapping and out-of-buffer ranges and a displaced bench`,
+    check(`${label}: exact owners reject missing, unknown, misassigned, overlapping and out-of-buffer ranges and displaced bench/wagon vertices`,
       Object.values(goods.ownerControls).every(Boolean), JSON.stringify(goods.ownerControls));
+    check(`${label}: every owned covered-wagon vertex stays within its original 4.6 m bound`,
+      goods.ownedWagonAccepted,
+      `actual ${JSON.stringify(goods.ownedWagonBounds)}; displaced outside-bay control ${JSON.stringify(goods.displacedWagonBounds)}`);
     check(`${label}: the bench stands against the Green Tree's front wall`,
       goods.benchVerts > 0 && goods.benchStray > 0 && goods.benchStray <= 1.0
         && goods.benchInside >= -0.20,
