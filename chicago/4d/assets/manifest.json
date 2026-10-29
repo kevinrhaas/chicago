@@ -4123,9 +4123,9 @@
     "pullman_house_1729_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 14171512,
+      "bytes": 15028864,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "be3873e8e87c82f9e40f0ac6f0b3755739c099862dd7d97e5c765a006b8bc589",
+      "inputs_sha256": "4f7e37d16133d8379d83de6eed93bb6ace57b87100a47c3addfdcc677926b782",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"
@@ -4143,9 +4143,9 @@
     "pullman_house_1729_prairie_ranges__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 424244,
+      "bytes": 408288,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "3bfdca76c82d976a4e6301f905e0ebe1f6927e8497ade4aa5bc28e60f4c26d27",
+      "inputs_sha256": "a7d301737271ebcf8ba6599af4c9a475874ad71807624c75e40e0e80c462d64f",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "pullman_house_1729_prairie_ranges"
