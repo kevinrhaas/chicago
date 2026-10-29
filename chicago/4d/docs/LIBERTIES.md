@@ -24140,7 +24140,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24196,9 +24196,52 @@ plate, plan or measured drawing; the alley buildings are T-1935's.
 **Retired in part:** 1824 Pomeroy/Marsh's house by T-3167 (piece 2 of T-1887), which refined it in place on the K01 frontage kit under `L-k01-1824-marsh-1887`; its stable is still this draft's.
 **Retired in part:** 1834 Jones's house by T-3183 (piece 1 of T-1888), which refined it in place on the K01 frontage kit under `L-k01-1834-jones-1888`; its alley building is still this draft's.
 **Retired in part:** 1900 Elbridge G. Keith's house by T-3207 (piece 1 of T-1897), which refined it in place on the K01 frontage kit under `L-k01-1900-keith-3207`; its coach house is still this draft's.
+**Retired in part:** 1906 Edson Keith's house, with its attached 1908, by T-3238 (piece 1 of T-1898), which refined it in place on the K01 frontage kit under `L-k01-1906-keith-3238`; its coach house is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
+
+### L-k01-1906-keith-3238 — 1906 Prairie refined from the district draft to a K01 Italianate stone front, read off its engraving and the 1898 Tribune vignette
+
+**Decision:** the house at 1906 Prairie Avenue, Edson Keith's, with the attached 1908 that the 1911
+sheet draws and the T-1841 census rules one building (T-3238, piece 1 of T-1898), is no longer a
+district draft. It stands, under the draft's own id `edson_keith_house_1906_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, against the undated Chicagology wood engraving
+(`chicagology_1906_keith_engraving`, rights check_required: forms and proportions only) and the 1906
+vignette of the Chicago Tribune's 9 January 1898 strip (`chicago_tribune_1898_01_09_residence_district`,
+public domain): an Italianate house of two storeys over a raised basement under a low hipped roof and a
+deep cornice on paired brackets; a canted bay at the front's south end rising a stage past the cornice
+as a tower; the round-arched door under a porch on columns whose top is a balustraded balcony before the
+arched window over the door; a high stoop onto a terrace; round-headed hooded windows; the sheet's brick
+range along the south flank and its rear wing.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1906-b1, census
+s28-1906-front and s28-1908-wing): the main body's place and plan (21.75 by 16.5 m), the brick range on
+the south flank (16 m of the sheet's 18 m, the K08 block's limit) and the rear wing, '3B brick with
+stone front'. From the engraving, through its solved camera
+(`data/reference_views/edson_keith_house_1906_prairie/chicagology_engraving_southeast.json`, 35.8 px RMS):
+the storeys' proportions and the windows' heights, the cornice, the porch and its balcony, the hipped
+roof. From the vignette: the composition of the front (the south bay and its tower stage, the porch and
+balcony with the arched window over it, the terrace) and its date. The brownstone is the census
+ruling r28-1900-1906-photo's.
+**Where the pictures and the sheet disagree.** The engraving draws the porch's balcony about twice as
+wide as the window spacing beside it allows, and a large block with its own porch and balcony at the
+south flank's front where the sheet draws a 1.5 m brick strip; neither is fitted away: both are open on
+the match record. The engraving does not hold one perspective (its camera's residual), so its
+heights are read as proportions.
+**What is invented.** The walls' thickness; the brick and its tone (the pictures are monochrome); the
+roof's covering; the treads; the flanks' and the rear's windows and sash (no picture measures them),
+and the north flank left blind against 1908's wing; the stacks' places; the rainwater.
+**What is not built.** The engraving's block at the south flank's front with its porch and balcony; the
+tower stage's lower, broader proportion and its place; the roof's balustraded deck and tall stack; the
+stoop's curved flights; the terrace's balustrade along the front's south part: open on the match record
+for T-3239.
+**How to resolve:** T-3239 solves the vignette's camera beside the engraving's, weighs the mansard
+photograph's attribution (the 1900 house) and the c. 1914 west-side elevation drawing, builds those, and
+brings every 1906 match record to `matches`.
+**Covers:** `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`
+**Ticket:** T-3238 (piece 1 of T-1898).
+**Review:** `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg`.
+**Recorded:** 2026-10-29 (T-3238).
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 

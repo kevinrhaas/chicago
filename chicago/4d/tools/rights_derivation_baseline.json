@@ -441,6 +441,150 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.eave_overhang_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.roof_pitch_deg": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.side_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.stair_landing_depth_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.street_front_dress": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.street_front_openings": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.window_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "elbridge_keith_house_1900_prairie/as_mapped_1904/form.bays": {
       "kind": "structure",
       "blocked_sources": [

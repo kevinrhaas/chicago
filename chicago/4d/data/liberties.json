@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 850,
+  "count": 851,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -151,7 +151,7 @@
     },
     {
       "id": "edson_keith_house_1906_prairie",
-      "name": "1906 Prairie Avenue — Edson Keith Italianate, attribution uncertain"
+      "name": "1906 Prairie Avenue — the Edson Keith house (Italianate stone front; attached 1908)"
     },
     {
       "id": "edson_keith_house_1906_prairie_coach_house",
@@ -34977,18 +34977,6 @@
       "covers": [
         {
           "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "edson_keith_house_1906_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35125,7 +35113,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35160,6 +35148,10 @@
           "text": "1900 Elbridge G. Keith's house by later work, which refined it in place on the K01 frontage kit under `“1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph”`; its coach house is still this draft's."
         },
         {
+          "label": "Retired in part",
+          "text": "1906 Edson Keith's house, with its attached 1908, by later work, which refined it in place on the K01 frontage kit under `“1906 Prairie refined from the district draft to a K01 Italianate stone front, read off its engraving and the 1898 Tribune vignette”`; its coach house is still this draft's."
+        },
+        {
           "label": "Review",
           "text": "the research notes on prairie draft west."
         },
@@ -35186,8 +35178,110 @@
         "T-3183",
         "T-1897",
         "T-3207",
+        "T-1898",
+        "T-3238",
         "T-2329",
         "T-2159"
+      ]
+    },
+    {
+      "id": "L-k01-1906-keith-3238",
+      "title": "1906 Prairie refined from the district draft to a K01 Italianate stone front, read off its engraving and the 1898 Tribune vignette",
+      "section": "per_subject",
+      "subjects": [
+        "edson_keith_house_1906_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1906 Prairie Avenue, Edson Keith's, with the attached 1908 that the 1911 sheet draws and the census rules one building, is no longer a district draft. It stands, under the draft's own id 1906 Prairie Avenue — the Edson Keith house (Italianate stone front; attached 1908), as a k01 frontage record built by the k01 emit generator, against the undated Chicagology wood engraving (1906 S. Prairie (Edson Keith residence), rights check required: forms and proportions only) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip ('Select residence district where wealth has not prevented death from visiting…, public domain): an Italianate house of two storeys over a raised basement under a low hipped roof and a deep cornice on paired brackets; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose top is a balustraded balcony before the arched window over the door; a high stoop onto a terrace; round-headed hooded windows; the sheet's brick range along the south flank and its rear wing. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1906-b1, census s28-1906-front and s28-1908-wing): the main body's place and plan (21.75 by 16.5 m), the brick range on the south flank (16 m of the sheet's 18 m, the K08 block's limit) and the rear wing, '3B brick with stone front'. From the engraving, through its solved camera (the chicagology engraving southeast data, 35.8 px RMS): the storeys' proportions and the windows' heights, the cornice, the porch and its balcony, the hipped roof. From the vignette: the composition of the front (the south bay and its tower stage, the porch and balcony with the arched window over it, the terrace) and its date. The brownstone is the census ruling r28-1900-1906-photo's. **Where the pictures and the sheet disagree.** The engraving draws the porch's balcony about twice as wide as the window spacing beside it allows, and a large block with its own porch and balcony at the south flank's front where the sheet draws a 1.5 m brick strip; neither is fitted away: both are open on the match record. The engraving does not hold one perspective (its camera's residual), so its heights are read as proportions. **What is invented.** The walls' thickness; the brick and its tone (the pictures are monochrome); the roof's covering; the treads; the flanks' and the rear's windows and sash (no picture measures them), and the north flank left blind against 1908's wing; the stacks' places; the rainwater. **What is not built.** The engraving's block at the south flank's front with its porch and balcony; the tower stage's lower, broader proportion and its place; the roof's balustraded deck and tall stack; the stoop's curved flights; the terrace's balustrade along the front's south part: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves the vignette's camera beside the engraving's, weighs the mansard photograph's attribution (the 1900 house) and the c. 1914 west-side elevation drawing, builds those, and brings every 1906 match record to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3238)."
+        }
+      ],
+      "work_refs": [
+        "T-3238",
+        "T-1898",
+        "T-1841",
+        "T-3239"
       ]
     },
     {

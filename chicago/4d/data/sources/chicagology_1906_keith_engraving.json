@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1906_keith_engraving",
+ "type": "illustration",
+ "citation": "1906 S. Prairie (Edson Keith residence). Wood engraving, undated (nineteenth century), unknown engraver and publication. Reproduced on chicagology.com, Prairie Avenue, 1906 S. Prairie.",
+ "author": "unknown engraver",
+ "date": "undated (nineteenth-century wood engraving; the Prairie library brackets it 1870-1893)",
+ "describes_date": "undated, before 1893",
+ "repository": "chicagology.com (secondary reproduction; the original publication is not named). Prairie library image a19-cgy-1906-keith-engraving, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cgy-1906-keith-engraving.jpg), committed since T-3238 at data/sources/assets/keith_1906_pictures_t1898/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1906prairie/",
+ "locator": "The whole picture: the house from the far side of Prairie Avenue to the south-east, its lit street front on the right (the porch, the stoop, the arched windows and the cornice), the shaded south flank and the south bay's tower to the left, the low stone wall along the walk in front; the neighbour to the north at the right edge. Street trees stand across the front's middle.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3238) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-29 (T-3238, piece 1 of T-1898) from the image store's reference copy, 1300 x 857 px, sha256 e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3.",
+ "note": "The fullest picture of the Edson Keith house found. An Italianate house of two storeys over a raised basement under a low hipped roof and a deep cornice on paired scrolled brackets over a panelled frieze; every window round-headed under a hood mould; at the stoop's head a porch on columns whose flat top is a balcony with a balustrade before the arched window over the door; a high stoop whose flights curve out at their foot; a balustraded terrace across the front over the basement lights; a canted bay rising past the cornice as a tower with its own bracketed cornice and cresting; on the roof a balustraded deck and a tall stack. Its attribution to 1906 is the hosting page's; the 1898 Tribune vignette of 1906 draws the same composition (south bay rising as a tower, the porch with its balcony and the arched window over it, the terrace), which is what this project rests the attribution on.",
+ "what_it_supplies": [
+  "the street front's composition: the south bay and its tower stage, the porch and balcony, the window columns, the cornice and the hipped roof",
+  "the storeys' proportions and the windows' heights through the picture's solved camera",
+  "the stoop's curved flights and the low stone wall along the walk"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: it is undated and may show the house before alterations made by 1904",
+  "the north flank, the rear and the rear wing",
+  "measurements an engraver could not draw true: the solve states how far its perspective holds"
+ ]
+}
