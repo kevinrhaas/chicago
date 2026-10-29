@@ -365,6 +365,52 @@
       "confidence": "reconstructed",
       "note": "T-2342: five windows a storey along the north wall, front to rear: it is the 16th Street side of a corner house, standing about 0.1 m inside the lot's north line, so it is a street elevation and is windowed at the south wall's rhythm rather than left the blank party wall K01 was cut for. Their number and places are reconstructed; the sheet draws no openings."
     },
+    "boundary": {
+      "value": {
+        "street_line_m": 8.53,
+        "lot_s_m": [
+          -3.6,
+          7.1
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 70
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": -1.5,
+          "drawn_deg": 0
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216: no picture of this front is held, so the boundary is a STATED RECONSTRUCTION on the west side of the block's pictured fronts, every one of which closes its street line and gates its walk: 1612's photograph (an iron spear fence on its curb, a pair of entrance gates at the stoop's foot and a gate across the south passage), 1620's 1874 engraving and 1898 sketch (an iron lattice on its base with gate piers at the walk), 1616's boarded street line in the same 1874 plate, and 1638's photograph (iron bars on a stone base between gate piers). Built as the K11 kit's spear fence on its curb, the plainest of them and the block's photographed iron, with the kit's pair of entrance leaves on stone piers, 1.3 m clear on the stoop's centre, standing open (drawn 70 degrees) as 1612's photograph and both pictures of 1620 show their entrance gates. The south side passage, 3.60 m between the lot line and the house's south wall, is gated as 1612's photograph gates its own: a single shut leaf on stone piers, 1.6 m clear from the lot line's pier (to s -1.5), the iron running on from its pier to the entrance's. The street line is parcel prairie_1600's street corners (data/street_grid/1904.json) carried into this frame, 8.530 m before the front. The lot's sides are the same parcel's, s -3.60 and 7.10. The house is the block's north corner on 16th Street: the iron is built across the street front alone, to the north lot line, and is not returned along 16th Street, which no picture shows and the kit cannot yet build in iron. RECONSTRUCTED: the fence's kind, height and line, its gates and their set; liberty L-k11-fences-1600-block-3216."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-3216 (the owner, 2026-10-27: every worked house's walk to its door, its gates and its boundaries to their pictures; where no picture shows them, a stated reconstruction consistent with the block). No picture of 1600's front is held. The walk is laid on the block's pictured fronts (1612's photograph shows a light paved walk from the public walk through its open entrance gateway to the stoop's foot, and 1616's and 1621's walks are built on it): flags from the stoop's foot through the entrance gate, the gate's width, to the inner edge of the public walk; the lawn covers the rest of the front yard inside the iron. RECONSTRUCTED: the walk's line, flags, width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; no service walk is built (no picture shows a side passage's floor); liberty L-k14-walks-1600-block-3216. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
