@@ -590,7 +590,8 @@ class Entrance(Opening):
                 # T-2918: a record may ask for the carved cheek on a plain stoop (1811's plate)
                 if carved or st.get("cheek_form") == "scrolled":
                     self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r,
-                                         st.get("scroll_block_m", 0.0), st.get("scroll_bow"))
+                                         st.get("scroll_block_m", 0.0), st.get("scroll_bow"),
+                                         st.get("scroll_pierced"), (L, n, r, g))
                     if Dq > L:
                         self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
                     elif sgn in psides and not carved:
@@ -1546,7 +1547,7 @@ class Entrance(Opening):
             a0 = o1 + m + k * (w + m)
             self._tablet("cheek", to3, a0, a0 + w, b0, b1, h, (float(sgn), 0.0, 0.0))
 
-    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0,bow=None):
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0,bow=None,pierced=None,fl=None):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
         # the concavity. T-2565: both pictures end it at the street in a rolled foot,
         # a stone scroll lying across the cheek and standing proud of its outer face,
@@ -1561,12 +1562,32 @@ class Entrance(Opening):
         end = base + 2 * rr; peak = .85 if not terrace else 1.0
         top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** (2 if bow is None else bow)
         N=32
-        for i in range(N):
-            a=start+(Fc-start)*i/N; b=start+(Fc-start)*(i+1)/N
+        # T-3186: a row of openings through both cheeks under their coping (1901's, the 1893 plate)
+        holes = self._scrolled_holes(pierced, start, top, fl) if pierced else []
+        u0 = pierced["under_m"] if pierced else 0.0
+        u1 = u0 + (pierced["hole_m"][1] if pierced else 0.0)
+        cuts = sorted({round(start + (Fc - start) * i / N, 9) for i in range(N + 1)} |
+                      {round(o, 9) for h in holes for o in h})
+        for a, b in zip(cuts, cuts[1:]):
             ya,yb=top(a),top(b)
+            hole = next((h for h in holes if h[0] - 1e-6 <= a and b <= h[1] + 1e-6), None)
             for x,n in ((si,-sgn),(so,sgn)):
-                self.quad("cheek",[(x,-R,a),(x,-R,b),(x,yb,b),(x,ya,a)],(n,0,0))
+                if not hole:
+                    self.quad("cheek",[(x,-R,a),(x,-R,b),(x,yb,b),(x,ya,a)],(n,0,0))
+                    continue
+                # the face under the opening and the coping over it, both running with the top
+                self.quad("cheek",[(x,-R,a),(x,-R,b),(x,yb-u1,b),(x,ya-u1,a)],(n,0,0))
+                self.quad("cheek",[(x,ya-u0,a),(x,yb-u0,b),(x,yb,b),(x,ya,a)],(n,0,0))
+            if hole:   # its sill and head through the cheek's thickness, and its two ends
+                self.quad("cheek",[(si,ya-u1,a),(so,ya-u1,a),(so,yb-u1,b),(si,yb-u1,b)],(0,b-a,ya-yb))
+                self.quad("cheek",[(si,ya-u0,a),(so,ya-u0,a),(so,yb-u0,b),(si,yb-u0,b)],(0,-(b-a),yb-ya))
+                for o, y_, k in ((a, ya, 1.0), (b, yb, -1.0)):
+                    if abs(o - hole[0]) < 1e-6 or abs(o - hole[1]) < 1e-6:
+                        self.quad("cheek",[(si,y_-u1,o),(so,y_-u1,o),(so,y_-u0,o),(si,y_-u0,o)],(0,0,k))
             self.quad("cheek",[(si,ya,a),(so,ya,a),(so,yb,b),(si,yb,b)],(0,b-a,ya-yb))
+        if holes:
+            self.meta["pierced_scrolled_cheeks"] = {"openings": len(holes),
+                                                    "out_m": [round(holes[0][0], 4), round(holes[-1][1], 4)]}
         # the roll: its inner end set 15 mm back from the flight's face, its outer end 30 mm proud
         s_in, s_out = si + sgn * .015, so + sgn * .03
         self.quad("cheek", [(si, -R, Fc), (s_in, -R, Fc), (s_in, end, Fc), (si, end, Fc)], OUT)
@@ -1593,6 +1614,29 @@ class Entrance(Opening):
         self.sockets[f"handrail_{'left' if sgn<0 else 'right'}"]=sockets
         for pt in sockets: self.probe(*pt,("cheek",),"a socket on the curved stone cheek")
         self.probe(s_out, base + rr, Fc, ("cheek",), "the cheek's rolled foot")
+
+    def _scrolled_holes(self, pc, start, top, fl):
+        """T-3186: `pierced` {count, hole_m [along the run, high], under_m, span_m}: a row of
+        `count` openings through each scrolled cheek, `under_m` under its top and running with
+        it, spaced evenly along the first `span_m` of the sweep from its head, as the 1893
+        Pictorial Chicago plate and the exterior view show 1901's. Their sills stand clear of
+        the treads they run beside by 0.05 m at least."""
+        L, n, r, g = fl
+        k, (w, h), u, span = pc["count"], pc["hole_m"], pc["under_m"], pc["span_m"]
+        gap = (span - k * w) / (k + 1)
+        if gap < 0.05:
+            raise ValueError(f"a scrolled cheek's first {span} m holds no {k} openings {w} m across")
+        out = []
+        for i in range(k):
+            a = start + gap + i * (w + gap)
+            b = a + w
+            for o in (a, b - 1e-9):
+                tread = 0.0 if o < L else -min(n - 1, math.floor((o - L) / g) + 1) * r
+                if top(o) - u - h < tread + 0.05 - 1e-9:
+                    raise ValueError(f"a scrolled cheek's opening {i + 1} has its sill at {top(o) - u - h:.3f} m, "
+                                     f"within 0.05 m of the tread beside it at {tread:.3f} m, {o:.3f} m out")
+            out.append((a, b))
+        return out
 
     def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down

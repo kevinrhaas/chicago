@@ -1,0 +1,143 @@
+{
+  "structure_id": "glessner_lee_house_1700_prairie",
+  "view": "ghm_construction_1901",
+  "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+  "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583",
+  "camera_sha256": "ca1121539346212bd726e76b98ad4212104ce31cfa1df928b862902b57c8c85d",
+  "photo_sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b",
+  "rendered_members": [
+    {
+      "structure_id": "glessner_lee_house_1700_prairie",
+      "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.059,
+        "local_n": -3093.615,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "a722b3b81e6e2fc5493b2dffa731433a347723a2d3e9680e67a71a087a9c8583"
+    },
+    {
+      "structure_id": "george_glessner_house_1706_prairie",
+      "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.171,
+        "local_n": -3104.665,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -5.4848602107582245e-05,
+        0,
+        11.05056758709686
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "aea7b7a0672c22c464185cbc4ea7c26f177cb11c1f007a2deb0bdf6982f68bc9"
+    },
+    {
+      "structure_id": "house_1708_prairie",
+      "glb": "assets/gltf/house_1708_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1368.577,
+        "local_n": -3112.161,
+        "rotation_deg": -0.581,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0.329913419676367,
+        0,
+        18.550299111753638
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "91e65e0cffac979c888b3ea32f668aa9a8dc833df116f70c067820e898764db8"
+    }
+  ],
+  "group_sha256": "56efdd107941fb3268e6519fa03c6d465243b8d6a3c2db4daa57fc2bd24b37b6",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_lee_house_1700_prairie/ghm_construction_1901-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the pair's brick front of two storeys over a low basement, under one mansard, from 1706's south corner against 1708 to 1700's north corner",
+      "status": "fixed",
+      "how": "T-3211's pair; the line under the main cornice renders at both corners and the party line within about 5 px of the print's"
+    },
+    {
+      "what": "the upper storey's windows: four to 1706 and the first of 1700's",
+      "status": "fixed",
+      "how": "the camera was fitted on these thirteen corners (rms 1.9 px), so they say where the camera stood, not that the windows are right: their spacing, width and heights fit the print within 3 px with nothing adjusted"
+    },
+    {
+      "what": "the principal storey's round-arched openings outside 1706's door (two to 1706, the first of 1700's)",
+      "status": "fixed",
+      "how": "T-3212: their places and crowns render on the print's; their feet, which the print shows at about 1.37 m over grade (the openings unglazed), were at 2.0 m and now stand at 1.45 m, the lights running down behind the balconettes as Chicagology's photograph shows"
+    },
+    {
+      "what": "the cornice, the slate mansard, its pedimented dormers and the stacks",
+      "status": "within tolerance",
+      "how": "in place in 1901; dormers, stacks and the cornice's line render where the print draws them to within the dormers' cases' width, as T-3211 left them in the later views"
+    },
+    {
+      "what": "the porches, the balconettes, the balcony railings and the glazing",
+      "status": "not shown",
+      "how": "EVIDENCE OF ITS OWN DATE: in 1901 none is built (1706's door is a wide opening under a stone lintel carrying a builder's sign board; every window is an empty opening). The 1904 porches, balconettes and sashes are the after-1902 photographs' (Chicagology's and the Christmas print's); this picture neither supports nor contradicts them"
+    },
+    {
+      "what": "the builder's timber shed, the lumber and sand heaps, the young parkway tree and the overhead wire",
+      "status": "not shown",
+      "how": "EVIDENCE OF ITS OWN DATE: the building site of 1901, gone (or grown) by 1904; not built"
+    },
+    {
+      "what": "the front walks",
+      "status": "not shown",
+      "how": "no walk to either door is laid in 1901: the yard is the builder's"
+    },
+    {
+      "what": "1700's gateway and the railing before 1700 (1706's gateway, about 1.6 m north of the print's, is written open in 1706's record)",
+      "status": "not shown",
+      "how": "1700's gateway stands on the street line at about x 590 through this camera, behind the builder's timber shed; the 1901 railing stops at about x 367, before 1706, and nothing of a railing shows before 1700's front past the party line"
+    },
+    {
+      "what": "1700's front north of its first upper window, its door and its porch's place, behind the young street tree; and its north corner's foot, behind the builder's sand",
+      "status": "not shown",
+      "how": "hidden in the print"
+    },
+    {
+      "what": "colour: the brick's, the stone's and the slate's",
+      "status": "not shown",
+      "how": "the photograph is monochrome"
+    },
+    {
+      "what": "the rear, the north wall and the roof deck",
+      "status": "not shown",
+      "how": "out of the picture"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "dated": {
+    "picture": "1901",
+    "scene": "1904-07-01",
+    "reading": "evidence of its own date: the pair under construction, a year before the families moved in (1902). What it shows unfinished or not yet built is argued here, not copied; what it shows of the finished fabric (the front's openings, cornice, mansard, dormers and stacks) is held to."
+  },
+  "address_association": {
+    "address": "1702 S. Prairie Avenue",
+    "reading": "1702 Prairie is an address, not a building. The 1911 sheet's '1702' stands over 1700's upper frontage, and the register keeps it as an association to reconcile; this photograph, the only picture of the site while the pair was being built, shows the pair's one front running unbroken from 1708's north wall to its own north corner, two houses under one mansard with one door apiece (1706's at the south end, a wide opening under a sign board; 1700's at the north, behind the street tree), and no third house, door or old fabric between them: the old Staples/Harvey house the register put at 1702 was gone by 1901. So '1702' is read as a number that belonged to the site before the pair (or a number on 1700's frontage), carried by the sheet; no structure is built for it."
+  },
+  "also_catalogued_as": "st-ghm-1700-1706-under-construction-1901 (the Prairie library holds this picture twice, same URL and bytes)",
+  "before_after": {
+    "draft": "the district draft (T-2160) as it stood before T-3211, glessner_lee_house_1700_prairie__draft_1904.glb and george_glessner_house_1706_prairie__draft_1904.glb from the tree before #1384, rendered from this camera",
+    "image": "docs/RESEARCH/photo-match/glessner_lee_house_1700_prairie/ghm_construction_1901-draft-before-after.jpg",
+    "reading": "the draft stood a flat-fronted three-storey brick block under a low hip, one chimney to each house, square-headed windows in three even rows, no mansard, dormers, cornice, arched principal windows or porch; the pair now stands under the print's dormered mansard and deep cornice, two storeys over a basement, with the arched principal openings and upper windows in the print's places"
+  }
+}

@@ -1813,8 +1813,11 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
              and o.component != "k01.opening.area_light"]
     for j, b in enumerate(si.get("balconettes") or ()):
         need = {"from_s_m", "to_s_m", "floor_m", "proud_m", "height_m", "slab_m", "consoles"}
-        if set(b) != need:
-            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)}")
+        # T-3212: `before_light: true`, a guard standing before the foot of a light that runs
+        # down behind it to a sill over the shelf (1700-1706 Prairie's principal windows: the
+        # 1901 construction photograph's openings and Chicagology's sashes)
+        if set(b) - {"before_light"} != need or b.get("before_light", True) is not True:
+            raise ParamError(f"street_front_iron.balconettes[{j}] takes {sorted(need)} (and before_light: true)")
         s0, s1, fl, d, h, sl, n = (float(b["from_s_m"]), float(b["to_s_m"]), float(b["floor_m"]),
                                    float(b["proud_m"]), float(b["height_m"]), float(b["slab_m"]), b["consoles"])
         if not (0.6 <= s1 - s0 <= 3.0 and 0.15 <= d <= 0.9 and 0.6 <= h <= 1.1 and 0.08 <= sl <= 0.25
@@ -1822,7 +1825,13 @@ def _street_iron(si: dict, openings, entrance_kit: dict) -> dict:
             raise ParamError(f"street_front_iron.balconettes[{j}]: 0.6-3.0 m long, 0.15-0.9 m proud, a guard "
                              f"0.6-1.1 m high on a slab 0.08-0.25 m deep, on 0 or 2-4 consoles")
         over = [o for o in front if s0 < o.s_m < s1 and o.sill_m > fl]
-        if not over or any(o.sill_m < fl + h - 0.05 for o in over):
+        if b.get("before_light"):
+            low = min(over, key=lambda o: o.sill_m) if over else None
+            if low is None or not fl + sl <= low.sill_m < fl + h - 0.05 \
+                    or any(o.sill_m < fl + h - 0.05 for o in over if o is not low):
+                raise ParamError(f"street_front_iron.balconettes[{j}] before_light: a light's sill stands over "
+                                 f"the shelf ({fl + sl:.2f} m) and under the guard's top ({fl + h:.2f} m)")
+        elif not over or any(o.sill_m < fl + h - 0.05 for o in over):
             raise ParamError(f"street_front_iron.balconettes[{j}] stands under a street window, its guard "
                              f"under the sill ({fl + h:.2f} m)")
         bals.append({"from_s_m": s0, "to_s_m": s1, "floor_m": fl, "proud_m": d, "height_m": h, "slab_m": sl,
@@ -5206,10 +5215,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         ters = ters if isinstance(ters, list) else [ters] if ters else []
         if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
-                or set(cf) - {"kind", "foot_block_m", "bow"}:
+                or set(cf) - {"kind", "foot_block_m", "bow", "pierced"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
-                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m "
-                             "and with a bow")
+                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m, "
+                             "with a bow and pierced")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5224,6 +5233,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.cheek_form.bow: a scrolled cheek's sweep falls with a power of 1 "
                                  "(straight) to 2 (the concave default)")
             door_kit["cheek_form"]["bow"] = bw
+        # T-3186: a row of openings through both cheeks under their coping (1901's, the 1893 plate)
+        if "pierced" in cf:
+            pc = cf["pierced"]
+            if not isinstance(pc, dict) or set(pc) != {"count", "hole_m", "under_m", "span_m"} \
+                    or not 1 <= int(pc["count"]) <= 12 or len(pc["hole_m"]) != 2 \
+                    or not 0.05 <= float(pc["hole_m"][0]) <= 0.5 or not 0.05 <= float(pc["hole_m"][1]) <= 0.4 \
+                    or not 0.05 <= float(pc["under_m"]) <= 0.3 or not 0.3 <= float(pc["span_m"]) <= 6.0:
+                raise ParamError("entrance_kit.cheek_form.pierced on a scrolled cheek is {count 1-12, hole_m "
+                                 "[0.05-0.5 along, 0.05-0.4 high], under_m 0.05-0.3 under its top, span_m 0.3-6 "
+                                 "along the sweep from its head}")
+            door_kit["cheek_form"]["pierced"] = {"count": int(pc["count"]),
+                                                 "hole_m": [float(x) for x in pc["hole_m"]],
+                                                 "under_m": float(pc["under_m"]), "span_m": float(pc["span_m"])}
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \

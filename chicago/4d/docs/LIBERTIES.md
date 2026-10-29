@@ -35451,6 +35451,39 @@ that shows them.
 **Ticket:** T-3230.
 **Recorded:** 2026-10-28 (T-3230).
 
+### L-k14-walks-1700-1706-3212 — 1700 and 1706 Prairie's walks, gates and railing read off Chicagology's photograph; each house given a walk from the public walk to its door
+**Recorded:** 2026-10-28.
+
+**Decision:** the Glessner pair at 1700-1706 Prairie went onto K01 (T-3211) after T-3205 laid the rest
+of the 1700 block's walks, so neither house had a front boundary or a walk, and a visitor could not
+walk in. Each is now given a flagged front walk from the foot of its porch's flight out to the inner
+edge of the public walk, through a pair of gates standing open in a spear-headed iron railing on a low
+curb (T-3212). **What is read, not invented.** Chicagology's photograph of the pair (after 1902) shows
+1708's railing running on before 1706 to a gateway at 1706's walk on dark, capped iron posts, and
+stopping there: north of it 1706's front, and 1700's south of its own flight, lie open to the lawn
+behind a low edging stone; a railing starts again beside the foot of 1700's flight and runs north past
+the pair's corner. The pair's fronts are a mirrored composition, so each house's railing is laid on
+its outer side only (`boundary.runs`, a K11 option added for this: `["south"]` at 1706, `["north"]` at
+1700), and neither has a side passage or a side gate, the pair being built to its lot's lines.
+**What is invented or held by the kit.** The gateways' places along the street line are set square to
+each flight (K11's rule, its walk running straight). T-3211's camera, fitted on the townhouses' front
+alone, cannot place things nine metres before that front to better than a few metres; the 1901
+construction photograph's oblique camera (T-3212) can, to about 0.15 m, and it puts 1706's gateway
+about 1.6 m south of the one laid: written open in 1706's `ghm_construction_1901` match record. The railing's line stands 8.7 m before the front, about 0.2 m inside
+1708's, because the pair's record puts the public walk 0.3 m nearer the houses than 1708's does. The
+railing's bars and height, the posts' section and height (1708's), the gates' leaves and their state
+(open, 70 degrees), the walks' width, flags and wear, and the bare strip at the wall foot are the
+kits'. No lawn is laid (`lawn: none`): the yards' grass is the app's own ground. No `grade_m` is set:
+the app's ground under the pair's yards was not measured (1708's, beside it, rises 7-18 mm, under the
+flags' 60 mm). The 1901 construction photograph shows the railing already standing during the
+build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there,
+as Chicagology's later photograph shows it: so it is read as the 1904 railing.
+**How to resolve:** a K11 gateway set off its flight's axis with a walk that turns to it (1706's, about
+1.6 m south); a photograph showing the pair's yards nearer the street line, or a second camera on
+Chicagology's picture fitted on the curb and the stair feet as well as the front.
+**Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3212.
+
 ### L-k01-1812-wheeler-bay-3236 — 1812 Prairie's entrance bay centred at the owner's ask: its windows and porch arch on the bay's middle, the arch clear of the projection, and the door's panels
 
 **Decision:** the owner, 2026-10-28, looking at George H. Wheeler's house at 1812 Prairie from the
@@ -35691,7 +35724,6 @@ it, read off 1445 at a small size; the wall's height (0.9 m) along the stable, r
 the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court, the
 globe lamp and urn on the piers are not built. **How to resolve:** a picture of 18th Street east of the stable,
 or a full-size copy of the c. 1905 CHM negative i70232, would show the wall's east end and the piers' caps.
-**Covers:** `pullman_house_1729_prairie.as_mapped_1904.form.boundary`
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-29 (T-1934).

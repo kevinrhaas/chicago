@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2403, ts: '2026-10-29T08:40:51.825Z', date: 'Oct 29, 2026, 3:40 AM CT', title: '1901 Prairie\'s stoop cheeks pierced, and its photograph dated', kind: 'improvement',
+    items: [
+      'The two stone cheeks beside the Ream house\'s front steps are now pierced by a row of five openings under their coping, as the photographs show them.',
+      'The 1893 Pictorial Chicago plate of the house joins its sources: it is the same photograph long captioned 1898, so the picture dates from 1893 or before.',
+      'The steps themselves still stand taller beside the porch than the pictures show; that is the next thing to match.',
+    ] },
+  { v: 2402, ts: '2026-10-29T07:51:18.234Z', date: 'Oct 29, 2026, 2:51 AM CT', title: 'Walks and gates for the Glessner townhouses, 1700-1706 Prairie', kind: 'feature',
+    items: [
+      'Each of the two houses now has a flagstone walk from the sidewalk to its porch steps, through a pair of iron gates standing open.',
+      'An iron railing runs along 1706\'s front from its neighbour\'s to its gate and stops there. 1700\'s starts at its own gate and runs north, as the old photograph of the pair shows.',
+      'The tall arched windows of the main floor now run down behind their little iron balconies, as the photographs show.',
+      'A photograph of the pair being built in 1901 is now weighed against the model. One detail still differs: the gate before 1706 stood about 1.6 m further south. It is listed on the house\'s photo-match record.',
+    ] },
+  { v: 2401, ts: '2026-10-29T07:51:18.234Z', date: 'Oct 29, 2026, 2:51 AM CT', title: 'Pullman\'s stable gains its open belvedere, iron cresting and belt course', kind: 'improvement',
+    items: [
+      'The stable at 1729 Prairie now has open balusters on its belvedere, iron cresting with corner spires round its roof deck, and a stone belt course under its upper windows, as the 1894 plate and Taylor\'s photographs show them.',
+      'The corner bay\'s cap leans back onto the corner instead of rising to a point.',
+      'The stable is now checked against its three pictures in its own right.',
+    ] },
   { v: 2400, ts: '2026-10-29T06:56:56.643Z', date: 'Oct 29, 2026, 1:56 AM CT', title: 'The Pullman conservatory\'s glass front looks like its photograph', kind: 'improvement',
     items: [
       'The big arched glass front of the Pullman conservatory, across 18th Street, now shows plants in shade behind its glass. Before, it looked like a solid grey wall over a black doorway.',

@@ -448,7 +448,16 @@
               ],
               "cheek_form": {
                 "kind": "scrolled",
-                "bow": 1.0
+                "bow": 1.0,
+                "pierced": {
+                  "count": 5,
+                  "hole_m": [
+                    0.32,
+                    0.2
+                  ],
+                  "under_m": 0.12,
+                  "span_m": 2.5
+                }
               }
             }
           },
@@ -456,9 +465,10 @@
           "sources": [
             "chicagology_1901_ream_1898",
             "chicagology_1901_ream_exterior",
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "rand_mcnally_pictorial_chicago_1893_ream"
           ],
-          "note": "The stone porch (portico) on columns over the stoop, its flat top a balcony with a balustrade before the window over the door, in both photographs through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): about 4.4 m wide (the 1911 sheet's one-storey stone box is 4.4 m by 2.2 m), its entablature from about 5.1 to 5.8 m and its balustrade to about 6.7 m over grade. K01's columned door hood carries it in stone, on two pairs of columns at its front corners (the photographs' paired Corinthian shafts, set 0.75 m apart where K01 keeps their plinths 0.3 m clear and the print sets them about 0.5 m apart centre to centre, under the 1 ft bar), each capital carved as two tiers of leaves under a 0.1 m abacus (T-3186: through the 1898 photograph's camera, at about 2.7 cm a pixel on the shafts, the capitals read about 0.45 m deep with their abacus and about 0.5 m across the leaves; the leafage itself, its volutes and its acanthus, is finer than the print resolves and is not modelled leaf by leaf) with responds at the wall, over stone terraces either side of the stoop at the landing's height, as 1729's portico stands. The stoop's two cheeks are K07's scrolled stone cheek (T-3186): the print draws each as a solid stone wall sweeping down in a concave curve from the inner column's foot at the landing's edge to a roll lying across it at the flight's foot; the south-west view shows its moulded top running straight down the rake to the roll (its midpoint on the chord from head to foot, read at three times the print's pixels), so the sweep falls straight (bow 1), not in the concave fall a scrolled cheek otherwise takes. The print also cuts a row of small openings along each cheek under its top, which K07's scrolled cheek does not build (the match records). The front 9.35 m behind the street line (the sheet). WHERE: the photographs put the porch's columns at v about 5.3 and 9.0 m, about 1.5 m north of where the sheet draws its box (v 6.5-10.8); three pictures agree and the build follows them (docs/LIBERTIES.md)."
+          "note": "The stone porch (portico) on columns over the stoop, its flat top a balcony with a balustrade before the window over the door, in both photographs through the 1898 photograph's camera (data/reference_views/ream_house_1901_prairie/chicagology_1898_front.json): about 4.4 m wide (the 1911 sheet's one-storey stone box is 4.4 m by 2.2 m), its entablature from about 5.1 to 5.8 m and its balustrade to about 6.7 m over grade. K01's columned door hood carries it in stone, on two pairs of columns at its front corners (the photographs' paired Corinthian shafts, set 0.75 m apart where K01 keeps their plinths 0.3 m clear and the print sets them about 0.5 m apart centre to centre, under the 1 ft bar), each capital carved as two tiers of leaves under a 0.1 m abacus (T-3186: through the 1898 photograph's camera, at about 2.7 cm a pixel on the shafts, the capitals read about 0.45 m deep with their abacus and about 0.5 m across the leaves; the leafage itself, its volutes and its acanthus, is finer than the print resolves and is not modelled leaf by leaf) with responds at the wall, over stone terraces either side of the stoop at the landing's height, as 1729's portico stands. The stoop's two cheeks are K07's scrolled stone cheek (T-3186): the print draws each as a solid stone wall sweeping down in a concave curve from the inner column's foot at the landing's edge to a roll lying across it at the flight's foot; the south-west view shows its moulded top running straight down the rake to the roll (its midpoint on the chord from head to foot, read at three times the print's pixels), so the sweep falls straight (bow 1), not in the concave fall a scrolled cheek otherwise takes. Both cheeks are pierced under their moulded top by a row of openings (T-3186): the exterior view shows five to a cheek, rounded openings between short stone posts, running down the upper part of the sweep under a coping about a third of the band's depth, and the 1893 Pictorial Chicago plate (the same negative as the 1898 print, its sharper copy) shows them on both cheeks. Built as K07's pierced scrolled cheek: five openings 0.32 m along the run and 0.2 m high, 0.12 m under the top, spaced evenly along the sweep's first 2.5 m from its head, where its top stands high enough over the treads to hold them; the openings' rounded heads are squared and the sweep's lowest metre is left solid, both under the 1 ft bar (the match records). The front 9.35 m behind the street line (the sheet). WHERE: the photographs put the porch's columns at v about 5.3 and 9.0 m, about 1.5 m north of where the sheet draws its box (v 6.5-10.8); three pictures agree and the build follows them (docs/LIBERTIES.md)."
         },
         "boundary": {
           "value": {

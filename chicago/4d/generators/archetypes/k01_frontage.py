@@ -3249,6 +3249,8 @@ class Assembly:
                     v["stair"]["scroll_block_m"] = cf["foot_block_m"]
                 if "bow" in cf:   # T-3186: and its sweep fall straighter than the square's
                     v["stair"]["scroll_bow"] = cf["bow"]
+                if "pierced" in cf:   # T-3186: and both pierced under their coping
+                    v["stair"]["scroll_pierced"] = cf["pierced"]
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
         ss = p.entrance_kit.get("side_stoop")
         if ss:
