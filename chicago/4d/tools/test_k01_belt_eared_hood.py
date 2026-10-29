@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""T-1881: 1729 Prairie's belt course and its dormers' eared hoods.
+
+Taylor's photograph no. 1445 and the 1890 Albertype plate draw the Pullman house with a deep
+moulded belt course under the second storey's sills, round the front, its projections and the
+18th Street flank, and every dormer under an eared architrave and hood. This holds the kit and the
+record to what the ticket built:
+
+  * `street_front_pavilions.belt` takes bed_m, a profile from the wall's face at its bed back to
+    the wall at its top, and runs (a wall and a stretch of it); a profile that turns back down,
+    stands more than 0.3 m out or runs through an opening is refused;
+  * a run's path steps out round every square projection on it and, at a projection flush with
+    the run's end, carries on along the projection's face to the corner;
+  * a round dormer may name `eared_hood` (band_m, proud_m, ear_m, drop_m, an optional rise_m)
+    inside its bounds, and on no other head; its solid is closed, stands proud_m out of the face
+    and reaches ear_m past the band each side;
+  * 1729's record builds a belt with a break over its corner pier and every dormer hooded.
+
+    python3 tools/test_k01_belt_eared_hood.py
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "generators"))
+
+from archetypes import k01_frontage as K1  # noqa: E402
+from archetypes import k01_frontage_params as KP  # noqa: E402
+from archetypes import k01_pavilions as PV  # noqa: E402
+from archetypes import k05_roofs as k5  # noqa: E402
+from archetypes import k10_frontage  # noqa: E402
+
+SID = "pullman_house_1729_prairie"
+PROFILE = [[0, 0], [0.1, 0], [0.17, 0.2], [0.17, 0.32], [0.07, 0.36], [0.07, 0.9], [0, 0.95]]
+failures = []
+
+
+def check(ok, what):
+    print(("ok   " if ok else "FAIL ") + what)
+    if not ok:
+        failures.append(what)
+
+
+def refused(fn, what):
+    try:
+        fn()
+    except (PV.ParamError, KP.ParamError):
+        check(True, what)
+        return
+    check(False, what)
+
+
+class _Op:
+    def __init__(self, wall, s, sill, head):
+        self.wall, self.s_m, self.sill_m, self.head_m, self.component = wall, s, sill, head, "k01.opening.sash"
+
+
+def bay(wall, s0, s1, d, bid="b"):
+    pts = [[-(s1 - s0) / 2, 0.0], [-(s1 - s0) / 2, d], [(s1 - s0) / 2, d], [(s1 - s0) / 2, 0.0]]
+    return {"id": bid, "wall": wall, "span_m": (s0, s1), "variant": {"kind": "projection", "plan": {"points": pts}}}
+
+
+def belt(spec, openings=(), bays=()):
+    return PV._resolve_belt(spec, width=18.0, depth=28.0, openings=list(openings), eave=12.6, bays=bays)
+
+
+FRONT = "k01.wall.street_front"
+ok_spec = {"bed_m": 6.7, "profile": PROFILE, "runs": [{"wall": FRONT, "s_m": [0, 18]}]}
+r = belt(ok_spec)
+check(r["height_m"] == 0.95 and r["bed_m"] == 6.7, "a belt resolves its bed and its profile's height")
+refused(lambda: belt({**ok_spec, "profile": [[0, 0], [0.1, 0.5], [0.1, 0.2], [0, 0.6]]}), "a profile turning back down is refused")
+refused(lambda: belt({**ok_spec, "profile": [[0, 0], [0.4, 0.1], [0, 0.6]] + [[0, 0.6]]}), "a profile 0.4 m out is refused")
+refused(lambda: belt(ok_spec, openings=[_Op(FRONT, 5.0, 7.2, 9.0)]), "a belt through a window is refused")
+check(belt(ok_spec, openings=[_Op(FRONT, 5.0, 7.7, 9.0)]) is not None, "a belt under a window's sill is laid")
+refused(lambda: belt({**ok_spec, "runs": [{"wall": FRONT, "s_m": [0, 19]}]}), "a run past its wall's end is refused")
+
+# the path round a projection, and on along a corner projection's face to the next wall
+P = type("P", (), {"depth_m": 28.0, "width_m": 18.0})()
+runs = {x.name: x for x in k10_frontage.runs(P)}
+r = belt(ok_spec, bays=(bay(FRONT, 2.0, 8.5, 2.95),))
+path = PV.belt_path(runs[FRONT], r["runs"][0], 6.7)
+plan = [(round(q[0], 3), round(q[2], 3)) for q in path]
+check(plan == [(28.0, 0.0), (28.0, -2.0), (30.95, -2.0), (30.95, -8.5), (28.0, -8.5), (28.0, -18.0)],
+      f"the path steps out round the forward block and back ({plan})")
+south = "k01.wall.side.south"
+spec2 = {"bed_m": 6.7, "profile": PROFILE, "runs": [{"wall": south, "s_m": [21.8, 28]}, {"wall": FRONT, "s_m": [0, 18]}]}
+r2 = belt(spec2, bays=(bay(south, 23.05, 28.0, 1.2, "nw"),))
+paths = [PV.belt_path(runs[x["wall"]], x, 6.7) for x in r2["runs"]]
+joined = PV._join(r2["runs"], paths, {n: x.L for n, x in runs.items()})
+plan = [(round(q[0], 3), round(q[2], 3)) for q in joined[0]]
+check(len(joined) == 1 and plan[:4] == [(21.8, 0.0), (23.05, 0.0), (23.05, 1.2), (28.0, 1.2)] and plan[4] == (28.0, -18.0),
+      f"a flush corner projection carries the belt round onto the front in one mitred run ({plan})")
+
+# the eared hood: bounds, heads, and its solid
+dorm = {"face": "street", "along_m": 1.5, "head": "round", "surround_m": 0.3, "face_setback_m": 0.1,
+        "sash": {"variant": "k06.opening.sash_round_fanlight", "width_m": 0.8, "height_m": 1.6, "sill_m": 0.1}}
+eh = {"band_m": 0.15, "proud_m": 0.08, "ear_m": 0.2, "drop_m": 0.25, "rise_m": 0.4}
+got = KP._round_dormer({**dorm, "eared_hood": eh}, "d", 1.0)
+check(got["eared_hood"]["rise_m"] == 0.4, "a round dormer takes an eared hood")
+check("eared_hood" not in KP._round_dormer(dorm, "d", 1.0), "a dormer without one builds as before")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "ear_m": 0.5}}, "d", 1.0), "ears 0.5 m out are refused")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "rise_m": 0.7}}, "d", 1.0), "ears over the arch's meeting with the face are refused")
+refused(lambda: KP._round_dormer({**dorm, "eared_hood": {**eh, "bands": 1}}, "d", 1.0), "an unknown key is refused")
+
+
+class _Host:
+    EAR_BED_M = K1.Assembly.EAR_BED_M
+    HOOD_BACK_M = K1.Assembly.HOOD_BACK_M
+
+
+solid = K1.Assembly.dormer_eared_hood(_Host(), got, k5, "x", 1.0, 30.0, 28.0, -1.5, 0.7, 13.0, 14.3)[0]
+xs = [v[0] for pl in solid for v in pl.v]
+zs = [v[2] for pl in solid for v in pl.v]
+check(abs(max(xs) - 30.08) < 1e-6, f"the hood stands proud_m out of the face ({max(xs):.3f})")
+check(abs((max(zs) - min(zs)) - 2 * (0.7 + 0.15 + 0.2)) < 1e-6, f"its ears reach ear_m past the band each side ({max(zs) - min(zs):.3f})")
+edges = {}
+for pl in solid:
+    n = len(pl.v)
+    for i in range(n):
+        a, b = tuple(round(c, 6) for c in pl.v[i]), tuple(round(c, 6) for c in pl.v[(i + 1) % n])
+        edges[(a, b)] = edges.get((a, b), 0) + 1
+check(all(edges.get((b, a), 0) == c for (a, b), c in edges.items()), "the hood is one closed solid")
+
+# 1729's record
+st = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
+p = KP.from_phase(st["phases"][0], st)
+check(bool(p.pavilions.get("belt")) and len(p.pavilions["belt"]["runs"]) == 3, "1729 lays its belt on three walls")
+check(all("eared_hood" in d for d in p.mansard["dormers"]), "every one of 1729's dormers is hooded")
+check(p.mansard.get("dormer_fabric") == "front_stone", "1729's dormers are faced in its brownstone")
+
+if failures:
+    print(f"\n{len(failures)} failure(s)")
+    sys.exit(1)
+print("\nall belt and eared-hood checks pass")

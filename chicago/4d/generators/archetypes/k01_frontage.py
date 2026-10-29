@@ -661,6 +661,13 @@ class Assembly:
             self.fabric["dormer_stone"] = params.stone["fabric"]
             self.spec["dormer_stone"] = dict(self.spec["dormer_stone"], fabric=params.stone["fabric"], color=(1.0, 1.0, 1.0),
                                              roughness=round(params.stone["fabric_roughness"] + 0.01, 3))
+        # T-1881: and the mansard's dormers the record faces in the front's stone (1729's)
+        if params.mansard and params.mansard.get("dormer_fabric") == "front_stone":
+            if not params.stone:
+                raise ValueError("mansard dormers in the front's stone need a stone front")
+            self.fabric["dormer_stone"] = params.stone["fabric"]
+            self.spec["dormer_stone"] = dict(self.spec["dormer_stone"], fabric=params.stone["fabric"], color=(1.0, 1.0, 1.0),
+                                             roughness=round(params.stone["fabric_roughness"] + 0.01, 3))
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
         # frame, keyed by the frame's origin: the coursed front dresses the stone under it
         if params.stone_finish:
@@ -4315,6 +4322,9 @@ class Assembly:
             top = eaves   # the face, as the K01 dormer face is registered, stops under the shelf
             if slated:
                 hood += self.dormer_frame(d, k5, axis, sg, nf, centre, sill)
+        if d.get("eared_hood"):   # T-1881: 1729's eared architrave and hood round the arch
+            hood = hood + self.dormer_eared_hood(d, k5, axis, sg, nf, back, centre, r, ys,
+                                                 sill + d["sash_height_m"] - d["sash_width_m"] / 2)
         return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
@@ -4367,6 +4377,32 @@ class Assembly:
         box = (a0, a1, centre - rh, centre + rh) if axis == "x" else (centre - rh, centre + rh, a0, a1)
         self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
         return [shelf, hood]
+
+    EAR_BED_M = 0.05     # T-1881: an eared hood's band is let this far into the face it frames
+
+    def dormer_eared_hood(self, d, k5, axis, sg, nf, back, centre, r, ys, spring):
+        """T-1881: a round-headed dormer's eared architrave and hood, as one closed solid for
+        the roof's union (1729's, in the 1890 Albertype, the Detroit print and Taylor's
+        photograph no. 1445): a band `band_m` broad standing `proud_m` out of the face, up
+        each jamb from the face's foot, out at the springing into an ear `ear_m` further and
+        `drop_m` deep, and round the arch, its back buried in the roof as the face's is."""
+        e = d["eared_hood"]
+        b, pr, ear, dr, up = e["band_m"], e["proud_m"], e["ear_m"], e["drop_m"], e.get("rise_m", 0.0)
+        # its foot buried under the lower face, short of the face body's own foot (ys - 0.4), so the
+        # union meets no coplanar pair there
+        lo, ri, ro = ys - 0.37, r - self.EAR_BED_M, r + b
+        th = math.asin(min(1.0, up / ro)) / math.pi    # where the ears' top meets the hood's arc
+        arc = lambda rad, a0, a1: [(centre + rad * math.cos(math.pi * (a0 + (a1 - a0) * i / 12)),
+                                    spring + rad * math.sin(math.pi * (a0 + (a1 - a0) * i / 12))) for i in range(13)]
+        ye = spring + up
+        outline = ([(centre - ro, lo), (centre - ro, ye - dr), (centre - ro - ear, ye - dr),
+                    (centre - ro - ear, ye)] + arc(ro, 1.0 - th, th)
+                   + [(centre + ro + ear, ye), (centre + ro + ear, ye - dr), (centre + ro, ye - dr),
+                      (centre + ro, lo), (centre + ri, lo)] + arc(ri, 0.0, 1.0) + [(centre - ri, lo)])
+        a, c = sorted((back + sg * self.HOOD_BACK_M, nf + sg * pr))
+        P = k5.frame(axis)
+        ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
+        return [k5.extrude(outline, a, c, P, "dormer_face", *ends)]
 
     FRAME_PROUD_M = 0.04   # T-1890: a slated face's stone frame stands this far out of it
     FRAME_BED_M = 0.02     # ... and is bedded this far into it

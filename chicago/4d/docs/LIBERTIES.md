@@ -35755,6 +35755,28 @@ geometry: its span, springing and apex are T-3179's, unchanged; only the number 
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
 
+### L-k01-1729-pullman-belt-hoods-1881 — 1729 Prairie's belt course and eared dormer hoods read off its photographs, their sections reconstructed
+
+**Decision:** T-1881 gave the Pullman house (`pullman_house_1729_prairie`) the moulded belt course between its
+principal and second storeys and the eared architraves round its dormers, and faced the dormers in the walls'
+brownstone. **What is read.** Taylor's photograph no. 1445 and the 1890 Albertype plate draw the belt as a deep,
+shadowed band under the second storey's sills, running round the Prairie front, its pavilions and the 18th Street
+flank: through Taylor's solved camera, on the flank at u 24, the sill line at y 446-450 px and the shadow under the
+string at 462-470, so a band from about 6.7 m to 7.7 m, and the plate's at y 443-463 on the front. The plate, the
+Detroit print and Taylor's photograph draw each dormer under an eared hood: a band up each jamb and round the arch,
+with an ear out at each side well up the arch. Every photograph shows the dormers in the walls' tone. **What is
+invented.** The belt's section (one moulding 0.95 m high from a 6.72 m bed: a string 0.17 m out at its foot, a plain
+fascia 0.07 m out, a sill nosing at its top), its break forward over the corner pier, and its run round the
+north-west pavilion's north return and the whole 18th Street flank, which no picture sees end to end. The hood's
+0.15 m band, its 0.08 m proud, and the ears' 0.2 m by 0.25 m at six tenths of the arch's rise, all under the pictures'
+15-25 px a metre. **What is not built.** The broken pediment the plate draws over the large Prairie dormer, and the
+dormers on the forward block's and the 18th Street pavilion's own mansards (the K08 bay kit lays none yet): both stay
+open on the match records. **How to resolve:** a closer picture of the front (the CHM 1905 views) would give the
+belt's and the hoods' profiles.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and `detroit_det_4a08065-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-29 (T-1881).
+
 ### L-pullman-transept-band-3164 — The Pullman conservatory's transept lights drawn round-headed over a transom, as its pictures show them
 
 **Decision:** both pictures of Beman's conservatory (the 1894 Inland plate, `inland_1894_pullman_conservatory`,
