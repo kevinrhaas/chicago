@@ -209,26 +209,6 @@
         "dormers": [
           {
             "face": "street",
-            "along_m": 1.5,
-            "head": "round",
-            "sash": {
-              "variant": "k06.opening.sash_round_fanlight",
-              "width_m": 0.8,
-              "height_m": 1.6,
-              "sill_m": 0.1
-            },
-            "surround_m": 0.3,
-            "face_setback_m": 0.1,
-            "eared_hood": {
-              "band_m": 0.15,
-              "proud_m": 0.08,
-              "ear_m": 0.2,
-              "drop_m": 0.25,
-              "rise_m": 0.477
-            }
-          },
-          {
-            "face": "street",
             "along_m": 11.45,
             "head": "round",
             "sash": {
@@ -302,7 +282,7 @@
         "aic_taylor_1445_pullman_from_sw",
         "loc_det_4a08065_pullman_residence"
       ],
-      "note": "Through the photograph's camera: the lower faces rise from the cornice (about 12.0 m) to the curb under the cresting (about 16.8 m at y 240 px), steep and straight; iron cresting about 0.8 m high round the deck (y 222-235 px). T-3157: four round-arched dormers, read on the dormers' own plane (0.1 m in from the cornice's face): on the Prairie face the centre one's light at x 455-468 px (v 11.0-11.9) between pilasters at x 449-477, its crown at about 14.8 m (y 266) and its sill on the cornice (y 299), built as a 0.9 x 1.7 m arched light in a 0.35 m surround at v 11.45; the south pavilion's narrower one at x 502-518 (v 14.3-15.3), built 0.6 m in a 0.2 m surround at v 14.8; on the 18th Street face two at x 592-604 and 618-630 px, which this oblique view puts at u 21.7-23.8 and 16.5-19.0 to within about 2 m (built at u 22.75 and 17.7). The print draws the Prairie dormers arched and the flank ones too small to read their heads, so the flank's are taken arched like the front's; the Prairie ones' segmental hoods and ears over the arch are not laid (L-k01-1729-pullman-heads-3157). T-3158: the north-west pavilion's own dormer, at x 322-338 px on its section of the mansard (v 0.8-2.0 through the camera), built as the flank's: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5 (0.1 m off the print's centre, the nearest the hip lets a face stand), its crown read at about 15.3 m (y 273), within the reading of the others'. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees the 18th Street face at about 18 px a metre against the Detroit print's 5-6: THREE dormers on that face, each standing over a group of the flank's windows, their lights at x 656-673, 740-751 and 791-804 px, fitted by rendering them through the camera onto the mansard's face where they stand: u 15.3, 9.45 and 5.2 (s 12.45, 18.3 and 22.55 from the Prairie corner, about 0.5 m each way), each a little west of the window group under it; the two the Detroit print placed at u 22.75 and 17.7 move there and the third is added, each the flank's 0.8 x 1.6 m arched light in a 0.3 m surround as before. The two cameras disagree by about 5-8 m along the flank, which the Detroit print's grazing view cannot resolve; Taylor's governs. T-1881: the Prairie front's centre dormer widened to a 1.1 x 1.9 m light in a 0.4 m surround (2.0 m across), toward the Detroit print's x 447-482 px (about 2.3 m at 15 px a metre); its segmental hood is still not laid. T-1881: the 18th Street dormers at u 15.3 and 9.45 are taken off the main mansard: the 18th Street pavilion (bays.p_18th, u 9.2-19.45) now stands forward under its own mansard over their places, burying them, and the bay kit lays no dormer on a bay's mansard yet; Taylor's two dormers there are an open difference on its match record. The one at u 5.2 stays. T-1881: every dormer's face framed in an eared architrave and hood (`eared_hood`), as the 1890 Albertype plate, the Detroit print and Taylor's photograph no. 1445 draw them: a band up each jamb and round the arch, standing out of the face, with an ear out at each side about six tenths of the way up the arch; the band's 0.15 m, its 0.08 m proud and the ears' 0.2 x 0.25 m are reconstructed at the pictures' 15-25 px a metre, and the broken pediment the plate draws over the large Prairie dormer is not built. The dormers' faces are the front's brownstone (`dormer_fabric`), where K01's are a pale dressed stone: every photograph shows them in the walls' tone (L-k01-1729-pullman-belt-hoods-1881)."
+      "note": "Through the photograph's camera: the lower faces rise from the cornice (about 12.0 m) to the curb under the cresting (about 16.8 m at y 240 px), steep and straight; iron cresting about 0.8 m high round the deck (y 222-235 px). T-3157: four round-arched dormers, read on the dormers' own plane (0.1 m in from the cornice's face): on the Prairie face the centre one's light at x 455-468 px (v 11.0-11.9) between pilasters at x 449-477, its crown at about 14.8 m (y 266) and its sill on the cornice (y 299), built as a 0.9 x 1.7 m arched light in a 0.35 m surround at v 11.45; the south pavilion's narrower one at x 502-518 (v 14.3-15.3), built 0.6 m in a 0.2 m surround at v 14.8; on the 18th Street face two at x 592-604 and 618-630 px, which this oblique view puts at u 21.7-23.8 and 16.5-19.0 to within about 2 m (built at u 22.75 and 17.7). The print draws the Prairie dormers arched and the flank ones too small to read their heads, so the flank's are taken arched like the front's; the Prairie ones' segmental hoods and ears over the arch are not laid (L-k01-1729-pullman-heads-3157). T-3158: the north-west pavilion's own dormer, at x 322-338 px on its section of the mansard (v 0.8-2.0 through the camera), built as the flank's: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5 (0.1 m off the print's centre, the nearest the hip lets a face stand), its crown read at about 15.3 m (y 273), within the reading of the others'. T-3161, through Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json), which sees the 18th Street face at about 18 px a metre against the Detroit print's 5-6: THREE dormers on that face, each standing over a group of the flank's windows, their lights at x 656-673, 740-751 and 791-804 px, fitted by rendering them through the camera onto the mansard's face where they stand: u 15.3, 9.45 and 5.2 (s 12.45, 18.3 and 22.55 from the Prairie corner, about 0.5 m each way), each a little west of the window group under it; the two the Detroit print placed at u 22.75 and 17.7 move there and the third is added, each the flank's 0.8 x 1.6 m arched light in a 0.3 m surround as before. The two cameras disagree by about 5-8 m along the flank, which the Detroit print's grazing view cannot resolve; Taylor's governs. T-1881: the Prairie front's centre dormer widened to a 1.1 x 1.9 m light in a 0.4 m surround (2.0 m across), toward the Detroit print's x 447-482 px (about 2.3 m at 15 px a metre); its segmental hood is still not laid. T-1881: the 18th Street dormers at u 15.3 and 9.45 are taken off the main mansard: the 18th Street pavilion (bays.p_18th, u 9.2-19.45) now stands forward under its own mansard over their places, burying them, and the bay kit lays no dormer on a bay's mansard yet; Taylor's two dormers there are an open difference on its match record. The one at u 5.2 stays. T-1881: every dormer's face framed in an eared architrave and hood (`eared_hood`), as the 1890 Albertype plate, the Detroit print and Taylor's photograph no. 1445 draw them: a band up each jamb and round the arch, standing out of the face, with an ear out at each side about six tenths of the way up the arch; the band's 0.15 m, its 0.08 m proud and the ears' 0.2 x 0.25 m are reconstructed at the pictures' 15-25 px a metre, and the broken pediment the plate draws over the large Prairie dormer is not built. The dormers' faces are the front's brownstone (`dormer_fabric`), where K01's are a pale dressed stone: every photograph shows them in the walls' tone (L-k01-1729-pullman-belt-hoods-1881). T-1881: the north-west dormer (v 1.5), hidden behind the forward block since it was built, is taken off this mansard and stands on the block's own (bays.p_forward.mansard_dormers)."
     },
     "roof_covering": {
       "value": {
@@ -791,7 +771,28 @@
               "course_m": 0.4,
               "channel_m": 0.1
             }
-          }
+          },
+          "mansard_dormers": [
+            {
+              "at_m": -1.05,
+              "head": "round",
+              "sash": {
+                "variant": "k06.opening.sash_round_fanlight",
+                "width_m": 0.8,
+                "height_m": 1.6,
+                "sill_m": 0.1
+              },
+              "surround_m": 0.3,
+              "face_setback_m": 0.1,
+              "eared_hood": {
+                "band_m": 0.15,
+                "proud_m": 0.08,
+                "ear_m": 0.2,
+                "drop_m": 0.25,
+                "rise_m": 0.477
+              }
+            }
+          ]
         },
         {
           "id": "p_18th",
@@ -863,7 +864,47 @@
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
-          }
+          },
+          "mansard_dormers": [
+            {
+              "at_m": -3.425,
+              "head": "round",
+              "sash": {
+                "variant": "k06.opening.sash_round_fanlight",
+                "width_m": 0.7,
+                "height_m": 1.6,
+                "sill_m": 0.1
+              },
+              "surround_m": 0.2,
+              "face_setback_m": 0.1,
+              "eared_hood": {
+                "band_m": 0.15,
+                "proud_m": 0.08,
+                "ear_m": 0.2,
+                "drop_m": 0.25,
+                "rise_m": 0.43
+              }
+            },
+            {
+              "at_m": 1.975,
+              "head": "round",
+              "sash": {
+                "variant": "k06.opening.sash_round_fanlight",
+                "width_m": 0.7,
+                "height_m": 1.6,
+                "sill_m": 0.1
+              },
+              "surround_m": 0.2,
+              "face_setback_m": 0.1,
+              "eared_hood": {
+                "band_m": 0.15,
+                "proud_m": 0.08,
+                "ear_m": 0.2,
+                "drop_m": 0.25,
+                "rise_m": 0.43
+              }
+            }
+          ]
         }
       ],
       "confidence": "inferred",
@@ -872,7 +913,7 @@
         "loc_det_4a08065_pullman_residence",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The sheet's north-west block (u 22.8-27.8, flush with the Prairie front, out to v -1.53: built 1.2 m out, a pavilion's most, 0.33 m short) and the 18th Street pavilion (u 9.5-19.75, 2 m out on the sheet; built 6.0 m wide and 1.2 m out, a pavilion's most, centred on the sheet's, the rest open in the match record), both carried full height under the main cornice as the photograph shows them; the round bay on the north flank (u 15.8-19.7) is not built. T-3160: the 18th Street pavilion moved 1.375 m east (centred at s 14.5, 11.5-17.5) so it stands clear of the porte-cochere (porte_cochere, s 6.35-11.48), still inside the sheet's u 9.5-19.75; its lights round-headed as the print's flank windows are (K06's round fanlight sash). T-3161: the 18th Street pavilion (p_south, s 11.5-17.5, 1.2 m out under its own hip) is taken off. Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json) shows the flank's cornice running unbroken from the corner pier past the porte-cochere, the mansard carried over it with its dormers, and no hipped roof standing out of it; the second storey there is a flat wall with a pair, an oculus pier and a triple (north_bays). The sheet's 2 m line at u 9.5-19.75 is not a wall in the photograph; the photograph, the nearer witness, governs and the sheet's line is left in the match record. The section at the flank's east end whose cornice breaks forward (x 784-850 px, s about 22-27.75) is not built: how far it stands out is not read. T-1881 (the owner, 2026-10-28: the stepped front and the south face still far off the photographs): both projections are built again, each carried full height under its own mansard and cornice as the three pictures show them. p_forward is the Prairie front's forward block over the door: the 1911 sheet's u 22.8-27.8 line read again as a block 6.5 m wide and 2.95 m proud (v 2.0-8.5), which the Detroit print shows standing in front of the main front with its own mansard and the portico before it, and Taylor's no. 1445 shows breaking the cornice forward at the north-west (x 152-260 px); its door is cut through its front (entrance), its corners turned by banded piers 0.9 m wide in 0.4 m courses (pilasters.bands), the print's rusticated stone at the block's south edge (x 412-428 px), and its second storey has two round-arched lights, as the Detroit print draws them either side of a tree (x 327-335 and 390-403 px; their places on the block are reconstructed, symmetric). p_18th is the 18th Street pavilion, s 8.3-18.55, 2.47 m out: the sheet's 2 m line at u 9.5-19.75 together with Taylor's cornice, which breaks forward over the porte-cochere (x 590-610 px) and runs on at the pavilion's line to x 785, read through the camera on the 20.4 m plane. Its second storey's pair (x 655-680 px, built at s 10.0 as K06's paired round sash) and triple (x 727-765, s 14.45-16.35) and the principal storey's pair seen through the porte-cochere's arches (x 745-768, s 15.9 and 16.8) are on its front, not the flank's, which T-3161 read them on; T-3161's flat flank is withdrawn. The block's mansard dormer, which the Detroit print shows, is not built (K08 lays no dormer on a bay's mansard; open in the match record)."
+      "note": "The sheet's north-west block (u 22.8-27.8, flush with the Prairie front, out to v -1.53: built 1.2 m out, a pavilion's most, 0.33 m short) and the 18th Street pavilion (u 9.5-19.75, 2 m out on the sheet; built 6.0 m wide and 1.2 m out, a pavilion's most, centred on the sheet's, the rest open in the match record), both carried full height under the main cornice as the photograph shows them; the round bay on the north flank (u 15.8-19.7) is not built. T-3160: the 18th Street pavilion moved 1.375 m east (centred at s 14.5, 11.5-17.5) so it stands clear of the porte-cochere (porte_cochere, s 6.35-11.48), still inside the sheet's u 9.5-19.75; its lights round-headed as the print's flank windows are (K06's round fanlight sash). T-3161: the 18th Street pavilion (p_south, s 11.5-17.5, 1.2 m out under its own hip) is taken off. Taylor's photograph no. 1445 (data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json) shows the flank's cornice running unbroken from the corner pier past the porte-cochere, the mansard carried over it with its dormers, and no hipped roof standing out of it; the second storey there is a flat wall with a pair, an oculus pier and a triple (north_bays). The sheet's 2 m line at u 9.5-19.75 is not a wall in the photograph; the photograph, the nearer witness, governs and the sheet's line is left in the match record. The section at the flank's east end whose cornice breaks forward (x 784-850 px, s about 22-27.75) is not built: how far it stands out is not read. T-1881 (the owner, 2026-10-28: the stepped front and the south face still far off the photographs): both projections are built again, each carried full height under its own mansard and cornice as the three pictures show them. p_forward is the Prairie front's forward block over the door: the 1911 sheet's u 22.8-27.8 line read again as a block 6.5 m wide and 2.95 m proud (v 2.0-8.5), which the Detroit print shows standing in front of the main front with its own mansard and the portico before it, and Taylor's no. 1445 shows breaking the cornice forward at the north-west (x 152-260 px); its door is cut through its front (entrance), its corners turned by banded piers 0.9 m wide in 0.4 m courses (pilasters.bands), the print's rusticated stone at the block's south edge (x 412-428 px), and its second storey has two round-arched lights, as the Detroit print draws them either side of a tree (x 327-335 and 390-403 px; their places on the block are reconstructed, symmetric). p_18th is the 18th Street pavilion, s 8.3-18.55, 2.47 m out: the sheet's 2 m line at u 9.5-19.75 together with Taylor's cornice, which breaks forward over the porte-cochere (x 590-610 px) and runs on at the pavilion's line to x 785, read through the camera on the 20.4 m plane. Its second storey's pair (x 655-680 px, built at s 10.0 as K06's paired round sash) and triple (x 727-765, s 14.45-16.35) and the principal storey's pair seen through the porte-cochere's arches (x 745-768, s 15.9 and 16.8) are on its front, not the flank's, which T-3161 read them on; T-3161's flat flank is withdrawn. T-1881: each carries its own dormers on its mansard (mansard_dormers, the main mansard's round-headed dormer with its eared hood): the forward block one at v 4.2 (at_m -1.05), centred on its section as the Detroit print draws it (x 322-353 px), which until now stood on the main mansard at v 1.5 behind the block; the pavilion two, over its pair and its triple (s 10.0 and 15.4) as Taylor's photograph no. 1445 draws them (lights at x 657-670 and 739-750 px), 0.7 m lights in 0.2 m surrounds so the first clears the pavilion's west hip (L-k01-1729-pullman-bay-dormers-1881)."
     },
     "rear_wings": {
       "value": [
