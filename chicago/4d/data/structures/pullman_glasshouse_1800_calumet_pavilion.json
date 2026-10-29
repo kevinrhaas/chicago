@@ -145,7 +145,7 @@
               "dome": {
                 "radius_m": 2.2,
                 "segments": 20,
-                "rings": 4,
+                "rings": 8,
                 "rise_m": 3.1,
                 "rib_m": 0.06,
                 "finial_m": 0.5
@@ -164,9 +164,18 @@
                 "head_segments": 3
               },
               "interior_dark_m": 5.2,
-              "interior_inset_m": 0.35
+              "interior_inset_m": 0.35,
+              "cresting": {
+                "height_m": 0.3,
+                "picket_m": 0.15,
+                "rail_m": 0.04,
+                "bar_m": 0.025,
+                "spike_m": 0.08,
+                "end_finial_m": 0.6
+              },
+              "apex_finial_m": 0.4
             },
-            "facets": 4
+            "facets": 8
           },
           "confidence": "reconstructed",
           "sources": [
@@ -174,7 +183,7 @@
             "inland_1894_pullman_conservatory",
             "aic_lowe_pullman_conservatory_c1897"
           ],
-          "note": "T-3179: Beman's conservatory as the 1894 Inland Architect plate and the Lowe c. 1897 photograph show it from 18th Street, worked through their solved cameras (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/): a glass nave on a pointed (Gothic) section, its north end the plate's great pointed arch, on a stone podium 2.3 m high with a band of upright glazing over it to the springing at 3.6 m and the apex at about 9.45 m; the arched stone entrance 2.4 m wide in its north end, its crown about 3.5 m; a pointed transept 7.0 m wide crossing it at mid-length and standing 1.35 m out each side, its ridge about 9.35 m; and an octagonal glazed drum (to 10.1 m) under a ribbed dome about 3.7 m across, its crown about 12.7 m and its finial about 13.5 m. The plan is the 1911 sheet's (inferred): the long arm's 12.59 by 8.34 m and the cross arms 1.3-1.4 m each side over 7 m of its length, which the plate's transept end confirms within about 0.2 m through the camera. Heights are read off the plate at 49.5 px/m on the north front (its width, 8.34 m, scales it) and agree with the Lowe photograph within 0.2 m. RECONSTRUCTED within that: the vault's eight facets a half, the bays, the transept and dome glazed in the kit's opaque substitute (they stand outside the nave's one transparent envelope), the cresting the plate shows along the transept ridge (under 1 ft, not built) and everything the pictures do not show of the south end (L-pullman-glasshouses-1800-calumet-3164, L-pullman-conservatory-3179). T-3164 (owner, 2026-10-28: \"the pavilion's great arched glass front as an opaque gable over a black opening\"): the north front's band between the podium and the springing is drawn as the Lowe photograph shows it, round-headed lights in white framing, four each side of the entrance, and three along the east flank north of the transept, the flank both pictures see; the conservatory's planted depth is drawn in shade inside the nave to about 5.2 m, so the glass reads dark over the lower half of the arch with the roof's light over it, as both pictures read it. RECONSTRUCTED: the lights' count (read off the photograph's north front), the interior as one shaded volume and not a planted scene; the west flank's band, which neither picture sees, is left as the kit's glass, the house being at its triangle budget (L-pullman-pavilion-front-3164)."
+          "note": "T-3179: Beman's conservatory as the 1894 Inland Architect plate and the Lowe c. 1897 photograph show it from 18th Street, worked through their solved cameras (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/): a glass nave on a pointed (Gothic) section, its north end the plate's great pointed arch, on a stone podium 2.3 m high with a band of upright glazing over it to the springing at 3.6 m and the apex at about 9.45 m; the arched stone entrance 2.4 m wide in its north end, its crown about 3.5 m; a pointed transept 7.0 m wide crossing it at mid-length and standing 1.35 m out each side, its ridge about 9.35 m; and an octagonal glazed drum (to 10.1 m) under a ribbed dome about 3.7 m across, its crown about 12.7 m and its finial about 13.5 m. The plan is the 1911 sheet's (inferred): the long arm's 12.59 by 8.34 m and the cross arms 1.3-1.4 m each side over 7 m of its length, which the plate's transept end confirms within about 0.2 m through the camera. Heights are read off the plate at 49.5 px/m on the north front (its width, 8.34 m, scales it) and agree with the Lowe photograph within 0.2 m. RECONSTRUCTED within that: the vault's eight facets a half, the bays, the transept and dome glazed in the kit's opaque substitute (they stand outside the nave's one transparent envelope), the cresting the plate shows along the transept ridge (under 1 ft, not built) and everything the pictures do not show of the south end (L-pullman-glasshouses-1800-calumet-3164, L-pullman-conservatory-3179). T-3164 (owner, 2026-10-28: \"the pavilion's great arched glass front as an opaque gable over a black opening\"): the north front's band between the podium and the springing is drawn as the Lowe photograph shows it, round-headed lights in white framing, four each side of the entrance, and three along the east flank north of the transept, the flank both pictures see; the conservatory's planted depth is drawn in shade inside the nave to about 5.2 m, so the glass reads dark over the lower half of the arch with the roof's light over it, as both pictures read it. RECONSTRUCTED: the lights' count (read off the photograph's north front), the interior as one shaded volume and not a planted scene; the west flank's band, which neither picture sees, is left as the kit's glass, the house being at its triangle budget (L-pullman-pavilion-front-3164). T-3164 (the match records' open differences, 2026-10-29: \"the nave's arch is a smooth curve; the render's is four planar facets a half\" and \"iron cresting along the transept's crest ... and the small ornaments at the nave's apex and the transept's end\"): the vault, the transept's section and the dome are drawn in eight facets a half (the dome in eight rings), so the pointed arch reads as the plate's smooth curve: on this 8.34 m span (radius 6.19 m) eight facets leave a chord at most 0.019 m inside the true arc, under the kit's own 0.02 m max_sag_m for a curved roof, where four left 0.074 m; an iron cresting 0.3 m high, pickets every 0.15 m between a foot and a top rail, runs along each transept arm's level crest from its hipped end to the nave, with a 0.6 m finial over each arm's end and a 0.4 m finial over the north arch's point, all in the frame's paint, as the plate draws them light against the sky. RECONSTRUCTED: the cresting's pattern (the plate resolves a light lattice about a foot high, not its design) and the finials' heights, read against the dome's 0.5 m finial in the same plate (L-pullman-pavilion-curves-3164)."
         }
       }
     }

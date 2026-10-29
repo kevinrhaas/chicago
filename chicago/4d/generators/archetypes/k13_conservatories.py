@@ -1914,6 +1914,31 @@ def ribs(h: House, prof, xa, xb, ze, sgn, zin, hip, spacing):
                                     (a[0], a[1], z + w / 2)], (nx, ny, 0.0))
 
 
+def _finial(h: House, cx: float, cz: float, y0: float, height: float):
+    """T-3164: an iron finial, a slim hexagonal shaft standing `height` over (cx, y0, cz) with a
+    collar a third of the way up, as the dome's own finial is drawn."""
+    hexa = lambda r: [(cx + r * math.cos(math.tau * k / 6), cz + r * math.sin(math.tau * k / 6)) for k in range(6)]
+    _prism(h, "dome_rib", hexa(0.04), y0 - 0.03, y0 + height)
+    _prism(h, "dome_rib", hexa(0.08), y0 + height * 0.3, y0 + height * 0.3 + 0.06)
+
+
+def _cresting(h: House, x: float, z0: float, z1: float, y0: float, cr: dict):
+    """T-3164: a run of iron cresting along a level crest at x from z0 to z1: a foot rail and a
+    top rail `height_m` over the crest, and square pickets between them every `picket_m`, each
+    standing `spike_m` past the top rail."""
+    ht, sp, w = cr["height_m"], cr["picket_m"], cr.get("rail_m", 0.04)
+    sk, pw = cr.get("spike_m", 0.08), cr.get("bar_m", 0.025)
+    for ya in (y0, y0 + ht - w):
+        _prism(h, "dome_rib", [(x - w / 2, z0), (x + w / 2, z0), (x + w / 2, z1), (x - w / 2, z1)], ya, ya + w)
+    # the end pickets stand a bar's width inside the rails' ends, so no face is drawn twice
+    a, b = z0 + pw, z1 - pw
+    n = max(1, round((b - a) / sp))
+    for k in range(n + 1):
+        z = a + (b - a) * k / n
+        _prism(h, "dome_rib", [(x - pw / 2, z - pw / 2), (x + pw / 2, z - pw / 2), (x + pw / 2, z + pw / 2),
+                               (x - pw / 2, z + pw / 2)], y0 + w, y0 + ht + sk)
+
+
 def pavilion(h: House, ps: dict):
     """T-3179: Beman's conservatory at the head of the Pullman range, as the 1894 Inland plate and
     the Lowe photograph show it, round the K13 vault's pointed nave: a stone podium under the glass
@@ -1991,6 +2016,16 @@ def pavilion(h: House, ps: dict):
         h.meta["plan_extra_m2"] = h.meta.get("plan_extra_m2", 0.0) + tw * reach
         # glazing bars: a rib up each long slope, standing 3 cm proud
         ribs(h, arm, xa, xb, ze, sgn, zin, hip, tr.get("rib_spacing_m", 0.6))
+        cr = ps.get("cresting")
+        if cr:
+            # T-3164: the iron cresting the plate draws along the arm's level crest, from its hipped
+            # end to the nave's glass, and the finial over the end, both in the frame's paint
+            q, yt = arm[-1]
+            z0, z1 = sorted((hip(q), zin(yt)))
+            _cresting(h, xc, z0, z1, yt, cr)
+            fh = cr.get("end_finial_m")
+            if fh:
+                _finial(h, xc, hip(q), yt, fh)
     # the entrance in the north end: an arched opening drawn dark and its stone surround
     en = ps["entrance"]
     zc, r, ht = W / 2, en["width_m"] / 2, en["height_m"]
@@ -2019,6 +2054,9 @@ def pavilion(h: House, ps: dict):
         m = ps.get("mullion_m", 0.15)
         h.face("dome_rib", [(fo, he, W / 2 - m / 2), (fo, he, W / 2 + m / 2), (fo, nave[-1][1] - fw, W / 2 + m / 2),
                             (fo, nave[-1][1] - fw, W / 2 - m / 2)], (-1.0, 0.0, 0.0))
+    if ps.get("apex_finial_m"):
+        # T-3164: the small ornament the plate draws over the north arch's point
+        _finial(h, 0.0, W / 2, nave[-1][1], ps["apex_finial_m"])
     # T-3164: the north front's lower storey as the pictures show it (owner, 2026-10-28: "the
     # pavilion's great arched glass front as an opaque gable over a black opening")
     bd = ps.get("band")
