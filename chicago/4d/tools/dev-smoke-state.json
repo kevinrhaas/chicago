@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 392,
+      "takenAt": "2026-10-29T17:38:47.538Z",
+      "ref": "steward/t1881-bay-dormers",
+      "commit": "6bfe5c223d6b",
+      "devCommit": "ec9f5c932763",
+      "treeHash": "sha256:1085b5a2fd7abd93",
+      "treeDirty": false,
+      "changelogHash": "sha256:a59b487c3bfc43dc",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.2,
+          4.4
+        ]
+      },
+      "source": "/tmp/smoke_d3b.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "14",
       "parts": [
         14
@@ -1109,37 +1140,6 @@
         ]
       },
       "source": "/tmp/work/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 316,
-      "takenAt": "2026-10-23T02:09:48.188Z",
-      "ref": "steward/t3053-owner-reference-approval",
-      "commit": "384e949d68a0",
-      "devCommit": "384e949d68a0",
-      "treeHash": "sha256:edf5d766adfc6ead",
-      "treeDirty": true,
-      "changelogHash": "sha256:182125d8bc1e7b35",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 33.3,
-        "loadavg": [
-          2,
-          2.1,
-          1.2
-        ]
-      },
-      "source": "/tmp/t3053-smoke-desktop.log"
     },
     {
       "viewport": "mobile",
