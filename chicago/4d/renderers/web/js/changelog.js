@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2413, ts: '2026-10-29T15:16:02.540Z', date: 'Oct 29, 2026, 10:16 AM CT', title: 'Pullman\'s conservatory: its dome set where its photographs put it', kind: 'improvement',
+    items: [
+      'The glass dome over the Pullman conservatory, across 18th Street from the house, now stands about 1.8 m further north along the glasshouse, over the front half of its transept. The 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both place it there. It is also a little lower, and its finial is now a turned iron ornament with a flared foot, a bulb and a spike, as both pictures show. It used to be a thin stick.',
+      'Neither picture can say whether the dome sits slightly off the middle of the glasshouse\'s width, so it is kept on the centre line. The finial\'s exact profile is read off the plate. Both are recorded as reconstructions.',
+    ] },
   { v: 2412, ts: '2026-10-29T15:13:07.803Z', date: 'Oct 29, 2026, 10:13 AM CT', title: '1701 Prairie, the Hibbard house, built from its photographs', kind: 'feature',
     items: [
       'The Hibbard house at 1701 Prairie Avenue is no longer a rough draft: its Italianate main block stands two brick storeys over a stone basement, under a hipped roof and a deep cornice on paired brackets.',
