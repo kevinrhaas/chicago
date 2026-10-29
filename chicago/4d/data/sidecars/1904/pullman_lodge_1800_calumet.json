@@ -11,9 +11,12 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-aic-lowe-pullman-conservatory-c1897",
+      "a16-inland-1894-pullman-conservatory"
+    ]
   },
   "documented_range": {
     "from": "1904-07-01",

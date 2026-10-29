@@ -35607,6 +35607,27 @@ wall's corner, or of its stair's foot clear of the street trees.
 **Ticket:** T-3234.
 **Recorded:** 2026-10-28 (T-3234).
 
+### L-kimball-1801-flank-pier-1890 — 1801 Prairie's pier and downpipe where the gabled section meets the main block
+
+**Decision:** the W. W. Kimball house's 18th Street wall carries a plain stone pier from grade to under
+the main cornice at its east end, where the gabled section meets the main block (`bays` p_pier, a K08
+full-height projection sized as a `pier`, T-1890): 0.55 m wide (u 0-0.55), 0.1 m proud, to 8.34 m under
+the K10 moulded cornice, with the kit's floor band at 5.0 m and a 0.1 m cap; and the house's copper
+downpipe stands against its east side at u 0.8 (`rainwater.downpipes`), where the record had said the
+pictures show none on the flank.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+through T-3074's camera, shows a lit strip from grade to the cornice at x 430-440 px (u 0-0.6) with a dark
+line close beside it at x 443-452; HABS photograph 2 of June 1965 (`habs_kimball_photo_02_nw_1965`),
+through T-3110's camera, shows the same strip sharply (x 537-550 px) with a capital at the principal
+storey's head and another under the cornice, and the dark line as a round downpipe from the gutter to
+grade (x 550-557). The two cameras place them about 0.4 m apart; the build stands between them.
+**What is invented or held by the kit.** The pier's depth (neither picture can measure it; 0.1 m is
+the least the kit stands a projection out), its plain face and the kit's plain cap and band for the
+photograph's carved capitals; the pipe's size, fabric and shoe are the house's rainwater kit's.
+**How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-28 (T-1890).
+
 ### L-pullman-lodge-range-3164 — Pullman's lodge rebuilt to the 1894 plate's north front, and the east range's windows, panels and courses read off it
 
 **Decision:** re-entering T-3164 (the owner, 2026-10-28: the glasshouse ground south of 18th Street was
@@ -35638,3 +35659,23 @@ view of its front its bow and balcony.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-28 (T-3164).
+
+### L-pullman-pavilion-front-3164 — The Pullman conservatory's north front read as its pictures show it: a band of round-headed lights and the planted shade behind the great arch
+
+**Decision:** the owner, 2026-10-28, found the conservatory's great arched glass front rendered "as an
+opaque gable over a black opening". Through the solved cameras of the 1894 Inland plate
+(`inland_1894_pullman_conservatory`) and the c. 1897 Lowe photograph (`aic_lowe_pullman_conservatory_c1897`):
+the band of upright glazing between the podium (2.3 m) and the springing (3.6 m) is round-headed lights
+in white framing, four each side of the arched entrance, and the same along the east flank north of the
+transept; behind the great arch the glass reads dark over its lower half, against planting in shade, with
+the light of the roof glazing over it. **What is invented.** The count of lights, read off the
+photograph's north front; the planting drawn as one shaded volume inside the nave to about 5.2 m, not as
+a planted scene; the west flank's band, which neither picture sees, left as the kit's glass because the
+house is at its triangle budget. **What is not.** The plan and every height are T-3179's. The lodge's own
+two views (`data/reference_views/pullman_lodge_1800_calumet/`) are the pavilion's two cameras carried
+unchanged into the lodge's frame, so its open items are judged against the pictures in its own record.
+**How to resolve:** a sharper print of the north front settles the lights' count and their tracery.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).

@@ -551,6 +551,10 @@ def rule_doubled(b):
     return []
 
 
+#: T-1890: a pier's whole budget, at either tier (a box, its floor bands, cap and plinth)
+PIER_MAX_TRIANGLES = 120
+
+
 def rule_light(full, light, data, v=None):
     fails = []
     cv = data["curves"]["light"]
@@ -567,6 +571,10 @@ def rule_light(full, light, data, v=None):
                          f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
         else:
             ratio = lt["max_triangle_ratio"]
+    # T-1890: a PIER (1801's, where its gabled section meets the main block) is a plain stone box,
+    # no window, curve or carving on it, so the light tier has nothing to drop: it keeps the full
+    # tier's triangles, and is held instead to a box's own few
+    pier = bool((v or {}).get("pier"))
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
@@ -577,7 +585,11 @@ def rule_light(full, light, data, v=None):
         fails.append(f"silhouette: the light tier's extent is {dev * 1000:.1f} mm off the full tier's "
                      f"(allowed {cv['max_sagitta_m'] * 1000:.0f} mm)")
     tf, tl = K.triangles(full), K.triangles(light)
-    if tl > ratio * tf:
+    if pier:
+        if tl > tf or tf > PIER_MAX_TRIANGLES:
+            fails.append(f"light: a pier costs {tf} triangles at the full tier and {tl} at the light; a plain "
+                         f"box keeps at most {PIER_MAX_TRIANGLES}, the light tier no more than the full")
+    elif tl > ratio * tf:
         fails.append(f"light: the light tier costs {tl} triangles, {tl / tf:.2f} of the full tier's {tf} "
                      f"(allowed {ratio})")
     return fails
@@ -689,6 +701,9 @@ def self_test(data) -> int:
     def m_light_own(d):   # T-1890: a bay's own ratio, with no open opening to warrant it
         _v(d, "k08.bay.canted")["light_tier"] = {"max_triangle_ratio": 0.6, "why": "no reason"}
 
+    def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
+        _v(d, "k08.bay.canted")["pier"] = True
+
     cases = [
         ("a window off the end of its run", m_pier, "k08.bay.canted", "pier:"),
         ("two windows on one run, side by side into each other", m_overlap, "k08.bay.bowed", "overlap:"),
@@ -704,6 +719,7 @@ def self_test(data) -> int:
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),
         ("a glazed bay stating its own light-tier ratio", m_light_own, "k08.bay.canted", "holds no open opening"),
+        ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
     ]
     bad = 0
     for name, mut, vid, want in cases:
