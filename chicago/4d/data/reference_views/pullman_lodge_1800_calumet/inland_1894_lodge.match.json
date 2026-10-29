@@ -2,7 +2,7 @@
   "structure_id": "pullman_lodge_1800_calumet",
   "view": "inland_1894_lodge",
   "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
-  "glb_sha256": "116b5d0a6f3f4c97af2589ac1b7a9f43d1035d224d583bc50e6bb9059dabfa6d",
+  "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007",
   "camera_sha256": "7036f9b11ed1afe84af6222beaace90fe085ac8c33532566a5ccbc9dd67a9486",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "116b5d0a6f3f4c97af2589ac1b7a9f43d1035d224d583bc50e6bb9059dabfa6d"
+      "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
@@ -102,7 +102,7 @@
       "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
     }
   ],
-  "group_sha256": "e17596381ac85390a20051f191b0760c2b9c6bc7148fad7ae091ab3cb5b71e05",
+  "group_sha256": "16f534158fb4bc97f05f15cc7ddc08a0ba4a63b420071409a394299e83fb2bad",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -124,7 +124,7 @@
     {
       "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
       "status": "open",
-      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
+      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
       "what": "the lodge's bowed north-east corner: the upper storey turned on an arc standing a little proud of the square corner, with the eave carried round it and belled out and down over it (T-3164)",
@@ -148,8 +148,13 @@
     },
     {
       "what": "the lodge's lower hipped roof over the front's west part (plate x 1055-1135), which the render carries on as the one hipped roof",
+      "status": "fixed",
+      "how": "T-3164 (west part): a second part on the plan, 4.85 m wide from u 4.1 (the loggia's west end) to the west wall, its face on the sheet's north wall and its own hipped roof at the main roof's 52 degrees, ridge 11.75 m, under the deck's 11.9 m; the loggia block behind its front now stands 2 m back. Read in both pictures: the part's quoined east return (plate x 1052-1058, Lowe x 660-668), its eave a few px over the loggia block's (plate y 705-712 against 718, Lowe 396-398 against 402) and its north-east hip rising from the return to about the deck's height (plate x 1058,712 to 1118,625; Lowe x 667,397 to 703,345). Through the plate's camera the built hip runs x 1046,716 to 1101,633 and the return x 1044-1053, about 10 px east of the picture's, under the 0.3 m bar at this distance along the line of sight; the picture's part beyond x 1085 is behind the render's transept arm (that arm's east end is the pavilion record's own item)"
+    },
+    {
+      "what": "a dark pointed form over the west part's roof at its ridge, plate x 1120-1135 rising to about y 590, beside the deck's north-west spire: a finial or a stack, not built",
       "status": "open",
-      "how": "T-3164: still one hipped roof over the whole front; the west part's lower roof needs a second part on the plan, which the 1911 sheet does not draw, and was not built in this pass"
+      "how": "T-3164 (west part pass): seen in the plate alone (leaves cover the place in Lowe's print), and too small at this size to say whether it is iron or brick; not built"
     },
     {
       "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",

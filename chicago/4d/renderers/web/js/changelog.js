@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2421, ts: '2026-10-29T19:32:15.863Z', date: 'Oct 29, 2026, 2:32 PM CT', title: 'Pullman\'s garden lodge gets its second roof', kind: 'improvement',
+    items: [
+      'The lodge across 18th Street from the Pullman house now has its front in two parts, as the 1894 Inland plate and Lowe\'s print of about 1897 both show it. The west part stands forward with a quoined corner under a hipped roof of its own, just below the main roof\'s crested deck, and the loggia and balcony sit back beside it.',
+    ] },
   { v: 2420, ts: '2026-10-29T18:58:53.753Z', date: 'Oct 29, 2026, 1:58 PM CT', title: '1906 Prairie\'s tower brought down to its 1898 picture', kind: 'improve',
     items: [
       'The Edson Keith house at 1906 Prairie now matches the Tribune\'s 1898 sketch of its front: the tower at its south end is broader and stops just above the cornice, the porch is wider, and a turned stone balustrade runs along the terraces and down the stoop. The mansard photograph long captioned 1906 is the house next door, at 1900.',
