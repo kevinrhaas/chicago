@@ -1049,8 +1049,8 @@
     "green_tree_tavern__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 211760,
-      "inputs_sha256": "fd6b452a11527dc4d4c5b518e0584bdf97042b71fa461c21324121e83ea35bdb",
+      "bytes": 212028,
+      "inputs_sha256": "38d1d02c87618a7a6af8b67bef60a97f3c8a72e3bfc3a882802040ea1c04167d",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "green_tree_tavern"
@@ -1131,14 +1131,14 @@
       "phase_id": "draft_1904",
       "structure_id": "henderson_house_1816_prairie_coach_house"
     },
-    "hibbard_house_1701_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "hibbard_house_1701_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 316308,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "b809ee0e60d261a048e2c4b862938b53107c1d49c8abefb5741683f674ac5b28",
+      "bytes": 5010944,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "47f7967eae6668f6f1e199051122f0118b99e8c2f0f8e6daa41b8ee93a5b10df",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "hibbard_house_1701_prairie"
     },
     "hibbard_house_1701_prairie_coach_house__draft_1904.glb": {
@@ -4085,7 +4085,7 @@
       "baked_ao": false,
       "bytes": 337736,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d97a04b781aee7f57a9a5aa84b85edc0996ff7d0570197c4f41334dd20e04cae",
+      "inputs_sha256": "690658be79c8b253d430eb32e86cb8df727a783044bb1c8b84fe9a3a9f8c5c62",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east"
@@ -4095,7 +4095,7 @@
       "baked_ao": false,
       "bytes": 183688,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "82ef9119129c17ad579c3880c8f71be6f713afa4ce5692c6e8129619f112e175",
+      "inputs_sha256": "9f53cd490d3c9c449c8f01697fe0b2e6dc2f36b4c6d97e22c5c92074adef21ff",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east_end"
@@ -4105,7 +4105,7 @@
       "baked_ao": false,
       "bytes": 692204,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "755d9a5b1484a4a1553609e25c98dbd641173bfc31e375e3079a5ff43d9e99c3",
+      "inputs_sha256": "633ef1489d64da7397a52bb425ca18d69c9a170cec640a6a996acde8d74970a9",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_north"
@@ -4113,9 +4113,9 @@
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 805028,
+      "bytes": 816628,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d709b8a3ee5fec4af043fd36b5332b9a89ad4524b5aaa5edcb0965ad7f05ed9f",
+      "inputs_sha256": "2830cc013c362fb15077819fb22fcb28199768d776bd11b1bea9e470469a6bf7",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
@@ -4135,7 +4135,7 @@
       "baked_ao": false,
       "bytes": 433796,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "6b844a158a5a37c8f35aa9043ce0fba45d4a53b8c981549b2b462ff471bc43f6",
+      "inputs_sha256": "a276cc52d68ec159b781dfebee005eb3e9fd44302bc96d24b5996148c15bebc8",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
@@ -9348,8 +9348,8 @@
     "tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 276104,
-      "inputs_sha256": "717398e00f8c2d31353e07b3afbae89cd2679969283210b5572ef6f1f35ba70f",
+      "bytes": 445044,
+      "inputs_sha256": "a3a68fd5ce5684517f12b99dc6874c9de2107f0a6e185f4103ed7d96f4f1365c",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"

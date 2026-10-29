@@ -25312,3 +25312,16 @@ people/capacity/version records stayed exact. The hotel's reading probe now
 uses the native facade at the same3.5m distance and unchanged pixel bar; the
 far-walk census retains exact111510 derived top triangles. Fresh final-head
 renderer validation is still required; originalT-2385 remains OPEN/DIF.
+
+
+## T2385/T2376 current corrective source, 2026-10-29
+
+Restores Gifford's three-storey shuttered first Tremont as the canonical model, with Gale's yellow finish and the smaller two-storey account available separately. Adds the credited diagnostic Gifford card. Green Tree keeps the pictured seventh lower sash and places its existing open wagon bay/covered wagon beside the front gable; its substantial enclosed annex remains OPEN/DIFFERS. Current native/picture/app/full preflight and code merge remain pending; no earlier two-storey pass certifies this correction.
+
+
+## T2385/T2376 completed picture and app checks, 2026-10-29
+
+The first Tremont canonical picture and image gate pass. Actual published phone and desktop reviews passed for canonical/Gale versions, flags, ground, the attributed full Gifford viewer and its reference-copy/source links. Green Tree's seventh lower sash and front-end wagon bay/covered wagon passed both viewport body, yard, ground and source checks. The enclosed-annex picture discrepancy remains OPEN on T-2376. All person identities, assignments and facts survive the necessary native lodging-capacity refresh; only explanatory notes and model metadata change. Dated c093 phone:392.0/400 MiB PASS. Incoming2d2f is integrated by a real pending merge; final current defaults/metadata/phone/preflight and code merge remain pending at this checkpoint.
+
+
+Actual current integration qualification, 2026-10-29: incoming 2d2f native K01/K13 defaults and metadata checks pass; all 44 current binary data artifacts retain exact incoming bytes. The new current 1904 phone reading is 394.8 MiB against the unchanged 400 MiB ceiling. Earlier actual both-viewport target app reviews retain their dated c093 inputs, with exact model, camera, source and renderer-consumer bindings carried into this integration. Final code preflight and merge remain the next step at this dated source checkpoint.

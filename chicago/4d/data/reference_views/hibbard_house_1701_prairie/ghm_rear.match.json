@@ -1,0 +1,53 @@
+{
+ "structure_id": "hibbard_house_1701_prairie",
+ "view": "ghm_rear",
+ "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
+ "glb_sha256": "cad426578cfbee929fec07fdf3a06e0e9917863e4651c6d80d52750132064572",
+ "camera_sha256": "7a4c200fcf71886e84da386ff9f8ce670e971d522f9ade33567ca4faba7eae58",
+ "photo_sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca",
+ "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/ghm_rear-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "the 1874 rear range: brick, as tall as the main block's wall head, behind the main block's north half, its south face long and its east face short",
+   "status": "fixed",
+   "how": "T-3240: a K01 rear wing 17.7 x 6.8 m to a 10.0 m wall head; its south-east corner renders on the photograph's (x 545), its east face's north end on its edge"
+  },
+  {
+   "what": "round-headed lights on the range's south and east faces, two a storey on the east face",
+   "status": "fixed",
+   "how": "T-3240: the wing's round heads, the east face's two a storey rendering over the photograph's"
+  },
+  {
+   "what": "the corbelled oriel on the range's south face at the upper storey",
+   "status": "open",
+   "how": "T-3242"
+  },
+  {
+   "what": "the range's heavy bracketed cornice and the low roof over it",
+   "status": "open",
+   "how": "T-3240 builds the range under K01's flat wing deck on a plain fascia, about 0.8 m lower than the fit reads the cornice's bed; its cornice is T-3242's with the oriel"
+  },
+  {
+   "what": "the high stone basement exposed at the range's east end over the falling lawn",
+   "status": "not shown",
+   "how": "the review renders on one flat plane (the camera's solve); the ground's fall to the lake is the terrain's, not the house's"
+  },
+  {
+   "what": "the two-level columned veranda with its balustrades and the steps down to the lawn, against the main block's rear wall",
+   "status": "open",
+   "how": "T-3242"
+  },
+  {
+   "what": "the main block's railed deck over its roof, seen above the rear",
+   "status": "open",
+   "how": "T-3241"
+  },
+  {
+   "what": "the main block's south end at the left of the picture, a two-storey bay on its south face",
+   "status": "open",
+   "how": "T-3241, with the lower south range"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

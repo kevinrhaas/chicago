@@ -226,7 +226,7 @@
   },
   "lodging": {
     "class": "inn_tavern",
-    "beds_ordinary": 10,
+    "beds_ordinary": 9,
     "beds_crowded": 35,
     "ceiling": 35,
     "clamped_at_1840_maximum": true,
@@ -236,9 +236,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 1,
-      "beds_ordinary": 10,
-      "empty": 9,
-      "statement": "1 on this card against an ordinary night's 10 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof.",
+      "beds_ordinary": 9,
+      "empty": 8,
+      "statement": "1 on this card against an ordinary night's 9 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof.",
       "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
       "keeper_persons": 0,
       "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."

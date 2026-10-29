@@ -5371,6 +5371,24 @@ pass at T-0083, which would settle where this building's gables actually are and
 shed to one of them.
 **Recorded:** 2026-08-18.
 
+**Front-end station:** Amended 2026-10-26 (T-2376): front-end attachment on the same north wall.
+The actual verified Trowbridge/Gale 1902 plate, captioned 1835
+(`trowbridge_green_tree_1902`, plate facing p.35 / scan n55), shows the open bay
+beside the viewer-left of the main front gable. The former rear-end station
+above is superseded: the same 4.05 by 3.20 m bay now ends at the inn's front
+plane on the existing north wall, and its covered wagon shares the derived
+centre. This is an 8.14 m westward change on the current 12.19 m wall, not a
+coordinate read off a drawing. The inn, its doors, the bay dimensions and roof
+heights, wagon, materials and counts stay unchanged. The named plate is a
+retrospective depiction; the exact July-1835 presence and station remain
+`reconstructed`, as do all dimensions. No 1859 photograph is used. The enclosed
+Andreas gabled annex masses and Gray's separate building additions remain
+unresolved; this open yard roof does not settle their identity or date. Actual
+corner clearance, grounding and a full-scene picture comparison govern this
+placement; an isolated building-asset render cannot validate a procedural shed.
+
+
+**Actual app validation (2026-10-29):** Both published viewport sizes show the open bay and covered wagon at the front-end station, dry ground contact, the existing fuel ricks and chopping block, and a clear primary entrance approached at two and three metres. The selected compressed inn asset and credited Trowbridge source are verified, in Normal and By grade. This validates the finite yard and sash corrections; the substantial enclosed annex remains a separate OPEN discrepancy on original T-2376.
 
 ### L135 — The Green Tree's frontage: plank walks nobody recorded, and the first lettering this project has drawn
 **Decision:** the Green Tree Tavern's two street walls carry a **plank walk** 1.83 m wide laid
@@ -24393,7 +24411,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24490,6 +24508,11 @@ and the drawing's mansard, porch and corner bay replace it. Its alley building s
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
+
+**1701 retired from this liberty by T-3240 (2026-10-29):** the Hibbard house's main block and its
+1874 rear range now stand on K01, read off the 1911 sheet and two photographs, recorded as
+`L-k01-hibbard-1701-3240`, under the same id; its draft attributes are gone. Its coach house stays a
+draft.
 
 ### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
 
@@ -32257,7 +32280,8 @@ a drawing of the gable. The finial's urn and the gable's carved panel are T-3002
 
 ### L-tremont-corner-elevations-2385 — The first Tremont's pictured three storeys and shuttered corner elevations
 
-**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`
+**Historical coverage before sourced yellow (2026-10-26):** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`
+**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.gallery`
 **Decision:** adopt the three-storey form visible in N. Roswell Gifford's undated drawing reproduced by Chicagology as “Tremont House No. 1” (`gifford_tremont_house_no_1`). The actual picture shows three bays on the short gable and five on the long eaves elevation, with shutters and centred ground entrances. The earlier two-storey reconstruction rested on a text-only reading and did not consider this picture. The pictured form is inferred for the 1835 scene: the picture is retrospective, not a dated survey of every feature on 1835-07-01.
 **What is reconstructed:** the existing 15.24 × 9.14 m footprint is retained, with no position, bearing or geographic control change. Wall height is 7.8 m, three copies of the previous reconstruction's 2.6 m storey module, not a measurement from the drawing. A 3.1 m first storey and two 2.35 m upper storeys, evenly spaced bay centres, 0.85 × 1.35 m sashes and 1.2 × 2.1 m door openings use the existing kit. Unseen elevations repeat the visible three/five-bay arrangement, including the centred entrances; four model doors are a reconstruction and not a claim that the historical house had four entrances. Plain open shutter leaves are 42% of a sash's width and 25 mm thick, 10 mm beyond the clapboard skin. Green is a stock-palette reconstruction: the monochrome source does not supply original paint colours. Louvre patterns and hardware are not asserted. The final working roof is 32°; its coupled camera/envelope fit is not a historical pitch measurement.
 **Chronology disagreement:** the picture-based form inference is in tension with the Saloon Building exclusion's first-three-storey shorthand. Gifford does not date this depiction within the first Tremont's 1833-1839 life, so construction sequence remains unresolved. The Saloon is still excluded for its documented 1836 date; no source or dated construction claim is rewritten.
@@ -32266,6 +32290,9 @@ a drawing of the gable. The finial's urn and the gable's carved panel are T-3002
 **How to resolve:** fit every relevant picture against the rebaked form, inspect the actual comparison, and replace reconstructed dimensions or concealed arrangements when a warranted scale or further view is available.
 **Ticket:** T-2385.
 **Recorded:** 2026-10-23.
+
+**Paint evidence update:** 2026-10-26 (T-2385): Gale 1902, printed p.51 (`gale_1902_tremont_town_walk`), supplies the yellow description adopted as inferred paint for the pictured primary hotel. The earlier coverage list is retained above as history; only its now-obsolete claim that the paint enum is invented is retired. The renderer's exact yellow RGB/trim palette and surface response remain declared reconstruction in L-tremont-gale-envelope-2385, without mislabelling the sourced enum as an unsubstantiated choice. Footprint, working wall height, concealed elevation arrangement, shutter colour/sections and gallery treatment still owe the active claims above.
+**Current picture review:** 2026-10-26: the fresh canonical comparison and actual published mobile/desktop native reviews support `gifford.match.json: matches`, with no visitor-noticeable architectural gap left in the sole distinct Gifford drawing. Earlier open-detail notes above record the first refinement, not additional current blockers. Pixel/sub-foot pose/camera differences are within T-3153 tolerance; monochrome pigment, isolated street context and absolute metre scale are not shown. Gale is disclosed textual disagreement in the optional smaller two-storey version, not a second picture or a dated enlargement claim. Full checked ending and PR #1337's DEV merge remain pending at this source update.
 
 ### L-tremont-entry-roof-details-2385 — The first Tremont's raised entries, arched gable feature and roof fittings
 
@@ -32307,6 +32334,12 @@ opening sizes. Neither this count correction nor its emitted-opening checks is a
 `matches` verdict.
 **Ticket:** T-2376.
 **Recorded:** 2026-10-23.
+
+**South-side middle sash:** Amended 2026-10-26 (T-2376). This supersedes the earlier statement that the side entrance replaces the middle lower bay. The held Andreas reproduction (`andreas_1884_green_tree_hotel_plate`) and Trowbridge's actual plate in Gale 1902, facing p.35 / scan n55 (`trowbridge_green_tree_1902`), show a sash pattern across the long elevation: seven stations on both floors, including a clear sash at the middle lower station. Trowbridge's nearest lower sash is partly occluded by the hanging sign and people; the reading does not invent its hidden panes. The 1835 model therefore leaves `side_entrance` unasserted (`null`) and uses the existing stock sash at all seven south-wall stations. The opening pattern is inferred from these retrospective pictures; no exact July-1835 absence of a door is attested. John Gray's later recollection of an entrance “on the Lake street front about the middle of the long side” remains substantial counterevidence, recorded through `chicagology_prefire127` (1883 publication; Gray's landlord period 1838–41), and is retained in the structure note. The choice follows the pictures for this model; it does not disprove Gray, date an alteration or use that check-required text source for new geometry. The original Andreas plate is undated despite the reproduction's 1838 caption. Trowbridge's 1835 caption is retrospective. The seven existing stations, inferred wall assignment, reconstructed equal spacing and stock 0.85 × 1.35 m sash with 0.75 m sill remain the same model controls. No footprint, placement, roof, front door, opposite elevation, wagon-bay station or existing fuel rule is changed by this sash correction. The disputed enclosed annex remains unresolved. No 1859 photograph supplies geometry. This amendment describes the form choice; actual export, comparison and app validation remain required before an image-match claim.
+
+**South-side sash native result:** Canonical one-target master and WEB export completed 2026-10-26. Only the middle opening's 56 triangles change; 2,522 other triangles, all material definitions and all other physical assets remain exact. The old door and panels give way to the existing stock sash, with 0.75 m sill and 0.85 m glass width. These are model controls, not archival measurements. Actual new-master photo comparison and app validation remain pending; no matching verdict is claimed.
+
+**South-side sash comparison:** The new canonical master was rendered at the unchanged registered Andreas camera and the actual side-by-side was reviewed on 2026-10-26. The middle lower station now reads as the pictured sash; that bounded opening difference is fixed. The whole comparison remains DIFFERS because the separate enclosed annex massing is still open. Gray's later doorway account and the inferred date limits stand. The isolated master comparison does not test the compressed WEB, procedural wagon bay, terrain or picture/source cards in the full app; those remain owed.
 
 ### L-sauganash-end-sash-2383 — the pictured main gable's sash
 
@@ -34995,6 +35028,14 @@ asserted to match it. The original picture case remains open for the source disp
 **Review:** `docs/RESEARCH/tremont_house_1.md`.
 **Recorded:** 2026-10-26 (T-2385).
 
+
+**Revised primary interpretation (2026-10-29):** The pictured three-storey, shuttered hotel is restored as the canonical scene model after the earlier two-storey proposal landed in PR1337. Gale is textual contrary evidence, not a second picture that excuses a missing pictured storey. Keep the existing reconstructed15.24x9.14m envelope and7.8m walls, three short/five long bays, four stacks, raised entries, roof spar and established street-facing planes. The smaller two-storey9.144x6.096m/5.45m Gale interpretation remains explicitly selectable as `gale-reading`. The existing `gifford-reading` URL is retained unchanged for compatibility; no dated enlargement or exact July1835section is established.
+**Yellow finish:** Gale1902p51 supplies inferred yellow colour compatible with Gifford's monochrome drawing. Exact stock yellow/trim/surface response remain reconstructed. Original Gifford copyright/publication/collection credit remain unresolved; the owner approved attributed project reference use, not a public-domain finding.
+**Validation boundary:** Current selectednativebake, source-boundcanonical capture/directreview, bothpublishedviewports, actualpreflight andqualifiedcodePRmerge are still required. No older two-storeycheck is a pass for this correctedcurrenttree.
+
+
+**Actual picture and app validation (2026-10-29):** The fresh canonical comparison and scoped image gate pass. Both published viewport sizes show the canonical three-storey form and optional Gale reading, flags at their explicit staff anchors, grounded entries, the selected compressed assets and credited sources. Both full Gifford viewers show the drawing with its creator, Chicagology link and reference-copy label; no historical observer position is invented. The current host original rights remain unresolved. The c093 phone reading was 392.0 MiB against the unchanged 400 MiB ceiling. The larger envelope also re-derives the existing town lodging apportionment; its fixed class total and all 157 lodging-card people, identities, assignments and non-note facts remain unchanged. Only capacity explanations and model-ledger metadata refresh. These completed reviews retain their actual dated inputs; final current code checks and qualified dev merge are separate.
+
 ### L-kimball-1801-tower-finial-1890 — 1801 Prairie's tower given a turned finial on a crocketed collar, in pale sheet metal
 **Recorded:** 2026-10-27.
 
@@ -35841,6 +35882,31 @@ tall lights, which both pictures show.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
 
+### L-pullman-dome-place-3164 — The Pullman conservatory's dome stood north of its transept's middle, as both its pictures place it
+
+**Decision:** the drum and ribbed dome stood over the transept's middle (u 6.3), where the 1911 sheet's
+cross arms and the 1894 Inland plate's transept end put the crossing. Through the two solved cameras
+(`inland_1894_pullman_conservatory`, `aic_lowe_pullman_conservatory_c1897`) the dome's finial stands at
+x 1370 on the plate and x 896 in Lowe's print, about 25 and 20 px east of the render's: on the nave's axis
+that is a dome centred at u 4.45 and 4.5, 1.8 m north of the transept's middle, so the drum and dome now
+stand at u 4.5 (`drum.centre_m`, new in the K13 pavilion) and the transept is left where it fits. Read
+again at that depth, the drum's top is 9.7-9.8 m (built 9.75; it was 10.0), the dome's crown 12.3 m on the
+plate and 12.7 m in Lowe (built 12.5; it was 13.1), and the finial is a turned ornament about 1.3 m tall
+(built to that profile, `dome.finial_profile`; it was a 0.5 m stick). **What is invented.** The dome's
+place ACROSS the nave: both cameras see the conservatory from nearly the same bearing, so a shift of the
+dome 0.6 m west reads in both pictures as the same 20-25 px as a shift of 1.8 m north; the north reading
+is taken because it keeps the dome on the nave's axis, as a symmetrical pavilion's would be, and because
+the drum's top, read at the nearer depth, agrees in both pictures without a change of height. Also the
+finial's profile (foot, bulb, neck, knob and spike, read at about 0.02 m a pixel off the plate) and its
+iron's colour, which the monochrome pictures do not give. **What is not.** The dome's place along the
+nave's axis and its height, which both pictures read alike.
+**How to resolve:** a picture from the conservatory's east or west side, or a plan of it, places the dome
+across the nave and settles its place against the transept.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
+
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
@@ -35893,3 +35959,45 @@ elevation, settles the bay's slate and where it meets the main face.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
+
+### L-k01-hibbard-1701-3240 — 1701 Prairie, the Hibbard house, refined from the district draft to a K01 main block and rear range read off the 1911 sheet and two photographs
+
+**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.entrance_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`
+
+**Decision:** the William G. Hibbard house at 1701 Prairie Avenue (T-3240, piece 1 of T-1875) is no
+longer a district draft. It stands, under the draft's own id, as a `k01_frontage` record built by
+`generators/k01_emit.py`: the main block, its front bay and the 1874 rear range. It is read off the
+1911 Sanborn sheet 20 (trace s20fp-1701-b1; census s20-1701-f, '2½S.B.' brick) and two photographs
+whose cameras T-3240 solved (`data/reference_views/hibbard_house_1701_prairie/`): Chicagology's of
+the front and south flank (`chicagology_1701_hibbard_photo`), taken from the south-west, not the
+north-west its caption says, and the Glessner House Museum's of the rear
+(`glessner_blog_1701_hibbard_rear_photo`).
+**What is read, not invented.** From the sheet: the main block 12.5 m deep and 14.7 m along the
+street, the rear range behind its north half (17.7 m by 6.8 m), the bay on the front's south part.
+From the pictures, through their cameras: two brick storeys over a stone basement, the second floor
+about 6.3 m and the main cornice's bed about 9.3-9.9 m up; round-headed lights on both storeys of
+the front and on the south flank (the flank's single upper light and its pair over the lower
+range, and a pair on both storeys toward the rear); the two-storey stone bay with two round-headed
+lights a storey; the cornice on paired brackets; the roof rising well over the cornice; the tall
+stack through the roof's south half; the rear range as tall as the main block, its two east lights
+a storey round-headed.
+**What is invented.** The scale of every height: the front camera is solved with the eye 1.6 m
+over grade and the stone base's top at 2.0 m, the rear camera with the base's top at 2.0 m, and
+each is uncertain by about 0.3 m. The bay's place, laid at v 10.4 between where the sheet draws it
+and where the front camera reads it (they differ by up to about 2.5 m), and its 1.2 m projection
+(K08's limit; the sheet's is 1.3 m). The 35 degree pitch of the hip, carried to a ridge where the
+photograph shows a railed deck. The rear range's north wall, built in the main block's north wall
+line where the sheet draws it about 1.2-1.6 m further north, because K10's cornice cannot yet turn
+the main block's rear corner inside a wing that buries it. The rear range's flat deck and plain
+fascia, its lights' places on its north and south faces and its 10.0 m wall head (the rear camera
+reads its cornice about 0.8 m higher). The north wall's and the rear wall's lights. The brick's
+colour (the K03 panel; the pictures are monochrome) and the roof's tin. The kit's stoop at the door,
+the kit's spear fence for the photograph's cast loops, the window hoods as round heads with key
+blocks, the paired brackets as K10's.
+**What is not built yet.** The roof's railed deck, the lower south range with its balcony, the
+corner porch's stone arcade and the front's recessed north end behind it (T-3241); the two-level
+rear veranda, its steps and the rear range's oriel and cornice (T-3242); the carving, hoods, quoin
+pilasters and ironwork (T-1876).
+**How to resolve:** T-3241 and T-3242 build what is not built; a measured height anywhere on the
+house fixes both cameras' scale; a picture of the north side places the rear range's north wall.
+**Recorded:** 2026-10-29 (T-3240).
