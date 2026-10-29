@@ -2,6 +2,101 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 64,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-29T09:40:23.663Z",
+      "ref": "steward/t3164-conservatory-curves-cresting",
+      "commit": "a8ccdd690fed",
+      "devCommit": "63cccbfb95e4",
+      "treeHash": "sha256:891dfd3ee0454a79",
+      "treeDirty": false,
+      "changelogHash": "sha256:fd1ed6f9dfa1e366",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.4,
+          4.6,
+          4.3
+        ]
+      },
+      "source": "/tmp/pm/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 184,
+      "takenAt": "2026-10-29T09:40:23.531Z",
+      "ref": "steward/t3164-conservatory-curves-cresting",
+      "commit": "a8ccdd690fed",
+      "devCommit": "63cccbfb95e4",
+      "treeHash": "sha256:891dfd3ee0454a79",
+      "treeDirty": false,
+      "changelogHash": "sha256:fd1ed6f9dfa1e366",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.4,
+          4.6,
+          4.3
+        ]
+      },
+      "source": "/tmp/pm/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 441,
+      "takenAt": "2026-10-29T09:40:23.402Z",
+      "ref": "steward/t3164-conservatory-curves-cresting",
+      "commit": "a8ccdd690fed",
+      "devCommit": "63cccbfb95e4",
+      "treeHash": "sha256:891dfd3ee0454a79",
+      "treeDirty": false,
+      "changelogHash": "sha256:fd1ed6f9dfa1e366",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.4,
+          4.6,
+          4.3
+        ]
+      },
+      "source": "/tmp/pm/smoke_d3.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "1",
       "parts": [
@@ -1166,99 +1261,6 @@
         ]
       },
       "source": "/tmp/t2972/smoke-m14.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 232,
-      "takenAt": "2026-10-22T04:59:32.041Z",
-      "ref": "steward/t2972-glessner-fan-header",
-      "commit": "6e4413e92c39",
-      "devCommit": "fdb227dbf5ed",
-      "treeHash": "sha256:8aeeb056d7f25403",
-      "treeDirty": false,
-      "changelogHash": "sha256:24aec61532f62af1",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.6,
-          4.4,
-          4.1
-        ]
-      },
-      "source": "/tmp/t2972/smoke-d3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 103,
-      "takenAt": "2026-10-22T04:59:31.959Z",
-      "ref": "steward/t2972-glessner-fan-header",
-      "commit": "6e4413e92c39",
-      "devCommit": "fdb227dbf5ed",
-      "treeHash": "sha256:8aeeb056d7f25403",
-      "treeDirty": false,
-      "changelogHash": "sha256:24aec61532f62af1",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.6,
-          4.4,
-          4.1
-        ]
-      },
-      "source": "/tmp/t2972/smoke-m3.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 173,
-      "takenAt": "2026-10-21T01:39:43.812Z",
-      "ref": "steward/t2955-t2971-glessner-door-grade",
-      "commit": "294677798a9e",
-      "devCommit": "abb6cfd2f10c",
-      "treeHash": "sha256:fe85c58d7a427a9c",
-      "treeDirty": false,
-      "changelogHash": "sha256:8c333d3ffc9d5aa9",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.4,
-          4.3
-        ]
-      },
-      "source": "/tmp/smoke_m3.log"
     },
     {
       "viewport": "desktop",

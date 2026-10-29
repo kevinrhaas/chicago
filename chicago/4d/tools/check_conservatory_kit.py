@@ -319,6 +319,12 @@ def plan_area(h):
 
 def rule_costs(h, data):
     cap = max(data["costs"]["max_triangles"], round(data["costs"].get("per_plan_m2", 0) * plan_area(h)))
+    # T-3164: a house may carry a budget of its own, argued where the kit's are; never unargued
+    own = data["costs"].get("houses", {}).get(h.v["id"])
+    if own is not None:
+        if not str(own.get("why", "")).strip():
+            return [f"costs: {h.v['id']} carries a budget of its own with no `why`"]
+        cap = max(cap, own["max_triangles"])
     t = K.triangles(h)
     return [] if t <= cap else [f"costs: {h.v['id']} is {t} triangles, over its budget of {cap}"]
 
@@ -444,6 +450,9 @@ def self_test(data) -> int:
     def m_cost(d):
         d["costs"]["max_triangles"] = 1000
 
+    def m_cost_why(d):
+        d["costs"].setdefault("houses", {})[d["variants"][0]["id"]] = {"max_triangles": 99999, "why": " "}
+
     def m_facets(d):
         d["curve"]["facets"] = 3
 
@@ -464,6 +473,7 @@ def self_test(data) -> int:
         ("a lean-to with no gutter on its eave", m_gutter, "sheds into no gutter"),
         ("a border grown up into the roof", m_plants, "a plant scene"),
         ("a house over budget", m_cost, "over its budget"),
+        ("a house's own budget with no reason", m_cost_why, "no `why`"),
         ("a curvilinear roof of three facets", m_facets, "chord falls"),
         ("a lantern glazed with transparent glass", m_lantern, "not convex"),
         ("double-sided glass", m_double, "double-sided"),
