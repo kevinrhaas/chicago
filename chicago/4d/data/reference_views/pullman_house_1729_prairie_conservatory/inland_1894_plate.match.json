@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "inland_1894_plate",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
+  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
   "camera_sha256": "10b387d26d36826e1179d8a42dcfeba7673d369b7e8b2aa83f198386d64596d3",
   "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
+  "group_sha256": "b3658f5d210ad9f50c11462127f086c4e5f5e12461c95cce18a294b02d0292f1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -114,19 +114,19 @@
       "how": "T-3193: moved 1.2 m west and its top set at 9.3 m; its outline within about 20 px"
     },
     {
-      "what": "the belvedere's balustrade and the deck's cresting are open ironwork and balusters; the stable's lower roof shows as a narrow slate band under the upper storey where the plate shows a moulded cornice",
+      "what": "the belvedere's balustrade round its top and the deck's cresting are open ironwork and balusters, and the stable's lower roof shows as a narrow slate band under the upper storey where the plate shows a moulded cornice (the owner named the belt course and the belvedere, 2026-10-28)",
       "status": "open",
-      "how": "T-3153: drawn as solid rails and a 0.4 m band; places and heights agree within about 0.3 m, so the difference is in openwork and relief under the bar (the same ruling 16555's record makes) Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "how": "T-3153: drawn as solid rails and a 0.4 m band; places and heights agree within about 0.3 m, so the difference is in openwork and relief under the bar (the same ruling 16555's record makes)"
     },
     {
       "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
       "status": "open",
-      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof"
     },
     {
-      "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower and its dome broader than the build",
-      "status": "open",
-      "how": "two pictures disagree: Taylor's 16555, re-solved, fits the drum's heights within about 7 px; the drum's place along the wing agrees in all three cameras within about 0.3 m Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower than the build; Taylor's 16555 reads it within 0.3 m, so the two camera fits disagree. Its dome the plate reads broader, about 4.7 m: now 4.6 m (T-1934)",
+      "status": "within tolerance",
+      "how": "two pictures disagree: Taylor's 16555, re-solved, fits the drum's heights within about 7 px; the drum's place along the wing agrees in all three cameras within about 0.3 m"
     },
     {
       "what": "the house at the plate's left edge: its corner stands about 1 m east of where the plate shows the wing's stone face and the porch's terrace",
@@ -134,8 +134,8 @@
       "how": "the house is rendered for placement only in this record; its own records (albertype_1890, detroit_det_4a08065) judge it"
     },
     {
-      "what": "the 18th Street wall, its piers and coping, the lamps, the planting and the trees",
-      "status": "not shown",
+      "what": "the 18th Street wall across the foreground, its square piers and coping, the curved low walls by the steps, the lamps on the piers, the shrubs and the trees: none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open",
       "how": "the lot's grounds, not this record's building (as on 16555's record)"
     },
     {
@@ -146,6 +146,26 @@
     {
       "what": "T-3161 re-laid the house's 18th Street flank (one window west of the porte-cochere, the porte-cochere moved east to s 10.25-15.4, the flank's pavilion taken off, its dormers moved): none of it reaches the plate's left edge, where the house's east corner, unchanged, stands as before",
       "status": "within tolerance"
+    },
+    {
+      "what": "the palm house an open colonnade: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade round its top (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the range's south face banded rustication with a broad pilaster either side of the drum, under a moulded cornice and an open balustrade with dies (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace's balustrade open vase balusters between square piers, an urn on a pier by the drum (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the dome broad, light and close-ribbed, springing behind the balustrade (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the balustrade before the drum at the plate's left stands at the columns' feet, about 1 m higher than the build's terrace balustrade from this camera, over a lower wall with an arched opening in it; Taylor's 16555 reads the terrace within 0.3 m, so the plate may show a raised landing west of the flight that is not built",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
