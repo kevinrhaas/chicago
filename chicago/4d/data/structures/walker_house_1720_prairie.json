@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2BB frame (yellow) dwelling (D) with a bay'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-3180 (piece 1 of T-1873) refines the district draft (T-2334) in place under the same id: the whole house is rebuilt from the K16 timber kit as clapboard walls, cased sash, a bracketed eave under a low hip, a two-storey south wing and a porch across the front, read from the 1911 Sanborn sheet 20 and from the undated Tyrrell photograph (glessner_blog_1720_tyrrell_photo), whose camera is solved at data/reference_views/walker_house_1720_prairie/tyrrell_front.json. Otis L. Wheelock designed the house for John Tyrrell in 1868 (glessner_blog_2022_01_burley_tyrrell). The photograph's porch detail is T-3181's and its upper storey, bay and central gable T-3182's; until they land the match record says what still differs. Liberty L-k16-1720-frame-house-3180.",
+  "research_note": "T-3180 (piece 1 of T-1873) refines the district draft (T-2334) in place under the same id: the whole house is rebuilt from the K16 timber kit as clapboard walls, cased sash, a bracketed eave under a low hip, a two-storey south wing and a porch across the front, read from the 1911 Sanborn sheet 20 and from the undated Tyrrell photograph (glessner_blog_1720_tyrrell_photo), whose camera is solved at data/reference_views/walker_house_1720_prairie/tyrrell_front.json. Otis L. Wheelock designed the house for John Tyrrell in 1868 (glessner_blog_2022_01_burley_tyrrell). The photograph's porch detail is T-3181's and its upper storey, bay and central gable T-3182's; until they land the match record says what still differs. Liberty L-k16-1720-frame-house-3180. T-3243 (the owner, 2026-10-29, from the street: the top floor's windows 'crowded to the left', the hood and middle window to be 'centered, as the same as the door', the walk to the house 'sensible'): the front lined up on its middle and the body's paint read from the photograph's tone (L-k16-1720-axis-3243).",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -116,21 +116,21 @@
                         "k06_variant": "k06.opening.sash_round_fanlight",
                         "clear_height_m": 2.3,
                         "sill_m": 2.2,
-                        "centre_m": 1.8,
+                        "centre_m": 2.1,
                         "surround": "round"
                       },
                       {
                         "k06_variant": "k06.opening.sash_paired_round",
                         "clear_height_m": 2.3,
                         "sill_m": 2.2,
-                        "centre_m": 7.8,
+                        "centre_m": 7.9,
                         "surround": "round"
                       },
                       {
                         "k06_variant": "k06.opening.sash_round_fanlight",
                         "clear_height_m": 2.0,
                         "sill_m": 6.4,
-                        "centre_m": 2.3,
+                        "centre_m": 2.6,
                         "surround": "round",
                         "hood_mould": {
                           "width_m": 0.07,
@@ -159,9 +159,9 @@
                             "drop_m": 0.8,
                             "web_m": 0.08,
                             "thickness_m": 0.08,
-                            "curve_segments": 6
+                            "curve_segments": 4
                           },
-                          "offset_m": -0.2,
+                          "offset_m": 0.0,
                           "panel": {
                             "width_m": 1.25,
                             "height_m": 0.45,
@@ -173,7 +173,7 @@
                         "k06_variant": "k06.opening.sash_paired_round",
                         "clear_height_m": 2.0,
                         "sill_m": 6.4,
-                        "centre_m": 7.7,
+                        "centre_m": 7.4,
                         "surround": "round",
                         "hood_mould": {
                           "width_m": 0.07,
@@ -184,7 +184,7 @@
                     ],
                     "doors": [
                       {
-                        "centre_m": 4.8,
+                        "centre_m": 5.0,
                         "clear_width_m": 1.1,
                         "clear_height_m": 2.7,
                         "panels": [
@@ -201,8 +201,8 @@
                     "bracket_pairs_m": [
                       0.45,
                       3.4,
-                      6.3,
-                      9.6
+                      6.6,
+                      9.55
                     ],
                     "frieze_lights": [
                       {
@@ -215,7 +215,7 @@
                       },
                       {
                         "kind": "round",
-                        "centre_m": 4.9,
+                        "centre_m": 5.0,
                         "centre_y_m": 9.975,
                         "width_m": 1.05,
                         "height_m": 0.85,
@@ -225,7 +225,7 @@
                       },
                       {
                         "kind": "oval",
-                        "centre_m": 7.7,
+                        "centre_m": 8.0,
                         "centre_y_m": 9.9,
                         "width_m": 1.05,
                         "height_m": 0.4,
@@ -397,7 +397,7 @@
                   "curve_segments": 6
                 },
                 "front_gable": {
-                  "centre_m": 4.75,
+                  "centre_m": 5.0,
                   "width_m": 4.6,
                   "pitch_deg": 26,
                   "overhang_m": 0.12,
@@ -472,9 +472,9 @@
               "kind": "porch",
               "use": "porch",
               "side": "east",
-              "half_width_m": 5.45,
+              "half_width_m": 6.3,
               "depth_m": 1.5,
-              "centre_m": 4.1,
+              "centre_m": 5.0,
               "basement_m": 0.95,
               "post_m": 0.18,
               "plate": {
@@ -485,7 +485,7 @@
                 1.3
               ],
               "steps": {
-                "centre_m": 4.1,
+                "centre_m": 5.0,
                 "width_m": 2.24,
                 "going_m": 0.3,
                 "max_riser_m": 0.2,
@@ -544,9 +544,9 @@
             },
             "paint": {
               "body": [
-                0.8,
-                0.77,
-                0.68
+                0.64,
+                0.57,
+                0.45
               ]
             },
             "bays": [
@@ -622,7 +622,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "glessner_blog_1720_tyrrell_photo"
           ],
-          "note": "The whole house from the K16 kit (T-3180, piece 1 of T-1873), refined from the district draft in place. READ from the 1911 sheet through the T-2328 trace s20fp-1720-b1 and the draft's fit of it: the main block's rectangle (22.25 m deep, 10 m along Prairie), the two-storey south wing (u 10-21.5, standing 0.75 m back from the front) and the one-storey range across the front, here the porch, 1.5 m deep. READ from the Tyrrell photograph through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json), at about 80 px a metre on the front: the porch floor and the door 1.55 m over the walk (a 1.4 m foundation under the clapboard, the porch floor raised 0.95 m over the kit's), the frieze about 1.1 m deep under the eave at about 10.2 m, the upper sash between about 6.4 and 8.4 m and the lower between 2.2 and 4.5 m; the front's openings where the photograph puts them, measured from the south corner: below, a single round-headed light at 2.0 m, the door at 4.8 m, a pair at 8.0 m; above, single round-headed sash at 2.5 and 5.0 m and a pair at 7.9 m; the porch across the front from about v -1.35 to 9.55 m (the sheet's range runs -2.0 to 8.25; the photograph is preferred where it shows the porch reaching nearly to the north corner; T-3181 measured its 925 px at the porch's own depth, about 85 px a metre, where T-3180 had used the wall's 80), centred on its stair at 4.1 m. T-3181 (piece 2 of T-1873) READ from the same photograph, at the porch's depth: the posts paired, 0.26 m between centres, at its ends and either side of its middle opening, 1.3 m out (x 65-100, 385-430, 610-655 and 928-980 px); the plate's underside at y 518 px, about 3.9 m over the floor, under a fascia 0.13 m deep to the deck at about y 482; a segmental arch over each opening, springing at about y 556 px (0.45 m under the plate) and crowned at y 538 over the side openings and 543 over the middle (rises of 0.21 and 0.15 m); a turned balustrade 0.7 m high (top rail y 800, bottom rail y 855) in each side opening, about sixteen balusters to a side (0.21 m apart); the stair as broad as the middle opening (2.24 m, its cheeks rising to the inner posts), each side a raking balustrade on a closed string; and iron cresting about 0.5 m high on the deck (y 437-482 px) with posts about 0.37 m apart. RECONSTRUCTED and recorded as L-k16-1720-frame-house-3180: every opening on the flanks, the wing and the rear; the kit's two-over-two sash there and the K06 sash on the front; the hip's 20-degree pitch; the one brick stack (the draft rules gave two; the photograph shows two stacks over the roof, the second not built); the paint. RECONSTRUCTED by T-3181 and recorded under the same liberty: the balusters' vase profile, the kit's chamfered posts for the print's turned ones, the cresting's cast panels as plain bars between knobbed posts and its return along the porch roof's north end, and newels where the print's stair rails end in scrolls. T-3182 (piece 3 of T-1873) READ from the same photograph, at 80 px a metre on the wall: the eave about 0.75 m deep on paired brackets about 0.75 m tall, the pairs at x 185-230, 460-500, 685-725 and 950-990 px (v 0.45, 3.4, 6.3 and 9.6 m); two oval lights in the frieze over the outer bays (x 325-405 and 780-865 px, y 150-192, about 1.0 by 0.4 m) and a paired round-headed attic window over the middle (x 555-640 px); over it a low gable 4.6 m across (x 400-763 px, its apex at y 6, about 26 degrees) standing on the eave; every front window's casing carried round its round head (both storeys), the upper storey's under a hood mould whose ends drop down the jambs; over the middle upper window a flat hood 2.5 m across on scroll brackets (x 472-662, y 257-295 px), a plain panel standing on it; the upper storey's canted bay at the south end (x 107-350 px) on the porch deck, a round-headed light in each face, its cornice at about y 270-300 and its hipped cap up to about y 235; and the porch's skirt open and dark under the floor's rim, where the kit's lattice was. RECONSTRUCTED by T-3182 and recorded under the same liberty: the bay's depth (0.55 m) and plan, its south end carried about 1 m past the front's corner as the print shows it (the sheet's main rectangle stops at the corner), its back closed in plain clapboard; the brackets' scroll profile for the print's stacked consoles; the frieze lights glazed; the gable's boarded tympanum; the attic window kept under the soffit where the print's rises about 0.3 m into the gable; the hood's fringe of drops not built; the lower lights' hood moulds not built, the porch roof's shade hiding whether they have them."
+          "note": "The whole house from the K16 kit (T-3180, piece 1 of T-1873), refined from the district draft in place. READ from the 1911 sheet through the T-2328 trace s20fp-1720-b1 and the draft's fit of it: the main block's rectangle (22.25 m deep, 10 m along Prairie), the two-storey south wing (u 10-21.5, standing 0.75 m back from the front) and the one-storey range across the front, here the porch, 1.5 m deep. READ from the Tyrrell photograph through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json), at about 80 px a metre on the front: the porch floor and the door 1.55 m over the walk (a 1.4 m foundation under the clapboard, the porch floor raised 0.95 m over the kit's), the frieze about 1.1 m deep under the eave at about 10.2 m, the upper sash between about 6.4 and 8.4 m and the lower between 2.2 and 4.5 m; the front's openings where the photograph puts them, measured from the south corner: below, a single round-headed light at 2.0 m, the door at 4.8 m, a pair at 8.0 m; above, single round-headed sash at 2.5 and 5.0 m and a pair at 7.9 m; the porch across the front from about v -1.35 to 9.55 m (the sheet's range runs -2.0 to 8.25; the photograph is preferred where it shows the porch reaching nearly to the north corner; T-3181 measured its 925 px at the porch's own depth, about 85 px a metre, where T-3180 had used the wall's 80), centred on its stair at 4.1 m. T-3181 (piece 2 of T-1873) READ from the same photograph, at the porch's depth: the posts paired, 0.26 m between centres, at its ends and either side of its middle opening, 1.3 m out (x 65-100, 385-430, 610-655 and 928-980 px); the plate's underside at y 518 px, about 3.9 m over the floor, under a fascia 0.13 m deep to the deck at about y 482; a segmental arch over each opening, springing at about y 556 px (0.45 m under the plate) and crowned at y 538 over the side openings and 543 over the middle (rises of 0.21 and 0.15 m); a turned balustrade 0.7 m high (top rail y 800, bottom rail y 855) in each side opening, about sixteen balusters to a side (0.21 m apart); the stair as broad as the middle opening (2.24 m, its cheeks rising to the inner posts), each side a raking balustrade on a closed string; and iron cresting about 0.5 m high on the deck (y 437-482 px) with posts about 0.37 m apart. RECONSTRUCTED and recorded as L-k16-1720-frame-house-3180: every opening on the flanks, the wing and the rear; the kit's two-over-two sash there and the K06 sash on the front; the hip's 20-degree pitch; the one brick stack (the draft rules gave two; the photograph shows two stacks over the roof, the second not built); the paint. RECONSTRUCTED by T-3181 and recorded under the same liberty: the balusters' vase profile, the kit's chamfered posts for the print's turned ones, the cresting's cast panels as plain bars between knobbed posts and its return along the porch roof's north end, and newels where the print's stair rails end in scrolls. T-3182 (piece 3 of T-1873) READ from the same photograph, at 80 px a metre on the wall: the eave about 0.75 m deep on paired brackets about 0.75 m tall, the pairs at x 185-230, 460-500, 685-725 and 950-990 px (v 0.45, 3.4, 6.3 and 9.6 m); two oval lights in the frieze over the outer bays (x 325-405 and 780-865 px, y 150-192, about 1.0 by 0.4 m) and a paired round-headed attic window over the middle (x 555-640 px); over it a low gable 4.6 m across (x 400-763 px, its apex at y 6, about 26 degrees) standing on the eave; every front window's casing carried round its round head (both storeys), the upper storey's under a hood mould whose ends drop down the jambs; over the middle upper window a flat hood 2.5 m across on scroll brackets (x 472-662, y 257-295 px), a plain panel standing on it; the upper storey's canted bay at the south end (x 107-350 px) on the porch deck, a round-headed light in each face, its cornice at about y 270-300 and its hipped cap up to about y 235; and the porch's skirt open and dark under the floor's rim, where the kit's lattice was. RECONSTRUCTED by T-3182 and recorded under the same liberty: the bay's depth (0.55 m) and plan, its south end carried about 1 m past the front's corner as the print shows it (the sheet's main rectangle stops at the corner), its back closed in plain clapboard; the brackets' scroll profile for the print's stacked consoles; the frieze lights glazed; the gable's boarded tympanum; the attic window kept under the soffit where the print's rises about 0.3 m into the gable; the hood's fringe of drops not built; the lower lights' hood moulds not built, the porch roof's shade hiding whether they have them. T-3243 (the owner, 2026-10-29, from the street: the top floor's windows 'crowded to the left', the hood and middle window to be 'centered, as the same as the door', the walk to the house 'sensible'): the door, the porch and its stair, the hood, the middle upper window, the attic window and the front gable stand on one axis at the front's middle, v 5.0 m, where the photograph has the door at 4.8 m north of the porch's middle opening and stair (4.1 m), the hood at 4.8, the gable at 4.75 and the attic window at 5.0; the porch is symmetric about it, 12.6 m long from v -1.3 to 11.3 (the photograph's south end, carried as far past the north corner, so the bay still stands on its deck with its 0.35 m margin), its inner post pairs 1.3 m either side of the axis; the upper storey's single and paired sash at 2.6 and 7.4 m (the photograph's 2.5 and 7.9), about 0.4 m of wall between the single's casing and the bay's north face (1.6 m), where it had been under 0.1 m; the lower storey's at 2.1 and 7.9 m (the print's 2.0 and 8.0; the 0.1 m holds the front's clapboard within the kit's triangle budget), the hood's scroll brackets drawn in four segments where they had six; the frieze's oval lights at 2.0 and 8.0 m and the bracket pairs at 0.45, 3.4, 6.6 and 9.55 m, symmetric about the axis. The body's paint (paint.body, linear 0.64, 0.57, 0.45; sRGB about 209, 199, 179), a light fawn or stone colour where it had been near-white: the photograph prints the sunlit clapboard 20-40 grey levels under the porch's trim and about 15 under the stone posts in the same light, which rules out white or near-white (they print with the trim) and the dark colours of the 1870s-80s (30-80 levels too dark); the hue is the period's stone colour for a frame villa of 1868 (docs/RESEARCH/paint-1720-T-3243/README.md, nine hypotheses). All recorded under L-k16-1720-axis-3243."
         },
         "roof_covering": {
           "value": {
@@ -661,21 +661,21 @@
                 "height_m": 1.2
               },
               {
-                "to_s_m": 3.0,
+                "to_s_m": 3.53,
                 "height_m": 0.33,
                 "rail_m": 0.95
               },
               {
-                "to_s_m": 3.35,
+                "to_s_m": 3.88,
                 "post": true,
                 "height_m": 1.2
               },
               {
-                "to_s_m": 4.85,
+                "to_s_m": 6.12,
                 "opening": true
               },
               {
-                "to_s_m": 5.2,
+                "to_s_m": 6.47,
                 "post": true,
                 "height_m": 1.2
               },
@@ -721,7 +721,7 @@
             "chicago_tribune_1898_01_09_prairie_widows",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures; 1720 had none, so a visitor met the lawn and no way in). The Tyrrell photograph (before 1878) shows the street line through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json: grade at the posts' feet, y 1045-1060 px, puts them 15.1 m from the eye, u 31.3, on the 1904 parcel's line, data/street_grid/1904.json prairie_1720, u 31.2): a low pale kerb, its top about 0.33 m up, with an iron railing on it to about 0.95 m, and white round-topped stone posts about 1.2 m high and 0.35 m square at x 50, 290, 785, 955 and 1135 px (s 1.43, 3.30, 7.16, 8.49 and 9.89). Between 785 and 955 the railing stops and a paved way runs in; between 50 and 290 the print shows lawn to the walk. The Tribune's 1898 vignette, the nearer picture to 1904, draws a low railing either side of the stair and a post either side of its foot, the walk coming straight out between them. Built: the kerb with its railing along the whole line (the vignette's railing runs on south of the stair, where the older print shows lawn: the two pictures disagree there), the photograph's five posts, an opening at the stair's foot 1.5 m clear between the photograph's post at s 3.3 and a sixth post the vignette draws (s 5.0), and the photograph's paved way between the posts at s 7.16 and 8.49 left open. The kerb's top is rounded across, as its survivor photographed in place in 2015 (Prairie library a16-ghm-blog-1720-walker-curbstone-2015, read from the image store's copy; link only, so forms only). RECONSTRUCTED: the railing's bars and rails (the print does not resolve them), the sixth post's place, the kerb's and railing's run past the print's edges to the lot lines (liberty L-k14-walks-1700-block-3205)."
+          "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures; 1720 had none, so a visitor met the lawn and no way in). The Tyrrell photograph (before 1878) shows the street line through its camera (data/reference_views/walker_house_1720_prairie/tyrrell_front.json: grade at the posts' feet, y 1045-1060 px, puts them 15.1 m from the eye, u 31.3, on the 1904 parcel's line, data/street_grid/1904.json prairie_1720, u 31.2): a low pale kerb, its top about 0.33 m up, with an iron railing on it to about 0.95 m, and white round-topped stone posts about 1.2 m high and 0.35 m square at x 50, 290, 785, 955 and 1135 px (s 1.43, 3.30, 7.16, 8.49 and 9.89). Between 785 and 955 the railing stops and a paved way runs in; between 50 and 290 the print shows lawn to the walk. The Tribune's 1898 vignette, the nearer picture to 1904, draws a low railing either side of the stair and a post either side of its foot, the walk coming straight out between them. Built: the kerb with its railing along the whole line (the vignette's railing runs on south of the stair, where the older print shows lawn: the two pictures disagree there), the photograph's five posts, an opening at the stair's foot 1.5 m clear between the photograph's post at s 3.3 and a sixth post the vignette draws (s 5.0), and the photograph's paved way between the posts at s 7.16 and 8.49 left open. The kerb's top is rounded across, as its survivor photographed in place in 2015 (Prairie library a16-ghm-blog-1720-walker-curbstone-2015, read from the image store's copy; link only, so forms only). RECONSTRUCTED: the railing's bars and rails (the print does not resolve them), the sixth post's place, the kerb's and railing's run past the print's edges to the lot lines (liberty L-k14-walks-1700-block-3205). T-3243 (the owner, 2026-10-29: the walk to the house 'sensible'): the stair moved onto the door's axis at v 5.0 m, so the opening at its foot moved with it, 2.24 m clear between posts at s 3.53-3.88 and 6.12-6.47 (the stair's breadth, the posts on its cheeks' lines), where the photograph's post stood at s 3.30 and the vignette's sixth at about 5.0; the walk comes straight out from the stair's foot between them (L-k16-1720-axis-3243)."
         },
         "yard": {
           "value": {
@@ -743,8 +743,8 @@
               "width_m": 0.89,
               "turn_u_m": 24.0,
               "passage_s_m": [
-                10.4,
-                11.3
+                11.4,
+                12.29
               ],
               "to_u_m": 14.0
             },
@@ -761,7 +761,7 @@
             "chicago_tribune_1898_01_09_prairie_widows",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-3205. The front walk in flags from the stair's foot straight out between the posts to the public walk, 1.3 m wide, as the 1898 vignette draws it; and a cinder walk in through the photograph's paved way between the posts at s 7.16-8.49, along the porch's front and back down the north passage (the 1911 sheet's 2.6 m between the house and the lot line) to the rear. RECONSTRUCTED: both walks' widths, surfaces and courses past what the pictures show (liberty L-k14-walks-1700-block-3205). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py)."
+          "note": "T-3205. The front walk in flags from the stair's foot straight out between the posts to the public walk, 1.3 m wide, as the 1898 vignette draws it; and a cinder walk in through the photograph's paved way between the posts at s 7.16-8.49, along the porch's front and back down the north passage (the 1911 sheet's 2.6 m between the house and the lot line) to the rear. RECONSTRUCTED: both walks' widths, surfaces and courses past what the pictures show (liberty L-k14-walks-1700-block-3205). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py). T-3243: the front walk follows the stair onto v 5.0 m; the porch now runs to v 11.3, so the cinder walk turns down the north passage at s 11.4-12.29 (it had been 10.4-11.3), clear of the porch's north end (L-k16-1720-axis-3243)."
         }
       }
     }
