@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2424, ts: '2026-10-29T20:57:48.483Z', date: 'Oct 29, 2026, 3:57 PM CT', title: 'The Pullman house\'s pavilion roofs gain their own dormers', kind: 'improvement',
+    items: [
+      'The forward block over the Prairie Avenue door now has its own dormer on its mansard, where the 1900s photograph shows it. Until now it sat on the roof behind and was hidden.',
+      'The 18th Street pavilion\'s mansard gains two hooded dormers, one over its pair of windows and one over its triple, as the 1890s photograph shows them.',
+      'Still to come: the broken pediment over the large front dormer, and the oculus in the pavilion\'s pier.',
+    ] },
   { v: 2423, ts: '2026-10-29T20:15:01.843Z', date: 'Oct 29, 2026, 3:15 PM CT', title: '1700-1708 Prairie in red brick, with white porches and trim', kind: 'fix',
     items: [
       'The Glessner townhouses at 1700 and 1706 Prairie are red-brown brick now, not buff: in all three photographs the brick prints darker than the houses\' own slate, which a buff brick can\'t do on plates of the period.',
