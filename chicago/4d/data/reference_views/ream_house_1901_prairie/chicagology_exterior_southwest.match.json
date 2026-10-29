@@ -2,11 +2,11 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6b46379022f54ccbc6b119fe4ae5662cef4510c090bc36a177ab8b88e1e3539a",
+  "glb_sha256": "8ec22ad318ac1cf14da2aa8de4a4cc88f18eee7afd94a098d414d7b72cb10bb3",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the light ashlar block two storeys over a raised basement, its wall head at about 10.75 m under a slated mansard with an iron cresting on its curb; the front's north corner at the cornice's bed lands within 4 px of the print's (x 412, y 515)",
@@ -86,8 +86,16 @@
       "how": "seen from the south-west the open gate and walk T-3206 lays read behind the fence"
     },
     {
-      "what": "the stoop's height against its cheeks: both cameras put the build's cheek heads higher than the pictures' — the plate shows the porch's column plinths whole above the cheeks, their tops about 0.2 m under the plinths' foot (x 245-257 px, y 550-557 px), where the build's cheek top stands 0.85 m over the landing and hides them (y about 513 px); the plate's flight reads about 80 px from the walk to the landing (y about 635 to 553 px) where the build's projects to about 110 (649 to 540 px); and the pictures' cheeks run nearly parallel to the treads to a roll raised over the walk, pierced nearly to it, where the build's falls to the walk and its lowest metre is too low over the treads to hold an opening. One of the stoop's rise, its projection or the camera's depth (the 1898 solve's weakest number, and the stoop stands 6 m before the front it was fitted to) is wrong; which needs a camera fit against the stoop itself",
-      "status": "open"
+      "what": "the stoop's height against its cheeks (the pedestals whole above the cheeks' heads, the flight about two thirds the height the build gave it): now the porch's floor stands at the base course's top, about 1.5 m over grade (entrance_floor_m, nine risers of about 0.17 m), the columns on pedestals 0.8 m tall standing on it (hood columns plinth_m), and the cheeks' heads 0.6 m over the floor (cheek_form head_m), so the pedestals show whole above the cheeks as the pictures draw them; the cheeks' rolls stand on a 0.4 m foot block (cheek_form foot_block_m). T-3186 found the cause enlarging the 1898 print: the line read for the porch's floor at the stoop's head (y about 515 px) was the pedestals, and the floor lies at the stoop's top tread, level with the base course (y about 556 px); the door opens there on a vestibule whose inner flight, not built, climbs to the principal floor",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch's floor and pedestals: this camera reads them about 0.3 m lower than the build's 1.5 m floor (y about 1010 px against the render's about 990), where the 1898 camera and the plate read the floor at the base course's top, 1.5-1.6 m; a gap two camera fits disagree about (this one's eye stands 2.1 m up, 9.2 px RMS)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cheeks' bulk: the print's are heavier, their coping about 0.4 m across and their rolls about 0.5 m on a block at the walk, where K07's cheek is thinner and its roll 0.4 m; under the 1 ft bar",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
