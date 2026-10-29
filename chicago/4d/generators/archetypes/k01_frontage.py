@@ -3676,6 +3676,9 @@ class Assembly:
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
+        elif p.hip_deck:   # T-3241: the hip cut off level at its railed deck
+            from . import k01_hip_deck
+            hip, hs = k01_hip_deck.hip(k5, 0.0, D, -W, 0.0, E, tp, o, f, p.hip_deck)
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
@@ -4292,7 +4295,9 @@ class Assembly:
             steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
             if steep:
                 mat = "mansard_slate"
-            if role == "covering":
+            if role == "covering" and abs(n[1]) > 1.0 - 1e-9:   # T-3241: a hip deck's level top
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
+            elif role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
                 up = _unit(_sub(Y, _mul(n, n[1])))
                 contour = _unit(_cross(up, n))
@@ -5665,6 +5670,14 @@ def build(params, structure_id: str):
         # T-3160: the side wall's arcaded porte-cochere under its balustraded deck (1729's)
         from . import k01_porte_cochere
         k01_porte_cochere.dress(a)
+    if p.corner_porch:
+        # T-3241: the street front's corner arcade on its podium under a balustrade (1701's)
+        from . import k01_porte_cochere
+        k01_porte_cochere.dress_porch(a)
+    if p.hip_deck:
+        # T-3241: the rail round the deck the hip is cut off at (1701's)
+        from . import k01_hip_deck
+        k01_hip_deck.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck

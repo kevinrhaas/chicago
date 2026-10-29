@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 866,
+  "count": 867,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60735,6 +60735,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-29 (T-3240)."
+        },
+        {
+          "label": "Amended by later work (2026-10-29)",
+          "text": "the railed deck, the lower south range and the corner porch now stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see `“1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph”`."
         }
       ],
       "work_refs": [
@@ -60743,6 +60747,49 @@
         "T-3241",
         "T-3242",
         "T-1876"
+      ]
+    },
+    {
+      "id": "L-k01-hibbard-1701-3241",
+      "title": "1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "hibbard_house_1701_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`"
+        },
+        {
+          "label": "Decision",
+          "text": "This work builds three things Chicagology's photograph of the Hibbard house shows and earlier work left out, each read through the camera earlier work solved (the chicagology front data), and each a kit piece other houses can use (the deck, the porch, the range, the pitch and the stacks are graded `inferred` on the photograph, each note saying what is read and what is not; this entry lists their inventions together): the hip cut off level at a railed deck (hip deck, new module the k01 hip deck generator; K05's own hip is untouched), the lower south range (a K08 projection's new `range` plan, a flat-topped block 1.2-4 m out from a side wall), and the corner porch (corner porch, the 1729 porte-cochere's arcade, entablature and balustrade laid on the street front from a corner, on a podium, with more than one arch a face). **What is read, not invented.** The deck's rail about 13.3-14.1 m over grade and roughly as wide as the deck under it; the range set back about 1.1 m from the front corner, 2.9 m along the flank and 3.1 m out, its cornice about 5.2-5.7 m up under a low parapet, a round-headed light in its west face and a narrower one in its south face; the porch's place and size off the 1911 sheet (the stone '1' piece, 5.46 m along the front, 1.24 m before it), its podium at the principal floor, a narrow and a wide arch on its front and a narrow one in its south return, its entablature and balustrade's heights. **What is invented.** The pitch, 45 degrees, chosen so the slopes reach a deck as wide as the rail reads (the camera is fitted on the walls below 9.5 m, so the deck is read to about 0.5 m and the pitch to about 5 degrees), and the eave's overhang cut to 0.5 m so its soffit clears the upper lights' heads under that pitch. The rail's section, the holes' 0.36 m size and 0.5 m pitch and the posts' 2.4 m spacing. The range is built 3.1 m out, as the photograph reads it, where the 1911 sheet draws a strip only about 1.6 m wide on that side ('2S.B.'): the photograph is older than the sheet and is followed. The range's parapet drawn as the kit's balusters for the photograph's pierced slots. The porch's columns and carved capitals drawn as plain piers; its back wall left in the front's line, where the sheet draws the front recessed 1.85 m behind the porch (K01 lays the main block as a rectangle; it shows only through the arches). The stacks' tops 2.8 m over the deck. **What is still not built.** The entrance's tall round arch (K07's arched door is laid only in a K02 stone front's courses, and this front is brick), the stone basement band at the walls' foot, the two-level rear veranda, and the carving and ironwork."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured height on the roof (or a second camera on it) fixes the deck; a K01 main block with a corner recess would cut the porch's back wall where the sheet draws it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3241)."
+        }
+      ],
+      "work_refs": [
+        "T-1875",
+        "T-3242",
+        "T-1876",
+        "T-3241",
+        "T-3240"
       ]
     },
     {

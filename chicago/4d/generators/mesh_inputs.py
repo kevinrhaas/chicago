@@ -104,8 +104,10 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                                        "k01_mansard_deck.py",
                                        # T-3158: a stone front's pavilions, frieze, modillions and mansard ribs
                                        "k01_pavilions.py",
-                                       # T-3160: a side wall's arcaded porte-cochere
-                                       "k01_porte_cochere.py"),
+                                       # T-3160: a side wall's arcaded porte-cochere (T-3241: and a corner porch)
+                                       "k01_porte_cochere.py",
+                                       # T-3241: a hip cut off level at a railed deck
+                                       "k01_hip_deck.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
