@@ -35751,3 +35751,24 @@ geometry: its span, springing and apex are T-3179's, unchanged; only the number 
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+
+### L-pullman-transept-band-3164 — The Pullman conservatory's transept lights drawn round-headed over a transom, as its pictures show them
+
+**Decision:** both pictures of Beman's conservatory (the 1894 Inland plate, `inland_1894_pullman_conservatory`,
+and the c. 1897 Lowe photograph, `aic_lowe_pullman_conservatory_c1897`) show the band of upright glazing on the
+transept's east arm, between its stone podium and the roof's springing, as tall lights under a transom, each
+with a short round-headed light over it, in white framing: three across the arm's north side in both. The
+render drew it as square-headed dark lights in a grid, two to a side. The band is now drawn as the north
+front's lit band is, with a transom: lights about 0.45 m wide, the transom 0.38 m under the head, the heads in
+six segments, on both arms' ends and sides. The house is re-budgeted to 11,200 triangles in the kit's
+`costs.houses`, with its reasoning there. **What is invented.** The lights' width on the arms' ends (the
+pictures see the east end only edge-on, so its count is the side's spacing carried round), the whole west
+arm (neither picture sees it; it is drawn as the east arm), the transom's height (read off Lowe's print, where
+the heads take about the top quarter of the band), and the tracery inside each head, which the pictures do not
+resolve and which is drawn as one pane. **What is not.** The count on the north side and the transom over
+tall lights, which both pictures show.
+**How to resolve:** a photograph of the west arm or of the east arm's end settles their lights.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
