@@ -3,7 +3,7 @@
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
   "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb",
-  "camera_sha256": "874e0097bf90ef7ce729a7d88dfab4c37dcd7d3e45c401139f58893ccaa49f69",
+  "camera_sha256": "0e6f88a561a37353b6612a90d6854da4919ce4d0aba77e4ff81cd4875ede2642",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -171,13 +171,23 @@
     },
     {
       "what": "through this camera the new 18th Street wall renders about twice as near and as wide as the print shows it: the camera's eye stands 9.9 m from the lot line (v -37.9), but the print's road and its far parkway put the wall about 20 m off, and the gate piers at the print's right and left edge stand on 18th Street's SOUTH side, not on this lot's line as the T-3193 solve took them. The plate's camera, fitted on this wall's own pier bases, puts the build within 30 px; so this camera wants re-solving with the wall's piers in its fit before the wall can be judged from it",
-      "status": "open",
-      "how": "T-1934 render; the camera, not the build, is what differs"
+      "status": "fixed",
+      "how": "T-1934 re-solved this camera with the wall in its fit (the wall's foot at five places on the lot line and its second pier west of the drum): the eye about 21 m south of the lot line, across 18th Street, at focal 976 px. The wall's foot now renders within 12 px of the print's from x 507 to 1100, its pier tops within 7 px and the pier at x 280-303 on the print's; what the wall then shows is judged in the lines on the terrace's approach and the court's way"
     },
     {
-      "what": "the planting: the print's four parkway and yard trees across the front stand at other places than the street-tree layer's (camera flora), and its clipped shrubs and potted palms on and before the terrace are not drawn",
+      "what": "the planting: the print's four parkway and yard trees across the front stand at other places than the street-tree layer's (camera flora), and its clipped shrubs and potted palms on and before the terrace are not drawn Through T-1934's re-solved camera the street-tree layer also stands a parkway tree (e18th__prairie_calumet_18_20#00) 4.1 m before the eye, filling the print's left edge (x 0-200 px) where the print shows the house's 18th Street porch: the photographer stood where the layer plants a tree",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards"
+    },
+    {
+      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet",
+      "status": "open",
+      "how": null
+    },
+    {
+      "what": "through T-1934's re-solved camera the stable's 6.0 m eave renders 25 px above the print's (about 0.8 m at the front's 30 px/m), and the upper storey between the belt course and the eave reads shorter in the print; T-3193's eye left it 36 px. The Inland plate's camera puts the stable's heights where they are built (its storey heights back-project within 0.1-0.2 m), so the two pictures disagree on the stable's height or on the court's depth",
+      "status": "open",
+      "how": null
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
