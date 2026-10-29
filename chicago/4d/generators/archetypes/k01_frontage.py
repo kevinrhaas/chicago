@@ -2645,6 +2645,8 @@ class Assembly:
         for role, src in built.prims.items():
             if role not in roles:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
+            if b.get("mansard_dormers") and role in ("roof", "roof_back"):
+                continue   # T-1881: joined with its dormers below (bay_mansard_dormers)
             mat = {"body": body, "cover": cover}.get(roles[role], roles[role])
             tris = range(0, len(src.idx), 3)
             parts = [(mat, tris, range(len(src.pos)))]
@@ -2686,6 +2688,8 @@ class Assembly:
                     if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
                            math.dist(world[i], world[k])) >= SLIVER_M:
                         dst.idx += [off + remap[i], off + remap[j], off + remap[k]]
+        if b.get("mansard_dormers"):
+            self.bay_mansard_dormers(b, v, built, W, R, N, cover, body, seed, conf)
         # T-2964: a mansard bay's iron cresting along its curb (1816's two crowns)
         mn = (built.meta.get("roof") or {}).get("mansard")
         if mn and (v["roof"].get("mansard") or {}).get("cresting"):
@@ -4329,6 +4333,78 @@ class Assembly:
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
                          "width": 2 * r, "top": top, "variant": v, "d": d}}
+
+    BAY_SKIRT_M = 0.5    # T-1881: a projection's roof is closed this far under its eave for the union
+
+    def bay_mansard_dormers(self, b, v, built, W, R, N, cover, body, seed, conf):
+        """T-1881: a square projection's mansard with its own round-headed dormers (1729's
+        forward block in the Detroit print, its 18th Street pavilion's two in Taylor's photograph
+        no. 1445). K08 lays the roof as open faces, so it is closed here into a solid — its
+        covering, its back on the wall plane, and a skirt BAY_SKIRT_M under its eave (never
+        emitted: the cornice is in front of it) — and joined in K05's union with each dormer's
+        body and eared hood, built exactly as the main mansard's are (round_dormer_body), its
+        sash recess cut after. The covering keeps the bay's slate, its back the bay's stone."""
+        from . import k05_roofs as k5
+        roof = built.prims["roof"]
+        mn = built.meta["roof"]["mansard"]
+        y_e = built.meta["eave_m"]
+        snap = lambda q: tuple(round(c * 1000) / 1000 for c in W(q))
+        solid = []
+        for t in range(0, len(roof.idx), 3):
+            tri = [snap(roof.pos[i]) for i in roof.idx[t:t + 3]]
+            n = roof.nrm[roof.idx[t]]
+            pl = k5.oriented(tri, "bay_cover", _add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
+            if pl:
+                solid.append(pl)
+        # the back on the wall plane as ONE section (K08 closes each roof piece's back from the
+        # eave up, so its pieces overlap there): the covering's profile over the eave, convex
+        # the eaves outline is the covering's own lowest ring (K08 sets it in from the cornice's
+        # overhang by the profile's lip), so the skirt meets it edge for edge
+        low = [q for q in roof.pos if abs(q[1] - y_e) < 1e-6]
+        x0, x1, z1 = min(q[0] for q in low), max(q[0] for q in low), max(q[2] for q in low)
+        y0 = y_e - self.BAY_SKIRT_M
+        prof = sorted({(round(q[0], 6), round(q[1], 6)) for q in roof.pos if abs(q[2]) < 1e-6})
+        solid.append(k5.oriented([snap((x, y, 0.0)) for x, y in prof], "roof_back", _mul(N, -1)))
+        # the skirt: the eaves outline carried down from the eave, its back on the wall plane, its floor
+        ring = [(x0, 0.0), (x0, z1), (x1, z1), (x1, 0.0)]
+        mid = snap(((x0 + x1) / 2, y_e - self.BAY_SKIRT_M / 2, z1 / 2))
+        for (xa, za), (xb, zb) in zip(ring, ring[1:] + ring[:1]):
+            quad = [snap((xa, y0, za)), snap((xb, y0, zb)), snap((xb, y_e, zb)), snap((xa, y_e, za))]
+            ctr = tuple(sum(q[k] for q in quad) / 4 for k in range(3))
+            solid.append(k5.oriented(quad, "wall", _sub(ctr, mid)))
+        solid.append(k5.oriented([snap((x, y0, z)) for x, z in ring], "wall", _mul(Y, -1)))
+        # each dormer on the front face: the K05 frame is the world's (u, y, -v), so the face is
+        # the one whose outward axis is N's, its fascia the eaves line, its centre along R
+        face = next(f for f, (ax, sg, Rf) in self.DORMER_FACES.items()
+                    if _dot(N, (sg, 0.0, 0.0) if ax == "x" else (0.0, 0.0, sg)) > 0.999)
+        ax = self.DORMER_FACES[face][0]
+        k = 0 if ax == "x" else 2
+        fascia = W((0.0, 0.0, z1))[k]
+        solids, recesses, geoms = [solid], [], []
+        for d in b["mansard_dormers"]:
+            c = W((d["at_m"], 0.0, 0.0))[2 if ax == "x" else 0]
+            g = self.round_dormer_body(d, face, fascia, c, float(mn["rise_m"]), float(mn["lower_pitch_deg"]),
+                                       0.0, y_e, profile="convex")
+            solids += [g["body"]] + g.get("hood", [])
+            recesses.append(g["recess"])
+            geoms.append(g["geom"])
+        polys = k5.union_all(k5._snap(solids))
+        for rc in recesses:
+            polys = k5.subtract(polys, k5._snap([rc])[0])
+        pts, tris = _weld_shell(*k5.close(polys))
+        for a, b_, c_, role, n in tris:
+            if role in self.BOARD or role in self.OPEN or role == "hidden":
+                continue
+            mat = {"bay_cover": cover, "roof_back": body}.get(role) or self.SHELL[role]
+            tri = [pts[a], pts[b_], pts[c_]]
+            if abs(n[1]) > 0.999:
+                b_s = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
+            else:
+                up = _unit(_sub(Y, _mul(n, n[1])))
+                b_s = self.basis(mat, (0.0, y_e, 0.0), _unit(_cross(up, n)), up, seed)
+            self.prim(mat).face(tri, n, b_s, conf)
+        for g in geoms:
+            self.round_dormer_sash(g, conf)
 
     HOOD_LIP_M = 0.03    # T-3000: the shelf stands this far past the face's cheeks
     HOOD_BED_M = 0.03    # ... and is bedded this far down the face's head, so the two overlap

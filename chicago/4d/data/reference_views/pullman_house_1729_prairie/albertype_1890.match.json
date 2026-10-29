@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5f883dff82fef0a8a355a8ff5fdad16fcf29ccd052f5aea3ae17dc353add3380",
+  "glb_sha256": "14944e15bd604822ac1098399af9708d1cbead2ea36ebb5b67db7070fed4c85f",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -153,6 +153,11 @@
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture"
+    },
+    {
+      "what": "the dormers on the forward block and the 18th Street pavilion: the plate's north-west dormer at about x 1014-1058 and two on the flank at x 1377-1407 and 1444-1466",
+      "status": "within tolerance",
+      "how": "T-1881: the forward block's dormer (bays.p_forward.mansard_dormers, placed on the Detroit print) renders at x 1003-1040; the pavilion's two (placed on Taylor's photograph no. 1445) at about x 1442 and 1474. The plate reads the flank at 5-6 px a metre against Taylor's 18, and is of 1890, before the 1892 work Taylor's shows: two pictures disagree (T-3153), and the later, closer photograph governs"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
