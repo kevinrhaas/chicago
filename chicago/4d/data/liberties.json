@@ -55681,7 +55681,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-10-25",
-      "revised": null,
+      "revised": "2026-10-29",
       "fields": [
         {
           "label": "Recorded",
@@ -55694,6 +55694,10 @@
         {
           "label": "How to resolve",
           "text": "re-solve HABS photograph 1's camera on the south wall; a measured plan."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-29 (T-1890): the bay's top is no longer open: the main cornice is carried round it and the slate down over it, recorded in L-kimball-1801-south-bay-top-1890."
         }
       ],
       "work_refs": [
@@ -60154,6 +60158,38 @@
         {
           "label": "Review",
           "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-south-bay-top-1890",
+      "title": "1801 Prairie's south bay under the main cornice and the mansard's slate, from HABS photograph 1",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the south wall's canted bay stood two storeys under a low slated hip below the main cornice's line, with no cornice of its own, where HABS photograph 1 (June 1965, Harold Allen for HABS, 'View: west (Prairie Ave.) and south (court)…) carries the house's heavy cornice round the bay at the main cornice's height and brings the mansard's slate down over the bay to it, the hooded dormer standing in that slate. **What is read.** From the print: the cornice running the south wall from the round bay at the south-west corner to the south-east corner and wrapping the bay's faces at one height; the slate meeting the bay's cornice and running up into the main roof with no break. Built: the main moulded stone course (K10's moulded stone) now runs the south wall too (wall head), from where the south pavilion's chamfer meets the wall, 1.4 m behind the front and capped there against the canted face, to the rear corner, dying into the bay; on the bay the same section is swept round its three faces at the main course's 8.34-8.7 m, and over it a slated mansard in the house's own slate. **What is invented or held by the kit.** The bay's slate rises 4.4 m at 60 degrees, the height at which a face 0.85 m out at that pitch meets the main roof's 69.1-degree lower face, behind which it stops on a deck at the kit's 0.1; the print shows the slate meeting the cornice, not the line along which the bay's slate meets the main face. The cornice's section is the kit's generic moulded one, as on the front: the print's block row under the corona is not built. The bay's far-view copy keeps 0.58 of its full triangles (its own light grade, because the cornice and the slate stand whole in both grades and one light a storey leaves little to drop). **What is still open.** The bay's place along the wall and the hooded dormer's against it: through the re-solved camera the bay renders about 95 px west of the print's and the dormer, which the print stands over the bay's front light, beside it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera fitted to the south wall's own courses, or the HABS drawings' south elevation, settles the bay's slate and where it meets the main face."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
         },
         {
           "label": "Recorded",
