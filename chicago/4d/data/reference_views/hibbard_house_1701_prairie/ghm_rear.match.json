@@ -2,7 +2,7 @@
  "structure_id": "hibbard_house_1701_prairie",
  "view": "ghm_rear",
  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
- "glb_sha256": "cad426578cfbee929fec07fdf3a06e0e9917863e4651c6d80d52750132064572",
+ "glb_sha256": "2bf8355779f603c5ca20dd0b14acfd42cc178971f01e59f7e904e42098a428ea",
  "camera_sha256": "7a4c200fcf71886e84da386ff9f8ce670e971d522f9ade33567ca4faba7eae58",
  "photo_sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca",
  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/ghm_rear-side-by-side.jpg",
@@ -40,13 +40,13 @@
   },
   {
    "what": "the main block's railed deck over its roof, seen above the rear",
-   "status": "open",
-   "how": "T-3241"
+   "status": "fixed",
+   "how": "T-3241: the deck's rail (k01_hip_deck) stands over the hip where the photograph shows it, above the rear wall's cornice"
   },
   {
    "what": "the main block's south end at the left of the picture, a two-storey bay on its south face",
-   "status": "open",
-   "how": "T-3241, with the lower south range"
+   "status": "within tolerance",
+   "how": "T-3241: the lower south range now stands at the picture's left edge where the photograph's low block does; the rear copy (675 px) reads the mass over it as a two-storey bay, while the front photograph shows the flank over the range plain, its single light and its pair: two pictures that disagree, so the front's reading is followed"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
