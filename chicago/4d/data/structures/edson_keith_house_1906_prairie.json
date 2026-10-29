@@ -15,7 +15,7 @@
   "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
  },
  "review_required": false,
- "research_note": "Refined from the district draft (T-2329) in place by T-3238 (piece 1 of T-1898), under the draft's own id, as a K01 stone-front Italianate house read off the Chicagology wood engraving of the Edson Keith residence (chicagology_1906_keith_engraving) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip (chicago_tribune_1898_01_09_residence_district) against the 1911 sheet's plan (s28fp-1906-b1): two storeys over a raised basement under a low hipped roof and a deep bracketed cornice; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose flat top is a balustraded balcony before the arched window over the door; a high stoop between scrolled cheeks onto a balustraded terrace; arched, hooded windows; the sheet's south-flank range and rear wing in brick. 1908, which the sheet draws attached and the T-1841 census rules one building with 1906, is this record's north end. The Chicagology mansard photograph labelled 1906 is the 1900 house (the census ruling r28-1900-1906-photo) and is T-3239's to weigh. What the pictures do not show is reconstructed and listed under liberty L-k01-1906-keith-3238.",
+ "research_note": "Refined from the district draft (T-2329) in place by T-3238 (piece 1 of T-1898), under the draft's own id, as a K01 stone-front Italianate house read off the Chicagology wood engraving of the Edson Keith residence (chicagology_1906_keith_engraving) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip (chicago_tribune_1898_01_09_residence_district) against the 1911 sheet's plan (s28fp-1906-b1): two storeys over a raised basement under a low hipped roof and a deep bracketed cornice; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose flat top is a balustraded balcony before the arched window over the door; a high stoop between scrolled cheeks onto a balustraded terrace; arched, hooded windows; the sheet's south-flank range and rear wing in brick. 1908, which the sheet draws attached and the T-1841 census rules one building with 1906, is this record's north end. The Chicagology mansard photograph labelled 1906 is the 1900 house (the census ruling r28-1900-1906-photo; T-3239 weighed it: its mansard, dormers and corner bay are not the hip-roofed, towered front both the engraving and the vignette draw). T-3239 solved the vignette's camera, set aside the Tribune's 1896 item (a lakeshore scene, no view of the house), weighed the c. 1914 elevation drawing (1906 third from the south on the west side), lowered and broadened the tower, widened the porch and set the balustrade on the terraces. What the pictures do not show is reconstructed and listed under liberty L-k01-1906-keith-3238.",
  "phases": [
   {
    "id": "as_mapped_1904",
@@ -401,7 +401,7 @@
        "front_yard_m": 9.67,
        "hood": {
         "soffit_m": 5.8,
-        "width_m": 4.0,
+        "width_m": 5.0,
         "out_m": 2.2,
         "fascia_m": 0.5,
         "cornice": {
@@ -434,7 +434,7 @@
        "terrace": [
         {
          "side": "left",
-         "to_v_m": 4.9
+         "to_v_m": 5.5
         },
         {
          "side": "right",
@@ -444,6 +444,63 @@
        "cheek_form": {
         "kind": "scrolled",
         "bow": 1.0
+       },
+       "balustrade": {
+        "height_m": 0.9,
+        "pitch_m": 0.2,
+        "newel_m": 0.2,
+        "newel_cap_m": 0.1,
+        "rail_m": [
+         0.12,
+         0.08
+        ],
+        "segments": 8,
+        "profile": [
+         [
+          0.06,
+          0.0
+         ],
+         [
+          0.06,
+          0.06
+         ],
+         [
+          0.045,
+          0.1
+         ],
+         [
+          0.04,
+          0.18
+         ],
+         [
+          0.06,
+          0.35
+         ],
+         [
+          0.065,
+          0.45
+         ],
+         [
+          0.045,
+          0.65
+         ],
+         [
+          0.032,
+          0.78
+         ],
+         [
+          0.045,
+          0.86
+         ],
+         [
+          0.055,
+          0.94
+         ],
+         [
+          0.055,
+          1.0
+         ]
+        ]
        }
       }
      },
@@ -453,7 +510,7 @@
       "chicago_tribune_1898_01_09_residence_district",
       "sanborn_1911_chicago_v3_sheet_28"
      ],
-     "note": "The porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door (the vignette: 'a flat portico with balustraded balcony and arched window above'; the engraving: its columns and balcony); the terrace with its balustrade across the front from the south bay to the end of the sheet's stone front (v 15.25); the stoop's scrolled cheeks are the engraving's curved flights' ends."
+     "note": "The porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door (the vignette: 'a flat portico with balustraded balcony and arched window above'; the engraving: its columns and balcony); the terrace across the front from the south bay (v 5.5) to the end of the sheet's stone front (v 15.25), and on it and down the stoop's cheeks a turned stone balustrade, which both the engraving and the vignette draw (T-3239; its profile, pitch and newels are 1620 Prairie's, reconstructed); the stoop's scrolled cheeks are the engraving's curved flights' ends, where the vignette draws a straight flight ending at block newels. The porch is 5.0 m wide, the vignette's portico on its solved camera (about 4.7 m; T-3239, where T-3238 had 4.0 m); the vignette draws its top as a flat entablature, the engraving as the balustraded balcony built."
     },
     "bays": {
      "value": [
@@ -464,7 +521,7 @@
        "s_m": 3.0,
        "fabric": "front_stone",
        "plan": {
-        "radius_m": 2.0,
+        "radius_m": 2.6,
         "centre_proud_m": 0.0
        },
        "eaves": {
@@ -508,13 +565,13 @@
          ]
         },
         {
-         "height_m": 5.4,
+         "height_m": 3.5,
          "windows": [
           {
            "opening": "k06.opening.sash_round_fanlight",
            "clear_width_m": 0.8,
-           "clear_height_m": 3.4,
-           "sill_m": 0.5,
+           "clear_height_m": 2.3,
+           "sill_m": 0.75,
            "at": [
             0.25,
             0.5,
@@ -526,13 +583,13 @@
          ]
         },
         {
-         "height_m": 3.4,
+         "height_m": 3.0,
          "windows": [
           {
            "opening": "k06.opening.sash_round_fanlight",
            "clear_width_m": 0.8,
-           "clear_height_m": 1.9,
-           "sill_m": 0.6,
+           "clear_height_m": 1.5,
+           "sill_m": 0.55,
            "at": [
             0.25,
             0.5,
@@ -629,7 +686,7 @@
       "chicagology_1906_keith_engraving",
       "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "The south bay: canted, standing on grade at the front's south end and rising one stage past the main cornice under its own bracketed cornice and a low cap with cresting, in both the vignette ('a projecting full-height bay/tower at left under its own cornice') and the engraving; three round-headed lights a stage; its size (2.0 m ring, v 0.6-4.6) is read off the vignette's proportions against the 16.5 m front. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and three along the range) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
+     "note": "The south bay: canted, standing on grade at the front's south end under its own bracketed cornice and a low cap with cresting, in both the vignette and the engraving; three round-headed lights a stage. T-3239 re-read it on the vignette's solved camera (tribune_1898_front): about 5.5 m across against the door-to-window spacing, so a 2.6 m ring (v 0.4-5.6), and three tiers of lights over the basement with its cap just over the main cornice, as the c. 1914 elevation drawing also stops it; so four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (K01's least is 1.0 m). The stage heights within that are reconstructed. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and three along the range) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
     },
     "rear_wings": {
      "value": [

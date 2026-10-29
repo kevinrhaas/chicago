@@ -2,6 +2,7 @@
   "title": "A more detailed farm-box wagon",
   "kind": "change",
   "items": [
-    "The wagon collection has a reconstructed farm-box model with weathered boards, shaped wheel hubs, iron fittings and a separately articulated front axle and pole. Its modern source artist is credited; the wagon's historical maker and owner remain unknown."
+    "The wagon collection has a reconstructed farm-box model with weathered boards, shaped wheel hubs, iron fittings and a separately articulated front axle and pole. Its modern source artist is credited; the wagon's historical maker and owner remain unknown.",
+    "Desktop railway rendering releases its uploaded geometry from page memory while keeping the same rail detail. A reset graphics context pauses rendering until retained resources can recover or the normal page reload completes."
   ]
 }

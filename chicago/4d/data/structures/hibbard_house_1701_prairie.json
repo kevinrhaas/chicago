@@ -1,221 +1,621 @@
 {
-  "id": "hibbard_house_1701_prairie",
-  "name": "1701 Prairie Avenue — Italianate mansion with rear addition (district draft; refined by T-1875, T-1876)",
-  "aka": [
-    "1701 S. Prairie Avenue"
+ "id": "hibbard_house_1701_prairie",
+ "name": "1701 Prairie Avenue — the William G. Hibbard house, Italianate, with its 1874 rear range (K01; refined by T-3240, T-3241, T-3242, T-1876)",
+ "aka": [
+  "1701 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_20"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet labels the building with a 1911 use, '2½-storey brick dwelling over a stone basement (D, '2½SB'), with a 1-storey stone (blue) piece at its north-west corner and frame porches', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Italianate mansion with rear addition', names it a house, so the 1904 function is inferred residence on that row and the T-1840 census ruling (present_as_mapped)."
+ },
+ "built": {
+  "value": 1869,
+  "confidence": "attested",
+  "sources": [
+   "hmdb_prairie_lost_houses_1600_1700"
+  ],
+  "note": "The marker: 'William G. Hibbard Residence. Built 1869'."
+ },
+ "review_required": false,
+ "research_note": "T-3240 (piece 1 of T-1875) refines the district draft (T-2335) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — K03 brick, K06 sash, K07 door and stoop, K08 canted bay, K10 bracketed cornice, K04 hip — instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (the main block, the 1874 range behind it, the bay, the stone porch, the '2S.B.' strip and the open two-storey veranda drawn on its plan, '2½S.B.') through the T-1840 census; Chicagology's photograph of the front and south flank from the south-west (chicagology_1701_hibbard_photo), whose camera is solved in data/reference_views/; and the Glessner House Museum's rear photograph (glessner_blog_1701_hibbard_rear_photo). Still to come on this house: the railed roof deck, the lower south range and the corner porch's stone arcade (T-3241); the two-level rear veranda and the rear range's oriel (T-3242); the carving, hoods and ironwork (T-1876). Liberty L-k01-hibbard-1701-3240.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_20"
+     "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The 1911 sheet labels the building with a 1911 use, '2½-storey brick dwelling over a stone basement (D, '2½SB'), with a 1-storey stone (blue) piece at its north-west corner and frame porches', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Italianate mansion with rear addition', names it a house, so the 1904 function is inferred residence on that row and the T-1840 census ruling (present_as_mapped)."
-  },
-  "built": {
-    "value": 1869,
-    "confidence": "attested",
+    "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped); the photographs are undated (after the 1874 addition). Its building and loss dates are the per-building tickets' to read.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448503.376,
+    "utm_n": 4634322.242,
+    "rotation_deg": 179.61,
+    "symbolic_location": "1701 S. Prairie Avenue, parcel prairie_1701 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "confidence": "inferred",
     "sources": [
-      "hmdb_prairie_lost_houses_1600_1700"
+     "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The marker: 'William G. Hibbard Residence. Built 1869'."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1875, T-1876 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1701-b1), the T-1840 census (s20-1701-f, s20-1701-a1) and the T-1837 register row frontage-20-032 (Italianate mansion with rear addition); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448520.867,
-        "utm_n": 4634323.561,
-        "rotation_deg": 179.61,
-        "symbolic_location": "1701 S. Prairie Avenue, parcel prairie_1701 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 24.000, v -11.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.61 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            28.25,
-            0.0
-          ],
-          [
-            28.25,
-            7.75
-          ],
-          [
-            0.0,
-            7.75
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_20"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 2,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "'2½S.B.' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  28.25,
-                  7.75
-                ],
-                "from": "s20fp-1701-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  17.75,
-                  7.75,
-                  30.0,
-                  16.5
-                ],
-                "from": "s20fp-1701-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  13.75,
-                  13.25,
-                  17.5,
-                  17.0
-                ],
-                "from": "s20fp-1701-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 91% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "bay",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  28.25,
-                  1.75,
-                  31.25,
-                  6.25
-                ],
-                "from": "s20fp-1701-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
-              }
-            ],
-            "lot_v": [
-              -5.03,
-              28.03
-            ],
-            "street_u": 37.744
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1701-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s20fp-1701-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s20fp-1701-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 91% of its fill; s20fp-1701-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1737476123,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": true,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2335",
-              "refined_by": [
-                "T-1875",
-                "T-1876"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1737476123 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-032",
-            "census_ids": [
-              "s20-1701-f",
-              "s20-1701-a1"
-            ],
-            "trace_building": "s20fp-1701-b1",
-            "seed": 1737476123,
-            "replaceable_by": [
-              "T-1875",
-              "T-1876"
-            ],
-            "card": "District draft — refined by T-1875, T-1876."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The rear north corner of the main block's rectangle (the draft frame's u 17.5, v 1.2: lot frame u 41.5, v -10.3 from the middle of the rear lot line), read off the 1911 sheet's trace (s20fp-1701-b1) through the T-1250 fit of the sheet: its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.61 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.5,
+      0.0
+     ],
+     [
+      12.5,
+      14.7
+     ],
+     [
+      0.0,
+      14.7
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main block read off the 1911 sheet's trace (s20fp-1701-b1 p1) in the draft's lot frame: its rear wall at u 17.5 (where the rear range and the open veranda meet it), the front at 30.0 (12.5 m deep), the north wall at v 1.2 and the line the sheet draws between the main block and the '2S.B.' strip on its south side at v 15.9 (14.7 m along the street). What stands outside it: the canted bay (bays), the 1874 rear range (rear_wings), and, still to be built, the stone porch on the front's north part and the recess behind it, the lower south range and the two-level veranda (T-3241, T-3242). The draft's rectangles r1-r4 are retired with it."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "'2½S.B.' printed on the 1911 sheet: two full storeys over a basement and a half storey in the roof; the photograph shows the two brick storeys over a stone basement whose lights stand above the fence."
+    },
+    "construction": {
+     "value": "brick",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The 1911 sheet colours the building pink, brick; the photograph shows brick walls dressed in light stone (the quoin pilasters, the window hoods, the bay, the cornice) over a stone basement."
+    },
+    "principal_floor_m": {
+     "value": 2.0,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The stone basement's top stands about 2.0 m over grade through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json), and its round-headed basement lights show over the fence: the principal floor is laid there. The camera's own height is set at a standing eye (1.6 m), so this figure carries that assumption (about ±0.3 m)."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.3,
+      3.7
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The bay's middle cornice, the second floor's mark on the front, stands about 6.3 m over grade and the main cornice's bed about 9.3-9.9 m through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): a principal storey of 4.3 m and an upper one of 3.7 m to a wall head at 10.0 m, the upper lights' round heads clear of the cornice's bed."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a two-brick wall under a mansion of this height; the sheet prints '12 12' against the rear range only."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: as the front."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K03 common brick panel the avenue's K01 houses wear; the monochrome photograph cannot give the brick's colour (it reads dark against the light stone dressings)."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "pairs": {
+       "spacing_m": 1.6
+      },
+      "paint": {
+       "color": [
+        0.56,
+        0.53,
+        0.46
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's deep cornice on paired brackets all round the main block, painted light like the stone dressings; the K10 bracketed timber cornice laid in pairs. Its carving is T-1876's."
+    },
+    "roof_form": {
+     "value": "hip",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "A low hip over the main block: the photograph shows its slopes rising from the cornice on both faces it sees, up to a railed deck (the deck and its rail are T-3241's; until then the hip is carried to its ridge)."
+    },
+    "roof_pitch_deg": {
+     "value": 35,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's roof rises well over the cornice to its railed deck, about 4-5 m on the street face through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json); a 35 degree hip, inside the ordinary band, carries the slopes to about that height until T-3241 cuts the deck into them. The slopes are foreshortened, so the pitch is read to about 5 degrees."
+    },
+    "eave_overhang_m": {
+     "value": 0.75,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the bracketed cornice's projection, as 1612's; the photograph shows a deep one."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's tread."
+    },
+    "stair_landing_depth_m": {
+     "value": 1.1,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's landing."
+    },
+    "stoop_width_m": {
+     "value": 1.7,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 stoop's width. The stone porch the door stands in is T-3241's; until it stands, the door is reached by the kit's stoop."
+    },
+    "entrance_bay": {
+     "value": "middle",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's tall dark arch between the corner porch and the bay, at about v 5.8-8.3 through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): the entrance, in the middle of the front's three bays."
+    },
+    "front_bays": {
+     "value": [
+      2.4,
+      7.0,
+      10.4
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "Three bays along the front, north to south in this frame (v 0 at the north wall): the north bay behind the corner porch the 1911 sheet draws in stone ('1', blue, v about 0.3-5.7), its upper light read at about v 6.7 through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) over the entrance at 7.0, and the two-storey bay at 10.4. The sheet draws the bay over v 8.3-11.0, the photograph over about 9.1-13.7; it is laid between them (see bays)."
+    },
+    "side_bays": {
+     "value": [
+      3.0,
+      6.3,
+      9.6
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: three windows a storey in the north wall, facing 1637's side yard. No picture shows the north side."
+    },
+    "north_bays": {
+     "value": [
+      {
+       "s_m": 3.9,
+       "sill_m": 6.75,
+       "width_m": 0.95,
+       "height_m": 2.15,
+       "head": "round"
+      },
+      {
+       "s_m": 5.55,
+       "sill_m": 6.75,
+       "width_m": 0.8,
+       "height_m": 2.15,
+       "head": "round"
+      },
+      {
+       "s_m": 6.75,
+       "sill_m": 6.75,
+       "width_m": 0.8,
+       "height_m": 2.15,
+       "head": "round"
+      },
+      {
+       "s_m": 3.9,
+       "sill_m": 2.6,
+       "width_m": 0.95,
+       "height_m": 2.55,
+       "head": "round"
+      },
+      {
+       "s_m": 6.15,
+       "sill_m": 2.6,
+       "width_m": 0.95,
+       "height_m": 2.55,
+       "head": "round"
+      },
+      {
+       "s_m": 9.9,
+       "sill_m": 6.75,
+       "width_m": 0.8,
+       "height_m": 2.15,
+       "head": "round"
+      },
+      {
+       "s_m": 11.15,
+       "sill_m": 6.75,
+       "width_m": 0.8,
+       "height_m": 2.15,
+       "head": "round"
+      },
+      {
+       "s_m": 9.9,
+       "sill_m": 2.6,
+       "width_m": 0.8,
+       "height_m": 2.55,
+       "head": "round"
+      },
+      {
+       "s_m": 11.15,
+       "sill_m": 2.6,
+       "width_m": 0.8,
+       "height_m": 2.55,
+       "head": "round"
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The south wall's lights, s from the front corner, read through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): over the lower south range, a single round-headed light at s 3.9 and a pair at 5.55 and 6.75, sills about 6.75 m; toward the rear a pair at 9.9 and 11.15 on both storeys, sills about 2.6 and 6.75 m. The principal storey's lights at 3.9 and 6.15 stand behind the lower south range (T-3241), which the photograph shows in front of them; they are reconstructed, as the pair's spacing above."
+    },
+    "rear_bays": {
+     "value": [
+      1.6,
+      4.0,
+      6.4
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: three windows a storey in the rear wall south of the 1874 range, s from the south end; the two-level veranda the rear photograph shows standing against the south part of this wall is T-3242's."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.6,
+       "width_m": 0.95,
+       "height_m": 2.55
+      },
+      {
+       "sill_above_floor_m": 0.45,
+       "width_m": 0.95,
+       "height_m": 2.15
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "Read through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json): the principal storey's lights about 2.55 m tall over sills 0.6 m above the floor, the upper storey's about 2.15 m; taller than the contract's starting range, which a light read off a picture may be."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.35,
+      "width_m": 0.9,
+      "height_m": 0.7
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's basement lights over the fence, in the stone base under the principal storey; their heads and size are the kit's area light."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: painted standing-seam tin on the low hip; the photograph's slopes read plain and light."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       1.1,
+       0.8
+      ],
+      "top_above_ridge_m": 1.2,
+      "cap_proud_m": 0.08,
+      "cap_depth_m": 0.2,
+      "stacks": [
+       {
+        "u_m": 6.0,
+        "v_m": 10.6
+       },
+       {
+        "u_m": 6.0,
+        "v_m": 3.8
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo",
+      "glessner_blog_1701_hibbard_rear_photo"
+     ],
+     "note": "The photograph's tall stack rising through the roof's south half, a corbelled cap; a second over the north rooms, as the rear photograph shows two stacks over the main block. Their places are read loosely (the roof is foreshortened)."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 2.8
+       },
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 11.0
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: half-round copper gutters behind the cornice, round downpipes on the rear wall and the north wall between their lights, clear of the corners' paired brackets and of the street front the photograph shows without one."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      },
+      "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+      "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K06 two-over-two sash in every light, the round-headed ones under the kit's round head, and its area light in the basement without a well; the photograph's basement lights stand over grade."
+    },
+    "street_front_round_heads": {
+     "value": {
+      "storeys": [
+       0,
+       1
+      ],
+      "key": {
+       "width_m": 0.24,
+       "height_m": 0.3,
+       "proud_m": 0.07
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's lights on the front are round-headed on both storeys, each under a light stone hood; built as K01's round heads with their key blocks. The hoods' eared, crested carving is T-1876's."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 7.74
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K07 panelled door at the head of a straight stoop from the walk, the front wall 7.74 m from the lot's street line (the sheet's lot, u 20.24). The photograph's entrance stands in a tall arch beside the stone porch, which is T-3241's."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "front_bay",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.street_front",
+       "s_m": 10.4,
+       "fabric": "stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -1.8,
+          0.0
+         ],
+         [
+          -1.25,
+          1.2
+         ],
+         [
+          1.25,
+          1.2
+         ],
+         [
+          1.8,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.3,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.6,
+           "clear_height_m": 2.4,
+           "sill_m": 2.6,
+           "at": [
+            0.4,
+            0.6
+           ],
+           "why_not_ordinary": "the photograph's paired lights in the bay's face, narrower than the wall's sash so two stand in its 2.5 m face"
+          }
+         ]
+        },
+        {
+         "height_m": 2.3,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.6,
+           "clear_height_m": 1.75,
+           "sill_m": 0.2,
+           "at": [
+            0.4,
+            0.6
+           ],
+           "why_not_ordinary": "the paired upper lights over them, the same pair"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's two-storey bay in light stone on the front's south part, canted, two round-headed lights a storey in its face under a cornice at the second floor and another under the main cornice. The sheet draws a canted bay over v 8.3-11.0 (the K01 frame), 1.3 m out; through the photograph's solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json) its junctions read about v 9.1 and 13.7. Laid at 10.4, 3.6 m at the wall and 1.2 m out (K08 holds a canted bay to 1.2 m): within both readings' spread, and the difference is written in the match record."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_range_1874",
+       "rect": [
+        -17.7,
+        0.0,
+        0.0,
+        6.8
+       ],
+       "floor_m": 2.0,
+       "storey_heights_m": [
+        4.3,
+        3.7
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.6,
+         "width_m": 0.95,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.45,
+         "width_m": 0.95,
+         "height_m": 2.1
+        }
+       ],
+       "windows": {
+        "north": [
+         2.5,
+         6.0,
+         9.5,
+         13.0,
+         15.6
+        ],
+        "south": [
+         3.0,
+         7.0,
+         11.0,
+         15.0
+        ],
+        "rear": [
+         1.9,
+         4.9
+        ]
+       },
+       "round_heads": [
+        "north",
+        "south",
+        "rear"
+       ],
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.5,
+        "fascia_m": 0.4,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "glessner_blog_1701_hibbard_rear_photo"
+     ],
+     "note": "The 1874 rear range the 1911 sheet traces behind the main block's north half (s20fp-1701-b1, draft frame u about -0.2 to 17.5, v -0.4 to 8.0; here u -17.7 to 0, v 0 to 6.8). The sheet draws its north wall about 1.2-1.6 m north of the main block's; it is built in the main block's north wall line, because K10's cornice cannot yet turn the main block's rear corner inside a wing that buries it (liberty L-k01-hibbard-1701-3240; no picture shows the north side). The rear photograph shows it in brick, as tall as the main block's wall head, its lights round-headed. Its windows' places are reconstructed (the picture is small and oblique); its corbelled oriel is T-3242's, and its heavy bracketed cornice is built as a flat deck's fascia until then."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 7.5,
+      "lot_s_m": [
+       -6.23,
+       26.83
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "side_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "pier_s_m": 0.0,
+       "drawn_deg": 0
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.4
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1701_hibbard_photo"
+     ],
+     "note": "The photograph's iron fence on a stone curb along the street line before the house (0.24 m inside the lot's line, as 1726's coping stands), with a gate at the walk. Built in the K11 kit's iron fence on its curb; its cast loop pattern is T-1876's ironwork."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.5
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the K14 walk in flags from the stoop's foot to the gate, its width and wear the kit's."
+    }
+   }
+  }
+ ]
 }

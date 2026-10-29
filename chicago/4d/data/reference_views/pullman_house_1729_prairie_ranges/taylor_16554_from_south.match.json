@@ -3,7 +3,7 @@
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
   "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb",
-  "camera_sha256": "93f38dd4403c447a495010dd3485cf534f4c714fa24ff0c215eca4be45d01dac",
+  "camera_sha256": "6f277a97f9b600b7d951332294c31c47b00b87b0d99a8c2e76fb0a2811eb43af",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
     {
@@ -61,10 +61,71 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c"
+      "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc"
     }
   ],
-  "group_sha256": "693b1f320cc0f5958e58835ce17b86483804372ec4b8e08649dea5948c716f0d",
+  "group_sha256": "705dc8e6e4daf9097e516c83d55e70bf245b84b662c45efe76a2b653235ec368",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 24,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 6
+      }
+    ],
+    "street_trees": 30,
+    "street_trees_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1456.387,
+    "local_n": -3169.972,
+    "rotation_deg": 179.611,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "daa50d96cfafdff4784a7134bacc7d250c26345a15407efddd29d77d60af2b4c"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "6f3eab13c613dd5d75f1753902ceda32002eacae605844e94e196ecbe1da7b77"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+    }
+  ],
+  "flora_sha256": "c86765231ec59cb60c01a6d5e8a25a5b19dffe61652dd890611472e3db87ebae",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -110,13 +171,23 @@
     },
     {
       "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it",
-      "status": "open",
-      "how": "the lot's grounds, judged in the match (the owner, 2026-10-28); none of it is built"
+      "status": "fixed",
+      "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
     {
       "what": "the house is a light stone in the print, the build draws it red brick",
       "status": "not shown",
       "how": "the house's own records judge it (T-1881); rendered here for placement only"
+    },
+    {
+      "what": "the lamp post standing behind the wall near the court (x about 795, about u 10 in this frame) is not built",
+      "status": "open",
+      "how": "T-1934: an element missing"
+    },
+    {
+      "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render",
+      "status": "open",
+      "how": "T-1934 render with the scene's street trees and front yards"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

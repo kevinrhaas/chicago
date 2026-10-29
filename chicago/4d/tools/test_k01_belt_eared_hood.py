@@ -14,7 +14,11 @@ record to what the ticket built:
   * a round dormer may name `eared_hood` (band_m, proud_m, ear_m, drop_m, an optional rise_m)
     inside its bounds, and on no other head; its solid is closed, stands proud_m out of the face
     and reaches ear_m past the band each side;
-  * 1729's record builds a belt with a break over its corner pier and every dormer hooded.
+  * 1729's record builds a belt with a break over its corner pier and every dormer hooded;
+  * a square projection's own mansard may carry `mansard_dormers` (the main mansard's round
+    dormer, at_m from the front's centre): one on a projection with no mansard, one crossing the
+    face's hips, two meeting and one whose head meets the curb are refused; 1729's forward block
+    carries one and its 18th Street pavilion two, built as stone faces on the projections' fronts.
 
     python3 tools/test_k01_belt_eared_hood.py
 """
@@ -132,7 +136,34 @@ check(bool(p.pavilions.get("belt")) and len(p.pavilions["belt"]["runs"]) == 3, "
 check(all("eared_hood" in d for d in p.mansard["dormers"]), "every one of 1729's dormers is hooded")
 check(p.mansard.get("dormer_fabric") == "front_stone", "1729's dormers are faced in its brownstone")
 
+# a square projection's own mansard dormers
+spec = {"variant": "k06.opening.sash_round_fanlight", "width_m": 0.7, "height_m": 1.6, "sill_m": 0.1}
+dorm = lambda at, **kw: {"at_m": at, "head": "round", "sash": dict(spec, **kw), "surround_m": 0.2, "face_setback_m": 0.1}
+proj = {"kind": "projection", "plan": {"kind": "polyline", "points": [[-5.125, 0.0], [-5.125, 2.47], [5.125, 2.47], [5.125, 0.0]]},
+        "roof": {"kind": "hip", "pitch": 0.1, "mansard": {"rise_m": 4.0, "lower_pitch_deg": 75}},
+        "overrides": {"eaves": {"overhang_m": 0.35}}}
+got = KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(-3.425), dorm(1.975)]}, proj)
+check([d["at_m"] for d in got] == [-3.425, 1.975] and got[0]["width_m"] == 1.1, "a projection's mansard takes two dormers")
+refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(0.0)]},
+                                        {**proj, "roof": {"kind": "hip", "pitch": 1.0}}), "no dormer on a projection without a mansard")
+refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(-3.8)]}, proj), "a dormer crossing the face's hip is refused")
+refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(0.0), dorm(0.9)]}, proj), "two dormers meeting are refused")
+refused(lambda: KP._bay_mansard_dormers({"id": "p", "mansard_dormers": [dorm(0.0, height_m=2.4, sill_m=0.6)]},
+                                        {**proj, "roof": {"kind": "hip", "pitch": 0.1, "mansard": {"rise_m": 2.5, "lower_pitch_deg": 75}}}),
+        "a dormer whose head meets the curb is refused")
+bays_ = {b["id"]: b for b in p.bays}
+check(len(bays_["p_forward"].get("mansard_dormers", ())) == 1 and len(bays_["p_18th"].get("mansard_dormers", ())) == 2,
+      "1729's forward block carries one dormer and its 18th Street pavilion two")
+check(not any(d["face"] == "street" and d["along_m"] < 2.0 for d in p.mansard["dormers"]),
+      "1729's north-west dormer no longer stands on the main mansard behind the forward block")
+asm = K1.build(p, SID)
+face = asm.prims["dormer_stone"].pos
+fw = [q for q in face if abs(q[0] - 30.92) < 0.03 and -5.0 < q[2] < -3.4]
+pv = [q for q in face if abs(q[2] + 20.62) < 0.03 and (17.0 < q[0] < 18.5 or 11.6 < q[0] < 13.1)]
+check(len(fw) > 20, f"the forward block's dormer face stands on its front ({len(fw)} vertices)")
+check(len(pv) > 40, f"the pavilion's two dormer faces stand on its front ({len(pv)} vertices)")
+
 if failures:
     print(f"\n{len(failures)} failure(s)")
     sys.exit(1)
-print("\nall belt and eared-hood checks pass")
+print("\nall belt, eared-hood and projection-dormer checks pass")

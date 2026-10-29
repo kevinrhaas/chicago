@@ -129,7 +129,7 @@
   },
   "town_wagons": {
     "path": "data/yard/town_trade_goods.json",
-    "sha256": "a1feb467bc1092f23a8bde0bafe26a27b528670d5cc2b663d74f6ec1b369af5c",
+    "sha256": "3fee4d86d1fc5d2858aed1811e8cae7ec4132226c78619f4e86372f8abd285fb",
     "record_count": 81,
     "form_keys": [
       "barrel_height_m",
@@ -146,7 +146,31 @@
       "shed_timber_m",
       "shed_pitch_deg",
       "marks"
-    ]
+    ],
+    "baseline_transition": {
+      "previous_sha256": "a1feb467bc1092f23a8bde0bafe26a27b528670d5cc2b663d74f6ec1b369af5c",
+      "accepted_dev": "ec16b8dd726fa7852ede885ef2d754d55b9b4c59",
+      "upstream_commit": "f2635549179a61fd684336248418ba1e48aaeea9",
+      "ticket": "T-2376",
+      "reason": "Accepted DEV aligns the Green Tree front wagon bay and its existing wagon together by 8.14 m. Preserve that incoming placement, not the older pre-integration coordinates. All 81 wagon/cart records remain protected; all 80 other records, the remaining fields of this wagon, forms, dimensions, eligibility and refusals are exactly unchanged.",
+      "record_id": "green_tree_tavern_shed_wagon",
+      "changes": {
+        "at_local_enu_m": {
+          "from": [
+            -26.73,
+            -86.97
+          ],
+          "to": [
+            -34.87,
+            -86.97
+          ]
+        },
+        "clearance_m": {
+          "from": 11.45,
+          "to": 3.31
+        }
+      }
+    }
   },
   "fine_wood_selection": {
     "path": "data/transport/parked/placements.json",

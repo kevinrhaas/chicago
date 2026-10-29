@@ -1,4 +1,77 @@
 export const CHANGELOG = [ // newest first
+  { v: 2424, ts: '2026-10-29T20:57:48.483Z', date: 'Oct 29, 2026, 3:57 PM CT', title: 'The Pullman house\'s pavilion roofs gain their own dormers', kind: 'improvement',
+    items: [
+      'The forward block over the Prairie Avenue door now has its own dormer on its mansard, where the 1900s photograph shows it. Until now it sat on the roof behind and was hidden.',
+      'The 18th Street pavilion\'s mansard gains two hooded dormers, one over its pair of windows and one over its triple, as the 1890s photograph shows them.',
+      'Still to come: the broken pediment over the large front dormer, and the oculus in the pavilion\'s pier.',
+    ] },
+  { v: 2423, ts: '2026-10-29T20:15:01.843Z', date: 'Oct 29, 2026, 3:15 PM CT', title: '1700-1708 Prairie in red brick, with white porches and trim', kind: 'fix',
+    items: [
+      'The Glessner townhouses at 1700 and 1706 Prairie are red-brown brick now, not buff: in all three photographs the brick prints darker than the houses\' own slate, which a buff brick can\'t do on plates of the period.',
+      'Their porches, cornice, dormers and window sash are painted white, as every picture shows them, where they had been beige stone and dark green.',
+      '1708 Prairie\'s front is the same red-brown brick over its light stone basement.',
+      'The rest of the block was checked picture by picture (1701, 1720, 1729, 1736 agree with their builds; 1709 and 1721 are drawings, 1712, 1726 and 1730 have no pictures).',
+    ] },
+  { v: 2422, ts: '2026-10-29T20:03:02.503Z', date: 'Oct 29, 2026, 3:03 PM CT', title: 'Nothing you can see: Taylor\'s Pullman photograph re-aimed from across 18th Street', kind: 'fix',
+    items: [
+      'Nothing in the town changes. Taylor\'s photograph of Pullman\'s palm house is now matched from the spot it was taken, about 21 m south of the lot line across 18th Street, with the 18th Street wall in the fit. The comparison used to put the camera 10 m from the wall, which drew the wall twice as near as the photograph shows it.',
+      'Through the corrected camera the wall\'s foot and pier tops sit within a few pixels of the photograph. That shows what the old camera hid: east of the palm house the photograph has a way into the court about 4 m wide, where the build has a 0.95 m opening. The stable also reads about 0.8 m lower in the photograph than in the build. Both stay open in the match records, because the 1894 plate agrees with the build.',
+    ] },
+  { v: 2421, ts: '2026-10-29T19:32:15.863Z', date: 'Oct 29, 2026, 2:32 PM CT', title: 'Pullman\'s garden lodge gets its second roof', kind: 'improvement',
+    items: [
+      'The lodge across 18th Street from the Pullman house now has its front in two parts, as the 1894 Inland plate and Lowe\'s print of about 1897 both show it. The west part stands forward with a quoined corner under a hipped roof of its own, just below the main roof\'s crested deck, and the loggia and balcony sit back beside it.',
+    ] },
+  { v: 2420, ts: '2026-10-29T18:58:53.753Z', date: 'Oct 29, 2026, 1:58 PM CT', title: '1906 Prairie\'s tower brought down to its 1898 picture', kind: 'improve',
+    items: [
+      'The Edson Keith house at 1906 Prairie now matches the Tribune\'s 1898 sketch of its front: the tower at its south end is broader and stops just above the cornice, the porch is wider, and a turned stone balustrade runs along the terraces and down the stoop. The mansard photograph long captioned 1906 is the house next door, at 1900.',
+    ] },
+  { v: 2419, ts: '2026-10-29T18:38:42.329Z', date: 'Oct 29, 2026, 1:38 PM CT', title: '1720 Prairie lined up on its door, and painted a stone colour', kind: 'fix',
+    items: [
+      'The door, the porch\'s middle arch and its stair, the hood, the window over it, the attic window and the front gable now share one axis down the middle of the front.',
+      'The upper storey\'s windows are spread evenly either side of it, clear of the bay, and the gate and front walk come straight out from the stair.',
+      'The walls are a light fawn stone colour, not white: the old photograph shows them clearly darker than their trim, and the colour analysis is in the research notes.',
+      'The photograph has the door a little north of the porch\'s middle; the owner asked for it centred, and it is recorded as a liberty.',
+    ] },
+  { v: 2418, ts: '2026-10-29T18:19:40.871Z', date: 'Oct 29, 2026, 1:19 PM CT', title: 'Pullman\'s 18th Street wall gets its urn', kind: 'improvement',
+    items: [
+      '1729 Prairie\'s 18th Street wall now carries the stone urn that the 1894 Inland Architect plate shows on its fifth pier, in front of the stable. Read at full size, it is a single squat lidded urn about 0.4 m across. The turned shape is the shared kit\'s; the size comes from the plate.',
+    ] },
+  { v: 2417, ts: '2026-10-29T17:44:47.340Z', date: 'Oct 29, 2026, 12:44 PM CT', title: '1801 Prairie\'s stone wall gable stands at its south-east corner', kind: 'improvement',
+    items: [
+      'The Kimball house\'s south wall now rises at its rear corner into the steep coped stone gable that the 1965 survey photograph shows behind the rear chimney, with a pair of small windows at its foot just over the cornice.',
+      'Its height, outline and windows were matched to the photograph; its depth and the half the chimney hides are our reconstruction, and the cornice that should run on beneath it is still to come.',
+    ] },
+  { v: 2416, ts: '2026-10-29T17:02:38.005Z', date: 'Oct 29, 2026, 12:02 PM CT', title: 'Tremont\'s pictured hotel and Green Tree\'s wagon bay', kind: 'improvement',
+    items: [
+      'The first Tremont keeps Gifford\'s pictured three storeys and shutters, with the yellow walls Gale described. Gale\'s smaller two-storey account remains a separately labelled version; no dated enlargement is claimed.',
+      'Tremont\'s Images card now opens Gifford\'s attributed drawing. Its original publication and rights remain unresolved; this is the owner\'s approved reference copy.',
+      'Green Tree\'s south wall has seven sash on each floor: the lower middle doorway gives way to the pictured window. Gray\'s later doorway recollection remains explicit counterevidence, and the enclosed-annex discrepancy remains open.',
+      'Green Tree\'s existing open wagon bay and covered wagon stand beside the front gable along the same north wall. Their exact July-1835 presence and dimensions remain reconstructed. The freed yard space admits two reconstructed fuel ricks and a chopping block under the existing household rule.',
+    ] },
+  { v: 2415, ts: '2026-10-29T16:43:01.013Z', date: 'Oct 29, 2026, 11:43 AM CT', title: 'Pullman\'s 18th Street wall runs on past the palm house', kind: 'improvement',
+    items: [
+      'The low stone wall along 18th Street now carries on past the Pullman house, in front of the palm house and the stable, as the 1894 Inland Architect plate shows it.',
+      'Five tall square piers stand along it, with the openings onto the terrace\'s two flights and the low curved wall rising to the piers between them.',
+      'The estate\'s pictures are now compared with their trees and garden planting drawn in.',
+    ] },
+  { v: 2414, ts: '2026-10-29T16:39:30.744Z', date: 'Oct 29, 2026, 11:39 AM CT', title: 'Pullman\'s garden lodge: its rounded corner, balcony and columns', kind: 'improvement',
+    items: [
+      'The small stone lodge beside the Pullman conservatory, across 18th Street from the house, now looks more like the 1894 Inland Architect plate. Its upper storey turns the north-east corner on a gentle curve, and the roof\'s edge flares out and down over that corner. A balcony with an open balustrade runs above the porch and curves round at its east end. Two round columns now stand between the porch\'s three openings, where there had been flat piers.',
+      'The lead deck on top of the roof is now ringed by open ironwork with a tall spire at each corner, as the plate shows, instead of plain posts and a rail.',
+      'The curve\'s exact plan, the balcony\'s depth and its balusters cannot be measured from the plate, so they are recorded as reconstructions.',
+    ] },
+  { v: 2413, ts: '2026-10-29T15:16:02.540Z', date: 'Oct 29, 2026, 10:16 AM CT', title: 'Pullman\'s conservatory: its dome set where its photographs put it', kind: 'improvement',
+    items: [
+      'The glass dome over the Pullman conservatory, across 18th Street from the house, now stands about 1.8 m further north along the glasshouse, over the front half of its transept. The 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both place it there. It is also a little lower, and its finial is now a turned iron ornament with a flared foot, a bulb and a spike, as both pictures show. It used to be a thin stick.',
+      'Neither picture can say whether the dome sits slightly off the middle of the glasshouse\'s width, so it is kept on the centre line. The finial\'s exact profile is read off the plate. Both are recorded as reconstructions.',
+    ] },
+  { v: 2412, ts: '2026-10-29T15:13:07.803Z', date: 'Oct 29, 2026, 10:13 AM CT', title: '1701 Prairie, the Hibbard house, built from its photographs', kind: 'feature',
+    items: [
+      'The Hibbard house at 1701 Prairie Avenue is no longer a rough draft: its Italianate main block stands two brick storeys over a stone basement, under a hipped roof and a deep cornice on paired brackets.',
+      'Its round-headed windows stand where the 1880s photograph of the front shows them, on the front and along the south side, and its two-storey stone bay rises on the front\'s south part.',
+      'Behind it, the 1874 rear range runs back toward the lake as tall as the house, as the rear photograph shows it.',
+      'The model is now checked against both photographs from the spots they were taken. The corner porch, the roof deck, the lower south range and the rear veranda come next.',
+    ] },
   { v: 2411, ts: '2026-10-29T14:27:53.245Z', date: 'Oct 29, 2026, 9:27 AM CT', title: '1906 Prairie Avenue — the Edson Keith house built from its engraving', kind: 'feature',
     items: [
       'Edson Keith\'s house at 1906 Prairie, a generic draft block until now, stands as the Italianate stone front of its engraving and of the Tribune\'s 1898 sketch: two storeys over a raised basement under a low hipped roof and a deep bracketed cornice, with round-arched windows under hoods.',

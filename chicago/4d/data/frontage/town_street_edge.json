@@ -41,7 +41,7 @@
       "state"
     ],
     "faces_laid": 99,
-    "walk_m": 9072.9,
+    "walk_m": 9067.7,
     "crossing_m": 2430.7,
     "fence_m": 1929.1,
     "walking_decks": 856,
@@ -72,7 +72,7 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 9072.9,
+        "value": 9067.7,
         "confidence": "reconstructed",
         "sources": [],
         "note": "111 run(s) of sidewalk on 99 platted block face(s), plus 2430.7 m of board crossing at 103 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
@@ -15033,8 +15033,8 @@
       "chunk": "blk_south_water_clark_east_1",
       "centreline_local_enu_m": [
         [
-          687.28,
-          -92.75
+          687.31,
+          -87.59
         ],
         [
           687.5,
@@ -15055,30 +15055,30 @@
           "y": 0.91,
           "pts": [
             [
-              686.36,
-              -92.83
+              686.4,
+              -87.67
             ],
             [
-              686.49,
-              -72.02
+              686.53,
+              -66.86
             ],
             [
-              688.32,
-              -72.03
+              688.36,
+              -66.87
             ],
             [
-              688.19,
-              -92.84
+              688.23,
+              -87.68
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.007
         },
         {
-          "y": 0.905,
+          "y": 0.904,
           "pts": [
             [
-              686.49,
-              -72.18
+              686.52,
+              -67.02
             ],
             [
               686.59,
@@ -15089,14 +15089,14 @@
               -56.54
             ],
             [
-              688.32,
-              -72.19
+              688.35,
+              -67.03
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.009
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_south_water_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 10.3 m to 46.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_south_water_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 15.5 m to 46.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_clark_east_walk_2",
@@ -29366,8 +29366,8 @@
       "trade": "hotel",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        681.16,
-        -106.01
+        676.75,
+        -105.97
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -29392,8 +29392,8 @@
       "trade": "hotel",
       "trade_confidence": "attested",
       "at_local_enu_m": [
-        685.2,
-        -106.04
+        683.49,
+        -106.03
       ],
       "facade_bearing_deg": 180.5,
       "post_height_m": 1.3,
@@ -31280,8 +31280,8 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        683.18,
-        -106.02
+        680.12,
+        -106.0
       ],
       "facade_bearing_deg": 180.5,
       "along_frontage_frac": 0.5,
@@ -31289,8 +31289,8 @@
         {
           "part": "low_step",
           "at_local_enu_m": [
-            683.18,
-            -105.87
+            680.12,
+            -105.85
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -31299,8 +31299,8 @@
         {
           "part": "high_step",
           "at_local_enu_m": [
-            683.18,
-            -106.18
+            680.12,
+            -106.15
           ],
           "len_m": 0.91,
           "depth_m": 0.305,
@@ -31323,16 +31323,16 @@
       "trade_confidence": "attested",
       "business_class": "inn",
       "at_local_enu_m": [
-        683.24,
-        -101.83
+        680.19,
+        -101.82
       ],
       "facade_bearing_deg": 180.5,
-      "along_frontage_frac": 0.503,
+      "along_frontage_frac": 0.502,
       "parts": [
         {
           "part": "landing",
           "at_local_enu_m": [
-            683.24,
+            680.2,
             -101.09
           ],
           "len_m": 1.52,
@@ -31342,7 +31342,7 @@
         {
           "part": "step",
           "at_local_enu_m": [
-            683.24,
+            680.19,
             -101.78
           ],
           "len_m": 1.52,
@@ -31352,15 +31352,15 @@
         {
           "part": "boards",
           "at_local_enu_m": [
-            683.23,
-            -102.61
+            680.18,
+            -102.6
           ],
           "len_m": 1.216,
-          "depth_m": 1.367,
+          "depth_m": 1.342,
           "top_m": 0.11
         }
       ],
-      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — at the door its front elevation states (T-1984) — its front wall stands 2.49 m back of the lot line at the door, so the stoop spans 2.74 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.37 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+      "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Tremont House (the first). WHY HERE is a rule and not a placement: the front's trade is `hotel` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_clark's south face — at the door its front elevation states (T-1984) — its front wall stands 2.46 m back of the lot line at the door, so the stoop spans 2.71 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 1.34 m of boards, on committed ground at +0.79 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
       "id": "blk_south_water_dearborn_north_stoop_chicago_american_office",
@@ -33520,7 +33520,7 @@
     {
       "structure_id": "blk_lake_clark_east_crossing_blk_south_water_clark_east",
       "wall": "corner crossing",
-      "why": "the two walks stop 34.7 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+      "why": "the two walks stop 39.9 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "blk_lake_clark_east_fences",
@@ -33880,7 +33880,7 @@
     {
       "structure_id": "blk_south_water_clark_lot7",
       "wall": "blk_south_water_clark south face, lot 7",
-      "why": "tremont_house_1 stands 2.45 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "tremont_house_1 stands 2.40 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_clark_west_fences",

@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1701_hibbard_photo",
+ "type": "photograph",
+ "citation": "[1701 S. Prairie Avenue, the William G. Hibbard residence.] Photograph of the front and south flank from the west side of Prairie Avenue; photographer and original holder not named. Reproduced by Chicagology, '1701 Prairie Avenue' (chicagology.com/chicagostreets/prairieavenue/1701prairie/); the same negative is reproduced in two halftones on the Glessner House Museum's blog.",
+ "author": "unknown photographer",
+ "date": "undated (after the 1874 addition; the Prairie library's dating, probably 1880s-1890s)",
+ "describes_date": "after 1874",
+ "repository": "Chicagology (secondary reproduction; the original holder is not named). Prairie library image cgn-1701-hibbard-photo-wide, recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/cgn-1701-hibbard-photo-wide.jpg), committed since T-3240 at data/sources/assets/hibbard_1701_photos_t3240/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1701prairie/",
+ "locator": "The whole photograph, 1945 x 1207 px: the street front receding left to the corner porch, the south flank receding right to the house's south-east corner.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-29 (T-3240) from the image store's reference copy, 1945 x 1207 px greyscale.",
+ "note": "A photograph of the Hibbard house from the SOUTH-WEST (the library's caption says north-west, but the face on the left carries the stone porch the 1911 sheet draws on the front's north end): the brick front with its corner porch's stone arcade, a tall arched entrance and a two-storey stone bay; the south flank with a lower one-storey range before it under a railed balcony; round-headed lights under eared stone hoods; quoin pilasters; a deep cornice on paired brackets; a low roof to a deck railed with pierced panels and a tall stack; an iron fence of interlaced loops on a stone curb. Bare trees, overcast.",
+ "what_it_supplies": [
+  "the front's and the south flank's composition: the porch, the entrance, the bay and the lower south range",
+  "the storeys' heights and the lights' places and sizes through its solved camera (data/reference_views/hibbard_house_1701_prairie/chicagology_front.json)",
+  "the cornice, the roof's deck and rail and the stack",
+  "the fence"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the photograph is monochrome",
+  "the north wall and the rear",
+  "a date"
+ ]
+}
