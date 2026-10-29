@@ -1049,8 +1049,8 @@
     "green_tree_tavern__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 211760,
-      "inputs_sha256": "fd6b452a11527dc4d4c5b518e0584bdf97042b71fa461c21324121e83ea35bdb",
+      "bytes": 212028,
+      "inputs_sha256": "38d1d02c87618a7a6af8b67bef60a97f3c8a72e3bfc3a882802040ea1c04167d",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "green_tree_tavern"
@@ -9348,8 +9348,8 @@
     "tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 276104,
-      "inputs_sha256": "717398e00f8c2d31353e07b3afbae89cd2679969283210b5572ef6f1f35ba70f",
+      "bytes": 445044,
+      "inputs_sha256": "a3a68fd5ce5684517f12b99dc6874c9de2107f0a6e185f4103ed7d96f4f1365c",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"

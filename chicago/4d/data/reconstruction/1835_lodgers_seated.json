@@ -1333,7 +1333,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 12,
+   "beds_ordinary": 10,
    "beds_crowded": 35,
    "occupied_before": 4,
    "keeper_household": "hh_murphy_john",
@@ -1346,7 +1346,7 @@
    "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 11
   },
   {
@@ -1358,7 +1358,7 @@
    "division": "west",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "west",
-   "beds_ordinary": 9,
+   "beds_ordinary": 8,
    "beds_crowded": 35,
    "occupied_before": 8,
    "keeper_household": "hh_ingersoll_chester",
@@ -1371,7 +1371,7 @@
    "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 8
   },
   {
@@ -1408,7 +1408,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 5,
+   "beds_ordinary": 4,
    "beds_crowded": 35,
    "occupied_before": 6,
    "keeper_household": "hh_haddock_edward",
@@ -1433,7 +1433,7 @@
    "division": "south",
    "division_from": "the district data/reconstruction/1835_existing_roof_reconciliation.json already settles this documented roof into (T-1535)",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 9,
+   "beds_ordinary": 8,
    "beds_crowded": 35,
    "occupied_before": 0,
    "keeper_household": null,
@@ -1448,7 +1448,7 @@
    "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 8
   },
   {
@@ -1873,7 +1873,7 @@
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
-   "beds_ordinary": 10,
+   "beds_ordinary": 9,
    "beds_crowded": 35,
    "occupied_before": 0,
    "keeper_household": null,
@@ -1952,7 +1952,7 @@
    "division": "south",
    "division_from": "the district data/reconstruction/1835_existing_roof_reconciliation.json already settles this documented roof into (T-1535)",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 8,
+   "beds_ordinary": 7,
    "beds_crowded": 35,
    "occupied_before": 0,
    "keeper_household": null,
@@ -1969,7 +1969,7 @@
    "minted_children": 0,
    "occupancy_after": 7,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 7
   },
   {
@@ -1981,7 +1981,7 @@
    "division": "north",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "north",
-   "beds_ordinary": 12,
+   "beds_ordinary": 10,
    "beds_crowded": 35,
    "occupied_before": 8,
    "keeper_household": "hh_davis_john",
@@ -2006,7 +2006,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "south",
-   "beds_ordinary": 6,
+   "beds_ordinary": 17,
    "beds_crowded": 35,
    "occupied_before": 2,
    "keeper_household": "hh_couch_ira",
@@ -2025,7 +2025,7 @@
    "minted_children": 0,
    "occupancy_after": 12,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": true,
+   "at_its_ordinary_night_figure": false,
    "allocation_beds_ordinary": 12
   },
   {
@@ -2037,7 +2037,7 @@
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
    "district_in_the_roof_reconciliation": "west",
-   "beds_ordinary": 16,
+   "beds_ordinary": 14,
    "beds_crowded": 35,
    "occupied_before": 4,
    "keeper_household": "hh_stow_william_h",
@@ -2054,7 +2054,7 @@
    "minted_children": 0,
    "occupancy_after": 15,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 15
   },
   {
@@ -4941,42 +4941,27 @@
    {
     "place": "exchange_coffee_house",
     "allocation_beds_ordinary": 11,
-    "current_beds_ordinary": 12
-   },
-   {
-    "place": "green_tree_tavern",
-    "allocation_beds_ordinary": 8,
-    "current_beds_ordinary": 9
-   },
-   {
-    "place": "new_york_house",
-    "allocation_beds_ordinary": 8,
-    "current_beds_ordinary": 9
-   },
-   {
-    "place": "recon_1835_north_t1_061",
-    "allocation_beds_ordinary": 9,
     "current_beds_ordinary": 10
    },
    {
-    "place": "sauganash_hotel",
-    "allocation_beds_ordinary": 7,
-    "current_beds_ordinary": 8
+    "place": "mansion_house",
+    "allocation_beds_ordinary": 5,
+    "current_beds_ordinary": 4
    },
    {
     "place": "steamboat_hotel",
     "allocation_beds_ordinary": 11,
-    "current_beds_ordinary": 12
+    "current_beds_ordinary": 10
    },
    {
     "place": "tremont_house_1",
     "allocation_beds_ordinary": 12,
-    "current_beds_ordinary": 6
+    "current_beds_ordinary": 17
    },
    {
     "place": "western_hotel",
     "allocation_beds_ordinary": 15,
-    "current_beds_ordinary": 16
+    "current_beds_ordinary": 14
    },
    {
     "place": "wolf_point_tavern",
@@ -4998,12 +4983,12 @@
   "keeper_children_refused": 10,
   "people_on_the_cards": 157,
   "occupied_after_this_stage": 220,
-  "ordinary_night_beds_slept_in": 212,
-  "ordinary_night_beds_still_empty": 40,
-  "occupants_above_ordinary_night_figure": 8,
+  "ordinary_night_beds_slept_in": 215,
+  "ordinary_night_beds_still_empty": 37,
+  "occupants_above_ordinary_night_figure": 5,
   "ordinary_night_net_balance": 32,
   "allocation_authorized_empty_beds": 32,
-  "houses_at_their_ordinary_night_figure": 17,
+  "houses_at_their_ordinary_night_figure": 21,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 30,
@@ -5016,9 +5001,9 @@
    "built_places_holding_a_household": 22,
    "built_places_holding_no_household": 6,
    "ordinary_night_beds": 252,
-   "ordinary_night_beds_slept_in": 212,
-   "ordinary_night_beds_still_empty": 40,
-   "occupants_above_ordinary_night_figure": 8,
+   "ordinary_night_beds_slept_in": 215,
+   "ordinary_night_beds_still_empty": 37,
+   "occupants_above_ordinary_night_figure": 5,
    "ordinary_night_net_balance": 32,
    "households_the_book_orders_in_these_two_classes": 56,
    "houses_this_stage_has_filled": 22,
@@ -5027,10 +5012,10 @@
     {
      "place": "green_tree_tavern",
      "name": "Green Tree Tavern",
-     "beds_ordinary": 9,
+     "beds_ordinary": 8,
      "occupancy": 8,
-     "owed_a_lodging_household": true,
-     "why": "It has room and holds no lodging household: this stage owes it one."
+     "owed_a_lodging_household": false,
+     "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
     },
     {
      "place": "kelsey_boarding_house",
@@ -5043,7 +5028,7 @@
     {
      "place": "mansion_house",
      "name": "Mansion House",
-     "beds_ordinary": 5,
+     "beds_ordinary": 4,
      "occupancy": 6,
      "owed_a_lodging_household": false,
      "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
@@ -5051,7 +5036,7 @@
     {
      "place": "steamboat_hotel",
      "name": "Steamboat Hotel",
-     "beds_ordinary": 12,
+     "beds_ordinary": 10,
      "occupancy": 8,
      "owed_a_lodging_household": true,
      "why": "It has room and holds no lodging household: this stage owes it one."

@@ -1593,14 +1593,6 @@
       "sole_support": true,
       "confidence": "attested"
     },
-    "green_tree_tavern/frame_1833/form.side_entrance": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_prefire127"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
     "green_tree_tavern/frame_1833/form.stories": {
       "kind": "structure",
       "blocked_sources": [
