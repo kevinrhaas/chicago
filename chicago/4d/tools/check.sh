@@ -55,6 +55,8 @@ step "Native palisade heads retain total height, outward normals, open gates and
   node tools/test_enclosure_points.mjs
 step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
   node tools/test_photo_match_enclosures.mjs
+step "Picture comparisons bind the planting drawn, its grown-plant renderers and anchor placement (T-1881)" \
+  node tools/test_photo_match_flora.mjs
 
 selftest "Smoke input hashes retain page changes and hash published release metadata with the notes (T-2380)" \
   node tools/test_dev_smoke_state.mjs --self-test

@@ -39,6 +39,9 @@
 //                  key at sun_uvy (straight overhead when absent) that casts no shadow, and
 //                  lets the sky do most of the work, so a face the picture shows unlit is not
 //                  raked by the review sun
+//   flora          optional planting drawn with the app's own grown plants (T-1881): lots of
+//                  the scene's front yards and the parkway trees near the anchor, in the
+//                  picture's season (tools/photo_match_flora.mjs)
 //   near_m         optional near depth (>0, <500 m); distant drawing cameras need
 //                  a near plane close to their subject to resolve millimetre layers
 //   clip_planes    optional section cuts: {normal:[east,north,up],constant:metres};
@@ -62,6 +65,7 @@ import os from 'node:os';
 import {createRequire} from 'node:module';
 import {renderGroup, groupReview} from './photo_match_group.mjs';
 import {enclosureReview} from './photo_match_enclosures.mjs';
+import {floraReview} from './photo_match_flora.mjs';
 const root = process.cwd(), require = createRequire(path.join(root, 'tools/qa.mjs'));
 const {chromium} = require('playwright');
 const args = process.argv.slice(2);
@@ -81,6 +85,7 @@ const members = renderGroup(root, cam, {glb: opt('--glb')});
 const glb = members[0].glb;
 const group = members.length > 1 ? groupReview(root, members) : null;
 const enclosures = enclosureReview(root, cam);
+const flora = floraReview(root, cam);
 const out = opt('--out') || path.join('docs/RESEARCH/photo-match', cam.structure_id);
 const name = path.basename(camFile, '.json');
 const photo = path.resolve(path.dirname(camFile), cam.photo);
@@ -94,7 +99,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], enclosures: enclosures ? {anchor: enclosures.anchor, ids: cam.enclosures} : null, members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], enclosures: enclosures ? {anchor: enclosures.anchor, ids: cam.enclosures} : null, flora: flora ? {anchor: flora.anchor, scene: cam.scene, season: flora.season, yards: !!flora.docs.front_yards, street: !!flora.docs.street_trees} : null, members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
@@ -143,6 +148,32 @@ Promise.all(c.members.map(async member=>{
   layer.group.position.set(-anchor.local_e,0,anchor.local_n);
   frame.add(layer.group);s.add(frame);
  }
+ if(c.flora){
+  // the app's own grown plants, in the anchor's frame as the enclosures are; their levels
+  // are dealt from the eye as it stands in the plants' own frame
+  const a=c.flora.anchor,frame=new THREE.Group(),inner=new THREE.Group();
+  frame.rotation.y=a.rotation_deg*Math.PI/180;inner.position.set(-a.local_e,0,a.local_n);frame.add(inner);s.add(frame);
+  const problems=[],terrain={surfaceHeight:()=>0,isWater:()=>false},base=new URL('/__photo_flora/',location.href);
+  let mats=null;
+  const layers=[];
+  if(c.flora.street){
+   const {createStreetTrees}=await import('/renderers/web/js/street-trees.js');
+   const st=await createStreetTrees({dataBase:base,sceneId:c.flora.scene,terrain,problems,mode:c.flora.season});
+   if(!st.stats.trees)throw Error('flora: no parkway tree drawn: '+problems.join('; '));
+   mats=st.materials??null;layers.push(st);
+  }
+  if(c.flora.yards){
+   const {createFrontYards}=await import('/renderers/web/js/front-yards.js');
+   const fy=await createFrontYards({dataBase:base,sceneId:c.flora.scene,terrain,problems,mode:c.flora.season,grownMaterials:mats});
+   if(!fy.stats.lots)throw Error('flora: no front yard drawn: '+problems.join('; '));
+   layers.push(fy);
+  }
+  if(problems.length)throw Error('flora review failed: '+problems.join('; '));
+  s.updateMatrixWorld(true);cam.updateMatrixWorld(true);
+  const eye={position:inner.worldToLocal(cam.getWorldPosition(new THREE.Vector3()))};
+  for(const l of layers){inner.add(l.group);l.update(0,eye);l.settle(eye);}
+  s.traverse(o=>{if(o.isMesh||o.isInstancedMesh)o.castShadow=o.receiveShadow=true;});
+ }
  r.render(s,cam);window.__done=true;
 })
  .catch(e=>{window.__error=String(e);});
@@ -152,6 +183,12 @@ const server = http.createServer((req, res) => {
   const u = decodeURIComponent(req.url.split('?')[0]);
   if (u === '/__photo_match.html') { res.writeHead(200, {'Content-Type': 'text/html'}); return res.end(page_html); }
   if (u === '/__photo') { res.writeHead(200, {'Content-Type': 'image/jpeg'}); return fs.createReadStream(photo).pipe(res); }
+  if (flora && u.startsWith('/__photo_flora/')) {
+    const m = /^\/__photo_flora\/(front_yards|street_trees)\/([a-z0-9_]+)\.json$/.exec(u);
+    if (!m || m[2] !== cam.scene || !flora.docs[m[1]]) { res.writeHead(404); return res.end(); }
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    return res.end(JSON.stringify(flora.docs[m[1]]));
+  }
   if (enclosures && u.startsWith('/__photo_enclosures/enclosures/')) {
     const file = u.slice('/__photo_enclosures/enclosures/'.length);
     if (file === 'index.json') {
@@ -175,7 +212,7 @@ try {
   const page = await browser.newPage({viewport: {width: W, height: H}, deviceScaleFactor: 1});
   const errors = [];
   page.on('pageerror', e => errors.push(String(e)));
-  await page.goto(base + '/__photo_match.html', {waitUntil: 'domcontentloaded', timeout: 180000});
+  await page.goto(base + '/__photo_match.html?assets=/assets/', {waitUntil: 'domcontentloaded', timeout: 180000});
   await page.waitForFunction(() => window.__done || window.__error, null, {timeout: 300000, polling: 500});
   const err = await page.evaluate(() => window.__error);
   if (err || errors.length) throw Error(err || errors.join('\n'));
@@ -199,12 +236,14 @@ try {
   const glbSha = sha(glb), camSha = sha(camFile), photoSha = sha(photo);
   const same = was.glb_sha256 === glbSha && was.camera_sha256 === camSha
     && was.photo_sha256 === photoSha && (!group || was.group_sha256 === group.group_sha256)
-    && (!enclosures || was.enclosures_sha256 === enclosures.review.enclosures_sha256);
+    && (!enclosures || was.enclosures_sha256 === enclosures.review.enclosures_sha256)
+    && (!flora || was.flora_sha256 === flora.review.flora_sha256);
   const rec = {
     structure_id: cam.structure_id, view: name, glb: glb.replace(/\\/g, '/'), glb_sha256: glbSha, camera_sha256: camSha,
     photo_sha256: photoSha,
     ...(group || {}),
     ...(enclosures?.review || {}),
+    ...(flora?.review || {}),
     side_by_side: path.relative(root, side).replace(/\\/g, '/'),
     verdict: same && was.verdict ? was.verdict : 'unreviewed',
     differences: Array.isArray(was.differences) ? was.differences : [],

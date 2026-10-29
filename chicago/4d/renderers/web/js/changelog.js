@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2397, ts: '2026-10-29T05:29:01.536Z', date: 'Oct 29, 2026, 12:29 AM CT', title: 'The Pullman house\'s stepped front, porte-cochère and 18th Street wall re-read', kind: 'feature',
+    items: [
+      'At 1729 Prairie, the front over the door and the 18th Street pavilion stand forward again under their own roofs, as the photographs show them, and the porte-cochère moves to its mapped place in front of the pavilion with its arches resized.',
+      'The low stone wall now runs on along 18th Street past the house, stepping down between square piers, and the comparison pictures now draw the lot\'s planting and the street trees.',
+      'Still not matching the photographs: the dormers and their hoods, the belt course between the storeys, the wall\'s balustrade, and the street trees\' places and winter form.',
+    ] },
   { v: 2396, ts: '2026-10-29T05:06:00.845Z', date: 'Oct 29, 2026, 12:06 AM CT', title: 'What\'s New lists new work again without waiting for the next change', kind: 'fix',
     items: [
       'Half of yesterday\'s What\'s New updates timed out before they ran, so new work, such as 1812 Prairie\'s entrance, sat unlisted until a later change carried it in. The update now downloads only the text it reads, about a seventh as much as before.',

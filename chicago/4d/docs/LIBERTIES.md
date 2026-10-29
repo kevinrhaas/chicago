@@ -35556,6 +35556,33 @@ balustrades.
 **Ticket:** T-1934.
 **Recorded:** 2026-10-28 (T-1934).
 
+### L-k01-1729-pullman-massing-1881 — 1729 Prairie's forward block, 18th Street pavilion, porte-cochere and 18th Street wall re-read off the 1911 sheet and both photographs
+
+**Decision:** the Pullman house (T-1881, reopened on the owner's report of 2026-10-28 that it was
+"still way off from a photographic match") stands its two projections again, each carried full
+height under its own mansard, where T-3161 had taken the 18th Street one off and the Prairie front
+stood flat behind pavilion piers: a forward block over the door on the Prairie front (`bays`
+p_forward, 6.5 m wide and 2.95 m proud, v 2.0-8.5) with banded corner piers and two round-arched
+lights on its second storey, and the 18th Street pavilion (p_18th, s 8.3-18.55, 2.47 m out) with the
+pair and triple of narrow round-headed lights Taylor's photograph no. 1445 draws over the
+porte-cochere. The porte-cochere moves to the 1911 sheet's footprint (s 8.25-12.75, 5.97 m out), in
+front of the pavilion. The 18th Street coping wall is carried on past the house to u 8.6 with three
+square piers and a lower course between the first two.
+**What is read, not invented.** The block's and the pavilion's plan off the 1911 sheet's outer
+lines; their standing forward under their own cornices and mansards in the Detroit print, Taylor's
+no. 1445 and the 1890 Albertype plate; the pavilion's lights and the wall's piers and heights through
+Taylor's solved camera (`data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json`).
+**What is invented.** The places of the block's two upper lights on its front (taken symmetric: the
+Detroit print shows them either side of a tree); the banded piers' 0.4 m courses and 0.9 m width
+(the front's pavilion piers'); the porte-cochere's west and east arches 0.5 m in from Taylor's reading
+(the kit's least corner pier) and its front arch 0.3 m west of it; the piers' 0.9 m section and caps.
+**How to resolve:** a closer photograph of the Prairie front or of the 18th Street wall, or the
+house's drawings.
+**Subjects:** `pullman_house_1729_prairie`. The bays, porte-cochere and boundary are inferred from the sheet and the photographs; the invented details above are described here without claiming those inferred values as invented ones.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-28 (T-1881).
+
 ### L-k11-1736-coping-3234 — 1736 Prairie's front wall laid one height with its opening on the stair's line and turned along 18th Street; the stair's pier left out
 
 **Decision:** the coping wall before 1736 Prairie (McBirney) is reworked at the owner's call
