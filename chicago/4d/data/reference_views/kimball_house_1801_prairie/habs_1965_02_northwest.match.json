@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2aa7927295025904def2cec5bfdc8b602899231913ede868acd44f0dbc2b745c",
+  "glb_sha256": "e881d43731c71973672a31385f3fe2718673164def9d62ab621db78e132c940d",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -18,7 +18,8 @@
     },
     {
       "what": "the side door under the frontispiece's round-arched light: a narrow door at the walk (x 368-382, y 1092-1170, its head about 1.8 m) with a glazed panel; the build has none there (no K01 wing or K08 bay cuts a door)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890 cuts it (bays.p_door's lowest storey): K06's new k06.opening.door_glazed_narrow, one leaf with a solid panel to 0.85 m and a light of glass over it, 0.75 by 2.0 m in the kit's moulded surround, on the frontispiece's axis; K08's new `door` key runs it down through the plinth to the step and breaks the plinth either side. Re-rendered, the door stands about 13 px wide from y 1083 to the build's grade at about 1160, against the print's 14 px from 1092 to its walk at 1171: the whole wall's foot renders about 12 px over the print's walk through this camera, and the door's axis about 20 px east of the print's with the frontispiece (its place, above). The ornamental iron over its glass is finer than a visitor reads at the walk and is within tolerance"
     },
     {
       "what": "the east range's openings: the print's 18th Street face is blank ashlar between pilaster strips and string courses, with one column of lights a storey at x 283-300 (u about -12.6), the frontispiece's lights and nothing else between the turret and the gabled section; the build had three columns of sash on r2 and one on r3b. r2 now carries the one column at s 5.3 and r3b's light is taken out (the frontispiece stands there)",
