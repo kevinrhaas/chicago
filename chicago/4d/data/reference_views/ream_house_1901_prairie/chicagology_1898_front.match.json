@@ -2,11 +2,11 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_1898_front",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6b46379022f54ccbc6b119fe4ae5662cef4510c090bc36a177ab8b88e1e3539a",
+  "glb_sha256": "8ec22ad318ac1cf14da2aa8de4a4cc88f18eee7afd94a098d414d7b72cb10bb3",
   "camera_sha256": "14f76aa8024e261cc3af782ebc7db3595960408edb0eb41ba037596990d5255e",
   "photo_sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_1898_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's generic block is now the photograph's: a light ashlar house two storeys over a raised basement, 15.2 m of front, its wall head at about 10.75 m and the mansard's curb near 15.3 m; the house fills the print's x 130-820 px and the render's x 125-865 px",
@@ -98,8 +98,16 @@
       "how": "T-3206 adds the K14 walk from the stair to the public walk and stands the entrance gate open between the posts; the scroll fence is kept"
     },
     {
-      "what": "the stoop's height against its cheeks: both cameras put the build's cheek heads higher than the pictures' — the plate shows the porch's column plinths whole above the cheeks, their tops about 0.2 m under the plinths' foot (x 245-257 px, y 550-557 px), where the build's cheek top stands 0.85 m over the landing and hides them (y about 513 px); the plate's flight reads about 80 px from the walk to the landing (y about 635 to 553 px) where the build's projects to about 110 (649 to 540 px); and the pictures' cheeks run nearly parallel to the treads to a roll raised over the walk, pierced nearly to it, where the build's falls to the walk and its lowest metre is too low over the treads to hold an opening. One of the stoop's rise, its projection or the camera's depth (the 1898 solve's weakest number, and the stoop stands 6 m before the front it was fitted to) is wrong; which needs a camera fit against the stoop itself",
-      "status": "open"
+      "what": "the stoop's height against its cheeks (the pedestals whole between the floor at y about 556 px and the shafts' feet at about 527, the cheeks' heads at about 534-537 px, the flight from about 556 to 605 px): now the porch's floor stands at the base course's top, about 1.5 m over grade (entrance_floor_m, nine risers of about 0.17 m), the columns on pedestals 0.8 m tall standing on it (hood columns plinth_m), and the cheeks' heads 0.6 m over the floor (cheek_form head_m), so the pedestals show whole above the cheeks as the pictures draw them; the cheeks' rolls stand on a 0.4 m foot block (cheek_form foot_block_m). T-3186 found the cause enlarging the 1898 print: the line read for the porch's floor at the stoop's head (y about 515 px) was the pedestals, and the floor lies at the stoop's top tread, level with the base course (y about 556 px); the door opens there on a vestibule whose inner flight, not built, climbs to the principal floor",
+      "status": "fixed"
+    },
+    {
+      "what": "the cheeks' heads: the print puts them about 0.15-0.25 m under the shafts' feet (y about 534-537 px against 527), the render about 0.2 m under; under the 1 ft bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cheeks' bulk: the print's are heavier, their coping about 0.4 m across and their rolls about 0.5 m, where K07's cheek is thinner and its roll 0.4 m; under the 1 ft bar",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2407, ts: '2026-10-29T12:03:23.270Z', date: 'Oct 29, 2026, 7:03 AM CT', title: '1901 Prairie\'s porch steps brought down to the photographs', kind: 'improvement',
+    items: [
+      'The Ream house\'s porch floor now sits about 1.5 m above the yard, level with the stone base of the front, where the photographs put it. Its steps are lower and shorter to match.',
+      'The porch columns now stand on tall stone pedestals, and the pierced stone cheeks beside the steps end below the column bases, so the pedestals show in full as they do in the 1898 and 1893 pictures.',
+      'The house now matches all three of its photographs.',
+    ] },
   { v: 2406, ts: '2026-10-29T11:08:18.778Z', date: 'Oct 29, 2026, 6:08 AM CT', title: 'The Kimball house gets its side door on 18th Street', kind: 'improvement',
     items: [
       'The Kimball house\'s east range now has its narrow side door on 18th Street, under the small round-arched window, as the 1965 survey photograph and the c. 1895 print both show it: a dark leaf with a glass panel in a carved stone frame, cut down through the base course to the walk.',
