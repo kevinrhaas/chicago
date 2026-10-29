@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 853,
+  "count": 854,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60091,6 +60091,38 @@
       "work_refs": [
         "T-3179",
         "T-3164"
+      ]
+    },
+    {
+      "id": "L-k01-1729-pullman-belt-hoods-1881",
+      "title": "1729 Prairie's belt course and eared dormer hoods read off its photographs, their sections reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work gave the Pullman house (1729 Prairie Avenue — the George M. Pullman house) the moulded belt course between its principal and second storeys and the eared architraves round its dormers, and faced the dormers in the walls' brownstone. **What is read.** Taylor's photograph no. 1445 and the 1890 Albertype plate draw the belt as a deep, shadowed band under the second storey's sills, running round the Prairie front, its pavilions and the 18th Street flank: through Taylor's solved camera, on the flank at u 24, the sill line at y 446-450 px and the shadow under the string at 462-470, so a band from about 6.7 m to 7.7 m, and the plate's at y 443-463 on the front. The plate, the Detroit print and Taylor's photograph draw each dormer under an eared hood: a band up each jamb and round the arch, with an ear out at each side well up the arch. Every photograph shows the dormers in the walls' tone. **What is invented.** The belt's section (one moulding 0.95 m high from a 6.72 m bed: a string 0.17 m out at its foot, a plain fascia 0.07 m out, a sill nosing at its top), its break forward over the corner pier, and its run round the north-west pavilion's north return and the whole 18th Street flank, which no picture sees end to end. The hood's 0.15 m band, its 0.08 m proud, and the ears' 0.2 m by 0.25 m at six tenths of the arch's rise, all under the pictures' 15-25 px a metre. **What is not built.** The broken pediment the plate draws over the large Prairie dormer, and the dormers on the forward block's and the 18th Street pavilion's own mansards (the K08 bay kit lays none yet): both stay open on the match records."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a closer picture of the front (the CHM 1905 views) would give the belt's and the hoods' profiles."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, the albertype 1890 side by side image and the detroit det 4a08065 side by side image, with their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881"
       ]
     },
     {

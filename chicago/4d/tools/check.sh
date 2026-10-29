@@ -1111,6 +1111,13 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
+# 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
+# architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
+# the path round a projection and on round a flush corner; the hood one closed solid.
+step "a K01 stone front may carry a moulded belt course round its projections, and a round dormer an eared hood (T-1881)" \
+  python3 tools/test_k01_belt_eared_hood.py
+
 # T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)
 # wears its storey's K09 head on a side wall too, and its own transom tiers: 1801's two
 # lights over the loggia in the kit's surround on 0.8 m top lights; a bad name refused.
