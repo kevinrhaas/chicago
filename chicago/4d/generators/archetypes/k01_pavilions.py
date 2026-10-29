@@ -244,7 +244,7 @@ def _join(runs, paths, lengths):
             u = tuple(p[i][k] - q[-1][k] for k in range(3))
             v = tuple(p[i + 1][k] - p[i][k] for k in range(3))
             cr = (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
-            if max(abs(c) for c in cr) > 1e-9 or sum(u[k] * v[k] for k in range(3)) < 0:
+            if max(abs(c) for c in cr) > 1e-9 or (u[0] * v[0] + u[1] * v[1] + u[2] * v[2]) < 0:
                 q.append(p[i])
         q.append(p[-1])
         clean.append(q)
