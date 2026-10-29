@@ -589,9 +589,16 @@ def coping_spec(params, t):
         line = params.depth_m + t["street_line_m"]
         # T-3206: `at: "south"` lays it on the lot's south line instead (1801's along 18th Street,
         # whose frame runs s south from the corner)
-        if not {"to_x_m", "height_m"} <= set(sr) <= {"to_x_m", "height_m", "at", "runs", "piers"} \
+        # T-1934: a return may carry on past the house's rear (x 0) along the side street to the
+        # lot's rear line, `lot_rear_x_m` (1729's 18th Street wall before its palm house and
+        # stable, in the 1894 Inland plate and Taylor's no. 16554)
+        rear = sr.get("lot_rear_x_m", 0.0)
+        if not -120.0 <= rear <= 0.0:
+            raise ValueError(f"stone_coping_wall.side_return.lot_rear_x_m {rear}: the lot's rear, 0 to -120 m "
+                             f"from the house's")
+        if not {"to_x_m", "height_m"} <= set(sr) <= {"to_x_m", "height_m", "at", "runs", "piers", "lot_rear_x_m"} \
                 or sr.get("at", "north") not in ("north", "south") \
-                or not 0.0 <= sr["to_x_m"] <= line - t["thickness_m"] - 0.3 \
+                or not rear <= sr["to_x_m"] <= line - t["thickness_m"] - 0.3 \
                 or not t["chamfer_m"] + 0.2 <= sr["height_m"] <= 1.2:
             raise ValueError(f"stone_coping_wall.side_return {sr}: to_x_m from the house's rear to 0.3 m short "
                              f"of the street run's back ({line - t['thickness_m']:.2f}), 0.2-1.2 m high")
@@ -603,11 +610,18 @@ def coping_spec(params, t):
         for j, r in enumerate(sr.get("runs") or ()):
             if r.get("opening"):
                 ok = set(r) == {"to_x_m", "opening"} and r["opening"] is True
+            elif "from_height_m" in r:
+                # T-1934: a SWEEP, its top curving concave from `from_height_m` at its corner end to
+                # `height_m` at its inner end (the low walls rising to the piers either side of
+                # 1729's terrace flight, in the 1894 Inland plate), each end 0.2-1.5 m
+                ok = set(r) == {"to_x_m", "height_m", "from_height_m"} \
+                    and all(t["chamfer_m"] + 0.2 <= r[k] <= 1.5 for k in ("height_m", "from_height_m")) \
+                    and abs(r["height_m"] - r["from_height_m"]) >= 0.1
             else:
                 ok = set(r) == {"to_x_m", "height_m"} and t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2
             if not ok or not 0.3 <= x_prev - r["to_x_m"]:
                 raise ValueError(f"stone_coping_wall.side_return.runs[{j}] {r}: to_x_m at least 0.3 m in from the "
-                                 f"run before ({x_prev:.2f}), 0.2-1.2 m high or an opening")
+                                 f"run before ({x_prev:.2f}), 0.2-1.2 m high, a sweep 0.2-1.5 m, or an opening")
             x_prev = r["to_x_m"]
         if sr.get("runs") and (abs(x_prev - sr["to_x_m"]) > 1e-6 or all(r.get("opening") for r in sr["runs"])):
             raise ValueError(f"stone_coping_wall.side_return.runs end at x {x_prev}, not its to_x_m "
@@ -619,6 +633,27 @@ def coping_spec(params, t):
                 raise ValueError(f"stone_coping_wall.side_return.piers[{j}] {q}: x_m [from, to] 0.3-1.2 m along the "
                                  f"return, 0.8-2.0 m high under a 0-0.1 m cap")
     return t
+
+
+SWEEP_STEPS = 10        # T-1934: the facets a sweep's curved top is laid in
+
+
+def sweep_profile(xb, xa, hb, ha):
+    """T-1934: a run's top as (x, height) points from its corner end `xb` to its inner end `xa`.
+    A level run is its two ends. A sweep falls (or rises) on a concave quarter-circle, steep
+    against its taller end and flattening into its lower one, as the low walls either side of
+    1729's terrace flight curve up to their piers in the 1894 Inland plate."""
+    if abs(hb - ha) < 1e-9:
+        return [(xb, hb), (xa, ha)]
+    pts = []
+    for j in range(SWEEP_STEPS + 1):
+        t = j / SWEEP_STEPS
+        # q runs 0 at the taller end to 1 at the lower; the height leaves the taller end steeply
+        q = t if hb > ha else 1.0 - t
+        lift = math.sqrt(max(0.0, 1.0 - (1.0 - q) ** 2))
+        hi, lo = max(hb, ha), min(hb, ha)
+        pts.append((xb + (xa - xb) * t, hi - (hi - lo) * lift))
+    return pts
 
 
 def coping_wall(a, t):
@@ -694,26 +729,35 @@ def coping_wall(a, t):
                 """A face given in (x, y, out of the north line); world Z is -(north + out)."""
                 world = [(x, y, -(north + z)) for x, y, z in pts]
                 a._sface("stoop_stone", world, (hint[0], hint[1], -hint[2]), world[0], (-1, 0, 0), seed + 1, False, conf)
-        # T-1881: its runs from the corner in, each faced whole at an end its neighbour does not cover
+        # T-1881: its runs from the corner in, each faced whole at an end its neighbour does not cover.
+        # T-1934: each run is (corner x, inner x, height at the corner end, height at the inner end);
+        # a sweep's top is laid in SWEEP_STEPS facets along its concave curve
         sruns, x_b = [], line - T
         for r in sr.get("runs") or ({"to_x_m": sr["to_x_m"], "height_m": sr["height_m"]},):
-            sruns.append((x_b, r["to_x_m"], None if r.get("opening") else r["height_m"]))
+            if r.get("opening"):
+                sruns.append((x_b, r["to_x_m"], None, None))
+            else:
+                sruns.append((x_b, r["to_x_m"], r.get("from_height_m", r["height_m"]), r["height_m"]))
             x_b = r["to_x_m"]
-        for i, (xb, xa, h) in enumerate(sruns):
-            if h is None:
+        for i, (xb, xa, hb, ha) in enumerate(sruns):
+            if hb is None:
                 continue
-            prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
-            zc, yc = -T / 2, h / 2
-            for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
-                side_face([(xb, y0, z0), (xa, y0, z0), (xa, y1, z1), (xb, y1, z1)],
-                          (0.0, (y0 + y1) / 2 - yc, (z0 + z1) / 2 - zc))
+            steps = sweep_profile(xb, xa, hb, ha)
+            for (x0, h0), (x1, h1) in zip(steps, steps[1:]):
+                p0 = [(-T, 0.0), (-T, h0), (-c, h0), (0.0, h0 - c), (0.0, 0.0)]
+                p1 = [(-T, 0.0), (-T, h1), (-c, h1), (0.0, h1 - c), (0.0, 0.0)]
+                zc, yc = -T / 2, (h0 + h1) / 4
+                for (z0, y0), (z1, y1), (_, y0b), (_, y1b) in zip(p0, p0[1:], p1, p1[1:]):
+                    side_face([(x0, y0, z0), (x1, y0b, z0), (x1, y1b, z1), (x0, y1, z1)],
+                              (0.0, (y0 + y1) / 2 - yc, (z0 + z1) / 2 - zc))
             # its inner end, and its corner end unless it meets the street run; a lower or open
             # neighbour leaves the end to be faced, a taller one faces the step itself
-            for x_end, k, nb in ((xa, -1.0, sruns[i + 1] if i + 1 < len(sruns) else None),
-                                 (xb, 1.0, sruns[i - 1] if i else "street")):
-                if nb == "street" or (nb is not None and nb[2] is not None and nb[2] >= h):
+            for x_end, k, h, nb_h in ((xa, -1.0, ha, sruns[i + 1][2] if i + 1 < len(sruns) else None),
+                                      (xb, 1.0, hb, "street" if not i else sruns[i - 1][3])):
+                if nb_h == "street" or (nb_h is not None and nb_h >= h):
                     continue
-                lo = nb[2] if nb is not None else None
+                lo = nb_h
+                prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
                 cap = prof if lo is None else [(-T, lo), (-T, h), (-c, h), (0.0, h - c), (0.0, lo - c)]
                 side_face([(x_end, y, z) for z, y in cap], (k, 0.0, 0.0))
         from .k01_stone_finish import box_faces as _box
