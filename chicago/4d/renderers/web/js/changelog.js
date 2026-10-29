@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2422, ts: '2026-10-29T20:03:02.503Z', date: 'Oct 29, 2026, 3:03 PM CT', title: 'Nothing you can see: Taylor\'s Pullman photograph re-aimed from across 18th Street', kind: 'fix',
+    items: [
+      'Nothing in the town changes. Taylor\'s photograph of Pullman\'s palm house is now matched from the spot it was taken, about 21 m south of the lot line across 18th Street, with the 18th Street wall in the fit. The comparison used to put the camera 10 m from the wall, which drew the wall twice as near as the photograph shows it.',
+      'Through the corrected camera the wall\'s foot and pier tops sit within a few pixels of the photograph. That shows what the old camera hid: east of the palm house the photograph has a way into the court about 4 m wide, where the build has a 0.95 m opening. The stable also reads about 0.8 m lower in the photograph than in the build. Both stay open in the match records, because the 1894 plate agrees with the build.',
+    ] },
   { v: 2421, ts: '2026-10-29T19:32:15.863Z', date: 'Oct 29, 2026, 2:32 PM CT', title: 'Pullman\'s garden lodge gets its second roof', kind: 'improvement',
     items: [
       'The lodge across 18th Street from the Pullman house now has its front in two parts, as the 1894 Inland plate and Lowe\'s print of about 1897 both show it. The west part stands forward with a quoined corner under a hipped roof of its own, just below the main roof\'s crested deck, and the loggia and balcony sit back beside it.',
