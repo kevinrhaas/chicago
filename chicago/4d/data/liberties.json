@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 844,
+  "count": 845,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59829,6 +59829,51 @@
         }
       ],
       "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-pavilion-front-3164",
+      "title": "The Pullman conservatory's north front read as its pictures show it: a band of round-headed lights and the planted shade behind the great arch",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion",
+        "pullman_lodge_1800_calumet"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-10-28, found the conservatory's great arched glass front rendered \"as an opaque gable over a black opening\". Through the solved cameras of the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and the c. 1897 Lowe photograph (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…): the band of upright glazing between the podium (2.3 m) and the springing (3.6 m) is round-headed lights in white framing, four each side of the arched entrance, and the same along the east flank north of the transept; behind the great arch the glass reads dark over its lower half, against planting in shade, with the light of the roof glazing over it. **What is invented.** The count of lights, read off the photograph's north front; the planting drawn as one shaded volume inside the nave to about 5.2 m, not as a planted scene; the west flank's band, which neither picture sees, left as the kit's glass because the house is at its triangle budget. **What is not.** The plan and every height are later work's. The lodge's own two views (the pullman lodge 1800 calumet data) are the pavilion's two cameras carried unchanged into the lodge's frame, so its open items are judged against the pictures in its own record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the north front settles the lights' count and their tracery."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match, an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3179",
         "T-3164"
       ]
     },
