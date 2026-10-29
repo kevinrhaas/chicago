@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc",
+  "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -16,7 +16,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 29,
+    "street_trees": 31,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "d2a593f254d0375faf6049eb3022827e005a4b4ace916884e051130a185a14b6",
+  "flora_sha256": "e07eb18283fae239a23458fed464db898a75111ccd98ae2c603f6a624729f4cd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -150,9 +150,14 @@
       "how": "T-1881: the belt course (street_front_pavilions.belt) runs round the north-west pavilion, the Prairie front, the forward block, the corner pier and the 18th Street flank and pavilion, its bed at 6.72 m and its top at 7.67 m under the second storey's sills, a moulded string 0.17 m out at its foot and a plain fascia over it; the render's at y 442-463 on the front and flank against the plate's 443-463"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 1726-1978 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture"
+    },
+    {
+      "what": "the dormers on the forward block and the 18th Street pavilion: the plate's north-west dormer at about x 1014-1058 and two on the flank at x 1377-1407 and 1444-1466",
+      "status": "within tolerance",
+      "how": "T-1881: the forward block's dormer (bays.p_forward.mansard_dormers, placed on the Detroit print) renders at x 1003-1040; the pavilion's two (placed on Taylor's photograph no. 1445) at about x 1442 and 1474. The plate reads the flank at 5-6 px a metre against Taylor's 18, and is of 1890, before the 1892 work Taylor's shows: two pictures disagree (T-3153), and the later, closer photograph governs"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

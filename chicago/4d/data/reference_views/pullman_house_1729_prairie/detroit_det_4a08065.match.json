@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc",
+  "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -16,7 +16,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 29,
+    "street_trees": 31,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "d2a593f254d0375faf6049eb3022827e005a4b4ace916884e051130a185a14b6",
+  "flora_sha256": "e07eb18283fae239a23458fed464db898a75111ccd98ae2c603f6a624729f4cd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -132,12 +132,12 @@
     {
       "what": "the dormers: round-arched on the Prairie face at about x 464 and 510 and two on the 18th Street face at x 592-604 and 618-630; T-3161 places the 18th Street face's three dormers from Taylor's photograph no. 1445 at u 15.3, 9.45 and 5.2, which render here at x 624, 650 and 667 against the print's two at x 592-604 and 618-630: the grazing view and Taylor's disagree along the flank as they do over the arcade",
       "status": "within tolerance",
-      "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank"
+      "how": "T-3157: four round-arched lower-face dormers, the render's at x 455-468 and 505-515 on the Prairie face (crowns at y 264, the print's 262-266) and at x 593-601 and 619-626 on the flank. T-1881: the two western flank dormers now stand on the 18th Street pavilion's own mansard at s 10.0 and 15.4 (Taylor's photograph no. 1445, at about 18 px a metre along the flank), rendering here at about x 655 and 678 against the print's 598 and 624: the same disagreement along the flank as the porte-cochere's (T-3153: two pictures disagree; Taylor's governs)"
     },
     {
       "what": "the north-west pavilion's own dormer at x 330 on its section of the mansard",
-      "status": "open",
-      "how": "T-3158: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5, the render's surround at x 318-337 against the print's 322-338 Reopened by T-1881 on looking again: since the forward block (bays.p_forward, PR #1427) stands 2.95 m proud under its own mansard, the dormer at v 1.5 on the main mansard is hidden behind it from this camera, and the print draws its dormer on the forward section's own mansard face. The bay kit lays no dormer on a projection's mansard yet; that is what re-placing it needs, as for the 18th Street pavilion's two (taylor_1445_album)"
+      "status": "fixed",
+      "how": "T-1881: moved off the main mansard (the dormer at v 1.5, which the forward block hid) onto the forward block's own mansard (bays.p_forward.mansard_dormers, at_m -1.05: v 4.2, centred on the section as the print draws it), its eared hood rendering at x 325-356 against the print's 322-353"
     },
     {
       "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters; the build lays a plain surround round each arch",
@@ -225,7 +225,7 @@
       "how": "T-1881: the forward block 6.5 m wide and 2.95 m proud (v 2.0-8.5) with banded corner piers; the pavilion 2.47 m out with the pair and triple of narrow lights over the porte-cochere; the porte-cochere at the 1911 sheet's s 8.25-12.75, 5.97 m out, arches 4.0, 10.8 and 4.0 m on centre with 2.2 m spans; within about 10 px of Taylor's photograph and the Detroit print"
     },
     {
-      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns",
+      "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 864-1048 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
       "status": "open",
       "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture"
     },

@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "20254b60de24c550b36f9cbdb12f1fd322420acc3942cce8af159897392e22b5",
+  "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403",
   "camera_sha256": "8d8d966626799ed10be76b11e0b50622a4fbe0be80a28169fe4f96a950b6ce8d",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "20254b60de24c550b36f9cbdb12f1fd322420acc3942cce8af159897392e22b5"
+      "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007"
     }
   ],
-  "group_sha256": "104fe39cfa1ba7b84eb6cc3200a0b35fea814f57470677932feb39c0cdc823bd",
+  "group_sha256": "95b945db0eb98ea8a7262b2d67cd463ebe3618d500d5d4472ed940a7ac776b4e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -250,7 +250,17 @@
       "how": "T-3164: re-read on both pictures through their solved cameras: the dome's centre (its finial, x 1370 on the plate, x 896 in Lowe's print) falls at u 4.45 and 4.5 on the nave's axis, 1.8 m north of the transept's middle, which the 1911 sheet and the plate's transept end hold at u 6.3; so the drum and dome stand there (drum.centre_m 4.5) and the transept stays. Read on the same cameras at that depth, the drum's top is 9.7-9.8 m (it was 10.0), the dome's crown 12.3 m on the plate and 12.7 m in Lowe (it was 13.1; built 12.5) and the finial's tip 13.6-13.8 m (it was a 0.5 m stick; built as the turned finial both pictures show, a flared foot, a bulb, a neck, a knob and a spike, to 13.75 m). The render's dome now lies on the plate's within about 5 px across and 10 px in height"
     },
     {
-      "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "what": "the estate's gate on 18th Street: two square stone piers under stepped caps, each with a low wing returning toward the drive, its top sweeping down to a scroll's roll over a block",
+      "status": "fixed",
+      "how": "T-3164 (gate pass): built on the conservatory's record (gate), placed and sized through the plate's camera: the piers 0.8 m square to 2.2 m, their fronts about 0.6 m inside the 18th Street line, the wings 1.15 m from 1.1 m down to the roll at 0.76 m, the drive 4.1 m between them; through the plate both piers, their caps and the wings' sweeps land within about 10 px of the picture's"
+    },
+    {
+      "what": "the carved scroll panel on each wing's street face and the sunk panel on each pier's faces",
+      "status": "open",
+      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open"
+    },
+    {
+      "what": "the walks, the lawns, the standard trees, the shrubs and the street trees",
       "status": "open",
       "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
     },
