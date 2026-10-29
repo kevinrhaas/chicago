@@ -9414,9 +9414,9 @@
     "walker_house_1720_prairie__as_mapped_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 3419140,
+      "bytes": 3483212,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "0fd9c37e3b20d4a9ba161e3c23b01e76936b7b223d968ebec2b535aa57d934f5",
+      "inputs_sha256": "cfa86decc618dfce20d277a454e6371ea1e6c1a882be1b0f0d908321b072ebd4",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "walker_house_1720_prairie"
