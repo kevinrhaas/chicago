@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2400, ts: '2026-10-29T06:56:56.643Z', date: 'Oct 29, 2026, 1:56 AM CT', title: 'The Pullman conservatory\'s glass front looks like its photograph', kind: 'improvement',
+    items: [
+      'The big arched glass front of the Pullman conservatory, across 18th Street, now shows plants in shade behind its glass. Before, it looked like a solid grey wall over a black doorway.',
+      'Under the arch, a row of round-topped windows in white frames now runs above the stone base, as in a photograph from about 1897.',
+      'The lodge beside it can now be compared with the same two pictures. Its curved porch front and the gate piers are still missing.',
+    ] },
+  { v: 2399, ts: '2026-10-29T06:56:56.643Z', date: 'Oct 29, 2026, 1:56 AM CT', title: 'A stone pier and downpipe on the Kimball house\'s 18th Street side', kind: 'feature',
+    items: [
+      'At 1801 Prairie, a plain stone pier now rises from the ground to the cornice where the gabled section meets the main house on 18th Street, with a copper downpipe beside it, as the c. 1895 and 1965 photographs show.',
+    ] },
   { v: 2398, ts: '2026-10-29T06:24:40.759Z', date: 'Oct 29, 2026, 1:24 AM CT', title: 'Pullman\'s lodge and glasshouse range rebuilt to the 1894 plate', kind: 'feature',
     items: [
       'Across 18th Street from the Pullman house, the lodge between the glasshouses is now stone, taller, with a three-opening loggia, a balcony band and a steep roof to a crested deck, as the 1894 Inland Architect plate shows it, where a plain brick block stood.',
