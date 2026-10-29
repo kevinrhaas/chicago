@@ -99,10 +99,10 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
+      "glb_sha256": "116b5d0a6f3f4c97af2589ac1b7a9f43d1035d224d583bc50e6bb9059dabfa6d"
     }
   ],
-  "group_sha256": "db51b935260f240fd4f8fd24276788ff5bfd51c7f77a5022da4ea193ba4ed3b2",
+  "group_sha256": "ed066fe42e9f23db7c5ff8f5df8cf585fc8fe8be1383d95dc77251e628f28c7c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -195,9 +195,29 @@
       "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
     },
     {
-      "what": "the lodge's bowed north-east corner with the flared eave over it, the balcony's curved front and balustrade, round columns in the loggia, finials at the deck's corners, and the lower hipped roof over the front's west part",
+      "what": "the lodge's bowed north-east corner: the upper storey turned on an arc standing a little proud of the square corner, with the eave carried round it and belled out and down over it (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: corner_bow on the stable dress (chord 1.2 m along each wall, 0.1 m proud of the corner, 5.3-8.2 m) and a bowed eave chamfer on the hip-deck roof (0.1 m bow, 0.4 m flare); through the plate's camera the rounded corner and the eave's dip read where the plate draws them, at about x 940-950"
+    },
+    {
+      "what": "the lodge's balcony on the loggia's entablature: a stone floor and an open balustrade, its east end turned on a quarter-round back to the wall under the bow (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: a balcony on the north front, s -0.2 to 4.2 m, 0.45 m deep, its floor at 5.3 m and its balustrade 0.75 m high, the plate's band at y 775-795; the plate draws the parapet's face nearly solid, so the balusters' spacing is RECONSTRUCTED"
+    },
+    {
+      "what": "the lodge's loggia: round columns between its three openings, with bases and capitals, where the render had dark openings cut between flat piers (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: two round columns 0.38 m across between the openings at 0.51, 1.65 and 3.35 m; through the plate's camera they stand within a few pixels of the plate's at x 967-977 and 1005-1013"
+    },
+    {
+      "what": "the lodge's deck: open iron cresting with a tall spire at each corner, as the stable's deck carries, where the render had posts and a rail (T-3164)",
+      "status": "fixed",
+      "how": "T-3164: the deck takes the stable's open cresting (T-1934), whose corner spires stand about 1.5 m over it as the plate's do"
+    },
+    {
+      "what": "the lodge's lower hipped roof over the front's west part (plate x 1055-1135), which the render carries on as the one hipped roof",
       "status": "open",
-      "how": "T-3164: the draft builder draws the loggia as dark openings between square piers and a flat banded balcony; the bow, the balcony's curve and the second roof are not built"
+      "how": "T-3164: still one hipped roof over the whole front; the west part's lower roof needs a second part on the plan, which the 1911 sheet does not draw, and was not built in this pass"
     },
     {
       "what": "the dome and its drum stand about 25 px (0.6 m) west of the plate's (Lowe shows the same, about 20 px)",
