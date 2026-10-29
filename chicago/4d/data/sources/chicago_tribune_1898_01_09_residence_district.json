@@ -1,0 +1,26 @@
+{
+ "id": "chicago_tribune_1898_01_09_residence_district",
+ "type": "newspaper",
+ "citation": "'Select residence district where wealth has not prevented death from visiting many houses.' Chicago Tribune, 9 January 1898: a strip of five pen-and-ink vignettes of house entrances, numbered 1905, 1906, 1923, 2035 and 2108. Staff artist. Reproduced on chicagology.com, Prairie Avenue, 1906 and 2035 S. Prairie.",
+ "author": "Chicago Tribune staff artist",
+ "date": "1898-01-09",
+ "describes_date": "1898-01-09",
+ "repository": "Chicago Tribune; reproduced on chicagology.com. Prairie library image cgs-tribune-1898-01-09-death-strip (stream-chicagology-south.json), its 1400 px display file in the image store; that file is committed at data/sources/assets/keith_1906_pictures_t1898/. The companion strip of the same article is chicago_tribune_1898_01_09_prairie_widows.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1906prairie/",
+ "locator": "The second vignette, labelled 1906: the strip's pixels x 290-540, y 40-350 in the 1400 px display copy.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US newspaper illustration published in 1898, in the public domain. Read for forms and counts; no asset is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-29 (T-3238) from the image store's 1400 x 356 px display copy, sha256 2f3996a6175dafb0fbcab651b2e44fc7f810c45ed0b88371561fa1f298bbb29c; the library records a 3500 px original (sha256 10717f26...) that is not in the store.",
+ "note": "Drawn six years before the 1904 scene, square to the front of 1906 from the walk: at the left a canted full-height bay rising past the main cornice under its own cornice, round-headed lights in each stage; the round-arched double door under a flat portico whose top is a balustraded balcony, an arched window in a moulded frame over it; a high straight stoop between stone cheeks with square posts at its foot; a balustraded terrace either side of it over the basement; arched hooded windows to the right, a street tree before them. It agrees with the undated engraving in every element both show, and does not match the mansard photograph Chicagology also labels 1906 (the 1900 house, census ruling r28-1900-1906-photo).",
+ "what_it_supplies": [
+  "the front's composition in 1898: the south bay and its tower stage, the porch and balcony, the stoop, the terrace",
+  "a date for the composition the engraving draws undated"
+ ],
+ "what_it_does_not_supply": [
+  "measurement: a freehand sketch, cut by the panel's frame and its numerals",
+  "the roof, the flanks, the rear and colour"
+ ]
+}
