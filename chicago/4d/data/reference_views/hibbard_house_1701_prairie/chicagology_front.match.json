@@ -2,7 +2,7 @@
  "structure_id": "hibbard_house_1701_prairie",
  "view": "chicagology_front",
  "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
- "glb_sha256": "cad426578cfbee929fec07fdf3a06e0e9917863e4651c6d80d52750132064572",
+ "glb_sha256": "2bf8355779f603c5ca20dd0b14acfd42cc178971f01e59f7e904e42098a428ea",
  "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
  "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
  "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
@@ -40,23 +40,23 @@
   },
   {
    "what": "the roof: slopes rising from the cornice to a flat deck railed with pierced panels, and the tall stack through its south half",
-   "status": "open",
-   "how": "T-3240 builds the hip at 35 degrees to its ridge and the stacks (the south stack renders on the photograph's); the deck and its rail are T-3241's"
+   "status": "fixed",
+   "how": "T-3241: k01_hip_deck cuts the hip (now 45 degrees) off level at 13.3 m and lays a 0.8 m rail round the deck, a pale panel pierced with a roundel every 0.5 m between posts; the rail renders over the photograph's from its north-west run to its south-east end within about 40 px (about 0.5 m at the roof, where the camera, fitted on the walls below 9.5 m, is least sure), the south stack through its south half"
   },
   {
    "what": "the corner porch: a one-storey stone arcade on the front's north end, railed on top, and the front's recessed north part behind it",
-   "status": "open",
-   "how": "T-3241: not yet built; the kit's stoop stands at the door in the meantime"
+   "status": "fixed",
+   "how": "T-3241: k01_porte_cochere's corner_porch, 5.46 m along the front from the north wall and 1.2 m out on a 2.0 m podium: a narrow and a wide arch on its front and a narrow one in its south return, an entablature at 5.65-6.2 m and a balustrade over it; its front renders over the photograph's within about 0.3 m. The recessed north part of the front behind it is not cut (the wall stands in the front's line; liberty L-k01-hibbard-1701-3241), which shows only through the arches; the photograph's slender columns, carved capitals and bracketed entablature are drawn as plain stone piers and a plain entablature: T-1876's carving"
   },
   {
    "what": "the lower south range before the south flank: one storey over the basement, set back from the front corner, a railed balcony on top, a round-headed light under an eared hood in its west face",
-   "status": "open",
-   "how": "T-3241: not yet built; the main block's south wall stands bare to grade behind where it goes"
+   "status": "fixed",
+   "how": "T-3241: a K08 projection's range plan, 2.9 m along the flank from 1.1 m behind the front corner and 3.1 m out, its walls to 5.45 m under a moulded stone cornice and a 0.5 m balustrade, a round-headed light in its west face and a narrower one in its south face; its corner, both lights and its cornice render over the photograph's within about 0.25 m. Its parapet's pierced slots are drawn as the kit's balusters, and the stone basement band at its foot is the main block's own (open below)"
   },
   {
    "what": "the entrance: a tall dark round arch between the porch and the bay",
    "status": "open",
-   "how": "T-3241, with the porch: a K07 panelled door at the head of the kit's stoop until then"
+   "how": "the porch now stands beside it (T-3241), but the arch is not built: K07's round-arched door (double_door_deep_arch) is laid only in a K02 stone front's courses, and this front is brick, so the kit's panelled door stands under a flat head at the head of its stoop"
   },
   {
    "what": "the cast-iron fence of interlaced loops on a stone curb along the street line, its gate pier",
@@ -72,6 +72,11 @@
    "what": "the north wall and the rear",
    "status": "not shown",
    "how": "the camera sees the front and the south flank"
+  },
+  {
+   "what": "the stone basement band at the foot of the main block and the lower south range, its round-headed basement lights showing over the fence (and the porch podium's roundels)",
+   "status": "open",
+   "how": "T-3240 and T-3241 build the walls in brick to grade and the porch's podium plain; the basement lights stand behind the fence"
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
