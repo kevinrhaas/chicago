@@ -58,11 +58,37 @@ jobs:
             echo "::error::start deploy.yml, and the entry waits for the next push to dev."
             exit 1; }
 
+      # A SHALLOW, SPARSE CHECKOUT OF chicago/4d WITHOUT ITS PICTURES (T-3237). A full
+      # clone is a 3.5 GB working tree (png, jpg and glb are 2.6 GB of it) on top of the
+      # whole history, and on 2026-10-28 five of the last ten folds burned their
+      # 10-minute limit inside checkout and never folded. The fold reads only text:
+      # changelog.d/, changelog.js, LIBERTIES.md and the data/ records it counts. Measured
+      # at d7de42cc6, this checkout is 0.5 GB with a 0.2 GB .git, and it folds and
+      # re-derives data/liberties.json, source_use_coverage.md and every
+      # sources/uses.json to the same bytes as the full clone. Depth 1 is enough: each
+      # attempt below fetches dev and resets to it, and a push needs no history. A
+      # binary left out stays skip-worktree, so `git add -A` never stages it as deleted.
+      # Should a later fold tool need a picture or a GLB, it must be listed here.
       - uses: actions/checkout@v4
         with:
           ref: dev
-          fetch-depth: 0
+          fetch-depth: 1
+          filter: blob:none
           token: ${{ secrets.STEWARD_PAT }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/
+            !*.png
+            !*.jpg
+            !*.jpeg
+            !*.webp
+            !*.glb
+            !*.mp4
+            !*.tif
+            !*.pdf
+            !*.docx
+            !*.ktx2
+            !*.bin
 
       - uses: actions/setup-node@v4
         with:
