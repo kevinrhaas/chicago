@@ -767,6 +767,17 @@ def _mansard_cornice(a, K, data, bays, conf):
             i = names.index(wall)
             cut.append((cum[i] + s0, cum[i] + s1))
             into.append(b["id"])
+    # T-1890: a chamfered pavilion's corner cut (k01_frontage_params.chamfer_spans) takes the
+    # course off the side wall too, from the lost corner back to where the canted face meets
+    # it (1801's south wall, carried by the course since its south bay took the cornice round
+    # it); the course is capped there, against the face, as at a corner
+    from .k01_frontage_params import chamfer_spans
+    capped = set()
+    for wall, (s0, s1) in chamfer_spans(p.bays, p.depth_m, p.width_m).items():
+        if wall in names and wall != "k01.wall.street_front":
+            i = names.index(wall)
+            cut.append((cum[i] + s0, cum[i] + s1))
+            capped.add(round(cum[i] + (s1 if s0 < 1e-9 else s0), 6))
     spans, at = [], 0.0
     for c0, c1 in sorted(cut):
         if c0 > at:
@@ -807,7 +818,8 @@ def _mansard_cornice(a, K, data, bays, conf):
         path = [point(s0)] + [q for j, c in enumerate(cum[1:-1], 1) if s0 + 1e-6 < c < s1 - 1e-6
                               for q in cant.get(j, [point(c)])] + [point(s1)]
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=names)
-        ends = (s0 < 1e-9, s1 > cum[-1] - 1e-9)       # capped where the named walls end; dying into a bay
+        ends = (s0 < 1e-9 or round(s0, 6) in capped,   # capped where the named walls end or a
+                s1 > cum[-1] - 1e-9 or round(s1, 6) in capped)   # chamfer cuts them; dying into a bay
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=ends)
         paths.append((path, ends))
     a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
