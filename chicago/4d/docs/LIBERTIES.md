@@ -36011,6 +36011,31 @@ range was built, gives the part's depth and which face the sheet drew.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+### L-pullman-gate-1800-calumet-3164 — The Pullman glasshouse ground's gate on 18th Street: two stone piers with scroll wings, placed through the plate's camera
+
+**Decision:** the 1894 Inland plate (`inland_1894_pullman_conservatory`) draws in its foreground the
+gate where the drive to the conservatory leaves 18th Street, and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) shows the same gate with children beside it (T-3164). No plan
+draws it: the 1911 sheet shows no gate, and the grounds have no record of their own, so the gate is
+built on the conservatory's record, whose entrance the drive leads to. Two square stone piers, 0.8 m,
+on a 0.3 m plinth, under a cap of three plain courses to 2.2 m; from each a wing 0.5 m thick returning
+1.15 m along the street line toward the drive, its top sweeping down from 1.1 m at the pier to a
+scroll's roll at 0.76 m over a 0.55 m block at the drive's edge. Their places and sizes are read
+through the plate's solved camera, whose eye height was itself set on the walk's back at these piers:
+their fronts at about 0.6 m inside the lot's 18th Street line, the west pier's east face 4.1 m east of
+the conservatory's east wall line, the drive 4.1 m wide between the wings' ends.
+**What is invented.** The piers' depth (taken as their width: square), the cap's mouldings drawn as plain
+courses, the sweep's curve, the wings' thickness, and the stone, taken as the conservatory podium's
+because the piers' lit faces read its tone; the carving on the wings' faces and the sunk panels on the
+piers are not built.
+**What is not.** The gate's place, the piers' widths and heights, the wings' lengths, heights and scrolls,
+and the drive's width, which the plate shows and its camera measures.
+**How to resolve:** a nearer picture of the gate, or a survey of the estate's grounds, gives the piers'
+depth, the mouldings and the carving.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light

@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "20254b60de24c550b36f9cbdb12f1fd322420acc3942cce8af159897392e22b5"
+      "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
     }
   ],
-  "group_sha256": "16f534158fb4bc97f05f15cc7ddc08a0ba4a63b420071409a394299e83fb2bad",
+  "group_sha256": "08e317182397edf6589f5daa32dc53f681c725a06484b79c4630fcdd2a838000",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -152,7 +152,22 @@
       "how": "T-3164 (west part): a second part on the plan, 4.85 m wide from u 4.1 (the loggia's west end) to the west wall, its face on the sheet's north wall and its own hipped roof at the main roof's 52 degrees, ridge 11.75 m, under the deck's 11.9 m; the loggia block behind its front now stands 2 m back. Read in both pictures: the part's quoined east return (plate x 1052-1058, Lowe x 660-668), its eave a few px over the loggia block's (plate y 705-712 against 718, Lowe 396-398 against 402) and its north-east hip rising from the return to about the deck's height (plate x 1058,712 to 1118,625; Lowe x 667,397 to 703,345). Through the plate's camera the built hip runs x 1046,716 to 1101,633 and the return x 1044-1053, about 10 px east of the picture's, under the 0.3 m bar at this distance along the line of sight; the picture's part beyond x 1085 is behind the render's transept arm (that arm's east end is the pavilion record's own item)"
     },
     {
-      "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "what": "the estate's gate on 18th Street: two square stone piers under stepped caps, each with a low wing returning toward the drive, its top sweeping down to a scroll's roll over a block",
+      "status": "fixed",
+      "how": "T-3164 (gate pass): built on the conservatory's record (gate), placed and sized through the plate's camera: the piers 0.8 m square to 2.2 m, their fronts about 0.6 m inside the 18th Street line, the wings 1.15 m from 1.1 m down to the roll at 0.76 m, the drive 4.1 m between them; through the plate both piers, their caps and the wings' sweeps land within about 10 px of the picture's"
+    },
+    {
+      "what": "the gate piers stand about 0.5 m nearer and a fifth larger than the print draws them, and about 40 px west",
+      "status": "within tolerance",
+      "how": "T-3153: the print is cropped and its camera is one of a family of fits (u -30 to -50), whose depth the plan points far behind the gate do not fix; the uncropped plate, which places are read from, puts the piers within about 10 px"
+    },
+    {
+      "what": "the carved scroll panel on each wing's street face and the sunk panel on each pier's faces",
+      "status": "open",
+      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open"
+    },
+    {
+      "what": "the walks, the lawns, the standard trees, the shrubs and the street trees",
       "status": "open",
       "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
     },
