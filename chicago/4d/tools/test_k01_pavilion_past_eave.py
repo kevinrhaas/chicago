@@ -113,6 +113,11 @@ def main() -> int:
         if b["variant"]["kind"] != "projection" or b.get("wing"):
             continue
         top = sum(float(x["height_m"]) for x in b["variant"]["storeys"])
+        # T-1890: a pier stops under the eave (1801's, under its cornice), so there is nothing
+        # past the eave to close; it is held to standing under it
+        if b["variant"].get("pier"):
+            check(top <= p.eave_m, f"{b['id']}: a pier, its top ({top:.2f} m) under the eave ({p.eave_m:.2f} m)")
+            continue
         plane, back, to_axis = walls[b["wall"]]
         s0, s1 = b["span_m"]
         lo, hi = sorted(to_axis(s)[0] for s in (s0, s1))

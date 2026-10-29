@@ -2059,6 +2059,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or set(q) - {"width_m", "proud_m", "step"}:
                     raise ParamError(f"bays: {e['id']} is a flank's step: a full-height projection on a side "
                                      f"wall, 6-16 m wide and 0.1-2.0 m proud (has {w} m and {d} m)")
+            # T-1890: or a PIER (`pier`), a plain stone strip standing out from a wall from grade to
+            # under its cornice (1801's 18th Street wall where the gabled section meets the main
+            # block, in the Taylor print and HABS photograph 2): narrower than a pavilion, with no
+            # window in it and a flat top under the eave it dies into
+            elif q.get("pier") is not None:
+                if q["pier"] is not True or not (0.3 <= w < 1.5 and 0.05 <= d <= 0.3) \
+                        or e.get("variant") != "k08.projection.full_height" \
+                        or any(st.get("windows") for st in e.get("storeys") or v["storeys"]) \
+                        or (e.get("roof") or {}).get("kind") != "hip" or float((e.get("roof") or {}).get("pitch", -1)) != 0.0 \
+                        or set(q) - {"width_m", "proud_m", "pier"}:
+                    raise ParamError(f"bays: {e['id']} is a pier: a windowless full-height projection under a "
+                                     f"flat top, 0.3-1.5 m wide and 0.05-0.3 m proud (has {w} m and {d} m)")
+                v["pier"] = True   # check_bay_kit holds it to a box's triangles, with no light tier
             elif not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
@@ -2067,7 +2080,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block", "step"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer", "block", "step",
+                         "pier"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
                                  f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))

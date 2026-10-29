@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "50572f398741efd955c6008d224863e166cab87ddf18c3aab0882ba2e6709e88",
+  "glb_sha256": "81f5840332b7f85c827aa5aa2446fdf3d4637cf53e250366fce961296b210147",
   "camera_sha256": "15a0ef34c0c0d27811045bc9741575cc86a50cb7db8d59abaa8cb22180be1736",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "50572f398741efd955c6008d224863e166cab87ddf18c3aab0882ba2e6709e88"
+      "glb_sha256": "81f5840332b7f85c827aa5aa2446fdf3d4637cf53e250366fce961296b210147"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
     }
   ],
-  "group_sha256": "4a06a0b19bbb310068ab1cf40572eac5b7ba090e5131a4968345f359402c38fb",
+  "group_sha256": "9088c201bf1dd06828e1b8c93bf57d9f7e10a8107389d1b6152e9cfbb3353e7b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -142,7 +142,17 @@
       "how": "as the plate's record: the sheet's arm plan is held"
     },
     {
-      "what": "the glazed band's lights have arched heads and tracery and the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
+      "what": "the north front's band between the podium and the springing: round-headed lights in white framing, four each side of the entrance, and three along the east flank north of the transept",
+      "status": "fixed",
+      "how": "T-3164: each light a round-headed pane in the planted shade behind the glass, in white framing under a top rail"
+    },
+    {
+      "what": "the north front's arched glass reads dark over the planted interior, its white bars over it and the roof's light above, not as an opaque pale gable",
+      "status": "fixed",
+      "how": "T-3164: the conservatory's depth drawn in shade inside the nave to about 5.2 m"
+    },
+    {
+      "what": "the transept arms' lights have round heads and tracery (drawn square-headed); the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
       "status": "open",
       "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-3164: the range's panels, sill and base courses are now built; the band's arched heads and tracery, the podium's rustication and the heavier pilasters and columns are not."
     },
@@ -193,7 +203,8 @@
     },
     {
       "what": "the owner's report, 2026-10-28: the greenhouse ground south of 18th Street is way off the photograph; the long range renders as a blank wall with square holes and the lodge in red brick, where the print shows a glazed range on a stone base and a stone lodge, and the pavilion's great arched glass front renders as an opaque gable over a black opening",
-      "status": "open"
+      "status": "fixed",
+      "how": "the range glazed and the lodge in stone (T-3164, #1429); the north front's glass reads dark over its planted interior with its white bars, over a band of round-headed lights, the entrance in its stone surround (T-3164)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

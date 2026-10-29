@@ -72,7 +72,7 @@ ROLE_MATERIAL = {
     "wall": "house_wall", "ground": "ground",
     "host_band": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
-    "sky_glass": "glass_sky", "sash": "sash",
+    "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
 }
 BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
@@ -104,6 +104,8 @@ def materials(data: dict) -> dict:
         # T-3164: the sash bars of the range's masonry windows, which the plate reads dark against
         # their pale panes; the paint's colour is reconstructed
         "sash": {"color": (0.20, 0.19, 0.16), "roughness": 0.7},
+        # T-3164: a conservatory's planted depth seen through its glass, in shade but not a void
+        "interior_shade": {"color": (0.10, 0.12, 0.09), "roughness": 1.0},
     }
 
 
@@ -1842,6 +1844,30 @@ def masonry_walls(h: House, ms: dict):
                            (xm - dw / 2, ph - 0.3, zw)], (0.0, 0.0, sz))
 
 
+def _lit_band(h: House, bd: dict, o, t, n, s0, s1, y0, y1):
+    """T-3164: the band of upright glazing between the conservatory's podium and its eave, as
+    the Lowe photograph and the Inland plate show it: white framing over the run from `s0` to
+    `s1` (along `t` from `o`, `out_m` off the glass on the outward normal `n`), and in it lights
+    about `light_m` wide between bars `bar_m` wide under rails `rail_m` deep, each light a
+    round-headed pane in the planted shade behind the glass, drawn 5 mm proud of the framing.
+    One face a light and one the framing, so a band costs a few triangles a light."""
+    if s1 - s0 < 0.3:
+        return
+    k = max(1, round((s1 - s0) / bd["light_m"]))
+    w, out, rail = bd["bar_m"], bd["out_m"], bd["rail_m"]
+    P = lambda s, y, d=0.0: (o[0] + t[0] * s + n[0] * (out + d), y, o[1] + t[1] * s + n[1] * (out + d))
+    nn = (n[0], 0.0, n[1])
+    h.face("dome_rib", [P(s0, y0), P(s1, y0), P(s1, y1), P(s0, y1)], nn)
+    step = (s1 - s0 - w) / k
+    r = (step - w) / 2
+    lo, spring = y0 + rail, y1 - rail - r
+    m = bd.get("head_segments", 4)
+    for j in range(k):
+        c = s0 + w / 2 + step * (j + 0.5)
+        arc = [P(c + r * math.cos(math.pi * q / m), spring + r * math.sin(math.pi * q / m), 0.005) for q in range(m + 1)]
+        h.face("interior", [P(c - r, lo, 0.005), P(c + r, lo, 0.005)] + arc, nn)
+
+
 def rotunda(h: House, rs: dict):
     """T-3179: the round east end of the Pullman range as the Inland plate shows it: a column at
     every joint of the span_apse's half-ring and `straight_columns` more along each side of its
@@ -1993,6 +2019,24 @@ def pavilion(h: House, ps: dict):
         m = ps.get("mullion_m", 0.15)
         h.face("dome_rib", [(fo, he, W / 2 - m / 2), (fo, he, W / 2 + m / 2), (fo, nave[-1][1] - fw, W / 2 + m / 2),
                             (fo, nave[-1][1] - fw, W / 2 - m / 2)], (-1.0, 0.0, 0.0))
+    # T-3164: the north front's lower storey as the pictures show it (owner, 2026-10-28: "the
+    # pavilion's great arched glass front as an opaque gable over a black opening")
+    bd = ps.get("band")
+    if bd:
+        sw_ = en["surround_m"]
+        runs = {"north": ((0.0, 0.0), (0.0, 1.0), (-1.0, 0.0), [(0.0, zc - r - sw_), (zc + r + sw_, W)]),
+                "west_north": ((0.0, W), (1.0, 0.0), (0.0, 1.0), [(0.0, xa - po)]),
+                "east_north": ((L, 0.0), (-1.0, 0.0), (0.0, -1.0), [(L - xa + po, L)])}
+        for name in bd["walls"]:                   # only the runs the record names
+            o_, t_, n_, spans = runs[name]
+            for s0, s1 in spans:
+                _lit_band(h, bd, o_, t_, n_, s0, s1, pod, he)
+    if ps.get("interior_dark_m"):
+        # the conservatory's planted depth behind its glass, drawn in shade inside the nave as
+        # palm_house draws the palm house's: the pictures read the glass dark over the lower half
+        # of the arch, with the roof's light over it
+        i = ps.get("interior_inset_m", 0.3)
+        _prism(h, "interior", [(i, i), (L - i, i), (L - i, W - i), (i, W - i)], pod, ps["interior_dark_m"])
     # the drum and dome over the crossing
     dr = ps["drum"]
     _prism(h, "sky_glass", [(xc + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
