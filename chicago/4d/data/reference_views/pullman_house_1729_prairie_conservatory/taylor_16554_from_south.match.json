@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
+  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
   "camera_sha256": "546e6b9670ce77a20c1b84dd2c72692f313c5a003168f8c6e6f1ba2edb07e916",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,9 +64,9 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
+  "group_sha256": "b3658f5d210ad9f50c11462127f086c4e5f5e12461c95cce18a294b02d0292f1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the stable's 18th Street front: three bays of sash in two storeys between the corner bay and the stack, the stack at the front's east end rising past the deck, the lantern toward the deck's west end",
@@ -79,8 +79,8 @@
       "how": "T-3192's forms, the deck set by T-3193 between this print and the plate"
     },
     {
-      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum, and reads it rounder",
-      "status": "within tolerance",
+      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum (the plate reads it 0.6-0.9 m east: the two disagree on its place), and reads it rounder than the build's three faces",
+      "status": "open",
       "how": "two pictures disagree (the plate puts it about 0.8 m further east); the build stands between them"
     },
     {
@@ -106,6 +106,18 @@
     {
       "what": "T-3161 re-laid the house's 18th Street flank from Taylor's photograph no. 1445: re-reviewed here, the porte-cochere's arch near the flank's west end (x about 165-205 px) and the window groups over the flank render where the print shows them, and the house's outline is unchanged within the 35 px above",
       "status": "within tolerance"
+    },
+    {
+      "what": "the drum a colonnade of round columns with dark glazing between them, its entablature, open balustrade and broad ribbed dome (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the house is a light stone in the print, with a stone porch and balustraded terrace on 18th Street; the build draws it red brick: the house's own record (T-1881)",
+      "status": "open"
+    },
+    {
+      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
