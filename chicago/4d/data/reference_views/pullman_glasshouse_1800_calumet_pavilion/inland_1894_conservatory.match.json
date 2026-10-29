@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "0bcc50e1a7c3fcde7adc8cf0185027b8d193066cf94360007d959bbcb3227149",
+  "glb_sha256": "93940358639523029fcd0c2a5fc5adbc59390eca3618bfdeaf39b5a1a28957b0",
   "camera_sha256": "8d8d966626799ed10be76b11e0b50622a4fbe0be80a28169fe4f96a950b6ce8d",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0bcc50e1a7c3fcde7adc8cf0185027b8d193066cf94360007d959bbcb3227149"
+      "glb_sha256": "93940358639523029fcd0c2a5fc5adbc59390eca3618bfdeaf39b5a1a28957b0"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
     }
   ],
-  "group_sha256": "d0bb9c868e9f97d6d7abc780c44246a91bb89a78458ac17a27678f2cb2dc69da",
+  "group_sha256": "5b424f030cbeeaed94297503056769bf1dc03a9ee1b3f90b93c704dad0933dac",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -172,7 +172,12 @@
       "how": "T-3164: the conservatory's depth drawn in shade inside the nave to about 5.2 m"
     },
     {
-      "what": "the transept arms' lights have round heads and tracery (drawn square-headed); the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
+      "what": "the transept arms' band: tall lights under a transom, each with a short round-headed light over it, three on the east arm's north side, in white framing (drawn square-headed in a dark grid, two to a side)",
+      "status": "fixed",
+      "how": "T-3164, 2026-10-29: read off both pictures (the plate's east arm, x 1185-1240, and Lowe's, x 760-805: three lights, each a round head over a transom over a tall light); drawn as the north front's lit band with a transom 0.38 m under the head, lights about 0.45 m, the heads in six segments, on both arms' ends and sides"
+    },
+    {
+      "what": "the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
       "status": "open",
       "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-3164: the range's panels, sill and base courses are now built; the band's arched heads and tracery, the podium's rustication and the heavier pilasters and columns are not."
     },
@@ -181,8 +186,9 @@
       "status": "fixed"
     },
     {
-      "what": "iron cresting along the east range's coping (the transept's is built; the range's is not yet)",
-      "status": "open"
+      "what": "the east range's coping: plain stone in both pictures, as built (an earlier reading called for iron cresting along it)",
+      "status": "fixed",
+      "how": "T-3164, 2026-10-29: re-read off the pictures themselves at full size: the plate (x 375-955, y 772-780) and Lowe (x 120-580, y 450-456) both draw the range's coping as a plain stone line against the sky; the light lattice the earlier reading took for the range's is the balustrade on the lodge's roof deck behind it (the plate's x 1030-1115, y 600-625) and the transept's own cresting, already built. Nothing to build on the range."
     },
     {
       "what": "the nave's arch is a smooth curve (the render's was four planar facets a half): now eight a half, the chord inside the arc at most 0.02 m, and the transept's section and the dome drawn as smoothly; the arch reads as one curve from 18th Street (T-3164)",
@@ -222,6 +228,11 @@
       "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
       "status": "open",
       "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
+    },
+    {
+      "what": "the north front's band: the plate and Lowe draw each light as a short round head over a transom over a tall light, where it is built as one tall pane with a pointed head",
+      "status": "within tolerance",
+      "how": "T-3164, 2026-10-29: the lights' count, width and place match; the transom bar (about 0.05 m) and the head's curve over a 0.6 m light are under the T-3153 bar from the street, and drawing them would take the house past its triangle budget again; the transept's band is drawn with them"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

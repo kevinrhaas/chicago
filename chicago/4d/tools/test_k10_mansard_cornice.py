@@ -57,11 +57,18 @@ def refused(change, why, says, err=(KP.ParamError, ValueError)):
 st, phase = record()
 a = K1.build(KP.from_phase(phase, st), SID)
 wh = a.wall_head
-check(wh.get("walls") == ["k01.wall.side.south", "k01.wall.street_front"],
-      f"the cornice runs the 18th Street flank into the avenue front ({wh.get('walls')})")
+check(wh.get("walls") == ["k01.wall.side.south", "k01.wall.street_front", "k01.wall.side.north"],
+      f"the cornice runs the 18th Street flank, the avenue front and the south wall ({wh.get('walls')})")
 check(abs(wh["cornice_m"][1] - a.soffit_m) < 1e-6, f"its top is the K05 soffit ({wh['cornice_m']} against {a.soffit_m:.3f})")
-check(set(wh["dies_into"]) >= {"front_bow", "p_south", "p_flank", "tower"},
-      f"it dies into the bow, both pavilions and the tower ({wh['dies_into']})")
+check(set(wh["dies_into"]) >= {"front_bow", "p_south", "p_flank", "tower", "south_bay"},
+      f"it dies into the bow, both pavilions, the tower and the south bay ({wh['dies_into']})")
+# T-1890: the south pavilion's chamfer cuts the south wall's corner back, so the course starts
+# on that wall where the canted face meets it, not out in the air over the lost corner
+behind = KP.chamfer_spans(a.p.bays, a.p.depth_m, a.p.width_m)["k01.wall.side.north"][1]
+start = a.p.depth_m + a.p.width_m + float(behind)
+check(any(abs(s0 - start) < 1e-3 for s0, _ in wh["stretches"])
+      and not any(s0 < start - 1e-3 < s1 and s0 > a.p.depth_m + a.p.width_m - 1e-3 for s0, s1 in wh["stretches"]),
+      f"the south wall's course starts {behind} m back, where the chamfer meets it ({wh['stretches']})")
 check(abs(wh["cornice_m"][1] - 8.7) < 0.01, f"its top stands level with the bow's cornice, 8.7 m ({wh['cornice_m'][1]})")
 check(K10._chain(["k01.wall.street_front", "k01.wall.side.south"]) == ["k01.wall.side.south", "k01.wall.street_front"],
       "the walls are taken in the order a run round the house meets them")

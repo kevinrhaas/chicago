@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2409, ts: '2026-10-29T12:56:15.086Z', date: 'Oct 29, 2026, 7:56 AM CT', title: 'The Kimball house\'s south bay goes under its roof', kind: 'improvement',
+    items: [
+      'On the Kimball house\'s south side the heavy stone cornice now runs the whole wall and wraps the canted bay, and the slate roof comes down over the bay to meet it, as the 1965 survey photograph shows. Before, the bay stopped short under a small roof of its own.',
+    ] },
+  { v: 2408, ts: '2026-10-29T12:54:53.201Z', date: 'Oct 29, 2026, 7:54 AM CT', title: 'Pullman\'s conservatory: the transept\'s windows drawn as its photographs show', kind: 'improvement',
+    items: [
+      'The conservatory across 18th Street from the Pullman house has new windows along its transept arms. Each is now a tall light under a transom with a short round-headed light above it, in white framing, three to each side, as the 1894 Inland Architect plate and Lowe\'s c. 1897 photograph show them. They used to be square-headed panes in a dark grid.',
+      'Neither picture shows the west arm or the arms\' ends face on, so those windows repeat the east side\'s spacing. That is recorded as a reconstruction.',
+    ] },
   { v: 2407, ts: '2026-10-29T12:03:23.270Z', date: 'Oct 29, 2026, 7:03 AM CT', title: '1901 Prairie\'s porch steps brought down to the photographs', kind: 'improvement',
     items: [
       'The Ream house\'s porch floor now sits about 1.5 m above the yard, level with the stone base of the front, where the photographs put it. Its steps are lower and shorter to match.',

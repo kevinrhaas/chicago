@@ -1850,7 +1850,9 @@ def _lit_band(h: House, bd: dict, o, t, n, s0, s1, y0, y1):
     `s1` (along `t` from `o`, `out_m` off the glass on the outward normal `n`), and in it lights
     about `light_m` wide between bars `bar_m` wide under rails `rail_m` deep, each light a
     round-headed pane in the planted shade behind the glass, drawn 5 mm proud of the framing.
-    One face a light and one the framing, so a band costs a few triangles a light."""
+    With `transom_below_m`, a transom bar stands that far under the head and the light is two
+    panes, a tall one under the bar and a short round-headed one over it (the transept's).
+    One face a pane and one the framing, so a band costs a few triangles a light."""
     if s1 - s0 < 0.3:
         return
     k = max(1, round((s1 - s0) / bd["light_m"]))
@@ -1862,10 +1864,17 @@ def _lit_band(h: House, bd: dict, o, t, n, s0, s1, y0, y1):
     r = (step - w) / 2
     lo, spring = y0 + rail, y1 - rail - r
     m = bd.get("head_segments", 4)
+    tb = bd.get("transom_below_m")
+    yt = y1 - tb if tb else None                    # T-3164: a transom bar's centre, under the heads
     for j in range(k):
         c = s0 + w / 2 + step * (j + 0.5)
-        arc = [P(c + r * math.cos(math.pi * q / m), spring + r * math.sin(math.pi * q / m), 0.005) for q in range(m + 1)]
-        h.face("interior", [P(c - r, lo, 0.005), P(c + r, lo, 0.005)] + arc, nn)
+        ya = lo if yt is None else yt + w / 2
+        sp = max(spring, ya)
+        arc = [P(c + r * math.cos(math.pi * q / m), sp + r * math.sin(math.pi * q / m), 0.005) for q in range(m + 1)]
+        h.face("interior", [P(c - r, ya, 0.005), P(c + r, ya, 0.005)] + arc, nn)
+        if yt is not None:                          # the tall light under the transom
+            h.face("interior", [P(c - r, lo, 0.005), P(c + r, lo, 0.005), P(c + r, yt - w / 2, 0.005),
+                                P(c - r, yt - w / 2, 0.005)], nn)
 
 
 def rotunda(h: House, rs: dict):
@@ -1983,7 +1992,17 @@ def pavilion(h: House, ps: dict):
         za, zb = sorted((zw - sgn * 0.05, ze + sgn * po))
         _prism(h, "stonework", [(xa - po, za), (xb + po, za), (xb + po, zb), (xa - po, zb)], 0.0, pod + 0.01)
         bd = tr.get("band")
-        if bd:
+        if bd and bd.get("light_m"):
+            # T-3164: the arms' band as both pictures show it on the east arm's north side and
+            # its end: white framing, and in it tall lights under a transom, each with a short
+            # round-headed light over it, in the planted shade (the north front's band, drawn
+            # with its transom): the end from corner to corner of the podium, each side from
+            # the nave's wall to the end's corner
+            y0 = pod + 0.01
+            _lit_band(h, bd, (xa, ze + sgn * po), (1.0, 0.0), (0.0, sgn), -po, tw + po, y0, he)
+            for x, sx in ((xa, -1.0), (xb, 1.0)):
+                _lit_band(h, bd, (x + sx * po, zw), (0.0, sgn), (sx, 0.0), 0.0, reach + po, y0, he)
+        elif bd:
             # T-3164: the upright glass between the podium and the springing, which the Inland
             # plate reads as dark lights in pale frames at eye level, not the roof's sky-lit glass:
             # a dark pane a few cm proud of the substitute glass on the end and both sides, and
