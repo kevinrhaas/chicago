@@ -1,6 +1,6 @@
 {
   "schema": "standing_horse_canonical26_planted_v1",
-  "status": "Source-bounded eyelid and rounded hoof anatomy derivative. Fresh selected-SHA native views and full Mixer129 physical proof complete; app/yard/phone/world and photographic surface qualification remain pending.",
+  "status": "Exact e49b bounded upper-orbital BODY transition source-selected. Exact-byte physical/socket129 and matched16 source-view results were recorded27October2026; this29October recovery does not rerun them. Current canonical owners, yard/phone, full source/CI and whole-photo acceptance remain pending.",
   "source": {
     "id": "sevketkabatas_2021_horse_model",
     "title": "Horse",
@@ -9,7 +9,7 @@
     "author_url": "https://sketchfab.com/sevketkabatas6153",
     "license": "CC-BY-4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "credit": "\u201cHorse\u201d by sevketkabatas, CC BY4.0, via Objaverse.",
+    "credit": "“Horse” by sevketkabatas, CC BY4.0, via Objaverse.",
     "sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
     "bytes": 3211248,
     "acquired_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
@@ -17,7 +17,7 @@
     "dataset_notice": "Objaverse database ODC-By1.0; individual model CC BY4.0. Deitke etal.,2022, https://arxiv.org/abs/2212.08051.",
     "publication_date": "2021-03-29"
   },
-  "source_pose": "Canonical metre source with unchanged reconstructed26 rig/V16 original skin rows and planted-standing clip; locally refined body topology, declared interpolated added rows and source-bounded eyelid rest surface. No walking or original six-clip composition.",
+  "source_pose": "Canonical metre frame, unchanged26-joint rig/weights and planted-standing clip. Two fixed-boundary upper-lid patches replace142 head face slots without claiming old face ancestry; unchanged rounded hoof domains and source skin remain explicit.",
   "native_bounds": [
     [
       -0.9943228536449248,
@@ -16058,7 +16058,7 @@
     },
     "organic_dielectric_v1": {
       "metalness_override": 0,
-      "change_notice": "The original model materials use a declared dielectric adaptation. The eyelid and hoof surfaces have been refined against cleared anatomical references; coat, markings and grooming remain reconstructed. Source textures are unchanged, and the opaque hair and coat appearance remain under review."
+      "change_notice": "The original model materials retain the declared dielectric adaptation. Cleared references guide the rounded hooves and thinner upper-lid strip; all source textures and EYE UVs remain exact. Coat, markings, grooming, broad brow ridge and lower pale ring/fur remain reconstructed and under review."
     }
   },
   "capabilities": {
@@ -16103,10 +16103,11 @@
   },
   "known_quality_limits": [
     "Generic reconstructed working animal; no historical individual, breed, owner or calibrated period dimensions.",
-    "Resting upper eyelid still reads heavy; source texture/normal-map appearance must be separated from geometry in the surface qualification.",
+    "The upper fold is thinner in matched native source views; broad brow ridge, lower pale ring/fur and actual app/phone appearance remain under review.",
     "Solid mane and pointed opaque sheet tail, existing coat highlights and 1K maps remain for the sequential T-3089 surface/LOD qualification.",
     "Canonical loaded standing proof is not continuous collision, actual yard/mobile/GPU/performance or full photographic acceptance.",
-    "Unseen sole construction, shoeing and loaded tack are not established by these sources."
+    "Unseen sole construction, shoeing and loaded tack are not established by these sources.",
+    "Upper BODY orbital ledge recedes in matched source views; dark upper-eye area, pale lower ring and pointed forelock remain conspicuous and are not automatically paint-only or adjudicated wholly as surface work. No T3088 DONE or full photographic acceptance."
   ],
   "contact_annotation_history": {
     "original_upright_contact_receipt_sha256": "90de41647c80d450ed05ae16f8b50d742c3c0cc1e561b1bd06eacbc0ba28a6ba",
@@ -16115,7 +16116,8 @@
     "later_rigid_support_receipt_sha256": "564493b066567ca9c87a272b8da47cdbb8e3bf5a041f78768ea7ff83fd35e7e3",
     "parent_d454_contact_annotations_sha256": "4ec44024d4fbefae88b8f0a1deb3be92503768b65dba590c5762691ce3b9c924",
     "anatomy_supersession": "Selected toe/wall geometry, contact face domain and finite samples are regenerated from the actual anatomy master. Original annotations/receipts remain in the frozen parent fixture; no old body/ground proof is relabelled.",
-    "historical_scope": "Pre-anatomy paragraphs and original receipts describe b479/d454 only; selected-body topology, samples and qualification are superseded explicitly below."
+    "historical_scope": "Pre-anatomy paragraphs and original receipts describe b479/d454 only; selected-body topology, samples and qualification are superseded explicitly below.",
+    "upper_lid_supersession": "Only the head strip changes from925; every foot face, vertex, UV, skin row and finite contact sample remains exact. Legacy foot refinement ancestry applies to these unchanged foot domains only, never to the142 replacement head slots. Current source-qualified129 evidence uses exact5a; actual yard/phone acceptance remains separate."
   },
   "proposed_static_support_pose": {
     "status": "Root accepted development-placement rigid transform, no source joint changes; actual published-yard/contact/visual/mobile checks pending",
@@ -16142,13 +16144,13 @@
   },
   "ground_support": {
     "region_id": "western_hotel_yard_horse_support_01",
-    "snapshot": "Exact actual yard-worn_earth drawn triangle copies retained before normal coarse upload release, max32triangles/4096typed-array bytes for one \u22644m\u00b2 rectangle. No whole-town array retention, no RELEASE_KEEP change, no ?keep-geometry.",
+    "snapshot": "Exact actual yard-worn_earth drawn triangle copies retained before normal coarse upload release, max32triangles/4096typed-array bytes for one ≤4m² rectangle. No whole-town array retention, no RELEASE_KEEP change, no ?keep-geometry.",
     "status": "Existing bounded terrain-snapshot policy retained; fresh selected-body actual yard support and phone/world checks pending."
   },
   "runtime_asset": {
-    "file": "transport/standing-horse/horse-sevket-anatomy-v2.glb",
-    "sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
-    "bytes": 4158016,
+    "file": "transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb",
+    "sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49",
+    "bytes": 4159196,
     "animation_count": 1,
     "declared_idle_clip": "sevket_reconstructed_planted_posture_v1",
     "coordinate_space": "canonical_metres_Yup_Zforward_Xleft",
@@ -16163,10 +16165,17 @@
     "eye_uv_derivation_receipt_file": "transport/parked/standing-horse-planted/eye-uv-v1-derivation-receipt.json",
     "eye_uv_derivation_receipt_sha256": "2b44bc2cc505efd90793c21ea7c8ff089d277d46a2588d4f525e9d069f24efdd",
     "anatomy_parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
-    "anatomy_recipe_file": "assets/authored/transport/horse_standing/anatomy-v2-recipe.json",
-    "anatomy_derivation_summary_file": "transport/parked/standing-horse-planted/anatomy-r3-derivation-summary.json",
+    "anatomy_recipe_file": "assets/authored/transport/horse_standing/upper-orbital-transition-v1-recipe.json",
+    "anatomy_derivation_summary_file": "transport/parked/standing-horse-planted/upper-orbital-transition-v1-derivation-summary.json",
     "eye_uv_derivation_receipt_applies_to_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
-    "field_sha256_scope": "Ancestral V16 field for the 4313 original body vertex rows only; added rows use the declared parent-edge four-influence interpolation, freshly qualified on the selected anatomy master."
+    "field_sha256_scope": "Ancestral V16 field for the 4313 original body vertex rows only; added rows use the declared parent-edge four-influence interpolation, freshly qualified on the selected anatomy master.",
+    "source_qualification_mode": "upper_orbital_transition_v1",
+    "upper_lid_parent_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+    "qualification_file": "transport/parked/standing-horse-planted/upper-orbital-transition-v1-qualification-summary.json",
+    "qualification_sha256": "72506859017d1f1aea57ad248d877a88bb07e701d4ec82c31e509dbb97e8d7a0",
+    "ancestral_anatomy_recipe_file": "assets/authored/transport/horse_standing/anatomy-v2-recipe.json",
+    "orbital_parent5a_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+    "ancestral_upper_lid_recipe_file": "assets/authored/transport/horse_standing/upper-lid-strip-v1-recipe.json"
   },
   "idle": {
     "enabled": true,
@@ -16176,11 +16185,11 @@
     "cpu_stationary_result_sha256": "807dba14460aca11ec78e8f94d6357fffd1b9afb9cc18bbcaaea2f78f81cb396",
     "actual_loaded_mixer_accepted": true,
     "actual_yard_native_visual_world_GPU_qualified": false,
-    "activation_note": "Current anatomy master freshly loaded and production-cloned for actual canonical Mixer129 physical checking. App/yard/phone/GPU/performance and photographic qualification are separate; no 1904 placement is added.",
-    "loaded_qualification_status": "FRESH_NEW_BODY_LOADED129_PHYSICAL_PASS_ONLY",
-    "loaded_qualification_file": "transport/parked/standing-horse-planted/anatomy-r3-loaded129-summary.json",
-    "loaded_qualification_sha256": "d2dabd13a5924a6839b9adffce188ad9224f1e72eb9b0abbbc976ac1c5d766aa",
-    "loaded_raw_result_sha256": "e4b72eae4ab9a1035ce0e086dc82704ddf21e307b946e61ba34a2fb2c0202e59",
+    "activation_note": "Exact e49b was qualified on27October2026 with the native standard loader/clone/Mixer at65keys+64midpoints under unchanged physical/socket limits. This29October recovery reuses the recorded certificate for identical asset bytes; it does not rerun physical129. Original external raw capture arrays are unavailable after runtime restart. Current app/yard/phone/GPU/photo/gait acceptance remains separate.",
+    "loaded_qualification_status": "RECORDED_EXACT_E49B_STATIC_NATIVE_PHYSICAL_SOCKET129_ONLY_PASS",
+    "loaded_qualification_file": "transport/parked/standing-horse-planted/upper-orbital-transition-v1-qualification-summary.json",
+    "loaded_qualification_sha256": "72506859017d1f1aea57ad248d877a88bb07e701d4ec82c31e509dbb97e8d7a0",
+    "loaded_raw_result_sha256": "b31558990753c0cd6d786ef95c3dba72f4c5185172b2febd18c76d3f88b40e44",
     "historical_b479_qualification": {
       "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
       "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
@@ -16212,7 +16221,69 @@
         "bytes": 3783600,
         "scope": "Historical original b479 qualification only; not inherited by d454."
       }
-    }
+    },
+    "historical_anatomy_r3_qualification": {
+      "enabled": true,
+      "clip": "sevket_reconstructed_planted_posture_v1",
+      "confidence": "reconstructed",
+      "scope": "Single12s exported planted body shift, four hooves fixed. No head/tail blend, walk/trot, route, harness or rider.",
+      "cpu_stationary_result_sha256": "807dba14460aca11ec78e8f94d6357fffd1b9afb9cc18bbcaaea2f78f81cb396",
+      "actual_loaded_mixer_accepted": true,
+      "actual_yard_native_visual_world_GPU_qualified": false,
+      "activation_note": "Current anatomy master freshly loaded and production-cloned for actual canonical Mixer129 physical checking. App/yard/phone/GPU/performance and photographic qualification are separate; no 1904 placement is added.",
+      "loaded_qualification_status": "FRESH_NEW_BODY_LOADED129_PHYSICAL_PASS_ONLY",
+      "loaded_qualification_file": "transport/parked/standing-horse-planted/anatomy-r3-loaded129-summary.json",
+      "loaded_qualification_sha256": "d2dabd13a5924a6839b9adffce188ad9224f1e72eb9b0abbbc976ac1c5d766aa",
+      "loaded_raw_result_sha256": "e4b72eae4ab9a1035ce0e086dc82704ddf21e307b946e61ba34a2fb2c0202e59",
+      "historical_b479_qualification": {
+        "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+        "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
+        "loaded_qualification_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
+        "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
+        "asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+        "bytes": 3783600,
+        "scope": "Historical original b479 qualification only; not inherited by d454."
+      },
+      "historical_d454_qualification": {
+        "enabled": true,
+        "clip": "sevket_reconstructed_planted_posture_v1",
+        "confidence": "reconstructed",
+        "scope": "Single12s exported planted body shift, four hooves fixed. No head/tail blend, walk/trot, route, harness or rider.",
+        "cpu_stationary_result_sha256": "807dba14460aca11ec78e8f94d6357fffd1b9afb9cc18bbcaaea2f78f81cb396",
+        "actual_loaded_mixer_accepted": true,
+        "actual_yard_native_visual_world_GPU_qualified": false,
+        "activation_note": "Current d454 was freshly loaded and production-cloned for actual Mixer129 CPU checking with unchanged physical guards in an external 1904 diagnostic fixture. This is not 1904 scene activation or app/yard/native/GPU/photo acceptance.",
+        "loaded_qualification_status": "FRESH_GLTFLOADER_PRODUCTION_CLONE_MIXER129_HOSTED_CPU_PASS_ONLY",
+        "loaded_qualification_file": "transport/parked/standing-horse-planted/eye-uv-v1-loaded129-summary.json",
+        "loaded_qualification_sha256": "3e8fd9351fce726bf1216360cfda00197a288dd903877993dd5231f67ab4e39d",
+        "loaded_raw_result_sha256": "60f693bf10c17b04376d9a521cd91c51bacae12da32e0eec821de8bdd3b15d5a",
+        "historical_b479_qualification": {
+          "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+          "loaded_qualification_file": "transport/parked/standing-horse-planted/loaded129-summary.json",
+          "loaded_qualification_sha256": "f09cc6c663dfef68d9582d378bef1b428de2f4bd33de313b71113f7b2bc56497",
+          "loaded_raw_result_sha256": "52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997",
+          "asset_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+          "bytes": 3783600,
+          "scope": "Historical original b479 qualification only; not inherited by d454."
+        }
+      }
+    },
+    "historical_upper_lid_qualification": {
+      "activation_note": "Exact5a freshly qualified with the native standard loader/clone/Mixer at65keys+64midpoints under original physical limits and distinct source-bound socket interface rules. Old925 proof remains historical; no app/photo/gait acceptance is inherited.",
+      "loaded_qualification_status": "LOADED_STANDING65_KEYS64_MIDPOINTS_PASS_ONLY",
+      "loaded_qualification_file": "transport/parked/standing-horse-planted/upper-lid-strip-v1-qualification-summary.json",
+      "loaded_qualification_sha256": "5fb50fed07a041c76e2a1300a9040600628f59671b8a27d7f4483bc8dc880ca1",
+      "loaded_raw_result_sha256": "dea579eef7b738cc076160a40d74602c2f6f6cd45dba3df0bebda0ec0babaee1",
+      "asset_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+      "scope": "Historical parent5a qualification retained from the26October2026 checkpoint; it is not the active e49 idle proof."
+    },
+    "loaded_raw_result_kind": "Historical native capture RESULT.json digest, not a Float64-array digest",
+    "loaded_qualification_asset_sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49",
+    "loaded_capture_manifest_sha256": "8f5cb8e6e919eb815675154356c498061830747a8fce614538573d0c92a19583",
+    "loaded_posed_result_sha256": "c2a86b8d5d75f17c46f788fe15a0b894783e65297e973d4917fcf509ba4b6f09",
+    "qualification_recorded_on": "2026-10-27",
+    "physical129_rerun_in_current_recovery": false,
+    "external_raw_capture_arrays_available": false
   },
   "upstream_native_normalization": {
     "origin_native": [
@@ -16244,23 +16315,23 @@
   "citation_records": {
     "chicagology_prefire278": {
       "archived_url": "https://web.archive.org/web/20260308051207/https://chicagology.com/prefire/prefire278/",
-      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 \u2014 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
+      "citation": "\"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883 — 'Old Chicago: The Town in 1833', which carries both the town's incorporation record and 'The Old Western Hotel', an interview feature with named old settlers who used the house.",
       "source_id": "chicagology_prefire278",
       "tier": 2,
       "tier_label": "near-primary recollection",
       "transcribes": [
         {
           "date": "1883-07-22",
-          "note": "Carries all four Western Hotel claims in this dataset \u2014 the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets \u2014 and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2.",
+          "note": "Carries all four Western Hotel claims in this dataset — the farmers' and teamsters' house, W. H. Stow as builder and proprietor, the original two storeys, and the large stable and wagon yard with entrances from both streets — and it carries the dispute over the build date that keeps the dated range at `inferred`. Men recalling a house they used: rung 2.",
           "tier": 2,
-          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' \u2014 the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son"
+          "work": "Inter Ocean, 'Old Chicago: The Town in 1833' — the section headed 'The Old Western Hotel: First Frame House on the West Side', with the reporter's description of the surviving fragment and interviews with old settlers and with the builder's son"
         }
       ],
       "url": "https://chicagology.com/prefire/prefire278/"
     },
     "sevketkabatas_2021_horse_model": {
       "archived_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
-      "citation": "sevketkabatas, \u201cHorse\u201d, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
+      "citation": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via AllenAI Objaverse by ordinary public HTTP200 on 22 October 2026.",
       "source_id": "sevketkabatas_2021_horse_model",
       "tier": 5,
       "tier_label": "modern retrospective illustration/reconstruction",
@@ -16384,15 +16455,73 @@
   "anatomy": {
     "ticket": "T-3088",
     "parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
-    "recipe_revision": "r3_original_cage_and_thinner_upper_margin",
+    "recipe_revision": "upper_orbital_transition_v1",
     "source_ids": [
       "ellenberger_baum_dittrich_equine_plates",
       "seton_1892_equine_skeleton",
       "vassil_2014_konik_horse_anatomy",
       "joselodos_2025_horse_anatomy"
     ],
-    "liberty": "L-horse-anatomy-master-3088",
+    "liberty": "L-horse-upper-eye-contour-3088",
     "static_master_photo_acceptance": false,
-    "surface_lod_ticket": "T-3089"
+    "surface_lod_ticket": "T-3089",
+    "parent925_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+    "source_qualification_mode": "upper_orbital_transition_v1",
+    "parent5a_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+    "source_positions": 10,
+    "source_normal_rows": 38,
+    "affected_faces": 44,
+    "remaining_review": "Dark upper-eye/pale ring/pointed forelock remain unadjudicated; current yard/full-source gates required; no T3088 DONE or whole-photo acceptance."
+  },
+  "preserved_anatomy_r3_runtime_asset": {
+    "file": "transport/standing-horse/horse-sevket-anatomy-v2.glb",
+    "sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+    "bytes": 4158016,
+    "animation_count": 1,
+    "declared_idle_clip": "sevket_reconstructed_planted_posture_v1",
+    "coordinate_space": "canonical_metres_Yup_Zforward_Xleft",
+    "upstream_original_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+    "source_rig_sha256": "03a1f747189ee2457f0fc3dc9720b1d3d288e36c32b7171b5a9976afb7e63c36",
+    "field_sha256": "04df599158ea091eb6d0036d3aeab9159ee96b8dfd43524a17ff874d72492e2d",
+    "standing_export_receipt_file": "transport/parked/standing-horse-planted/export-receipt.json",
+    "standing_export_receipt_sha256": "3212f61c3688cc550bfcf5a7a2116c1a12aa06d501b6e7dff9583369ed5d060c",
+    "original_head_tail_composed": false,
+    "walking_enabled": false,
+    "standing_export_receipt_applies_to_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+    "eye_uv_derivation_receipt_file": "transport/parked/standing-horse-planted/eye-uv-v1-derivation-receipt.json",
+    "eye_uv_derivation_receipt_sha256": "2b44bc2cc505efd90793c21ea7c8ff089d277d46a2588d4f525e9d069f24efdd",
+    "anatomy_parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "anatomy_recipe_file": "assets/authored/transport/horse_standing/anatomy-v2-recipe.json",
+    "anatomy_derivation_summary_file": "transport/parked/standing-horse-planted/anatomy-r3-derivation-summary.json",
+    "eye_uv_derivation_receipt_applies_to_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "field_sha256_scope": "Ancestral V16 field for the 4313 original body vertex rows only; added rows use the declared parent-edge four-influence interpolation, freshly qualified on the selected anatomy master."
+  },
+  "preserved_upper_lid_runtime_asset": {
+    "file": "transport/standing-horse/horse-sevket-upper-lid-strip-v1.glb",
+    "sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+    "bytes": 4158848,
+    "animation_count": 1,
+    "declared_idle_clip": "sevket_reconstructed_planted_posture_v1",
+    "coordinate_space": "canonical_metres_Yup_Zforward_Xleft",
+    "upstream_original_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+    "source_rig_sha256": "03a1f747189ee2457f0fc3dc9720b1d3d288e36c32b7171b5a9976afb7e63c36",
+    "field_sha256": "04df599158ea091eb6d0036d3aeab9159ee96b8dfd43524a17ff874d72492e2d",
+    "standing_export_receipt_file": "transport/parked/standing-horse-planted/export-receipt.json",
+    "standing_export_receipt_sha256": "3212f61c3688cc550bfcf5a7a2116c1a12aa06d501b6e7dff9583369ed5d060c",
+    "original_head_tail_composed": false,
+    "walking_enabled": false,
+    "standing_export_receipt_applies_to_sha256": "b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be",
+    "eye_uv_derivation_receipt_file": "transport/parked/standing-horse-planted/eye-uv-v1-derivation-receipt.json",
+    "eye_uv_derivation_receipt_sha256": "2b44bc2cc505efd90793c21ea7c8ff089d277d46a2588d4f525e9d069f24efdd",
+    "anatomy_parent_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "anatomy_recipe_file": "assets/authored/transport/horse_standing/upper-lid-strip-v1-recipe.json",
+    "anatomy_derivation_summary_file": "transport/parked/standing-horse-planted/upper-lid-strip-v1-derivation-summary.json",
+    "eye_uv_derivation_receipt_applies_to_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+    "field_sha256_scope": "Ancestral V16 field for the 4313 original body vertex rows only; added rows use the declared parent-edge four-influence interpolation, freshly qualified on the selected anatomy master.",
+    "source_qualification_mode": "canonical_socket_interface_v1",
+    "upper_lid_parent_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+    "qualification_file": "transport/parked/standing-horse-planted/upper-lid-strip-v1-qualification-summary.json",
+    "qualification_sha256": "5fb50fed07a041c76e2a1300a9040600628f59671b8a27d7f4483bc8dc880ca1",
+    "ancestral_anatomy_recipe_file": "assets/authored/transport/horse_standing/anatomy-v2-recipe.json"
   }
 }

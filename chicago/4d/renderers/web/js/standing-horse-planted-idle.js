@@ -1,7 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Play one explicit glTF planted-standing clip; no procedural bone motion/blend.
-export const PLANTED_SHA = '925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48';
-export const PLANTED_BYTES = 4158016;
+export const LEGACY_PLANTED_SHA = '925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48';
+export const LID_PLANTED_SHA = '5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5';
+export const PLANTED_MODE = 'upper_orbital_transition_v1';
+export const PLANTED_SHA = 'e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49';
+export const PLANTED_BYTES = 4159196;
+export const PLANTED_MASTERS = Object.freeze({
+  anatomy_r3: Object.freeze({ sha256: LEGACY_PLANTED_SHA, bytes: 4158016 }),
+  canonical_socket_interface_v1: Object.freeze({ sha256: LID_PLANTED_SHA, bytes: 4158848,
+    qualification_sha256: '5fb50fed07a041c76e2a1300a9040600628f59671b8a27d7f4483bc8dc880ca1' }),
+  upper_orbital_transition_v1: Object.freeze({ sha256: PLANTED_SHA, bytes: PLANTED_BYTES,
+    qualification_sha256: '72506859017d1f1aea57ad248d877a88bb07e701d4ec82c31e509dbb97e8d7a0' }),
+});
 export const PLANTED_TRIANGLES = 17390;
 export const PLANTED_CLIP = 'sevket_reconstructed_planted_posture_v1';
 const ROTATIONS = [7, 8, 9, 12, 13, 14, 17, 18, 19, 22, 23, 24];
@@ -14,11 +24,15 @@ const hash = text => { let h = 2166136261; for (const c of text) { h ^= c.charCo
 
 /** Bytes are SHA-verified by caller before this metadata/inventory guard. */
 export function validatePlantedStandingHeader(bytes, spec) {
-  check(spec.runtime_asset?.sha256 === PLANTED_SHA && spec.runtime_asset.bytes === PLANTED_BYTES,
-    'explicit standing asset identity required');
+  const mode = spec.runtime_asset?.source_qualification_mode ?? 'anatomy_r3';
+  const master = Object.hasOwn(PLANTED_MASTERS, mode) ? PLANTED_MASTERS[mode] : null;
+  check(master && spec.runtime_asset?.sha256 === master.sha256 && spec.runtime_asset.bytes === master.bytes,
+    'explicit standing asset identity and qualification mode required');
+  if (master.qualification_sha256) check(spec.runtime_asset.qualification_sha256 === master.qualification_sha256,
+    'exact source socket qualification required');
   check(spec.runtime_scale_m_per_unit === 1 && spec.runtime_origin_m?.length === 3
     && spec.runtime_origin_m.every(v => v === 0), 'canonical metres require unit scale and zero origin');
-  check(bytes.byteLength === PLANTED_BYTES && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
+  check(bytes.byteLength === master.bytes && bytes.byteLength <= 4 * 1024 * 1024, 'standing byte budget changed');
   const view = new DataView(bytes);
   check(view.getUint32(0, true) === 0x46546c67 && view.getUint32(4, true) === 2
     && view.getUint32(8, true) === bytes.byteLength && view.getUint32(16, true) === 0x4e4f534a,
@@ -29,6 +43,21 @@ export function validatePlantedStandingHeader(bytes, spec) {
   check(json.asset?.extras?.chicago4d_anatomy_master_v2?.parent_sha256
     === 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914',
   'source-bound anatomy parent required');
+  if (mode === PLANTED_MODE || mode === 'canonical_socket_interface_v1') {
+    const lid = json.asset?.extras?.chicago4d_upper_lid_strip_v1;
+    check(lid?.parent_sha256 === LEGACY_PLANTED_SHA
+      && lid.original_d454_sha256 === 'd4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914'
+      && lid.recipe_sha256 === 'f77e115a340a6cbb8d6efb1b7887c8cdba001a47f493b97be6ffb0eee72dd133'
+      && JSON.stringify(lid.internal_BODY_UV_repair_rows) === '[2410,2412]',
+    'source-bound upper-lid parent/recipe/UV ownership required');
+  }
+  if (mode === PLANTED_MODE) {
+    const orbital = json.asset?.extras?.upper_orbital_transition_v1;
+    check(orbital?.parent_sha256 === LID_PLANTED_SHA
+      && orbital.recipe_sha256 === '23850a915289ac7d73ea6619a7b68d07c9c240e177917f10f4488f996f66db70'
+      && orbital.position_rows === 10 && orbital.affected_faces === 44,
+    'explicit upper-orbital parent/recipe/source region required');
+  }
   check(!json.extensionsRequired?.length && json.buffers.length === 1 && !json.buffers[0].uri,
     'embedded reviewed standing buffer required');
   check(json.images.length === 6 && json.images.every(i => Number.isInteger(i.bufferView) && !i.uri)
@@ -60,8 +89,10 @@ export function validatePlantedStandingHeader(bytes, spec) {
   return json;
 }
 
-export function createPlantedStandingHorseIdle({ T, root, clips, verifiedDerivedSha256, instanceId }) {
-  check(verifiedDerivedSha256 === PLANTED_SHA && typeof instanceId === 'string' && instanceId.length > 0,
+export function createPlantedStandingHorseIdle({ T, root, clips, verifiedDerivedSha256, instanceId,
+  sourceQualificationMode = 'anatomy_r3' }) {
+  const master = Object.hasOwn(PLANTED_MASTERS, sourceQualificationMode) ? PLANTED_MASTERS[sourceQualificationMode] : null;
+  check(master && verifiedDerivedSha256 === master.sha256 && typeof instanceId === 'string' && instanceId.length > 0,
     'source-bound standing identity required');
   check(!root.userData[OWNER], 'standing clone already has an animation owner');
   const meshes = []; root.traverse(n => { if (n.isMesh) meshes.push(n); });
@@ -95,6 +126,7 @@ export function createPlantedStandingHorseIdle({ T, root, clips, verifiedDerived
       elapsed += advance; mixer.update(advance);
     },
     get status() { return { elapsed_s: elapsed, disposed, clip: PLANTED_CLIP,
+      source_qualification_mode: sourceQualificationMode, derived_sha256: verifiedDerivedSha256,
       initial_rest_delay_s: delay, deterministic_playback_rate: rate, mixer_count: disposed ? 0 : 1,
       weight_shift: true, head_tail_composed: false, independent_ear_motion: false, walk: false, trot: false }; },
     dispose() { if (disposed) return; disposed = true; mixer.stopAllAction(); mixer.uncacheRoot(root); delete root.userData[OWNER]; },

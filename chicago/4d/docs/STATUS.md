@@ -25321,3 +25321,40 @@ A separately versioned wagon master now adapts the recovered licensed Old Cart g
 T-2793 source increment now has actual current WebP LODs8,433,236bytes total and desktop/mobile isolated captures with zero errors; full repository/published-world qualification remains pending. Continuous actual front-wheel/body envelopes and explicit detached/moved-geometry controls pass; artist pin/rim fit limits remain disclosed. Source-only publication exclusions preserve originals and live consumers; actual final publisher budget still pending.
 
 T-2793 required portable structural nodes now own actual reach/kingbolt geometry: one44-triangle reconstructed coupling reach and the original28-triangle pin split from front details. Current near/mid/far total8,465,076bytes,12materialbatches; prior8,433,236-byte views remain historical. Final current-source rendering, canonical tail, full publisher/preflight and photographic/world acceptance remain pending.
+
+
+## T-3088 — source-bounded horse anatomy master (qualification in progress)
+
+The Western Hotel yard horse selects a repeatable derivative of the credited canonical26 source, with thinner upper eyelid margins and locally refined, rounded hoof walls/coronets/toes. The original d454/b479 source files, repaired eye UVs, six texture images, rig, binds and planted-standing clip remain preserved. Added body rows carry explicit parent-edge skin/UV interpolation; source topology and contact samples are genuinely regenerated. The selected 4,158,016-byte master is SHA925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48, within the existing 4MiB/20,000-triangle budgets.
+
+Actual matched parent/candidate front, profiles, rear, quarter, head and hoof views were inspected against the cleared anatomy plates and CC0 living-horse references. Fresh native cloned-skin Mixer checks passed all65keys and64midpoints with unchanged physical limits and meaningful corruptions; maximum contact drift is8.650um, minimum surface is−0.485um, and reversed triangles are0. This qualifies the changed body only for canonical standing; it does not inherit the old yard proof. The resting upper lid still reads heavy; existing coat/maps and opaque mane/tail remain explicitly bounded by sequential T-3089. Actual current selected-body published yard/phone support, normal app lifecycle, complete preflight and full photographic sign-off remain pending. No walking, riding, hitching or historical individual is asserted. See the full-region anatomical review and retained source/physical receipts.
+
+
+## T-3088 - exact upper-lid source increment (2026-10-26; app qualification pending)
+
+The source patch now selects exact5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5
+(4,158,848bytes/17,390triangles) for the existing Western Hotel yard horse. The
+925fac95 ancestor, d454 eye-UV parent and original sources remain unchanged.
+Native regeneration reproduces exact5a; original eye UVs, six maps, rig, skin,
+standing clip and rounded hoof/contact domains stay protected. The runtime has
+explicit fail-closed support for both the retained925 mode and the new qualified
+socket mode; no new movement, placement or attachment is enabled.
+
+Actual external static/native129/posed socket qualification passed with the
+original9176-byte physical loop and unchanged limits. Every posed sample has24
+contained BODY crossings and82 same-side contacts within fixed14/7mm source-curve
+bounds;17 new globe faces are disclosed and the old strict rejection remains
+unchanged. Current CPU source/mode/eye-UV and tiny corruption guards pass. The
+new native static port, actual current yard/phone stand/head/eye views and fresh
+complete source gate still require execution before delivery. This is an
+uncommitted bounded visible increment, not full T-3088/T-3089 photographic,
+continuous collision, gait, rider or driver completion. Broad brow ridge and
+lower pale ring/fur remain open source-relative limitations.
+
+
+**T-3088 source follow-up,27 October2026:** selected exact e49b upper-orbital BODY transition in the isolated uncommitted source. It openly changes10 X/38 normal rows over44 faces from preserved5a, retains original geometry/physical limits and all old modes/proofs, and has fresh actual129 source/physical/socket plus16 matched source frames. Root observed the ledge recede without an obvious new aperture/profile defect. Dark upper-eye/pale ring/forelock concerns remain unadjudicated; no full photographic or T3088DONE claim. Current Full yard body/head views at desktop/phone, canonical Liberty/source-use, complete native gate and ordinary exact-HEAD/CI/PR merge still remain. Incoming c3d Wagon/shared-memory fixes are retained.
+
+
+### T-3088 exact-source recovery, 29 October 2026
+
+The selected orbital child is byte-identical to the 27 October e49b source backed up in evidence checkpoint15 (commit2c76735371058f52d1e7c275f23dd25c1ffedfda); its 5a ancestor and recipe were recovered byte-for-byte from checkpoint11. Existing925/d454 files, placement, hoof contacts, rig/skin/UVs and gait prototypes remain preserved. The compact pinned129 qualification is historical evidence for these same asset bytes. The original external raw capture arrays are absent after the runtime restart; this recovery does not claim they were reread or that physical129 was rerun. Current source/static controls, canonical owners, published Full-yard views at both widths and full source/CI gates are separate delivery requirements. Broad anatomical, photographic, surface/LOD and occupied-use acceptance remain open.

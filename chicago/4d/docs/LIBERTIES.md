@@ -35914,3 +35914,49 @@ T-2793 final structural scope: an actual90x55mm central reach reuses the license
 **Recorded:** 2026-10-26.
 
 **Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.
+### L-horse-upper-eye-contour-3088 — bounded upper-lid strip and upper-orbital contour
+
+**Recorded:** 2026-10-29 (recovery of source work recorded26–27October2026). **Ticket:** T-3088.
+
+**Sources:** `ellenberger_baum_dittrich_equine_plates`,
+`seton_1892_equine_skeleton`, `vassil_2014_konik_horse_anatomy`,
+`joselodos_2025_horse_anatomy`; original licensed model
+`sevketkabatas_2021_horse_model`. Their existing rights, dates and limits remain.
+
+**Ancestry:** `L-horse-anatomy-master-3088` remains the unchanged declaration for
+the already-delivered925 hoof/body refinement. Those hoof domains, proportions,
+placement and support are preserved ancestry, not new work under this record.
+
+**Decision and reconstruction:** add only the5a fixed-boundary upper-lid strip and
+its e49 upper-orbital contour child. Cleared head/eyelid references guide the local
+rest-surface reconstruction; they do not calibrate an1835Chicago animal, breed,
+owner, coat, or absolute historical dimensions. Control centres, local offsets
+and the resulting unseen geometry remain bounded project choices.
+
+**Upper-lid source update:** the exact fixed-boundary strip child
+`5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5`
+retains the original925 master as an immutable ancestor and replaces142 head face
+slots without inherited face ancestry. Its41 interior position/normal rows and64
+fixed boundary rows leave the rounded hoof domains unchanged. Only internal BODY
+UV rows2410/2412 are repaired from original boundary barycentres; every EYE UV,
+image, skin row, rig and standing clip stays exact.
+
+**Upper-lid qualification boundary:** the distinct opt-in
+`canonical_socket_interface_v1` mode derives20 unchanged same-side interface faces
+from actual925 source intersections. Complete BODY loci must remain inside the
+original closed same-side globe within14mm of the original same-face curves;
+globe contacts stay within7mm of original patch/globe curves. These fixed
+engineering bounds are not plate measurements. Patch/patch, exterior, wrong-side
+and undeclared crossings fail. Seventeen genuinely new globe contact faces are
+disclosed. Actual static, native65keys+64midpoints and all129 posed socket checks
+qualified the exact5a source; the original9176-byte physical loop and physical
+limits stay unchanged. The earlier strict24 BODY/82 globe rejection remains
+preserved rather than relabelled as passing. Current app/yard/phone comparisons
+and a fresh complete source gate remain required. Broad brow ridge, lower pale
+ring/fur and full photographic surface/LOD work remain open under T-3088/T-3089;
+no gait, rider, driver, breed or historical-individual acceptance is asserted.
+
+
+**Explicit upper-orbital transition (27 October 2026):** exact e49b is a reconstructed child of preserved5a. Ten BODY X coordinates and38 normals over44 faces reduce the raised upper-eye ledge; six formerly fixed boundary rows are declared in this new region rather than waived under the old recipe. All eye/UV/image/skin/rig/standing-foot tables and the original source prefix remain exact. Recorded27October2026 e49 source/static and actual65-key+64-midpoint physical/socket129 proof passed under unchanged20mm/4MiB/20ktriangle,20-face same-side14/7mm and original physical-loop limits. Matched source views support a small visible ledge reduction; dark upper-eye appearance, pale ring and pointed forelock remain conspicuous and are not automatically paint-only or wholly assigned to the surface sibling. Stocky unchanged body proportions are retained as plausible generic anatomy. No calibrated plate millimetres, breed/identified individual, Chicago ownership, T3088DONE or broad photo/gait/tack acceptance is claimed. Canonical owners, actual current yard views, full source gate and CI remain required before delivery.
+
+**Recovery limit:** this29October2026 source recovery preserves the exact historical certificate and asset bytes; external raw129 arrays are unavailable and physical129 was not rerun. Current published-yard views and full source/CI gates remain separate.

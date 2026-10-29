@@ -82,7 +82,19 @@ class AnatomySourceV2(unittest.TestCase):
     def test_selected_runtime_is_exact_canonical_recipe_output(self):
         spec = json.loads((APP / 'data/transport/parked/horse-sevket-sidecar.json').read_text())
         selected = (APP / 'renderers/web' / spec['runtime_asset']['file']).read_bytes()
-        self.assertEqual(selected, self.candidate)
+        # The925 derivation remains an immutable supported source mode. The
+        # explicit new socket mode has separate, stronger head ownership proof.
+        self.assertEqual((SOURCE / 'horse-sevket-anatomy-v2.glb').read_bytes(), self.candidate)
+        mode = spec['runtime_asset'].get('source_qualification_mode', 'anatomy_r3')
+        if mode == 'upper_orbital_transition_v1':
+            from test_standing_horse_upper_orbital import check_source_selection
+            check_source_selection()
+        elif mode == 'canonical_socket_interface_v1':
+            from test_standing_horse_upper_lid import check_source_selection
+            check_source_selection()
+        else:
+            self.assertEqual(mode, 'anatomy_r3')
+            self.assertEqual(selected, self.candidate)
         self.assertEqual(anatomy.base.digest(selected), spec['runtime_asset']['sha256'])
         self.assertEqual(len(selected), spec['runtime_asset']['bytes'])
         self.assertEqual(spec['contact_mesh']['vertices'], self.receipt['hoof_refinement']['new_vertices'])

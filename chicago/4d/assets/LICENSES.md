@@ -1565,3 +1565,74 @@ images intentionally have bounded, recorded codec loss rather than byte identity
 Exact reconstructed-fit limitation: the retained artist kingbolt axis is 4.994mm eccentric from the tyre-centre yaw frame (XZ+1.925/+4.609mm), moving0.697mm over an8degree turn. No exact coaxial/strength claim. Original rims retain at most2.617mm radial ground irregularity; this is not a perfect-circle/suspension simulation.
 
 The final farm-box master also includes an actual central90x55mm coupling reach, reconstructed from the same licensed shaft surface/UVs and separately owned in vehicle_reach. Its end connections are geometry-checked against the fixed front bolster and rear axle. The actual original28-triangle kingbolt is separately owned in vehicle_kingbolt; this is a component split, not an empty proxy or a hidden change to source surfaces. Both remain CC BY4.0 derivatives with the same author credit; fit/strength/historic-design limits remain reconstruction.
+
+## T-3088 source-bounded horse anatomy authoring
+
+The anatomy recipes derive from the preserved selected d454 standing horse above,
+under the same sevketkabatas **CC-BY-4.0** credit, source URL and change-notice
+requirements. Existing source images, repaired eye UVs, acquired original,
+b479 and d454 parent files remain preserved. The project-authored recipe code
+and bounds are **GPL-3.0-or-later**; no claim is made that a software licence
+replaces the model's attribution licence.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/generate_anatomy_v1.py`|Project-authored GPL-3.0-or-later source-only smooth rest-surface recipe; parent mesh rights remain CC-BY-4.0.|
+|`authored/transport/horse_standing/anatomy-v1-recipe.json`|Project-authored reconstructed source bounds and exact reference-image bindings; no reference pixels copied into the model.|
+|`authored/transport/horse_standing/generate_anatomy_v2.py`|Project-authored GPL-3.0-or-later canonical authored-mesh derivation with immutable-parent and live-field lineage.|
+|`authored/transport/horse_standing/anatomy_topology_v2.py`|Project-authored GPL-3.0-or-later adaptive hoof-wall/coronet/toe subdivision and bounded fairing; generated geometry remains an attributed CC-BY-4.0 model derivative.|
+|`authored/transport/horse_standing/anatomy-v2-recipe.json`|Project-authored reconstructed anatomy/topology choices, per-feature source IDs, confidence and immutable reference hashes.|
+|`authored/transport/horse_standing/ANATOMY.md`|Project-authored source, reconstruction, authoring and acceptance boundary notice; original model attribution remains separate.|
+|`authored/transport/horse_standing/horse-sevket-anatomy-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse; reconstructed eyelid and hoof topology changes declared in ANATOMY.md and the versioned recipe. Repaired eye UVs and original six image payloads retain the source rights and credit.|
+
+The anatomy runtime copy is byte-identical at
+`renderers/web/transport/standing-horse/horse-sevket-anatomy-v2.glb`.
+The original acquired model and b479/d454 authored parents and their old receipts
+remain unchanged. Fresh selected-body Mixer129 physical proof is separate from
+surface, LOD, world, device performance and photographic qualification.
+
+The input plates by Ellenberger/Baum/Dittrich and Seton are recorded public-domain
+anatomical works. The Vassil and Joselodos living-animal photographs are cleared
+CC0 references. These supply anatomical relationships and visible continuity;
+neither the modern animals' breeds/markings nor their dimensions become evidence
+for an 1835 Chicago animal. Their pixels are not sampled into output textures.
+The unchanged six model texture payloads retain the source model's CC-BY-4.0
+provenance. Source recipes and uninstalled candidate generation do not constitute
+native, physical, historical or photographic acceptance.
+
+
+## T-3088 exact fixed-boundary upper-lid strip
+
+The selected5a2b2e87 source is a **CC-BY-4.0 derivative of Horse by
+sevketkabatas**, published29March2021, retrieved via Objaverse. The original
+credit, licence/source URLs and ODC-By1.0 dataset notice remain in
+`authored/transport/horse_standing/SOURCE.json`;925fac95, d454 and the acquired
+original remain preserved. The changes replace142 upper-lid head face slots,
+41 interior position/normal rows and two declared internal BODY UV rows. Every
+EYE UV and all six original image payloads retain their exact bytes and source
+rights. No reference-photo pixels are copied into model textures.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-upper-lid-strip-v1.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse via Objaverse, exact qualified5a source copied without re-export. Fixed-boundary upper-lid topology and two BODY UV repairs are declared in ANATOMY.md and the versioned recipe; source model/images keep their original attribution.|
+|`authored/transport/horse_standing/upper-lid-strip-v1-recipe.json`|Project-authored GPL-3.0-or-later reconstructed bounds, explicit patch/UV ownership and cleared source/reference bindings. No source pixels or modern breed identity are transferred as historical evidence.|
+|`authored/transport/horse_standing/generate_upper_lid_strip_v1.py`|Project-authored GPL-3.0-or-later deterministic NumPy source generator derived from the reviewed strip algorithm. It verifies immutable parents, source rights and fixed bounds; generation does not replace the model's CC-BY-4.0 attribution or assert qualification.|
+
+The exact runtime copy is
+`renderers/web/transport/standing-horse/horse-sevket-upper-lid-strip-v1.glb`.
+The old925 authored/runtime files remain unchanged. Ellenberger/Baum/Dittrich
+public-domain anatomy plates and the Joselodos CC0 living-animal reference guide
+this bounded reconstruction; their rights, dates and limits remain in the source
+register. Source qualification and visible anatomical improvement do not establish
+full photographic, historical-individual, gait or occupied-use acceptance.
+
+
+### Preserved5a child: upper-orbital BODY transition (T-3088)
+
+| File | Credit and scope |
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-upper-orbital-transition-v1.glb`|Exact e49b CC-BY-4.0 derivative of sevketkabatas's2021 Horse; original modern author, source URL and Objaverse/acquisition provenance remain in SOURCE.json. Project-authored reconstructed BODY ridge adjustment; no historical owner/breed or pixel-calibrated period measurement claimed.|
+|`authored/transport/horse_standing/upper-orbital-transition-v1-recipe.json`|GPL-3.0-or-later project recipe, explicit10-position/38-normal region, same-side fixed anchors and unchanged limits. Original5a/f77 recipe and strict failure remain preserved.|
+|`authored/transport/horse_standing/generate_upper_orbital_transition_v1.py`|GPL-3.0-or-later pure source-table generator and protected-source controls; it does not replace the asset's CC-BY-4.0 attribution or prove photographic likeness.|
+
+The runtime file is `renderers/web/transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb`, byte-identical to the authored source. All5a/925/d454/raw/canonical26 sources and old modes remain. Cleared PD anatomy/CC0 living-animal references guide the bounded reconstruction with their existing date/identity limits. Exact-source fresh129 and matched source views support this increment; current app/yard/full gates and remaining anatomy/surface concerns are separate.

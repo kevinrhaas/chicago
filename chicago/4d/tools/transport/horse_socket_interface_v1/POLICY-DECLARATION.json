@@ -1,0 +1,33 @@
+{
+  "mode": "canonical_socket_interface_v1",
+  "source_parent_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "unchanged_original_interface_faces": {
+    "-1": [
+      3782,
+      3783,
+      3786,
+      3787,
+      3790,
+      3791,
+      3802,
+      3803,
+      3806,
+      3831
+    ],
+    "1": [
+      3784,
+      3785,
+      3788,
+      3789,
+      3792,
+      3793,
+      3804,
+      3805,
+      3808,
+      3833
+    ]
+  },
+  "body_locus_limit_m": 0.014,
+  "globe_contact_limit_m": 0.007,
+  "replacement_faces_inherit_no_crossing_ancestry": true
+}

@@ -4,13 +4,25 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { register } from 'node:module';
 import { standingHorseCard } from '../renderers/web/js/standing-horse-card.js';
-import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP }
+import { validatePlantedStandingHeader, createPlantedStandingHorseIdle, PLANTED_SHA, PLANTED_CLIP, PLANTED_MODE, LEGACY_PLANTED_SHA, LID_PLANTED_SHA }
   from '../renderers/web/js/standing-horse-planted-idle.js';
 const spec = JSON.parse(readFileSync(new URL('../data/transport/parked/horse-sevket-sidecar.json', import.meta.url)));
 const buffer = readFileSync(new URL('../renderers/web/' + spec.runtime_asset.file, import.meta.url));
 assert.equal(createHash('sha256').update(buffer).digest('hex'), PLANTED_SHA);
 const bytes = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
 const header = validatePlantedStandingHeader(bytes, spec);
+const legacySpec = JSON.parse(readFileSync(new URL('../tools/fixtures/horse-anatomy-r3-sidecar-v1.json', import.meta.url)));
+const legacyBuffer = readFileSync(new URL('../renderers/web/' + legacySpec.runtime_asset.file, import.meta.url));
+assert.equal(createHash('sha256').update(legacyBuffer).digest('hex'), LEGACY_PLANTED_SHA);
+validatePlantedStandingHeader(legacyBuffer.buffer.slice(legacyBuffer.byteOffset, legacyBuffer.byteOffset + legacyBuffer.byteLength), legacySpec);
+const lidSpec = { ...spec, runtime_asset: spec.preserved_upper_lid_runtime_asset };
+const lidBuffer = readFileSync(new URL('../renderers/web/' + lidSpec.runtime_asset.file, import.meta.url));
+assert.equal(createHash('sha256').update(lidBuffer).digest('hex'), LID_PLANTED_SHA);
+validatePlantedStandingHeader(lidBuffer.buffer.slice(lidBuffer.byteOffset, lidBuffer.byteOffset + lidBuffer.byteLength), lidSpec);
+assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_asset: { ...spec.runtime_asset, source_qualification_mode: 'anatomy_r3' } }), /identity/);
+assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_asset: { ...spec.runtime_asset, source_qualification_mode: 'unqualified_lid_v2' } }), /identity/);
+assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_asset: { ...spec.runtime_asset, qualification_sha256: '0'.repeat(64) } }), /socket qualification/);
+
 assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_scale_m_per_unit: .36440688373115426 }), /unit scale/);
 assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_origin_m: [.001, 0, 0] }), /unit scale/);
 assert.throws(() => validatePlantedStandingHeader(bytes.slice(0, -4), spec), /byte budget/);
@@ -29,6 +41,14 @@ assert.throws(() => validatePlantedStandingHeader(altered(j => { j.animations[0]
 assert.throws(() => validatePlantedStandingHeader(altered(j => { j.animations[0].samplers[0].interpolation = 'STEP'; }), spec), /key\/time/);
 assert.throws(() => validatePlantedStandingHeader(altered(j => { j.buffers[0].uri = 'unreviewed.bin'; }), spec), /embedded/);
 assert.throws(() => validatePlantedStandingHeader(altered(j => { delete j.asset.extras.chicago4d_anatomy_master_v2; }), spec), /anatomy parent/);
+assert.throws(() => validatePlantedStandingHeader(altered(j => { delete j.asset.extras.chicago4d_upper_lid_strip_v1; }), spec), /upper-lid parent/);
+assert.throws(() => validatePlantedStandingHeader(altered(j => { j.asset.extras.chicago4d_upper_lid_strip_v1.parent_sha256 = '0'.repeat(64); }), spec), /upper-lid parent/);
+assert.throws(() => validatePlantedStandingHeader(altered(j => { j.asset.extras.chicago4d_upper_lid_strip_v1.internal_BODY_UV_repair_rows = [2410, 2412, 2413]; }), spec), /upper-lid parent/);
+
+
+assert.throws(() => validatePlantedStandingHeader(altered(j => { delete j.asset.extras.upper_orbital_transition_v1; }), spec), /upper-orbital parent/);
+assert.throws(() => validatePlantedStandingHeader(altered(j => { j.asset.extras.upper_orbital_transition_v1.position_rows = 11; }), spec), /upper-orbital parent/);
+assert.throws(() => validatePlantedStandingHeader(bytes, { ...spec, runtime_asset: { ...spec.runtime_asset, source_qualification_mode: 'canonical_socket_interface_v1' } }), /identity/);
 
 // Exact target identities with a deliberately tiny mixer mock test host-clock
 // ownership, hold and disposal; physical pose qualification uses real THREE.
@@ -53,7 +73,8 @@ const T = { AnimationMixer: Mixer, LoopRepeat: 2201, PropertyBinding: {
   parseTrackName(name) { const [nodeName, propertyName] = name.split('.'); return { nodeName, propertyName }; },
   findNode(r, name) { assert.equal(r, root); return byName.get(name); },
 } };
-const args = { T, root, clips: [clip], verifiedDerivedSha256: PLANTED_SHA, instanceId: 'western_hotel_yard_standing_horse_01' };
+const args = { T, root, clips: [clip], verifiedDerivedSha256: PLANTED_SHA, sourceQualificationMode: PLANTED_MODE, instanceId: 'western_hotel_yard_standing_horse_01' };
+assert.throws(() => createPlantedStandingHorseIdle({ ...args, sourceQualificationMode: 'anatomy_r3' }), /identity/);
 const player = createPlantedStandingHorseIdle(args);
 assert.throws(() => createPlantedStandingHorseIdle(args), /already has/);
 player.update(3); const advanced = mixer.advanced; assert(advanced > 0);
@@ -66,6 +87,13 @@ assert.equal(player.status.walk, false); assert.equal(player.status.trot, false)
 player.dispose(); player.dispose(); player.update(1);
 assert.equal(mixer.advanced, advanced); assert.equal(mixer.stops, 1); assert.equal(mixer.uncaches, 1);
 assert.equal(player.status.mixer_count, 0);
+const legacyPlayer = createPlantedStandingHorseIdle({ ...args, verifiedDerivedSha256: LEGACY_PLANTED_SHA, sourceQualificationMode: 'anatomy_r3' });
+assert.equal(legacyPlayer.status.source_qualification_mode, 'anatomy_r3');
+legacyPlayer.dispose();
+const lidPlayer = createPlantedStandingHorseIdle({ ...args, verifiedDerivedSha256: LID_PLANTED_SHA, sourceQualificationMode: 'canonical_socket_interface_v1' });
+assert.equal(lidPlayer.status.source_qualification_mode, 'canonical_socket_interface_v1');
+lidPlayer.dispose();
+
 
 // Modern asset credit never becomes an historically attested animal attribute.
 const row = JSON.parse(readFileSync(new URL('../data/transport/parked/standing-horses.json', import.meta.url))).scenes['1835'][0];

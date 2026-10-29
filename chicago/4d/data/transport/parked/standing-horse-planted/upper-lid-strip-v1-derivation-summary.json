@@ -1,0 +1,29 @@
+{
+  "schema": "standing-horse-upper-lid-strip-derivation-summary-v1",
+  "candidate_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+  "candidate_bytes": 4158848,
+  "parent925_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "original_d454_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "recipe_sha256": "f77e115a340a6cbb8d6efb1b7887c8cdba001a47f493b97be6ffb0eee72dd133",
+  "generator_sha256": "7e6ed1ca8f03179743d2305dd864769e794ebfa56c2cea082a8da660063bba39",
+  "qualified_source_copied_without_reemission": true,
+  "native_pure_derivation_reproduces_exact_sha": true,
+  "body_vertices": 5595,
+  "body_triangles": 9794,
+  "whole_animal_triangles": 17390,
+  "replacement_face_slots": 142,
+  "interior_position_normal_rows": 41,
+  "fixed_boundary_rows": 64,
+  "BODY_UV_repair_rows": [
+    2410,
+    2412
+  ],
+  "all_EYE_UV_images_skin_rig_clip_exact": true,
+  "all_foot_geometry_skin_UV_contacts_exact_to925": true,
+  "replacement_face_slots_inherit_no_parent_crossing_or_face_ancestry": true,
+  "original_d454_BIN_prefix_exact": true,
+  "qualification_summary_sha256": "5fb50fed07a041c76e2a1300a9040600628f59671b8a27d7f4483bc8dc880ca1",
+  "creation_time_unqualified_GLBF_flags_preserved_as_history": true,
+  "photographic_acceptance": false,
+  "whole_app_gate_acceptance": false
+}

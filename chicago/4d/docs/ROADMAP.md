@@ -5974,3 +5974,25 @@ Concrete separate source now preserves the licensed Old Cart's weathered boards,
 T-2793: finish current-source publisher/full-gate and world/photo release checks for the licensed articulated master. Current isolated desktop/mobile WebP appearance/control proof is separate; retain the four explicit source-only publication omissions without cap changes. No broad photographic or ticket completion is recorded here.
 
 T-2793 final-source qualification must use the separately owned actual reach/kingbolt candidate (8,465,076-bytewebset); old pre-reach captures do not qualify the added member. Preserve current80staticwagons/3finewoodstands until explicitworld-selection qualification.
+
+
+### T-3088 — qualify the refined canonical horse anatomy
+
+Keep the source-bounded 925fac master as the selected candidate: rounded locally refined hooves and thinner eyelid margins, protected eye/maps/rig/clip, repeatable authored recipe and fresh all-face/expanded-contact Mixer129 proof. Finish actual selected-body yard support, mobile/desktop normal app review and the native whole preflight before delivery. Record the remaining resting-lid appearance honestly; complete the existing T-3089 material/LOD work sequentially from this exact accepted anatomy master. No gait/rider/driver acceptance is implied and no new photo follow-ups are opened.
+
+
+### T-3088 - deliver the exact qualified upper-lid increment
+
+Select exact5a2b2e87 through its explicit bounded socket mode, preserving the925
+ancestor, d454/raw sources, eye UVs/maps, rig/clip and rounded hoof domains. The
+actual external static/native65keys+64midpoints/all129 posed proof and unchanged
+9176-byte physical loop qualify these exact source bytes; the old strict-mode
+rejection remains preserved. Complete the fresh native source/static port check,
+real current app yard/stand/head/eye comparison at desktop and phone widths,
+normal source preflight and exact-HEAD PR checks before landing the bounded
+increment. Keep T-3088/T-3089 open for broad brow ridge, lower pale ring/fur and
+remaining full photographic/surface/LOD work. No gait, rider, driver or historical
+individual claim follows from this source qualification.
+
+
+T-3088 bounded source increment27 October2026: exact e49b reduces the upper BODY orbital ledge through an explicit10-position/38-normal/44-face child of5a. Fresh actual129 proof and matched16 source views are recorded, with unchanged source/physical/collision limits and old masters/proofs retained. Continue canonical owners, complete source gate/CI and current Full yard body/head views at both widths before landing. Remaining dark upper-eye/pale ring/forelock concerns are not automatically paint-only or wholly surface work; no T3088DONE/full-photo/gait/tack claim. Preserve stocky unchanged body rather than inventing a global warp.

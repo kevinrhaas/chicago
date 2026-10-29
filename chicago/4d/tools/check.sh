@@ -397,6 +397,13 @@ step "Horse eye-UV derivative preserves original geometry, rig, clip, materials 
 step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
   python3 tools/test_standing_horse_anatomy_v2.py
 
+# Exact-source derivation/static socket controls; no browser and no physical129 rerun.
+step "Selected upper-lid source preserves925/eyeUV/hoof ownership and qualifies the fixed socket interface (T-3088)" \
+  python3 tools/test_standing_horse_upper_lid.py
+# Explicit ten-row BODY transition with recorded exact-source129 qualification.
+step "Selected upper-orbital source preserves frozen5a and qualifies its declared BODY transition (T-3088)" \
+  python3 tools/test_standing_horse_upper_orbital.py
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.

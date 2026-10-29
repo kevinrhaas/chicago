@@ -158,10 +158,12 @@ function instantiate(asset, spec, row, confidence, groundHeight) {
       assert(spec.idle.enabled && row.animation.clip === spec.idle.clip,
         'Explicit qualified horse idle contract required');
       idle = createPlantedStandingHorseIdle({ T: THREE, root, clips: asset.animations,
-        verifiedDerivedSha256: spec.runtime_asset.sha256, instanceId: row.id });
+        verifiedDerivedSha256: spec.runtime_asset.sha256, instanceId: row.id,
+        sourceQualificationMode: spec.runtime_asset.source_qualification_mode });
     }
     return { group: placement, root, asset, row, idle, card: card(row, spec), dispose: retireClone,
-      receipt: { material_variant: row.material_variant, root_y_m: base,
+      receipt: { asset_sha256: spec.runtime_asset.sha256, source_qualification_mode: spec.runtime_asset.source_qualification_mode ?? 'anatomy_r3',
+        material_variant: row.material_variant, root_y_m: base,
         support_quaternion_xyzw: q, minimum_gap_by_hoof_m: gaps,
         equal_10mm_slab_minimum_gaps_m: slabGaps, mixer_count: idle ? 1 : 0,
         autoplay: Boolean(idle), original_six_autoplay: false, idle_clip: idle?.status.clip ?? null } };

@@ -1,0 +1,167 @@
+{
+  "schema": "horse-upper-orbital-transition-v1-source-region",
+  "state": "EXTERNAL_UNQUALIFIED_CANDIDATE_NOT_ADOPTED",
+  "ticket": "T-3088",
+  "parent5a_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+  "parent925_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "original_d454_sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914",
+  "proposal_sha256": "cf0f7ff9155e5198da5b7238e16e76061222c787c873c5eb2b5f54ba5a049a19",
+  "region_ledger_sha256": "53baa09d0e8ce555f3634a2ecd094d1ff51a9ff7408261372322b4a8d2c8638e",
+  "position_rows": [
+    402,
+    403,
+    411,
+    412,
+    967,
+    969,
+    972,
+    976,
+    1360,
+    1363
+  ],
+  "normal_rows": [
+    392,
+    393,
+    399,
+    400,
+    401,
+    402,
+    403,
+    404,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    965,
+    966,
+    967,
+    968,
+    969,
+    970,
+    971,
+    972,
+    973,
+    975,
+    976,
+    977,
+    979,
+    980,
+    981,
+    984,
+    1360,
+    1361,
+    1362,
+    1363,
+    1364,
+    1365
+  ],
+  "affected_faces": [
+    238,
+    239,
+    240,
+    241,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    970,
+    972,
+    974,
+    976,
+    978,
+    980,
+    982,
+    983,
+    984,
+    985,
+    987,
+    989,
+    1718,
+    1719,
+    1720,
+    1724,
+    1730,
+    1731,
+    1732,
+    1733,
+    1734,
+    1735,
+    1736,
+    1737,
+    1738,
+    1739,
+    1740,
+    1741,
+    1742,
+    1743,
+    1744,
+    1745
+  ],
+  "fixed_anchor_pairs": {
+    "403": [
+      404,
+      416
+    ],
+    "412": [
+      410,
+      966
+    ],
+    "969": [
+      980,
+      970
+    ],
+    "1363": [
+      1365,
+      1362
+    ],
+    "976": [
+      984,
+      977
+    ],
+    "402": [
+      401,
+      414
+    ],
+    "411": [
+      409,
+      965
+    ],
+    "967": [
+      979,
+      968
+    ],
+    "1360": [
+      1364,
+      1361
+    ],
+    "972": [
+      981,
+      971
+    ]
+  },
+  "construction": {
+    "type": "same_side_fixed_anchor_Y_interpolation_of_X_only",
+    "fraction": 0.5,
+    "Y_Z": "byte_exact_parent",
+    "bilateral_geometry": "each side retains its own original coordinates/anchors; no reflection",
+    "normal_rule": "area-weighted full incident BODY face fans, only declared38 normal rows"
+  },
+  "limits": {
+    "original_d454_max_m": 0.02,
+    "immutable925_max_m": 0.02,
+    "qualified5a_parent_max_m": 0.02,
+    "bytes": 4194304,
+    "triangles": 20000
+  },
+  "qualification": "NEW_STATIC_AND_NATIVE129_AND_POSED129_AND_VISUAL_REQUIRED; no old proof transfer",
+  "collision_admission": "Existing canonical_socket_interface_v1 same20face ledger/14mm BODY/7mm globe limits and zero new exterior/undeclared/wrongside/patch-patch unchanged; UNRUN for these bytes",
+  "rights_and_reference_scope": "Reconstructed local ridge reduction, no precise reference mm or same individual/breed claim"
+}
