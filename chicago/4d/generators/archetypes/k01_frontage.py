@@ -3905,10 +3905,18 @@ class Assembly:
                                   "wall", "wall", "wall"))
         return out
 
+    # T-1890: the walls a shallow pavilion may be carried up past a mansard's eave on, each with
+    # the plan point (u, v) that stands `n` out of the wall's plane at `s` along it
+    SHALLOW_WALLS = {"k01.wall.street_front": lambda D, W, n, s: (D + n, s),
+                     "k01.wall.side.north": lambda D, W, n, s: (D - s, W + n),
+                     "k01.wall.side.south": lambda D, W, n, s: (s, -n)}
+
     def shallow_bays(self):
         """T-3047: the street front's shallow pavilions carried up past a mansard's eave, each as
         (bay, s0, s1, proud, behind): its cheeks along the front, how far it stands proud, and
-        how far behind the wall plane its windows' recesses reach (with 0.05 m to spare)."""
+        how far behind the wall plane its windows' recesses reach (with 0.05 m to spare).
+        T-1890: or a side wall's (1801's wall gable at its south wall's rear corner, HABS
+        photograph 1), its cheeks along that wall."""
         from . import k08_bays as K8
         out = []
         for b in self.p.bays:
@@ -3918,9 +3926,13 @@ class Assembly:
             if not v.get("shallow") or b.get("wing"):
                 continue
             top = math.fsum(float(st["height_m"]) for st in v["storeys"])
-            if b["wall"] != "k01.wall.street_front" or not self.p.mansard or top <= self.p.eave_m + 1e-6:
-                raise ValueError(f"{b['id']}: a shallow pavilion stands on the street front, carried up past "
-                                 f"a mansard's eave")
+            if b["wall"] not in self.SHALLOW_WALLS or not self.p.mansard or top <= self.p.eave_m + 1e-6:
+                raise ValueError(f"{b['id']}: a shallow pavilion stands on the street front or a side wall, "
+                                 f"carried up past a mansard's eave")
+            if b["wall"] != "k01.wall.street_front" and (k01_frontage_params.chamfer_of(b) is not None
+                                                         or self.p.cant_corner):
+                raise ValueError(f"{b['id']}: a shallow pavilion on a side wall is square, on a house "
+                                 f"with no cant corner")
             proud = max(float(q[1]) for q in v["plan"]["points"])
             behind = K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05
             out.append((b, b["span_m"][0], b["span_m"][1], proud, behind))
@@ -3943,19 +3955,31 @@ class Assembly:
                 proud = max(float(q[1]) for q in b["variant"]["plan"]["points"])
                 cut.append((b, b["span_m"][0], b["span_m"][1], proud, 0.05))
         for b, s0, s1, proud, behind in cut:
+            # T-1890: each plan point (n out of its wall's plane, s along it) to the plan's (u, v)
+            on = self.SHALLOW_WALLS[b["wall"]]
+            Q = lambda pts: [on(D, self.p.width_m, n, s_) for n, s_ in pts]
             # T-3156: under a crown raised over its attic the cuts stop at the crown's soffit
             top = (cr["eave_m"] - (self.p.eave_m - yf) - 0.005
                    if cr.get("eave_m") and cr["over_bay"] == b["id"] else self.p.eave_m + 10.0)
             far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
             near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
-            inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005), (D + proud + 0.005, s1 - 0.005),
-                     (D - behind, s1 - 0.005)]
-            if b.get("flush_corner") == "right":
-                inner[2:] = [(D + proud + 0.005, s1), (D - behind, s1)]
-            if b.get("flush_corner") == "left":
-                inner[:2] = [(D - behind, s0), (D + proud + 0.005, s0)]
+            if b["wall"] == "k01.wall.street_front":   # in (u, v) as T-3047 laid them, to the bit
+                inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005),
+                         (D + proud + 0.005, s1 - 0.005), (D - behind, s1 - 0.005)]
+                if b.get("flush_corner") == "right":
+                    inner[2:] = [(D + proud + 0.005, s1), (D - behind, s1)]
+                if b.get("flush_corner") == "left":
+                    inner[:2] = [(D - behind, s0), (D + proud + 0.005, s0)]
+                outer = [(D + proud, near), (D + 2.0, near), (D + 2.0, far), (D + proud, far)]
+            else:
+                inner = [(-behind, s0 + 0.005), (proud + 0.005, s0 + 0.005), (proud + 0.005, s1 - 0.005),
+                         (-behind, s1 - 0.005)]
+                if b.get("flush_corner") == "right":
+                    inner[2:] = [(proud + 0.005, s1), (-behind, s1)]
+                if b.get("flush_corner") == "left":
+                    inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
+                inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
             out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
-            outer = [(D + proud, near), (D + 2.0, near), (D + 2.0, far), (D + proud, far)]
             out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
@@ -4889,6 +4913,13 @@ class Assembly:
         for b, s0, s1, proud, _ in self.shallow_bays():
             d0 = starts[3] + D + A + proud if b.get("flush_corner") == "left" else A + s0
             d1 = starts[1] + A - proud if b.get("flush_corner") == "right" else A + s1
+            if b["wall"] != "k01.wall.street_front":
+                # T-1890: on a side wall's own run, round a corner onto the run before or after it
+                i = side_of[b["wall"]]
+                d0 = (starts[i - 1] + lens[i - 1] - A + proud if b.get("flush_corner") == "left"
+                      else starts[i] + lead[b["wall"]] + s0)
+                d1 = (starts[(i + 1) % n_runs] + A - proud if b.get("flush_corner") == "right"
+                      else starts[i] + lead[b["wall"]] + s1)
             ch = k01_frontage_params.chamfer_of(b)   # T-3048: round a chamfer, at its back
             if ch is not None:
                 d0, d1 = (starts[3] + D + A - ch[2], d1) if ch[0] == "left" else (d0, starts[1] + A + ch[2])

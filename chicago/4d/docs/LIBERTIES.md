@@ -35834,8 +35834,11 @@ pier beyond it. **What is invented.** The piers' section (0.9 m square under a 0
 shows a deeper moulded cap and a sunk panel); the low walls' curve, laid as a concave quarter-circle in ten
 facets between heights read at its ends and middle; the opening's 3.0 m at the carriage way and the pier east of
 it, read off 1445 at a small size; the wall's height (0.9 m) along the stable, read off 16554 at a small size; and
-the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court, the
-globe lamp and urn on the piers are not built. **How to resolve:** a picture of 18th Street east of the stable,
+the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court is not built (only 16554, whose
+rights are unresolved, shows it). The fifth pier's urn, read at the plate's full size as one squat lidded urn
+about 0.4 m by 0.5 m (an earlier reading made it a globe lamp with an urn behind it), is the K11 kit's turned
+urn stretched to that size: its profile, and its lid's small point where the plate's lid is flat, are the
+kit's. **How to resolve:** a picture of 18th Street east of the stable,
 or a full-size copy of the c. 1905 CHM negative i70232, would show the wall's east end and the piers' caps.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
@@ -36089,3 +36092,30 @@ the two-level rear veranda (T-3242), and the carving and ironwork (T-1876).
 **How to resolve:** a measured height on the roof (or a second camera on it) fixes the deck; a K01
 main block with a corner recess would cut the porch's back wall where the sheet draws it.
 **Recorded:** 2026-10-29 (T-3241).
+
+### L-kimball-1801-se-wall-gable-1890 — 1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1
+
+**Decision:** the roof's south-east corner had nothing over the main cornice where HABS photograph 1
+(June 1965, `habs_kimball_photo_01_sw_1965`) shows what the match record had called a tall pinnacle.
+Read off the print itself it is a WALL GABLE: a steep coped stone gable rising from the main cornice
+at the south wall's rear corner, just behind the rear stack, its east cheek carried down the corner
+as a plain pier, a plain point at its apex with no finial and no pinnacle on its kneeler, and a pair
+of small dark lights on a mullion at its foot (T-1890). **What is read.** From the print, against
+the rear stack's cap, which the build and the print share: the apex about 4.4 m over the cornice,
+the east foot about 1.2 m from the apex along the wall, the east cheek on the corner, the lights'
+rows just over the cornice. Built (`bays.p_se_gable`): K08's full-height projection, 2.3 m wide
+and flush with the rear corner, carried up past the mansard's eave to a 10.1 m wall top under a
+coped gable of pitch 2.85 (apex about 13.0 m), the lights K06's mullioned casement pair at 1.6 by
+0.75 m. A shallow pavilion carried up past a mansard's eave had been the street front's alone
+(T-3047); the generator now lays one on a side wall the same way (`shallow_bay_cutters`, the
+gutter's stops). **What is invented or held by the kit.** The gable's depth: the print sees its
+face only, so it stands the kit's shallow 0.1 m proud of the wall from grade, where the print may
+have it flush below the cornice. Its west half is behind the stack in the print, so its width is the
+east half's doubled. The lights' frames and sash are the kit's. **What is still open.** The print
+carries the main cornice on under the lights to the corner; the build stops the eave box at the
+gable's west cheek, so the cornice is missing across the gable's width.
+**How to resolve:** the HABS drawings' south or east elevation, or a view of the rear, gives the
+gable's width, depth and the cornice's run under it.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-29 (T-1890).
