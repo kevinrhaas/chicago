@@ -34659,6 +34659,8 @@ plate's cameras, and brings every 1901 match record to `matches`.
 **Revised:** 2026-10-28 (T-3186) — **the porch's capitals are carved and the stoop's cheeks are scrolled.** Each of the four porch columns' capitals is carved as two tiers of leaves under a 0.1 m abacus (`entrance_kit.hood.columns.carved`, the bay columns' carving from T-2887 brought to K01's door-hood column), about 0.45 m deep and 0.47 m across the leaves where the 1898 print reads about 0.45 m and 0.5 m. The stoop's two cheeks are K07's scrolled stone cheek (`cheek_form: scrolled`), now allowed beside open terraces at the landing's depth, each cheek's head standing on the landing's front edge; their tops fall straight down the rake onto the rolled foot (`bow` 1), as the south-west view draws them. **What is invented:** the leaves themselves (the print does not resolve the acanthus or the volutes; the carving is the kit's scalloped bell, not a Corinthian order); the cheek's head height (0.85 m over the landing, the scrolled cheek's own) and its roll's size (0.2 m, K07's). **Still not built:** the cheeks' row of small openings under their tops, the columns' closer pairing (about 0.5 m centre to centre in the print, 0.75 m here, under the 1 ft bar), the cornice's paired blocks, and the 1893 plate's camera, the 1896 reprint and the elevation drawing: open on the match records for T-3186.
 **Revised:** 2026-10-28 (T-3186) — **the cornice carries its blocks over a frieze.** Enlarged, both pictures show under the moulded cornice's corona a course of carved stone blocks — scrolled consoles with squared heads, single and evenly spaced with dark panels between them, not paired as first read — standing on a plain frieze whose foot is a moulded band just over the chamber heads, round the front, the canted corner and the flank. Built as `wall_head.frieze` (0.42 m under the cornice's foot, 25 mm proud) and `wall_head.blocks` (K10's scrolled console in the walls' stone, 0.45 m high under the corona's soffit, 0.18 m wide, 0.19 m out, about 0.8 m apart; 57 of them, one left out where the flank's front stack stands on the cornice), new to the moulded stone cornice round a mansard (`k10_frontage._stone_frieze_blocks`); both match records mark the cornice fixed. **What is invented:** the blocks' carving (the kit's generic scroll, not the prints' carving, which they do not resolve), their projection (the most the corona's soffit covers) and the frieze's height, which is the most the chamber heads leave under the cornice — so the band-to-corona depth builds 0.57 m where the prints read about 0.6-0.8 m, under the 1 ft bar; the panels between the blocks are not modelled. **Still not built:** the cheeks' row of small openings under their tops, and the 1893 plate's camera, the 1896 reprint and the elevation drawing.
 
+**Revised:** 2026-10-29 (T-3186, the sign-off) — **the porch drops to the entrance floor.** Enlarged, the 1898 print shows the porch's floor at the stoop's top tread level with the base course's top, about 1.5 m over grade, and the columns rising from pedestals about 0.8 m tall on it; the line T-3185 read as the floor at 2.35 m was the pedestals. Built as `entrance_floor_m` 1.5 (the stoop's nine risers land there and the door opens on it), the hood columns' pedestals 0.8 m tall, the scrolled cheeks' heads 0.6 m over the floor (`cheek_form.head_m`, new to K07's scrolled cheek) and their rolls on a 0.4 m foot block; every 1901 match record now reads `matches`. **What is invented:** the vestibule behind the door and the inner flight that climbs the 0.85 m from it to the principal floor (the prints show only darkness between the columns; neither is built, as at 1612's `L-k01-1612-goodman-2369`); the door's 3.2 m clear height, which keeps its head where the print's shadow leaves it under the entablature; and the foot block's height, read off the plate at its grain. The principal floor itself is still 2.35 m, now resting on the principal windows' sills and the pedestals' tops rather than on a floor any picture shows. **Within tolerance, not built:** the cheeks' heavier coping and larger rolls, and the south-west camera's reading of the floor about 0.3 m lower than the 1898 camera and the plate do.
+
 
 ### L-k01-1900-keith-3207 — 1900 Prairie refined from the district draft to a K01 stone-front house under a dormered mansard, its corner bay, porch and terrace read off its one period photograph
 
@@ -35773,3 +35775,28 @@ belt's and the hoods' profiles.
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`, `albertype_1890-side-by-side.jpg` and `detroit_det_4a08065-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-29 (T-1881).
+
+### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
+
+**Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
+and its paired light over a blank wall to the walk, where HABS photograph 2 (June 1965,
+`habs_kimball_photo_02_nw_1965`) shows a narrow door on the frontispiece's axis under the round-arched
+light (T-1890). **What is read.** Through the solved camera: the door's place on the frontispiece's axis
+(x 369-382 px), its foot at the walk and its head about 0.6 m under the round light's sill (y 1092 px),
+a dark leaf with a glazed upper panel, and a moulded head over it. Built: a door in `bays.p_door`'s
+lowest storey, the K06 kit's new `k06.opening.door_glazed_narrow` (one leaf, a solid panel to a lock
+rail 0.85 m up and one light of glass over it), 0.75 by 2.0 m in the kit's moulded surround, on the K08
+kit's new `door` key, which runs a light in a grade bay's lowest storey down through the plinth to the
+step and breaks the plinth square either side of it. **What is invented or held by the kit.** Its width
+is fitted to about fourteen pixels of print, and its height is a doorway's, where the camera's grade
+line, about 0.4 m off the print's walk along the whole wall, puts the head about 0.25 m over the
+print's; the panel's mouldings and the ornamental iron the print shows over the glass are not built;
+the leaf takes the house's sash colour; it opens on grade with no step. **Phase.** A 1965 photograph is
+evidence of 1965, but J. W. Taylor's c. 1895 print (`taylor_c1895_kimball_residence_1801`) shows a
+tall framed opening at the walk under the same round-arched light (x 307-317 px, its east jamb behind a
+tree's trunk), so the door is taken as the range's own and stands in 1904.
+**How to resolve:** a nearer picture of the east range's 18th Street wall, or the HABS drawings'
+ground plan, settles the door's width, step and leaf.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-1890).

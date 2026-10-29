@@ -2338,6 +2338,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                             or not 0.2 <= float(w.get("clear_width_m", 1.0)) <= 0.45 or not w.get("why_not_ordinary"):
                         raise ParamError(f"bays: {e['id']}'s narrow light is `narrow: true` on a single double-hung "
                                          f"(or transomed) K06 opening 0.2-0.45 m across that says why (why_not_ordinary)")
+                # T-1890: a door in a bay's lowest storey (1801's side door under its frontispiece,
+                # HABS photograph 2): `door: true` on a K06 door, its sill on grade, the bay on
+                # grade, so it runs down through the plinth to the step
+                if "door" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    if w["door"] is not True or v6.get("operation") != "door_glazed" or v["base"] != "grade" \
+                            or st is not v["storeys"][0] or abs(float(w["sill_m"])) > 1e-9:
+                        raise ParamError(f"bays: {e['id']}'s door is `door: true` on a K06 door (door_glazed), "
+                                         f"sill_m 0, in the lowest storey of a bay standing on grade")
                 # T-1879: open louvred shutters folded back beside a bay's light, and an iron
                 # guard on a stone slab before its foot (1721's bows and forward block, the 1891
                 # plate). In the light's own frame, so a bow bends them with it
@@ -5294,10 +5304,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         ters = ters if isinstance(ters, list) else [ters] if ters else []
         if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
-                or set(cf) - {"kind", "foot_block_m", "bow", "pierced"}:
+                or set(cf) - {"kind", "foot_block_m", "bow", "pierced", "head_m"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
                              "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m, "
-                             "with a bow and pierced")
+                             "with a bow, pierced and a head_m")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5305,6 +5315,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if not 0.2 <= fb <= 1.0:
                 raise ParamError("entrance_kit.cheek_form.foot_block_m: a scroll's foot block is 0.2-1.0 m tall")
             door_kit["cheek_form"]["foot_block_m"] = fb
+        # T-3186: the cheek's head `head_m` over the landing, under the columns' pedestals beside
+        # it (1901's, the 1898 print), in place of the scrolled cheek's own 0.85 m
+        if "head_m" in cf:
+            hm = float(cf["head_m"])
+            if not 0.5 <= hm <= 1.0:
+                raise ParamError("entrance_kit.cheek_form.head_m: a scrolled cheek's head stands 0.5-1.0 m "
+                                 "over the landing")
+            door_kit["cheek_form"]["head_m"] = hm
         # T-3186: the sweep's power, 1 a straight rake onto the roll up to 2, the concave fall
         if "bow" in cf:
             bw = float(cf["bow"])

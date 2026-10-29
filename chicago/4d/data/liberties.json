@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 851,
+  "count": 852,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -58077,7 +58077,7 @@
         }
       ],
       "recorded": "2026-10-27",
-      "revised": "2026-10-28",
+      "revised": "2026-10-29",
       "fields": [
         {
           "label": "Decision",
@@ -58150,6 +58150,18 @@
         {
           "label": "Still not built",
           "text": "the cheeks' row of small openings under their tops, and the 1893 plate's camera, the 1896 reprint and the elevation drawing."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-29 (T-3186, the sign-off) — **the porch drops to the entrance floor.** Enlarged, the 1898 print shows the porch's floor at the stoop's top tread level with the base course's top, about 1.5 m over grade, and the columns rising from pedestals about 0.8 m tall on it; the line T-3185 read as the floor at 2.35 m was the pedestals. Built as `entrance_floor_m` 1.5 (the stoop's nine risers land there and the door opens on it), the hood columns' pedestals 0.8 m tall, the scrolled cheeks' heads 0.6 m over the floor (`cheek_form.head_m`, new to K07's scrolled cheek) and their rolls on a 0.4 m foot block; every 1901 match record now reads `matches`."
+        },
+        {
+          "label": "What is invented",
+          "text": "the vestibule behind the door and the inner flight that climbs the 0.85 m from it to the principal floor (the prints show only darkness between the columns; neither is built, as at 1612's `“1612 Prairie finished against its photograph: paired cornice brackets, the south oriel, the stoop between iron rails and the portico's depth, with what the print does not show still reconstructed”`); the door's 3.2 m clear height, which keeps its head where the print's shadow leaves it under the entablature; and the foot block's height, read off the plate at its grain. The principal floor itself is still 2.35 m, now resting on the principal windows' sills and the pedestals' tops rather than on a floor any picture shows."
+        },
+        {
+          "label": "Within tolerance, not built",
+          "text": "the cheeks' heavier coping and larger rolls, and the south-west camera's reading of the floor about 0.3 m lower than the 1898 camera and the plate do."
         }
       ],
       "work_refs": [
@@ -60107,6 +60119,38 @@
       ],
       "work_refs": [
         "T-1881"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-side-door-1890",
+      "title": "1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the east range's stone frontispiece on 18th Street carried its round-arched grilled light and its paired light over a blank wall to the walk, where HABS photograph 2 (June 1965, Harold Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…) shows a narrow door on the frontispiece's axis under the round-arched light. **What is read.** Through the solved camera: the door's place on the frontispiece's axis (x 369-382 px), its foot at the walk and its head about 0.6 m under the round light's sill (y 1092 px), a dark leaf with a glazed upper panel, and a moulded head over it. Built: a door in bays.p door's lowest storey, the K06 kit's new k06.opening.door glazed narrow (one leaf, a solid panel to a lock rail 0.85 m up and one light of glass over it), 0.75 by 2.0 m in the kit's moulded surround, on the K08 kit's new `door` key, which runs a light in a grade bay's lowest storey down through the plinth to the step and breaks the plinth square either side of it. **What is invented or held by the kit.** Its width is fitted to about fourteen pixels of print, and its height is a doorway's, where the camera's grade line, about 0.4 m off the print's walk along the whole wall, puts the head about 0.25 m over the print's; the panel's mouldings and the ornamental iron the print shows over the glass are not built; the leaf takes the house's sash colour; it opens on grade with no step. **Phase.** A 1965 photograph is evidence of 1965, but J. W. Taylor's c. 1895 print (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…) shows a tall framed opening at the walk under the same round-arched light (x 307-317 px, its east jamb behind a tree's trunk), so the door is taken as the range's own and stands in 1904."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer picture of the east range's 18th Street wall, or the HABS drawings' ground plan, settles the door's width, step and leaf."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890"
       ]
     },
     {
