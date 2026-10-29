@@ -216,6 +216,18 @@
       "along_m": 1.5
      },
      {
+      "pole": "pole.alley.prairie_calumet_18_20#00",
+      "side": "east",
+      "inset_m": 1.4,
+      "along_m": 0.0
+     },
+     {
+      "pole": "pole.alley.prairie_calumet_18_20#01",
+      "side": "east",
+      "inset_m": 1.4,
+      "along_m": 0.0
+     },
+     {
       "pole": "pole.alley.prairie_calumet_18_20#02",
       "side": "east",
       "inset_m": 0.9,
@@ -513,8 +525,8 @@
   {"id": "pole.alley.indiana_prairie_21_22#02", "kind": "utility_pole", "e": 1341.13, "n": -3683.09, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
   {"id": "pole.alley.indiana_prairie_21_22#03", "kind": "utility_pole", "e": 1340.84, "n": -3714.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
   {"id": "pole.alley.indiana_prairie_21_22#04", "kind": "utility_pole", "e": 1341.01, "n": -3747.59, "heading_deg": 179.7, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_indiana_prairie_21_22", "where": "in the alley behind the lots of Indiana to Prairie, 21st to 22nd Street"},
-  {"id": "pole.alley.prairie_calumet_18_20#00", "kind": "utility_pole", "e": 1460.84, "n": -3257.99, "heading_deg": 178.9, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
-  {"id": "pole.alley.prairie_calumet_18_20#01", "kind": "utility_pole", "e": 1462.17, "n": -3291.86, "heading_deg": 166.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
+  {"id": "pole.alley.prairie_calumet_18_20#00", "kind": "utility_pole", "e": 1459.89, "n": -3258.01, "heading_deg": 178.9, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
+  {"id": "pole.alley.prairie_calumet_18_20#01", "kind": "utility_pole", "e": 1461.25, "n": -3292.09, "heading_deg": 166.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#02", "kind": "utility_pole", "e": 1472.59, "n": -3323.3, "heading_deg": 178.3, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#03", "kind": "utility_pole", "e": 1472.88, "n": -3357.13, "heading_deg": 179.5, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},
   {"id": "pole.alley.prairie_calumet_18_20#04", "kind": "utility_pole", "e": 1473.72, "n": -3390.98, "heading_deg": 179.4, "place": "alley", "class": "alley", "grade": "reconstructed", "sources": [], "liberty": "L-prairie-utility-poles-3202", "alley": "alley_prairie_calumet_18_20", "where": "in the alley behind the lots of Prairie to Calumet, 18th to 20th Street"},

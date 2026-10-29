@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2398, ts: '2026-10-29T06:24:40.759Z', date: 'Oct 29, 2026, 1:24 AM CT', title: 'Pullman\'s lodge and glasshouse range rebuilt to the 1894 plate', kind: 'feature',
+    items: [
+      'Across 18th Street from the Pullman house, the lodge between the glasshouses is now stone, taller, with a three-opening loggia, a balcony band and a steep roof to a crested deck, as the 1894 Inland Architect plate shows it, where a plain brick block stood.',
+      'The long glasshouse range\'s wall now has glazed windows with small panes, sunk panels beneath them and string courses, and the conservatory\'s dome is wider, with framed windows round the transept\'s lower walls.',
+      'Still not matching the pictures: the lodge\'s bowed corner and balcony, its depth, the dome\'s place, and the gate piers and planting.',
+    ] },
   { v: 2397, ts: '2026-10-29T05:29:01.536Z', date: 'Oct 29, 2026, 12:29 AM CT', title: 'The Pullman house\'s stepped front, porte-cochère and 18th Street wall re-read', kind: 'feature',
     items: [
       'At 1729 Prairie, the front over the door and the 18th Street pavilion stand forward again under their own roofs, as the photographs show them, and the porte-cochère moves to its mapped place in front of the pavilion with its arches resized.',

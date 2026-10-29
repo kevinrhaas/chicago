@@ -128,12 +128,47 @@
                 "out_m": 0.1
               },
               "windows": {
-                "sill_m": 3.4,
-                "head_m": 4.6,
-                "width_m": 1.35,
+                "sill_m": 3.5,
+                "head_m": 4.65,
+                "width_m": 1.25,
                 "spacing_m": 1.95,
-                "margin_m": 0.3
+                "margin_m": 0.15,
+                "margin_end_m": 1.0,
+                "lights": {
+                  "across": 4,
+                  "up": 3,
+                  "bar_m": 0.05
+                },
+                "panel": {
+                  "from_m": 1.85,
+                  "to_m": 3.25,
+                  "width_m": 1.45,
+                  "moulding_m": 0.1,
+                  "out_m": 0.04
+                }
               },
+              "courses": [
+                {
+                  "from_m": 1.6,
+                  "to_m": 1.8,
+                  "out_m": 0.08
+                },
+                {
+                  "from_m": 3.3,
+                  "to_m": 3.5,
+                  "out_m": 0.1
+                },
+                {
+                  "from_m": 4.65,
+                  "to_m": 4.8,
+                  "out_m": 0.07
+                },
+                {
+                  "from_m": 5.4,
+                  "to_m": 5.55,
+                  "out_m": 0.12
+                }
+              ],
               "pilaster": {
                 "width_m": 0.4,
                 "out_m": 0.06
