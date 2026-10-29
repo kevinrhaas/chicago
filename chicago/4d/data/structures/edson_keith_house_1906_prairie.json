@@ -478,11 +478,14 @@
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 0.7,
            "clear_height_m": 0.8,
-           "sill_m": 0.6,
+           "sill_m": 0.75,
            "at": [
-            0.5
+            0.25,
+            0.5,
+            0.75
            ],
-           "recess_m": 0.35
+           "recess_m": 0.35,
+           "why_not_ordinary": "a basement light under the parlour floor, below the stoop's head: basement lights are authored individually (RECONSTRUCTION-RULES.md, Starting ranges: Sash proportions)"
           }
          ]
         },
@@ -527,7 +530,7 @@
          "windows": [
           {
            "opening": "k06.opening.sash_round_fanlight",
-           "clear_width_m": 0.7,
+           "clear_width_m": 0.8,
            "clear_height_m": 1.9,
            "sill_m": 0.6,
            "at": [
@@ -570,12 +573,13 @@
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 0.9,
            "clear_height_m": 0.9,
-           "sill_m": 0.6,
+           "sill_m": 0.75,
            "at": [
             0.2,
             0.5,
             0.8
-           ]
+           ],
+           "why_not_ordinary": "a basement light under the parlour floor: basement lights are authored individually (RECONSTRUCTION-RULES.md, Starting ranges: Sash proportions)"
           }
          ]
         },
@@ -625,7 +629,7 @@
       "chicagology_1906_keith_engraving",
       "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "The south bay: canted, standing on grade at the front's south end and rising one stage past the main cornice under its own bracketed cornice and a low cap with cresting, in both the vignette ('a projecting full-height bay/tower at left under its own cornice') and the engraving; three round-headed lights a stage; its size (2.0 m ring, v 0.6-4.6) is read off the vignette's proportions against the 16.5 m front. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed."
+     "note": "The south bay: canted, standing on grade at the front's south end and rising one stage past the main cornice under its own bracketed cornice and a low cap with cresting, in both the vignette ('a projecting full-height bay/tower at left under its own cornice') and the engraving; three round-headed lights a stage; its size (2.0 m ring, v 0.6-4.6) is read off the vignette's proportions against the 16.5 m front. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and three along the range) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
     },
     "rear_wings": {
      "value": [
@@ -760,6 +764,28 @@
       "sanborn_1911_chicago_v3_sheet_28"
      ],
      "note": "The engraving's low stone wall along the walk, panelled between square piers, with the stoop's opening; its line is the 1904 parcel's street line (draft_plan street_u 31.417) and its ends the lot's."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.5
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "T-3206's rule (the owner, 2026-10-27: walks, gates and boundaries to the pictures), for the house T-3238 put onto K01. The engraving's stoop comes down to the walk through the stone wall's opening (s 8.0-10.4, square to the stoop); the walk runs from the stoop's foot out through it to the public walk, 1.5 m wide, with the app's own ground either side. RECONSTRUCTED: the walk's flags, their width and wear are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k01-1906-keith-3238."
     }
    }
   }

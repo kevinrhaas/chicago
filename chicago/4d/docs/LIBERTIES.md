@@ -24230,7 +24230,7 @@ the match record. The engraving does not hold one perspective (its camera's resi
 heights are read as proportions.
 **What is invented.** The walls' thickness; the brick and its tone (the pictures are monochrome); the
 roof's covering; the treads; the flanks' and the rear's windows and sash (no picture measures them),
-and the north flank left blind against 1908's wing; the stacks' places; the rainwater.
+and the north flank left blind against 1908's wing; the stacks' places; the rainwater. The basement lights under the parlour floor in the south tower and the south range (neither picture reads that low). The front walk (T-3206's rule, added when the gate found the house without one): K14 stone flags 1.5 m wide from the stoop's foot through the stone wall's opening to the public walk, the kit's own surface, width and wear.
 **What is not built.** The engraving's block at the south flank's front with its porch and balcony; the
 tower stage's lower, broader proportion and its place; the roof's balustraded deck and tall stack; the
 stoop's curved flights; the terrace's balustrade along the front's south part: open on the match record
@@ -24238,7 +24238,7 @@ for T-3239.
 **How to resolve:** T-3239 solves the vignette's camera beside the engraving's, weighs the mansard
 photograph's attribution (the 1900 house) and the c. 1914 west-side elevation drawing, builds those, and
 brings every 1906 match record to `matches`.
-**Covers:** `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`
+**Covers:** `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`, `edson_keith_house_1906_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3238 (piece 1 of T-1898).
 **Review:** `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg`.
 **Recorded:** 2026-10-29 (T-3238).
