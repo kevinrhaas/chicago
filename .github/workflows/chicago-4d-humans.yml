@@ -66,6 +66,14 @@ on:
         description: 'Add reconstructed named1835 sit_drive on physical W01 bench; no production promotion'
         type: boolean
         default: false
+      build_dress_study:
+        description: 'Build the reviewed reconstructed Mary Flynn dress SOURCE study; no production/photo approval'
+        type: boolean
+        default: false
+      source_ref:
+        description: 'Immutable reviewed source SHA, required only for the separate dress study'
+        type: string
+        default: ''
 
 concurrency:
   group: chicago-4d-humans-${{ github.ref }}
@@ -78,8 +86,61 @@ jobs:
   humans:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    outputs:
+      dress_source_sha: ${{ steps.dress_binding.outputs.source_sha }}
     steps:
+      # A separate definition ref may execute only this reviewed source commit.
+      # Validate inputs before checkout; default/PR/push checkout remains unchanged.
+      - name: Validate opt-in study request before checkout
+        if: github.event_name == 'workflow_dispatch'
+        id: study_request
+        env:
+          DRESS_ENABLED: ${{ inputs.build_dress_study }}
+          TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
+          SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+        run: |
+          python3 - <<'PY'
+          import os,re
+          source=os.environ['SOURCE_REF']
+          dress=os.environ['DRESS_ENABLED']=='true'
+          if dress:
+              if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
+                  raise SystemExit('The dress study must run separately from teamster/seated studies')
+              if not re.fullmatch(r'[0-9a-f]{40}',source) or source!='1cbb1817508593562f99ed378b6932368b5699b9':
+                  raise SystemExit('Dress source_ref must equal the reviewed immutable source SHA')
+          elif source:
+              raise SystemExit('source_ref applies only to the opt-in dress study')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as output:
+              output.write('source_sha='+source+'\n')
+          PY
       - uses: actions/checkout@v4
+        if: github.event_name != 'workflow_dispatch' || !inputs.build_dress_study
+      - uses: actions/checkout@v4
+        if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
+        with:
+          ref: ${{ steps.study_request.outputs.source_sha }}
+          persist-credentials: false
+      - name: Bind fixture verification to actual dress source
+        if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
+        id: dress_binding
+        env:
+          EXPECTED_SOURCE: ${{ steps.study_request.outputs.source_sha }}
+          DEFINITION_SHA: ${{ github.workflow_sha }}
+          DEFINITION_REF: ${{ github.workflow_ref }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          actual=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          expected=os.environ['EXPECTED_SOURCE']
+          if actual!=expected or actual!='1cbb1817508593562f99ed378b6932368b5699b9':
+              raise SystemExit('Fixture checkout does not match the reviewed dress source')
+          print(json.dumps({'scope':'same-source fixture prerequisite','source_sha':actual,
+              'workflow_definition_sha':os.environ['DEFINITION_SHA'],
+              'workflow_definition_ref':os.environ['DEFINITION_REF']}))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as output:
+              output.write('source_sha='+actual+'\n')
+          PY
 
       - uses: actions/setup-python@v5
         with:
@@ -318,3 +379,200 @@ jobs:
             /tmp/teamster-studies/
             /tmp/body-preparation.log
             /tmp/prepared*.json
+
+  # T1789 opt-in source qualification. No placement or production promotion.
+  # Only the immutable reviewed source allowed above is executable here.
+  dress-study:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
+    needs: humans
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.humans.outputs.dress_source_sha }}
+          persist-credentials: false
+      - name: Bind source and definition before executing study code
+        env:
+          EXPECTED_SOURCE: ${{ needs.humans.outputs.dress_source_sha }}
+          DEFINITION_SHA: ${{ github.workflow_sha }}
+          DEFINITION_REF: ${{ github.workflow_ref }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          actual=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          if actual!=os.environ['EXPECTED_SOURCE'] or actual!='1cbb1817508593562f99ed378b6932368b5699b9':
+              raise SystemExit('Dress checkout does not match the verified fixture source')
+          root=pathlib.Path('/tmp/dress-study');root.mkdir(exist_ok=False)
+          files=['generators/blender.pin','tools/human_teamster_blend.py','tools/human_dress_components.py',
+                 'tools/human_export.py','tools/human_export.sh','data/humans/recipes/adult_dress_1835.json',
+                 'assets/authored/humans/makehuman_hm08/SOURCE.json',
+                 'assets/authored/humans/makehuman_hm08/SOURCE-female.json',
+                 'assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json']
+          app=pathlib.Path('chicago/4d')
+          binding={'scope':'actual checked-out source, not photographic acceptance','source_sha':actual,
+              'workflow_definition_sha':os.environ['DEFINITION_SHA'],
+              'workflow_definition_ref':os.environ['DEFINITION_REF'],
+              'run_id':os.environ['RUN_ID'],'run_attempt':os.environ['RUN_ATTEMPT'],
+              'source_files':{f:hashlib.sha256((app/f).read_bytes()).hexdigest() for f in files}}
+          (root/'source-binding.json').write_text(json.dumps(binding,indent=2)+'\n')
+          print(json.dumps(binding))
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read existing Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - name: Restore the same-source fixture worker's verified Blender
+        uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Verify explicit female source and unchanged default preparation
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python tools/test_human_base_prepare.py
+          python tools/test_human_dress_components.py
+          python tools/human_base_prepare.py --output /tmp/dress-study/prepared-default.json > /tmp/dress-study/default-preparation.log
+          cmp assets/authored/humans/makehuman_hm08/prepared.json /tmp/dress-study/prepared-default.json
+          python tools/human_base_prepare.py --source-manifest SOURCE-female.json --height-m 1.65 \
+            --target-recipe assets/authored/humans/makehuman_hm08/adult_female_25.recipe.json \
+            --output /tmp/dress-study/prepared_adult_female_25.json > /tmp/dress-study/female-preparation.log
+          cmp assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json /tmp/dress-study/prepared_adult_female_25.json
+          python tools/compile_scene.py --scene 1835
+      - name: Build actual dress master and portable LODs with unchanged native gates
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/dress-study/export-evidence
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          master=assets/authored/humans/dress/flynn_mary_1835_dress_study/canonical.blend
+          [ ! -e "$master" ]
+          for dir in assets/humans assets/humans/web; do
+            for lod in 0 1 2 3; do [ ! -e "$dir/flynn_mary_1835_dress_study.lod$lod.glb" ]; done
+          done
+          "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+            --python tools/human_teamster_blend.py -- \
+            --recipe data/humans/recipes/adult_dress_1835.json --variant flynn_mary_1835_dress_study \
+            --liberty L418 --output "$master" \
+            --experimental-normal-probes --normal-probe-receipts /tmp/dress-study/normal-probes \
+            2>&1 | tee /tmp/dress-study/build.log
+          bash tools/human_export.sh --master "$master" 2>&1 | tee /tmp/dress-study/export.log
+      - name: Build same-new-master parented hierarchy control (test artifact only)
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/dress-study/hierarchy-controls/frame-evidence
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          variant=flynn_mary_1835_dress_study
+          control=/tmp/dress-study/hierarchy-controls
+          mkdir -p "$control/raw"
+          "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+            --python tools/human_hierarchy_control.py -- --test-only-parented-control \
+            --source "assets/authored/humans/dress/$variant/canonical.blend" \
+            --output "$control/control.blend" --receipt "$control/control-receipt.json" \
+            2>&1 | tee "$control/clone.log"
+          "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio "$control/control.blend" --python-exit-code 1 \
+            --python tools/human_export.py -- "$control/raw" 2>&1 | tee "$control/export.log"
+          python tools/human_skin_canonicalize.py "$control/raw/$variant.lod0.glb" \
+            "$control/$variant.lod0.glb" --diagnostics "$control/skin-diagnostics.json"
+      - name: Install existing browser and validator pins on Ubuntu24.04
+        run: |
+          set -euo pipefail
+          npm install -g playwright@1.56.1 gltf-validator@2.0.0-dev.3.10
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Audit actual new animation time bounds and hair contracts
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python tools/audit_human_animation_times.py \
+            assets/humans/flynn_mary_1835_dress_study.lod{0,1,2,3}.glb \
+            assets/humans/web/flynn_mary_1835_dress_study.lod{0,1,2,3}.glb \
+            | tee /tmp/dress-study/declared-animation-times.jsonl
+          python tools/test_human_hair.py
+          node tools/test_human_hair_runtime.mjs
+          python tools/check_human_hair.py --assets assets/humans --asset-ids flynn_mary_1835_dress_study \
+            | tee /tmp/dress-study/hair-container-contract.jsonl
+      - name: Validate every actual new raw and web LOD container
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node <<'JS'
+          const fs=require('node:fs'),validator=require('gltf-validator');
+          (async()=>{
+            let failed=false;
+            for(const dir of ['assets/humans','assets/humans/web'])for(let lod=0;lod<4;lod++){
+              const file=`${dir}/flynn_mary_1835_dress_study.lod${lod}.glb`;
+              const result=await validator.validateBytes(new Uint8Array(fs.readFileSync(file)),{uri:file});
+              fs.writeFileSync(`/tmp/dress-study/${dir.endsWith('/web')?'web-':''}lod${lod}.validation.json`,JSON.stringify(result,null,2));
+              console.log(JSON.stringify({file,errors:result.issues.numErrors,warnings:result.issues.numWarnings,truncated:result.issues.truncated}));
+              failed ||= result.issues.numErrors>0 || result.issues.truncated;
+            }
+            if(failed)process.exitCode=1;
+          })().catch(error=>{console.error(error);process.exitCode=1;});
+          JS
+      - name: Validate actual parented control and exported root warnings
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/validate_hierarchy_controls.mjs \
+            /tmp/dress-study/hierarchy-controls/flynn_mary_1835_dress_study.lod0.glb \
+            assets/humans/flynn_mary_1835_dress_study.lod0.glb \
+            | tee /tmp/dress-study/hierarchy-controls/validator-pointers.jsonl
+      - name: Fresh measurements, normal publish and actual new-source/browser/contact inspections
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/dress-study/human-fixture.log
+          cp data/humans/fixture.measure.json /tmp/dress-study/fresh-fixture.measure.json
+          bash tools/publish.sh
+          node tools/test_human_inspection.mjs
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids flynn_mary_1835_dress_study \
+            --published --sole-contact --output /tmp/dress-study/web --frame-samples 21 \
+            --frame-pair /tmp/dress-study/hierarchy-controls/flynn_mary_1835_dress_study.lod0.glb assets/humans/flynn_mary_1835_dress_study.lod0.glb \
+            --frame-pair /tmp/dress-study/export-evidence/flynn_mary_1835_dress_study.lod0.raw.glb assets/humans/flynn_mary_1835_dress_study.lod0.glb \
+            2>&1 | tee /tmp/dress-study/inspection.log
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids flynn_mary_1835_dress_study \
+            --masters --sole-contact --output /tmp/dress-study/source 2>&1 | tee /tmp/dress-study/source-inspection.log
+      - name: Hash actual partial or complete study outputs; no acceptance inferred
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          root=pathlib.Path('/tmp/dress-study')
+          if not (root/'source-binding.json').is_file():
+              raise SystemExit('No verified source binding; refusing to label study outputs')
+          files=sorted(root.rglob('*'))
+          files+=sorted(pathlib.Path('chicago/4d/assets/authored/humans/dress/flynn_mary_1835_dress_study').rglob('*'))
+          for folder in ['chicago/4d/assets/humans','chicago/4d/assets/humans/web']:
+              files+=sorted(pathlib.Path(folder).glob('flynn_mary_1835_dress_study.lod[0-3].glb'))
+          rows=[{'path':str(p),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+                for p in files if p.is_file()]
+          (root/'actual-output-manifest.json').write_text(json.dumps({'scope':'actual output bytes; partial files are not acceptance','files':rows},indent=2)+'\n')
+          PY
+      - name: Preserve actual dress source binding, master, exports, failures and images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-dress-study-${{ needs.humans.outputs.dress_source_sha }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            chicago/4d/assets/authored/humans/dress/flynn_mary_1835_dress_study/
+            chicago/4d/assets/humans/flynn_mary_1835_dress_study.lod[0-3].glb
+            chicago/4d/assets/humans/web/flynn_mary_1835_dress_study.lod[0-3].glb
+            /tmp/dress-study/

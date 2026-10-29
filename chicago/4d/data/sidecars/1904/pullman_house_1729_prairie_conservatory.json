@@ -14,8 +14,9 @@
   "target_date": "1904-07-01",
   "grade": {
     "value": "attested",
-    "why": "Pictured: 5 of the pictures on the Images tab show it.",
+    "why": "Pictured: 6 of the pictures on the Images tab show it.",
     "pictures": [
+      "a16-aic-taylor-pullman-from-sw-palm-house",
       "a16-aic-taylor-pullman-west-front-palm-house",
       "a16-albertype-1890-pullman-residence",
       "a16-ghm-blog-pullman-terrace",
@@ -133,7 +134,13 @@
         ],
         "parapet": {
           "height_m": 0.9,
-          "thickness_m": 0.3
+          "thickness_m": 0.3,
+          "pitch_m": 0.3,
+          "radius_m": 0.075,
+          "plinth_m": 0.15,
+          "rail_m": 0.14,
+          "die_m": 0.5,
+          "clear_of_drum_m": 3.7
         },
         "terrace": {
           "depth_m": 6.0,
@@ -146,7 +153,18 @@
           },
           "balustrade": {
             "height_m": 0.9,
-            "thickness_m": 0.25
+            "thickness_m": 0.25,
+            "pitch_m": 0.3,
+            "radius_m": 0.075,
+            "plinth_m": 0.15,
+            "rail_m": 0.14,
+            "pier_m": 0.6,
+            "pier_over_m": 0.1,
+            "urn": {
+              "radius_m": 0.3,
+              "height_m": 0.75,
+              "sides": 8
+            }
           },
           "west_m": 11.2
         },
@@ -163,14 +181,36 @@
             "sill_m": 2.7,
             "height_m": 2.7
           }
-        ]
+        ],
+        "rustication": {
+          "from_m": 1.4,
+          "course_m": 0.42,
+          "joint_m": 0.06,
+          "out_m": 0.035,
+          "clear_of_drum_m": 0.65
+        },
+        "pilasters": {
+          "at_m": [
+            -4.4,
+            4.4
+          ],
+          "width_m": 0.8,
+          "out_m": 0.14,
+          "from_m": 1.4,
+          "cap_m": 0.3
+        },
+        "cornice": {
+          "height_m": 0.38,
+          "out_m": 0.3,
+          "clear_of_drum_m": 3.9
+        }
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
         "aic_taylor_16555_pullman_west_front"
       ],
-      "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. The block is closed and plain otherwise: rustication, pilasters, balusters and urns are under the picture's tolerance (L-pullman-palm-house-3165)."
+      "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934)."
     },
     "conservatory": {
       "value": {
@@ -195,21 +235,38 @@
           "column_radius_m": 0.28,
           "entablature": {
             "height_m": 0.9,
-            "out_m": 0.45
+            "out_m": 0.45,
+            "cornice_m": 0.3,
+            "cornice_out_m": 0.62
           },
           "balustrade": {
             "height_m": 0.9,
-            "thickness_m": 0.25
+            "thickness_m": 0.25,
+            "pitch_m": 0.3,
+            "radius_m": 0.075,
+            "plinth_m": 0.15,
+            "rail_m": 0.14
           },
           "dome": {
-            "radius_m": 1.9,
-            "segments": 16,
+            "radius_m": 2.3,
+            "segments": 24,
             "rings": 4,
             "spring_m": 7.9,
             "rise_m": 2.3,
-            "rib_m": 0.1,
-            "finial_m": 0.5
-          }
+            "rib_m": 0.08,
+            "finial_m": 0.5,
+            "rib_every": 1,
+            "role": "sky_glass"
+          },
+          "column": {
+            "sides": 12,
+            "plinth_m": 0.25,
+            "torus_m": 0.12,
+            "capital_m": 0.35,
+            "abacus_m": 0.15
+          },
+          "arc_per_facet": 4,
+          "interior_dark": true
         }
       },
       "confidence": "reconstructed",
@@ -217,7 +274,7 @@
         "aic_taylor_16555_pullman_west_front",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome 1.9 m in radius springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). RECONSTRUCTED: the dome's covering (the kit's opaque glass substitute, so no line of sight crosses two glass envelopes), the octagonal shafts, the solid balustrades and the rotunda's north half inside the wing (L-pullman-palm-house-3165). No gutter is drawn: the drum sheds behind its balustrade."
+      "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome (2.3 m in radius since T-1934) springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). T-1934 dressed it as the 1894 Inland plate and Taylor's 16555 both show it: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade and a broad, light, close-ribbed dome 4.6 m across, which both pictures read wider than the 3.8 m it had. RECONSTRUCTED: the dome's covering (light, opaque, so no line of sight crosses two glass envelopes), the columns' mouldings, the baluster's shape, the 24 ribs and the rotunda's north half inside the wing (L-pullman-palm-house-3165, L-pullman-palm-house-1934). No gutter is drawn: the drum sheds behind its balustrade."
     },
     "function": {
       "value": "residence",
@@ -271,7 +328,7 @@
       ]
     }
   ],
-  "research_note": "T-2306 stood the first K13 conservatory here, a small glass bay on the 1911 sheet's semicircle against a plain block for the wing. T-3165 rebuilt it as the palm house Beman added in 1892, worked to J. W. Taylor's photograph from 18th Street (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json, matches): a columned glass drum under an entablature, a balustrade and a ribbed dome, moved 3.0 m east of the sheet's semicircle to where the photograph puts it, on the range's terrace (L-pullman-palm-house-3165). The 1894 Inland plate, the c. 1905 CHM negative and Taylor's south-west view are not yet solved here; the stable, the belvedere and the house stay their own records.",
+  "research_note": "T-2306 stood the first K13 conservatory here, a small glass bay on the 1911 sheet's semicircle against a plain block for the wing. T-3165 rebuilt it as the palm house Beman added in 1892, worked to J. W. Taylor's photograph from 18th Street (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json): a columned glass drum under an entablature, a balustrade and a ribbed dome, moved 3.0 m east of the sheet's semicircle to where the photograph puts it, on the range's terrace (L-pullman-palm-house-3165). T-1934 then worked its dress to the 1894 Inland plate and Taylor's 16555, where the owner (2026-10-28) found it way off: an open colonnade, open balustrades, a rusticated range with pilasters, urns on the terrace and a broader dome (L-pullman-palm-house-1934). The c. 1905 CHM negative is not yet solved here; the stable, the belvedere and the house stay their own records.",
   "research_doc": "",
   "review_required": false,
   "called": "George M. Pullman house (1729 Prairie Avenue): the palm house on its east range"

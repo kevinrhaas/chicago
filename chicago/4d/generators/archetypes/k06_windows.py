@@ -18,6 +18,8 @@ each variant as the openings T-2298 will put on the 1808 exemplar:
   backing        the daylight outline carried back and capped: a dark room, so no
                  ray through a pane reaches the sky
   well           a basement light's area well, below grade
+  open           (T-1890) a loggia's opening: no frame, sash or glass, the hole carried
+                 on dark past the reveal and capped, its mullions the loggia's posts
 
 WHY PURE PYTHON — the reasons k01_frontage.py gives: the gate measures vertices
 (depth order, a closed reveal, no doubled faces, one transparent layer), and they
@@ -352,6 +354,9 @@ class Opening:
             outline = hole.outline()
             self.holes.append(outline)
             self._reveal(outline, rev, y_frame)
+            if v["operation"] == "open":
+                self._open(s0, s1, head, rev, y_frame, p)
+                continue
             daylight = self._frame(s0, s1, head, rev, y_frame, fr)
             self._glaze(daylight, head, rev, fr, sa, mu, s0, s1)
         self._sill(holes, rev, run, sill)
@@ -375,6 +380,19 @@ class Opening:
             self.face("reveal", [self.P(a[0], a[1], 0), self.P(b[0], b[1], 0),
                                  self.P(b[0], yb_f, rev), self.P(a[0], ya_f, rev)],
                       (c[0] - m[0], c[1] - m[1], 0.0))
+
+    def _open(self, s0, s1, head, rev, y_frame, p):
+        """T-1890: an OPEN opening, a loggia's (1801's gabled section, in the Taylor print): no
+        frame, sash or glass, the hole carried on past the reveal as the loggia's dark depth and
+        capped `backing.depth_m` behind the reveal, so the eye meets shadow, never sky; the
+        mullions between its bays are its posts."""
+        reg = Region(s0, s1, y_frame, top_y=None if head.kind != "flat" else head.spring,
+                     head=None if head.kind == "flat" else head)
+        outline = reg.outline()
+        d_back = rev + p["backing"]["depth_m"]
+        self.tube("backing", outline, rev, d_back)
+        self.plane("backing", outline, d_back)
+        self.meta["depth_backing_m"] = round(d_back, 4)
 
     def _frame(self, s0, s1, head, rev, y_frame, fr):
         f = fr["face_m"]
@@ -495,6 +513,18 @@ class Opening:
             sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
             inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, day.y0, top_y=sash_top), d_out, sa, mu,
                                      panes, (st, st, br, tr), "casement")
+        elif op == "door_glazed":
+            # T-1890: a glazed door, one leaf hung in the frame (1801's side door under the
+            # frontispiece, HABS photograph 2): its lower `panel_m` a solid timber panel framed
+            # by its stiles and bottom rail, its upper part glass over a lock rail
+            y_p = day.y0 + v["panel_m"]
+            outer = box(day.s0, day.s1, day.y0, y_p)
+            inner = box(day.s0 + st, day.s1 - st, day.y0 + br, y_p)
+            self.ring("sash_outer", outer, inner, d_out)
+            self.tube("sash_outer", inner, d_out, d_out + sa["thickness_m"] / 2)
+            self.plane("sash_outer", inner, d_out + sa["thickness_m"] / 2)
+            inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, y_p, top_y=top_flat), d_out, sa, mu,
+                                     panes, (st, st, mr, tr), "leaf")
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":
@@ -1036,7 +1066,7 @@ def to_glb(kit: list[Opening], data: dict) -> bytes:
                         "sash_plane": [0.0, 0.0, -round(o.meta["reveal_depth_m"] + 0.012, 4)]},
             "params": {k: o.v[k] for k in ("head", "clear_width_m", "clear_height_m", "operation", "panes")},
             "measured": {k: o.meta[k] for k in ("depth_blind_m", "depth_curtain_m", "depth_backing_m",
-                                                "blind_drop", "heads")}}})
+                                                "blind_drop", "heads") if k in o.meta}}})   # T-1890: an open one hangs no blind
     gltf = {
         "asset": {"version": "2.0", "generator": GENERATOR},
         "scene": 0,

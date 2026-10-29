@@ -56,7 +56,7 @@
       "laid_as": "coursed_ashlar",
       "pattern_in_map": false,
       "course_height_m": [0.2, 0.41],
-      "course_rule": "coursed in the local quarry's beds, which run thinner than a cut freestone's",
+      "course_rule": "coursed in the local quarry's beds, which run thinner than a cut freestone's; alternating high and low courses allowed where a picture lays them so (1827 Prairie's front on the Doane photograph, T-3194)",
       "block_length_m": [0.4, 1.2],
       "joint": {"width_m": 0.01, "recess_m": 0.005, "finish": "weathered"},
       "arris": {"bevel_m": 0.008, "chips_per_m": 1.2, "chip_depth_m": [0.002, 0.01], "chip_length_m": [0.015, 0.06]},

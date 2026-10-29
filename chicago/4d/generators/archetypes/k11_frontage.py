@@ -41,6 +41,18 @@ What the record's `boundary` names, and what is built for it:
             a pier at the foot of the stoop's cheek (1736's c. 1890 photograph; its
             curbstone, photographed in place in 2015). No gate and no opening.
 
+  runs      (T-3212) an iron front laid on one side of its entrance only: `runs: ["south"]`
+            stops the fence at the entrance's north pier and leaves the rest of the front
+            open; `runs: ["north"]` starts it at the entrance's south pier. Such a front is
+            built to its lot's side lines, so it has no side passage and names no side gate (1706's and 1700's, the mirrored pair
+            under one roof: Chicagology's photograph shows 1706's railing run on from 1708's
+            to the piers at its walk and stop, and 1700's start at its own walk's piers).
+
+  open      (T-3215) `layout: open`: no boundary at all. 1621's and 1623's 1886 drawings
+            and 1625's 1890 photograph show each front yard running straight out to the
+            public walk with no fence, wall or coping across it, so nothing is laid; the
+            yard's walk (K14) comes out from the stoop across the lot's whole open front.
+
 A generic kit part is allowed here because 1808's own boundary is not read in any source
 this project holds (k11_ironwork.json `restrictions`: a generic part never stands in place
 of a documented one). The north side, against 1800 (Glessner), is left open: the yard
@@ -74,6 +86,10 @@ GARDEN = "front_garden"
 # T-2961: a low wall of squared stone blocks along the street line, its top's street arris
 # chamfered (1736's c. 1890 photograph, and its surviving curbstone photographed in 2015)
 COPING = "stone_coping_wall"
+# T-3215: a front yard with no boundary across it (1621's and 1623's drawings, 1625's photograph)
+OPEN = "open"
+# T-3212: the street line's two runs, either side of the entrance; a record may lay one alone
+RUNS = ("south", "north")
 
 
 def _kit():
@@ -95,6 +111,8 @@ def spec(params) -> dict | None:
         return garden_spec(params, t)
     if t.get("layout") == COPING:
         return coping_spec(params, t)
+    if t.get("layout") == OPEN:
+        return open_spec(params, t)
     if t.get("fence") not in FENCES:
         raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
     for g in ("entrance_gate", "side_gate"):
@@ -102,8 +120,21 @@ def spec(params) -> dict | None:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
     if "entrance_gate" not in t:
         raise ValueError("boundary.entrance_gate: every front is gated on the walk to its door")
-    # T-2455: only a boarded street line may close the side yard's mouth without a gate
-    if "side_gate" not in t and FENCES[t["fence"]] != "boards":
+    runs = t.get("runs", RUNS)
+    if not runs or set(runs) - set(RUNS) or len(set(runs)) != len(runs):
+        raise ValueError(f"boundary.runs names one or both of {list(RUNS)}")
+    if len(runs) == 1 and (FENCES[t["fence"]] != "spear" or t.get("wall") or t.get("side_fence") or t.get("fence_end")):
+        raise ValueError("boundary.runs: a one-sided front is a spear railing with no wall, side fence or end pier")
+    if len(runs) == 1:
+        # T-3212: a one-sided front is a house built to its lot's side lines (the pair at
+        # 1700-1706 under one roof, against 1708): no side passage, so no side gate
+        if "side_gate" in t:
+            raise ValueError("boundary.side_gate: a one-sided front (boundary.runs) has no side passage to gate")
+    # T-2455: only a boarded street line may close the side yard's mouth without a gate.
+    # T-3216: unless there is no passage to gate: a house built so near its south lot line that
+    # less than the gate's own clear is left between them (the 1600 block's row fronts), whose
+    # iron runs on unbroken from the lot line to the entrance
+    elif "side_gate" not in t and FENCES[t["fence"]] != "boards" and _side_passage_m(t) >= _gate_clear_min():
         raise ValueError(f"boundary.side_gate: an iron front gates its side passage; only {BOARDS!r} may close it")
     if FENCES[t["fence"]] == "boards":
         if not 1.2 <= t.get("board_height_m", 0) <= 2.2:
@@ -119,6 +150,14 @@ def spec(params) -> dict | None:
         raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
     if t["entrance_gate"].get("leaves") != 2:
         raise ValueError("boundary.entrance_gate is built as a pair of leaves")
+    fe = t.get("fence_end")
+    if fe is not None:
+        # T-3206: an iron front that ends on a stone pier rather than a post (1827's photograph:
+        # the pier at the lot's corner); short of the lot line, the side yard beyond lies open
+        if set(fe) != {"s_m"} or not params.width_m - 1.0 <= fe["s_m"] <= s1 - 0.5 or FENCES[t["fence"]] == "boards" \
+                or t.get("side_fence"):
+            raise ValueError(f"boundary.fence_end {fe}: s_m, from a metre inside the front's end to a pier's "
+                             f"width short of the lot line, on an iron front with no side fence")
     if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
         raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
     if t.get("lattice_span_bays", 2) not in (2, 3, 4):
@@ -134,6 +173,16 @@ def spec(params) -> dict | None:
         if b["to_u_m"] >= 0.0:
             raise ValueError("boundary.side_fence.to_u_m: the boards run back past the house's rear wall")
     return t
+
+
+def _gate_clear_min() -> float:
+    return _kit().load()["parts"]["gate"]["clear_min_m"]
+
+
+def _side_passage_m(t) -> float:
+    """T-3216: the clear a side gate could have between its pier on the south lot line and the
+    house's south wall (s 0), as `dress` would hang one there."""
+    return 0.0 - (t["lot_s_m"][0] + _kit().load()["parts"]["pier"]["section_m"])
 
 
 def _to_fence(mesh, line):
@@ -190,6 +239,8 @@ def dress(a):
         return garden(a, t)
     if t.get("layout") == COPING:
         return coping_wall(a, t)
+    if t.get("layout") == OPEN:
+        return open_front(a, t)
     K = _kit()
     data = K.load()
     P = data["parts"]
@@ -227,6 +278,9 @@ def dress(a):
     n_end = B["from_s_m"] - 0.06 if B else s_north - 0.12     # T-2406: the boards take the north end
     if style == "boards":
         n_end = s_north                                         # T-2455: boards run to the lot line, as 1620's do
+    FE = t.get("fence_end")
+    if FE:
+        n_end = FE["s_m"]                                       # T-3206: to the end pier, short of the lot line
     # the entrance: a pair of leaves square to the door, each hung on its own pier
     E = t["entrance_gate"]
     c = E["clear_m"]
@@ -263,13 +317,29 @@ def dress(a):
     # the entrance's, and from the entrance's to an end post whose curb stops on the north
     # lot line
     s0 = sb + ps if S else s_south
+    runs = t.get("runs", RUNS)
+    if not S and style != "boards" and len(runs) == 2:
+        s0 = s_south + 0.12                                     # T-3216: its end post's curb stops on the lot line
     if style == "boards":
         H = t["board_height_m"]
         south = _board_run(var, s0, ea - ps, H, "south run")
         north = _board_run(var, eb + ps, n_end, H, "north run")
+    elif len(runs) == 1:
+        # T-3212: one run, from the lot line (or the side gate's pier) to the entrance's south
+        # pier, or from its north pier to the end post; the other side of the front lies open
+        if runs == ["south"]:
+            south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name if S else None, host_b=pe1.name)
+            north, s0, n_end = [], s0, eb
+        else:
+            north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
+            south, s0 = [], ea
     else:
-        south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
-        north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
+        south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name if S else None, host_b=pe1.name)
+        if FE:
+            end = var.pier(n_end + Pr["section_m"] / 2, urn=False)      # T-3206: a stone pier, its cap plain
+            north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name, host_b=end.name)
+        else:
+            north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
     # the rule the kit's restriction states, on the built geometry: no curb, rail or picket
     # of a run inside an opening (the pier caps' 50 mm overhang stands above the gate)
     for lo, hi, what in ((ea, eb, "entrance"),) + (((sa, sb, "side passage"),) if S else ()):
@@ -294,8 +364,15 @@ def dress(a):
         for pc in wv.pieces:
             _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    posts = len(south) + len(north) - (0 if style == "boards" else 3)
-    run = {"length_m": round((ea - ps) - s0 + n_end - (eb + ps), 4), "runs": 2, "posts": posts}
+    if style == "boards":
+        hosted = 0
+    elif len(runs) == 1:
+        hosted = 1 if runs == ["north"] or not S else 2      # the runs' ends hung on a pier
+    else:
+        hosted = 3 if S else 2
+    posts = len(south) + len(north) - hosted
+    laid = (((ea - ps) - s0) if south else 0.0) + ((n_end - (eb + ps)) if north else 0.0)
+    run = {"length_m": round(laid, 4), "runs": len(runs) if style != "boards" else 2, "posts": posts}
     if style == "boards":
         run["height_m"] = t["board_height_m"]
     a.instance(fence, "fence", run, {"line_south": (line, 0.0, -s0), "line_north": (line, 0.0, -n_end)})
@@ -316,7 +393,13 @@ def dress(a):
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4), "leaf_reach_m": round(R, 4),
                   "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)] if S else None,
                   "fence_posts_s_m": [round(x, 3) for x in south + north],
-                  "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else []}
+                  "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else [],
+                  # T-3206: the curb's house face, and every opening a visitor walks through
+                  "inner_x_m": round(line - P["curb"]["width_m"] / 2, 4),
+                  "openings_s_m": [[round(ea, 4), round(eb, 4)]] + ([[round(sa, 4), round(sb, 4)]] if S else [])
+                  + ([[round(eb + ps, 4), round(s_north, 4)]] if runs == ["south"] else [])
+                  + ([[round(s_south, 4), round(ea - ps, 4)]] if runs == ["north"] else [])
+                  + ([[round(n_end + Pr["section_m"], 4), round(s_north, 4)]] if FE and s_north - n_end > Pr["section_m"] + 0.9 else [])}
 
 
 def _board_run(var, x0, x1, H, tag):
@@ -445,7 +528,24 @@ def garden(a, t):
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4),
                   "stoop_cheeks_s_m": [round(c, 4) for c in cheeks],
                   "wall_s_m": [round(wa, 4), round(wb, 4)], "wall_piers_s_m": [round(x, 3) for x in wv.meta["piers"]],
-                  "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts]}
+                  "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts],
+                  # T-3215: the line's back face, and the gaps it leaves (the stoop's, between the
+                  # wall's end and the fence's), for the K14 walk that comes out through them
+                  "inner_x_m": round(line - max(P["curb"]["width_m"], P["wall"]["thickness_m"]) / 2, 4),
+                  "openings_s_m": _gaps(p.boundary["lot_s_m"], [(wa, wb), (fa, fb)])}
+
+
+def _gaps(lot, runs, least=0.9):
+    """The stretches of the lot's front, south to north, that no run stands on and that are
+    at least a walk's width (`least`) across."""
+    out, lo = [], lot[0]
+    for a, b in sorted(runs):
+        if a - lo >= least:
+            out.append([round(lo, 4), round(a, 4)])
+        lo = max(lo, b)
+    if lot[1] - lo >= least:
+        out.append([round(lo, 4), round(lot[1], 4)])
+    return out
 
 
 def stone_boundary(a,t):
@@ -481,7 +581,9 @@ def stone_boundary(a,t):
     foot=max(foot,D+p.landing_depth_m+(p.risers-1)*p.tread_m)
     a.boundary={"line_x_m":line,"stoop_foot_x_m":round(foot,4),"leaf_reach_m":0,
                 "entrance_s_m":[ea,eb],"side_gate_s_m":[south+.1,-.16],
-                "fence_posts_s_m":posts,"wall_piers_x_m":[]}
+                "fence_posts_s_m":posts,"wall_piers_x_m":[],
+                # T-3206: the rails' house face, and the stair's and the side passage's breaks
+                "inner_x_m":round(line-.17,4),"openings_s_m":[[ea,eb],[south,.0]]}
 
 
 def coping_spec(params, t):
@@ -498,9 +600,19 @@ def coping_spec(params, t):
         raise ValueError("stone_coping_wall: thickness_m 0.2-0.6 m, chamfer_m 0-0.12 m")
     last = s0
     for r in t.get("runs") or ():
+        # T-3184: a run may be the walk's OPENING through the wall (1834's photograph: the walk
+        # passes through it at the north end), at least a walk's width and no wall laid in it
+        if r.get("opening"):
+            if set(r) != {"to_s_m", "opening"} or r["opening"] is not True or not last + 0.9 <= r["to_s_m"] <= s1 + 1e-6:
+                raise ValueError(f"stone_coping_wall run {r}: an opening takes to_s_m and opening: true, "
+                                 f"at least 0.9 m wide")
+            last = r["to_s_m"]
+            continue
         if not last + 0.3 <= r["to_s_m"] <= s1 + 1e-6 or not t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2:
             raise ValueError(f"stone_coping_wall run {r}: each runs on north at least 0.3 m, 0.2-1.2 m high")
         last = r["to_s_m"]
+    if not any(not r.get("opening") for r in t.get("runs") or ()):
+        raise ValueError("stone_coping_wall: every run is an opening; there is no wall to lay")
     if abs(last - s1) > 1e-6:
         raise ValueError(f"stone_coping_wall: the runs end at s {last}, not on the north lot line {s1}")
     sp = t.get("stair_pier")
@@ -513,10 +625,37 @@ def coping_spec(params, t):
     sr = t.get("side_return")
     if sr is not None:
         line = params.depth_m + t["street_line_m"]
-        if set(sr) != {"to_x_m", "height_m"} or not 0.0 <= sr["to_x_m"] <= line - t["thickness_m"] - 0.3 \
+        # T-3206: `at: "south"` lays it on the lot's south line instead (1801's along 18th Street,
+        # whose frame runs s south from the corner)
+        if not {"to_x_m", "height_m"} <= set(sr) <= {"to_x_m", "height_m", "at", "runs", "piers"} \
+                or sr.get("at", "north") not in ("north", "south") \
+                or not 0.0 <= sr["to_x_m"] <= line - t["thickness_m"] - 0.3 \
                 or not t["chamfer_m"] + 0.2 <= sr["height_m"] <= 1.2:
             raise ValueError(f"stone_coping_wall.side_return {sr}: to_x_m from the house's rear to 0.3 m short "
                              f"of the street run's back ({line - t['thickness_m']:.2f}), 0.2-1.2 m high")
+        # T-1881: a return that changes along the side street (1729's along 18th Street in Taylor's
+        # photograph no. 1445): `runs` from the corner inward, each to its `to_x_m` at its own
+        # height or an `opening`, the last ending at the return's to_x_m; and square `piers`
+        # standing over it, each `x_m` [from, to] along it, `height_m` high under a `cap_m` cap
+        x_prev = line - t["thickness_m"]
+        for j, r in enumerate(sr.get("runs") or ()):
+            if r.get("opening"):
+                ok = set(r) == {"to_x_m", "opening"} and r["opening"] is True
+            else:
+                ok = set(r) == {"to_x_m", "height_m"} and t["chamfer_m"] + 0.2 <= r["height_m"] <= 1.2
+            if not ok or not 0.3 <= x_prev - r["to_x_m"]:
+                raise ValueError(f"stone_coping_wall.side_return.runs[{j}] {r}: to_x_m at least 0.3 m in from the "
+                                 f"run before ({x_prev:.2f}), 0.2-1.2 m high or an opening")
+            x_prev = r["to_x_m"]
+        if sr.get("runs") and (abs(x_prev - sr["to_x_m"]) > 1e-6 or all(r.get("opening") for r in sr["runs"])):
+            raise ValueError(f"stone_coping_wall.side_return.runs end at x {x_prev}, not its to_x_m "
+                             f"{sr['to_x_m']}, or lay no wall")
+        for j, q in enumerate(sr.get("piers") or ()):
+            if set(q) != {"x_m", "height_m", "cap_m"} or not sr["to_x_m"] <= min(q["x_m"]) < max(q["x_m"]) <= line \
+                    or not 0.3 <= max(q["x_m"]) - min(q["x_m"]) <= 1.2 or not 0.8 <= q["height_m"] <= 2.0 \
+                    or not 0.0 <= q["cap_m"] <= 0.1:
+                raise ValueError(f"stone_coping_wall.side_return.piers[{j}] {q}: x_m [from, to] 0.3-1.2 m along the "
+                                 f"return, 0.8-2.0 m high under a 0-0.1 m cap")
     return t
 
 
@@ -534,6 +673,12 @@ def coping_wall(a, t):
     line = D + t["street_line_m"]
     T, c = t["thickness_m"], t["chamfer_m"]
     seed = a.instance("k11.wall." + COPING, "wall", t, {"street": (line, 0, 0)})
+    # T-3206: the stoop's foot, read as the iron front reads it and before the wall shares its
+    # material, for the K14 walk that comes through the wall's opening to it
+    door0 = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
+    reach0 = max(2.0, p.stoop_width_m / 2 + 0.1)
+    feet = [q[0] for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door0.s_m)) < reach0]
+    stoop_foot = round(max(feet), 4) if feet else None
     # the flight as built, past its landing, read before the wall shares its material
     sp = t.get("stair_pier")
     if sp:
@@ -554,9 +699,12 @@ def coping_wall(a, t):
     south, north = t["lot_s_m"]
     runs, s_a = [], south
     for r in t["runs"]:
-        runs.append((s_a, r["to_s_m"], r["height_m"]))
+        # T-3184: an opening lays nothing, and the runs either side of it end faced whole
+        runs.append((s_a, r["to_s_m"], None if r.get("opening") else r["height_m"]))
         s_a = r["to_s_m"]
     for i, (sa, sb, h) in enumerate(runs):
+        if h is None:
+            continue
         prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]      # (out, y), back to street
         zc, yc = -T / 2, h / 2
         for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
@@ -573,17 +721,48 @@ def coping_wall(a, t):
             face([(s_end, y, z) for z, y in cap], (k, 0.0, 0.0))
     sr = t.get("side_return")
     if sr:
-        def side_face(pts, hint):
-            """A face given in (x, y, out of the north line); world Z is -(north + out)."""
-            world = [(x, y, -(north + z)) for x, y, z in pts]
-            a._sface("stoop_stone", world, (hint[0], hint[1], -hint[2]), world[0], (-1, 0, 0), seed + 1, False, conf)
-        xa, xb, h = sr["to_x_m"], line - T, sr["height_m"]
-        prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
-        zc, yc = -T / 2, h / 2
-        for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
-            side_face([(xb, y0, z0), (xa, y0, z0), (xa, y1, z1), (xb, y1, z1)],
-                      (0.0, (y0 + y1) / 2 - yc, (z0 + z1) / 2 - zc))
-        side_face([(xa, y, z) for z, y in prof], (-1.0, 0.0, 0.0))   # its east end; the west one meets the street run
+        if sr.get("at") == "south":
+            def side_face(pts, hint):
+                """T-3206: a face given in (x, y, out of the south line); world Z is -(south - out),
+                mirrored across the line, so its windings are turned back."""
+                world = [(x, y, -(south - z)) for x, y, z in pts][::-1]
+                a._sface("stoop_stone", world, (hint[0], hint[1], hint[2]), world[0], (-1, 0, 0), seed + 1, False, conf)
+        else:
+            def side_face(pts, hint):
+                """A face given in (x, y, out of the north line); world Z is -(north + out)."""
+                world = [(x, y, -(north + z)) for x, y, z in pts]
+                a._sface("stoop_stone", world, (hint[0], hint[1], -hint[2]), world[0], (-1, 0, 0), seed + 1, False, conf)
+        # T-1881: its runs from the corner in, each faced whole at an end its neighbour does not cover
+        sruns, x_b = [], line - T
+        for r in sr.get("runs") or ({"to_x_m": sr["to_x_m"], "height_m": sr["height_m"]},):
+            sruns.append((x_b, r["to_x_m"], None if r.get("opening") else r["height_m"]))
+            x_b = r["to_x_m"]
+        for i, (xb, xa, h) in enumerate(sruns):
+            if h is None:
+                continue
+            prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
+            zc, yc = -T / 2, h / 2
+            for (z0, y0), (z1, y1) in zip(prof, prof[1:]):
+                side_face([(xb, y0, z0), (xa, y0, z0), (xa, y1, z1), (xb, y1, z1)],
+                          (0.0, (y0 + y1) / 2 - yc, (z0 + z1) / 2 - zc))
+            # its inner end, and its corner end unless it meets the street run; a lower or open
+            # neighbour leaves the end to be faced, a taller one faces the step itself
+            for x_end, k, nb in ((xa, -1.0, sruns[i + 1] if i + 1 < len(sruns) else None),
+                                 (xb, 1.0, sruns[i - 1] if i else "street")):
+                if nb == "street" or (nb is not None and nb[2] is not None and nb[2] >= h):
+                    continue
+                lo = nb[2] if nb is not None else None
+                cap = prof if lo is None else [(-T, lo), (-T, h), (-c, h), (0.0, h - c), (0.0, lo - c)]
+                side_face([(x_end, y, z) for z, y in cap], (k, 0.0, 0.0))
+        from .k01_stone_finish import box_faces as _box
+        for q in sr.get("piers") or ():
+            x0, x1 = min(q["x_m"]), max(q["x_m"])
+            e = (x1 - x0 - T) / 2
+            for (y0, y1, g) in ((0.0, q["height_m"] - q["cap_m"], 0.0), (q["height_m"] - q["cap_m"], q["height_m"], q["cap_m"])):
+                if y1 - y0 < 1e-6:
+                    continue
+                for pts4, n in _box(x0 - g, x1 + g, y0, y1, -T - e - g, e + g):
+                    side_face(pts4, n)
     piers = []
     if sp:
         # its foot, and the cheek's outer face
@@ -601,7 +780,47 @@ def coping_wall(a, t):
             for pts4, n in box_faces(x0, x1, y0, y1, d0 - line, d1 - line):
                 face(pts4, n)
         piers.append([round(cheek, 4), round(foot - e / 2, 4)])
-    a.boundary = {"line_x_m": line, "stoop_foot_x_m": None, "leaf_reach_m": 0, "entrance_s_m": [],
+    a.boundary = {"line_x_m": line, "stoop_foot_x_m": stoop_foot, "leaf_reach_m": 0, "entrance_s_m": [],
                   "side_gate_s_m": [], "fence_posts_s_m": [], "wall_piers_x_m": [],
-                  "coping_runs": [[round(x, 4) for x in r] for r in runs], "stair_piers": piers,
-                  **({"side_return": [round(sr["to_x_m"], 4), round(line - T, 4), sr["height_m"]]} if sr else {})}
+                  "coping_runs": [[round(x, 4) for x in r] for r in runs if r[2] is not None], "stair_piers": piers,
+                  **({"side_return": [round(sr["to_x_m"], 4), round(line - T, 4), sr["height_m"]]} if sr else {}),
+                  **({"side_return_piers_x_m": [[round(min(q["x_m"]), 4), round(max(q["x_m"]), 4)]
+                                                for q in sr.get("piers") or ()]} if sr and sr.get("piers") else {}),
+                  # T-3206: the wall's back face, and the runs it leaves open
+                  "inner_x_m": round(line - T, 4),
+                  "openings_s_m": [[round(r[0], 4), round(r[1], 4)] for r in runs if r[2] is None]}
+
+
+# -----------------------------------------------------------------------------------
+# T-3215: an open front — no boundary across the yard
+# -----------------------------------------------------------------------------------
+
+def open_spec(params, t):
+    """`layout: open`: the lot's sides (`lot_s_m`, holding the street front) and nothing else.
+    No fence, wall, gate or coping is named, so none may be."""
+    extra = set(t) - {"layout", "lot_s_m"}
+    if extra:
+        raise ValueError(f"boundary layout open lays nothing, so it names no {sorted(extra)}")
+    s0, s1 = t["lot_s_m"]
+    if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
+        raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
+    return t
+
+
+def open_front(a, t):
+    """Lay `layout: open` (open_spec): nothing. The stoop's foot is read off its built mesh
+    as the coping wall reads it, and the whole front out to the public walk is the opening
+    the K14 walk passes."""
+    p = a.p
+    D = p.depth_m
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
+    reach = max(2.0, p.stoop_width_m / 2 + 0.1)
+    feet = [q[0] for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < reach]
+    public = D + p.entrance_kit["front_yard_m"]
+    south, north = t["lot_s_m"]
+    a.instance("k11.boundary.open", "boundary", {"lot_s_m": [south, north]},
+               {"south": (public, 0.0, -south), "north": (public, 0.0, -north)})
+    a.boundary = {"line_x_m": round(public, 4), "stoop_foot_x_m": round(max(feet), 4) if feet else None,
+                  "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [], "fence_posts_s_m": [],
+                  "wall_piers_x_m": [], "inner_x_m": round(public, 4),
+                  "openings_s_m": [[round(south, 4), round(north, 4)]]}

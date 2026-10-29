@@ -1,193 +1,772 @@
 {
-  "id": "elbridge_keith_house_1900_prairie",
-  "name": "1900 Prairie Avenue — Elbridge Keith Second Empire (district draft; refined by T-1897)",
-  "aka": [
-    "1900 S. Prairie Avenue"
+ "id": "elbridge_keith_house_1900_prairie",
+ "name": "1900 Prairie Avenue — Elbridge G. Keith house",
+ "aka": [
+  "1900 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_28",
+   "glessner_blog_2014_11_elbridge_keith_house"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; rear1B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped); Elbridge G. Keith's house in the museum's post, where he died in May 1905."
+ },
+ "built": {
+  "value": 1870,
+  "confidence": "attested",
+  "sources": [
+   "hmdb_prairie_heritage_preserved",
+   "glessner_blog_2014_11_elbridge_keith_house"
+  ],
+  "note": "The marker: 'Elbridge G. Keith Residence. Built 1870'; the museum's post gives 1870 to 1871."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2329) in place by T-3207 (piece 1 of T-1897), under the draft's own id, as a K01 stone-front house read off the one period photograph of it (glessner_blog_1900_keith_oblique_photo, the museum's '1900 PA' and Chicagology's print of the same negative) against the 1911 sheet's plan: the smooth limestone front two storeys over a raised basement; the canted bay at its south corner carried up through the cornice under its own mansard crown; the porch on columns at the stoop's head with a balcony over it; the terrace along the front at the principal floor; a deep cornice on paired brackets; a slated, dormered mansard; the sheet's canted bay on the south flank and its one-storey frame range behind. The photograph's camera and match record are in data/reference_views/elbridge_keith_house_1900_prairie/; what it shows that is not built yet (the round-headed windows and their carved hoods, the paired arched window over the porch, the dormers' arched hoods, the bay crown's dormer, the stoop's stone posts) is open there for T-3208, with the house's later pictures.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+     "sanborn_1911_chicago_v3_sheet_28",
+     "glessner_blog_2014_11_elbridge_keith_house"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; rear1B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
-  },
-  "built": {
-    "value": 1870,
-    "confidence": "attested",
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The museum's post dates the mansard and a rear addition to the 1880s, before the target; the house still stands.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448437.465,
+    "utm_n": 4634041.857,
+    "rotation_deg": -0.616,
+    "symbolic_location": "1900 S. Prairie Avenue, parcel prairie_1900 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "confidence": "inferred",
     "sources": [
-      "hmdb_prairie_heritage_preserved",
-      "glessner_blog_2014_11_elbridge_keith_house"
+     "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The marker: 'Elbridge G. Keith Residence. Built 1870'; the museum's post gives 1870 to 1871."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1897 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1900-b1), the T-1841 census (s28-1900-front, s28-1900-wing) and the T-1837 register row frontage-28-043 (Elbridge Keith Second Empire); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448437.465,
-        "utm_n": 4634041.857,
-        "rotation_deg": -0.616,
-        "symbolic_location": "1900 S. Prairie Avenue, parcel prairie_1900 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 25.250, v -5.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            19.75,
-            0.0
-          ],
-          [
-            19.75,
-            12.0
-          ],
-          [
-            0.0,
-            12.0
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "'3B; rear1B' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "mansard",
-                "rect": [
-                  0.0,
-                  0.0,
-                  19.75,
-                  12.0
-                ],
-                "from": "s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -2.0,
-                  3.25,
-                  0.0,
-                  9.5
-                ],
-                "from": "s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
-              }
-            ],
-            "lot_v": [
-              -2.475,
-              12.975
-            ],
-            "street_u": 28.666
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3078170834,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 18,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1897"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Second Empire' overlaid with the frontage row: Second Empire: slate mansard and dormers over the mapped corner bay. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3078170834 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-043",
-            "census_ids": [
-              "s28-1900-front",
-              "s28-1900-wing"
-            ],
-            "trace_building": "s28fp-1900-b1",
-            "seed": 3078170834,
-            "replaceable_by": [
-              "T-1897"
-            ],
-            "card": "District draft — refined by T-1897."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The main body's rear south corner: lot frame u 25.250, v -5.250 from the middle of the rear lot line, where the 1911 sheet's trace (s28fp-1900-b1) runs the main body's south wall (local y -3353.94) and its rear wall (local x 1364.77). The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      19.9,
+      0.0
+     ],
+     [
+      19.9,
+      12.3
+     ],
+     [
+      0.0,
+      12.3
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main body read off the 1911 sheet's trace (s28fp-1900-b1 p3) in the house's frame (u toward the street from the rear wall at local x 1364.77, v north from the south wall at local y -3353.94): the front at local x 1384.67 (u 19.9) and the north wall at y -3341.62 (v 12.3). The corner bay and the terrace before the front, the south flank's bay and the frame porch behind stand on it as K08 bays, K01's terrace and a K01 rear wing."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "Two storeys over a raised basement under the mansard in the photograph; the 1911 sheet's '3B' counts the mansard storey, which the museum's post says was added in the 1880s ('the addition of the third floor mansard roof'), before the 1904 target."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "glessner_blog_2014_11_elbridge_keith_house",
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "'3B; rear1B brick with stone front dwelling (D)' on the 1911 sheet (T-1841 census s28-1900-front); the museum's post calls the house 'limestone clad', and the photograph shows a smooth light stone front and south flank."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_bedford",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 3,
+      "coping_height_m": 0.25,
+      "corner_bond": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "The photograph's front is smooth light ashlar from the terrace to the cornice, the corners and the bay's angles dressed as plain strips: K02's smooth limestone across the whole street front. The stone's quarry (Bedford) and the three base courses under the terrace, which the photograph hides, are reconstructed."
+    },
+    "principal_floor_m": {
+     "value": 2.2,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The terrace and the porch floor at the stoop's head, about 2.2 m over grade: the stoop rises about eleven risers in the photograph. It is the one height the camera's solve holds fixed (every other height in this record is read through the camera against it)."
+    },
+    "storey_heights_m": {
+     "value": [
+      3.8,
+      5.3
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "Read through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): the principal storey's window sills about 2.55 m over grade and their crowns about 5.4 m; the chamber storey's sills about 6.6-6.9 m and crowns about 9.2 m; the brackets' feet about 10.4 m and the cornice's corona about 11.7 m. So the chamber floor stands about 6.0 m up (3.8 m over the 2.2 m principal floor) and the wall head 11.3 m, under the bracketed cornice whose corona the camera puts at 11.7 m."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' stone front. Liberty L-k01-1900-keith-3207."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' stone-faced flank: the photograph shows the south flank's front part in the same light stone as the front. Liberty L-k01-1900-keith-3207."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the one K03 panel k03_brick lays on the north and rear walls the photograph does not show; the sheet's 'brick' is their fabric and the print is monochrome. Liberty L-k01-1900-keith-3207."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.trim.lintel_cornice_hood",
+       "k09.trim.lintel_cornice_hood"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "Every street window in the photograph stands under a moulded hood. Since T-3208 the windows are cut round-headed (street_front_round_heads), whose arch band and key replace K09's cornice-hood lintel on the front; the lintel hood is kept as the trim the kit names for the record's other square-headed lights."
+    },
+    "street_front_round_heads": {
+     "value": {
+      "storeys": [
+       0,
+       1
+      ],
+      "key": {
+       "width_m": 0.24,
+       "height_m": 0.28,
+       "proud_m": 0.07
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "T-3208: every street window in the oblique print is round-headed under a moulded hood that follows the arch, with a carved crown over it; the c. 2014 detail photograph in the Glessner House Museum's post (Prairie library a19-gh-keith-1900-exterior-modern) and the mid-century and 2024 fronts (a19-cgy-1900-keith-exterior, a19-cgy-1900-keith-2024) show the same heads, hoods and crowns on both storeys, the front's original 1870 stone. Built as K01's round-hooded light: K06's arch band carried spring to spring as the hood, and a key block standing for the carved crown. The crowns' foliate carving is not modelled (a block of their size and place); the window over the porch, which the pictures show as a PAIR of round lights under one wider head, is built as one round light (open in the match record)."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "pairs": {
+       "spacing_m": 1.6
+      },
+      "bracket_m": {
+       "height_m": 1.0,
+       "projection_m": 0.55,
+       "width_m": 0.16
+      },
+      "frieze": {
+       "height_m": 0.6,
+       "proud_m": 0.025
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "The photograph shows a deep cornice on paired brackets over a plain frieze, carried round the corner bay and along the south flank: K10's bracketed cornice with the brackets in pairs. Through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json) the frieze's foot stands about 10.4 m over grade and the corona about 11.7 m. The pairs' spacing and the brackets' size are reconstructed to that depth. The museum's post says the cornice standing today was rebuilt after 1978; this one is the photograph's."
+    },
+    "roof_form": {
+     "value": "mansard",
+     "confidence": "attested",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "A slated mansard with dormers in the photograph, the 1880s addition the museum's post records."
+    },
+    "roof_pitch_deg": {
+     "value": 10,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the deck behind the mansard's curb, which no picture shows. Liberty L-k01-1900-keith-3207."
+    },
+    "eave_overhang_m": {
+     "value": 0.6,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The cornice's corona stands about 0.6 m before the wall in the photograph, at the north corner and over the bay."
+    },
+    "mansard": {
+     "value": {
+      "variant": "k05.roof.mansard_convex",
+      "lower_rise_m": 3.6,
+      "bulge": 0.0,
+      "lower_pitch_deg": 78,
+      "dormers": [
+       {
+        "face": "street",
+        "along_m": 5.9,
+        "sash": {
+         "variant": "k06.opening.sash_round_fanlight",
+         "width_m": 0.85,
+         "height_m": 1.7,
+         "sill_m": 0.3
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "round"
+       },
+       {
+        "face": "street",
+        "along_m": 9.3,
+        "sash": {
+         "variant": "k06.opening.sash_round_fanlight",
+         "width_m": 0.85,
+         "height_m": 1.7,
+         "sill_m": 0.3
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "round"
+       },
+       {
+        "face": "south",
+        "along_m": 13.0,
+        "sash": {
+         "variant": "k06.opening.sash_round_fanlight",
+         "width_m": 0.85,
+         "height_m": 1.7,
+         "sill_m": 0.3
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "round"
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "Through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): the mansard's straight steep faces rise from the cornice to the curb about 15.7 m over grade (its top edge read at the north corner and beside the bay); two dormers on the street face, one over the door's column and one between the two northern columns (about v 5.9 and 9.3 m, read off the photograph through the camera at the dormers' faces and set where the render from it lays them on the print), their sills about 12.2 m and their hoods' tops about 15.3 m; and one on the south face over the flank's front window column. The dormers' arched hoods are built as K05's gabled head, open in the match record. T-3208: the dormers' heads are ARCHED in the oblique print, the mid-century and 2024 fronts and the c. 2014 detail (a round-headed light whose surround follows it, under a projecting hood on consoles); built as K05's round-headed dormer, the surround carried round the arch. The hood's flat cornice and consoles over the arch are not modelled (open in the match record only if over the bar: see it)."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll",
+      "lower_faces": "slate_pennsylvania",
+      "paint": "black"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "glessner_blog_2014_11_elbridge_keith_house"
+     ],
+     "note": "The photograph's mansard faces are slated; the museum's post calls it a 'slate mansard roof'. The deck behind the curb, which no picture shows, is K04's painted tin (reconstructed)."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' tread. Liberty L-k01-1900-keith-3207."
+    },
+    "stair_landing_depth_m": {
+     "value": 2.0,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The landing under the porch at the stoop's head, about 2 m deep before the door in the photograph."
+    },
+    "stoop_width_m": {
+     "value": 2.6,
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The broad stoop between stone cheeks and posts in the photograph, about as wide as the porch's span."
+    },
+    "entrance_bay": {
+     "value": "south",
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The door is the first of the front's three opening columns north of the corner bay, under the porch, in the photograph."
+    },
+    "front_bays": {
+     "value": [
+      5.7,
+      8.2,
+      10.4
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "Three opening columns on the front north of the corner bay, read through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json) at their sash and hoods: the door and the paired window over the porch at about 5.7 m (5.0-6.2), then about 8.2 and 10.4 m from the south corner; the chamber storey's windows stand over the principal storey's within 0.2 m."
+    },
+    "side_bays": {
+     "value": [
+      5.8
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The south flank's front window column, about 5.8 m behind the front through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json) (its chamber window about 7.2-9.7 m over grade); the windows behind it are on the sheet's flank bay."
+    },
+    "north_bays": {
+     "value": [
+      5.0,
+      10.0
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the north flank, which no picture shows, lit at the rules' spacing. Liberty L-k01-1900-keith-3207."
+    },
+    "rear_bays": {
+     "value": [
+      3.5,
+      8.8
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rear wall, which no picture shows, lit at the rules' spacing. Liberty L-k01-1900-keith-3207."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.35,
+       "width_m": 0.9,
+       "height_m": 2.85
+      },
+      {
+       "sill_above_floor_m": 0.85,
+       "width_m": 0.9,
+       "height_m": 2.35
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "Through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): the principal windows about 0.9 m wide between their jambs, their sills about 2.55 m over grade (0.35 m over the floor) and their crowns about 5.4 m; the chamber windows about 0.85-0.9 m wide, sills about 6.65-7.05 m (the paired window over the porch the highest, 7.0-7.2 m) and crowns about 9.2 m; built at 6.85 m."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.55,
+      "width_m": 1.0,
+      "height_m": 0.95
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the basement lights under the terrace, which the photograph shows only in shadow behind the terrace's brackets. Liberty L-k01-1900-keith-3207."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 3.0,
+        "v_m": 1.2
+       },
+       {
+        "u_m": 3.0,
+        "v_m": 11.1
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: two stacks on the flank walls; the photograph's frame cuts off the roof's top, so none is read. Liberty L-k01-1900-keith-3207."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 18.5
+       },
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 1.2
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' rainwater, behind the cornice's gutter. Liberty L-k01-1900-keith-3207."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      },
+      "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the kit's two-over-two sash; the print shows the sash but not its muntins. T-3208: the round-headed street and bay lights take K06's round-headed sash under a fanlight, the kit's single round-headed hung sash; the c. 2014 detail shows the upper sash itself following the arch with no transom bar at the spring, a glazing-bar difference recorded within tolerance. Liberty L-k01-1900-keith-3207."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 8.77,
+       "hood": {
+        "soffit_m": 5.7,
+        "width_m": 2.6,
+        "out_m": 1.8,
+        "fascia_m": 0.45,
+        "cornice": {
+         "height_m": 0.2,
+         "proud_m": 0.2
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.35,
+         "post_m": 0.25,
+         "baluster_m": 0.08,
+         "pitch_m": 0.2,
+         "rail_m": [
+          0.2,
+          0.12
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.32,
+         "plinth_m": [
+          0.4,
+          0.5
+         ],
+         "capital_m": 0.45,
+         "respond_m": 0.2
+        },
+        "railing_fabric": "stone",
+        "fabric": "stone"
+       },
+       "terrace": [
+        {
+         "side": "right",
+         "to_v_m": 12.3
+        }
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The photograph's porch at the stoop's head: columns carrying an entablature from about 5.7 to 6.35 m over grade through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json), its top a balcony with a rail before the paired window over the door (the rail's top read about 6.9 m; built 0.35 m high, to stay under the window's sill, which K01's hood may not cross); built on K01's columned door hood (as 1901's portico, T-3185) in stone. The terrace at the principal floor runs from the stoop's head north to the front's north corner, as the photograph shows it under the front's windows and the 1911 sheet draws it ('stone' before the front, trace s28fp-1900-b1 p2). The front yard is the sheet's: the front wall at the trace's x 1384.67 and the street line 8.77 m before it."
+    },
+    "boundary": {
+     "value": {
+      "layout": "stone_coping_wall",
+      "street_line_m": 8.55,
+      "lot_s_m": [
+       -2.475,
+       12.975
+      ],
+      "thickness_m": 0.35,
+      "chamfer_m": 0.06,
+      "runs": [
+       {
+        "to_s_m": -2.0,
+        "height_m": 0.8
+       },
+       {
+        "to_s_m": 3.95,
+        "height_m": 0.45
+       },
+       {
+        "to_s_m": 4.4,
+        "height_m": 0.8
+       },
+       {
+        "to_s_m": 7.0,
+        "opening": true
+       },
+       {
+        "to_s_m": 7.45,
+        "height_m": 0.8
+       },
+       {
+        "to_s_m": 12.5,
+        "height_m": 0.45
+       },
+       {
+        "to_s_m": 12.975,
+        "height_m": 0.8
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo"
+     ],
+     "note": "The photograph shows a low coped stone wall along the front of the lawn, with no fence on it, broken by the walk before the stoop: K11's stone coping wall, about 0.45 m high, open from s 4.4 to 7.0 m before the stoop (its width at the stoop's foot). Its line, 8.55 m before the front (just inside the sheet's street line), and its height are reconstructed. T-3208: the photograph's square stone posts at the walk's opening and at the lot's two front corners are built as short runs of the wall raised to about 0.8 m, each about 0.45-0.5 m along it (read through the camera against the stoop's foot); they keep the wall's 0.35 m thickness where the print's posts are a little broader, which is within tolerance."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "front_corner_canted",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.street_front",
+       "s_m": 2.3,
+       "fabric": "front_stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -2.0,
+          0.0
+         ],
+         [
+          -1.08,
+          0.93
+         ],
+         [
+          1.08,
+          0.93
+         ],
+         [
+          2.0,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.65,
+           "clear_height_m": 2.85,
+           "sill_m": 2.55,
+           "at": [
+            0.165,
+            0.835
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the photograph's principal light in the bay's south-east cheek, about 2.55-5.4 m over grade through its camera like the front's; under a 0.1 m arch band (T-3208), so the band clears the cheek's 1.3 m face as the print's narrower cheek hoods do",
+           "head_band_m": 0.1
+          },
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.9,
+           "clear_height_m": 2.85,
+           "sill_m": 2.55,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the photograph's principal light in the bay's front, about 2.55-5.4 m over grade through its camera"
+          }
+         ]
+        },
+        {
+         "height_m": 5.04,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.65,
+           "clear_height_m": 2.35,
+           "sill_m": 0.85,
+           "at": [
+            0.165,
+            0.835
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the photograph's chamber light in the bay's south-east cheek, about 6.85-9.2 m over grade through its camera; under a 0.1 m arch band (T-3208), so the band clears the cheek's 1.3 m face as the print's narrower cheek hoods do",
+           "head_band_m": 0.1
+          },
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.9,
+           "clear_height_m": 2.35,
+           "sill_m": 0.85,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the photograph's chamber light in the bay's front, about 6.85-9.2 m over grade through its camera"
+          }
+         ]
+        }
+       ],
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.1,
+        "covering": "slate_pennsylvania",
+        "mansard": {
+         "rise_m": 4.0,
+         "lower_pitch_deg": 78,
+         "cresting": {
+          "height_m": 0.4,
+          "inset_m": 0.1
+         }
+        }
+       }
+      },
+      {
+       "id": "south_flank_canted",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.side.south",
+       "s_m": 10.3,
+       "fabric": "front_stone",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -3.3,
+          0.0
+         ],
+         [
+          -2.1,
+          1.15
+         ],
+         [
+          2.1,
+          1.15
+         ],
+         [
+          3.3,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 6.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.9,
+           "clear_height_m": 2.85,
+           "sill_m": 2.55,
+           "at": [
+            0.38,
+            0.62
+           ],
+           "why_not_ordinary": "the front's principal sash, two lights in the bay's face (reconstructed: no picture shows the flank's bay whole)"
+          }
+         ]
+        },
+        {
+         "height_m": 3.7,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.9,
+           "clear_height_m": 2.35,
+           "sill_m": 0.85,
+           "at": [
+            0.38,
+            0.62
+           ],
+           "why_not_ordinary": "the front's chamber sash, two lights in the bay's face (reconstructed)"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1900_keith_oblique_photo",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "FRONT: the canted bay at the front's south end in the photograph, carried through both storeys and up through the cornice under a taller slated mansard crown of its own (the mid-century and 2024 fronts show the same). Its plan is read through the photograph's solved camera (data/reference_views/elbridge_keith_house_1900_prairie/glessner_oblique.json): its south-east cheek turns from the front's south corner (built 0.3 m in from it, the least pier K08 leaves at a corner, where the photograph shows the corner's dressed strip), its front stands about 0.93 m before the wall from v 1.22 to 3.38 m, and its north cheek returns to the front at v 4.3 m by symmetry (the cheek the camera cannot see). The 1911 sheet's outline bulges about 1.8 m at v 2.0-6.1 m there; the photograph is followed and the sheet's reading is in the match record. Each storey a light in each face at the front's heights. The crown's rise (4.0 m) is reconstructed: the print's frame cuts its top at about 15.3 m. SOUTH FLANK: the sheet's canted bay on the south wall (main part s28fp-1900-b1 p3, x 1371.1-1377.7, 1.15 m out), 7.0-13.6 m behind the front, two storeys under a low roof stopped about 0.6 m under the cornice's bed; its height, windows and roof are reconstructed (no picture shows it whole). T-3208: the front bay's lights are round-headed under the arch band, as the oblique print, the mid-century and 2024 fronts and the c. 2014 detail show every one of them; the south flank's bay, which no picture shows whole, takes the same head (reconstructed, as the front's)."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_porch",
+       "fabric": "frame",
+       "rect": [
+        -1.9,
+        0.0,
+        2.2,
+        9.8
+       ],
+       "floor_m": 1.4,
+       "storey_heights_m": [
+        3.0
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.8,
+         "width_m": 0.9,
+         "height_m": 1.6
+        }
+       ],
+       "windows": {
+        "rear": [
+         2.0,
+         5.8
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.25,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The 1911 sheet's 'rear1B' (T-1841 census s28-1900-wing, 'rear one-storey range'), drawn in frame across the middle of the rear wall (trace s28fp-1900-b1 p4, x 1362.4-1364.3, y -3351.7 to -3344.1): one frame storey, 1.9 m deep, v 2.2-9.8 m. Its floor, height, windows and deck are reconstructed, as 1613's frame porch's are."
+    }
+   }
+  }
+ ]
 }

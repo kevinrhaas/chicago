@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-26",
+  "measured": "2026-10-29",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -2828,11 +2828,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_house_walks.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_household_derivations.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/check_ironwork_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_joint_floor.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4207,6 +4215,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_prairie_1904_street_furniture.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_prairie_1904_street_section.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4727,6 +4739,10 @@
       "wrote_ignored": []
     },
     "tools/placement_policy_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/plant_prairie_1904_front_yards.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5304,6 +5320,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/share_glb_sheets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/sheet_census.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5742,6 +5762,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_dress_components.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_frame_residue.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5810,11 +5834,31 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_belt_eared_hood.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_cant_corner.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_hood_flare.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_loggia_lights.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_pavilion_past_eave.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_k01_pinnacle_under_block.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_porch_capitals_cheeks.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5854,7 +5898,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k08_corbel_table.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k08_gable.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_round_oriel.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_tower_stage.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_turned_finial.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5966,6 +6026,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_photo_match_flora.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_pick_boxes.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6030,6 +6094,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_ramp_heads.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_reader_text.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6090,6 +6158,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_standing_horse_anatomy_v2.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_standing_horse_eye_uv_boundary.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6107,6 +6179,10 @@
       "wrote_ignored": []
     },
     "tools/test_street_confidence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_street_ground_seams.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6183,6 +6259,10 @@
       "wrote_ignored": []
     },
     "tools/test_ticket_restamp.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_ticket_split_gate.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

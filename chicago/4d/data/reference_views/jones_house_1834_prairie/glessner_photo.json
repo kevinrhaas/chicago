@@ -1,0 +1,28 @@
+{
+ "structure_id": "jones_house_1834_prairie",
+ "source_id": "glessner_blog_2015_08_van_osdel",
+ "library_image": "a18-gh-1834-fernando-jones",
+ "photo": "../../sources/assets/jones_1834_photos_t1888/jones_1834_glessner.jpg",
+ "mirrored": true,
+ "image_px": [
+  675,
+  506
+ ],
+ "principal_px": [
+  286.0,
+  407.9
+ ],
+ "focal_px": 1301.3,
+ "eye": [
+  55.07,
+  23.79,
+  1.0
+ ],
+ "yaw_deg": -118.64,
+ "sun_uvy": [
+  0.5,
+  0.8,
+  0.55
+ ],
+ "solve": "The Glessner House Museum blog's print of the same negative as Chicagology's (chicagology_photo.json), framed the same at 0.5625 scale (675 x 506 px against 1200 x 900: the corners, the wall head and the stoop's newel land on the same points scaled within 1 px), and reversed the same way (mirrored: true). Its camera is that one's, its focal length and principal point scaled by 0.5625; that camera's solve is the reading."
+}

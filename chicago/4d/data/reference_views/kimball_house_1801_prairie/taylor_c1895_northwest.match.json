@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7d1d96ab8f82a17b2e6fa8e900aabbd81da5afc4c511810b5db0b1eab9f84156",
+  "glb_sha256": "df1f1f6f6f9ece3590a5fbc5d02ca0d4a78a3617dcb01308da8c3cdbda47c756",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -94,8 +94,8 @@
       "how": "T-2843: an all-stone K01 house in K02's Bedford stone, coursed round every face; the string courses and the corbel table stay open under T-2790 and T-2540"
     },
     {
-      "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across",
-      "status": "open",
+      "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across T-1890 rebuilds it to this print and HABS photograph 2, read through both solved cameras: a round shaft 2.2 m across (the print's 80 px from the flank section's edge, HABS 2's about 110 px, about 2.0 m; the 1911 sheet's bump 1.2-1.3 m out, so its centre 0.15 m proud and its face 1.25 m out), blank over its principal storey where the build had three lights a storey, under five stepped corbel courses from 7.9 to 8.9 m (the print's 7.97-8.64 m, HABS 2's 8.03-8.89 m) carrying a stage 3.7 m across with a small square light on its north and north-west faces (sills 9.6 m, heads 10.35 m; the print's 9.61-10.28 m), its moulded stone cornice at 10.9-11.26 m (the print's eave 10.95 m), and a cone at pitch 2.5 to 16.69 m (the print's 16.82 m), where the build's single 2.9 m prism rose to a 12.9 m eave and an 18.7 m cone: T-3060 had read those heights through the camera T-3074 re-solved. Re-rendered, the stage's lights fall within 5 px of the print's, its eave within about 10-15 px and its corbel table within about 15 px (k08 stage, L-kimball-1801-tower-stage-1890)",
+      "status": "fixed",
       "how": "T-2539"
     },
     {
@@ -144,19 +144,24 @@
       "how": "T-2900: built whole, a K01 wing longer than its host wall, from the 18th Street wall to v 18.3 under one hip, its front wall drawn where it runs past the gabled section; the photograph does not show it"
     },
     {
-      "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 2.5 m tall over the cone's neck (y 778 to 702), where the build's stands about 0.7 m",
-      "status": "open",
+      "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 2.5 m tall over the cone's neck (y 778 to 702), where the build's stands about 0.7 m T-1890 sizes its finial to the print's, 2.5 m over the cone's apex, and dresses its eaves in the K10 moulded stone cornice the tower carries; re-rendered through this camera its finial's tip, its cone's eave and its shaft's two edges each fall within about 5 px of the print's (the shaft x 25-85 against 28-90 on the crop T-1890 read, at the camera T-3074 re-solved after this difference was written), and the kit's floor band stands at its first floor (4.15 m) where the print's band is",
+      "status": "fixed",
       "how": "Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
       "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
       "status": "open",
-      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
+      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera. T-1890 (2026-10-27, the hoods' flare): through T-3074's camera the build's north-west curb corner still renders about 25-30 px over and east of the print's, and the 18th Street dormer's hood's cheek about 20 px shallower at its top than the print's, both as if the print's lower faces ran back further than the build's 69.1 degrees over 6.4 m; the deck's extent, the faces' pitch and the dormers' set-back are one question here."
     },
     {
-      "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do; and their faces are slate with a pale frame round the light, where the build's are stone",
-      "status": "open",
-      "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
+      "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do",
+      "status": "fixed",
+      "how": "T-1890, re-read through T-3074's camera: the build's hoods rose straight from the face's own width and front, so their cheeks died out at the shelf, where the print's stand about 22 px (about 0.3-0.4 m) out of the slate at their feet. Each hood's foot now flares 0.2 m wider than its face each side and 0.2 m out in front of it, its shelf with it (hood.flare_m), sweeping in to the same narrow top. Re-rendered, the street dormer's lit cheek reads about 35 px at its top and 22 at its foot against the print's about 32 and 22. The 18th Street dormer's shaded cheek still reads about 35 px at its top against the print's about 57: that face's slate stands further forward of the hood's back than the print's does, which is the mansard's lower face and goes with the curb's difference below (L-kimball-1801-hood-flare-1890)"
+    },
+    {
+      "what": "the hooded dormers' faces: the print's are slate with a pale frame round the light, where the build's were stone",
+      "status": "fixed",
+      "how": "T-1890: each hooded dormer's face slated as its hood is (mansard.dormers[].hood.face: slate) and its light set in a pale stone frame 0.1 m wide standing 0.04 m out of the slate (hood.frame_m), inside the 0.2 m surround; the street and 18th Street dormers now read as the print's, a dark face with a pale frame round a small light under the hood. The frame's section is reconstructed (L-kimball-1801-dormer-faces-1890)"
     },
     {
       "what": "the south pavilion's gable apex and finial: through T-3060's camera the finial's axis renders at x 1280 against the print's 1268 (about 12 px south) and its top at y 237 against 218 (about 19 px low); carried through the camera, T-2538's readings put the gable's springing at about 14.1 m and its apex at 17.7 m, where the build stands 13.9 and 17.45 m",
@@ -174,12 +179,25 @@
       "how": "T-3076: the far flank's rows re-picked off the print and read through T-3074's camera at the wall's depth (about 49-51 m, 0.033 m a pixel). A course at y 1045-1048 runs the flank's whole length at about 1.05-1.2 m, so the camera reads the flank level and the far heights are the building's, not the camera's. The east range's sill course about 1.2-1.4 m, its first storey's lights y 997-1040 (about 1.35-2.8 m), the band under its upper storey y 957 (4.15 m), its upper lights about 4.45-5.9 m and its eaves y 893-897 (about 6.2-6.4 m); the turret's eaves y 890-895 (6.3-6.5 m), its band y 958 (4.15 m), its lights y 1000-1045 and 910-950, the cone's neck under the finial y 778 (10.2 m) and the finial's top y 702 (12.7 m). THE GROUND. The wall's foot reads y 1096-1100 at the front's corner (about -0.2 to -0.45 m), y 1103 at u 13 (-0.33 m) and y 1105-1108 at the range (-0.75 m): it falls about 0.3-0.55 m east along the flank. The USGS 1 m bare-earth model, queried on 2026-10-23 along the walk 4 m off the wall (the house still stands at its grade), falls 0.27 m from u 22 to u -18 (593.66 to 592.76 ft NAVD88), and 0.31 m along the wall's own foot. So the ground falls about 0.3 m east, and the range stands about 1.8 m lower than built. Rebuilt: the range's floor at 0.75 m (0.7 m under the main block's, for its lights 0.6 m over it), its storeys 3.4 and 2.2 m to eaves at 6.35 m; the turret's storeys 4.15 and 2.2 m to the same eaves, its cone pitched 2.2 to about 10.2 m. In the render the turret's eaves stand at y about 900 (print 890-895), its cone's apex at about 790 (the neck 778) and the range's lights on the print's rows within about 5 px. The build still lays the lot level, so its foot renders at y about 1085 against the print's 1100-1108 (L-kimball-1801-range-heights-3076)."
     },
     {
-      "what": "the gabled section's openings: the print's principal storey has three round-arched lights across the section (x 360-440), the second an oriel on corbels with a carved panel over it (x 362-435, about 5.4-8.1 m), and the third an open loggia behind the balustrade (x 382-422, its head about 11.4 m) under the gable; the build lays one mullioned and transomed pair a storey on the pavilion and its balustrade bows out where the print's runs straight; the print's pier at about u 0-0.9 (x 422-445), up to the cornice, is not built",
-      "status": "open"
+      "what": "the gabled section's openings: the print's principal storey has three round-arched lights across the section (x 360-440), the second an oriel on corbels with a carved panel over it (x 362-435, about 5.4-8.1 m), and the third an open loggia behind the balustrade (x 382-422, its head about 11.4 m) under the gable; the build lays one mullioned and transomed pair a storey on the pavilion and its balustrade bows out where the print's runs straight; the print's pier at about u 0-0.9 (x 422-445), up to the cornice, is not built — T-1890: the three round-arched lights (0.5 m clear each, sills 2.0 m) and the oriel on corbels built: a round oriel 2.7 m on its chord and 0.6 m out, 5.0-9.2 m on six corbel courses to 3.8 m, two transomed lights on its front, and its balustrade carried on the oriel's top; through this camera its balcony renders within about 8 px of the print's (y 697-730 against 705-732), its lights' heads within about 12 px and its corbel's foot within about 10 px. The rest is carried in the two entries below",
+      "status": "fixed"
     },
     {
-      "what": "the flank section's top: over the corbel table (about 9.5 m) the print's section carries a third storey of paired lights under a cornice, a gabled wall dormer with a finial (x 520-600) and the tall round-topped stack (x 467-530); the build carries the section's wall to 13.9 m under K08's low hip",
-      "status": "open"
+      "what": "the gabled section's balustrade (T-1890): the print's reads straight across the section, HABS photograph 2's (1965) round on the oriel's top; the build follows the oriel's bow. The two pictures disagree about it, so it is within tolerance here",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the gabled section's loggia (T-1890): behind the balustrade the print's third storey is an open loggia, dark, two openings on a slender post (x 382-422, its head about 11.4 m), where the build laid a glazed mullioned and transomed pair. T-1890 lays K06's open loggia in its place, the same opening on a 0.2 m post with no frame, sash or glass, carried back dark; the render's two openings now read dark either side of the post under the gable, as the print's do",
+      "status": "fixed"
+    },
+    {
+      "what": "the gabled section's pier (T-1890): the print's pier at about u 0-0.9 (x 422-445), up to the cornice, is not built",
+      "status": "fixed",
+      "how": "T-1890: read off this print with HABS photograph 2, which shows it sharply: a plain stone strip from grade to under the main cornice where the gabled section meets the main block, a band at the principal storey's head and a cap under the cornice, and a dark round downpipe standing against its east side (the print's dark line at x 443-452 is the pipe, not the pier; its lit face is x 430-440, u 0-0.6 through this camera). Built (bays.p_pier, a K08 projection as a `pier`): 0.55 m wide on the 18th Street wall from its east end (u 0-0.55), 0.1 m proud, to 8.34 m under the K10 cornice, its floor band at 5.0 m and a 0.1 m cap; and the house's copper downpipe at u 0.8 (rainwater.downpipes). Re-rendered, the pier's face falls at about x 422-437 and the pipe at about 437-440, about 8 px (about 0.4 m) west of the print's; through HABS photograph 2's camera both land within about 6 px of that print's, so the two pictures bracket the build, within tolerance. The pier's carved capitals (HABS 2 shows one at each band) are the kit's plain cap and band"
+    },
+    {
+      "what": "the flank section's top: over the corbel table (about 9.5 m) the print's section carries a third storey of paired lights under a cornice, a gabled wall dormer with a finial (x 520-600) and the tall round-topped stack (x 467-530); the build carries the section's wall to 13.9 m under K08's low hip. Built (T-1890, bays.p_flank): the corbel table's top at 9.45 m (the print's about 9.36 m), the third storey to a 12.4 m wall top (the print's cornice about 12.35 m) with the paired lights in two tiers on the axis (about 9.85-11.9 m) and a single light at the west end, a coped wall dormer about 3.2 m across with a carved fan, pinnacles on its shoulders and a finial to 15.2 m (the print's about 15.15 m); and the stack moved to u 1.8, v 1.0, in the walls' stone, its cap at 16.0 m, its shaft within about 15 px of the print's (x 467-530). The dormer renders about 20 px east of the print's, within about 0.5 m",
+      "status": "fixed"
     },
     {
       "what": "the second storey's windows on the avenue front and the 18th Street flank: with the main cornice raised to the bow's, about 1.2 m of wall stands between their heads (7.4 m) and the cornice's foot (8.34 m); the print's heads stand about 25 px higher than the build's at the front (y 625 against 650 between the corner and the bow), so the build's lights read short, or low, under the cornice",
@@ -193,8 +211,13 @@
     },
     {
       "what": "the lights over the loggia, on the front and the flank: the print's outlines read about 1.4 m across (x 1016-1071 and 877-931 px), about 1.2 m once the lit reveal of the near jamb is taken off, against the build's 1.15 m (K01's widest ordinary sash); their transom bar stands about 0.75-1.0 m under the head where K06's transom light is 0.45 m; and each stands in a moulded frame under a projecting head between carved pilasters, where the build lays K01's flat arch",
-      "status": "open",
-      "how": ""
+      "status": "fixed",
+      "how": "T-1890: both lights wear the K09 kit's restrained surround (street_front_trim.by_storey's second storey, and `lights` names the flank's on the 18th Street wall), a two-fascia architrave round the light under a cornice hood on consoles, and each carries an 0.8 m top light over a 0.1 m bar (`lights` tiers), its bar now about 0.9 m under the head as the print's; the width stays K01's 1.15 m, about 0.05 m under the print's 1.2, within tolerance. The carved pilasters either side are the next difference"
+    },
+    {
+      "what": "the carved pilasters either side of the lights over the loggia, on the front and the flank: each light stands between two pilasters (about 0.3 m across, x 1000-1010 and 1075-1085 px at the front, 860-870 and 935-945 on the flank) rising from the belt under the sill to carved capitals beside the head, a chain of lozenges down each shaft; the build lays the K09 surround's consoles there and no pilaster (T-1890)",
+      "status": "fixed",
+      "how": "T-1890: each light now stands between two pilasters (`street_front_trim.lights[].pilasters`, K09): a shaft 0.25 m broad and 0.06 m proud from the belt's top, 0.1 m clear of the architrave, on a base and under a capital that carries the hood's end where the kit's console hung, the hood run out over the capitals, with one carved lozenge 0.55 m tall centred on each shaft, read off HABS 1965's photograph 2, which shows the 18th Street pair sharply (one lozenge a shaft, where this print's blur had read as a chain). Re-rendered through T-3074's camera the front's shafts stand at about x 1000-1010 and 1077-1085 (the print's 1000-1010 and 1075-1085) and the flank's at about 860-870 and 935-942 (860-870 and 935-945), within a few px. The capitals are plain blocks where both pictures' are foliate, and HABS 2's shafts are sunk-panelled where the build's are plain: within tolerance from the street, written into L-kimball-1801-loggia-lights-1890"
     },
     {
       "what": "the south wall's two stone stacks (T-3107, read off HABS photograph 1): this camera cannot see them; the front one, built to 18.0 m, stays under the deck's line from this eye, where the print shows sky over the cresting; T-3109 dresses both and lowers the rear one to 18.5 m, still under the north curb from this eye",
@@ -207,7 +230,40 @@
     {
       "what": "the east range's frontispiece and openings (T-3110, read off HABS photograph 2): on this print the range stands behind the tree, where a pointed gable shows between its branches about where the frontispiece's renders (x 280-330 on the print's left half); the range's lights the build took out (r2's two, r3b's one) are not legible behind the trunk and branches",
       "status": "within tolerance"
+    },
+    {
+      "what": "the tower's cone at its eaves: the print's flares out over the cornice in a bell cast, about 190 px across (x 590-780) against the build's straight cone's 175 px, about 0.15 m a side at the tower's 49 px a metre (T-1890)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the tower's finial: the print's is a turned and knobbed pinnacle, pale against the slate, over a crocketed collar at the cone's apex, its tip about 19.6 m; the build sizes the kit's spike to it (2.6 m over the apex, its tip 19.29 m, within about 12 px) but lays it plain, in the cap's slate, with no collar (T-1890)",
+      "status": "fixed",
+      "how": "T-1890: the tower's finial turned (bays.tower.finial form: turned) and laid in pale zinc sheet, not the cap's slate: a crocketed collar flaring off the cone 0.45 m out (collar_m), its rim lipped and ringed with two tiers of eight crockets and a third of small ones up its neck, then a waisted shaft 2.9 m over the apex carrying a knob, a pair of knobs, a pair of smaller ones and a bulb under the spike (its tip 19.59 m, the print's about 19.6 m). Re-rendered through T-3074's camera the collar's flare renders 62 px across against the print's about 70, its knobs on the print's spacing; the collar and the knobs stand about 20-25 px under the print's (the difference below). The turnings, the crockets and the metal are reconstructed (L-kimball-1801-tower-finial-1890)"
+    },
+    {
+      "what": "the tower's cone top: the finial's collar renders with its rim at about y 299 against the print's 277 and its visible tip at about y 119 against 92, so the whole finial stands about 20-25 px (about 0.4-0.5 m) under the print's while its own height from collar to tip is the print's; the cone's apex is what stands low (T-3074's camera reads it at about 17.8 m, built 16.69 m from its eaves at pitch 2.5)",
+      "status": "fixed",
+      "how": "T-1890 (seen laying the turned finial). Raising the apex is the cone's pitch or its eaves, which the tower's form fixed above; re-read both through the current camera before working it. T-1890: re-read through T-3074's camera, the eave band and the cornice stand on the print's (about y 496-508) and only the cone's rise is short, so the cone is pitched 2.7 where it was 2.5: its apex at 17.12 m (16.69), the finial's tip at 20.02 m. Re-rendered, the collar's rim stands at about y 285-290 against the print's 277 and the finial's tip at about 99 against 92, about 8-10 px (about 0.2 m) under the print's, within tolerance; HABS photograph 2, which read the apex about 15 px under its own, now puts the collar within about 3 px, so the two pictures bracket the build"
+    },
+    {
+      "what": "the flank section's west corner (T-1890): the print rounds it under the cornice (x 480-530 px, a light in the round), the build stands it square",
+      "status": "fixed",
+      "how": "T-1890 rounds it (bays.flank_round, read with HABS photograph 2): a round oriel 2.0 m across and 1.0 m out of the wall, centred 0.3 m east of the section's west corner, from the corbel table's line (9.45 m) on four corbel courses to the section's wall top (12.4 m), one light in it in place of the square corner's single light, under a moulded cornice and a flat roof railed in stone. Re-rendered, the round's outer edge falls at about x 473 against the print's 480 and its light at about x 495-515, y 600-655 against the print's 495-510, 617-655"
+    },
+    {
+      "what": "the flank stack's head (T-1890): the print's shaft reads round under a flared cap; the build's is square under a slab, its outline within about 0.3 m (HABS photograph 2 reads the shaft square)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the low coping along the lawn on Prairie and 18th Street, and the walk to the stair",
+      "status": "fixed",
+      "how": "T-3206 lays K11's 0.35 m stone coping on the street line, returned along 18th Street and cut where the K14 walk leaves the stair; the print shows a low edge to the lawn and no fence, which the render's low line reads as; height and section within tolerance"
+    },
+    {
+      "what": "the side door under the east range's round-arched light (T-1890, seen while working HABS photograph 2's): the print shows a tall framed opening at the walk under the light (x 307-317, y 1027-1100 px), its east jamb behind the tree's trunk; the build's frontispiece ran blank to the walk",
+      "status": "fixed",
+      "how": "T-1890 cuts the door HABS photograph 2 shows in bays.p_door's lowest storey (0.75 by 2.0 m, a glazed leaf in a moulded surround, the plinth broken under it); re-rendered it falls at about x 338-345, about 30 px east of the print's with the frontispiece itself, which HABS photograph 2's record carries as the frontispiece's place"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

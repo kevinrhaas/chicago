@@ -34,3 +34,57 @@ reveal is **7 in, reconstructed** (`docs/LIBERTIES.md` L-prairie-curb-reveal-247
 ## Side by side
 
 ![the curb at street level, before and after](prairie_1904_street_section/curb-before-after.jpg)
+
+## The carriage blocks withdrawn; posts only where pictured (T-3198, 2026-10-27)
+
+The owner, 2026-10-27: *"i dont need to have those carriage steps at every house. i dont see that in
+photos of prarie anywhere"*, then *"what you keep you should vary them in appearance so that they do
+not look like clones"* and *"they mostly should go i think because i dont see them in photos, unless
+you do"*.
+
+Read again, `views_of_chicago_1905_prairie_michigan` and the Flinn view show the **lot-line coping**
+along the walk's inside edge (rounded stone copers), not blocks at the curb; the Pullman views
+(`a16-pullman-det-4a08065`, `a16-ghm-blog-pullman-completed`) show the parkway's edge clear. Two
+pictures do show stones at the curb:
+
+| picture | source | what stands | carried as |
+|---|---|---|---|
+| `a18-cgy-1815-sears-two-views` | `chicagology_1815_sears_two_views` | a square post with a domed top beside 1815's crossing | one square domed post, attested |
+| `a20-glessner-2100-block-west-side-1890s` | `glessner_blog_2100_block_looking_nw_1890s` | round white domed posts: two before 2112, one before 2110, a row on the east curb at the right edge | 3 posts at 2112/2110, attested; 9 along the east curb before 2109-2115, inferred |
+
+So the 91 rule-placed blocks are gone and 13 carriage posts stand (`carriage_posts` in
+`data/street_section/1904.json`, laid by the same tool), 0.38 m in from the curb's face, stood clear
+of any elm by 0.85 m. Each post is varied by a seed on its id: height 0.78-1.06 m, width, the cap
+(plain dome, dome over a collar, flattened dome), a lean of 0.4-2 degrees, its turn and its stone's
+tone. The paved carriage walks stay: 1815's, the 2100 block's and Glessner's (HABS no. 2) are pictured.
+Amended liberty: L-prairie-carriage-walks-2474.
+
+## The corner crossings and their ramps (T-3200, 2026-10-27)
+
+The owner, 2026-10-27, with J. W. Taylor's photograph no. 2135: *"there are ramps down into the
+street. they appear to be stone"*.
+
+| picture | source | what it shows | carried as |
+|---|---|---|---|
+| `a18-rba-taylor-2135-glessner-ne` | `taylor_2135_glessner_exterior_1887_1889` | the Glessner corner (18th and Prairie, SW): the walk carried across the parkway to the curb, two broad slabs sloping from the curb's top to the roadway, one each way across, the lamp's footing between | that corner's two crossings, attested |
+| `a16-pullman-det-4a08065` | `loc_det_4a08065_pullman_residence` | the Pullman corner (NE): the walks carried across the parkway either side of a curbed grass corner with the lamp, down to the roadway | that corner's two crossings, attested |
+
+So at each of the 28 corners where two faces of a block meet (Calumet's curve at 18th is a bend and
+has none), each face's walk runs straight on across the other street's parkway and over the curb at
+its own width and level, and from the curb's face one dressed stone slab, 15 cm thick, runs 1.5 m out
+into the roadway, its top falling from the curb's top to 5 cm over the paving at its foot:
+`corner_crossings` in `data/street_section/1904.json`, 56 crossings, laid by the same tool.
+`street-grid.js` cuts the parkway and the curb out under each crossing, lays the walk over them, lays
+the slab's sloping top on the roadway with its two sides and its foot standing to its thickness, and
+gives the walker the slab's slope. The curb's face runs on unbroken behind the slab. The corner
+lamp's plot stands between each pair (T-3199). Liberty: L-prairie-corner-crossings-3200.
+
+**T-3217 (2026-10-28).** The first build (T-3200) sloped the walk's last 1.35 m down inside the
+parkway and broke the curb for it, so at the curb it read as a bevel that sank under the road. The
+owner, 2026-10-27, with a screenshot of it: *"they dont go down into the street like the photos ...
+make them a single piece or pieces ramped down into onto the street like the photos"*. Read again,
+both pictures carry the walk level over the curb and set the slab beyond it, in the roadway: Taylor
+2135's two slabs start at the curb's top and lie on the dirt road with a dark gap under their sides;
+the Detroit view's south-west and south-east slabs show their thickness at their sides and foot.
+
+![Taylor 2135's corner; the first build (the owner's screenshot); the slabs now, from Taylor's stand](prairie_1904_street_section/corner-ramps-before-after.jpg)

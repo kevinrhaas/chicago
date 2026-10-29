@@ -1,0 +1,27 @@
+{
+  "structure_id": "walker_house_1720_prairie",
+  "source_id": "glessner_blog_1720_tyrrell_photo",
+  "library_image": "a16-ghm-blog-1720-tyrrell-house",
+  "photo": "../../sources/assets/tyrrell_1720_photo_t3180/tyrrell_1720_photo.jpg",
+  "image_px": [
+    1200,
+    1119
+  ],
+  "principal_px": [
+    764,
+    844
+  ],
+  "focal_px": 1936,
+  "eye": [
+    46.4,
+    7.0,
+    1.6
+  ],
+  "yaw_deg": 270.0,
+  "sun_uvy": [
+    1.0,
+    -0.3,
+    1.2
+  ],
+  "solve": "Fitted by T-3180 to the image store's copy of the photograph (1200 x 1119 px, committed at data/sources/assets/tyrrell_1720_photo_t3180/). The footprint frame's u runs toward Prairie Avenue (east) and v north. LEVEL AND SQUARE TO THE FRONT: the front's corner boards and the porch posts are vertical, and its horizontals (the frieze's foot at y 210-215 px, the porch plate and fascia at y 490-525, the porch floor at y 860-865) run level across the print within 3 px, so the camera is unpitched and its image plane parallel to the front: yaw 270, looking west. SCALE: the front's corners, read at the frieze between the corner brackets (x 187 px, behind the bay's south face, and x 990 px at the north corner board), span about 800 px for the sheet's 10 m, 80 px a metre at the wall. HEIGHT AND DISTANCE: the door's threshold on the porch floor (y 848 px) stands at the principal floor, and with a standing photographer's eye 1.6 m over the walk the horizon falls at y 844 px, about the porch floor's own level, which the print agrees with: the floor shows only as its edge. The stair's foot (y about 995 px), 3.6 m nearer than the wall (the porch's 1.5 m and seven 0.3 m goings), then reads at about 94 px a metre against the wall's 80, which puts the wall 24.2 m from the eye: u 46.4, on the far side of Prairie Avenue. f = 80 x 24.2 = 1936 px. ACROSS: the stair's middle reads at x 492 px at its foot and at x 515 at the porch's edge; for one centre line at two depths that puts the eye at v 7.0 and the principal point at x 764 (the print is cropped or the lens shifted), so the north flank is not seen and the dark mass beyond the north corner is read as something behind the house, not as its flank. LIGHT: the front is lit and the porch ceiling and the bay's flank fall dark, so the sun is taken from the east-south-east and high (sun_uvy). RESIDUALS, rendered (docs/RESEARCH/photo-match/walker_house_1720_prairie/tyrrell_front-side-by-side.jpg) with the T-3180 record: the north corner within 5 px; the eave's foot within about 15 px of the soffit; the porch's end and middle posts, plate, fascia, floor and stair within 5-10 px; the upper windows' middles within 5 px and their heads within 15-30 px; the chimney within 15 px. UNCERTAINTY: the distance rests on the stair foot's depth and could be 20-30 m; heights at the wall scale with it about the eye's 1.6 m, so the porch floor and the frieze's foot, both fitted on the wall, hold, and what stands out from the front is read at its own depth."
+}

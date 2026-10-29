@@ -2,8 +2,8 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
-  "camera_sha256": "749333feccf72a64b981e9ec138d1c857d8ecefeb3b36871f753a8866d9fa406",
+  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
+  "camera_sha256": "d3d76dbbff22c2b16908df9297525e07aaeceb6a984adc477c2922cf0ca86250",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "c538efdfd3189e72b8711bf34361f365a6dd9fc65caf7ac9b3870842e1bcc0e0"
+      "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,12 +61,12 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "f90f1211a87638e2bbf3ac21ab6b639bdad02428e9119a1e6de818198e9cf8d0"
+      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
     }
   ],
-  "group_sha256": "a79c26941530986815229fa1a7b70a447c457b88271622ef2b7f97ce577ab050",
+  "group_sha256": "7e7ec462829a05362f7d7b3e80a4f0d35c0bf1e4cb899988370ebfd574a12db3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the palm house: a round drum standing out of the wing's south face, about 7.6 m across its entablature (x 350-500 px), its centre 12.1 m east of the house wall",
@@ -104,13 +104,13 @@
       "how": "T-3165: a 1.4 m terrace 6 m deep with an eight-riser flight 6 m wide on the drum's axis and a 0.9 m balustrade either side; the flight's top at about the print's landing, the balustrades' tops within about 0.35 m; it stops at the house's east wall, behind the porch in this view"
     },
     {
-      "what": "the balustrades are open balusters, the columns round with bases and capitals, the wall rusticated with pilasters either side of the drum, and urns on the terrace piers",
-      "status": "within tolerance",
+      "what": "the balustrades are open balusters between dies and piers, the columns round with bases and capitals, the wall rusticated with a pilaster either side of the drum, and urns on the terrace piers (T-1934; were drawn solid, octagonal and plain)",
+      "status": "fixed",
       "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
     },
     {
-      "what": "the wing's face reads darker than the stable's in the print",
-      "status": "within tolerance",
+      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled",
+      "status": "open",
       "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
     },
     {
@@ -122,7 +122,67 @@
       "what": "the north half of the rotunda behind the wing's face, the wing's roof and its north side",
       "status": "not shown",
       "how": "the camera stands south of the range"
+    },
+    {
+      "what": "the stable's arcade on its west face, receding toward the drum, its arches between the corner bay and the range (x 640-700 px)",
+      "status": "fixed",
+      "how": "T-3193: what T-3192 read as a 3.2 m arcade on the 18th Street front is the west face foreshortened; the camera re-solved nearer (see its solve) shows the face at the print's angle, and the arcade moved onto it"
+    },
+    {
+      "what": "the polygonal bay at the stable's south-west corner (x 690-800 px), its cornice at about 4.5 m, round-headed lights",
+      "status": "fixed",
+      "how": "T-3193: the bay across the corner; within about 20 px"
+    },
+    {
+      "what": "the stable's front east of the bay: three bays of sash in two storeys",
+      "status": "fixed",
+      "how": "T-3193: the sash at 4.7, 8.3 and 11.2 m east of the corner; the render's at x 860, 955 and 1023 against the print's 864, 951 and 1020"
+    },
+    {
+      "what": "the stable's hipped roof springing from the first-floor cornice to a crested deck, the upper storey carried up through it",
+      "status": "fixed",
+      "how": "T-3192's forms, carried round the cut corner by T-3193"
+    },
+    {
+      "what": "the square belvedere over the range's parapet at the wing's east end",
+      "status": "fixed",
+      "how": "T-3192; moved 1.2 m west by T-3193 from the plate"
+    },
+    {
+      "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course (the owner named it, 2026-10-28)",
+      "status": "fixed",
+      "how": "T-1934: a moulded stone belt course about 0.36 m deep, its top where the lower slope meets the wall, the upper sash on it; the stable is now judged in its own records (data/reference_views/pullman_house_1729_prairie_ranges/)"
+    },
+    {
+      "what": "the stable's lantern, the stack at the front's east end and the deck's east end",
+      "status": "not shown",
+      "how": "the tree crowns cover the roof's east half; the plate and 16554 show them"
+    },
+    {
+      "what": "T-3161 re-laid the house's 18th Street flank from Taylor's photograph no. 1445: the house at this print's left edge is its east end, which changed only in its second-storey lights (a pair at s 22.8-23.9 for the single ones), behind the awning and the trees here",
+      "status": "within tolerance"
+    },
+    {
+      "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open",
+      "how": "T-3205: looked at again with the house's walks rebaked; the 18th Street side is not this record's building nor the house's way in (the Prairie front's is), and T-3160 left the run of posts unbuilt because the print does not resolve them. Not built; recorded as the lot's remaining gap (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the glazing between the columns reads dark, the palm house's shaded inside behind it, where the build showed the wing's pale stone through the glass (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the dome broad and light, about 4.6 m across, close-ribbed (x 512-680 px); the build's was 3.8 m and dark (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace",
+      "status": "open"
+    },
+    {
+      "what": "the planting: the four parkway and yard trees across the front, the clipped shrubs and potted palms on and before the terrace, none of them built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

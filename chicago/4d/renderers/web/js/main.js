@@ -94,6 +94,8 @@ import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
+import { createStreetFurniture } from './street-furniture.js';
+import { createFrontYards } from './front-yards.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
@@ -1265,7 +1267,18 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // Light and draw-call ceilings unchanged. Before/after receipts and cameras:
 // docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
 // not a frame-rate guarantee; the existing Scene detail control selects Light.
-const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-3084, 2026-10-26: a conscious Full-only allowance for the catalogue
+// Brougham body, keeping its original 45,338 / 23,062 geometry intact. The
+// separate thin-sheet optical delivery avoids the whole-world transmission
+// pass. A fresh exact-e97 published diagnostic measured 24 two-step/GPU-readback
+// frames at both widths and both tiers; desktop Full carriage quarter was
+// 4,654,565 against the previous 4,600,000. Price selected inspection Full at
+// 4,700,000 (45,435 triangles clear), not the unmeasured 4.65M proposal.
+// Ordinary Full, Balanced, every Light/draw/shadow/reach/LOD setting stay exact.
+// Both Light district-air readings still exceed their unchanged 1.27M floor;
+// neither that shared failure nor memory is repaired by this Full allowance.
+// Actual readings and limits: docs/measurements/brougham-optical-delivery-3084.json.
+const GLESSNER_V4_FULL_TRIANGLES = 4700000;
 // T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
 // already draws 340 calls on dev, before the door change (4,443,344 tris).
 // The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
@@ -1959,7 +1972,7 @@ async function boot() {
   const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
-      measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
+      measured: 'Selected Glessner v4 inspection and T-3084 Brougham; fresh 4,654,565 at Full, priced at 4.7M. See GLESSNER_V4_FULL_TRIANGLES.' },
     light: { ...DETAIL.light, triangles: GLESSNER_V4_LIGHT_TRIANGLES,
       declared: GLESSNER_V4_LIGHT_TRIANGLES,
       measured: 'Glessner courtyard inspection; see T-2218 at GLESSNER_V4_LIGHT_TRIANGLES.' },
@@ -2274,6 +2287,27 @@ async function boot() {
   });
   scene3d.add(streetTrees.group);
   api.streetTrees = streetTrees;
+  // T-3199 — the district's street furniture (data/street_furniture/<scene>.json): the gas
+  // lamps at every corner and along the parkways, instanced, standing on the parkway's fall
+  // toward the curb. Only a scene listing `street_furniture` is handed a data base.
+  const streetFurniture = await createStreetFurniture({
+    dataBase: layerBase('street_furniture'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_furniture'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+  });
+  scene3d.add(streetFurniture.group);
+  api.streetFurniture = streetFurniture;
+  // T-3203 — the house lots' front yards (data/front_yards/<scene>.json): a mown lawn to each
+  // house, foundation shrubs along it, low beds, and ivy where a picture shows it; laid clear
+  // of every stoop, walk, fence and door's way the houses' own models draw.
+  const frontYards = await createFrontYards({
+    dataBase: layerBase('front_yards'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('front_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
+    grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
+    mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
+  });
+  scene3d.add(frontYards.group);
+  api.frontYards = frontYards;
 
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
@@ -2356,6 +2390,7 @@ async function boot() {
     world.setSunDate(seasonDate(s, loaded.scene.target_date));
     contextCity.setSeason?.(s);
     await seasonPlants(s);
+    await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
@@ -3088,6 +3123,8 @@ async function boot() {
       // they land, after this commit; a phone lets go of their page arrays then.
       const streetsRebuilt = streets.setDetail?.(level);
       void streetTrees.setDetail(level);
+      streetFurniture.setDetail(level);
+      frontYards.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
@@ -3138,6 +3175,8 @@ async function boot() {
     enclosures.setDetail?.(level);
     // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
     void streetTrees.setDetail(level);
+    streetFurniture.setDetail(level);
+    frontYards.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     // T-2600: cut on the job pool; awaited in the serialised run below, before
@@ -4048,6 +4087,17 @@ async function boot() {
     const treeHit = streetTrees.pickAt(ndc, camera);
     if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
       hit = { ...treeHit };
+    }
+    // And a street lamp's post (T-3199), a fire hydrant (T-3201) or a wooden pole (T-3202), with its
+    // own card: what it is, its grade, its pictures.
+    const furnitureHit = streetFurniture.pickAt(ndc, camera);
+    if (furnitureHit && furnitureHit.record && (!hit || furnitureHit.distance < hit.distance)) {
+      hit = { ...furnitureHit };
+    }
+    // And a front yard's shrub, ivy or bed (T-3203): what it is and whether a picture shows it.
+    const yardHit = frontYards.pickAt(ndc, camera);
+    if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
+      hit = { ...yardHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -5080,6 +5130,8 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt, camera);
+    streetFurniture.update(dt, camera);
+    frontYards.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);

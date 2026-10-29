@@ -266,6 +266,11 @@ const COVERAGE = [
   ['renderers/web/index.html', ALL, 'the page itself'],
   ['renderers/web/css/', ALL, 'the chrome every panel check clicks'],
   ['data/reconstruction/', ALL, 'the infill programme the records are expanded from'],
+  // T-3235. The image gate's cameras and match records (AGENTS.md rule 11). No module under
+  // renderers/ fetches them: they reach the browser only through what compile_pictures.py
+  // (a picture's spot) and jaunt_built_so_far.py (the built-so-far walk) derive from them,
+  // and those derived sidecars and jaunts are priced by their own rows.
+  ['data/reference_views/', NONE, 'the image gate\u2019s cameras and match records \u2014 read by the gate\u2019s tools and two compilers, fetched by no renderer'],
   // T-1971. The housing deal's ledger reaches the scene only through the sidecars
   // compile_scene writes from it (`residents[]` on the building card), which are priced
   // by their own rows. No module under renderers/ fetches it.
@@ -539,6 +544,14 @@ const COVERAGE = [
   ['data/street_trees/', [14], 'the 1904 parkway elms, generated from the grid'],
   ['tools/lay_prairie_1904_street_section.py', NONE, 'the street section and carriage walk layer — read by no renderer: its own --check in check.sh'],
   ['tools/plant_prairie_1904_street_trees.py', NONE, 'the parkway elm planter — read by no renderer: its own --check in check.sh'],
+  // T-3199. The street furniture on that grid's parkways: the gas lamps.
+  ['renderers/web/js/street-furniture.js', [14], 'the 1904 street furniture: gas lamps (T-3199)'],
+  ['data/street_furniture/', [14], 'the 1904 street furniture, generated from the grid'],
+  ['tools/lay_prairie_1904_street_furniture.py', NONE, 'the street furniture layer — read by no renderer: its own --check in check.sh'],
+  // T-3203. The house lots' front yards: lawns, foundation shrubs, beds and pictured ivy.
+  ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
+  ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
+  ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],

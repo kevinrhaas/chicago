@@ -1,0 +1,377 @@
+{
+  "scope": "Actual source-bound e97 optical-only diagnostic; not shipping-source qualification",
+  "measurement_HEAD": "e97b67d549882b13fd858e714e73fb11da5aa006",
+  "measurement_tree": "c4247f16a7e4672ee265715b2cd0a8b03e9b0225",
+  "measurement_APP": "d2290a042e9bb0e586d69f2cb99555ebcd5202fc",
+  "observer_sha256": "8528609299a096611222099e018696fd965effa32fa4bb843f5f620821c179b9",
+  "actual_result_sha256": "2bf7fe6abc8749265a5e56da9ed04ae189021afb9b0bd8661f5cc5b45009db1f",
+  "actual_returncode": 1,
+  "seconds": 608.2129426669853,
+  "cleanup_complete": true,
+  "remaining_owned_children": [],
+  "runtime_errors": [],
+  "diagnostic_complete": true,
+  "rows": [
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "quarter",
+      "triangles": 3749643,
+      "draw_calls": 3366,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "phone-full-quarter.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "body-detail",
+      "triangles": 3600609,
+      "draw_calls": 3350,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "phone-full-body-detail.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "service-junction",
+      "triangles": 3162743,
+      "draw_calls": 4206,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "phone-full-service-junction.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "service-front",
+      "triangles": 2488669,
+      "draw_calls": 5690,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "phone-full-service-front.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "roof-junction",
+      "triangles": 2422047,
+      "draw_calls": 5358,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "phone-full-roof-junction.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "full",
+      "pose": "district-air",
+      "triangles": 3049795,
+      "draw_calls": 4491,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-full-district-air.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "quarter",
+      "triangles": 758664,
+      "draw_calls": 2366,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-light-quarter.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "body-detail",
+      "triangles": 735642,
+      "draw_calls": 2316,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-light-body-detail.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "service-junction",
+      "triangles": 1105242,
+      "draw_calls": 3169,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-light-service-junction.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "service-front",
+      "triangles": 718280,
+      "draw_calls": 2850,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-light-service-front.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "roof-junction",
+      "triangles": 543656,
+      "draw_calls": 2449,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "phone-light-roof-junction.png"
+    },
+    {
+      "viewport": "phone",
+      "detail": "light",
+      "pose": "district-air",
+      "triangles": 1436685,
+      "draw_calls": 3768,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": false,
+      "carriage_visible": false,
+      "screenshot": "phone-light-district-air.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "quarter",
+      "triangles": 4654565,
+      "draw_calls": 4332,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": false,
+      "carriage_visible": true,
+      "screenshot": "desktop-full-quarter.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "body-detail",
+      "triangles": 4423300,
+      "draw_calls": 4273,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "desktop-full-body-detail.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "service-junction",
+      "triangles": 3907434,
+      "draw_calls": 4962,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "desktop-full-service-junction.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "service-front",
+      "triangles": 2844278,
+      "draw_calls": 6618,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "desktop-full-service-front.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "roof-junction",
+      "triangles": 2606930,
+      "draw_calls": 6880,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": true,
+      "screenshot": "desktop-full-roof-junction.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "pose": "district-air",
+      "triangles": 3524139,
+      "draw_calls": 4595,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 4600000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-full-district-air.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "quarter",
+      "triangles": 973629,
+      "draw_calls": 3425,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-quarter.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "body-detail",
+      "triangles": 933949,
+      "draw_calls": 3317,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-body-detail.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "service-junction",
+      "triangles": 1230014,
+      "draw_calls": 3287,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-service-junction.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "service-front",
+      "triangles": 855129,
+      "draw_calls": 3094,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-service-front.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "roof-junction",
+      "triangles": 701804,
+      "draw_calls": 3340,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": true,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-roof-junction.png"
+    },
+    {
+      "viewport": "desktop",
+      "detail": "light",
+      "pose": "district-air",
+      "triangles": 1923095,
+      "draw_calls": 5184,
+      "original_budget": {
+        "drawCalls": 7800,
+        "triangles": 1270000
+      },
+      "within_original_budget": false,
+      "carriage_visible": false,
+      "screenshot": "desktop-light-district-air.png"
+    }
+  ],
+  "source_and_mirror_unchanged_during_measurement": true,
+  "optical_GLBS": {
+    "near": "b5b183b4f115c5c7779ba0cb4ccba83fbffb62349647a9a6487f50cde49aef77",
+    "mid": "16daaf1d5003aae3ea64de9d037962aaabf2a5c8638ac77a5a2e037564ef2d63"
+  },
+  "selected_inspection_Full_policy": {
+    "previous": 4600000,
+    "measured_max": 4654565,
+    "declared": 4700000,
+    "reserve_triangles": 45435,
+    "ordinary_Full_Balanced_Light_draw_shadow_reach_LOD_settings": "unchanged"
+  },
+  "unresolved": {
+    "phone_Light_district_air": {
+      "triangles": 1436685,
+      "ceiling": 1270000
+    },
+    "desktop_Light_district_air": {
+      "triangles": 1923095,
+      "ceiling": 1270000
+    },
+    "Light_carriage_hidden_in_all_twelve_rows": true,
+    "memory": "NOT RUN by this diagnostic; earlier T3173 failures remain open",
+    "whole_app_source_publication_and_photographic_acceptance": false
+  }
+}

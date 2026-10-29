@@ -951,6 +951,74 @@
       ],
       "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. T-2936: the face is the plate's GREAT ARCH (`arch`): a ring of fifteen voussoirs rising from the pediment's horizontal cornice, which reads as the plate's lintel over the lights, its centre 0.3 m under the cornice's top because the plate's ring is still curving where the lintel meets it (half-span about 1.2 m and rise about 0.9 m over the lintel on the plate); a 1.15 m intrados and a 0.16 m ring, the most the raking cornice leaves room for on a 3.0 m face; the tympanum recessed 0.1 m with three round-arched lights, the middle one taller (the plate's at x about 163, 199 and 235 px, about 0.82 m apart and 0.42 m wide at the plate's 4 m width, built 0.72 m apart and 0.34-0.36 m wide to stand inside the narrower arch); four colonnettes beside and between the flat-headed lights, which carry no voussoirs; a small round-arched light over the crown (the plate's at about 195, 262-282 px); and the face in the front's own brown sandstone, dressed smooth (`face_fabric`). T-2937: the gable to the plate's WIDTH. The face is 3.6 m, so its raking cornice's outer edge reaches the foot about 1.95 m either side of the centre (the plate's rake, run down to the cornice's level, about 82-93 px either side at the face's 44.2 px/m, about 3.9 m across) and runs out past the pinnacles' inner faces into the shafts (`pinnacles.engage`), which take its ends as the plate's do; the apex rises with it to about y 213 px against the plate's 207 (T-2542's stood about 25 px under). The pinnacles keep their 0.3 m shafts at the bay's corners and stand 0.5 m lower, their caps at about y 293-300 px with the plate's right-hand cap at 293. The great arch is the plate's: a 1.4 m intrados whose centre stands 0.6 m under the cornice's top, its crown at about y 312 px against the plate's 315-318; a ring of 0.2 m voussoirs and outside it a moulded hood order 0.12 m wide standing 0.1 m proud (`arch.hood`), the whole archivolt 0.32 m deep (the plate's reads 14-16 px, 0.32-0.36 m), its outer edge springing about 1.6 m either side and cresting at about y 298 px against the plate's 300-302. The tympanum's lights stand at the plate's 0.8 m spacing and 0.4-0.42 m width (x about 172, 208 and 244 px against 163, 199 and 235); the crown light's sill 1.5 m over the cornice (y about 261-279 px against 262-282); and the flat-headed lights under the cornice at the plate's 0.82 m spacing and 0.55 m width (about 34-39 px apart and 23-27 px wide on the plate) with their colonnettes between and beside them. Reconstructed: the 55-degree pediment within the plate's reading; the archivolt's two orders for the plate's moulded ring, whose profile the plate does not resolve; the colonnettes' 0.055 m radius and square caps (the plate's are stouter, with carved capitals); the pinnacles' square shafts; the lower lights' sash. No carving over the arch is built: at the plate's resolution the pediment over the archivolt reads as coursed rock-faced stone under the crown light, with no legible carved panel (L-k01-1811-ames-front-2541). T-3062: the gable on the plate's centre line and 3.8 m across: `v_m` 3.32 (0.28 m north of T-2542's place), its apex at about x 196 px and its lights' centre at 197 against the plate's 196 and 197, and its pinnacles 2.0 m either side, the shafts landing at x 96-115 and 272-297 px against the plate's 97-119 and 276-298; the wider face lifts the apex about 6 px onto the plate's. The plate carves the pinnacles apart (`pinnacles.heads`): the south one's shaft rises to a moulded band at 11.40 m (y 316 px, the plate's 318; K01 holds an engaged shaft's cap 0.25 m over the rake where it enters it) under a dome to 11.96 m (y 292 px, the plate's 292); the north one carries a moulded block, 0.45 m square from 11.14 m to 12.00 m (its top at y 282 px with the plate's), its centre 0.36 m in from the shaft's so the rake dies into its side, as the plate's rake runs into it. Reconstructed: the dome's scales and the block's mouldings (a plain quarter-ellipse dome; a plinth, die and cornice); the block's 16 px offset from the shaft is read as inward, not as a block 0.4 m behind it, which the one camera cannot tell apart (L-k01-1811-ames-front-2541). T-3064: the north shaft stops under its block, as the plate draws it: K01 lets a shaft under a block stop below the face's eave, so it rises to 10.58 m, its cap (the plate's band, level with the horizontal cornice) at 10.58-10.68 m (y 339-346 px against the plate's 342-348), and over the cap the plate's scaled stone (`scaled_pyramid`) leans in to the block's plinth at 11.14 m (its outer edge x 97-104 px against the plate's 98-105, its top at y 318 against 320); the gable's eave and rake die into that stone. Reconstructed: the scales are five courses each 15 mm proud of the one under it, the plate's imbricated stones not being resolved; the stone's top is the block's plinth and its foot the cap (L-k01-1811-ames-front-2541)."
     },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 7.55,
+        "lot_s_m": [
+          -0.87,
+          13.07
+        ],
+        "thickness_m": 0.45,
+        "chamfer_m": 0.08,
+        "runs": [
+          {
+            "to_s_m": 7.6,
+            "height_m": 0.45
+          },
+          {
+            "to_s_m": 10.0,
+            "opening": true
+          },
+          {
+            "to_s_m": 10.4,
+            "height_m": 0.5
+          },
+          {
+            "to_s_m": 11.3,
+            "opening": true
+          },
+          {
+            "to_s_m": 13.07,
+            "height_m": 0.45
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1811_ames_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The photograph shows no fence: a low coping of rock-faced brownstone on the lot line inside the public walk, about 0.45 m high against the stair's risers, broken where the walk leaves the stair and again at the south passage, a rock-faced block standing between the two (the brief's 'a block plus a low coping'). K11's stone coping wall on the parcel's street line (7.6 m from the front; data/street_grid/1904.json prairie_1811): 0.45 m from the north lot line to s 7.6, open s 7.6-10.0 for the walk, a 0.4 m block s 10.0-10.4 at 0.5 m, open s 10.4-11.3, and a 1.8 m run s 11.3-13.07 to the south lot line. The three pictures that reach the lot line (the Chicagology photograph, the Glessner blog print and the Inland Architect plate) agree on that sequence: a long run, the walk's opening a little south of the stair, a small block, a gap, a long run, then paving beyond. Read through the solved camera, registered on the stair, the opening's centre falls about 0.9 m south of the stair's axis (s 7.9), so the walk leaves the stair square and turns south behind the coping to the opening, as the prints show it angling. The prints show no opening across the south passage, so no service walk is laid through the coping."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 2.2
+        },
+        "grade_m": {
+          "front": 0.016,
+          "street": 0.024,
+          "per_m_s": 0.002,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1811_ames_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot, 2.2 m wide (the stair's width), out toward the coping and south behind it to the coping's opening, which the three prints that reach the lot line put a little south of the stair. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

@@ -795,6 +795,74 @@
       ],
       "note": "The 1911 sheet draws the house three storeys deep to lot u 9.6, against the coach house: the range behind the front block (lot u 9.6-17.5) stands three storeys under a tin deck. The sheet colours it stone; K01 lays a wing in brick."
     },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 9.25,
+        "lot_s_m": [
+          -4.47,
+          18.71
+        ],
+        "thickness_m": 0.3,
+        "chamfer_m": 0.04,
+        "runs": [
+          {
+            "to_s_m": 2.16,
+            "height_m": 0.25
+          },
+          {
+            "to_s_m": 2.46,
+            "height_m": 0.9
+          },
+          {
+            "to_s_m": 4.26,
+            "opening": true
+          },
+          {
+            "to_s_m": 4.56,
+            "height_m": 0.9
+          },
+          {
+            "to_s_m": 18.71,
+            "height_m": 0.25
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1815_sears_two_views",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The square-on photograph (chicagology_square_on.json) shows no fence: a low stone coping along the inner edge of the public walk, and a square stone post about 0.9 m high either side of the walk where it leaves the stair, the walk running straight out between them. K11's stone coping wall, 0.25 m, on the parcel's street line (9.33 m from the front; data/street_grid/1904.json prairie_1815), the posts as 0.3 m runs 0.9 m high. Through the solved camera the posts stand at s 1.96-2.22 and 3.83-4.10 (x 186-214 and 386-414 px on the 2000 px print); they are laid at s 2.16-2.46 and 4.26-4.56, square to the stair's axis (s 3.36), 0.2-0.45 m from that reading (recorded in the match record). The parkway's stone posts at the curb are not this boundary."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.5
+        },
+        "grade_m": {
+          "front": 0.017,
+          "street": 0.03,
+          "per_m_s": 0.0027,
+          "note": "the app's ground over the house's lowest foot, measured in the published 1904 app (T-3206): the yard is lifted onto it so the lawn and the walk are not under it"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chicagology_1815_sears_two_views",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the posts to the public walk, 1.5 m wide as the print draws it, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

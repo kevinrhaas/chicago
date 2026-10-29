@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "debdde4d0330c3989537082d277bae44f708a1b44b06d094005daf7ba7471947",
+  "glb_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -121,8 +121,8 @@
       "status": "fixed"
     },
     {
-      "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px, the opening's edge near 755, south of the corner at 770-777), so the arch reads about 0.3 m further south and broader; built so (T-3135): the arch cut into the projection's corner, the mouth 3.05 m from 4.85 m (its north jamb where it was, on the main front), the projection cut away under the head through its depth and the moulding's south leg on its face; re-rendered, the moulding draws at x 745-754 (L-k07-1812-porch-arch-jamb-3135)",
-      "status": "fixed"
+      "what": "Owner ruling (T-3236, 2026-10-28, the owner's report from the street: 'the windows are not aligned/centered correctly on the north side ... the door is not centered, and the left edging around the door is not on the face of the north side, like the right edging'): the print runs the porch arch's south jamb and moulding down the projection's north corner (x 740-755 px, south of the corner at 770-777) and sets the second storey's north window (x 818-962 px, centre v 6.44 m), the small arched window over it (6.48 m) and the arch's mouth (about 6.4 m) on one axis about 0.33 m south of the north bay's middle (v 5.05-8.5 m, 6.775 m); built with all three centred on the bay, the arch's mouth 2.65 m (where the print's reads about 3.0 m) standing clear of the projection, its moulding on the bay's own face with an equal 0.25 m rock-faced pier each side, and the projection's corner whole (L-k01-1812-wheeler-bay-3236)",
+      "status": "owner ruling"
     },
     {
       "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built so (T-3134): a half-elliptical head on the same 0.79 m rise, and a ring of two moulded steps 0.11 m broad round it and down both jambs, unbroken over the crown where the block's keystone stood. The voussoir block outside the ring is still radiating rock-faced stones where the print shows the porch's coursed ashlar run to the moulding",
@@ -199,7 +199,20 @@
     {
       "what": "The side and rear walls, which the photograph does not see",
       "status": "not shown"
+    },
+    {
+      "what": "the low pale coping before the stair, and the walk",
+      "status": "fixed",
+      "how": "T-3206 lays a 0.35 m stone coping on the street line, open across the stair's foot as the Levy print shows nothing across it and the c. 1888 view down the block shows low pale blocks; the K14 walk runs straight from the stair"
+    },
+    {
+      "what": "Entrance: the door's leaves read flat and pale in the render where the print's are dark; built (T-3236) in a dark varnish, each leaf in three raised-and-fielded panels on rails at 0.95 and 1.9 m, the panels sunk 0.035 m with a field 0.06 m in standing 0.02 m before the ground, and the door set 0.55 m back in the arch (it had been 0.32 m); the print's leaves are too dark to read their panels, which are invented (L-k01-1812-wheeler-bay-3236)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the fanlight's two columns of small panes stand at x about 830-855 and 905-929 px, roughly even about the arch's mouth; built at 0.42 m either side of the mouth's axis (T-3236), where T-3134 had put them over the leaves' meeting and the pier, off the arch's middle",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

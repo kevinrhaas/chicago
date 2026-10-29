@@ -27,7 +27,8 @@ clause is a rule here:
   support    a bay on grade stands on its plinth; an oriel's corbel courses each oversail
              the one below by no more than the data's ratio and the lowest still bears
   light      the light tier keeps the full tier's silhouette and costs at most a set
-             fraction of its triangles
+             fraction of its triangles (T-1890: a bay holding an open opening, a loggia's,
+             may state its own fraction up to 0.65, with its reason)
   costs      every variant inside its triangle budget, at both tiers
   specimen   the committed specimen GLB is the generator's bytes
 """
@@ -129,21 +130,25 @@ def rule_data(v, data, b):
     lo_h, hi_h = k06["ranges"]["ordinary_clear_height_m"]
     levels = b.meta["levels_m"]
     for w in b.windows:
-        run = b.runs[w["run"]]
+        run = (b.runs + b.stage_runs)[w["run"]]   # T-1890: a staged tower's stage runs on from its shaft's
         a, z = w["s_extent"]
         if a < pier - EPS or z > run.L - pier + EPS:
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
                          f"closer than {pier} m to its end")
         k = w["storey"]
         floor = levels[k] + (band["height_m"] / 2 if k else (plinth["height_m"] if v["base"] == "grade" else 0))
+        if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
+            floor = levels[0] - k06["parts"]["sill"]["height_m"]
         ceil = levels[k + 1] - (band["height_m"] / 2 if k + 1 < len(levels) - 1 else 0)
         if w["y_all"][0] < floor - EPS or w["y_all"][1] > ceil + EPS:
             fails.append(f"storey: {w['opening']} on storey {k} spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, "
                          f"outside its storey's clear wall {floor:.3f}..{ceil:.3f}")
     for i, w1 in enumerate(b.windows):
         for w2 in b.windows[i + 1:]:
+            # T-1890: two in one storey overlap only where they share height too (a door under a light)
             if (w1["run"], w1["storey"]) == (w2["run"], w2["storey"]) and \
-                    w1["s_extent"][0] < w2["s_extent"][1] and w2["s_extent"][0] < w1["s_extent"][1]:
+                    w1["s_extent"][0] < w2["s_extent"][1] and w2["s_extent"][0] < w1["s_extent"][1] and \
+                    w1["y_all"][0] < w2["y_all"][1] and w2["y_all"][0] < w1["y_all"][1]:
                 fails.append(f"overlap: two windows on run {w1['run']} storey {w1['storey']} share s "
                              f"{max(w1['s_extent'][0], w2['s_extent'][0]):.3f}..{min(w1['s_extent'][1], w2['s_extent'][1]):.3f}")
     for st in v["storeys"]:
@@ -157,8 +162,49 @@ def rule_data(v, data, b):
     return fails
 
 
+def _across_inside(b, margin=1e-6):
+    """T-3176: inside the house a ring across its corner stands on: behind the wall's face and
+    inside its end (x < 0 for the right corner), by more than `margin` on both; None if the
+    bay is not across a corner."""
+    across = b.plan.get("across_corner")
+    if across is None:
+        return None
+    k = 1.0 if across == "right" else -1.0
+    return lambda x, z: z < -margin and k * x < -margin
+
+
 def rule_keyed(b, v):
     fails = []
+    inside = _across_inside(b)
+    if inside is not None:
+        # T-3176: a tower across its house's corner starts on the wall's face and ends on the end
+        # wall's plane (or the reverse, at a left corner); nothing of it but its cap, its deck's
+        # iron and finials and the soffit closing the cap stands inside the corner
+        right = b.plan["across_corner"] == "right"
+        a = b.runs[0].world(0.0, 0.0, 0.0)
+        e = b.runs[-1].world(b.runs[-1].L, 0.0, 0.0)
+        on_face, on_side = (a, e) if right else (e, a)
+        if abs(on_face[2]) > 1e-6 or (on_face[0] >= 0) == right:
+            fails.append(f"keyed: an across-corner tower's junction {on_face} is not on its wall's face inside its end")
+        if abs(on_side[0]) > 1e-6 or on_side[2] >= 0:
+            fails.append(f"keyed: an across-corner tower's junction {on_side} is not on its end wall's plane behind the face")
+        whole = ("roof", "finial", "iron", "soffit")
+        worst = [(role, p) for role, pr in b.prims.items() if role not in K.BOARD_ROLES and role not in whole
+                 for p in pr.pos if inside(p[0], p[2])]
+        if worst:
+            fails.append(f"behind: a {worst[0][0]} vertex stands inside the corner at {worst[0][1]}")
+        ring, (cx, cz) = b.plan["ring"], b.plan["centre"]
+        n = len(ring)
+        reach = math.hypot(ring[0][0] - cx, ring[0][1] - cz) + b.meta["overhang_m"] / math.cos(math.pi / n)
+        far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
+        if far > reach + 1e-6:
+            fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
+        off = 0.0
+        for p in b.prims["wall"].pos:
+            off = max(off, min(plan_distance(r, p) for r in b.runs))
+        if off > 2e-4:
+            fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
+        return fails
     # T-3048: a chamfered corner's run ends on its side wall's plane, behind the face, inside
     # the corner its host cuts away under it (k01_frontage_params.chamfer_spans); there, and
     # nowhere else, the bay stands behind the face
@@ -206,7 +252,7 @@ def rule_keyed(b, v):
     # the outer wall on the declared plan
     off = 0.0
     for p in b.prims["wall"].pos:
-        off = max(off, min(plan_distance(r, p) for r in b.runs))
+        off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
         fails.append(f"footprint: the outer wall stands {off * 1000:.1f} mm off its declared plan")
     return fails
@@ -227,22 +273,26 @@ def plan_distance(r, p):
 
 def inside_point(b):
     """A point inside the bay's solid and outside every recess, one per storey."""
-    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1))
+    # T-1890: a window centred on a deep projection (1801's p_flank) has its recess's back on
+    # z 0.05 under every one of the first four, so a point ON a footprint's edge counts as in
+    # it, and the last stands behind every recess (they all end 0.05 m in front of the wall)
+    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1), (0.0, 0.025))
     if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
         (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
         cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
     for cand in cands:
-        if not any(in_hull(cand, w["footprint"]) for w in b.windows):
+        if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows):
             break
     lv = b.meta["levels_m"]
     return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
            [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
 
 
-def in_hull(p, h):
+def in_hull(p, h, edge=False):
     n = len(h)
+    lim = -1e-9 if edge else 0.0
     return n >= 3 and all((h[(i + 1) % n][0] - h[i][0]) * (p[1] - h[i][1])
-                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > 0 for i in range(n))
+                          - (h[(i + 1) % n][1] - h[i][1]) * (p[0] - h[i][0]) > lim for i in range(n))
 
 
 def rule_closed(b, tracer):
@@ -301,11 +351,15 @@ def rule_recesses(b, v, data):
     for w in b.windows:
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
+        inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         for p in w["footprint"]:
-            if p[1] < floor:
+            if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
-            for i, r in enumerate(b.runs):
+            # T-1890: a staged tower's stage window is held inside the stage's ring, not the shaft's
+            n0 = len(b.runs)
+            ring = list(enumerate(b.stage_runs, n0)) if w["run"] >= n0 else list(enumerate(b.runs))
+            for i, r in ring:
                 if i == w["run"]:
                     continue
                 if r.kind == "arc":
@@ -375,13 +429,24 @@ def rule_curves(b, data, tier):
 
 def rule_support(b, v, data):
     fails = []
+    sg = b.meta.get("stage")
+    if sg is not None:
+        # T-1890: a staged tower's corbel courses carry its stage back to its shaft
+        cb = K.part(v, data, "corbel")
+        if sg["step_m"] > cb["max_oversail_ratio"] * sg["course_height_m"] + 1e-6:
+            fails.append(f"oversail: the stage's corbel courses step {sg['step_m']:.3f} m, more than "
+                         f"{cb['max_oversail_ratio']} of their {sg['course_height_m']} m height")
+        if sg["bearing_m"] < cb["min_bearing_m"] - 1e-6:
+            fails.append(f"bearing: the stage's lowest corbel course bears on the shaft by {sg['bearing_m']:.3f} m only")
+        if not b.prims.get("corbel") or not b.prims["corbel"].idx:
+            fails.append("support: a staged tower has no corbel courses under its stage")
     if v["base"] == "grade":
         pl = b.prims.get("plinth")
         h = K.part(v, data, "plinth")["height_m"]
         if not pl or not pl.idx or abs(min(p[1] for p in pl.pos)) > 1e-6 or max(p[1] for p in pl.pos) < h - 1e-6 \
                 or h <= 0:
             return ["foundation: a bay on grade stands on no plinth from grade"]
-        return []
+        return fails
     if v.get("apron"):
         return rule_apron(b, b.prims.get("apron"))   # T-2904: the apron's own role
     cb = b.prims.get("corbel")
@@ -490,9 +555,38 @@ def rule_doubled(b):
     return []
 
 
-def rule_light(full, light, data):
+#: T-1890: a pier's whole budget, at either tier (a box, its floor bands, cap and plinth)
+PIER_MAX_TRIANGLES = 120
+
+
+def rule_light(full, light, data, v=None):
     fails = []
     cv = data["curves"]["light"]
+    ratio = cv["max_triangle_ratio"]
+    lt = (v or {}).get("light_tier")
+    if lt:
+        # T-1890: a bay may state its own ratio, with its reason, only for an OPEN opening it
+        # holds (a loggia's: no sash, blind or curtain there for the light tier to drop)
+        k06 = {x["id"]: x for x in K.K6.load()["variants"]}
+        # ...or for a bay with one light a storey under a cornice swept round it and a mansard
+        # (1801's south bay, the main cornice and slate carried round it): both stand whole in
+        # either tier, and one light a storey leaves the light tier little sash to drop
+        swept = ((v.get("overrides") or {}).get("eaves") or {}).get("profile") or (v.get("eaves") or {}).get("cornice")
+        dressed = bool(swept) and bool((v.get("roof") or {}).get("mansard")) \
+            and all(sum(len(w.get("at") or [0]) for w in st["windows"]) <= 1 for st in v["storeys"])
+        if not dressed and not any(k06.get(w["opening"], {}).get("operation") == "open"
+                                   for st in v["storeys"] for w in st["windows"]):
+            fails.append("light: a bay states its own light_tier ratio but holds no open opening (or one light "
+                         "a storey under a swept cornice and a mansard) to warrant it")
+        elif not str(lt.get("why", "")).strip() or not cv["max_triangle_ratio"] < lt["max_triangle_ratio"] <= 0.65:
+            fails.append(f"light: a bay's own light_tier ratio {lt.get('max_triangle_ratio')} must lie over "
+                         f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
+        else:
+            ratio = lt["max_triangle_ratio"]
+    # T-1890: a PIER (1801's, where its gabled section meets the main block) is a plain stone box,
+    # no window, curve or carving on it, so the light tier has nothing to drop: it keeps the full
+    # tier's triangles, and is held instead to a box's own few
+    pier = bool((v or {}).get("pier"))
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
@@ -503,9 +597,13 @@ def rule_light(full, light, data):
         fails.append(f"silhouette: the light tier's extent is {dev * 1000:.1f} mm off the full tier's "
                      f"(allowed {cv['max_sagitta_m'] * 1000:.0f} mm)")
     tf, tl = K.triangles(full), K.triangles(light)
-    if tl > cv["max_triangle_ratio"] * tf:
+    if pier:
+        if tl > tf or tf > PIER_MAX_TRIANGLES:
+            fails.append(f"light: a pier costs {tf} triangles at the full tier and {tl} at the light; a plain "
+                         f"box keeps at most {PIER_MAX_TRIANGLES}, the light tier no more than the full")
+    elif tl > ratio * tf:
         fails.append(f"light: the light tier costs {tl} triangles, {tl / tf:.2f} of the full tier's {tf} "
-                     f"(allowed {cv['max_triangle_ratio']})")
+                     f"(allowed {ratio})")
     return fails
 
 
@@ -521,7 +619,7 @@ def check_variant(v, data, full=None, light=None):
     tracer = Tracer(full)
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
             + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
-            + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data)
+            + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
             + rule_costs(full, data, "full") + rule_costs(light, data, "light"))
 
 
@@ -612,6 +710,12 @@ def self_test(data) -> int:
     def m_coarse(d):
         d["curves"]["light"]["max_seg_deg"] = 40.0
 
+    def m_light_own(d):   # T-1890: a bay's own ratio, with no open opening to warrant it
+        _v(d, "k08.bay.canted")["light_tier"] = {"max_triangle_ratio": 0.6, "why": "no reason"}
+
+    def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
+        _v(d, "k08.bay.canted")["pier"] = True
+
     cases = [
         ("a window off the end of its run", m_pier, "k08.bay.canted", "pier:"),
         ("two windows on one run, side by side into each other", m_overlap, "k08.bay.bowed", "overlap:"),
@@ -626,6 +730,8 @@ def self_test(data) -> int:
         ("a bay over its budget", m_budget, "k08.bay.bowed", "costs:"),
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),
+        ("a glazed bay stating its own light-tier ratio", m_light_own, "k08.bay.canted", "holds no open opening"),
+        ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
     ]
     bad = 0
     for name, mut, vid, want in cases:

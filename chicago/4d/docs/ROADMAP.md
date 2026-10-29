@@ -5898,6 +5898,10 @@ Adopt only the reviewed board-parapet selector and credited Andreas correction, 
 The retained before-change mobile diagnostic records a 349.859 px grid track inside a 292 px host, with text visibly clipped. The scoped news-grid rule allows complete text to wrap within the panel without hiding it or reducing fonts. Delivery checks cover real published mobile/desktop news flows and all-row bounds at 100% and 140%, normal preflight and ordinary exact-head CI. Preserve the failed diagnostic and distinguish focused notes results from a fresh whole-part13/full-renderer pass.
 
 
+### T-3088 — qualify the refined canonical horse anatomy
+
+Keep the source-bounded 925fac master as the selected candidate: rounded locally refined hooves and thinner eyelid margins, protected eye/maps/rig/clip, repeatable authored recipe and fresh all-face/expanded-contact Mixer129 proof. Finish actual selected-body yard support, mobile/desktop normal app review and the native whole preflight before delivery. Record the remaining resting-lid appearance honestly; complete the existing T-3089 material/LOD work sequentially from this exact accepted anatomy master. No gait/rider/driver acceptance is implied and no new photo follow-ups are opened.
+
 ### T-2376 front-ground picture increment - 2026-10-25
 
 Adopted the reviewed V3 front-ground layout with its consumed/hash-covered
@@ -5942,6 +5946,25 @@ T-2384 image-card ending: display the held, credited Andreas 1884/Moss engraving
 
 
 T-2386 roof-tone increment (2026-10-26): explicit reconstructed deep_brown opt-in replaces the visibly insufficient new darkened-condition choice. Reuse local FrameTavern stock math without changing common finishes/defaults; genuinely refresh82LogDwelling canonical masters/82WEB with default/nonfamily controls, then actual final mobile/desktop and current per-picture acceptance underT3153. No new ticket or original matches claim.
+
+
+T-2382 (2026-10-26): select the existing blind dark doorway for Carpenter's log annex from the credited Andreas plate. The supported one-record choice leaves placement, dimensions, dates and former/current-use rulings unchanged. Actual selected master-to-WEB and same-camera comparisons are retained; the original image gate remains DIFFERS with broader massing and camera questions open. The existing pictured-grade ruling now uses the library ID of that same reproduction, so its legacy source alias does not count as a second picture on the visitor card; the attested grade and per-attribute grades remain. This is a reasoning checkpoint, not a new backlog item.
+
+### T-1789 source checkpoint — 26 October2026
+
+Reusable workwear construction and three explicit resident assemblies are authored; CPU source controls cover real geometry, UV surfaces, portable weights, unchanged bodies and meaningful negatives. No new canonical person or photographic-library acceptance is claimed. The full library, including the remaining garment families/base/head/hair options, canonical three-resident exports, posed/LOD/mobile inspection and Mark Beaubien assembly stop, remains T1789 and is tracked in docs/RESEARCH/portable-human-library-T-1789/README.md. Existing reasoning and all original bytes above are retained.
+
+### T-2385 checkpoint — first Tremont (2026-10-26)
+
+The default follows Gale's retrospective 1835-framed 20x30 yellow two-storey text.
+Native gifford-reading preserves the undated three-storey picture alternative.
+Original case remains open for that real source dispute; no dated enlargement is
+invented. Native exports/app/gates are pending at this authoring checkpoint; see STATUS.
+
+T-2385 checkpoint continuation (2026-10-26): exact native2masters+2WEB closed on
+publicGTcf25 plus incoming dev88; canonical single-asset comparison remainsDIF,
+with the original case OPEN. Native scene/tail/app/fixed-point/finalgates are still
+pending. The old three-storey version retains exact incoming model bytes; see STATUS.
 
 
 ### T-2793 licensed farm-box master continuation — 2026-10-26

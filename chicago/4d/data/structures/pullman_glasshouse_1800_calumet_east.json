@@ -92,8 +92,8 @@
           "value": {
             "id": "k13.house.pullman_1800_east",
             "form": "span",
-            "eave_m": 2.4,
-            "pitch_deg": 30,
+            "eave_m": 5.5,
+            "pitch_deg": 14,
             "bays": 12,
             "door": null,
             "gutters": [
@@ -106,7 +106,7 @@
                 "outlet": "both"
               }
             ],
-            "ridge_vent": true,
+            "ridge_vent": false,
             "planting": [
               "bench_front",
               "bench_back"
@@ -115,13 +115,73 @@
               "end_left"
             ],
             "length_m": 16.836,
-            "width_m": 7.129
+            "width_m": 7.129,
+            "masonry": {
+              "sides": [
+                "front",
+                "back"
+              ],
+              "thickness_m": 0.35,
+              "height_m": 6.0,
+              "coping": {
+                "thickness_m": 0.15,
+                "out_m": 0.1
+              },
+              "windows": {
+                "sill_m": 3.5,
+                "head_m": 4.65,
+                "width_m": 1.25,
+                "spacing_m": 1.95,
+                "margin_m": 0.15,
+                "margin_end_m": 1.0,
+                "lights": {
+                  "across": 4,
+                  "up": 3,
+                  "bar_m": 0.05
+                },
+                "panel": {
+                  "from_m": 1.85,
+                  "to_m": 3.25,
+                  "width_m": 1.45,
+                  "moulding_m": 0.1,
+                  "out_m": 0.04
+                }
+              },
+              "courses": [
+                {
+                  "from_m": 1.6,
+                  "to_m": 1.8,
+                  "out_m": 0.08
+                },
+                {
+                  "from_m": 3.3,
+                  "to_m": 3.5,
+                  "out_m": 0.1
+                },
+                {
+                  "from_m": 4.65,
+                  "to_m": 4.8,
+                  "out_m": 0.07
+                },
+                {
+                  "from_m": 5.4,
+                  "to_m": 5.55,
+                  "out_m": 0.12
+                }
+              ],
+              "pilaster": {
+                "width_m": 0.4,
+                "out_m": 0.06
+              }
+            }
           },
           "confidence": "reconstructed",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory",
+            "aic_lowe_pullman_conservatory_c1897"
           ],
-          "note": "The plan is the sheet's (inferred): the range from the lodge's east wall to the line where the narrower rounded end begins. The dashed line the sheet draws across it 2.9 m from the lodge is a partition, not built. Twelve bays, a 2.4 m eave and a 30 degree roof under a ridge ventilator; its west end is the lodge's east wall (abuts end_left); everything else is RECONSTRUCTED from the K13 kit (data/components/prairie_1904/k13_conservatories.json, L-k13-conservatory-kit-2305) and recorded as L-pullman-glasshouses-1800-calumet-3164."
+          "note": "The plan is the sheet's (inferred), and so is the glass roof it letters. T-3179: the plate and the Lowe photograph show the range's 18th Street face as masonry, not glass: a wall about 6.0 m to its coping through the plate's camera (25.8 px/m at the range), pilasters between eight square-headed windows whose sills stand about 3.4 m and heads about 4.6 m up, and no roof seen over the parapet. So the glass is the roof alone, at a low 14 degrees behind a 0.5 m parapet, and the long walls are masonry (the south wall, which no picture shows, the same). RECONSTRUCTED: the stone tone, the wall's thickness, the windows' even spacing and the roof's pitch (L-pullman-conservatory-3179)."
         }
       }
     }

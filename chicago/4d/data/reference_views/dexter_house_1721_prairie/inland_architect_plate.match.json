@@ -1,0 +1,113 @@
+{
+  "structure_id": "dexter_house_1721_prairie",
+  "view": "inland_architect_plate",
+  "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
+  "glb_sha256": "9a00202908b64db39f5eb96c7ff188a2db3d9c34ed357808a52cd6aa9ed8f921",
+  "camera_sha256": "3da664e85e8113d4743c4b2b60543e98cbe9fd9997109602c8a3215fff050000",
+  "photo_sha256": "b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442",
+  "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: three storeys over a low basement, the north part of the front recessed behind the entrance porch, the rest standing forward as one block carrying two bows, flat behind a cornice",
+      "status": "fixed",
+      "how": "T-1878: the 1911 sheet's plan on K01 with a K08 forward block and two bows on its face; this camera puts every corner within 10 px"
+    },
+    {
+      "what": "the bows' lights: two a storey on each bow, a blank pier of wall at its middle (x 923-1027 px on the north bow), where the record had three",
+      "status": "fixed",
+      "how": "T-1879: at_deg -33 and 33 on the north bow and -31 and 31 on the south (887/1050 px against the plate's 891/1050 on the north bow, 1280 px on the south), so each light's shutters stay on its bow"
+    },
+    {
+      "what": "the forward block's third floor: a light over each side of each bow (x 867, 1247, 1363 px; the fourth behind the tree) and a round-headed light with a fan between the bows (x 1120-1180 px), where the record had three square lights",
+      "status": "fixed",
+      "how": "T-1879: four K06 sash at s 1.8, 5.2, 9.35 and 12.15 m along the face and K06's round fanlight sash at 7.2 m"
+    },
+    {
+      "what": "each bow roofed at the third floor as a balcony behind a stone balustrade (x 805-970 px on the north bow, x 1207-1407 px on the south)",
+      "status": "fixed",
+      "how": "T-1879: the kit's stone balcony round each bow's eaves, 0.75 m high"
+    },
+    {
+      "what": "the forward block's parapet: a balustrade over its cornice the length of its front (x 740-1450 px)",
+      "status": "fixed",
+      "how": "T-1879: the kit's stone balcony round the projection's flat top, 0.8 m high"
+    },
+    {
+      "what": "the recessed front's parapet: solid for about 1.5 m from its north-west corner, then balusters under a rail to the forward block (x 503-705 px)",
+      "status": "fixed",
+      "how": "T-1879: flat_balustrade, the blocking course stopped at a 0.2 m plinth from s 1.5 to 3.35 m with square balusters under a 0.15 m rail"
+    },
+    {
+      "what": "open louvred shutters beside every light of the front: the recessed front's two upper lights and every light of the forward block and the bows but the round-headed one",
+      "status": "fixed",
+      "how": "T-1879: window_shutters on the recessed front's storeys 1-2 and shutters on every bay light, 0.42-0.45 m leaves, slats 0.1-0.12 m"
+    },
+    {
+      "what": "iron at the ground floor's lights: a balconette under the north bow's north light (x 857-920 px) and a run of iron nearly continuous across the next three (x 1007-1340 px)",
+      "status": "fixed",
+      "how": "T-1879: a guard on a stone slab under each ground-floor bay light, 0.85 m high and 0.3 m out, the forward block's centre one reaching 0.9 m past its light so the three meet the bows within about 0.2 m"
+    },
+    {
+      "what": "the tall plain stack rising about 3.5 m over the parapet at the forward block's north return (x 710-790 px, its top at y 210)",
+      "status": "fixed",
+      "how": "T-1879: the stack moved to v 4.6 m and its top to 16.9 m over grade (top at y 205 px through this camera)"
+    },
+    {
+      "what": "the north flank: one column of openings about 4 m back from the front corner — a window at the third floor, a small oval light at the second, a narrow slot at the principal floor — and blank wall otherwise, where the record had two columns of windows",
+      "status": "fixed",
+      "how": "T-1879: side_bays read off this picture (K01's south wall is this house's north wall in its frame)"
+    },
+    {
+      "what": "the oval light on the north flank is built square-headed at its size (0.45 x 0.7 m): K01 cuts no oval",
+      "status": "within tolerance",
+      "how": "the outlines differ only at the corners, under 0.1 m, on a flank the camera sees at a grazing angle"
+    },
+    {
+      "what": "the small carved tablets over the upper lights (x 575-650, y 640-660 px and their like): a cornice hood stands for them on the recessed front and the bay lights take K06's plain head",
+      "status": "within tolerance",
+      "how": "relief inside a band under 0.3 m deep over each head; the element's place and size are there, its carving is not"
+    },
+    {
+      "what": "the balusters are turned in the plate and built square",
+      "status": "within tolerance",
+      "how": "each under 0.1 m across; the rhythm, height and rail match"
+    },
+    {
+      "what": "the forward block's parapet starts at its north-west corner with a solid pedestal about 1.5 m long (x 745-825 px), which is built pierced",
+      "status": "within tolerance",
+      "how": "same height, line and stone, the difference is the piercing of 1.5 m of a 14 m balustrade; the kit's projection balcony sets only corner posts (0.3 m), and broad posts were tried and stood as cubes over the rail, so they were not kept"
+    },
+    {
+      "what": "the main cornice's modillions or dentils (x 420-700 px) under the crown",
+      "status": "within tolerance",
+      "how": "relief under 0.15 m within the cornice's built depth"
+    },
+    {
+      "what": "the porch's columns stand about 10 px nearer each other in the plate than in the render",
+      "status": "within tolerance",
+      "how": "about 0.15 m at the porch, inside the fit's 12.7 px worst residual"
+    },
+    {
+      "what": "the walls' colour, the shutters' colour and the stone's tone",
+      "status": "not shown",
+      "how": "a monochrome plate; the pale buff paint and the shutters' deep green are reconstructed (docs/LIBERTIES.md L-k01-1721-dexter-1878 and L-k01-1721-dress-1879)"
+    },
+    {
+      "what": "the forward block's south end, its third floor between the bows and the south bow's south light",
+      "status": "not shown",
+      "how": "behind the street trees from x 1000 px on"
+    },
+    {
+      "what": "the south wall, the rear and the rear wing",
+      "status": "not shown",
+      "how": "outside the picture"
+    },
+    {
+      "what": "the low stone coping along the walk either side of the stair's foot, the walk straight in to the stair",
+      "status": "fixed",
+      "how": "T-3205: a low coping 0.4 m with 0.9 m posts at the opening, the flagged walk from the public walk to the stair; the render's coping meets the stair's cheeks as the plate's does, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

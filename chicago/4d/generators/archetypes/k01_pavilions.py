@@ -31,11 +31,13 @@ from __future__ import annotations
 import math
 
 KEYS = {"piers", "proud_m", "from_m", "course_m", "channel_m", "quoin_step_m", "frieze", "modillions",
-        "mansard_ribs"}
+        "mansard_ribs", "belt"}
 FRIEZE_KEYS = {"from_s_m", "bed_m", "bed_proud_m", "panel_m", "panel_max_m", "panel_inset_m", "frame_m",
                "frame_proud_m"}
 MODILLION_KEYS = {"pitch_m", "width_m", "out_m", "drop_m", "end_clear_m"}
 RIB_KEYS = {"s_m", "width_m", "proud_m"}
+BELT_KEYS = {"bed_m", "profile", "runs"}
+BELT_WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
 CORE_BACK_M = 0.08      # the pier's core stands this far behind its courses' faces: the channels' floor
 RING_M = 0.25           # a pier stands this far clear of a street opening's jamb (its voussoir ring)
 RIB_BURY_M = 0.02       # a rib's back is let this far into the slate it stands on
@@ -46,7 +48,7 @@ class ParamError(ValueError):
     pass
 
 
-def resolve(spec, *, width, stone, openings, mansard, eave, wall_head) -> dict:
+def resolve(spec, *, width, stone, openings, mansard, eave, wall_head, depth=None, bays=()) -> dict:
     """The record's `street_front_pavilions`, checked against the house (module doc)."""
     if not spec:
         return {}
@@ -135,7 +137,118 @@ def resolve(spec, *, width, stone, openings, mansard, eave, wall_head) -> dict:
                     raise ParamError(f"street_front_pavilions.mansard_ribs: the rib at s {c} meets the dormer at "
                                      f"{dm['along_m']}")
         out["mansard_ribs"] = {"s_m": ss, "width_m": w, "proud_m": rp}
+    bt = spec.get("belt")
+    if bt:
+        out["belt"] = _resolve_belt(bt, width=width, depth=depth, openings=openings, eave=eave, bays=bays)
     return out
+
+
+def _resolve_belt(bt, *, width, depth, openings, eave, bays) -> dict:
+    """T-1881: the moulded belt course between the principal and second storeys (Taylor's
+    photograph no. 1445 and the 1890 Albertype: a deep, shadowed band under the second
+    storey's sills, round the Prairie front, its pavilions and the 18th Street flank). One
+    moulded section `profile` ([out, up] pairs from the wall's face at its bed, back to the
+    wall at its top), its bed at `bed_m`, swept along `runs` (each a wall and the stretch of
+    it, s_m [from, to], in the wall's own s) and round every K08 projection standing on them."""
+    if set(bt) != BELT_KEYS:
+        raise ParamError(f"street_front_pavilions.belt takes {sorted(BELT_KEYS)}")
+    y0 = float(bt["bed_m"])
+    prof = [(float(n), float(u)) for n, u in bt["profile"]]
+    if len(prof) < 4 or prof[0] != (0.0, 0.0) or prof[-1][0] != 0.0:
+        raise ParamError("street_front_pavilions.belt.profile runs from the wall's face at the bed [0, 0] out "
+                         "and back to the wall at its top [0, height]")
+    h = prof[-1][1]
+    if not (0.1 <= h <= 1.2 and all(0.0 <= n <= 0.3 for n, _ in prof)
+            and all(b[1] >= a[1] - 1e-9 for a, b in zip(prof, prof[1:]))):
+        raise ParamError("street_front_pavilions.belt.profile: 0.1-1.2 m high, at most 0.3 m out, never "
+                         "turning back down")
+    if not 1.0 <= y0 <= eave - h - 1.0:
+        raise ParamError(f"street_front_pavilions.belt.bed_m {y0}: over the ground and a metre under the wall head")
+    lengths = {"k01.wall.street_front": width, "k01.wall.side.north": depth, "k01.wall.rear_service": width,
+               "k01.wall.side.south": depth}
+    runs = []
+    for j, r in enumerate(bt["runs"]):
+        if set(r) != {"wall", "s_m"} or r["wall"] not in BELT_WALLS:
+            raise ParamError(f"street_front_pavilions.belt.runs[{j}] takes wall (a K01 wall) and s_m [from, to]")
+        a, b = (float(x) for x in r["s_m"])
+        if not 0.0 <= a < b - 0.5 or b > lengths[r["wall"]] + 1e-6:
+            raise ParamError(f"street_front_pavilions.belt.runs[{j}].s_m [{a}, {b}] is not a stretch of "
+                             f"{r['wall']} (0-{lengths[r['wall']]} m)")
+        for o in openings:
+            if o.wall == r["wall"] and a < o.s_m < b and o.sill_m < y0 + h and o.head_m > y0:
+                raise ParamError(f"street_front_pavilions.belt runs through {o.component} at s {o.s_m} on {o.wall}")
+        on = []
+        for bay in bays:
+            if bay["wall"] != r["wall"]:
+                continue
+            s0, s1 = bay["span_m"]
+            if s1 <= a or s0 >= b:
+                continue
+            pts = bay["variant"].get("plan", {}).get("points")
+            if bay["variant"].get("kind") != "projection" or not pts or len(pts) != 4 \
+                    or abs(pts[0][1]) > 1e-9 or abs(pts[3][1]) > 1e-9 or abs(pts[0][0] - pts[1][0]) > 1e-9 \
+                    or abs(pts[2][0] - pts[3][0]) > 1e-9:
+                raise ParamError(f"street_front_pavilions.belt: {bay['id']} is not a square projection to run round")
+            on.append((float(s0), float(s1), float(pts[1][1]), bay["id"]))
+        runs.append({"wall": r["wall"], "s_m": (a, b), "bays": tuple(sorted(on))})
+    if not runs:
+        raise ParamError("street_front_pavilions.belt names at least one run")
+    return {"bed_m": y0, "profile": tuple(prof), "height_m": h, "runs": tuple(runs)}
+
+
+def belt_path(run, r, y):
+    """One belt run's path in plan: along the wall at its face, stepping out round each
+    projection's cheeks and across its front; a projection flush with the run's end (a
+    corner pavilion) carries the path to the corner on its own face."""
+    a, b = r["s_m"]
+    eps = 1e-6
+    pts = []
+    first = next((x for x in r["bays"] if x[0] <= a + eps < x[1]), None)
+    pts.append((a, first[2] if first and first[0] < a - eps else 0.0))
+    for s0, s1, d, _ in r["bays"]:
+        if s0 > a + eps:
+            pts += [(s0, 0.0), (s0, d)]
+        elif s0 >= a - eps:
+            pts += [(a, d)]
+        if s1 < b - eps:
+            pts += [(s1, d), (s1, 0.0)]
+        else:
+            pts += [(b, d)]
+    if pts[-1][0] < b - eps:
+        pts.append((b, 0.0))
+    out = []
+    for s, n in pts:
+        q = run.at(s, y, n)
+        if not out or max(abs(q[i] - out[-1][i]) for i in range(3)) > 1e-6:
+            out.append(q)
+    return out
+
+
+def _join(runs, paths, lengths):
+    """The runs' paths joined where one wall's run ends at its corner and the next wall's
+    (round the house in K01's order) starts there, so the belt turns the corner mitred."""
+    out, prev = [], None
+    for r, p in zip(runs, paths):
+        i = BELT_WALLS.index(r["wall"])
+        if prev and BELT_WALLS.index(prev["wall"]) == (i - 1) % 4 \
+                and abs(prev["s_m"][1] - lengths[prev["wall"]]) < 1e-6 and abs(r["s_m"][0]) < 1e-6:
+            same = max(abs(p[0][k] - out[-1][-1][k]) for k in range(3)) < 1e-6
+            out[-1] = out[-1] + (p[1:] if same else p)
+        else:
+            out.append(list(p))
+        prev = r
+    clean = []
+    for p in out:
+        q = [p[0]]
+        for i in range(1, len(p) - 1):
+            u = tuple(p[i][k] - q[-1][k] for k in range(3))
+            v = tuple(p[i + 1][k] - p[i][k] for k in range(3))
+            cr = (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
+            if max(abs(c) for c in cr) > 1e-9 or (u[0] * v[0] + u[1] * v[1] + u[2] * v[2]) < 0:
+                q.append(p[i])
+        q.append(p[-1])
+        clean.append(q)
+    return clean
 
 
 def _courses(y0, y1, ch):
@@ -189,6 +302,8 @@ def dress(a):
                 a.proud_box("bay_stone", side, 0.0, pr["return_m"], band, top, d, seed + 998, conf)
     if a.wall_head.get("cornice") == "k10.cornice.moulded_stone" and band < top:
         _cornice_breaks(a, pv, top, conf)
+    if pv.get("belt"):
+        _belt(a, pv, conf)
     if fz:
         cid = "k01.pavilion.frieze_panel"
         spans, at = [], fz["from_s_m"]
@@ -301,5 +416,44 @@ def _cornice_breaks(a, pv, y_c, conf):
                        run_names=[front.name] + ([side.name] if pr["corner"] else []))
         path = [front.at(s0, y_c, d), front.at(W + d, y_c, d), side.at(pr["return_m"], y_c, d)] if pr["corner"] \
             else [front.at(s0, y_c, d), front.at(s1, y_c, d)]
+        K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
+    k10_frontage._lay(a, var.pieces, conf, cid)
+
+
+def _belt(a, pv, conf):
+    """T-1881: the belt course (`_resolve_belt`) swept along its runs and round their
+    projections, mitred at every turn and capped where a run stops; over each pier broken
+    forward by the pier's proud, as the cornice is (`_cornice_breaks`)."""
+    import random
+    from . import k10_frontage
+    K = k10_frontage._kit()
+    data = K.load()
+    p, bt = a.p, pv["belt"]
+    y, prof = bt["bed_m"], list(bt["profile"])
+    runs = {r.name: r for r in k10_frontage.runs(p)}
+    lengths = {n: r.L for n, r in runs.items()}
+    paths = [belt_path(runs[r["wall"]], r, y) for r in bt["runs"]]
+    cid = "k01.pavilion.belt"
+    var = K.Variant({"id": cid, "kind": "moulded", "material": "stone"}, data)
+    names = [r["wall"] for r in bt["runs"]]
+    seed = a.instance(cid, "pavilion", {"bed_m": y, "height_m": bt["height_m"], "walls": names,
+                                        "projections": [x[3] for r in bt["runs"] for x in r["bays"]]},
+                      {"bed": paths[0][0]})
+    var.seed, var.rng = seed, random.Random(seed)
+    for j, path in enumerate(_join(bt["runs"], paths, lengths)):
+        pc = var.piece(f"belt {j + 1}", "stone", "open", run_names=names)
+        K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
+    front, side = runs["k01.wall.street_front"], runs["k01.wall.side.north"]
+    d, W = pv["proud_m"], p.width_m
+    on_front = [r["s_m"] for r in bt["runs"] if r["wall"] == front.name]
+    on_side = any(r["wall"] == side.name for r in bt["runs"])
+    for j, pr in enumerate(pv["piers"]):
+        s0, s1 = pr["s_m"]
+        if not any(a0 <= s0 and s1 <= b0 + 1e-6 for a0, b0 in on_front):
+            continue
+        pc = var.piece(f"belt break {j + 1}", "stone", "open",
+                       run_names=[front.name] + ([side.name] if pr["corner"] and on_side else []))
+        path = [front.at(s0, y, d), front.at(W + d, y, d), side.at(pr["return_m"], y, d)] \
+            if pr["corner"] and on_side else [front.at(s0, y, d), front.at(s1, y, d)]
         K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=(True, True))
     k10_frontage._lay(a, var.pieces, conf, cid)

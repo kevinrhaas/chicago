@@ -57,11 +57,18 @@ def refused(change, why, says, err=(KP.ParamError, ValueError)):
 st, phase = record()
 a = K1.build(KP.from_phase(phase, st), SID)
 wh = a.wall_head
-check(wh.get("walls") == ["k01.wall.side.south", "k01.wall.street_front"],
-      f"the cornice runs the 18th Street flank into the avenue front ({wh.get('walls')})")
+check(wh.get("walls") == ["k01.wall.side.south", "k01.wall.street_front", "k01.wall.side.north"],
+      f"the cornice runs the 18th Street flank, the avenue front and the south wall ({wh.get('walls')})")
 check(abs(wh["cornice_m"][1] - a.soffit_m) < 1e-6, f"its top is the K05 soffit ({wh['cornice_m']} against {a.soffit_m:.3f})")
-check(set(wh["dies_into"]) >= {"front_bow", "p_south", "p_flank", "tower"},
-      f"it dies into the bow, both pavilions and the tower ({wh['dies_into']})")
+check(set(wh["dies_into"]) >= {"front_bow", "p_south", "p_flank", "tower", "south_bay"},
+      f"it dies into the bow, both pavilions, the tower and the south bay ({wh['dies_into']})")
+# T-1890: the south pavilion's chamfer cuts the south wall's corner back, so the course starts
+# on that wall where the canted face meets it, not out in the air over the lost corner
+behind = KP.chamfer_spans(a.p.bays, a.p.depth_m, a.p.width_m)["k01.wall.side.north"][1]
+start = a.p.depth_m + a.p.width_m + float(behind)
+check(any(abs(s0 - start) < 1e-3 for s0, _ in wh["stretches"])
+      and not any(s0 < start - 1e-3 < s1 and s0 > a.p.depth_m + a.p.width_m - 1e-3 for s0, s1 in wh["stretches"]),
+      f"the south wall's course starts {behind} m back, where the chamfer meets it ({wh['stretches']})")
 check(abs(wh["cornice_m"][1] - 8.7) < 0.01, f"its top stands level with the bow's cornice, 8.7 m ({wh['cornice_m'][1]})")
 check(K10._chain(["k01.wall.street_front", "k01.wall.side.south"]) == ["k01.wall.side.south", "k01.wall.street_front"],
       "the walls are taken in the order a run round the house meets them")
@@ -88,6 +95,41 @@ for tier in ("full", "light"):
         check(pn["leaves"] >= 6 and "roundel" in hf, f"full: the panel's relief has leaves ({pn['leaves']}) and the band its roundel")
     else:
         check(pn["leaves"] == 0 and "roundel" not in hf, "light: the panel and the band stay, the relief and the roundel go")
+
+# T-3186: 1901 Prairie's frieze and carved blocks under the moulded cornice round its mansard
+REAM = "ream_house_1901_prairie"
+
+
+def ream(change=None):
+    st = json.loads((ROOT / "data" / "structures" / f"{REAM}.json").read_text())
+    ph = st["phases"][-1]
+    if change:
+        change(ph["form"]["wall_head"]["value"])
+    return K1.build(KP.from_phase(ph, st), REAM)
+
+
+rw = ream().wall_head
+check(rw.get("frieze_m") == [round(rw["cornice_m"][0] - 0.42, 4), rw["cornice_m"][0]],
+      f"1901: the frieze stands 0.42 m under the cornice's foot ({rw.get('frieze_m')})")
+bl = rw.get("blocks") or {}
+check(bl.get("count", 0) >= 50 and bl.get("left_out") == 1,
+      f"1901: a course of blocks round the front, the canted corner and both flanks, one left out at a stack ({bl})")
+check(bl.get("y_m", [0, 0])[1] > rw["cornice_m"][0] and bl["y_m"][0] > rw["frieze_m"][0],
+      f"1901: the blocks stand on the frieze, their tops under the corona ({bl.get('y_m')})")
+
+
+def ream_refused(change, why, says):
+    try:
+        ream(change)
+    except (KP.ParamError, ValueError) as e:
+        check(says in str(e), f"1901: {why}: refused ({str(e)[:90]}...)")
+        return
+    check(False, f"1901: {why}: refused")
+
+
+ream_refused(lambda v: v["blocks"].update(projection_m=0.3), "blocks reaching past the corona's soffit", "corona's soffit")
+ream_refused(lambda v: v["frieze"].update(height_m=0.6), "a frieze down onto the chamber heads", "reaches the stone cornice's frieze")
+ream_refused(lambda v: v["blocks"].update(spacing_m=3.0), "blocks 3 m apart", "spacing_m 0.4-1.6")
 
 if failures:
     print(f"\n{len(failures)} failure(s)")

@@ -1,0 +1,27 @@
+{
+ "structure_id": "edson_keith_house_1906_prairie",
+ "source_id": "chicagology_1906_keith_engraving",
+ "library_image": "a19-cgy-1906-keith-engraving",
+ "photo": "../../sources/assets/keith_1906_pictures_t1898/keith_1906_engraving.jpg",
+ "image_px": [
+  1300,
+  857
+ ],
+ "principal_px": [
+  677.1,
+  696.8
+ ],
+ "focal_px": 1338.7,
+ "eye": [
+  46.91,
+  -12.69,
+  1.5
+ ],
+ "yaw_deg": 306.89,
+ "sun_uvy": [
+  1.0,
+  0.45,
+  0.9
+ ],
+ "solve": "Fitted by T-3238 (piece 1 of T-1898) to the wood engraving alone, the image store's 1300 x 857 px copy, against the 1911 sheet's plan (s28fp-1906-b1). The footprint frame's u runs toward Prairie Avenue (east) from the main body's rear wall and v along the front from its south wall (v 0) to its north wall (v 16.5); the front stands at u 21.75. The camera is LEVEL (the engraving's verticals stand vertical), so the principal point stands off the frame's centre; the horizon is held near the walkers' heads (y about 697 px), the eye 1.5 m over the house's grade. Nine points were fitted by least squares: the front's north corner at the cornice's bed (x 952, y 307 px) and at the terrace (y 660); the north window column's chamber crown, chamber sill and principal crown (x 912; y 347, 497, 530); the crown of the window over the door (x 843, y 350); the balcony's top at its north and south front corners (x 867 and 740, y 427); and the porch's south column base (x 783, y 660), with the model's heights. Residual 35.8 px RMS, the largest 70 px at the window over the door: the engraving does not hold one perspective. It draws the porch's balcony about twice as wide as the window spacing beside it allows, and the window over the door at the balcony's north end rather than over the door; both are left open in the match record rather than fitted away. PLACE: the eye at u 46.9 (about 25 m before the front, on the far walk of Prairie Avenue), v -12.7 (about 13 m south of the house's south wall), looking north-west (yaw 306.9 in the frame). HEIGHTS through it: the chamber storey's windows about 3 m tall with their crowns about 0.95 m under the cornice's bed, the principal windows' crowns about 0.8 m under the chamber sills, the cornice's bed near 11.5 m, which is why the record's chamber storey (5.4 m) is the taller. LIGHT: the front lit white and the south flank in hatched shade: a sun in the east-north-east (sun_uvy)."
+}

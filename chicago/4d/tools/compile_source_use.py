@@ -16,9 +16,10 @@ STEP = ['python3', 'tools/compile_source_use.py']
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
 # T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
-# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013;
-# 192 000 from T-3167/T-2793 and the later T-3110/T-3171 records — see outputs().
-INDEX_BUDGET = 192_000
+# 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013; 192 000 from
+# T-2385 (dev's new Prairie sources and the Tremont's Gale record together read 184 255);
+# 200 000 from T-3188 — see outputs().
+INDEX_BUDGET = 208_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -442,14 +443,13 @@ class Compiler:
         # index gzips to 43.8 KB (gzip -9), far inside the 120 KB compressed first-open allowance.
         # T-3110 (HABS photograph 2 of 1801 Prairie) landed in the same room, alongside T-3167.
         # T-3171 (the Doane photograph's record, 1827 Prairie) landed in the same room too.
-        # 192 000 SINCE 2026-10-26 (T-2793): accepted 1e289896 held 456 sources in
-        # 183 931 bytes, leaving 69 bytes. The licensed Old Cart development base and
-        # Wild's dated 1835 Cincinnati cross-check are two distinct, necessary records;
-        # their unabridged citations take the combined 458-source index to 184 510 bytes.
-        # This follows the existing 8 KB/about twenty-source capacity policy. Links,
-        # limits and citations stay whole; the 120 000-byte combined gzip first-open
-        # allowance stays unchanged. measure_sources.mjs also now reads this raw ceiling:
-        # its old 168 000 literal had missed the accepted 176 000/184 000 increments.
+        # 200 000 SINCE 2026-10-27 (T-3188): 1708 Prairie's two photographs (the Glessner House
+        # Museum's Christmas print and Chicagology's photograph of 1700-1706, at whose edge it
+        # stands) took the index to 192 534 raw bytes with every citation whole. Same bargain:
+        # about twenty sources of room, the gzipped first open measured by measure_sources.mjs.
+        # 208 000 SINCE 2026-10-28 (T-3161): J. W. Taylor's photograph no. 1445 of 1729 Prairie
+        # (the owner ruled it public domain on 2026-10-27) took the index to 200 142 raw bytes
+        # with every citation whole, its own citation already cut short. Same bargain again.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

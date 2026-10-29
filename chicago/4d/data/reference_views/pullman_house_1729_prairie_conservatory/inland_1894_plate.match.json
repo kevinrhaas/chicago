@@ -1,0 +1,172 @@
+{
+  "structure_id": "pullman_house_1729_prairie_conservatory",
+  "view": "inland_1894_plate",
+  "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
+  "camera_sha256": "10b387d26d36826e1179d8a42dcfeba7673d369b7e8b2aa83f198386d64596d3",
+  "photo_sha256": "4cd3f1eef5e267d8e2769c48d0fbfc79fb4ed256303efca48a9274d2bf9c5580",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -11.208975503773733,
+        0,
+        -0.08144418823104738
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        -11.227541329977607,
+        0,
+        2.3485375627495597
+      ],
+      "rotation_y": -3.1490277562032887,
+      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
+    }
+  ],
+  "group_sha256": "7e7ec462829a05362f7d7b3e80a4f0d35c0bf1e4cb899988370ebfd574a12db3",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the stable's arcade on its west face, across the court from the drum: three round-headed arches, a broad open one between two narrower, their heads flatter than half-circles and their crowns about 3.0-3.1 m (x 1100-1490 px)",
+      "status": "fixed",
+      "how": "T-3193: the arcade moved off the 18th Street front onto the west face (v 2.9, 7.2 and 10.9 m along it, spans 2.6, 3.4 and 2.6 m, springing 1.95 m, rises 1.0-1.15 m); the render's arches fall within about 30-40 px of the plate's"
+    },
+    {
+      "what": "the upper storey carried along the west face as a wall rising through the roof, two small sash in it (x 1137-1179 and 1279-1329 px) and its cornice at about 6.0 m",
+      "status": "fixed",
+      "how": "T-3193: the upper wall on the west face from the north block to the corner, sash at 4.3 m sills; the render's within about 10 px"
+    },
+    {
+      "what": "the upper storey's corner cut on the diagonal over the bay: its cornice turns at x 1500 and again at x 1658",
+      "status": "fixed",
+      "how": "T-3193: a corner wall across the stable's south-west corner from the west face to the front, about 2.1 m on the diagonal, with its cornice"
+    },
+    {
+      "what": "a polygonal bay at the stable's south-west corner under the cut corner: three faces, a round-headed light in each, a cornice at about 4.5 m and a low cap leaning back to the wall",
+      "status": "fixed",
+      "how": "T-3193: a bay standing across the corner (a west face, a broad south-south-west middle and a south-south-east return to the front), cornice 4.5 m; it encloses the building's corner"
+    },
+    {
+      "what": "the bay's place along the corner: the plate puts its lights about 0.6-0.9 m further east than the build, Taylor's 16554 about 1.4 m further west",
+      "status": "within tolerance",
+      "how": "two pictures disagree; the build stands between them, and the 1911 sheet's corner polygon (about 2.3 m) lies between both"
+    },
+    {
+      "what": "the hipped roof rising from the upper cornice to a deck inside iron cresting, and the lantern toward the deck's west end: a low drum of lights under a flat dome",
+      "status": "fixed",
+      "how": "T-3193: the deck brought down 0.15 m, the lantern made smaller (radius 0.8 m) with a lower drum and a flat dome; its top within about 15 px of the plate's"
+    },
+    {
+      "what": "the deck's height: the plate reads it about 0.4 m lower than the build, Taylor's 16554 about 0.3 m higher",
+      "status": "within tolerance",
+      "how": "two pictures disagree; the build stands between"
+    },
+    {
+      "what": "the stable's 18th Street front running east of the bay, its first sash at x 1870 px",
+      "status": "fixed",
+      "how": "T-3193: the front's sash moved west with the bay to 4.7, 8.3 and 11.2 m east of the corner"
+    },
+    {
+      "what": "the square belvedere behind the range's parapet with a cornice and a balustrade (x 780-1150 px)",
+      "status": "fixed",
+      "how": "T-3193: moved 1.2 m west and its top set at 9.3 m; its outline within about 20 px"
+    },
+    {
+      "what": "the belvedere's balustrade round its top and the deck's cresting are open ironwork and balusters, and the stable's lower roof shows as a narrow slate band under the upper storey where the plate shows a moulded cornice (the owner named the belt course and the belvedere, 2026-10-28)",
+      "status": "fixed",
+      "how": "T-1934: open balusters between dies on the belvedere, open iron cresting with corner spires round the deck, and a moulded stone belt course for the slate band; the stable is now judged in its own records (data/reference_views/pullman_house_1729_prairie_ranges/)"
+    },
+    {
+      "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
+      "status": "open",
+      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof; carried in the stable's own record (data/reference_views/pullman_house_1729_prairie_ranges/inland_1894_plate.match.json)"
+    },
+    {
+      "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower than the build; Taylor's 16555 reads it within 0.3 m, so the two camera fits disagree. Its dome the plate reads broader, about 4.7 m: now 4.6 m (T-1934)",
+      "status": "within tolerance",
+      "how": "two pictures disagree: Taylor's 16555, re-solved, fits the drum's heights within about 7 px; the drum's place along the wing agrees in all three cameras within about 0.3 m"
+    },
+    {
+      "what": "the house at the plate's left edge: its corner stands about 1 m east of where the plate shows the wing's stone face and the porch's terrace",
+      "status": "within tolerance",
+      "how": "the house is rendered for placement only in this record; its own records (albertype_1890, detroit_det_4a08065) judge it"
+    },
+    {
+      "what": "the 18th Street wall across the foreground, its square piers and coping, the curved low walls by the steps, the lamps on the piers, the shrubs and the trees: none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open",
+      "how": "the lot's grounds, not this record's building (as on 16555's record)"
+    },
+    {
+      "what": "colour",
+      "status": "not shown",
+      "how": "a monochrome plate"
+    },
+    {
+      "what": "T-3161 re-laid the house's 18th Street flank (one window west of the porte-cochere, the porte-cochere moved east to s 10.25-15.4, the flank's pavilion taken off, its dormers moved): none of it reaches the plate's left edge, where the house's east corner, unchanged, stands as before",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the palm house an open colonnade: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade round its top (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the range's south face banded rustication with a broad pilaster either side of the drum, under a moulded cornice and an open balustrade with dies (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace's balustrade open vase balusters between square piers, an urn on a pier by the drum (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the dome broad, light and close-ribbed, springing behind the balustrade (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the balustrade before the drum at the plate's left stands at the columns' feet, about 1 m higher than the build's terrace balustrade from this camera, over a lower wall with an arched opening in it; Taylor's 16555 reads the terrace within 0.3 m, so the plate may show a raised landing west of the flight that is not built",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

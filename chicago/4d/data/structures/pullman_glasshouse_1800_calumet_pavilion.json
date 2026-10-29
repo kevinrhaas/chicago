@@ -1,6 +1,6 @@
 {
   "id": "pullman_glasshouse_1800_calumet_pavilion",
-  "name": "Pullman estate (1800 S. Calumet Avenue): the glasshouse pavilion at the head of the north range, K13",
+  "name": "Pullman estate (1800 S. Calumet Avenue): Beman's conservatory at the head of the north range, K13",
   "aka": [
     "1800 S. Calumet Avenue",
     "Pullman conservatory",
@@ -92,14 +92,14 @@
         "conservatory": {
           "value": {
             "id": "k13.house.pullman_1800_pavilion",
-            "form": "span_lantern",
-            "eave_m": 3.4,
-            "pitch_deg": 30,
-            "bays": 8,
-            "door": {
-              "wall": "end_left",
-              "at": 0.5
-            },
+            "form": "vault",
+            "section": "pointed",
+            "length_m": 12.589,
+            "width_m": 8.342,
+            "eave_m": 3.6,
+            "rise_m": 5.85,
+            "bays": 4,
+            "door": null,
             "gutters": [
               {
                 "eave": "front",
@@ -110,19 +110,83 @@
                 "outlet": "both"
               }
             ],
-            "ridge_vent": true,
+            "ridge_vent": false,
             "planting": [
-              "bench_front",
-              "bench_back"
+              "bench_front"
             ],
-            "length_m": 12.589,
-            "width_m": 8.342
+            "pavilion": {
+              "podium_m": 2.3,
+              "podium_out_m": 0.12,
+              "entrance": {
+                "width_m": 2.1,
+                "height_m": 3.5,
+                "surround_m": 0.3
+              },
+              "transept": {
+                "centre_m": 6.3,
+                "width_m": 7.0,
+                "reach_m": 1.35,
+                "rise_m": 5.75,
+                "section": "elliptic",
+                "rib_spacing_m": 0.9,
+                "hip_m": 1.5,
+                "band": {
+                  "light_m": 0.45,
+                  "bar_m": 0.07,
+                  "rail_m": 0.1,
+                  "out_m": 0.03,
+                  "head_segments": 6,
+                  "transom_below_m": 0.38
+                }
+              },
+              "drum": {
+                "radius_m": 2.25,
+                "sides": 8,
+                "base_m": 8.3,
+                "top_m": 10.0
+              },
+              "dome": {
+                "radius_m": 2.2,
+                "segments": 20,
+                "rings": 8,
+                "rise_m": 3.1,
+                "rib_m": 0.06,
+                "finial_m": 0.5
+              },
+              "arch_frame_m": 0.35,
+              "mullion_m": 0.15,
+              "band": {
+                "walls": [
+                  "north",
+                  "east_north"
+                ],
+                "light_m": 0.7,
+                "bar_m": 0.09,
+                "rail_m": 0.14,
+                "out_m": 0.03,
+                "head_segments": 3
+              },
+              "interior_dark_m": 5.2,
+              "interior_inset_m": 0.35,
+              "cresting": {
+                "height_m": 0.3,
+                "picket_m": 0.15,
+                "rail_m": 0.04,
+                "bar_m": 0.025,
+                "spike_m": 0.08,
+                "end_finial_m": 0.6
+              },
+              "apex_finial_m": 0.4
+            },
+            "facets": 8
           },
           "confidence": "reconstructed",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
+            "sanborn_1911_chicago_v3_sheet_28",
+            "inland_1894_pullman_conservatory",
+            "aic_lowe_pullman_conservatory_c1897"
           ],
-          "note": "The plan is the sheet's (inferred): the pavilion's long arm, north to south. The sheet draws it as a cross, its middle arms 1.3 m and 1.4 m wider each side over 7 m of its length; those arms are NOT built here, the long arm standing for the whole, and are T-3165's to build to the pictures. A span house with the kit's lantern, taller than the ranges (a 3.4 m eave against their 2.4-2.6 m) because the sheet makes it the head of the range; the door in its north end; everything else is RECONSTRUCTED from the K13 kit (data/components/prairie_1904/k13_conservatories.json, L-k13-conservatory-kit-2305) and recorded as L-pullman-glasshouses-1800-calumet-3164. Its south end stands 5 cm short of the north range's end wall, so the two never share a pane."
+          "note": "T-3179: Beman's conservatory as the 1894 Inland Architect plate and the Lowe c. 1897 photograph show it from 18th Street, worked through their solved cameras (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/): a glass nave on a pointed (Gothic) section, its north end the plate's great pointed arch, on a stone podium 2.3 m high with a band of upright glazing over it to the springing at 3.6 m and the apex at about 9.45 m; the arched stone entrance 2.4 m wide in its north end, its crown about 3.5 m; a pointed transept 7.0 m wide crossing it at mid-length and standing 1.35 m out each side, its ridge about 9.35 m; and an octagonal glazed drum (to 10.1 m) under a ribbed dome about 3.7 m across, its crown about 12.7 m and its finial about 13.5 m. The plan is the 1911 sheet's (inferred): the long arm's 12.59 by 8.34 m and the cross arms 1.3-1.4 m each side over 7 m of its length, which the plate's transept end confirms within about 0.2 m through the camera. Heights are read off the plate at 49.5 px/m on the north front (its width, 8.34 m, scales it) and agree with the Lowe photograph within 0.2 m. RECONSTRUCTED within that: the vault's eight facets a half, the bays, the transept and dome glazed in the kit's opaque substitute (they stand outside the nave's one transparent envelope), the cresting the plate shows along the transept ridge (under 1 ft, not built) and everything the pictures do not show of the south end (L-pullman-glasshouses-1800-calumet-3164, L-pullman-conservatory-3179). T-3164 (owner, 2026-10-28: \"the pavilion's great arched glass front as an opaque gable over a black opening\"): the north front's band between the podium and the springing is drawn as the Lowe photograph shows it, round-headed lights in white framing, four each side of the entrance, and three along the east flank north of the transept, the flank both pictures see; the conservatory's planted depth is drawn in shade inside the nave to about 5.2 m, so the glass reads dark over the lower half of the arch with the roof's light over it, as both pictures read it. RECONSTRUCTED: the lights' count (read off the photograph's north front), the interior as one shaded volume and not a planted scene; the west flank's band, which neither picture sees, is left as the kit's glass, the house being at its triangle budget (L-pullman-pavilion-front-3164). T-3164 (the match records' open differences, 2026-10-29: \"the nave's arch is a smooth curve; the render's is four planar facets a half\" and \"iron cresting along the transept's crest ... and the small ornaments at the nave's apex and the transept's end\"): the vault, the transept's section and the dome are drawn in eight facets a half (the dome in eight rings), so the pointed arch reads as the plate's smooth curve: on this 8.34 m span (radius 6.19 m) eight facets leave a chord at most 0.019 m inside the true arc, under the kit's own 0.02 m max_sag_m for a curved roof, where four left 0.074 m; an iron cresting 0.3 m high, pickets every 0.15 m between a foot and a top rail, runs along each transept arm's level crest from its hipped end to the nave, with a 0.6 m finial over each arm's end and a 0.4 m finial over the north arch's point, all in the frame's paint, as the plate draws them light against the sky. RECONSTRUCTED: the cresting's pattern (the plate resolves a light lattice about a foot high, not its design) and the finials' heights, read against the dome's 0.5 m finial in the same plate (L-pullman-pavilion-curves-3164). T-3164 (the match records' open difference, 2026-10-29: \"the transept arms' lights have round heads and tracery (drawn square-headed)\"): the transept arms' band between the podium and the springing is drawn as both pictures show it on the east arm, tall lights under a transom 0.38 m below the head, each with a short round-headed light over it, in white framing, about 0.45 m a light, so three across each arm's side as both pictures count them. RECONSTRUCTED: the ends' and the west arm's lights, which neither picture sees face on, carried round at the side's spacing, and the heads' tracery drawn as one pane (L-pullman-transept-band-3164)."
         }
       }
     }

@@ -154,7 +154,18 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
                     p[1]=neck if abs(vertex['p'][1]-neck)<=1e-12 else min(p[1],neck)
                 if kind=='waistcoat':
                     lo,hi=waist-.04,vest_top
-                    p[1]=lo if abs(vertex['p'][1]-lo)<=1e-12 else (hi if abs(vertex['p'][1]-hi)<=1e-12 else max(lo,min(hi,p[1])))
+                    if 'modular_wardrobe' in recipe:
+                        # Keep the declared cut planes while easing vertical
+                        # normal displacement continuously toward them. Clamping
+                        # displaced interior vertices onto the hem creates folded
+                        # coplanar fans on the adult35 source (opposite normals).
+                        # This bound leaves every interior point strictly inside
+                        # the slab, without dropping faces or altering anatomy.
+                        edge_distance=max(0.,min(vertex['p'][1]-lo,hi-vertex['p'][1]))
+                        gain=min(1.,edge_distance/(2*offset/scale))
+                        p[1]=vertex['p'][1]+n[1]*offset/scale*gain
+                    else:
+                        p[1]=lo if abs(vertex['p'][1]-lo)<=1e-12 else (hi if abs(vertex['p'][1]-hi)<=1e-12 else max(lo,min(hi,p[1])))
                 if kind=='trousers':p=hanging_trouser_point(p,vertex['w'],hang)
                 mapping=dict(vertex['w'])
                 if kind=='shirt' and abs(vertex['p'][1]-neck)<=1e-12:

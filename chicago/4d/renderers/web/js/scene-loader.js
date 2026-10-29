@@ -396,8 +396,11 @@ export async function loadScene(year, bases = resolveBases(), {
       if (header?.extensionsRequired?.includes('EXT_meshopt_compression')) {
         loader.setMeshoptDecoder(await loadMeshoptDecoder());
       }
+      // T-3232: GLTFLoader resolves a buffer's URI by appending it to this path, so
+      // it is the GLB's directory, not its URL: a published GLB that shares a texture
+      // sheet names it as `sheets/<hash>.ktx2` beside it (tools/share_glb_sheets.mjs).
       const gltf = await new Promise((resolve, reject) => {
-        loader.parse(got.buffer, String(assetUrl), resolve, reject);
+        loader.parse(got.buffer, new URL('.', assetUrl).href, resolve, reject);
       });
       // T-2464: nothing here reads the parser once the scene is built, and it holds
       // the file's whole binary chunk and every buffer view it sliced (embedded

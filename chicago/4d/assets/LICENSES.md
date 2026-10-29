@@ -1457,6 +1457,82 @@ The historical b479 entry above describes the preserved previous stage. The curr
 
 Byte-identical current runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-eye-uv-v1.glb`. Protected b479 authored/runtime files and original receipts remain unchanged.
 
+## V19 catalogue-guided Brougham body and finish (T-3084)
+
+Original GPL-3.0-or-later source and generated geometry: `tools/transport/brougham/{generate.py,body_finish.py,body_geometry.py,build_body.py,parameters.json,quarter_surface.py,source_details.py,index_streams.py,static_master.py,LICENSE}` and `renderers/web/transport/parked-brougham/`. Current near raw SHA256 `fbe0f9b3d60c69ff85678b877a7d5c5e86fea05262d5fe13cfe246687e6b2d45`, indexed SHA256 `80bdf8a64ff2205de6575675f81efce7de0a6d41f45f934e3730f454cc1ab87f` (45,338triangles); mid raw SHA256 `5fa3a2127a805c52d040e17c533105ce43c545bcb3903f1ea717afb52c429694`, indexed SHA256 `6b8134c697c5538a004ca34e0a5a5822377b3e16d856ee098e1422bdf290fb2f` (23,062triangles). Both are deterministic original source exports with lossless indexing, freshly validated by gltf-validator2.0.0-dev.3.10 with0errors/0warnings. No external geometry, source pixels or texture images are embedded.
+
+Appearance reference remains the cleared public-domain1893 Studebaker catalogue Brougham leaf0095, source `studebaker_1893_illustrated_souvenir`, plate SHA256 `b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe`. Native model studies are original project renders. Dark green/black colour families and narrow bright lining are visible in the colour plate; metric dimensions, hidden/opposite construction, empty upholstery, wood species, lacquer pigments/optics and physical glass coefficients are reconstructed. Maker/type availability does not identify an actual1904 specimen or household. Original V18 lamp geometry/materials and physical interfaces are preserved. V18 source/contracts/metadata remain under `archive-v18/`; its original GLBs remain in accepted cb93 Git history. Final source-camera/published/phone/world budget and photographic acceptance remain pending; T-3085's later qualification is not claimed here.
+
+### V19 C1 front-slope output amendment (T-3084,2026-10-26)
+
+Current near raw SHA256 `50f56eed76942ed65b232dfa005912e2587184020aca5b058837a8b4d41c3635`, indexed `5bbdb1932074b0bddfa72afc99f34773a0fb337cb02480136deb8fe65ef0cec0`; mid raw `d2e2452b04f63c366a8debac88833d7ca21ef9f6a8031d57c240b600e3740b0a`, indexed `90e258c14ea9201b055e1862066c28077ea4ee48d699b9ca59928a371c13bcc3`. Same original GPL source and public-domain1893 plate, no embedded source pixels. Limited continuous front slopes replace the previous fbe0 candidate; source-bearing values, interval envelope, V18 lamps/physical interfaces remain protected. Fresh four raw/indexed validator reports retain0errors/0warnings. Earlier image evidence is explicitly PRE-C1; current native/photographic/published qualification remains pending.
+
+### Analytical-front-normal-only current output (T-3084,2026-10-26)
+
+Near raw `206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4`, indexed `3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89`; mid raw `560373980cc70524c4f85071fb4e3df6bc29df8a884f3dc17960fabcaa625f9d`, indexed `d5cdd34e981d29db41634ac780c22526742f6a20527b5866d2349c727a67400d`. Original GPL geometry/source and the same cleared1893plate. All priorC1POSITION streams remain exact; only owned front NORMAL changes, with inverse-transpose body scaling and separate thin-rim normals. Current actual close-up is source-bound; older17-image proofs remain historical. No new geometry source, texture image, source pixel, pigment attestation or photographic/published acceptance is introduced.
+
+
+### Optical-only V19 runtime delivery (T-3084, 2026-10-26)
+
+`renderers/web/transport/parked-brougham/brougham-near-delivery-v1.glb` (SHA256 `b5b183b4f115c5c7779ba0cb4ccba83fbffb62349647a9a6487f50cde49aef77`) and `brougham-mid-delivery-v1.glb` (`16daaf1d5003aae3ea64de9d037962aaabf2a5c8638ac77a5a2e037564ef2d63`) are original GPL-3.0-or-later optical derivatives of the retained indexed V19 masters. Canonical source is `tools/transport/brougham/generate_optical_delivery.mjs`; `OPTICAL-DELIVERY-RECEIPT.json` records its exact producer/source bindings. Every BIN byte, geometry/layout/node/scene value and material0–6 remains exact; 45,338/23,062 triangles and eight batches are retained. Only cabin glass uses the declared reconstructed BLEND/0.14-opacity/zero-transmission/IOR1.5 delivery approximation. All four physical raw/indexed masters remain unchanged, including their separate0.98-transmission optics. No new geometry, pixels, textures or outside material rights are introduced; the same cleared1893 catalogue/source limits apply. Actual source-bound diagnostic images are project renders and retain their NONPASS whole-budget result; a source derivative or Full-only allowance is not photographic/Light/memory acceptance.
+
+## T-3088 source-bounded horse anatomy authoring
+
+The anatomy recipes derive from the preserved selected d454 standing horse above,
+under the same sevketkabatas **CC-BY-4.0** credit, source URL and change-notice
+requirements. Existing source images, repaired eye UVs, acquired original,
+b479 and d454 parent files remain preserved. The project-authored recipe code
+and bounds are **GPL-3.0-or-later**; no claim is made that a software licence
+replaces the model's attribution licence.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/generate_anatomy_v1.py`|Project-authored GPL-3.0-or-later source-only smooth rest-surface recipe; parent mesh rights remain CC-BY-4.0.|
+|`authored/transport/horse_standing/anatomy-v1-recipe.json`|Project-authored reconstructed source bounds and exact reference-image bindings; no reference pixels copied into the model.|
+|`authored/transport/horse_standing/generate_anatomy_v2.py`|Project-authored GPL-3.0-or-later canonical authored-mesh derivation with immutable-parent and live-field lineage.|
+|`authored/transport/horse_standing/anatomy_topology_v2.py`|Project-authored GPL-3.0-or-later adaptive hoof-wall/coronet/toe subdivision and bounded fairing; generated geometry remains an attributed CC-BY-4.0 model derivative.|
+|`authored/transport/horse_standing/anatomy-v2-recipe.json`|Project-authored reconstructed anatomy/topology choices, per-feature source IDs, confidence and immutable reference hashes.|
+|`authored/transport/horse_standing/ANATOMY.md`|Project-authored source, reconstruction, authoring and acceptance boundary notice; original model attribution remains separate.|
+|`authored/transport/horse_standing/horse-sevket-anatomy-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse; reconstructed eyelid and hoof topology changes declared in ANATOMY.md and the versioned recipe. Repaired eye UVs and original six image payloads retain the source rights and credit.|
+
+The anatomy runtime copy is byte-identical at
+`renderers/web/transport/standing-horse/horse-sevket-anatomy-v2.glb`.
+The original acquired model and b479/d454 authored parents and their old receipts
+remain unchanged. Fresh selected-body Mixer129 physical proof is separate from
+surface, LOD, world, device performance and photographic qualification.
+
+The input plates by Ellenberger/Baum/Dittrich and Seton are recorded public-domain
+anatomical works. The Vassil and Joselodos living-animal photographs are cleared
+CC0 references. These supply anatomical relationships and visible continuity;
+neither the modern animals' breeds/markings nor their dimensions become evidence
+for an 1835 Chicago animal. Their pixels are not sampled into output textures.
+The unchanged six model texture payloads retain the source model's CC-BY-4.0
+provenance. Source recipes and uninstalled candidate generation do not constitute
+native, physical, historical or photographic acceptance.
+
+
+### T-1789 modular workwear source construction (canonical outputs pending)
+
+`tools/human_period_wardrobe.py` is original project GPL-3.0-or-later code; the original graphical arrays generated by its garment returns, fitted buttons, short jacket/lapel and felt-hat constructors are dedicated CC0-1.0, as declared in `data/humans/recipes/worker_1835.json`. They use existing cleared CC0 MakeHuman body/hair components without copying upstream program logic. No new outside image/texture or rights-pending source is derived into an asset. Colors, materials and garment dimensions are original reconstructions. The currently committed human GLBs remain the prior outputs with their existing provenance; this source checkpoint does not relabel them as the new wardrobe. Canonical new masters/exports and their hashes/licenses must accompany their eventual integration.
+
+
+### T-1789 original adult dress components and verified female source base
+
+`assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json`, its report and `adult_female_25.recipe.json` are original CC0-1.0 engineering derivatives of the same pinned MakeHuman graphical data. The three female-young category targets and header-only universal-female target preserve their upstream CC0 notices; exact upstream commit, source URLs, bytes and SHA256 are in `SOURCE-female.json`. The universal target has zero delta rows and is not claimed as a deformation. Upstream category labels are software provenance, not an inference of a resident ancestry. Existing MakeHuman graphical/license notices remain unchanged.
+
+Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_components.py` are original CC0-1.0 geometry. Generator/test code is GPL-3.0-or-later. Cuts, cloth dimensions, color and drape are reconstructed, not traced from a historical pattern or painting. The held credited public-domain Wild1835 Cincinnati image is a narrow cross-check via source wild_1835_third_vine; no image pixel enters any texture or asset. Generic cleared skin/hair components retain their existing source notices and remain unqualified for photographic female appearance.
+
+| Path relative to assets/ | Licence and provenance |
+|---|---|
+| `authored/humans/makehuman_hm08/SOURCE-female.json` | Project-authored CC0-1.0 graphical-source provenance, exact official upstream hashes and notices. |
+| `authored/humans/makehuman_hm08/adult_female_25.recipe.json` | Original CC0-1.0 graphical blend recipe; reconstructed engineering parameters, no resident ancestry or portrait. |
+| `authored/humans/makehuman_hm08/prepared_adult_female_25.json` | CC0-1.0 engineering derivative of verified MakeHuman graphical data; complete anatomy/UV/rig retained. |
+| `authored/humans/makehuman_hm08/prepared_adult_female_25.report.json` | Project-authored CC0-1.0 preparation measurements and explicit unqualified limitations. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+
 
 ## Licensed Old Cart farm-box development master — T-2793
 

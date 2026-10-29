@@ -1,0 +1,31 @@
+{
+  "id": "inland_architect_1891_06_dexter_plate",
+  "type": "illustration",
+  "citation": "'Residence of Wirt Dexter, Chicago. Arthur Little, Architect, Boston.' Photographic plate, The Inland Architect and News Record, vol. 17, no. 5 (June 1891). Art Institute of Chicago, Ryerson and Burnham Archives, Archival Image Collection, Inland Architect plates (720.5 I56), IA1705_0748.",
+  "author": "Inland Architect Press (photographic plate); Arthur Little, architect",
+  "date": "1891-06",
+  "describes_date": "1891-06",
+  "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (digital-libraries.artic.edu, collection mqc, id 7345). Prairie library image a16-inland-1891-dexter-residence (chicago/prairie_1904_v1/data/images.json), its 2000 x 1388 px copy in the image store.",
+  "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/7345",
+  "locator": "The whole plate: the house from the west side of Prairie Avenue, north-west of it, looking south-east. The recessed north part with the entrance porch is at x 420-760 px of the 2000 px copy; the front block with its two bows runs from x 700 to the trees at about x 1450.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A plate published in the United States in 1891, in the public domain. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-26 (T-1878) from the image store's 2000 x 1388 px copy, sha256 2378666db3dedf6b3310a1a337efe69ffe872da5380222aa647c2d79210006e6, the library's record of the AIC IIIF file. Committed byte for byte as data/sources/assets/dexter_1721_plate_t1879/inland_architect_1891_dexter_1721.jpg (T-1879): the store's display copy, 317,910 bytes, sha256 b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442; its camera is data/reference_views/dexter_house_1721_prairie/inland_architect_plate.json.",
+  "note": "Arthur Little's front of 1889 for Wirt Dexter at 1721 Prairie Avenue, two years after it was built and thirteen before the 1904 scene. Read off the plate itself: a flat-fronted three-storey house over a low basement in a light, smooth wall, under a deep moulded cornice and a balustraded parapet with solid pedestals; its north part set back from the main front, with the entrance porch standing in that recess on two columns under a flat roof railed as a balcony, the door in the recessed wall; the main front stepping forward from it, the north return of that forward part carrying a tall plain chimney stack up past the parapet; on the forward front two segmental bows rising through the ground and second storeys, each roofed at the third floor as a balcony behind a balustrade; tall shuttered windows, iron balconettes at the ground-floor windows, small carved tablets over the upper windows; and on the north face of the recessed part an oval light and a window a storey. The 1911 Sanborn sheet draws the same plan (two curved bays on the front, a one-storey porch in a recess at the north-west corner), which is what this plate is read against.",
+  "what_it_supplies": [
+    "the recess at the north end of the front, the entrance porch standing in it on two columns and its flat roof railed as a balcony",
+    "the forward block with two bows through two storeys, each topped by a balcony at the third floor",
+    "three storeys over a low basement, a flat roof behind a moulded cornice and a balustraded parapet",
+    "the light, smooth wall tone",
+    "the tall stack on the forward block's north return"
+  ],
+  "what_it_does_not_supply": [
+    "the plan's sizes: the 1911 Sanborn sheet's trace controls them",
+    "colour",
+    "the south side, the rear and the long rear wing",
+    "anything changed between 1891 and 1904"
+  ]
+}

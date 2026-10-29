@@ -235,6 +235,14 @@ is no longer a convention nobody promised to keep.
 chimney, by its material name. Those names have no single writer and no pin, and the
 `walk_surface_m` row's argument still stands for every one of them.
 
+### Joint floors — `mortar` (PROPOSED 2026-10-28, T-3226)
+
+| thing | convention |
+|---|---|
+| a primitive's material named `mortar` | a JOINT FLOOR: laid under coursed stones (K02's `k01_frontage.stone()`, its copings and arches; Glessner's own builder) at the fabric's joint recess, 1 to 6 mm behind the faces that cover it, so that every joint has a floor. It is meant to be seen in the joints only. |
+| what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
+| what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
+
 ### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
 
 The paragraph above refuses a wall's material name as a licence, and this section does not
@@ -262,6 +270,17 @@ retired. The check is what makes that change safe, because it can compare the tw
 |---|---|---|
 | archival master | uncompressed `.glb` | `assets/gltf/` (committed, not published) |
 | web derivative | `EXT_meshopt_compression`, **or the master passed through where compressing it is bigger** | `assets/web/` → published |
+| published copy | the derivative, with each image two or more published GLBs embed moved to an external buffer, `sheets/<sha256 prefix>.ktx2` (T-3232) | `data/gltf/` on the site only |
+
+**The shared sheets are a publish-time transform, not a change to what a generator emits**
+(T-3232). Neither the master nor the derivative changes: `tools/share_glb_sheets.mjs`, run by
+`publish.sh`, rewrites only the published copies, and `--check` reads each one back to its
+`assets/web/` source view for view. The image keeps its `bufferView` and its `mimeType`; only
+the buffer under it becomes a plain glTF 2.0 external buffer with a `uri`. The one thing it
+asks of a renderer is standard glTF: **parse a GLB with its own directory as the resource
+path** (`GLTFLoader.parse(bytes, new URL('.', glbUrl).href, …)`), because GLTFLoader resolves
+a buffer URI by appending it to that path. A file URL there resolves `sheets/…` against
+`house.glbsheets/…`, the buffer 404s and the house does not load.
 
 The master is the source of truth; derivatives regenerate from it. Meshopt over Draco: it
 decodes far faster with no per-file WASM cold start, which matters more than bytes for ~150

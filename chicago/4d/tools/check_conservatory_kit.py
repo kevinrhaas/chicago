@@ -307,16 +307,24 @@ def rule_doubled(h, data):
 
 
 def plan_area(h):
-    """The closed plan's area in square metres (0 for a house open to its host wall): what the
-    kit's per-square-metre caps scale with (T-3164)."""
-    if not h.form["closed"]:
-        return 0.0
+    """The closed plan's area in square metres (0 for a house open to its host wall), and what
+    its dress stands on: what the kit's per-square-metre caps scale with (T-3164)."""
     pl = h.form["plan"]
-    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2
+    own = abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pl, pl[1:] + pl[:1]))) / 2 if h.form["closed"] else 0.0
+    # T-3179: and what a dress stands on outside it (the Pullman conservatory's transept arms);
+    # T-1934: an open bay's too, when its host wing and terrace are dressed (the Pullman palm
+    # house's balustraded range and terrace), so the dress is costed on the ground it covers
+    return own + h.meta.get("plan_extra_m2", 0.0)
 
 
 def rule_costs(h, data):
     cap = max(data["costs"]["max_triangles"], round(data["costs"].get("per_plan_m2", 0) * plan_area(h)))
+    # T-3164: a house may carry a budget of its own, argued where the kit's are; never unargued
+    own = data["costs"].get("houses", {}).get(h.v["id"])
+    if own is not None:
+        if not str(own.get("why", "")).strip():
+            return [f"costs: {h.v['id']} carries a budget of its own with no `why`"]
+        cap = max(cap, own["max_triangles"])
     t = K.triangles(h)
     return [] if t <= cap else [f"costs: {h.v['id']} is {t} triangles, over its budget of {cap}"]
 
@@ -442,6 +450,9 @@ def self_test(data) -> int:
     def m_cost(d):
         d["costs"]["max_triangles"] = 1000
 
+    def m_cost_why(d):
+        d["costs"].setdefault("houses", {})[d["variants"][0]["id"]] = {"max_triangles": 99999, "why": " "}
+
     def m_facets(d):
         d["curve"]["facets"] = 3
 
@@ -462,6 +473,7 @@ def self_test(data) -> int:
         ("a lean-to with no gutter on its eave", m_gutter, "sheds into no gutter"),
         ("a border grown up into the roof", m_plants, "a plant scene"),
         ("a house over budget", m_cost, "over its budget"),
+        ("a house's own budget with no reason", m_cost_why, "no `why`"),
         ("a curvilinear roof of three facets", m_facets, "chord falls"),
         ("a lantern glazed with transparent glass", m_lantern, "not convex"),
         ("double-sided glass", m_double, "double-sided"),

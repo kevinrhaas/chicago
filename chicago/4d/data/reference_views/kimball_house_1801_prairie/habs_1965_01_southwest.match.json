@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7d1d96ab8f82a17b2e6fa8e900aabbd81da5afc4c511810b5db0b1eab9f84156",
+  "glb_sha256": "df1f1f6f6f9ece3590a5fbc5d02ca0d4a78a3617dcb01308da8c3cdbda47c756",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -34,7 +34,8 @@
     },
     {
       "what": "the south cornice, re-measured on the rebuilt corner through the re-solved camera (T-3108; it read about 85 px under the print's at the corner): the round's wall top renders about 19 px under the print's (y 614 against 595) and its balustrade's rail about 50 px under (y 560 against 510), and the main cornice at the south-east corner about 23 px over (y 632 against 655). The pavilion's window rows fit within about 13 px; the round's rows read about 20 px under the print's, so through this camera the round's storeys stand about 0.3 m higher than the build's against the pavilion's, which the Taylor print (it sees only the round's cornice end) cannot check",
-      "status": "open"
+      "status": "open",
+      "how": "T-1890: the main moulded stone course now runs this wall from the south pavilion's chamfer to the south-east corner, wrapping the south bay; the heights measured above are unchanged by it"
     },
     {
       "what": "the light behind the corner balcony: a small window on the canted face over the round bay (x 640-680, y 445-500); the build's chamfer face is blank there (T-3108 tried K08's sash on the cant and its recess rendered occluded, so it was taken out)",
@@ -78,11 +79,18 @@
     },
     {
       "what": "the bay's top: the print carries the main cornice round the bay and the mansard's slate down over it; the build stands a low slated hip on the bay under the cornice's line, with no cornice of its own (T-3109)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890: the bay carries K10's moulded stone cornice swept round its three faces at the main cornice's height, the main course now run along the south wall into it, and over it a slated mansard rising 4.4 m at 60 degrees into the main roof's lower face, so the slate comes down over the bay to its cornice as the print's does; the hooded dormer still stands in the main face beside it, where the camera's foreshortening of this face (within tolerance above) keeps the bay about 95 px west of the print's"
     },
     {
-      "what": "the south dormer's face: the print's is slated with a pale frame round the light and its hood wider than the face, the build's face stone (as the 18th Street dormers' in the Taylor record)",
-      "status": "open"
+      "what": "the south dormer's hood: the print's is wider than the face under it, where the build's hood stands as wide as its face",
+      "status": "fixed",
+      "how": "T-1890: the hood's foot flares 0.2 m wider than the face each side and 0.2 m out in front of it, its shelf with it (hood.flare_m), and sweeps in to a top 0.81 m across (taper 0.17, where the print's top reads about 0.8 m on the face's 1.15 m): the print's foot reads about 80 px on the face's 60, the build's 1.55 m on its 1.15 m. The camera foreshortens this face about twice as hard as the print's courses do, so the widths are read on the print against the face's own (L-kimball-1801-hood-flare-1890)"
+    },
+    {
+      "what": "the south dormer's face: the print's is slated with a pale frame round the light, the build's was stone",
+      "status": "fixed",
+      "how": "T-1890: slated as its hood is, its 0.75 by 1.2 m light in a pale stone frame 0.1 m wide (hood.face slate, frame_m 0.1), as the street and 18th Street dormers' in the Taylor record; it renders a dark face with the pale frame round the light, as the print's (L-kimball-1801-dormer-faces-1890)"
     },
     {
       "what": "colour: the stone's tone and the slate's",
@@ -99,7 +107,16 @@
     {
       "what": "the east range's frontispiece over the side door (T-3110, HABS photograph 2) stands on the 18th Street wall, which this camera cannot see; nothing it shows changed",
       "status": "not shown"
+    },
+    {
+      "what": "the 18th Street tower, rebuilt on its corbelled stage by T-1890 from the Taylor print and HABS photograph 2: it stands on the north wall, which this camera cannot see; nor the east turret, whose finial and eaves it also sized; nothing this picture shows changed",
+      "status": "not shown"
+    },
+    {
+      "what": "the coping and walk T-3206 lays for 1904",
+      "status": "not shown",
+      "how": "the 1965 photograph shows the house after the lawn's coping was gone; the 1904 boundary is read off the Taylor print"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

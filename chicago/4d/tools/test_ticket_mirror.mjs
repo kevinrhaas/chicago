@@ -47,9 +47,10 @@ const APP = path.join(tmp, 'chicago', '4d');
 const SITE = path.join(tmp, 'site', '4d');
 mkdirSync(path.join(APP, 'tools'), { recursive: true });
 mkdirSync(SITE, { recursive: true });
-// The three tools under test, and the ticket files they read. Nothing else: the
+// The three tools under test (and the sheet gate check_published imports, T-3232), and
+// the ticket files they read. Nothing else: the
 // sandbox site holds one file, so check_published has exactly one thing to say.
-for (const f of ['ticket.mjs', 'check_published.mjs', 'publish.sh']) {
+for (const f of ['ticket.mjs', 'check_published.mjs', 'share_glb_sheets.mjs', 'publish.sh']) {
   cpSync(path.join(REPO, 'tools', f), path.join(APP, 'tools', f));
 }
 // The ticket FILES, never a clone's .git: since 2026-09-23 tickets/ is a clone of

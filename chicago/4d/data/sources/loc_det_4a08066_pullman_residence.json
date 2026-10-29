@@ -1,0 +1,27 @@
+{
+ "id": "loc_det_4a08066_pullman_residence",
+ "type": "photograph",
+ "citation": "Detroit Publishing Co. The Pullman residence, Chicago. c. 1900. Library of Congress Prints and Photographs Division, LC-D4-12552; LC-DIG-det-4a08066; item 2016794585.",
+ "author": "Detroit Publishing Co., publisher",
+ "date": "c. 1900 (the Prairie library's dating: 1899-1901)",
+ "describes_date": "c. 1900",
+ "repository": "Library of Congress Prints & Photographs Division, Detroit Publishing Company Photograph Collection. Prairie library image a16-pullman-det-4a08066; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-pullman-det-4a08066.jpg).",
+ "url": "https://www.loc.gov/pictures/item/2016794585/",
+ "locator": "The whole print, taken on 18th Street west of Calumet Avenue beside the Fort Dearborn massacre monument, looking west-north-west along the Pullman property's 18th Street side: the house's south flank and west portico beyond, the low coping wall along the 18th Street walk, and the shrubs and ivy inside it.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Library of Congress: no known restrictions on publication. Only forms, counts and places are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-27 (T-3203) from the image store's reference copy, 1024 x 809 px greyscale, sha256 297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb (the Prairie library records the derivative it fetched from tile.loc.gov as sha256 d16d8788bddf1e761641d6387feb0f2dd6862168b68a7233da6bf20cec9e5f40; the store's copy is a re-encoding of it at the same size).",
+ "note": "The companion of LC-D4-12551 (loc_det_4a08065_pullman_residence), taken from the other end of the 18th Street front. Inside the low coping along the 18th Street walk it shows a dense, continuous border of shrubs at about the coping's height and more, east of the house, and ivy over the house's lower walls and portico piers; a fire hydrant stands at the curb. Read for T-3203's front-yard planting.",
+ "what_it_supplies": [
+  "the shrub border inside the coping along 18th Street, east of the Pullman house",
+  "ivy on the Pullman house's lower walls and portico piers"
+ ],
+ "what_it_does_not_supply": [
+  "colour or species: the print is monochrome and the shrubs are read only as masses",
+  "the Prairie Avenue front yard's planting, which 4a08065 shows",
+  "an exact date: c. 1900"
+ ]
+}

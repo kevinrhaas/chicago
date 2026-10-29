@@ -114,6 +114,14 @@ IDENTICAL_ONLY = [("tools/research_spend_baseline.json", "raised"),
 # leaves the same key elsewhere held, and an entry whose key has left its file is
 # reported so it is deleted rather than left to excuse a later list.
 MULTISETS: dict[tuple[str, str], str] = {
+    ("data/structures/george_glessner_house_1706_prairie.json", "by_storey"):
+        "one K09 head per storey, read under brick_heads (T-3211)",
+    ("data/sidecars/1904/george_glessner_house_1706_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3211)",
+    ("data/structures/glessner_lee_house_1700_prairie.json", "by_storey"):
+        "one K09 head per storey, read under brick_heads (T-3211)",
+    ("data/sidecars/1904/glessner_lee_house_1700_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3211)",
     ("data/structures/house_1608_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-2341); two storeys may take the same head",
     ("data/sidecars/1904/house_1608_prairie.json", "by_storey"):
@@ -130,6 +138,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K01 head per storey of a K01 front (T-3155); both storeys wear the flat lintel",
     ("data/sidecars/1904/sears_meeker_house_1815_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K01 head per storey (T-3155)",
+    ("data/structures/dexter_house_1721_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-1878); the two lower storeys wear the cornice-hood lintel",
+    ("data/sidecars/1904/dexter_house_1721_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-1878)",
     ("data/structures/marsh_house_1824_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3167); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/marsh_house_1824_prairie.json", "by_storey"):
@@ -138,6 +150,26 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K01 head per storey of a K01 front (T-3162); both storeys wear the flat lintel",
     ("data/sidecars/1904/dent_house_1823_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K01 head per storey (T-3162)",
+    ("data/structures/house_1708_prairie.json", "by_storey"):
+        "one K09 head per storey, principal storey first: the upper two wear the same surround (T-3188)",
+    ("data/sidecars/1904/house_1708_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3188)",
+    ("data/structures/house_1712_prairie.json", "by_storey"):
+        "one K09 head per storey, principal storey first: both storeys wear the same surround (T-3187)",
+    ("data/sidecars/1904/house_1712_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3187)",
+    ("data/structures/kellogg_house_1709_prairie.json", "by_storey"):
+        "one K09 head per storey, principal storey first: both storeys wear the same hood (T-1877)",
+    ("data/sidecars/1904/kellogg_house_1709_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-1877)",
+    ("data/structures/elbridge_keith_house_1900_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3207); both storeys wear the cornice-hood lintel",
+    ("data/sidecars/1904/elbridge_keith_house_1900_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3207)",
+    ("data/structures/ream_house_1901_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3185); both storeys wear the cornice-hood lintel",
+    ("data/sidecars/1904/ream_house_1901_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3185)",
     ("data/structures/house_1828_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3166); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/house_1828_prairie.json", "by_storey"):

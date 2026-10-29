@@ -31,7 +31,7 @@
   },
   "items": {
    "chopping_block": 365,
-   "cordwood": 417,
+   "cordwood": 416,
    "log_heap": 42,
    "slab_heap": 32
   },
@@ -15362,8 +15362,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      671.52,
-      -92.99
+      677.62,
+      -96.03
      ],
      "bearing_deg": 90.0,
      "length_m": 2.44,
@@ -15375,8 +15375,8 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      671.52,
-      -95.78
+      677.62,
+      -98.82
      ],
      "bearing_deg": 90.0,
      "length_m": 2.44,
@@ -15386,29 +15386,17 @@
      "seed": 2117873508
     },
     {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      671.52,
-      -98.57
-     ],
-     "bearing_deg": 90.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.02,
-     "stick": "cord",
-     "seed": 1983344033
-    },
-    {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      669.81,
-      -99.34
+      675.91,
+      -99.59
      ],
      "bearing_deg": 90.0,
      "billets": 1,
-     "seed": 524745992
+     "seed": 1983344033
     }
-   ]
+   ],
+   "cut_down": "dealt 3 ricks; 2 fit the wall"
   },
   {
    "structure_id": "wabansia_doctors_house",
