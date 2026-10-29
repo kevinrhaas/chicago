@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2427, ts: '2026-10-29T23:19:24.493Z', date: 'Oct 29, 2026, 6:19 PM CT', title: 'Pullman\'s 18th Street trees stand where the photographs put them', kind: 'improvement',
+    items: [
+      'The elms along 18th Street before the Pullman palm house and stable now stand where J. W. Taylor\'s photograph and the 1894 Inland Architect plate show them: three before the palm house, two round the Calumet corner, and one on the far side.',
+      'Three trees the planting rule had placed where the pictures show open parkway are gone, including the one that blocked the view of the palm house from across the street.',
+      'Taylor\'s view is now matched from where he actually stood, in the garden across 18th Street, so the house, palm house and stable line up with his photograph.',
+    ] },
   { v: 2426, ts: '2026-10-29T22:49:38.416Z', date: 'Oct 29, 2026, 5:49 PM CT', title: '1701 Prairie gains its roof deck, corner porch and south wing', kind: 'feature',
     items: [
       'The Hibbard house\'s hipped roof now stops at a flat deck ringed by a pale rail pierced with round holes, as its 1880s photograph shows it, with the tall chimney rising through it.',

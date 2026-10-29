@@ -76,7 +76,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 30,
+    "street_trees": 32,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -102,7 +102,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "eedf1b3ed07b4524c174743b76b764a79a4aa2b36a0ca91bbd8548fc36c70ff8",
+  "flora_sha256": "3c72b3b1567c20d0548fc011cc7bcecd9137a23cc9bfc401a37f6549ba011b4c",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -175,19 +175,25 @@
       "how": "T-1934 re-solved this camera with the wall in its fit (the wall's foot at five places on the lot line and its second pier west of the drum): the eye about 21 m south of the lot line, across 18th Street, at focal 976 px. The wall's foot now renders within 12 px of the print's from x 507 to 1100, its pier tops within 7 px and the pier at x 280-303 on the print's; what the wall then shows is judged in the lines on the terrace's approach and the court's way"
     },
     {
-      "what": "the planting: the print's four parkway and yard trees across the front stand at other places than the street-tree layer's (camera flora), and its clipped shrubs and potted palms on and before the terrace are not drawn Through T-1934's re-solved camera the street-tree layer also stands a parkway tree (e18th__prairie_calumet_18_20#00) 4.1 m before the eye, filling the print's left edge (x 0-200 px) where the print shows the house's 18th Street porch: the photographer stood where the layer plants a tree",
-      "status": "open",
-      "how": "T-1934 render with the scene's street trees and front yards"
+      "what": "the parkway trees across the front: the street-tree layer stood a tree 4.1 m before the eye, filling the print's left edge, and none where the print's stand. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, T-1934 read each trunk the print shows onto 18th Street's parkways (data/street_trees/pictured_1904.json) and planted them there: they render at x 79, 618, 824, 860 and 1085 where the print's stand at x 97, 621, 834, 873 (on the near parkway) and 1086",
+      "status": "fixed"
     },
     {
-      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet",
+      "what": "two of the print's trees the build does not stand as it shows them: its tree at x 298 (56.3 m along the north parkway) is not planted, and its DEAD trunk in a guard at x 453 (60.0 m) is a living tree 1.2 m west (renders at x 400). The 1894 Inland plate, the later picture, sees both places and shows one full-crowned tree at 58.8 m and none at 56.3 m; ten years on a dead street tree is not standing. Two pictures disagree, and the build is the plate's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace",
+      "status": "open"
+    },
+    {
+      "what": "the court's way off 18th Street east of the drum: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [Re-read through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px: the build's pier east of the terrace renders at x 535-570 (a second behind the parkway trunk at x 600-620); the print's piers stand at x 500-520, 580-600 (set back) and 775-800, the court's way about 4 m wide between the last two. Still open.]",
       "status": "open",
       "how": null
     },
     {
-      "what": "through T-1934's re-solved camera the stable's 6.0 m eave renders 25 px above the print's (about 0.8 m at the front's 30 px/m), and the upper storey between the belt course and the eave reads shorter in the print; T-3193's eye left it 36 px. The Inland plate's camera puts the stable's heights where they are built (its storey heights back-project within 0.1-0.2 m), so the two pictures disagree on the stable's height or on the court's depth",
-      "status": "open",
-      "how": null
+      "what": "the stable's 6.0 m eave: 25 px above the print's through the camera before this one. Through Taylor's 16555 camera re-solved again by T-1934 (2026-10-29) with 18th Street's ground in its fit: the eye 11.7 m further south, in the garden across the street behind its gate piers, focal 1192 px, it renders about 12 px above the print's (x 900-1000: the roof's foot at y 517-520 against the print's 527-532), about 0.4 m at the front's 30 px/m; the 1894 Inland plate's camera puts the stable's heights where they are built (within 0.1-0.2 m). Two pictures disagree by less than half a metre",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
