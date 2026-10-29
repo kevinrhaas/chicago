@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c",
+  "glb_sha256": "5f883dff82fef0a8a355a8ff5fdad16fcf29ccd052f5aea3ae17dc353add3380",
   "camera_sha256": "d781577016df34be734263e76f70dac39a62dacf458151b4801f5237e482f097",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -136,13 +136,13 @@
     },
     {
       "what": "the north-west pavilion's own dormer at x 330 on its section of the mansard",
-      "status": "fixed",
-      "how": "T-3158: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5, the render's surround at x 318-337 against the print's 322-338"
+      "status": "open",
+      "how": "T-3158: a 0.8 x 1.6 m arched light in a 0.3 m surround at v 1.5, the render's surround at x 318-337 against the print's 322-338 Reopened by T-1881 on looking again: since the forward block (bays.p_forward, PR #1427) stands 2.95 m proud under its own mansard, the dormer at v 1.5 on the main mansard is hidden behind it from this camera, and the print draws its dormer on the forward section's own mansard face. The bay kit lays no dormer on a projection's mansard yet; that is what re-placing it needs, as for the 18th Street pavilion's two (taylor_1445_album)"
     },
     {
       "what": "the Prairie dormers' moulded hoods with ears over the arch and their flanking pilasters; the build lays a plain surround round each arch",
-      "status": "open",
-      "how": "T-3161"
+      "status": "fixed",
+      "how": "T-1881: each dormer's face (in the walls' brownstone now, mansard.dormer_fabric) is framed in an eared architrave and hood (mansard.dormers[].eared_hood): a 0.15 m band standing 0.08 m out, up each jamb from the face's foot and round the arch, its ears 0.2 m out and 0.25 m deep at about six tenths of the arch's rise, where the picture's ears stand; the band up each jamb stands for the flanking pilasters"
     },
     {
       "what": "the cornice's modillions and the deep frieze's panels",
@@ -233,6 +233,11 @@
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
       "status": "open",
       "how": "T-1881: the lot's creeper is drawn from the front-yard layer, but sparser than the picture and, in a winter render, leafless"
+    },
+    {
+      "what": "the belt course under the second storey's sills, where the ivy leaves it to be seen (y about 383-395 at the portico's balcony and across the flank)",
+      "status": "fixed",
+      "how": "T-1881: street_front_pavilions.belt, its bed at 6.72 m and its top at 7.67 m; the render's at y 382-397"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

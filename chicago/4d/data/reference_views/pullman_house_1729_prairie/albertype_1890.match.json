@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c",
+  "glb_sha256": "5f883dff82fef0a8a355a8ff5fdad16fcf29ccd052f5aea3ae17dc353add3380",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -111,8 +111,13 @@
     },
     {
       "what": "the Prairie dormers' moulded, eared hoods (the plate's large dormer at about x 1200 under a broken pediment); the build lays a plain surround round each arch; Taylor's photograph no. 1445 shows the same hoods on the flank's dormers",
+      "status": "fixed",
+      "how": "T-1881: each dormer's face (in the walls' brownstone now, mansard.dormer_fabric) is framed in an eared architrave and hood (mansard.dormers[].eared_hood): a 0.15 m band standing 0.08 m out, up each jamb from the face's foot and round the arch, its ears 0.2 m out and 0.25 m deep at about six tenths of the arch's rise, where the picture's ears stand; the plate's broken pediment over the large one is the item below"
+    },
+    {
+      "what": "the large Prairie dormer's hood rises into a broken pediment over its arch, where the build's eared hood follows the arch (L-k01-1729-pullman-belt-hoods-1881) (the plate's at about x 1200)",
       "status": "open",
-      "how": "the same gap as the Detroit print's open difference; not rebuilt in this run"
+      "how": "T-1881: not built; the plate is the only picture that draws the pediment at a readable size"
     },
     {
       "what": "the iron cresting round the deck, and the low stone wall on piers along the Prairie Avenue line",
@@ -141,8 +146,8 @@
     },
     {
       "what": "a moulded belt course between the principal and second storeys (Taylor y about 450-470; the Albertype)",
-      "status": "open",
-      "how": "T-1881: not built"
+      "status": "fixed",
+      "how": "T-1881: the belt course (street_front_pavilions.belt) runs round the north-west pavilion, the Prairie front, the forward block, the corner pier and the 18th Street flank and pavilion, its bed at 6.72 m and its top at 7.67 m under the second storey's sills, a moulded string 0.17 m out at its foot and a plain fascia over it; the render's at y 442-463 on the front and flank against the plate's 443-463"
     },
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns",
