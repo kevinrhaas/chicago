@@ -35494,3 +35494,31 @@ turned colonnette; the surround is the kit's.
 **How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
 **Ticket:** T-1890.
 **Recorded:** 2026-10-28 (T-1890).
+
+### L-pullman-palm-house-1934 — Pullman's palm house dressed as the Inland plate and Taylor's 16555 show it: an open colonnade, open balustrades, a rusticated range and urns
+
+**Decision:** `pullman_house_1729_prairie_conservatory` keeps the palm house's place, plan and
+heights from L-pullman-palm-house-3165 and replaces the parts of its dress that liberty drew plain,
+which the owner, on 2026-10-28, named as way off the pictures ("a faceted drum behind solid parapets on
+a blank wall"). **What is read**, off the 1894 Inland Architect plate (`inland_1894_pullman_palm_house_stable`)
+and Taylor's 16555 (`aic_taylor_16555_pullman_west_front`) through their solved cameras: the drum is an
+open colonnade, round columns with bases and capitals and dark glazing between them, not stone with
+strips of glass; its entablature is an architrave and frieze under a cornice that stands further out;
+the balustrades on the drum, on the range's parapet and on the terrace are open balusters between dies
+and piers, not solid parapets; the range's south face is banded rustication with a broad pilaster either
+side of the drum; the terrace piers carry urns; the dome is a broad ribbed dome, light in both pictures,
+its ribs close-set, about 4.6 m across (both pictures read it broader than the 3.8 m it had). **What is
+invented.** The balusters drawn as a square belly under a square neck at 0.30 m centres, 0.15 m across;
+the rustication's course (0.42 m) and its joints (0.06 m), drawn as courses a few centimetres proud so the
+joints read in the wall's own darker tone; the pilasters' width (0.8 m) and their place (4.4 m either side
+of the drum's centre); the columns' twelve-sided shafts and their square plinths, tori, capitals and
+abaci, sized from the 0.28 m shaft radius; the urns' profile (0.6 m across, 0.75 m high); the dome's 24
+ribs and its covering's light tone (the kit's `glass_sky`, glass or metal sheets still not legible); the
+glazing drawn dark by a dark face behind it, standing for the palm house's shaded interior. **What is not.**
+The place, plan, heights, the openings and the terrace's size stay L-pullman-palm-house-3165's. This
+supersedes that entry's octagonal shafts, solid balustrades and plain ashlar; the rest of it stands.
+**How to resolve:** a measured drawing of the palm house, or a sharper print of the colonnade and the
+balustrades.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
+**Ticket:** T-1934.
+**Recorded:** 2026-10-28 (T-1934).
