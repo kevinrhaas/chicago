@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c",
+  "glb_sha256": "5f883dff82fef0a8a355a8ff5fdad16fcf29ccd052f5aea3ae17dc353add3380",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -101,7 +101,7 @@
     {
       "what": "three dormers on the flank's mansard (x 656-673, 740-751, 791-804), each over a window group, where the build stood two at the Detroit print's u 22.75 and 17.7; built at u 15.3, 9.45 and 5.2",
       "status": "open",
-      "how": "T-1881: the 18th Street pavilion's mansard, rebuilt to this photograph, now stands over the places of the two western dormers, so they no longer show; the bay kit lays no dormer on the block's mansard east of it. Re-place them on the pavilion's mansard face"
+      "how": "T-1881: the 18th Street pavilion's mansard, rebuilt to this photograph, now stands over the places of the two western dormers, so they no longer show; the bay kit lays no dormer on the block's mansard east of it. Re-place them on the pavilion's mansard face (T-1881: still open; the bay kit lays no dormer on a projection's mansard, which is what re-placing them needs)"
     },
     {
       "what": "the Prairie front's rusticated piers and second-storey lights (x 237-262, 276-291, 312-324, 357-380) stand 20-37 px nearer the corner than the build's through this camera: a disagreement between this camera's perspective along the front and the Detroit print, which sees the front squarely and placed them; no level camera fits both (the solve says how far it reaches), so it is a camera disagreement, not a re-build",
@@ -119,7 +119,13 @@
     },
     {
       "what": "the dormers' moulded hoods: each flank and Prairie dormer stands under an eared, pedimented hood (the large one at x 455-480 over the front's south bay, and those at x 656, 740 and 791 on the flank); the build lays a plain stone surround round each arched light (the K01 mansard dormer has no eared hood yet)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1881: each dormer's face (in the walls' brownstone now, mansard.dormer_fabric) is framed in an eared architrave and hood (mansard.dormers[].eared_hood): a 0.15 m band standing 0.08 m out, up each jamb from the face's foot and round the arch, its ears 0.2 m out and 0.25 m deep at about six tenths of the arch's rise, where the picture's ears stand; the large one's pediment is the item below, and the flank's two over the pavilion are the first item's"
+    },
+    {
+      "what": "the large Prairie dormer's hood rises into a broken pediment over its arch, where the build's eared hood follows the arch (L-k01-1729-pullman-belt-hoods-1881) (the photograph's over the front's south bay at x 455-480)",
+      "status": "open",
+      "how": "T-1881: not built"
     },
     {
       "what": "the rusticated pier with the oculus between the pair and the triple (x 699-716), and the east section of the flank whose cornice breaks forward on a banded corner pier (x 784-850, s about 22-27.75); the flank is built as one plain face there, since how far the east section stands out is not read",
@@ -149,8 +155,8 @@
     },
     {
       "what": "a moulded belt course between the principal and second storeys (Taylor y about 450-470; the Albertype)",
-      "status": "open",
-      "how": "T-1881: not built"
+      "status": "fixed",
+      "how": "T-1881: the belt course (street_front_pavilions.belt) runs round the front, its projections and the 18th Street flank and pavilion, its bed at 6.72 m and its top at 7.67 m under the second storey's sills: on the flank at u 24 (x 510-524) the photograph's sill line at y 446-450 and the shadow under its string at 462-470, the render's at 446-450 and 466-472"
     },
     {
       "what": "a balustrade on the 18th Street wall's east run (x 847-957) and posts along its low course",
