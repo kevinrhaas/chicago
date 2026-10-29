@@ -35313,6 +35313,51 @@ walks.
 **Covers:** `house_1616_prairie.as_mapped_1904.form.yard`, `house_1621_prairie.as_mapped_1904.form.yard`, `house_1623_prairie.as_mapped_1904.form.yard`, `house_1625_prairie.as_mapped_1904.form.yard`, `spalding_house_1637_prairie.as_mapped_1904.form.yard`.
 **Ticket:** T-3221.
 
+### L-k11-fences-1600-block-3216 — Front boundaries of the ten unpictured worked 1600-block Prairie houses reconstructed on the block's pictured fronts
+**Recorded:** 2026-10-28.
+
+**Decision:** ten worked 1904 houses on the 1600 block of Prairie Avenue have no picture of their
+fronts: 1600, 1604, 1608, 1626, 1628, 1634 and 1636 on the west side, and 1613, 1615 and 1619 on
+the east (T-3216, piece 3 of T-3204). Each is given a front boundary as a STATED RECONSTRUCTION
+that follows its own side of the block. **What is read, not invented.** On the west side every
+pictured front closes its street line and gates its walk: 1612's photograph (an iron spear fence
+on its curb), 1620's 1874 engraving and 1898 sketch (an iron lattice), 1616's boards in the same
+1874 plate, and 1638's photograph (iron bars on a stone base). On the east side, 1621's and 1623's
+1886 drawings and 1625's 1890 photograph draw open fronts with no fence, wall or gate. The lot
+lines and street lines are the 1904 parcels' (data/street_grid/1904.json, from the 1911 Sanborn
+sheet 20). **What is invented or held by the kit.** On the west side the fence's kind is the K11
+kit's spear fence on its curb, the plainest of the block's pictured kinds. Its height, its posts
+and the pair of entrance leaves on stone piers, standing open, are also the kit's. 1634's and
+1636's fences are held 0.3 m inside the public walk, where their parcels' lines fall on the walk's
+edge. 1626's south lot line is put on the house's wall, 0.21 m from where the parcel was fitted.
+1600's south passage has a shut side gate like 1612's. The other six west-side houses stand too
+close to their south lot lines for a gate, so their iron runs unbroken (K11's T-3216 rule). 1600's
+iron is not returned along 16th Street. On the east side the three fronts are built open.
+**How to resolve:** a photograph of any of these fronts from about 1895-1910, or an insurance or
+survey plat that draws the fences.
+**Covers:** `house_1600_prairie.as_mapped_1904.form.boundary`, `house_1604_prairie.as_mapped_1904.form.boundary`, `house_1608_prairie.as_mapped_1904.form.boundary`, `house_1626_prairie.as_mapped_1904.form.boundary`, `house_1628_prairie.as_mapped_1904.form.boundary`, `house_1634_prairie.as_mapped_1904.form.boundary`, `house_1636_prairie.as_mapped_1904.form.boundary`, `house_1613_prairie.as_mapped_1904.form.boundary`, `house_1615_prairie.as_mapped_1904.form.boundary`, `house_1619_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3216.
+
+### L-k14-walks-1600-block-3216 — Front walks of the ten unpictured worked 1600-block Prairie houses, from the public walk to the door
+**Recorded:** 2026-10-28.
+
+**Decision:** the same ten houses (T-3216) are given a K14 yard: a lawn and a flagged front walk
+from the foot of the stoop to the inner edge of the public walk. Before this none of them had a
+walk, and the walker could not reach their doors. **What is read, not invented.** Nothing: no
+picture of these fronts is held. The walks follow the pattern of the block's pictured fronts, where
+1612's photograph shows a light paved walk through its open gateway to the stoop's foot. On the west
+side a walk runs through the entrance gate, at the gate's width. On the east side it runs straight
+out across the open front, 1.2 m wide, as 1621's, 1623's and 1625's do (T-3221). **What is invented
+or held by the kit.** The kit supplies the walk's line, flags, width, joints and wear, and the lawn
+with its bare strip. The lawn is the app's own ground (`yard.lawn: none`), not the kit's turf
+sheet, as L-street-ground-seams-3233 rules for every K14 front lawn, so it meets the side yards
+and the margin with no seam. No service walk is built. Each walk is checked by
+`tools/check_house_walks.py`.
+**How to resolve:** a photograph of each front from about 1900-1910, or a survey plat drawing the
+walks.
+**Covers:** `house_1600_prairie.as_mapped_1904.form.yard`, `house_1604_prairie.as_mapped_1904.form.yard`, `house_1608_prairie.as_mapped_1904.form.yard`, `house_1613_prairie.as_mapped_1904.form.yard`, `house_1615_prairie.as_mapped_1904.form.yard`, `house_1619_prairie.as_mapped_1904.form.yard`, `house_1626_prairie.as_mapped_1904.form.yard`, `house_1628_prairie.as_mapped_1904.form.yard`, `house_1634_prairie.as_mapped_1904.form.yard`, `house_1636_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3216.
+
 ### L-k16-1638-walk-3222 — 1638 Prairie's front walk: in through the gateway between its two piers, north along the fence's back and west to the porch stair's foot, in flags of the plinths' stone
 
 **Decision:** 1638 Prairie (the K16 timber house) is given a front walk (T-3222), which the K16
@@ -35477,3 +35522,54 @@ balustrades.
 **Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
 **Ticket:** T-1934.
 **Recorded:** 2026-10-28 (T-1934).
+
+### L-k01-1729-pullman-massing-1881 — 1729 Prairie's forward block, 18th Street pavilion, porte-cochere and 18th Street wall re-read off the 1911 sheet and both photographs
+
+**Decision:** the Pullman house (T-1881, reopened on the owner's report of 2026-10-28 that it was
+"still way off from a photographic match") stands its two projections again, each carried full
+height under its own mansard, where T-3161 had taken the 18th Street one off and the Prairie front
+stood flat behind pavilion piers: a forward block over the door on the Prairie front (`bays`
+p_forward, 6.5 m wide and 2.95 m proud, v 2.0-8.5) with banded corner piers and two round-arched
+lights on its second storey, and the 18th Street pavilion (p_18th, s 8.3-18.55, 2.47 m out) with the
+pair and triple of narrow round-headed lights Taylor's photograph no. 1445 draws over the
+porte-cochere. The porte-cochere moves to the 1911 sheet's footprint (s 8.25-12.75, 5.97 m out), in
+front of the pavilion. The 18th Street coping wall is carried on past the house to u 8.6 with three
+square piers and a lower course between the first two.
+**What is read, not invented.** The block's and the pavilion's plan off the 1911 sheet's outer
+lines; their standing forward under their own cornices and mansards in the Detroit print, Taylor's
+no. 1445 and the 1890 Albertype plate; the pavilion's lights and the wall's piers and heights through
+Taylor's solved camera (`data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json`).
+**What is invented.** The places of the block's two upper lights on its front (taken symmetric: the
+Detroit print shows them either side of a tree); the banded piers' 0.4 m courses and 0.9 m width
+(the front's pavilion piers'); the porte-cochere's west and east arches 0.5 m in from Taylor's reading
+(the kit's least corner pier) and its front arch 0.3 m west of it; the piers' 0.9 m section and caps.
+**How to resolve:** a closer photograph of the Prairie front or of the 18th Street wall, or the
+house's drawings.
+**Subjects:** `pullman_house_1729_prairie`. The bays, porte-cochere and boundary are inferred from the sheet and the photographs; the invented details above are described here without claiming those inferred values as invented ones.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
+**Recorded:** 2026-10-28 (T-1881).
+
+### L-k11-1736-coping-3234 — 1736 Prairie's front wall laid one height with its opening on the stair's line and turned along 18th Street; the stair's pier left out
+
+**Decision:** the coping wall before 1736 Prairie (McBirney) is reworked at the owner's call
+(T-3234; the owner, 2026-10-28: *"the walkway curves and it likely would be straight, the walls
+boorder on the exterior only come in the front of the house not the side, and there is an odd
+column near the stairs, and the wall is of irregular height … whatever is best documented"*).
+**What the c. 1890 print reads and is now set aside.** T-2961 and T-3205 read the print through
+its camera: a 0.74 m run to the street tree, a gap of about 1 m at s 3.9-4.9 (its edges hidden),
+a 0.95 m run behind the stair's pier to the north lot line, a 1.55 m pier at the foot of the
+stair's south cheek, and nothing turning the corner. Built that way, the walk had to turn south
+behind the wall to reach the gap, the wall stepped up mid-front, and the pier stood free beside
+the stair. **What is built now.** The opening is on the stair's line, s 5.0-6.3, so the walk runs
+straight from the stair's foot to the public walk, as a city front walk ran; the wall is one
+height, the print's low run's 0.74 m, as the 2015 photograph of the McBirney curbstone shows one
+course of squared blocks along the walk; no pier is built, the stair's cheeks ending in their own
+newels at its foot; and the wall turns the 18th Street corner on the south lot line and runs back
+to 0.3 m short of the front canted bay, whose projection stands over the lot line. The print's
+step to 0.95 m, its pier and its gap are recorded in the record's note and not built. No picture
+shows the corner, the side or the opening's place, so all three are reconstructed.
+**How to resolve:** a photograph of 1736 Prairie from 18th Street or from the north showing the
+wall's corner, or of its stair's foot clear of the street trees.
+**Ticket:** T-3234.
+**Recorded:** 2026-10-28 (T-3234).

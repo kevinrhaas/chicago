@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2397, ts: '2026-10-29T05:29:01.536Z', date: 'Oct 29, 2026, 12:29 AM CT', title: 'The Pullman house\'s stepped front, porte-cochère and 18th Street wall re-read', kind: 'feature',
+    items: [
+      'At 1729 Prairie, the front over the door and the 18th Street pavilion stand forward again under their own roofs, as the photographs show them, and the porte-cochère moves to its mapped place in front of the pavilion with its arches resized.',
+      'The low stone wall now runs on along 18th Street past the house, stepping down between square piers, and the comparison pictures now draw the lot\'s planting and the street trees.',
+      'Still not matching the photographs: the dormers and their hoods, the belt course between the storeys, the wall\'s balustrade, and the street trees\' places and winter form.',
+    ] },
+  { v: 2396, ts: '2026-10-29T05:06:00.845Z', date: 'Oct 29, 2026, 12:06 AM CT', title: 'What\'s New lists new work again without waiting for the next change', kind: 'fix',
+    items: [
+      'Half of yesterday\'s What\'s New updates timed out before they ran, so new work, such as 1812 Prairie\'s entrance, sat unlisted until a later change carried it in. The update now downloads only the text it reads, about a seventh as much as before.',
+    ] },
+  { v: 2395, ts: '2026-10-29T05:06:00.845Z', date: 'Oct 29, 2026, 12:06 AM CT', title: '1736 Prairie: straight front walk, wall round the corner', kind: 'fix',
+    items: [
+      'The front walk at 1736 Prairie runs straight from the stair to the sidewalk; the wall\'s opening now sits in line with the stair.',
+      'The coping wall is one height across the front, and it turns the 18th Street corner and runs back along the side to the first bay.',
+      'The stray stone pier beside the stair\'s foot is gone.',
+    ] },
+  { v: 2394, ts: '2026-10-29T04:34:14.075Z', date: 'Oct 28, 2026, 11:34 PM CT', title: 'Walks, fences and gates for ten more 1600-block Prairie houses', kind: 'feature',
+    items: [
+      '1600, 1604, 1608, 1613, 1615, 1619, 1626, 1628, 1634 and 1636 Prairie now have a flagged walk from the sidewalk to their front steps. Before, you could not walk up to their doors.',
+      'No picture of these fronts survives, so each one follows the pictured houses on its own side of the street. On the west side, an iron fence runs along the sidewalk with its gate standing open at the walk, as at 1612 and 1620. On the east side, the fronts are open to the street, as at 1621, 1623 and 1625.',
+      'Both are marked as reconstructions in the house\'s sources, with the reasoning, so you can tell which parts are read from a picture and which are inferred from the block.',
+    ] },
   { v: 2393, ts: '2026-10-29T01:49:26.095Z', date: 'Oct 28, 2026, 8:49 PM CT', title: 'Pullman\'s palm house now looks like its 1890s photographs', kind: 'improvement',
     items: [
       'The palm house at 1729 Prairie is an open colonnade again: round columns with bases and capitals, dark glass between them and a moulded cornice above.',

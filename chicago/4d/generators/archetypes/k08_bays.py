@@ -1246,6 +1246,12 @@ class Bay:
                 trim_holes = []
                 lo = y_wall0 if k == 0 else levels[k]
                 hi = levels[k + 1]
+                dh = v.get("door_hole")
+                if dh and k == 0 and i == 1 and v["plan"].get("kind") == "polyline" and len(self.runs) == 3:
+                    # T-1881: the door a forward block carries, cut through its face as K07 cuts it
+                    x0 = v["plan"]["points"][1][0]
+                    (a_, b_), (c_, d_) = dh["x_m"], dh["y_m"]
+                    holes.append((a_ - x0, b_ - x0, c_, d_, (), True))
                 for w, s in per_run[i][k]:
                     o = window(w, s, levels[k] + w["sill_m"], w.get("recess_m", recess))
                     if w.get("grille") and self.tier == "full":   # the light tier keeps the hole
@@ -2796,8 +2802,20 @@ class Bay:
                     hi = levels[k + 1] - band_h / 2 if k + 1 < n else levels[k + 1]
                     # each piece runs 4 mm into what it stands on and what stands on it (the
                     # band, the plinth, the soffit, the base and the capital)
-                    for ya, yb, grow in ((lo - 0.004, lo + hb, 0.02), (hi - hc, hi + 0.004, 0.045),
-                                         (lo + hb - 0.004, hi - hc + 0.004, 0.0)):
+                    pieces = [(lo - 0.004, lo + hb, 0.02), (hi - hc, hi + 0.004, 0.045)]
+                    bd = pl.get("bands") if self.tier == "full" else None     # the light tier: one shaft
+                    if bd:
+                        # T-1881: a BANDED shaft (1729's corner piers, the Detroit print): courses
+                        # `course_m` tall parted by channels `channel_m` high, cut back to the wall
+                        y0_, y1_ = lo + hb - 0.004, hi - hc + 0.004
+                        m_ = max(1, round((y1_ - y0_) / bd["course_m"]))
+                        h_ = (y1_ - y0_) / m_
+                        pieces += [(y0_ + h_ * j + (bd["channel_m"] / 2 if j else 0.0),
+                                    y0_ + h_ * (j + 1) - (bd["channel_m"] / 2 if j < m_ - 1 else 0.0), 0.0)
+                                   for j in range(m_)]
+                    else:
+                        pieces.append((lo + hb - 0.004, hi - hc + 0.004, 0.0))
+                    for ya, yb, grow in pieces:
                         dz = d + grow
                         if side == "start":
                             a0, a1, c0, c1 = run.s_start(dz), run.s_start(0.0) + w + grow, run.s_start(dz), run.s_start(0.0)
@@ -2807,7 +2825,7 @@ class Bay:
                         if c1 - c0 > 1e-6:
                             # round a corner: its back where it oversails the next run, over its
                             # own height alone, so the pieces' backs do not overlap where they meet
-                            yc0, yc1 = {0.02: (ya, lo + hb), 0.0: (lo + hb, hi - hc)}.get(grow, (hi - hc, yb))
+                            yc0, yc1 = {0.02: (ya, lo + hb), 0.0: (lo + hb, hi - hc) if not bd else (max(ya, lo + hb), min(yb, hi - hc))}.get(grow, (hi - hc, yb))
                             flat.plane("band", rect(c0, c1, yc0, yc1)[::-1], 0.0, (0.0, 0.0, -1.0))
                     if k == 0 and pl.get("corbel_m"):
                         # under the lowest base, a corbel of two stepped courses, the upper as
