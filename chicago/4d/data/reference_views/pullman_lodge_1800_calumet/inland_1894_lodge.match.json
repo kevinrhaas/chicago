@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "a86e63d1c220724b5d1fbca642361fedfad15cd99fe4f6ce392e92aa3d20e403"
+      "glb_sha256": "577c68200d3390d3b795642b611f5a3337f4d29aab5b436141f425208c315951"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
     }
   ],
-  "group_sha256": "08e317182397edf6589f5daa32dc53f681c725a06484b79c4630fcdd2a838000",
+  "group_sha256": "1d8e62fd114f315c8fed48ef21b5f1fb0ec957675ce64575ce83d5b8bcad796a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -163,8 +163,8 @@
     },
     {
       "what": "the carved scroll panel on each wing's street face and the sunk panel on each pier's faces",
-      "status": "open",
-      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open"
+      "status": "fixed",
+      "how": "T-3164 (gate pass): the piers and wings are built plain; the carving is a visible element of the gate from the walk, so it stays open T-3164 (gate carving pass): built as both pictures place it: each wing's street face carries a spiral C-scroll about 0.26 m across by the pier, its centre about 0.3 m from the pier and 0.76 m up, three lobes of leafage trailing from it under the sweep toward the roll, and a fillet over the plain base at about 0.5 m, all standing 0.05 m proud; each pier's shaft a sunk panel between 1.24 and 1.8 m, 0.08 m in from its edges. The side-by-side shows the scroll and the leaf lobes in place on both wings; under the review render's even light they read as the relief's edges, where the pictures' shade cuts them darker. The leaves' cutting is under the bar (L-pullman-gate-1800-calumet-3164)"
     },
     {
       "what": "the walks, the lawns, the standard trees, the shrubs and the street trees",
