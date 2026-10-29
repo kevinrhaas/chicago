@@ -92,12 +92,19 @@ def _material(group: str, ident: str) -> dict:
 
 _panel = _material("panel", PANEL)
 _body = _material("brick", FABRIC)
-TILES = {f"k03:{PANEL}": tuple(_panel["tile_m"]), f"k03:{FABRIC}": tuple(_body["tile_m"])}
-IMAGES = {
-    f"k03:{PANEL}": {"basecolor": LIBRARY / "panel" / PANEL / _panel["web"]["basecolor"],
-                     "normal": LIBRARY / "panel" / PANEL / _panel["web"]["normal_gl"]},
-    f"k03:{FABRIC}": {"basecolor": LIBRARY / "brick" / FABRIC / _body["web"]["basecolor"]},
-}
+# T-3244: the panels a record may lay instead (`service_wall_brick`), each with the brick
+# its units are cut from: the red-brown brick in light joints of 1700-1708 Prairie's photographs.
+# Every one shares the common panel's tile and the module, so the bond's phase is the same.
+PANELS = {PANEL: FABRIC, "rough_red_brown_running": "rough_red_brown"}
+TILES, IMAGES, ROUGHNESS = {}, {}, {}
+for _p, _f in PANELS.items():
+    _pm, _bm = _material("panel", _p), _material("brick", _f)
+    assert tuple(_pm["tile_m"]) == tuple(_panel["tile_m"]) and tuple(_bm["tile_m"]) == tuple(_body["tile_m"])
+    TILES |= {f"k03:{_p}": tuple(_pm["tile_m"]), f"k03:{_f}": tuple(_bm["tile_m"])}
+    IMAGES |= {f"k03:{_p}": {"basecolor": LIBRARY / "panel" / _p / _pm["web"]["basecolor"],
+                             "normal": LIBRARY / "panel" / _p / _pm["web"]["normal_gl"]},
+               f"k03:{_f}": {"basecolor": LIBRARY / "brick" / _f / _bm["web"]["basecolor"]}}
+    ROUGHNESS |= {f"k03:{_p}": round(_pm["mean_roughness"], 2), f"k03:{_f}": round(_bm["mean_roughness"], 2)}
 #: every map a K03 wall embeds: mesh_inputs hashes them, so a regenerated map stales the GLB
 TEXTURE_FILES = sorted({p for v in IMAGES.values() for p in v.values()})
 
@@ -115,6 +122,13 @@ for _v in VARIANTS:
     MATERIALS[f"brick_unit_{_v['id']}"] = {
         "fabric": f"k03:{FABRIC}", "color": tuple(_v["tint"]),
         "roughness": round(_body["mean_roughness"], 2), "condition": True}
+
+
+def unit_tints(fabric: str) -> dict:
+    """T-3244: each unit slot's tint for another K03 brick, its variants taken in order
+    (the slots keep the common brick's names, so a house's material list does not change)."""
+    return {f"brick_unit_{v['id']}": tuple(w["tint"])
+            for v, w in zip(VARIANTS, PROFILES["fabrics"][fabric]["variants"], strict=True)}
 
 
 def variant(seed: int, course: int, unit: int) -> str:
@@ -183,7 +197,7 @@ def unit_box(asm, seed, course, idx, frame, quad, conf, proud=UNIT_PROUD, slope=
     au = (ax[0] / n, ax[1] / n)
     U = tuple(R[i] * au[0] + Y[i] * au[1] for i in range(3))
     V = tuple(R[i] * -au[1] + Y[i] * au[0] for i in range(3))
-    tu, tv = asm.tiles[MATERIALS[mat]["fabric"]]
+    tu, tv = asm.tiles[asm.fabric[mat] or MATERIALS[mat]["fabric"]]
     off = ((us & 0xFFFF) / 65536.0, (us >> 16) / 65536.0)
     pr.face(face, N, (P(s0, y0, proud), U, V, tu, tv, *off), conf)
     corners = [(s0, y0, 0.0), (s1, y1, 0.0), (s2, y2, slope), (s3, y3, slope)]

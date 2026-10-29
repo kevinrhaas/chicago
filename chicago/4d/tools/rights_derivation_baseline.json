@@ -876,6 +876,26 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "george_glessner_house_1706_prairie/as_mapped_1904/form.sash_paint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "george_glessner_house_1706_prairie/as_mapped_1904/form.service_wall_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "george_glessner_house_1706_prairie/as_mapped_1904/form.stair_landing_depth_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -1343,6 +1363,26 @@
       "confidence": "inferred"
     },
     "glessner_lee_house_1700_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "glessner_lee_house_1700_prairie/as_mapped_1904/form.sash_paint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1700_1706_construction_1901_photo",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "glessner_lee_house_1700_prairie/as_mapped_1904/form.service_wall_brick": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
@@ -2018,6 +2058,15 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1700_1706_townhouses_photo",
+        "glessner_blog_1708_1706_1700_christmas_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "house_1708_prairie/as_mapped_1904/form.street_front_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1700_1706_construction_1901_photo",
         "glessner_blog_1708_1706_1700_christmas_photo"
       ],
       "sole_support": true,
