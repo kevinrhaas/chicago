@@ -33608,6 +33608,7 @@ the shaded face than on the lit one, as if the lit face were turned toward the c
 stands on the sheet until a camera fitted to the south wall's own courses decides it.
 **How to resolve:** re-solve HABS photograph 1's camera on the south wall; a measured plan.
 **Ticket:** T-3109.
+**Revised:** 2026-10-29 (T-1890): the bay's top is no longer open: the main cornice is carried round it and the slate down over it, recorded in L-kimball-1801-south-bay-top-1890.
 
 ### L-k01-1729-pullman-1880 — 1729 Prairie refined from the district draft to a K01 brownstone house under a mansard, its portico, pavilions and heights read off the Detroit Publishing photograph
 
@@ -35777,4 +35778,32 @@ tree's trunk), so the door is taken as the range's own and stands in 1904.
 ground plan, settles the door's width, step and leaf.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-1890).
+
+### L-kimball-1801-south-bay-top-1890 — 1801 Prairie's south bay under the main cornice and the mansard's slate, from HABS photograph 1
+
+**Decision:** the south wall's canted bay stood two storeys under a low slated hip below the main
+cornice's line, with no cornice of its own, where HABS photograph 1 (June 1965,
+`habs_kimball_photo_01_sw_1965`) carries the house's heavy cornice round the bay at the main
+cornice's height and brings the mansard's slate down over the bay to it, the hooded dormer standing in
+that slate (T-1890). **What is read.** From the print: the cornice running the south wall from the
+round bay at the south-west corner to the south-east corner and wrapping the bay's faces at one
+height; the slate meeting the bay's cornice and running up into the main roof with no break. Built:
+the main moulded stone course (K10's `moulded_stone`) now runs the south wall too (`wall_head`), from
+where the south pavilion's chamfer meets the wall, 1.4 m behind the front and capped there against the
+canted face, to the rear corner, dying into the bay; on the bay the same section is swept round its
+three faces at the main course's 8.34-8.7 m, and over it a slated mansard in the house's own slate.
+**What is invented or held by the kit.** The bay's slate rises 4.4 m at 60 degrees, the height at
+which a face 0.85 m out at that pitch meets the main roof's 69.1-degree lower face, behind which it
+stops on a deck at the kit's 0.1; the print shows the slate meeting the cornice, not the line along
+which the bay's slate meets the main face. The cornice's section is the kit's generic moulded one, as
+on the front: the print's block row under the corona is not built. The bay's far-view copy keeps 0.58
+of its full triangles (its own `light_tier`, because the cornice and the slate stand whole in both
+tiers and one light a storey leaves little to drop). **What is still open.** The bay's place along the
+wall and the hooded dormer's against it: through the re-solved camera the bay renders about 95 px west
+of the print's and the dormer, which the print stands over the bay's front light, beside it.
+**How to resolve:** a camera fitted to the south wall's own courses, or the HABS drawings' south
+elevation, settles the bay's slate and where it meets the main face.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).

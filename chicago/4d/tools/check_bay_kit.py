@@ -568,8 +568,16 @@ def rule_light(full, light, data, v=None):
         # T-1890: a bay may state its own ratio, with its reason, only for an OPEN opening it
         # holds (a loggia's: no sash, blind or curtain there for the light tier to drop)
         k06 = {x["id"]: x for x in K.K6.load()["variants"]}
-        if not any(k06.get(w["opening"], {}).get("operation") == "open" for st in v["storeys"] for w in st["windows"]):
-            fails.append("light: a bay states its own light_tier ratio but holds no open opening to warrant it")
+        # ...or for a bay with one light a storey under a cornice swept round it and a mansard
+        # (1801's south bay, the main cornice and slate carried round it): both stand whole in
+        # either tier, and one light a storey leaves the light tier little sash to drop
+        swept = ((v.get("overrides") or {}).get("eaves") or {}).get("profile") or (v.get("eaves") or {}).get("cornice")
+        dressed = bool(swept) and bool((v.get("roof") or {}).get("mansard")) \
+            and all(sum(len(w.get("at") or [0]) for w in st["windows"]) <= 1 for st in v["storeys"])
+        if not dressed and not any(k06.get(w["opening"], {}).get("operation") == "open"
+                                   for st in v["storeys"] for w in st["windows"]):
+            fails.append("light: a bay states its own light_tier ratio but holds no open opening (or one light "
+                         "a storey under a swept cornice and a mansard) to warrant it")
         elif not str(lt.get("why", "")).strip() or not cv["max_triangle_ratio"] < lt["max_triangle_ratio"] <= 0.65:
             fails.append(f"light: a bay's own light_tier ratio {lt.get('max_triangle_ratio')} must lie over "
                          f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
