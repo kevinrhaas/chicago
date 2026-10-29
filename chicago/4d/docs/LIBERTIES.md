@@ -35730,3 +35730,28 @@ diameter; a carved-corbel course in the K08 kit that follows a curve.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-1890).
+
+### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
+
+**Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
+and its paired light over a blank wall to the walk, where HABS photograph 2 (June 1965,
+`habs_kimball_photo_02_nw_1965`) shows a narrow door on the frontispiece's axis under the round-arched
+light (T-1890). **What is read.** Through the solved camera: the door's place on the frontispiece's axis
+(x 369-382 px), its foot at the walk and its head about 0.6 m under the round light's sill (y 1092 px),
+a dark leaf with a glazed upper panel, and a moulded head over it. Built: a door in `bays.p_door`'s
+lowest storey, the K06 kit's new `k06.opening.door_glazed_narrow` (one leaf, a solid panel to a lock
+rail 0.85 m up and one light of glass over it), 0.75 by 2.0 m in the kit's moulded surround, on the K08
+kit's new `door` key, which runs a light in a grade bay's lowest storey down through the plinth to the
+step and breaks the plinth square either side of it. **What is invented or held by the kit.** Its width
+is fitted to about fourteen pixels of print, and its height is a doorway's, where the camera's grade
+line, about 0.4 m off the print's walk along the whole wall, puts the head about 0.25 m over the
+print's; the panel's mouldings and the ornamental iron the print shows over the glass are not built;
+the leaf takes the house's sash colour; it opens on grade with no step. **Phase.** A 1965 photograph is
+evidence of 1965, but J. W. Taylor's c. 1895 print (`taylor_c1895_kimball_residence_1801`) shows a
+tall framed opening at the walk under the same round-arched light (x 307-317 px, its east jamb behind a
+tree's trunk), so the door is taken as the range's own and stands in 1904.
+**How to resolve:** a nearer picture of the east range's 18th Street wall, or the HABS drawings'
+ground plan, settles the door's width, step and leaf.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-1890).
