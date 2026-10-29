@@ -1,211 +1,793 @@
 {
-  "id": "edson_keith_house_1906_prairie",
-  "name": "1906 Prairie Avenue — Edson Keith Italianate, attribution uncertain (district draft; refined by T-1898)",
-  "aka": [
-    "1906 S. Prairie Avenue",
-    "1908 Prairie Avenue"
+ "id": "edson_keith_house_1906_prairie",
+ "name": "1906 Prairie Avenue \u2014 the Edson Keith house (Italianate stone front; attached 1908)",
+ "aka": [
+  "1906 S. Prairie Avenue",
+  "1908 Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_28"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2329) in place by T-3238 (piece 1 of T-1898), under the draft's own id, as a K01 stone-front Italianate house read off the Chicagology wood engraving of the Edson Keith residence (chicagology_1906_keith_engraving) and the 1906 vignette of the Chicago Tribune's 9 January 1898 strip (chicago_tribune_1898_01_09_residence_district) against the 1911 sheet's plan (s28fp-1906-b1): two storeys over a raised basement under a low hipped roof and a deep bracketed cornice; a canted bay at the front's south end rising a stage past the cornice as a tower; the round-arched door under a porch on columns whose flat top is a balustraded balcony before the arched window over the door; a high stoop between scrolled cheeks onto a balustraded terrace; arched, hooded windows; the sheet's south-flank range and rear wing in brick. 1908, which the sheet draws attached and the T-1841 census rules one building with 1906, is this record's north end. The Chicagology mansard photograph labelled 1906 is the 1900 house (the census ruling r28-1900-1906-photo) and is T-3239's to weigh. What the pictures do not show is reconstructed and listed under liberty L-k01-1906-keith-3238.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+     "sanborn_1911_chicago_v3_sheet_28",
+     "chicago_tribune_1898_01_09_residence_district"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1898 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1906-b1), the T-1841 census (s28-1906-front, s28-1908-wing) and the T-1837 register row frontage-28-044 (Edson Keith Italianate, attribution uncertain); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448434.928,
-        "utm_n": 4634021.337,
-        "rotation_deg": -0.617,
-        "symbolic_location": "1906 S. Prairie Avenue, parcel prairie_1906 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 22.500, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.617 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            21.75,
-            0.0
-          ],
-          [
-            21.75,
-            16.5
-          ],
-          [
-            0.0,
-            16.5
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_28"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  21.75,
-                  16.5
-                ],
-                "from": "s28fp-1906-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -1.5,
-                  -1.5,
-                  16.5,
-                  0.0
-                ],
-                "from": "s28fp-1906-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  -3.0,
-                  7.5,
-                  0.0,
-                  16.5
-                ],
-                "from": "s28fp-1906-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "stone_front",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  21.75,
-                  8.25,
-                  23.75,
-                  15.25
-                ],
-                "from": "s28fp-1906-b1 p3 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
-              }
-            ],
-            "lot_v": [
-              -12.516,
-              18.016
-            ],
-            "street_u": 31.417
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_28"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1906-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1906-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill; s28fp-1906-b1 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 90% of its fill; s28fp-1906-b1 p3 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3441002587,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 6,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1898"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: Italianate stone front with the register's 'deep bracketed cornice'; 1908 is attached and the census rules the two one building, so one record carries both fronts. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3441002587 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-044",
-            "census_ids": [
-              "s28-1906-front",
-              "s28-1908-wing"
-            ],
-            "trace_building": "s28fp-1906-b1",
-            "seed": 3441002587,
-            "replaceable_by": [
-              "T-1898"
-            ],
-            "card": "District draft — refined by T-1898."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the Tribune drew its front in January 1898 with the composition of the undated engraving; nothing read so far records an alteration before 1904.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448434.928,
+    "utm_n": 4634021.337,
+    "rotation_deg": -0.617,
+    "symbolic_location": "1906 S. Prairie Avenue, parcel prairie_1906 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The rear corner of the main body's rectangle (lot frame u 22.500, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.617 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      21.75,
+      0.0
+     ],
+     [
+      21.75,
+      16.5
+     ],
+     [
+      0.0,
+      16.5
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "Two storeys over a raised basement in the engraving and in the 1898 vignette, the south bay rising a third stage as a tower; the 1911 sheet's '3B' is read as counting the raised basement, whose lights stand clear of grade under the terrace."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "'3B brick with stone front' on the 1911 sheet; the census ruling r28-1900-1906-photo calls 1906 a brownstone front."
+    },
+    "principal_floor_m": {
+     "value": 2.34,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The terrace and the porch floor at the stoop's head: the 1898 vignette draws the stoop at about thirteen risers between its cheeks, about 2.4 m at 0.18 m a riser; the engraving's terrace stands at the same height over its basement lights."
+    },
+    "storey_heights_m": {
+     "value": [
+      4.4,
+      5.4
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The principal storey 4.4 m and the chamber storey 5.4 m, through the engraving's solved camera: the chamber's round-headed windows stand about 3 m tall, from sills just over the porch's balcony rail to crowns about 0.95 m under the cornice's bed, and the principal windows' crowns about 0.8 m under the chamber sills; the taller upper storey is the proportion 1612 Prairie's photograph gave (4.15 and 5.38 m). An engraving may stretch its heights, so the camera's solve states the fit, and T-3239 weighs them against the vignette."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' stone front. Liberty L-k01-1906-keith-3238."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' brick flank. Liberty L-k01-1906-keith-3238."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the one K03 panel K01 lays on the brick flanks and rear, which neither picture shows in colour. Liberty L-k01-1906-keith-3238."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "sandstone_brown",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 1,
+      "coping_height_m": 0.25,
+      "corner_bond": [
+       "south"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The sheet's stone front, laid as brownstone on the census ruling r28-1900-1906-photo ('1906 was a brownstone front'); its dressing and the base's rusticated course is the engraving's ashlar lines over its basement lights, and the colour is the ruling's, not a picture's."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "pairs": {
+       "spacing_m": 1.6
+      },
+      "paint": {
+       "color": [
+        0.18,
+        0.14,
+        0.1
+       ]
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The register's and the engraving's deep bracketed cornice: paired scrolled brackets over a panelled frieze on the front and the south flank, the frieze's panels drawn between them. Its paint is reconstructed, a brown with the stone."
+    },
+    "roof_form": {
+     "value": "hip",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "A low hipped roof over the cornice in the engraving, its slopes running back from the front's eave; its top deck and the balustrade the engraving draws on it are open for T-3239."
+    },
+    "roof_pitch_deg": {
+     "value": 25,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The hip's slopes, low behind the cornice in the engraving."
+    },
+    "eave_overhang_m": {
+     "value": 0.75,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The cornice's corona stands well out over its brackets, about 0.75 m on the engraving's proportions."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "painted_tin_sheet",
+      "caps": "copper_ridge_roll"
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: a low hip's tin, which a monochrome engraving does not say. Liberty L-k01-1906-keith-3238."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' tread. Liberty L-k01-1906-keith-3238."
+    },
+    "stair_landing_depth_m": {
+     "value": 2.2,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The porch's floor at the stoop's head, about as deep as its columns stand out from the wall in the engraving."
+    },
+    "stoop_width_m": {
+     "value": 2.4,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district",
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The stoop between its cheeks, about as wide as the door's arch and its jambs in the vignette."
+    },
+    "door_clear_height_m": {
+     "value": 3.0,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The round-arched double door, about as tall as the principal storey's windows in the vignette."
+    },
+    "entrance_bay": {
+     "value": "middle",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The door is the first opening column north of the south bay, under the porch, in both pictures."
+    },
+    "front_bays": {
+     "value": [
+      5.9,
+      9.2,
+      13.9
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "A blind column between the south bay and the porch (no opening of its own), the door's column and one window column north of it, the engraving's two columns on the front's lit face; the south bay stands south of the door (the vignette's composition) and the north end is the sheet's stone front's north end."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.6,
+       "width_m": 1.0,
+       "height_m": 2.4
+      },
+      {
+       "sill_above_floor_m": 0.75,
+       "width_m": 1.0,
+       "height_m": 2.3
+      }
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the flanks' and rear's sash, which no picture measures. Liberty L-k01-1906-keith-3238."
+    },
+    "side_bays": {
+     "value": [
+      18.6
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The south flank's front window column, between the south bay and the range the sheet draws along the flank; the range carries the flank's other windows."
+    },
+    "north_bays": {
+     "value": [],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the north flank stands against 1908's attached wing, so it has no windows. Liberty L-k01-1906-keith-3238."
+    },
+    "rear_bays": {
+     "value": [],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rear wall south of the rear wing is left unlit; its windows are the rear wing's. Liberty L-k01-1906-keith-3238."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.arched_upper": "k06.opening.sash_round_fanlight",
+      "k01.opening.arched_principal": "k06.opening.sash_round_fanlight",
+      "k01.opening.arched_basement": {
+       "variant": "k06.opening.basement_round",
+       "well": false
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "Round-headed windows under hood moulds in both storeys of the front in the engraving and the vignette; their sash is K06's round-headed fanlight sash."
+    },
+    "street_front_openings": {
+     "value": {
+      "rows": [
+       {
+        "component": "k01.opening.arched_basement",
+        "bays": [
+         2
+        ],
+        "sill_m": 0.5,
+        "width_m": 0.9,
+        "height_m": 1.3,
+        "arch_ring_m": 0.25,
+        "keystone_top_m": 2.05,
+        "keystone_m": [
+         0.2,
+         0.3
+        ]
+       },
+       {
+        "component": "k01.opening.arched_principal",
+        "bays": [
+         2
+        ],
+        "storey": 0,
+        "sill_above_floor_m": 0.3,
+        "width_m": 1.3,
+        "height_m": 3.6,
+        "arch_ring_m": 0.3,
+        "keystone_top_m": 6.69,
+        "keystone_m": [
+         0.26,
+         0.45
+        ]
+       },
+       {
+        "component": "k01.opening.arched_upper",
+        "bays": [
+         1,
+         2
+        ],
+        "storey": 1,
+        "sill_above_floor_m": 0.9,
+        "width_m": 1.25,
+        "height_m": 2.95,
+        "arch_ring_m": 0.3,
+        "keystone_top_m": 11.19,
+        "keystone_m": [
+         0.24,
+         0.45
+        ]
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The front's openings in the engraving: the door's column carries the arched window over the porch's balcony; the north column a tall round-headed window in each storey, each under a hood with a keystone, and a round-headed basement light under the terrace."
+    },
+    "street_front_dress": {
+     "value": {
+      "belts": [
+       [
+        2.1399999999999997,
+        2.34
+       ]
+      ],
+      "base_top_m": 0.5,
+      "stone_top_m": 11.19,
+      "frieze": {
+       "s_m": [
+        5.6,
+        7.2,
+        8.8,
+        10.4,
+        12.0,
+        13.6,
+        15.2
+       ],
+       "width_m": 0.62,
+       "sill_m": 11.24,
+       "height_m": 0.28,
+       "panel": true
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving"
+     ],
+     "note": "The engraving's belt at the terrace, the stone to the cornice and the frieze's panels between the brackets."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 9.67,
+       "hood": {
+        "soffit_m": 5.8,
+        "width_m": 4.0,
+        "out_m": 2.2,
+        "fascia_m": 0.5,
+        "cornice": {
+         "height_m": 0.22,
+         "proud_m": 0.2
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.9,
+         "post_m": 0.3,
+         "baluster_m": 0.1,
+         "pitch_m": 0.22,
+         "rail_m": [
+          0.25,
+          0.15
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.32,
+         "plinth_m": [
+          0.4,
+          0.5
+         ],
+         "capital_m": 0.45,
+         "respond_m": 0.2
+        },
+        "railing_fabric": "stone",
+        "fabric": "stone"
+       },
+       "terrace": [
+        {
+         "side": "left",
+         "to_v_m": 4.9
+        },
+        {
+         "side": "right",
+         "to_v_m": 15.25
+        }
+       ],
+       "cheek_form": {
+        "kind": "scrolled",
+        "bow": 1.0
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door (the vignette: 'a flat portico with balustraded balcony and arched window above'; the engraving: its columns and balcony); the terrace with its balustrade across the front from the south bay to the end of the sheet's stone front (v 15.25); the stoop's scrolled cheeks are the engraving's curved flights' ends."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "south_tower",
+       "variant": "k08.tower.octagonal",
+       "wall": "k01.wall.street_front",
+       "s_m": 3.0,
+       "fabric": "front_stone",
+       "plan": {
+        "radius_m": 2.0,
+        "centre_proud_m": 0.0
+       },
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "storeys": [
+        {
+         "height_m": 2.34,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.7,
+           "clear_height_m": 0.8,
+           "sill_m": 0.75,
+           "at": [
+            0.25,
+            0.5,
+            0.75
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "a basement light under the parlour floor, below the stoop's head: basement lights are authored individually (RECONSTRUCTION-RULES.md, Starting ranges: Sash proportions)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.8,
+           "clear_height_m": 3.1,
+           "sill_m": 0.45,
+           "at": [
+            0.25,
+            0.5,
+            0.75
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the south bay's tall round-headed lights, as tall in each stage as the front's arched windows beside them in the vignette and the engraving"
+          }
+         ]
+        },
+        {
+         "height_m": 5.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.8,
+           "clear_height_m": 3.4,
+           "sill_m": 0.5,
+           "at": [
+            0.25,
+            0.5,
+            0.75
+           ],
+           "recess_m": 0.35,
+           "why_not_ordinary": "the south bay's tall round-headed lights, as tall in each stage as the front's arched windows beside them in the vignette and the engraving"
+          }
+         ]
+        },
+        {
+         "height_m": 3.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_round_fanlight",
+           "clear_width_m": 0.8,
+           "clear_height_m": 1.9,
+           "sill_m": 0.6,
+           "at": [
+            0.25,
+            0.5,
+            0.75
+           ],
+           "recess_m": 0.35
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.35,
+        "covering": "tin_flat_seam_painted",
+        "cresting": {
+         "height_m": 0.5,
+         "thickness_m": 0.08
+        }
+       }
+      },
+      {
+       "id": "south_range",
+       "variant": "k08.projection.full_height",
+       "wall": "k01.wall.side.south",
+       "s_m": 8.0,
+       "flush_corner": "left",
+       "fabric": "brick",
+       "plan": {
+        "width_m": 16.0,
+        "proud_m": 1.5,
+        "block": true
+       },
+       "storeys": [
+        {
+         "height_m": 2.34,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.9,
+           "clear_height_m": 0.9,
+           "sill_m": 0.75,
+           "at": [
+            0.2,
+            0.5,
+            0.8
+           ],
+           "why_not_ordinary": "a basement light under the parlour floor: basement lights are authored individually (RECONSTRUCTION-RULES.md, Starting ranges: Sash proportions)"
+          }
+         ]
+        },
+        {
+         "height_m": 4.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 2.4,
+           "sill_m": 0.6,
+           "at": [
+            0.2,
+            0.5,
+            0.8
+           ]
+          }
+         ]
+        },
+        {
+         "height_m": 2.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 1.6,
+           "sill_m": 0.4,
+           "at": [
+            0.2,
+            0.5,
+            0.8
+           ]
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.25,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1906_keith_engraving",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "The south bay: canted, standing on grade at the front's south end and rising one stage past the main cornice under its own bracketed cornice and a low cap with cresting, in both the vignette ('a projecting full-height bay/tower at left under its own cornice') and the engraving; three round-headed lights a stage; its size (2.0 m ring, v 0.6-4.6) is read off the vignette's proportions against the 16.5 m front. The south range: the sheet's brick strip along the south flank (s28fp-1906-b1, rectangle r2, u -1.5 to 16.5 and 1.5 m out), stood full height with the main body because the sheet draws it inside the 3B main part; its windows are reconstructed. The basement lights under the parlour floor (a light under each of the tower's three faces, as each stage above has, and three along the range) are reconstructed: neither picture reads that low, and the front's own basement lights are the precedent."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "north_rear_wing",
+       "rect": [
+        -3.0,
+        0.0,
+        7.5,
+        16.5
+       ],
+       "floor_m": 2.34,
+       "storey_heights_m": [
+        4.4,
+        5.4
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 0.9,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 0.9,
+         "height_m": 2.2
+        }
+       ],
+       "windows": {
+        "rear": [
+         2.2,
+         6.8
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.2,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The sheet's rear wing behind the main body's north half (s28fp-1906-b1, rectangle r3), at the main body's floors; its windows and roof are reconstructed."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 7.0,
+        "v_m": 0.9
+       },
+       {
+        "u_m": 14.0,
+        "v_m": 15.6
+       },
+       {
+        "u_m": 3.0,
+        "v_m": 15.6
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: three stacks on the flank walls; the engraving draws a tall stack over the south flank, which T-3239 places. Liberty L-k01-1906-keith-3238."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "painted_tin_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 0.55
+       },
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 7.0
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED: the rules' gutters and pipes, behind the front. Liberty L-k01-1906-keith-3238."
+    },
+    "boundary": {
+     "value": {
+      "layout": "stone_coping_wall",
+      "street_line_m": 9.67,
+      "lot_s_m": [
+       -12.516,
+       18.016
+      ],
+      "thickness_m": 0.35,
+      "chamfer_m": 0.06,
+      "runs": [
+       {
+        "to_s_m": 7.6,
+        "height_m": 0.6
+       },
+       {
+        "to_s_m": 8.0,
+        "height_m": 0.9
+       },
+       {
+        "to_s_m": 10.4,
+        "opening": true
+       },
+       {
+        "to_s_m": 10.8,
+        "height_m": 0.9
+       },
+       {
+        "to_s_m": 18.016,
+        "height_m": 0.6
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_1906_keith_engraving",
+      "sanborn_1911_chicago_v3_sheet_28"
+     ],
+     "note": "The engraving's low stone wall along the walk, panelled between square piers, with the stoop's opening; its line is the 1904 parcel's street line (draft_plan street_u 31.417) and its ends the lot's."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.9,
+       "top_m": 0.06,
+       "wear_tone": 0.9,
+       "width_m": 1.5
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1898_01_09_residence_district"
+     ],
+     "note": "T-3206's rule (the owner, 2026-10-27: walks, gates and boundaries to the pictures), for the house T-3238 put onto K01. The stoop comes down square to the front wall's opening (s 8.0-10.4); the walk runs from the stoop's foot out through it to the public walk, 1.5 m wide, with the app's own ground either side. RECONSTRUCTED: the walk's flags, their width and wear are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k01-1906-keith-3238."
+    }
+   }
+  }
+ ]
 }

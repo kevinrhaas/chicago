@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 19043774,
+  "content_version": 635440601,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 56 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 6 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 57 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 7 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -676,7 +676,7 @@
         "kind": "structure",
         "id": "elbridge_keith_house_1900_prairie"
       },
-      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Coach house, 1736 Prairie.",
+      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Edson Keith House, 1906 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-32",
@@ -695,10 +695,10 @@
       "id": "stop-33",
       "destination": {
         "kind": "structure",
-        "id": "house_1736_prairie_coach_house"
+        "id": "edson_keith_house_1906_prairie"
       },
-      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
-      "read_s": 13,
+      "text": "Edson Keith House, 1906 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1730 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-33",
         "tour"
@@ -706,7 +706,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1736_prairie_coach_house",
+          "id": "edson_keith_house_1906_prairie",
           "label": "About this building"
         }
       ],
@@ -1395,12 +1395,13 @@
     },
     {
       "id": "stood-33",
-      "text": "Coach house, 1736 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Edson Keith House, 1906 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicago_tribune_1898_01_09_residence_district"
       ],
       "confidence": "inferred",
-      "reasoning": "STANDING IN 1904 rests on the 1911 sheet carried back seven years, as every building on sheets 20, 28 and 35 is read (the T-1840 census rules it present_as_mapped, census row s20-1736-r1). FROM: nothing read here dates the building, so the record claims the 1904 target and no earlier day; the house was built in 1864 or 1875 (house_1736_prairie.built) and its stable is not dated with it. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date."
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the Tribune drew its front in January 1898 with the composition of the undated engraving; nothing read so far records an alteration before 1904."
     },
     {
       "id": "stood-34",
