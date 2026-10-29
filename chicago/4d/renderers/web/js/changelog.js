@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2425, ts: '2026-10-29T21:56:40.388Z', date: 'Oct 29, 2026, 4:56 PM CT', title: 'A gate for Pullman\'s conservatory', kind: 'improvement',
+    items: [
+      'The drive to Pullman\'s conservatory now opens off 18th Street between two stone gate piers, as the 1894 Inland plate shows them in its foreground. Each pier carries a stepped cap, and a low wing curls down from it toward the drive and ends in a rolled scroll.',
+    ] },
   { v: 2424, ts: '2026-10-29T20:57:48.483Z', date: 'Oct 29, 2026, 3:57 PM CT', title: 'The Pullman house\'s pavilion roofs gain their own dormers', kind: 'improvement',
     items: [
       'The forward block over the Prairie Avenue door now has its own dormer on its mansard, where the 1900s photograph shows it. Until now it sat on the roof behind and was hidden.',
