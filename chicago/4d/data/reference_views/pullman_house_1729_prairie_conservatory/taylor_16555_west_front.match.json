@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589"
+      "glb_sha256": "1a49c70d2d980a2467aca9d7c8d3096f8cc77dc836be18394fd4f0d21fa6716c"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "b3658f5d210ad9f50c11462127f086c4e5f5e12461c95cce18a294b02d0292f1",
+  "group_sha256": "a3407e672b286c6afea33a4f8d94fbc09820f1449f76af987fc97284c01f05f4",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,5 +184,5 @@
       "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "1893b2098fa4b31daa98a452095ebeccb3ab857ac059b2286df5d13dbe1f1464",
+  "glb_sha256": "50572f398741efd955c6008d224863e166cab87ddf18c3aab0882ba2e6709e88",
   "camera_sha256": "15a0ef34c0c0d27811045bc9741575cc86a50cb7db8d59abaa8cb22180be1736",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1893b2098fa4b31daa98a452095ebeccb3ab857ac059b2286df5d13dbe1f1464"
+      "glb_sha256": "50572f398741efd955c6008d224863e166cab87ddf18c3aab0882ba2e6709e88"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -61,7 +61,7 @@
         -1.010127527884292
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "4699a5cc737f95cbdf9d65d1a2297a52a40439abbbd3cd769ba25744bea8390e"
+      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_east_end",
@@ -99,13 +99,28 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "64cf883d07802f5a531ad807d9305b8640fbaabee4fdfdffa85c81aedd0effbe"
+      "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
     }
   ],
-  "group_sha256": "449fbe623b9113d35b2b4d2aa3357cd5f293ff707f3cf324f6debf3035ec3b96",
+  "group_sha256": "4a06a0b19bbb310068ab1cf40572eac5b7ba090e5131a4968345f359402c38fb",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
+    {
+      "what": "the east range's eight windows glazed in small panes, a sunk panel under each, a sill course, a base course under the panels, a band over the heads and a cornice line under the coping; the windows narrower than built and set closer to the lodge, with a broad pier at the round end",
+      "status": "fixed",
+      "how": "T-3164: pale panes under dark sash bars (4 x 3), a moulded panel 1.85-3.25 m, courses at 1.6, 3.3, 4.65 and 5.4 m, windows 1.25 m from 3.5 to 4.65 m respaced from 0.15 m at the lodge to a 1.0 m pier at the round end; their places fall within about 3 px of the plate's. The overcast render draws no relief, so the courses and panels show only in the app's sun"
+    },
+    {
+      "what": "the lodge: a two-storey stone building, a tall ground storey with a loggia of three openings under an entablature, a balcony band, one small upper sash, and a steep hipped roof to a flat deck inside an iron cresting",
+      "status": "fixed",
+      "how": "T-3164: rebuilt from the draft's brick block (eave 7.1 m, plain hip, stack on the north-west) to the plate's: stone, storeys of 5.5 and 2.7 m (eave 8.2 m), openings at 0.51, 1.65 and 3.35 m, the band at 5.3-5.9 m, the deck 3.7 m over the eave with its cresting; eave, deck, band and openings fall within about 5 px of the plate's. Lowe's print also shows one stack behind the east slope, where the record now stands it"
+    },
+    {
+      "what": "the upright glass round the transept's arms between the podium and the springing reads as dark lights in pale frames",
+      "status": "fixed",
+      "how": "T-3164: dark panes in 0.12 m pale frames at 0.85 m, with sill, transom and head bars, on each arm's end and sides (it was the roof's pale substitute glass, unframed)"
+    },
     {
       "what": "the conservatory's pointed nave, frame, podium, entrance, transept, drum and dome, as in the plate",
       "status": "fixed",
@@ -127,9 +142,9 @@
       "how": "as the plate's record: the sheet's arm plan is held"
     },
     {
-      "what": "the glazed band's lights have arched heads and the podium is rusticated and panelled; the range's wall is panelled with a base course, its pilasters and the colonnade's columns heavier than built",
+      "what": "the glazed band's lights have arched heads and tracery and the podium is rusticated and panelled; the range's pilasters and the colonnade's columns heavier than built",
       "status": "open",
-      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-3164: the range's panels, sill and base courses are now built; the band's arched heads and tracery, the podium's rustication and the heavier pilasters and columns are not."
     },
     {
       "what": "iron cresting along the transept's crest and the range's coping, and the small ornaments at the nave's apex and the transept's end",
@@ -152,19 +167,34 @@
       "how": "the picture is of 1894-97 and cannot show 1904: the range was lengthened between about 1897 and 1911 and nothing dates it inside that span, so the 1904 record keeps the sheet's range (L-pullman-conservatory-3179). Its north end, which the picture does show, is built to it: a low curved glass roof, eave about 1.9 m, crown about 4.2 m"
     },
     {
-      "what": "the lodge (a two-storey stone building with a bowed front, a recessed columned porch under a balcony and a crested mansard roof) and the gate piers, walks, trees and planting",
-      "status": "not shown",
-      "how": "not this record's: the lodge is pullman_lodge_1800_calumet's (rendered for placement only, still the draft's brick block), the rest the grounds'; the camera's solve says so"
-    },
-    {
       "what": "the glasshouses' south and west sides and the ranges' roofs behind their parapets",
       "status": "not shown",
       "how": "the camera stands north-east of them; the sheet's glass roof is built low behind the parapet"
+    },
+    {
+      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
+      "status": "open",
+      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
+    },
+    {
+      "what": "the lodge's bowed north-east corner with the flared eave over it, the balcony's curved front and balustrade, round columns in the loggia, finials at the deck's corners, and the lower hipped roof over the front's west part",
+      "status": "open",
+      "how": "T-3164: the draft builder draws the loggia as dark openings between square piers and a flat banded balcony; the bow, the balcony's curve and the second roof are not built"
+    },
+    {
+      "what": "the dome and its drum stand about 25 px (0.6 m) west of the plate's (Lowe shows the same, about 20 px)",
+      "status": "open",
+      "how": "T-3164: the dome and drum were enlarged to the plate's width (radius 2.2 m, drum 2.25 m); their place is the transept crossing's, and moving the crossing would move the transept the plate fits well, so this waits on a second reading of the crossing"
+    },
+    {
+      "what": "the gate piers with their scroll wings, the walks, the lawns, the standard trees, the shrubs and the street trees",
+      "status": "open",
+      "how": "T-3164: the owner asked (2026-10-28) that a property's walls and planting be part of its match; none is built on the 1800 Calumet ground yet, and drawing planting into a K13 view needs a front-yard lot for it"
     },
     {
       "what": "the owner's report, 2026-10-28: the greenhouse ground south of 18th Street is way off the photograph; the long range renders as a blank wall with square holes and the lodge in red brick, where the print shows a glazed range on a stone base and a stone lodge, and the pavilion's great arched glass front renders as an opaque gable over a black opening",
       "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
