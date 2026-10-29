@@ -235,6 +235,10 @@ class K01FrontageParams:
         return bool(fp) and op.wall == "k01.wall.street_front" and \
             op.s_m - op.width_m / 2 >= fp["s_m"] - 1e-6 and op.head_m <= fp["hood"]["bed_m"] + 1e-6
 
+    def entrance_block(self):
+        """T-1881: the forward block that carries the entrance on its face, or None."""
+        return next((b for b in self.bays if b.get("entrance")), None)
+
     def worst_conf(self, *attrs: str) -> float:
         """Least-confident wins — the rule from docs/GLB-CONTRACT.md."""
         return max((self.conf(a) for a in attrs), default=1.0)
@@ -1729,7 +1733,19 @@ def _k02(front: dict) -> dict:
         "coping_height_m": coping_h, "coping_fall": t["coping"]["fall"],
         "coping_overhang_m": t["coping"]["overhang_m"], "drip_groove_m": t["coping"]["drip_groove_m"],
         "fabric_roughness": lib[fab]["mean_roughness"], "trim_roughness": lib[trim]["mean_roughness"],
+        # T-1881: or the trim's members cut from the walling's own stone (1729's: every
+        # photograph draws its sills, rings, belts and dressings in the brownstone of the walls,
+        # not a paler stone), laid to dressed_trim's profile numbers in the walling's fabric
+        **({"trim_face": fab} if _trim_in_walling(front) else {}),
     }
+
+
+def _trim_in_walling(front: dict) -> bool:
+    """T-1881: does the record cut its trim from the walling's stone (`trim_in_walling`)?"""
+    t = front.get("trim_in_walling", False)
+    if t not in (True, False):
+        raise ParamError("stone_front.trim_in_walling is true or false")
+    return t
 
 
 #: T-1879: the walls `window_shutters` may name, and how long each runs (depth or width)
@@ -2029,7 +2045,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # with its wall's other corner, and carrying the front's bows on its face (`on_front`)
             if q.get("block") is not None:
                 if q["block"] is not True or not (6.0 < w <= 16.0 and 1.2 < d <= 3.5) \
-                        or e.get("variant") != "k08.projection.full_height" or e.get("flush_corner") is None \
+                        or e.get("variant") != "k08.projection.full_height" \
                         or set(q) - {"width_m", "proud_m", "block"}:
                     raise ParamError(f"bays: {e['id']} is a forward block: a square full-height projection "
                                      f"6-16 m wide and 1.2-3.5 m proud, flush with a corner (has {w} m and {d} m)")
@@ -2037,7 +2053,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # front part (1827's south flank on the 1911 sheet: u 0-14.6 stands 1.6 m out), a plain
             # full-height projection on a side wall, longer and further out than a pavilion
             elif q.get("step") is not None:
-                if q["step"] is not True or not (6.0 < w <= 16.0 and 0.1 <= d <= 2.0) \
+                if q["step"] is not True or not (6.0 < w <= 16.0 and 0.1 <= d <= 2.5) \
                         or e.get("variant") != "k08.projection.full_height" \
                         or e.get("wall") not in ("k01.wall.side.north", "k01.wall.side.south") \
                         or set(q) - {"width_m", "proud_m", "step"}:
@@ -2164,6 +2180,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-1881: a pavilion's mansard slated as the house's own lower faces (1729's: each
+        # forward section carries the main roof's slate round its own curb in every photograph)
+        if v["roof"].get("slated_as_house") is not None:
+            if v["roof"]["slated_as_house"] is not True or not v["roof"].get("mansard"):
+                raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard")
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
         # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
@@ -2423,13 +2444,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             keys = {"at", "width_m", "proud_m", "base_m", "capital_m"}
             lk = {"pitch_m", "gap_m", "margin_m", "relief_m"}
             runs_n = len(v["plan"]["points"]) - 1 if v["plan"]["kind"] == "polyline" else 1
-            ok = isinstance(pl, dict) and set(pl) - {"lozenges", "foot_m", "corbel_m"} == keys and e.get("fabric", "stone") != "frame" \
+            ok = isinstance(pl, dict) and set(pl) - {"lozenges", "foot_m", "corbel_m", "bands"} == keys and e.get("fabric", "stone") != "frame" \
                 and v["base"] == "grade" and isinstance(pl["at"], list) and pl["at"] \
                 and all(set(q) == {"run", "at"} and 0 <= int(q["run"]) < runs_n
                         and q["at"] in ("start", "end", "both") for q in pl["at"])
             if ok:
                 w, d, hb, hc = (float(pl[k]) for k in ("width_m", "proud_m", "base_m", "capital_m"))
-                ok = 0.1 <= w <= 0.6 and 0.02 <= d <= 0.15 and 0.05 <= hb <= 0.4 and 0.1 <= hc <= 0.6
+                ok = 0.1 <= w <= (1.2 if "bands" in pl else 0.6) and 0.02 <= d <= 0.15 and 0.05 <= hb <= 0.4 \
+                    and 0.1 <= hc <= 0.6
+            bd = pl.get("bands") if ok else None
+            if bd is not None:
+                # T-1881: a banded pier's courses and the channels between them (1729's)
+                ok = isinstance(bd, dict) and set(bd) == {"course_m", "channel_m"} and "lozenges" not in pl \
+                    and 0.2 <= float(bd["course_m"]) <= 0.8 and 0.02 <= float(bd["channel_m"]) <= float(bd["course_m"]) / 3
             lz = pl.get("lozenges") if ok else None
             if lz is not None:
                 ok = isinstance(lz, dict) and set(lz) == lk and 0.1 <= float(lz["pitch_m"]) <= 1.0 \
@@ -2438,7 +2465,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if not ok:
                 raise ParamError(f"bays: {e['id']}'s pilasters take at (runs of its plan and start, end or "
                                  f"both), width_m (0.1-0.6 m), proud_m (0.02-0.15 m), base_m (0.05-0.4 m), "
-                                 f"capital_m (0.1-0.6 m) and optional lozenges ({sorted(lk)}), on a stone bay on grade")
+                                 f"capital_m (0.1-0.6 m) and optional lozenges ({sorted(lk)}) or bands (course_m "
+                                 f"0.2-0.8 m, channel_m 0.02 m to a third of it; then up to 1.2 m wide), on a stone "
+                                 f"bay on grade")
             ft, cm = pl.get("foot_m"), pl.get("corbel_m")
             if ok and ft is not None:
                 ft = float(ft)
@@ -2458,7 +2487,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                               "width_m": w, "proud_m": d, "base_m": hb, "capital_m": hc,
                               **({"foot_m": ft} if ft is not None else {}),
                               **({"corbel_m": cm} if cm is not None else {}),
-                              **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {})}
+                              **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {}),
+                              **({"bands": {k: float(bd[k]) for k in ("channel_m", "course_m")}} if bd else {})}
         if "finial" in e:
             # T-1890: a cap's finial read off a picture sizes the kit's spike, never adds one
             # (1801's tower's, about 2.7 m over its cone's apex in the Taylor print)
@@ -2756,6 +2786,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 if e.get("cut_by_entrance") is True and v["kind"] == "projection" and (
                         (a < j0 < b < o.s_m and b - j0 <= 0.5) or (o.s_m < a < j1 < b and j1 - a <= 0.5)):
                     continue
+                # T-1881: or a forward block that CARRIES the entrance on its face (1729's: the
+                # 1911 sheet draws the Prairie front's north part 2.95 m before the rest, its stoop
+                # before it, and the photographs put the door behind the portico on that part):
+                # the door is cut in the block's face, the door, stoop and porch laid out from
+                # it, and the host wall's door stands inside the block
+                if e.get("entrance") is True and v["kind"] == "projection" and (e.get("plan") or {}).get("block") \
+                        and e["wall"] == "k01.wall.street_front" and a + BAY_PIER_M <= j0 and j1 <= b - BAY_PIER_M:
+                    v["door_hole"] = {"x_m": (round(j0 - (a + b) / 2, 4), round(j1 - (a + b) / 2, 4)),
+                                      "y_m": (round(o.sill_m, 4), round(o.head_m, 4))}
+                    continue
                 raise ParamError(f"bays: {e['id']} stands in front of the entrance"
                                  + ("" if not e.get("cut_by_entrance") else
                                     " (cut_by_entrance: true cuts a projection's corner for one jamb, "
@@ -2867,6 +2907,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
+                    **({"entrance": True} if "door_hole" in v else {}),
                     # T-3101: a canted cheek seats the bay part by part on its wall
                     **({"canted": True} if any(float((e.get("plan") or {}).get(k, 0.0))
                                                for k in ("cant_left_m", "cant_right_m")) else {}),

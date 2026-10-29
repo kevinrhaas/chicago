@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 842,
+  "count": 843,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59708,6 +59708,43 @@
       ],
       "work_refs": [
         "T-1934"
+      ]
+    },
+    {
+      "id": "L-k01-1729-pullman-massing-1881",
+      "title": "1729 Prairie's forward block, 18th Street pavilion, porte-cochere and 18th Street wall re-read off the 1911 sheet and both photographs",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Pullman house (reopened on the owner's report of 2026-10-28 that it was \"still way off from a photographic match\") stands its two projections again, each carried full height under its own mansard, where later work had taken the 18th Street one off and the Prairie front stood flat behind pavilion piers: a forward block over the door on the Prairie front (`bays` p forward, 6.5 m wide and 2.95 m proud, v 2.0-8.5) with banded corner piers and two round-arched lights on its second storey, and the 18th Street pavilion (p 18th, s 8.3-18.55, 2.47 m out) with the pair and triple of narrow round-headed lights Taylor's photograph no. 1445 draws over the porte-cochere. The porte-cochere moves to the 1911 sheet's footprint (s 8.25-12.75, 5.97 m out), in front of the pavilion. The 18th Street coping wall is carried on past the house to u 8.6 with three square piers and a lower course between the first two. **What is read, not invented.** The block's and the pavilion's plan off the 1911 sheet's outer lines; their standing forward under their own cornices and mansards in the Detroit print, Taylor's no. 1445 and the 1890 Albertype plate; the pavilion's lights and the wall's piers and heights through Taylor's solved camera (the taylor 1445 album data). **What is invented.** The places of the block's two upper lights on its front (taken symmetric: the Detroit print shows them either side of a tree); the banded piers' 0.4 m courses and 0.9 m width (the front's pavilion piers'); the porte-cochere's west and east arches 0.5 m in from Taylor's reading (the kit's least corner pier) and its front arch 0.3 m west of it; the piers' 0.9 m section and caps."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a closer photograph of the Prairie front or of the 18th Street wall, or the house's drawings."
+        },
+        {
+          "label": "Subjects",
+          "text": "1729 Prairie Avenue — the George M. Pullman house. The bays, porte-cochere and boundary are inferred from the sheet and the photographs; the invented details above are described here without claiming those inferred values as invented ones."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-1881)."
+        }
+      ],
+      "work_refs": [
+        "T-1881",
+        "T-3161"
       ]
     },
     {
