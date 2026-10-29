@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2420, ts: '2026-10-29T18:58:53.753Z', date: 'Oct 29, 2026, 1:58 PM CT', title: '1906 Prairie\'s tower brought down to its 1898 picture', kind: 'improve',
+    items: [
+      'The Edson Keith house at 1906 Prairie now matches the Tribune\'s 1898 sketch of its front: the tower at its south end is broader and stops just above the cornice, the porch is wider, and a turned stone balustrade runs along the terraces and down the stoop. The mansard photograph long captioned 1906 is the house next door, at 1900.',
+    ] },
+  { v: 2419, ts: '2026-10-29T18:38:42.329Z', date: 'Oct 29, 2026, 1:38 PM CT', title: '1720 Prairie lined up on its door, and painted a stone colour', kind: 'fix',
+    items: [
+      'The door, the porch\'s middle arch and its stair, the hood, the window over it, the attic window and the front gable now share one axis down the middle of the front.',
+      'The upper storey\'s windows are spread evenly either side of it, clear of the bay, and the gate and front walk come straight out from the stair.',
+      'The walls are a light fawn stone colour, not white: the old photograph shows them clearly darker than their trim, and the colour analysis is in the research notes.',
+      'The photograph has the door a little north of the porch\'s middle; the owner asked for it centred, and it is recorded as a liberty.',
+    ] },
   { v: 2418, ts: '2026-10-29T18:19:40.871Z', date: 'Oct 29, 2026, 1:19 PM CT', title: 'Pullman\'s 18th Street wall gets its urn', kind: 'improvement',
     items: [
       '1729 Prairie\'s 18th Street wall now carries the stone urn that the 1894 Inland Architect plate shows on its fifth pier, in front of the stable. Read at full size, it is a single squat lidded urn about 0.4 m across. The turned shape is the shared kit\'s; the size comes from the plate.',

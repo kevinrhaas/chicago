@@ -331,9 +331,9 @@
     "edson_keith_house_1906_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5104876,
+      "bytes": 6103324,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d789a20fdb9aabdd32fa36ab79b6b51ef8aeb9336a1c8b436c312982115f619f",
+      "inputs_sha256": "2090b8e5f0df789faefa3a624229393272fa97983791ea9282cd1b18d61fb736",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "edson_keith_house_1906_prairie"
