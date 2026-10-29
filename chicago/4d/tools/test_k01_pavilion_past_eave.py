@@ -82,8 +82,12 @@ def closed_back(a, plane, back, span, y0, y1):
         if min(q[1] for q in tri) < y0 - 1e-6:
             continue
         (s0, h0), (s1, h1), (s2, h2) = [(q[other], q[1]) for q in tri]
-        top = max(top, max(q[1] for q in tri))
-        clip = min(q[1] for q in tri) < y1 - 1e-6 and span[0] - 1e-3 <= min(s0, s1, s2) and max(s0, s1, s2) <= span[1] + 1e-3
+        within = span[0] - 1e-3 <= min(s0, s1, s2) and max(s0, s1, s2) <= span[1] + 1e-3
+        # T-1890: its own top, not another bay's on the same plane (1801's south bay, beside
+        # the wall gable on the south wall, carries its slate up past the gable's wall top)
+        if within:
+            top = max(top, max(q[1] for q in tri))
+        clip = min(q[1] for q in tri) < y1 - 1e-6 and within
         if clip:
             area += abs((s1 - s0) * (h2 - h0) - (s2 - s0) * (h1 - h0)) / 2
     return area, top
@@ -106,7 +110,13 @@ def main() -> int:
     a = K1.build(p, SID)
     D, W = p.depth_m, p.width_m
     walls = {"k01.wall.street_front": ((0, D - 0.001), (-1.0, 0.0, 0.0), lambda s: (-s, 0.0)),
-             "k01.wall.side.south": ((2, -0.001), (0.0, 0.0, -1.0), lambda s: (s, 0.0))}
+             "k01.wall.side.south": ((2, -0.001), (0.0, 0.0, -1.0), lambda s: (s, 0.0)),
+             # T-1890: the side wall at v = W (1801's south wall, its rear corner's wall gable)
+             "k01.wall.side.north": ((2, -W + 0.001), (0.0, 0.0, 1.0), lambda s: (D - s, 0.0))}
+    # T-1890: a roof point (x, y, -v) as (out of its wall's plane, along it), for each wall
+    frames = {"k01.wall.street_front": lambda q: (q[0] - D, -q[2]),
+              "k01.wall.side.south": lambda q: (q[2], q[0]),
+              "k01.wall.side.north": lambda q: (-q[2] - W, D - q[0])}
     for b in p.bays:
         # T-3001: a pavilion on a rear wing's wall stands past no main eave; test_k01_wing_tower
         # holds it to its wing
@@ -148,15 +158,16 @@ def main() -> int:
             sb = next(x for x in a.shallow_bays() if x[0]["id"] == b["id"])
             _, _, _, proud, behind = sb
             pts, _ = a.roof_shell
-            inside = lambda q: s0 + 0.01 < -q[2] < s1 - 0.01
-            check(not any(inside(q) and q[0] > D + proud + 1e-3 for q in pts),
+            ns = frames[b["wall"]]
+            inside = lambda q: s0 + 0.01 < ns(q)[1] < s1 - 0.01
+            check(not any(inside(q) and ns(q)[0] > proud + 1e-3 for q in pts),
                   f"{b['id']}: no eave box or covering in front of its {proud} m face")
             sills = [h for h in holes if h[2] > p.eave_m]
-            check(sills and not any(inside(q) and q[0] > D - behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
+            check(sills and not any(inside(q) and ns(q)[0] > -behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
                                     < max(h[3] for h in sills) + 0.01 for q in pts),
                   f"{b['id']}: nor in its recesses' {behind:.2f} m behind the plane")
             gut = [q for name, pr in a.prims.items() if name.startswith("k04_") for q in pr.pos
-                   if inside(q) and abs(q[1] - p.eave_m) < 0.5 and q[0] > D]
+                   if inside(q) and abs(q[1] - p.eave_m) < 0.5 and ns(q)[0] > 0.0]
             check(not gut, f"{b['id']}: and no gutter across it ({len(gut)} vertices)")
 
     # 1812's projection stops at its eave: nothing is added behind it
