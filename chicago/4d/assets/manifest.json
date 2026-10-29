@@ -4085,7 +4085,7 @@
       "baked_ao": false,
       "bytes": 337736,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d12cb68b4c687dc92e73e2677f1381f44f68c03d74d02749c7643ebbd744ed70",
+      "inputs_sha256": "cf06c91545c08e1b464ff5cb6a35cc763bb8c3373220c778a2d06f71dc864d4a",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east"
@@ -4095,7 +4095,7 @@
       "baked_ao": false,
       "bytes": 183688,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "243356bb59f2f1f914973012bd42e6768b153cfaf1920681969f414da9f9b516",
+      "inputs_sha256": "023dc7cfe914c2edb1a6c7228db10f423f4357b613ece5e056e14d7134b57452",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_east_end"
@@ -4105,7 +4105,7 @@
       "baked_ao": false,
       "bytes": 692204,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "08e7d16817075909157c8db6c9da1df6b05de2975585b1fcb357f0bdd8f373bb",
+      "inputs_sha256": "32852fb87def9b99f52e5129a9bf30b17c4728b2f77e72116a1c12acd04bd9b2",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_north"
@@ -4113,9 +4113,9 @@
     "pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 816628,
+      "bytes": 839192,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "97a9637232507c5c388af26a39578762c51be06153febf8aae997984db71318e",
+      "inputs_sha256": "6fc39704b64d71f2e4f26a99128510ab7ee37721051c1f70bdaef14d5d6edc3b",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion"
@@ -4135,7 +4135,7 @@
       "baked_ao": false,
       "bytes": 433796,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "1da88251d74b3dcb8d72078716dc66d645649fb0ef16eb28e9f821cd1b0ffb15",
+      "inputs_sha256": "d8ab113826fb4a996c2ce9f16cd34569137c6a85a4112b0d348d11dda26882c2",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
