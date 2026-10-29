@@ -36054,12 +36054,14 @@ stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see
 
 ### L-k01-hibbard-1701-3241 — 1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph
 
-**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.hip_deck`, `hibbard_house_1701_prairie.as_mapped_1904.form.corner_porch`, `hibbard_house_1701_prairie.as_mapped_1904.form.bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_pitch_deg`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.chimneys`
+**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`
 
 **Decision:** T-3241 (piece 2 of T-1875) builds three things Chicagology's photograph of the
 Hibbard house shows and T-3240 left out, each read through the camera T-3240 solved
 (`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`), and each a kit piece
-other houses can use: the hip cut off level at a railed deck (`hip_deck`, new module
+other houses can use (the deck, the porch, the range, the pitch and the stacks are graded `inferred`
+on the photograph, each note saying what is read and what is not; this entry lists their inventions
+together): the hip cut off level at a railed deck (`hip_deck`, new module
 `generators/archetypes/k01_hip_deck.py`; K05's own hip is untouched), the lower south range (a K08
 projection's new `range` plan, a flat-topped block 1.2-4 m out from a side wall), and the corner
 porch (`corner_porch`, the 1729 porte-cochere's arcade, entablature and balustrade laid on the
