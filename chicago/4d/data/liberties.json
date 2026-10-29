@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 864,
+  "count": 865,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60471,6 +60471,49 @@
         {
           "label": "Covers",
           "text": "`pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-gate-1800-calumet-3164",
+      "title": "The Pullman glasshouse ground's gate on 18th Street: two stone piers with scroll wings, placed through the plate's camera",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1894 Inland plate (Inland Architect Press. Conservatory of Geo) draws in its foreground the gate where the drive to the conservatory leaves 18th Street, and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) shows the same gate with children beside it. No plan draws it: the 1911 sheet shows no gate, and the grounds have no record of their own, so the gate is built on the conservatory's record, whose entrance the drive leads to. Two square stone piers, 0.8 m, on a 0.3 m plinth, under a cap of three plain courses to 2.2 m; from each a wing 0.5 m thick returning 1.15 m along the street line toward the drive, its top sweeping down from 1.1 m at the pier to a scroll's roll at 0.76 m over a 0.55 m block at the drive's edge. Their places and sizes are read through the plate's solved camera, whose eye height was itself set on the walk's back at these piers: their fronts at about 0.6 m inside the lot's 18th Street line, the west pier's east face 4.1 m east of the conservatory's east wall line, the drive 4.1 m wide between the wings' ends. **What is invented.** The piers' depth (taken as their width: square), the cap's mouldings drawn as plain courses, the sweep's curve, the wings' thickness, and the stone, taken as the conservatory podium's because the piers' lit faces read its tone; the carving on the wings' faces and the sunk panels on the piers are not built. **What is not.** The gate's place, the piers' widths and heights, the wings' lengths, heights and scrolls, and the drive's width, which the plate shows and its camera measures."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer picture of the gate, or a survey of the estate's grounds, gives the piers' depth, the mouldings and the carving."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
         },
         {
           "label": "Review",
