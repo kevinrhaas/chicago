@@ -35985,6 +35985,32 @@ plan, the balcony's parapet and the columns' orders.
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
+### L-pullman-lodge-west-part-3164 — The Pullman lodge's front in two parts: the west part's own lower hipped roof, and the loggia block set 2 m behind it
+
+**Decision:** the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested
+deck. The 1894 Inland plate (`inland_1894_pullman_conservatory`) and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) both draw its north front in two parts: west of the loggia's
+west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the
+loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the
+deck's height (T-3164). It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a
+hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both
+pictures put the step at about 2 m (the return's width and the eave's rise through the solved
+cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge,
+and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the
+range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures
+draw it (x 940 on the plate, 576 on Lowe's print).
+**What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m)
+and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and
+the north range's glass end against the loggia block, which no picture shows either (both pictures
+predate the north range).
+**What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height
+against the deck, which both pictures show.
+**How to resolve:** a picture of the lodge from the west or the north-west, or a plan from before the north
+range was built, gives the part's depth and which face the sheet drew.
+**Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
