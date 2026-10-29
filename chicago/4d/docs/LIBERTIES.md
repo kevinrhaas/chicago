@@ -36105,3 +36105,25 @@ gable's width, depth and the cornice's run under it.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
+
+### L-kimball-1801-gable-cornice-1890 — 1801 Prairie's main cornice carried on under the wall gable's lights, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) carries the heavy main
+cornice on under the wall gable's pair of lights to the south wall's rear corner (y 617-663 px, to
+x 1238), where the build had stopped K10's moulded course and the mansard's eave box square at the
+gable's west cheek (L-kimball-1801-se-wall-gable-1890, its "still open"). The gable now carries
+`cornice_across` (T-1890): K10's course runs on in front of the gable's face to the corner and is
+capped there, the eave box runs on with it, and only the slate over the box is cut away before the
+face, leaving the box's top as a ledge under the lights; the gutter still stops at the gable's west
+cheek. **What is read.** The cornice's run and height under the lights, against the print through
+its solved camera. **What is invented or held by the kit.** The course's section is the kit's
+generic one, as along the rest of the wall (L-kimball-1801-carved-stone-3002); the box's ledge and
+the gutter's stop under the gable, and the course's end at the corner (capped, where the print turns
+out of sight behind the corner), are not shown and are reconstructed. **What is still open.**
+Nothing in this view; the gable's depth and west half stay as L-kimball-1801-se-wall-gable-1890 has
+them.
+**How to resolve:** the HABS drawings' south or east elevation, or a view of the rear, shows how the
+cornice ends at the corner.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-29 (T-1890).

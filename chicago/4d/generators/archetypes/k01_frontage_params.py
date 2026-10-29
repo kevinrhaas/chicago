@@ -2797,6 +2797,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
         # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
         # a projection, only at the corner it names, and then exactly at it
+        if e.get("cornice_across") is True and not v.get("shallow"):
+            raise ParamError(f"bays: {e['id']}: cornice_across is a shallow pavilion's (T-1890)")
         flush = e.get("flush_corner")
         if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
@@ -3019,6 +3021,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"corner": corner} if corner else {}),
                     **({"across_corner": across} if across else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
+                    **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
