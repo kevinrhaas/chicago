@@ -2,7 +2,7 @@
   "structure_id": "edson_keith_house_1906_prairie",
   "view": "chicagology_engraving_southeast",
   "glb": "assets/gltf/edson_keith_house_1906_prairie__as_mapped_1904.glb",
-  "glb_sha256": "758c0831ae976d1da0ecc83d0d18955856b87ced3a5aec54f54529b658d59b58",
+  "glb_sha256": "0e73a8f4b57efd06911391e630e083343a88c1b6050215b7b85f4ac2e910f640",
   "camera_sha256": "55d2a027939fbba527a7245284fbf9a4c89504e27c874a9c212a775bde4a5ffd",
   "photo_sha256": "e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3",
   "side_by_side": "docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg",
@@ -29,28 +29,28 @@
       "status": "fixed"
     },
     {
-      "what": "the porch: the engraving draws its balcony about twice as wide as the window spacing beside it allows (x 740-867 px against the render's narrower porch) and the window over the door at the balcony's north end; the porch's width and the place of the door under it want the 1898 vignette's camera beside this one (T-3239)",
+      "what": "the porch: the engraving draws its balcony about twice as wide as the window spacing beside it allows (x 740-867 px) and the window over the door at the balcony's north end. T-3239 widens the porch from 4.0 to 5.0 m (v 6.7-11.7), the 1898 vignette's portico (about 4.7 m against the door-to-window spacing, its camera tribune_1898_front); the vignette draws the window over the door on the door's axis, as built, so where it stands is a gap the two pictures disagree about",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the left of the picture: the engraving's large block at the south flank's front, with its own bracketed cornice, a columned porch under a balustraded balcony and round-headed windows, and the terrace's balustrade running before it (x 100-430 px); the render has the sheet's brick range along the flank instead. Neither the vignette nor the c. 1914 elevation drawing sees the flank, so nothing confirms or sizes it, and K01 stands a porch and balcony only at the entrance (k07 door hood) or as a terrace loggia at the stoop: a side porch on a flank pavilion is more than this sign-off's run, so it stays open here under AGENTS.md rule 11",
       "status": "open"
     },
     {
-      "what": "the left of the picture: the engraving's large block at the south flank's front, with its own bracketed cornice, a columned porch under a balustraded balcony and round-headed windows (x 100-430 px); the render has the canted bay at the front's south end and the sheet's brick range along the flank instead (T-3239)",
+      "what": "the tower: the render's south bay rose a full 3.4 m stage over the cornice, narrow (a 2.0 m ring); the engraving's is lower and broader, and the vignette and the c. 1914 elevation drawing both stop it at about the main cornice. T-3239 broadens the ring to 2.6 m (v 0.4-5.6, the vignette's tower about 5.5 m across) and lowers it to four stages of 2.34, 4.4, 3.5 and 3.0 m, its wall head 13.24 m, 1.1 m over the main wall's 12.14 m (the least K01 lets a tower clear its host's eave by is 1.0 m) under its hipped cap with cresting",
+      "status": "fixed"
+    },
+    {
+      "what": "the roof's balustraded deck and its tall stack over the south flank, which the render does not have; the c. 1914 elevation drawing agrees, drawing the hip flat-topped with a tall stack at the south end. K01's hip roof takes no railed deck (only a flat roof is a deck, behind parapets), so it stays open here",
       "status": "open"
     },
     {
-      "what": "the tower: the render's canted bay rises a full stage over the cornice, narrow and tall; the engraving's tower stage is lower and broader, with cresting, near the top left of the main roof (x 270-330, y 10-130 px)",
-      "status": "open"
+      "what": "the curved flights of the stoop's foot: the engraving splays them out to the walk; the 1898 vignette draws the flight straight between its cheeks, ending at block newels, as built (scrolled cheek ends rather than newels): a gap the two pictures disagree about",
+      "status": "within tolerance"
     },
     {
-      "what": "the roof's balustraded deck and its tall stack over the south flank, which the render does not have",
-      "status": "open"
-    },
-    {
-      "what": "the curved flights of the stoop's foot: the engraving splays them out to the walk; the render's stoop is straight between scrolled cheeks",
-      "status": "open"
-    },
-    {
-      "what": "the terrace's balustrade along the front's south part, before the basement lights (x 100-560 px)",
-      "status": "open"
+      "what": "the terrace's balustrade: T-3239 sets the turned stone balustrade (1620's, K07) on both terraces and down the stoop's cheeks, as the engraving and the vignette both draw it, from the south tower to the stoop and from the stoop to the stone front's north end; its run before the flank's block is that block's (open above)",
+      "status": "fixed"
     },
     {
       "what": "colour: the engraving is monochrome; the brownstone front and the brick flanks are the census ruling's and the rules'",
