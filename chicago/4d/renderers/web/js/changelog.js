@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2404, ts: '2026-10-29T09:31:28.097Z', date: 'Oct 29, 2026, 4:31 AM CT', title: 'The Kimball house\'s 18th Street corner turns round, as photographed', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the tall section on the 18th Street side now has a rounded west corner above its row of corbels, with one small window in the curve and a stone railing on top. The c. 1895 and 1965 photographs both show it this way. Before, the corner was square.',
+    ] },
+  { v: 2403, ts: '2026-10-29T08:40:51.825Z', date: 'Oct 29, 2026, 3:40 AM CT', title: '1901 Prairie\'s stoop cheeks pierced, and its photograph dated', kind: 'improvement',
+    items: [
+      'The two stone cheeks beside the Ream house\'s front steps are now pierced by a row of five openings under their coping, as the photographs show them.',
+      'The 1893 Pictorial Chicago plate of the house joins its sources: it is the same photograph long captioned 1898, so the picture dates from 1893 or before.',
+      'The steps themselves still stand taller beside the porch than the pictures show; that is the next thing to match.',
+    ] },
   { v: 2402, ts: '2026-10-29T07:51:18.234Z', date: 'Oct 29, 2026, 2:51 AM CT', title: 'Walks and gates for the Glessner townhouses, 1700-1706 Prairie', kind: 'feature',
     items: [
       'Each of the two houses now has a flagstone walk from the sidewalk to its porch steps, through a pair of iron gates standing open.',

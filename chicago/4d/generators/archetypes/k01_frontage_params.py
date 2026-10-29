@@ -1936,7 +1936,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
     one of the house's floors (`base_m`), the record may set its corbel courses and size
     its canted plan, and its wall top stays a metre under the main eave — unless the
     record carries it `through_eave` (T-2778), under a spire, its back closed over the
-    wall head. `eave_front` is the height of the house eave's front edge, its fascia's top
+    wall head. Or it rounds a projection's corner (`over_corner`, T-1890): a bow on one of
+    that projection's storey lines whose ring buries the corner, to the projection's own wall
+    top over the eave, its back closed on the wall plane from the eave up (`back_over`).
+    `eave_front` is the height of the house eave's front edge, its fascia's top
     (the eave datum when not given), which a through-eave oriel's walls must clear (T-2989).
     """
     import copy as _copy
@@ -1951,13 +1954,40 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if v["kind"] not in BAY_KINDS or (v["base"] != "grade") != oriel:
             raise ParamError(f"bays: {v['id']} is a {v['kind']} off {v['base']}; a K01 frontage carries "
                              f"a bay, a projection or a tower on grade, or an oriel on its corbels")
+        over = None
         if oriel:
             base = float(e.get("base_m", -1.0))
-            if not any(abs(base - y) < 1e-6 for y in floors[1:]):
+            # T-1890: or an oriel rounding a projection's corner (1801's 18th Street section, its
+            # west corner turned round over the corbel table in the Taylor print and HABS
+            # photograph 2): its base one of that projection's storey lines, not the house's
+            if e.get("over_corner") is not None:
+                oc = e["over_corner"]
+                host = next((x for x in out if x["id"] == oc.get("of")), None) if isinstance(oc, dict) else None
+                lines = ([round(sum(float(st["height_m"]) for st in host["variant"]["storeys"][:i]), 6)
+                          for i in range(1, len(host["variant"]["storeys"]))] if host is not None else [])
+                if host is None or set(oc) != {"of", "corner"} or oc["corner"] not in ("left", "right") \
+                        or host["variant"]["kind"] != "projection" or host["wall"] != e["wall"] \
+                        or not any(abs(base - y) < 1e-6 for y in lines):
+                    raise ParamError(f"bays: {e['id']} rounds the corner of a projection laid before it on the "
+                                     f"same wall (`over_corner`: of, corner left or right), its base_m one of "
+                                     f"that projection's storey lines {lines}")
+                over = (host, oc["corner"])
+            elif not any(abs(base - y) < 1e-6 for y in floors[1:]):
                 raise ParamError(f"bays: {e['id']} is an oriel; its base_m stands on one of the upper floors {floors[1:]}")
             v["base"] = base
             if "corbel" in e:
                 v["corbel"] = {"courses": int(e["corbel"]["courses"])}
+                # T-1890: a corner round's courses step back only `reach_m` from its face, onto
+                # the projection's corbel table and the house's cornice under it, not to the wall
+                if "reach_m" in e["corbel"]:
+                    cb = json.loads(BAY_KIT.read_text())["parts"]["corbel"]
+                    reach, K = float(e["corbel"]["reach_m"]), v["corbel"]["courses"]
+                    if over is None or set(e["corbel"]) != {"courses", "reach_m"} or not 0.1 <= reach \
+                            or reach / (K + 1) > cb["max_oversail_ratio"] * cb["course_height_m"] + 1e-9:
+                        raise ParamError(f"bays: {e['id']}'s corbel reach_m is a corner round's alone, and its "
+                                         f"{K} courses cannot carry {reach} m (each oversails at most "
+                                         f"{cb['max_oversail_ratio']} of its {cb['course_height_m']} m)")
+                    v["corbel"]["reach_m"] = reach
             # T-2883: or an apron in the corbel courses' place, a flat face down to a moulded foot
             if "apron" in e:
                 ap = e["apron"]
@@ -2766,7 +2796,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             bottom = K8.support_bottom(v)
             top += v["base"]
             spire = v["roof"].get("kind") == "spire"
-            if e.get("through_eave"):
+            if over is not None:
+                # T-1890: a corner round: a bow whose ring buries its host's corner (at least
+                # 0.15 m of its walling round it), its wall top the host's own, standing over the
+                # house's eave; its back is closed on the wall plane from that eave to its wall
+                # top, over the stretch of its plan the host does not stand in front of
+                host, side = over
+                q = v["plan"]
+                hp = host["variant"]["plan"]["points"]
+                proud_h = max(z for _, z in hp)
+                edge = host["span_m"][0] if side == "left" else host["span_m"][1]
+                htop = sum(float(st["height_m"]) for st in host["variant"]["storeys"])
+                if q["kind"] != "bow" or e.get("through_eave") or spire:
+                    raise ParamError(f"bays: {e['id']} rounds a corner as a bow (chord_m, rise_m) under its own "
+                                     f"cap, not through the eave")
+                h_, rise = q["chord_m"] / 2, q["rise_m"]
+                R = (h_ * h_ + rise * rise) / (2 * rise)
+                if math.hypot(edge - s, proud_h - (rise - R)) > R - 0.15 + 1e-9 or abs(top - htop) > 1e-6 \
+                        or not v["base"] > eave + 0.3:
+                    raise ParamError(f"bays: {e['id']} rounds {host['id']}'s {side} corner: its ring must bury the "
+                                     f"corner under 0.15 m of walling, its wall top must be {htop:.2f} m (has "
+                                     f"{top:.2f}), and its base 0.3 m over the eave ({eave:.2f} m)")
+                x0, x1 = (-h_, edge - s) if side == "left" else (edge - s, h_)
+                v["back_over"] = {"x": [round(x0, 6), round(x1, 6)], "y": [eave, top]}
+            elif e.get("through_eave"):
                 # T-2778: an oriel carried up through the eave (1623's, from its drawing): its
                 # upper stage stands clear over the main roof under a spire, the house's eave,
                 # gutter and bed moulding die into its cants (so its front stands past them),
@@ -5215,10 +5268,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         ters = ters if isinstance(ters, list) else [ters] if ters else []
         if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
-                or set(cf) - {"kind", "foot_block_m", "bow"}:
+                or set(cf) - {"kind", "foot_block_m", "bow", "pierced"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
-                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m "
-                             "and with a bow")
+                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m, "
+                             "with a bow and pierced")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5233,6 +5286,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.cheek_form.bow: a scrolled cheek's sweep falls with a power of 1 "
                                  "(straight) to 2 (the concave default)")
             door_kit["cheek_form"]["bow"] = bw
+        # T-3186: a row of openings through both cheeks under their coping (1901's, the 1893 plate)
+        if "pierced" in cf:
+            pc = cf["pierced"]
+            if not isinstance(pc, dict) or set(pc) != {"count", "hole_m", "under_m", "span_m"} \
+                    or not 1 <= int(pc["count"]) <= 12 or len(pc["hole_m"]) != 2 \
+                    or not 0.05 <= float(pc["hole_m"][0]) <= 0.5 or not 0.05 <= float(pc["hole_m"][1]) <= 0.4 \
+                    or not 0.05 <= float(pc["under_m"]) <= 0.3 or not 0.3 <= float(pc["span_m"]) <= 6.0:
+                raise ParamError("entrance_kit.cheek_form.pierced on a scrolled cheek is {count 1-12, hole_m "
+                                 "[0.05-0.5 along, 0.05-0.4 high], under_m 0.05-0.3 under its top, span_m 0.3-6 "
+                                 "along the sweep from its head}")
+            door_kit["cheek_form"]["pierced"] = {"count": int(pc["count"]),
+                                                 "hole_m": [float(x) for x in pc["hole_m"]],
+                                                 "under_m": float(pc["under_m"]), "span_m": float(pc["span_m"])}
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
