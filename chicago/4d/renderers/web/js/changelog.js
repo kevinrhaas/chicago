@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2406, ts: '2026-10-29T11:08:18.778Z', date: 'Oct 29, 2026, 6:08 AM CT', title: 'The Kimball house gets its side door on 18th Street', kind: 'improvement',
+    items: [
+      'The Kimball house\'s east range now has its narrow side door on 18th Street, under the small round-arched window, as the 1965 survey photograph and the c. 1895 print both show it: a dark leaf with a glass panel in a carved stone frame, cut down through the base course to the walk.',
+    ] },
   { v: 2405, ts: '2026-10-29T10:20:22.887Z', date: 'Oct 29, 2026, 5:20 AM CT', title: 'Pullman\'s conservatory arch drawn smooth, with its iron cresting', kind: 'improvement',
     items: [
       '1904, 18th Street east of Prairie: the Pullman conservatory\'s great pointed arch is now one smooth curve, as the 1894 plate and the c. 1897 photograph show it, where it was four flat facets a side; the transept and the dome round off with it.',
