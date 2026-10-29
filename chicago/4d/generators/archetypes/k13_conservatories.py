@@ -1755,10 +1755,28 @@ def _dome(h: House, d: dict, cx: float, cz: float, y0: float, role: str = "dome"
                                 (cx + o1 * c + ux * w / 2, yb, cz + o1 * s_ + uz * w / 2),
                                 (cx + o1 * c - ux * w / 2, yb, cz + o1 * s_ - uz * w / 2)], (c, 0.5, s_))
     top = y0 + d["rise_m"]
+    if d.get("finial_profile"):
+        _turned(h, "dome_rib", cx, cz, top, d["finial_profile"])
+        return top + d["finial_profile"][-1][1]
     if d.get("finial_m"):
         _prism(h, "dome_rib", [(cx + 0.08 * math.cos(math.tau * k / 6), cz + 0.08 * math.sin(math.tau * k / 6))
                                for k in range(6)], top - 0.05, top + d["finial_m"])
     return top + d.get("finial_m", 0.0)
+
+
+def _turned(h: House, role, cx: float, cz: float, y0: float, profile, sides: int = 8):
+    """T-3164: a turned ornament on (cx, y0, cz): the profile's [radius, height over y0] pairs,
+    foot to tip, lathed in `sides` flat faces and capped at the tip, as the Pullman dome's
+    finial stands in its pictures (a flared foot, a bulb, a neck, a knob and a spike)."""
+    ring = lambda r, y: [(cx + r * math.cos(math.tau * (k + 0.5) / sides), y, cz + r * math.sin(math.tau * (k + 0.5) / sides))
+                         for k in range(sides)]
+    rings = [ring(r, y0 + dy) for r, dy in profile]
+    for (ra, dya), (rb, dyb), a, b in zip(profile, profile[1:], rings, rings[1:]):
+        for k in range(sides):
+            t = math.tau * (k + 1) / sides
+            q = [a[k], a[(k + 1) % sides], b[(k + 1) % sides], b[k]]
+            h.face(role, q, (math.cos(t) * (dyb - dya), ra - rb, math.sin(t) * (dyb - dya)))
+    h.face(role, rings[-1], Y)
 
 
 def masonry_walls(h: House, ms: dict):
@@ -2094,12 +2112,14 @@ def pavilion(h: House, ps: dict):
         # of the arch, with the roof's light over it
         i = ps.get("interior_inset_m", 0.3)
         _prism(h, "interior", [(i, i), (L - i, i), (L - i, W - i), (i, W - i)], pod, ps["interior_dark_m"])
-    # the drum and dome over the crossing
+    # the drum and dome over the crossing, or (T-3164) where the record's `centre_m` stands them
+    # along the nave: both pictures put the Pullman dome north of the transept's middle
     dr = ps["drum"]
-    _prism(h, "sky_glass", [(xc + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
+    xd = dr.get("centre_m", xc)
+    _prism(h, "sky_glass", [(xd + dr["radius_m"] * math.cos(math.tau * (k + 0.5) / dr["sides"]),
                         W / 2 + dr["radius_m"] * math.sin(math.tau * (k + 0.5) / dr["sides"])) for k in range(dr["sides"])],
            dr["base_m"], dr["top_m"])
-    h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xc, W / 2, dr["top_m"], "sky_glass"), 3)}
+    h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
