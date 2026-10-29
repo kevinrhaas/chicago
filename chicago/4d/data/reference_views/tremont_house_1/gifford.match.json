@@ -1,0 +1,37 @@
+{
+  "structure_id": "tremont_house_1",
+  "view": "gifford",
+  "glb": "assets/gltf/tremont_house_1__frame_1833.glb",
+  "glb_sha256": "63b1802b5a8d56ac7d300160fb5b472ec97f273d6ddebe9827291bd357150801",
+  "camera_sha256": "a98b0e9a7130eb97692ff242cf8c7009b2f19ceeb5a5c5f2be5ab3babae4ad42",
+  "photo_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "side_by_side": "docs/RESEARCH/photo-match/tremont_house_1/gifford-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The actual whole Gifford drawing and the fresh canonical comparison both show three full storeys, three short-gable bays and five long-elevation bays, open shutters, raised centred entries, the opaque arched name panel, four capped stacks, dark gabled roof and the roof spar. The canonical retains the existing pictured form; its actual material-named geometric triangles are exact to the earlier three-storey master. The former two-storey default is corrected, rather than excused as a tolerance.",
+      "status": "fixed"
+    },
+    {
+      "what": "Fine shutter/entry pose and line-work vary between the retrospective wash and the reconstruction. Direct review of the whole source and current comparison found no independently established street-visible error over about0.3m in those details. Small pose/pixel differences and conditional camera-fit residuals are within the T3153 tolerance; they do not justify another photo follow-up.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The monochrome reproduction cannot establish yellow pigment, green shutter colour or exact trim/roof tones. Yellow follows Gale1902p51 as inferred colour; the particular stock yellow, trim and surface response remain declared reconstruction. The two-storey Gale description is TEXTUAL contrary evidence, not a second picture or proof of a dated enlargement.",
+      "status": "not shown"
+    },
+    {
+      "what": "The neutral master draws the roof spar; dynamic cloth belongs to the native application. Actual published390x780and1280x800 canonical/Gale functional reviews on the source-boundc093 candidate passed with visibleclothatitsstaffanchor, groundedfeet, exactselectedWEBbytes, Normal/ByGrade, livefly/HUDstates and creditedsources. Actualbothfull-imageviewersshow1637x796GiffordwithChicagologycredit/cataloglink/reference-copylabel, strictHTTPSexactderivativebytes and no inventedhistoricalSpot. These remain datedinput-boundproof, not a whole18orperformanceclaim.",
+      "status": "not shown"
+    },
+    {
+      "what": "The neutral single-hotel comparison omits the commercial row, street, boardwalk, people and wet-road surface. Those omissions are not missing hotel geometry. The hotel's own raised entries and landings are present; full-town context is checked separately in the application.",
+      "status": "not shown"
+    },
+    {
+      "what": "The unscaled drawing and its conditionally fitted camera do not establish absolute metres or surveyed placement. The retained15.24x9.14m/7.8m metrics remain reconstruction, explicitly contrary to Gale's smaller textual reading, now kept optional. No enlargement date or exact July1835 section is inferred.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

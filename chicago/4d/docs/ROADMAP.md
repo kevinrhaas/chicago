@@ -5965,3 +5965,13 @@ T-2385 checkpoint continuation (2026-10-26): exact native2masters+2WEB closed on
 publicGTcf25 plus incoming dev88; canonical single-asset comparison remainsDIF,
 with the original case OPEN. Native scene/tail/app/fixed-point/finalgates are still
 pending. The old three-storey version retains exact incoming model bytes; see STATUS.
+
+
+## Original T2385/T2376 continuation, 2026-10-29
+
+Corrective PR after1337: restore pictured three-storey Tremont, keep Gale-reading optional and preserve Gifford-reading compatibility. One grouped current native/app/preflight; onlyT2385 can close after actualmatches and merged code. T2376's enclosed-annex picture gap remains on its original ticket; no photo follow-up ticket.
+
+
+## Original image-case ending, 2026-10-29
+
+T-2385 has genuine current picture acceptance and actual both-viewport app/viewer review; finish only after the qualified corrective code PR merges. T-2376 ships the bounded sash/wagon-bay corrections while its substantial enclosed annex remains on the original discrepancy register. No new photo follow-up is filed.

@@ -216,11 +216,12 @@ class PictureFeatures(unittest.TestCase):
                 self.assertGreaterEqual(triangles.count(builder.M_WALL), 2)
 
     def test_tremont_openings_shutters_and_raised_entries(self):
-        # Preserve the actual pictured alternative regression as well as the
-        # text-led default. Neither structural count is an image-match verdict.
+        # Preserve the pictured canonical form and the optional Gale text reading.
+        # Keep every strict opening, storey, shutter and entry regression below;
+        # neither structural count alone is an image-match verdict.
         for version, stories, count, short, long, leaves in (
-                (None, 2, 28, 5, 9, 0),
-                ("gifford-reading", 3, 44, 8, 14, 88)):
+                (None, 3, 44, 8, 14, 88),
+                ("gale-reading", 2, 28, 5, 9, 0)):
             with self.subTest(version=version or "default"):
                 _, _, p = record_params("tremont_house_1", "frame_1833", version)
                 self.assertEqual((p.stories, p.elevation_scheme), (stories, "corner_gable"))

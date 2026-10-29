@@ -5371,6 +5371,24 @@ pass at T-0083, which would settle where this building's gables actually are and
 shed to one of them.
 **Recorded:** 2026-08-18.
 
+**Front-end station:** Amended 2026-10-26 (T-2376): front-end attachment on the same north wall.
+The actual verified Trowbridge/Gale 1902 plate, captioned 1835
+(`trowbridge_green_tree_1902`, plate facing p.35 / scan n55), shows the open bay
+beside the viewer-left of the main front gable. The former rear-end station
+above is superseded: the same 4.05 by 3.20 m bay now ends at the inn's front
+plane on the existing north wall, and its covered wagon shares the derived
+centre. This is an 8.14 m westward change on the current 12.19 m wall, not a
+coordinate read off a drawing. The inn, its doors, the bay dimensions and roof
+heights, wagon, materials and counts stay unchanged. The named plate is a
+retrospective depiction; the exact July-1835 presence and station remain
+`reconstructed`, as do all dimensions. No 1859 photograph is used. The enclosed
+Andreas gabled annex masses and Gray's separate building additions remain
+unresolved; this open yard roof does not settle their identity or date. Actual
+corner clearance, grounding and a full-scene picture comparison govern this
+placement; an isolated building-asset render cannot validate a procedural shed.
+
+
+**Actual app validation (2026-10-29):** Both published viewport sizes show the open bay and covered wagon at the front-end station, dry ground contact, the existing fuel ricks and chopping block, and a clear primary entrance approached at two and three metres. The selected compressed inn asset and credited Trowbridge source are verified, in Normal and By grade. This validates the finite yard and sash corrections; the substantial enclosed annex remains a separate OPEN discrepancy on original T-2376.
 
 ### L135 — The Green Tree's frontage: plank walks nobody recorded, and the first lettering this project has drawn
 **Decision:** the Green Tree Tavern's two street walls carry a **plank walk** 1.83 m wide laid
@@ -32262,7 +32280,8 @@ a drawing of the gable. The finial's urn and the gable's carved panel are T-3002
 
 ### L-tremont-corner-elevations-2385 — The first Tremont's pictured three storeys and shuttered corner elevations
 
-**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`
+**Historical coverage before sourced yellow (2026-10-26):** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`
+**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.gallery`
 **Decision:** adopt the three-storey form visible in N. Roswell Gifford's undated drawing reproduced by Chicagology as “Tremont House No. 1” (`gifford_tremont_house_no_1`). The actual picture shows three bays on the short gable and five on the long eaves elevation, with shutters and centred ground entrances. The earlier two-storey reconstruction rested on a text-only reading and did not consider this picture. The pictured form is inferred for the 1835 scene: the picture is retrospective, not a dated survey of every feature on 1835-07-01.
 **What is reconstructed:** the existing 15.24 × 9.14 m footprint is retained, with no position, bearing or geographic control change. Wall height is 7.8 m, three copies of the previous reconstruction's 2.6 m storey module, not a measurement from the drawing. A 3.1 m first storey and two 2.35 m upper storeys, evenly spaced bay centres, 0.85 × 1.35 m sashes and 1.2 × 2.1 m door openings use the existing kit. Unseen elevations repeat the visible three/five-bay arrangement, including the centred entrances; four model doors are a reconstruction and not a claim that the historical house had four entrances. Plain open shutter leaves are 42% of a sash's width and 25 mm thick, 10 mm beyond the clapboard skin. Green is a stock-palette reconstruction: the monochrome source does not supply original paint colours. Louvre patterns and hardware are not asserted. The final working roof is 32°; its coupled camera/envelope fit is not a historical pitch measurement.
 **Chronology disagreement:** the picture-based form inference is in tension with the Saloon Building exclusion's first-three-storey shorthand. Gifford does not date this depiction within the first Tremont's 1833-1839 life, so construction sequence remains unresolved. The Saloon is still excluded for its documented 1836 date; no source or dated construction claim is rewritten.
@@ -32271,6 +32290,9 @@ a drawing of the gable. The finial's urn and the gable's carved panel are T-3002
 **How to resolve:** fit every relevant picture against the rebaked form, inspect the actual comparison, and replace reconstructed dimensions or concealed arrangements when a warranted scale or further view is available.
 **Ticket:** T-2385.
 **Recorded:** 2026-10-23.
+
+**Paint evidence update:** 2026-10-26 (T-2385): Gale 1902, printed p.51 (`gale_1902_tremont_town_walk`), supplies the yellow description adopted as inferred paint for the pictured primary hotel. The earlier coverage list is retained above as history; only its now-obsolete claim that the paint enum is invented is retired. The renderer's exact yellow RGB/trim palette and surface response remain declared reconstruction in L-tremont-gale-envelope-2385, without mislabelling the sourced enum as an unsubstantiated choice. Footprint, working wall height, concealed elevation arrangement, shutter colour/sections and gallery treatment still owe the active claims above.
+**Current picture review:** 2026-10-26: the fresh canonical comparison and actual published mobile/desktop native reviews support `gifford.match.json: matches`, with no visitor-noticeable architectural gap left in the sole distinct Gifford drawing. Earlier open-detail notes above record the first refinement, not additional current blockers. Pixel/sub-foot pose/camera differences are within T-3153 tolerance; monochrome pigment, isolated street context and absolute metre scale are not shown. Gale is disclosed textual disagreement in the optional smaller two-storey version, not a second picture or a dated enlargement claim. Full checked ending and PR #1337's DEV merge remain pending at this source update.
 
 ### L-tremont-entry-roof-details-2385 — The first Tremont's raised entries, arched gable feature and roof fittings
 
@@ -32312,6 +32334,12 @@ opening sizes. Neither this count correction nor its emitted-opening checks is a
 `matches` verdict.
 **Ticket:** T-2376.
 **Recorded:** 2026-10-23.
+
+**South-side middle sash:** Amended 2026-10-26 (T-2376). This supersedes the earlier statement that the side entrance replaces the middle lower bay. The held Andreas reproduction (`andreas_1884_green_tree_hotel_plate`) and Trowbridge's actual plate in Gale 1902, facing p.35 / scan n55 (`trowbridge_green_tree_1902`), show a sash pattern across the long elevation: seven stations on both floors, including a clear sash at the middle lower station. Trowbridge's nearest lower sash is partly occluded by the hanging sign and people; the reading does not invent its hidden panes. The 1835 model therefore leaves `side_entrance` unasserted (`null`) and uses the existing stock sash at all seven south-wall stations. The opening pattern is inferred from these retrospective pictures; no exact July-1835 absence of a door is attested. John Gray's later recollection of an entrance “on the Lake street front about the middle of the long side” remains substantial counterevidence, recorded through `chicagology_prefire127` (1883 publication; Gray's landlord period 1838–41), and is retained in the structure note. The choice follows the pictures for this model; it does not disprove Gray, date an alteration or use that check-required text source for new geometry. The original Andreas plate is undated despite the reproduction's 1838 caption. Trowbridge's 1835 caption is retrospective. The seven existing stations, inferred wall assignment, reconstructed equal spacing and stock 0.85 × 1.35 m sash with 0.75 m sill remain the same model controls. No footprint, placement, roof, front door, opposite elevation, wagon-bay station or existing fuel rule is changed by this sash correction. The disputed enclosed annex remains unresolved. No 1859 photograph supplies geometry. This amendment describes the form choice; actual export, comparison and app validation remain required before an image-match claim.
+
+**South-side sash native result:** Canonical one-target master and WEB export completed 2026-10-26. Only the middle opening's 56 triangles change; 2,522 other triangles, all material definitions and all other physical assets remain exact. The old door and panels give way to the existing stock sash, with 0.75 m sill and 0.85 m glass width. These are model controls, not archival measurements. Actual new-master photo comparison and app validation remain pending; no matching verdict is claimed.
+
+**South-side sash comparison:** The new canonical master was rendered at the unchanged registered Andreas camera and the actual side-by-side was reviewed on 2026-10-26. The middle lower station now reads as the pictured sash; that bounded opening difference is fixed. The whole comparison remains DIFFERS because the separate enclosed annex massing is still open. Gray's later doorway account and the inferred date limits stand. The isolated master comparison does not test the compressed WEB, procedural wagon bay, terrain or picture/source cards in the full app; those remain owed.
 
 ### L-sauganash-end-sash-2383 — the pictured main gable's sash
 
@@ -34999,6 +35027,14 @@ asserted to match it. The original picture case remains open for the source disp
 **Ticket:** T-2385.
 **Review:** `docs/RESEARCH/tremont_house_1.md`.
 **Recorded:** 2026-10-26 (T-2385).
+
+
+**Revised primary interpretation (2026-10-29):** The pictured three-storey, shuttered hotel is restored as the canonical scene model after the earlier two-storey proposal landed in PR1337. Gale is textual contrary evidence, not a second picture that excuses a missing pictured storey. Keep the existing reconstructed15.24x9.14m envelope and7.8m walls, three short/five long bays, four stacks, raised entries, roof spar and established street-facing planes. The smaller two-storey9.144x6.096m/5.45m Gale interpretation remains explicitly selectable as `gale-reading`. The existing `gifford-reading` URL is retained unchanged for compatibility; no dated enlargement or exact July1835section is established.
+**Yellow finish:** Gale1902p51 supplies inferred yellow colour compatible with Gifford's monochrome drawing. Exact stock yellow/trim/surface response remain reconstructed. Original Gifford copyright/publication/collection credit remain unresolved; the owner approved attributed project reference use, not a public-domain finding.
+**Validation boundary:** Current selectednativebake, source-boundcanonical capture/directreview, bothpublishedviewports, actualpreflight andqualifiedcodePRmerge are still required. No older two-storeycheck is a pass for this correctedcurrenttree.
+
+
+**Actual picture and app validation (2026-10-29):** The fresh canonical comparison and scoped image gate pass. Both published viewport sizes show the canonical three-storey form and optional Gale reading, flags at their explicit staff anchors, grounded entries, the selected compressed assets and credited sources. Both full Gifford viewers show the drawing with its creator, Chicagology link and reference-copy label; no historical observer position is invented. The current host original rights remain unresolved. The c093 phone reading was 392.0 MiB against the unchanged 400 MiB ceiling. The larger envelope also re-derives the existing town lodging apportionment; its fixed class total and all 157 lodging-card people, identities, assignments and non-note facts remain unchanged. Only capacity explanations and model-ledger metadata refresh. These completed reviews retain their actual dated inputs; final current code checks and qualified dev merge are separate.
 
 ### L-kimball-1801-tower-finial-1890 — 1801 Prairie's tower given a turned finial on a crocketed collar, in pale sheet metal
 **Recorded:** 2026-10-27.
