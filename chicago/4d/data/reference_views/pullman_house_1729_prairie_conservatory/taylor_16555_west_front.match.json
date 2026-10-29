@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
+      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
     }
   ],
-  "group_sha256": "a3407e672b286c6afea33a4f8d94fbc09820f1449f76af987fc97284c01f05f4",
+  "group_sha256": "7e7ec462829a05362f7d7b3e80a4f0d35c0bf1e4cb899988370ebfd574a12db3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -150,8 +150,8 @@
     },
     {
       "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course (the owner named it, 2026-10-28)",
-      "status": "open",
-      "how": "T-3192's ruling, unchanged: the line is in place; the difference is in relief"
+      "status": "fixed",
+      "how": "T-1934: a moulded stone belt course about 0.36 m deep, its top where the lower slope meets the wall, the upper sash on it; the stable is now judged in its own records (data/reference_views/pullman_house_1729_prairie_ranges/)"
     },
     {
       "what": "the stable's lantern, the stack at the front's east end and the deck's east end",
