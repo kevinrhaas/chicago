@@ -782,10 +782,10 @@
      },
      "confidence": "reconstructed",
      "sources": [
-      "chicagology_1906_keith_engraving",
-      "sanborn_1911_chicago_v3_sheet_28"
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "T-3206's rule (the owner, 2026-10-27: walks, gates and boundaries to the pictures), for the house T-3238 put onto K01. The engraving's stoop comes down to the walk through the stone wall's opening (s 8.0-10.4, square to the stoop); the walk runs from the stoop's foot out through it to the public walk, 1.5 m wide, with the app's own ground either side. RECONSTRUCTED: the walk's flags, their width and wear are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k01-1906-keith-3238."
+     "note": "T-3206's rule (the owner, 2026-10-27: walks, gates and boundaries to the pictures), for the house T-3238 put onto K01. The stoop comes down square to the front wall's opening (s 8.0-10.4); the walk runs from the stoop's foot out through it to the public walk, 1.5 m wide, with the app's own ground either side. RECONSTRUCTED: the walk's flags, their width and wear are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k01-1906-keith-3238."
     }
    }
   }
