@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2411, ts: '2026-10-29T14:27:53.245Z', date: 'Oct 29, 2026, 9:27 AM CT', title: '1906 Prairie Avenue — the Edson Keith house built from its engraving', kind: 'feature',
+    items: [
+      'Edson Keith\'s house at 1906 Prairie, a generic draft block until now, stands as the Italianate stone front of its engraving and of the Tribune\'s 1898 sketch: two storeys over a raised basement under a low hipped roof and a deep bracketed cornice, with round-arched windows under hoods.',
+      'A canted bay at the front\'s south end rises past the cornice as a tower, and a porch on columns at the head of the high stoop carries a balustraded balcony before the arched window over the door.',
+    ] },
   { v: 2410, ts: '2026-10-29T13:34:05.544Z', date: 'Oct 29, 2026, 8:34 AM CT', title: 'The Pullman house gains its belt course and hooded dormers', kind: 'improvement',
     items: [
       'A deep moulded belt course now runs under the second-floor windows, round the Prairie Avenue front, its bays and the whole 18th Street side, as the 1890s photographs show it.',
