@@ -610,6 +610,17 @@
       ],
       "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk, and the cinder service walk from the side gate back down the slot between 1708 and 1712. The Chicagology photograph and the 1901 construction view show 1708's railing and its north end; neither shows the walk, which is the block's. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget. The service walk is laid in flags, not cinder: the cinder sheet (about 190 KB a house) would put the published tree over its 416 MB budget, and no picture shows this walk's surface."
     },
+    "street_front_brick": {
+      "value": {
+        "panel": "rough_red_brown_running"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1708_1706_1700_christmas_photo",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "note": "T-3244: the front's brick over its stone basement prints as dark as 1700/1706's red brick in the Christmas print and in the 1901 construction photograph (147-157 against their 153-156 in the same light), darker than its own stone; laid in the same K03 red-brown panel. The side walls, which no picture shows, stay the common brick. Write-up: docs/RESEARCH/colour-1700-block-T-3244/README.md."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
@@ -637,6 +648,26 @@
         "the rest of 1708's front, its cornice and its bay, all outside the frame",
         "colour: the photograph is monochrome",
         "the south wall, the rear and the roof"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_1700_1706_construction_1901_photo",
+      "citation": "Homes for George Glessner and Frances Glessner Lee, 1700-1706 S. Prairie Avenue, under construction, 1901. Photograph by George Glessner. Reproduced by the Glessner House Museum, 'George Glessner, photographer', The Story of a House (blog), 12 January 2015.",
+      "url": "https://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the pair's street front under construction: the places and heights of its openings, its string course, cornice line and mansard",
+        "the dormers, the chimneys and the party line's downpipe in 1901",
+        "the railing and curb before 1706 in 1901, its gateway and its end, and the builder's yard",
+        "1708 Prairie's north end and 1638 Prairie's gable in 1901"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the photograph is monochrome",
+        "the porches, the balconettes and the glazing, which were not yet built",
+        "1700's north half, hidden behind the street tree",
+        "the 1904 state of the yards"
       ]
     },
     {

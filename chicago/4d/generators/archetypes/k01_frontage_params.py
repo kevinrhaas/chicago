@@ -181,6 +181,10 @@ class K01FrontageParams:
     wall_paint: tuple = ()
     wall_paint_opaque: bool = False
     front_brick_tone: tuple = ()   # T-3093: the street front's brick, tinted apart from the side walls
+    front_brick_panel: str = ""    # T-3244: or laid in another K03 panel (1708's red-brown)
+    # T-3244: the sash and frames in a record's own paint (1700/1706's white, every photograph),
+    # where K01's are the kit's dark green; empty for the kit's
+    sash_color: tuple = ()
     # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
@@ -292,7 +296,7 @@ CONSUMED = frozenset({
     "front_bays_by_storey", "gable_roof", "wall_finish", "street_front_brick", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
-    "side_base", "street_front_iron", "window_shutters", "flat_balustrade",
+    "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -717,10 +721,11 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
         out["side_parapet"] = _mansard_side_parapet(m["side_parapet"], k5, out, eave, overhang, side_wall)
     # T-1881: the lower faces' dormers may be faced in the front's own stone (1729's read in the
     # walls' tone in every photograph), where K01's are a pale dressed stone
+    # T-3244: or painted timber in the cornice's paint (1700/1706's, white in all three pictures)
     if "dormer_fabric" in m:
-        if m["dormer_fabric"] != "front_stone":
-            raise ParamError(f"mansard.dormer_fabric {m['dormer_fabric']!r}: front_stone, or leave it out")
-        out["dormer_fabric"] = "front_stone"
+        if m["dormer_fabric"] not in ("front_stone", "painted"):
+            raise ParamError(f"mansard.dormer_fabric {m['dormer_fabric']!r}: front_stone or painted, or leave it out")
+        out["dormer_fabric"] = m["dormer_fabric"]
     return out
 
 
@@ -4350,15 +4355,30 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # gable and the front's brick bays) toned apart from the K03 common brick of the side and
     # rear walls: a factor over the same panel, where a photograph reads the front's brick
     # darker than its stone and the side wall paler than the front (1812's)
+    # T-3244: or laid in another K03 panel than the walls' (`panel`; 1708's red-brown front)
     sfb = val("street_front_brick", {}) or {}
-    front_tone = ()
+    front_tone, front_panel = (), ""
     if sfb:
-        if set(sfb) != {"tone"} or len(sfb["tone"]) != 3 or not all(0.2 <= float(x) <= 1.0 for x in sfb["tone"]):
-            raise ParamError("street_front_brick is {\"tone\": [r, g, b]}, three factors in [0.2, 1]")
+        if not set(sfb) <= {"tone", "panel"} or ("tone" in sfb and (
+                len(sfb["tone"]) != 3 or not all(0.2 <= float(x) <= 1.0 for x in sfb["tone"]))):
+            raise ParamError("street_front_brick is {\"tone\": [r, g, b]} (three factors in [0.2, 1]) "
+                             "and/or {\"panel\": a K03 panel}")
         if not (val("stone_front") or {}).get("brick_above_m"):
             raise ParamError("street_front_brick tones the brick over a stone front's brick_above_m line, "
                              "and this front names none")
-        front_tone = tuple(float(x) for x in sfb["tone"])
+        front_tone = tuple(float(x) for x in sfb.get("tone", ()))
+        front_panel = sfb.get("panel", "")
+        from . import k03_brick
+        if front_panel and front_panel not in k03_brick.PANELS:
+            raise ParamError(f"street_front_brick.panel {front_panel!r}: one of {sorted(k03_brick.PANELS)}")
+
+    # T-3244: the sash's paint, a record's own (k01_frontage MATERIALS["sash"] otherwise)
+    sp = val("sash_paint", {}) or {}
+    sash_color = ()
+    if sp:
+        if set(sp) != {"color"} or len(sp["color"]) != 3 or not all(0.0 <= float(x) <= 1.0 for x in sp["color"]):
+            raise ParamError("sash_paint is {\"color\": [r, g, b]}, linear, each in [0, 1]")
+        sash_color = tuple(float(x) for x in sp["color"])
 
     stories = int(val("stories"))
     heights = tuple(float(h) for h in val("storey_heights_m"))
@@ -5818,10 +5838,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
+    # T-3244: or another of its panels (k03_brick.PANELS), every brick slot of the house in it
     panel = val("service_wall_brick", k03_brick.PANEL)
-    if panel != k03_brick.PANEL:
-        raise ParamError(f"service_wall_brick = {panel!r}: k03_brick lays {k03_brick.PANEL!r} alone; "
-                         f"another K03 panel is a new slot in generators/archetypes/k03_brick.py")
+    if panel not in k03_brick.PANELS:
+        raise ParamError(f"service_wall_brick = {panel!r}: k03_brick lays {sorted(k03_brick.PANELS)}; "
+                         f"another K03 panel is a new entry in k03_brick.PANELS")
 
     # a bay drops the openings behind it, so an arched group finds its own again by identity
     grouped = [[openings[i] for i in g["ops"]] for g in (arched or {}).get("groups", ())]
@@ -6165,7 +6186,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
-        wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
+        wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
+        sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         shutters=shutters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
