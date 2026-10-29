@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "3374a6b97671f65ed3770e74f7e0da0c13f4e5b29e4e47b00a56d4a7115684da"
+      "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
     }
   ],
-  "group_sha256": "97d5255fb511e890460cc1d622c5d370314af8e7521be3ea91d167fafe80c168",
+  "group_sha256": "21e9d9fc5dde5771f384ee2f23e985bc6874b488f848347a202401f7bea70fd9",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "b3d666d74c37cac4e31247bbed01c9517f7cd2174c4ad0011b16684830f34e8e",
+  "flora_sha256": "5341791403498ec249aebf767a27b28f3794ed88826a18ba4fe299df5326d5f3",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -240,13 +240,18 @@
     },
     {
       "what": "the globe lamp on the fifth pier and the urn on the terrace pier behind it are not built",
-      "status": "open",
-      "how": "T-1934: an element missing"
+      "status": "fixed",
+      "how": "T-1934: read again at the plate's full size it is one object, not a lamp with an urn behind it: a squat turned urn under a flat lid on the fifth pier's cap (x 1805-1842 px, 52 px high, about 0.4 m by 0.5 m against the cap's 1.06 m); the four piers before it carry plain caps. Built: the K11 kit's urn stretched to 0.4 m by 0.5 m on that cap (data/structures/pullman_house_1729_prairie.json, boundary); the render's urn stands within about 5 px of the plate's in width and height"
     },
     {
       "what": "the planting: the plate's two parkway trees stand on the north parkway at x 260-290 and 720-750, close before the wall; the street-tree layer the render now draws (camera flora) stands one far nearer the camera at x 280-590 and one at x 1020-1160; the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
+    },
+    {
+      "what": "the urn's lid: the plate's is flat and broad over the body, the kit's profile rises to a small point about 0.1 m high",
+      "status": "within tolerance",
+      "how": "T-1934: under 0.1 m, the kit's turned profile kept"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

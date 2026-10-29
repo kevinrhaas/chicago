@@ -665,11 +665,19 @@ def coping_spec(params, t):
             raise ValueError(f"stone_coping_wall.side_return.runs end at x {x_prev}, not its to_x_m "
                              f"{sr['to_x_m']}, or lay no wall")
         for j, q in enumerate(sr.get("piers") or ()):
-            if set(q) != {"x_m", "height_m", "cap_m"} or not sr["to_x_m"] <= min(q["x_m"]) < max(q["x_m"]) <= line \
+            # T-1934: a pier may carry the kit's urn on its cap, its turned profile stretched to the
+            # `urn`'s read width and height (the 1894 Inland plate's fifth pier on 1729's 18th
+            # Street wall, before the stable)
+            u = q.get("urn", {"width_m": 0.5, "height_m": 0.5})
+            if not {"x_m", "height_m", "cap_m"} <= set(q) <= {"x_m", "height_m", "cap_m", "urn"} \
+                    or not isinstance(u, dict) or set(u) != {"width_m", "height_m"} \
+                    or not all(0.2 <= u[k] <= min(0.8, max(q["x_m"]) - min(q["x_m"])) for k in u) \
+                    or not sr["to_x_m"] <= min(q["x_m"]) < max(q["x_m"]) <= line \
                     or not 0.3 <= max(q["x_m"]) - min(q["x_m"]) <= 1.2 or not 0.8 <= q["height_m"] <= 2.0 \
                     or not 0.0 <= q["cap_m"] <= 0.1:
                 raise ValueError(f"stone_coping_wall.side_return.piers[{j}] {q}: x_m [from, to] 0.3-1.2 m along the "
-                                 f"return, 0.8-2.0 m high under a 0-0.1 m cap")
+                                 f"return, 0.8-2.0 m high under a 0-0.1 m cap, an urn 0.2-0.8 m wide and high "
+                                 f"and no wider than its pier")
     return t
 
 
@@ -798,7 +806,7 @@ def coping_wall(a, t):
                 prof = [(-T, 0.0), (-T, h), (-c, h), (0.0, h - c), (0.0, 0.0)]
                 cap = prof if lo is None else [(-T, lo), (-T, h), (-c, h), (0.0, h - c), (0.0, lo - c)]
                 side_face([(x_end, y, z) for z, y in cap], (k, 0.0, 0.0))
-        from .k01_stone_finish import box_faces as _box
+        from .k01_stone_finish import box_faces as _box, turned_faces as _turned
         for q in sr.get("piers") or ():
             x0, x1 = min(q["x_m"]), max(q["x_m"])
             e = (x1 - x0 - T) / 2
@@ -807,6 +815,17 @@ def coping_wall(a, t):
                     continue
                 for pts4, n in _box(x0 - g, x1 + g, y0, y1, -T - e - g, e + g):
                     side_face(pts4, n)
+            if q.get("urn"):
+                # T-1934: the kit's urn turned on the cap's centre, let into it by the kit's sink and
+                # stretched from the kit's own width and height to the record's
+                Pr = _kit().load()["parts"]["pier"]
+                y_top = q["height_m"] - Pr["urn_sink_m"]
+                kr = max(r for r, _ in Pr["urn"]) * 2
+                ky = max(y for _, y in Pr["urn"])
+                sr_, sy = q["urn"]["width_m"] / kr, q["urn"]["height_m"] / ky
+                for pts, n in _turned((x0 + x1) / 2, -T / 2, [(r * sr_, y_top + y * sy) for r, y in Pr["urn"]],
+                                      segments=16, cap_bottom=False):
+                    side_face(pts, n)
     piers = []
     if sp:
         # its foot, and the cheek's outer face
