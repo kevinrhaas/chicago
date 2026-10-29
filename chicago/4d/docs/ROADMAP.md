@@ -5975,3 +5975,28 @@ Corrective PR after1337: restore pictured three-storey Tremont, keep Gale-readin
 ## Original image-case ending, 2026-10-29
 
 T-2385 has genuine current picture acceptance and actual both-viewport app/viewer review; finish only after the qualified corrective code PR merges. T-2376 ships the bounded sash/wagon-bay corrections while its substantial enclosed annex remains on the original discrepancy register. No new photo follow-up is filed.
+
+
+T-2384 final existing-ticket unit (2026-10-27): raise only the five pictured chapel-front sash by a bounded reconstructed 0.45 m. Genuine 271 family production/default controls and actual unchanged-camera review precede any matches verdict; final integration/gates wait the landed upstream batch. No new photo follow-up.
+
+
+T-2373 finite sign-off checkpoint, 2026-10-27: retain the existing Castelnau-governed lighthouse geometry; enroll its diagnostic reference and show its credited harbour image inline. The seven existing picture files were directly re-read under T-3153. One exact-current Kellogg diagnostic resolves the lower-aperture occurrence question without prescribing geometry from an uncalibrated drawing; preserve conflicting proportions and date/rights limits. No new photo follow-up, camera-count requirement, bake or API. Current card/app/native/PR validation and final original sign-off remain pending.
+
+
+### Original early-building image group, 2026-10-29
+
+T-2381 Miller, T-2373 lighthouse, T-2384 St Mary's and T-2377 Hogan share the current grouped source. Miller's adjacent low wing and lower roof now pass the current canonical native image gate after qualified eight-file review; numeric dimensions remain reconstructed. Hogan's genuine current gable-course/cap comparison now matches under T-3153 and its native scoped image gate passes. Hogan, Mary and the lighthouse still require this group's final current app/preflight and merged PR before original closure. No new photo follow-up tickets are filed.
+
+
+Four-case qualification, 2026-10-29: T-2381, T-2377, T-2384 and T-2373 now have current native matches and actual targeted published phone/desktop reviews. Entrywise2cb3 integration preserves those exact consumers; native owner/package/publish, all44 content audits and the394.3/400MiB current phone reading pass. The grouped M+3S source proceeds through the required full source/PR checks and normal dev merge before original-ticket settlement. No new photo follow-up is filed.
+
+
+### Four pictured buildings: current-dev gate repairs, 29 October 2026
+
+The first final source check genuinely failed nine of1104 steps; its raw log and unchanged-source/reaper guards are preserved in the evidence repository. The failed candidate is not a passed checkpoint. The ticket cache is now a real ignored directory (the complete original caches are preserved); an external invocation shim permits lazy fetching only for the gate's reviewed, self-contained local-file scratch fixture. Production Git retains lazy-fetch protection. Six newly authored form-note fields are declared for the name pool, the native placement owner now measures Miller's actual54.66m setback, and three false liberty coverage pointers were removed while their qualified explanatory prose remains.
+
+Miller's reconstructed ridge-stack head is0.460m above the roof, correcting the prior0.450m value to meet the documented eighteen-inch0.4572m minimum. Actual all82 log masters and selected Miller WEB were regenerated: all352 other log/frame MASTER+WEB pairs remain exact and all353 recipe/master bindings are fresh. An independently parsed native mesh proves that only12 chimney-top positions rise10.00023mm; all other positions, normals, indices, materials and nodes are exact. Exported UV arrays were repacked and are not claimed byte-identical. A fresh actual native picture comparison was directly inspected and accepted underT3153, with the prior source/date/camera limitations retained.
+
+The candidate now incorporates actual merged Walker1720/EdsonKeith1906 feature-and-fold pairs through dev623eccd8 using a normal fast-forward and entrywise registry unions, preserving an exact recoverable stash. Native liberty, scene and source-use rebuilds/checks, resident package-five and publishing passed; all44 tracked compressed/workbook outputs were compared with their full native content, retaining raw native bytes before restoring serialization-only differences. The earlier mobile/desktop four-case app results remain dated; fresh Miller-only app and current phone-memory checks are in progress. A newly frozen full source check, per-ticket commits, PR checks and merge are still required. No original ticket is marked done by this note.
+
+Actual repair verification: all nine previously failing source checks now pass individually, including dataset/schema/provenance/rights/staleness validation, stack ordinance, cache-dependent pins/isolation and name-pool declarations. Current623e published1904 mobile native memory is395.8MiB against the unchanged400MiB ceiling (80-second actual run; all children reaped). These are focused results, not a substitute claim for the pending new full source gate or fresh Miller viewport results.
