@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 844,
+  "count": 845,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59773,6 +59773,34 @@
         "T-3234",
         "T-2961",
         "T-3205"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-flank-pier-1890",
+      "title": "1801 Prairie's pier and downpipe where the gabled section meets the main block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house's 18th Street wall carries a plain stone pier from grade to under the main cornice at its east end, where the gabled section meets the main block (`bays` p pier, a K08 full-height projection sized as a `pier`): 0.55 m wide (u 0-0.55), 0.1 m proud, to 8.34 m under the K10 moulded cornice, with the kit's floor band at 5.0 m and a 0.1 m cap; and the house's copper downpipe stands against its east side at u 0.8 (`rainwater.downpipes`), where the record had said the pictures show none on the flank. **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), through later work's camera, shows a lit strip from grade to the cornice at x 430-440 px (u 0-0.6) with a dark line close beside it at x 443-452; HABS photograph 2 of June 1965 (Harold Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…), through later work's camera, shows the same strip sharply (x 537-550 px) with a capital at the principal storey's head and another under the cornice, and the dark line as a round downpipe from the gutter to grade (x 550-557). The two cameras place them about 0.4 m apart; the build stands between them. **What is invented or held by the kit.** The pier's depth (neither picture can measure it; 0.1 m is the least the kit stands a projection out), its plain face and the kit's plain cap and band for the photograph's carved capitals; the pipe's size, fabric and shoe are the house's rainwater kit's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the 18th Street flank, or the house's drawings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-28 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890",
+        "T-3074",
+        "T-3110"
       ]
     },
     {

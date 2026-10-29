@@ -35574,6 +35574,27 @@ wall's corner, or of its stair's foot clear of the street trees.
 **Ticket:** T-3234.
 **Recorded:** 2026-10-28 (T-3234).
 
+### L-kimball-1801-flank-pier-1890 — 1801 Prairie's pier and downpipe where the gabled section meets the main block
+
+**Decision:** the W. W. Kimball house's 18th Street wall carries a plain stone pier from grade to under
+the main cornice at its east end, where the gabled section meets the main block (`bays` p_pier, a K08
+full-height projection sized as a `pier`, T-1890): 0.55 m wide (u 0-0.55), 0.1 m proud, to 8.34 m under
+the K10 moulded cornice, with the kit's floor band at 5.0 m and a 0.1 m cap; and the house's copper
+downpipe stands against its east side at u 0.8 (`rainwater.downpipes`), where the record had said the
+pictures show none on the flank.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`),
+through T-3074's camera, shows a lit strip from grade to the cornice at x 430-440 px (u 0-0.6) with a dark
+line close beside it at x 443-452; HABS photograph 2 of June 1965 (`habs_kimball_photo_02_nw_1965`),
+through T-3110's camera, shows the same strip sharply (x 537-550 px) with a capital at the principal
+storey's head and another under the cornice, and the dark line as a round downpipe from the gutter to
+grade (x 550-557). The two cameras place them about 0.4 m apart; the build stands between them.
+**What is invented or held by the kit.** The pier's depth (neither picture can measure it; 0.1 m is
+the least the kit stands a projection out), its plain face and the kit's plain cap and band for the
+photograph's carved capitals; the pipe's size, fabric and shoe are the house's rainwater kit's.
+**How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
+**Ticket:** T-1890.
+**Recorded:** 2026-10-28 (T-1890).
+
 ### L-pullman-lodge-range-3164 — Pullman's lodge rebuilt to the 1894 plate's north front, and the east range's windows, panels and courses read off it
 
 **Decision:** re-entering T-3164 (the owner, 2026-10-28: the glasshouse ground south of 18th Street was
