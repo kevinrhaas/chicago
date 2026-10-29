@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2415, ts: '2026-10-29T16:43:01.013Z', date: 'Oct 29, 2026, 11:43 AM CT', title: 'Pullman\'s 18th Street wall runs on past the palm house', kind: 'improvement',
+    items: [
+      'The low stone wall along 18th Street now carries on past the Pullman house, in front of the palm house and the stable, as the 1894 Inland Architect plate shows it.',
+      'Five tall square piers stand along it, with the openings onto the terrace\'s two flights and the low curved wall rising to the piers between them.',
+      'The estate\'s pictures are now compared with their trees and garden planting drawn in.',
+    ] },
+  { v: 2414, ts: '2026-10-29T16:39:30.744Z', date: 'Oct 29, 2026, 11:39 AM CT', title: 'Pullman\'s garden lodge: its rounded corner, balcony and columns', kind: 'improvement',
+    items: [
+      'The small stone lodge beside the Pullman conservatory, across 18th Street from the house, now looks more like the 1894 Inland Architect plate. Its upper storey turns the north-east corner on a gentle curve, and the roof\'s edge flares out and down over that corner. A balcony with an open balustrade runs above the porch and curves round at its east end. Two round columns now stand between the porch\'s three openings, where there had been flat piers.',
+      'The lead deck on top of the roof is now ringed by open ironwork with a tall spire at each corner, as the plate shows, instead of plain posts and a rail.',
+      'The curve\'s exact plan, the balcony\'s depth and its balusters cannot be measured from the plate, so they are recorded as reconstructions.',
+    ] },
   { v: 2413, ts: '2026-10-29T15:16:02.540Z', date: 'Oct 29, 2026, 10:16 AM CT', title: 'Pullman\'s conservatory: its dome set where its photographs put it', kind: 'improvement',
     items: [
       'The glass dome over the Pullman conservatory, across 18th Street from the house, now stands about 1.8 m further north along the glasshouse, over the front half of its transept. The 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both place it there. It is also a little lower, and its finial is now a turned iron ornament with a flared foot, a bulb and a spike, as both pictures show. It used to be a thin stick.',

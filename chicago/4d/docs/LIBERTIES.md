@@ -35809,6 +35809,29 @@ diameter; a carved-corbel course in the K08 kit that follows a curve.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-1890).
 
+### L-pullman-18th-street-wall-1934 — Pullman's 18th Street wall carried past the house to the stable's east end, its piers and the curved low walls before the terrace read off the 1894 Inland plate
+
+**Decision:** T-1934 carried the 18th Street coping wall of `pullman_house_1729_prairie` (its
+`form.boundary.side_return`) on past the house's rear before the palm house and the stable, to the stable's east
+wall (x -36.4 in the house's frame), worked against the estate's three reference views (the owner, 2026-10-28:
+*"the surrounding wall/fence around the property also should be included in the match"*). **What is read.**
+Through the plate's solved camera (fitted on two of these piers' bases), rays from five pier bases put five square
+piers on the lot line, 1.7-1.8 m high, a 0.9 m wall between the first two, an opening onto the terrace's west
+flight between the second and third, a low wall falling steeply from the third pier and curving up again to the
+fourth, and an opening onto the east flight between the fourth and fifth. Taylor's no. 16554 (read as a check
+only, its rights unresolved) puts three of them within 0.6-1.3 m and shows the wall running on low and unbroken
+along the stable's front; Taylor's no. 1445 shows a carriage-width gap east of the house's balustraded run and a
+pier beyond it. **What is invented.** The piers' section (0.9 m square under a 0.08 m slab cap, where the plate
+shows a deeper moulded cap and a sunk panel); the low walls' curve, laid as a concave quarter-circle in ten
+facets between heights read at its ends and middle; the opening's 3.0 m at the carriage way and the pier east of
+it, read off 1445 at a small size; the wall's height (0.9 m) along the stable, read off 16554 at a small size; and
+the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court, the
+globe lamp and urn on the piers are not built. **How to resolve:** a picture of 18th Street east of the stable,
+or a full-size copy of the c. 1905 CHM negative i70232, would show the wall's east end and the piers' caps.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-29 (T-1934).
+
 ### L-pullman-pavilion-curves-3164 — The Pullman conservatory's curves drawn smooth, and the plate's cresting and finials on its transept and arch
 
 **Decision:** both pictures of Beman's conservatory (the 1894 Inland plate, `inland_1894_pullman_conservatory`,
@@ -35898,6 +35921,30 @@ across the nave and settles its place against the transept.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
 
+### L-pullman-lodge-front-3164 — The Pullman lodge's bowed corner, balcony, columns and deck cresting, read off the 1894 plate
+
+**Decision:** the lodge's north front had a square north-east corner under a square eave, a flat banded
+balcony, its loggia drawn as dark openings between flat piers, and a deck ringed by posts and a rail. The
+1894 Inland plate (`inland_1894_pullman_conservatory`), with Lowe's print (`aic_lowe_pullman_conservatory_c1897`)
+agreeing where it is not hidden by leaves, shows the upper storey's corner rounded on a bow with the eave
+belled out and down over it (about 0.4 m at the bow's middle), a balcony on the loggia's entablature at
+5.3-6.0 m whose east end turns on a curve under the bow, two round columns between the three openings at
+x 967-977 and 1005-1013 (about 0.4 m across), and a tall spire at each corner of the deck's open cresting.
+They are built to those readings: the bow on a 1.2 m chord along each wall standing 0.1 m proud of the
+corner, the balcony 0.45 m deep from 0.2 m east of the corner to 4.2 m along the front, two columns
+0.38 m across, and the deck in the stable's open cresting with its corner spires (T-1934).
+**What is invented.** The bow's plan (its chord and how far it stands proud), which a picture taken
+almost square to the front cannot measure, and where it meets the east wall, which neither picture shows;
+the balcony's depth, and its balusters and their spacing, where the plate draws the parapet's face nearly
+solid at this size; the columns' bases and capitals; the cresting's pattern, taken from the stable's.
+**What is not.** The bow, the eave's flare, the balcony's height and curved end, the columns' number and
+places, and the deck's corner spires, which the plate shows.
+**How to resolve:** a nearer or sharper picture of the lodge, or one from its east side, gives the bow's
+plan, the balcony's parapet and the columns' orders.
+**Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_elevation`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
