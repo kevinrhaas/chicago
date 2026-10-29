@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2412, ts: '2026-10-29T15:13:07.803Z', date: 'Oct 29, 2026, 10:13 AM CT', title: '1701 Prairie, the Hibbard house, built from its photographs', kind: 'feature',
+    items: [
+      'The Hibbard house at 1701 Prairie Avenue is no longer a rough draft: its Italianate main block stands two brick storeys over a stone basement, under a hipped roof and a deep cornice on paired brackets.',
+      'Its round-headed windows stand where the 1880s photograph of the front shows them, on the front and along the south side, and its two-storey stone bay rises on the front\'s south part.',
+      'Behind it, the 1874 rear range runs back toward the lake as tall as the house, as the rear photograph shows it.',
+      'The model is now checked against both photographs from the spots they were taken. The corner porch, the roof deck, the lower south range and the rear veranda come next.',
+    ] },
   { v: 2411, ts: '2026-10-29T14:27:53.245Z', date: 'Oct 29, 2026, 9:27 AM CT', title: '1906 Prairie Avenue — the Edson Keith house built from its engraving', kind: 'feature',
     items: [
       'Edson Keith\'s house at 1906 Prairie, a generic draft block until now, stands as the Italianate stone front of its engraving and of the Tribune\'s 1898 sketch: two storeys over a raised basement under a low hipped roof and a deep bracketed cornice, with round-arched windows under hoods.',
