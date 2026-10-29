@@ -35871,6 +35871,30 @@ across the nave and settles its place against the transept.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
 
+### L-pullman-lodge-front-3164 — The Pullman lodge's bowed corner, balcony, columns and deck cresting, read off the 1894 plate
+
+**Decision:** the lodge's north front had a square north-east corner under a square eave, a flat banded
+balcony, its loggia drawn as dark openings between flat piers, and a deck ringed by posts and a rail. The
+1894 Inland plate (`inland_1894_pullman_conservatory`), with Lowe's print (`aic_lowe_pullman_conservatory_c1897`)
+agreeing where it is not hidden by leaves, shows the upper storey's corner rounded on a bow with the eave
+belled out and down over it (about 0.4 m at the bow's middle), a balcony on the loggia's entablature at
+5.3-6.0 m whose east end turns on a curve under the bow, two round columns between the three openings at
+x 967-977 and 1005-1013 (about 0.4 m across), and a tall spire at each corner of the deck's open cresting.
+They are built to those readings: the bow on a 1.2 m chord along each wall standing 0.1 m proud of the
+corner, the balcony 0.45 m deep from 0.2 m east of the corner to 4.2 m along the front, two columns
+0.38 m across, and the deck in the stable's open cresting with its corner spires (T-1934).
+**What is invented.** The bow's plan (its chord and how far it stands proud), which a picture taken
+almost square to the front cannot measure, and where it meets the east wall, which neither picture shows;
+the balcony's depth, and its balusters and their spacing, where the plate draws the parapet's face nearly
+solid at this size; the columns' bases and capitals; the cresting's pattern, taken from the stable's.
+**What is not.** The bow, the eave's flare, the balcony's height and curved end, the columns' number and
+places, and the deck's corner spires, which the plate shows.
+**How to resolve:** a nearer or sharper picture of the lodge, or one from its east side, gives the bow's
+plan, the balcony's parapet and the columns' orders.
+**Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_elevation`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
 ### L-kimball-1801-side-door-1890 — 1801 Prairie's east range: the side door under the frontispiece, from HABS photograph 2
 
 **Decision:** the east range's stone frontispiece on 18th Street carried its round-arched grilled light
