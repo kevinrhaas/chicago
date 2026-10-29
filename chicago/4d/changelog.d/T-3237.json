@@ -1,0 +1,7 @@
+{
+  "title": "What's New lists new work again without waiting for the next change",
+  "kind": "fix",
+  "items": [
+    "Half of yesterday's What's New updates timed out before they ran, so new work, such as 1812 Prairie's entrance, sat unlisted until a later change carried it in. The update now downloads only the text it reads, about a seventh as much as before."
+  ]
+}
