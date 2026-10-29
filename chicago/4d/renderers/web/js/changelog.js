@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2396, ts: '2026-10-29T05:06:00.845Z', date: 'Oct 29, 2026, 12:06 AM CT', title: 'What\'s New lists new work again without waiting for the next change', kind: 'fix',
+    items: [
+      'Half of yesterday\'s What\'s New updates timed out before they ran, so new work, such as 1812 Prairie\'s entrance, sat unlisted until a later change carried it in. The update now downloads only the text it reads, about a seventh as much as before.',
+    ] },
+  { v: 2395, ts: '2026-10-29T05:06:00.845Z', date: 'Oct 29, 2026, 12:06 AM CT', title: '1736 Prairie: straight front walk, wall round the corner', kind: 'fix',
+    items: [
+      'The front walk at 1736 Prairie runs straight from the stair to the sidewalk; the wall\'s opening now sits in line with the stair.',
+      'The coping wall is one height across the front, and it turns the 18th Street corner and runs back along the side to the first bay.',
+      'The stray stone pier beside the stair\'s foot is gone.',
+    ] },
   { v: 2394, ts: '2026-10-29T04:34:14.075Z', date: 'Oct 28, 2026, 11:34 PM CT', title: 'Walks, fences and gates for ten more 1600-block Prairie houses', kind: 'feature',
     items: [
       '1600, 1604, 1608, 1613, 1615, 1619, 1626, 1628, 1634 and 1636 Prairie now have a flagged walk from the sidewalk to their front steps. Before, you could not walk up to their doors.',
