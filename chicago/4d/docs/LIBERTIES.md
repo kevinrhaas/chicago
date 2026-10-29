@@ -35555,3 +35555,27 @@ balustrades.
 **Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
 **Ticket:** T-1934.
 **Recorded:** 2026-10-28 (T-1934).
+
+### L-k11-1736-coping-3234 — 1736 Prairie's front wall laid one height with its opening on the stair's line and turned along 18th Street; the stair's pier left out
+
+**Decision:** the coping wall before 1736 Prairie (McBirney) is reworked at the owner's call
+(T-3234; the owner, 2026-10-28: *"the walkway curves and it likely would be straight, the walls
+boorder on the exterior only come in the front of the house not the side, and there is an odd
+column near the stairs, and the wall is of irregular height … whatever is best documented"*).
+**What the c. 1890 print reads and is now set aside.** T-2961 and T-3205 read the print through
+its camera: a 0.74 m run to the street tree, a gap of about 1 m at s 3.9-4.9 (its edges hidden),
+a 0.95 m run behind the stair's pier to the north lot line, a 1.55 m pier at the foot of the
+stair's south cheek, and nothing turning the corner. Built that way, the walk had to turn south
+behind the wall to reach the gap, the wall stepped up mid-front, and the pier stood free beside
+the stair. **What is built now.** The opening is on the stair's line, s 5.0-6.3, so the walk runs
+straight from the stair's foot to the public walk, as a city front walk ran; the wall is one
+height, the print's low run's 0.74 m, as the 2015 photograph of the McBirney curbstone shows one
+course of squared blocks along the walk; no pier is built, the stair's cheeks ending in their own
+newels at its foot; and the wall turns the 18th Street corner on the south lot line and runs back
+to 0.3 m short of the front canted bay, whose projection stands over the lot line. The print's
+step to 0.95 m, its pier and its gap are recorded in the record's note and not built. No picture
+shows the corner, the side or the opening's place, so all three are reconstructed.
+**How to resolve:** a photograph of 1736 Prairie from 18th Street or from the north showing the
+wall's corner, or of its stair's foot clear of the street trees.
+**Ticket:** T-3234.
+**Recorded:** 2026-10-28 (T-3234).
