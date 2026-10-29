@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "df1f1f6f6f9ece3590a5fbc5d02ca0d4a78a3617dcb01308da8c3cdbda47c756",
+  "glb_sha256": "b364d0b5e06eac00072c892a8469932cf52d936c4e820a18ee53166f8a52be75",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -62,7 +62,11 @@
       "status": "fixed"
     },
     {
-      "what": "the roof's south-east corner: a tall slender pinnacle or gablet (x 1200-1245 px, y 380-600) where the south slope meets the rear; the build has none (T-3109)",
+      "what": "the roof's south-east corner (T-3109): what the print shows there (x 1186-1247 px, y 478-700) is a WALL GABLE, not a pinnacle: a steep coped stone gable rising from the main cornice at the south wall's rear corner, behind the rear stack (its west rake comes out from behind the stack's shaft at about y 540), its apex about 4.4 m over the cornice, its east cheek carried down the corner as a plain pier, no finial and no kneeler pinnacle, and a pair of small dark lights on a mullion at its foot just over the cornice (x 1200-1237, y 598-645). Built (T-1890, bays.p_se_gable): a shallow pavilion 2.3 m wide, 0.1 m proud, flush with the rear corner, carried up past the mansard's eave to a 10.1 m wall top under a coped gable of pitch 2.85 (apex about 13.0 m) with the mullioned pair (1.6 x 0.75 m, sill 9.1 m); against the stack's cap, which both read, its apex renders within about 1 px of the print's, its east foot within 2 px of the print's distance from the apex (26 px against 28) and its lights within about 3 px of the print's rows",
+      "status": "fixed"
+    },
+    {
+      "what": "the main cornice under the wall gable's lights: the print carries it on under the pair to the corner (y 617-663, to x 1238); the build stops the mansard's eave box square at the gable's west cheek (k01_frontage.shallow_bay_cutters, as at the front's south pavilion), so the cornice is missing across the gable's 2.3 m, under its lights (T-1890)",
       "status": "open"
     },
     {

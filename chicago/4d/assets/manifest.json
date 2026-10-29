@@ -3348,9 +3348,9 @@
     "kimball_house_1801_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 14541136,
+      "bytes": 14580236,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "c4f09baa5274a9f7a3d571a64a175ad28c1367d508db94e7c264d6bbac4a2f77",
+      "inputs_sha256": "ec9df8c6ddab935e3cbc87a0c707af42a33e6789a13e0cf546b7daafc7077d66",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kimball_house_1801_prairie"
