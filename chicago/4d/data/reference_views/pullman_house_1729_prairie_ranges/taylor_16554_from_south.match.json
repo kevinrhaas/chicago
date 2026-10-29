@@ -1,0 +1,123 @@
+{
+  "structure_id": "pullman_house_1729_prairie_ranges",
+  "view": "taylor_16554_from_south",
+  "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+  "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb",
+  "camera_sha256": "93f38dd4403c447a495010dd3485cf534f4c714fa24ff0c215eca4be45d01dac",
+  "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -11.209769541060389,
+        0,
+        2.4319498013560494
+      ],
+      "rotation_y": 3.1490277562032887,
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -0.0004983158329692067,
+        0,
+        2.430052623233238
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "112d8200cb974aebfa796b8ad7d382499e9b0a09ffcc7b438be5de965b346589"
+    }
+  ],
+  "group_sha256": "08e4cace6864217fa24853d924cf9b883f1a675eed82e87d2265fb883546705a",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the deck's cresting: a dense ring of open ironwork round the deck, where the build stood four posts and a rail",
+      "status": "fixed",
+      "how": "T-1934: three rails, a bar every 0.16 m and a spear on every third, 0.75 m high, round both decks (open_cresting)"
+    },
+    {
+      "what": "a tall tapered spire at the deck's corners, rising well over the cresting",
+      "status": "fixed",
+      "how": "T-1934: a post at each deck corner carrying a 1.2 m tapered spire over the cresting; the corners the pictures do not show carry one too (reconstructed)"
+    },
+    {
+      "what": "the moulded stone belt course the upper storey stands on, where the build showed the lower roof's slope as a band of slate under the upper sash (the owner named the belt course, 2026-10-28)",
+      "status": "fixed",
+      "how": "T-1934: a two-member stone course, about 0.36 m deep, its top where the lower slope meets the wall (4.41 m on the 18th Street front, 4.60 m on the west face, whose slope is steeper), and the upper sash raised onto it from 4.3 m; the lower roof's eave cut on the diagonal where the upper storey turns the corner, so its square hip no longer stands in front of the corner wall"
+    },
+    {
+      "what": "the stable's cornices, belt course and the belvedere's cornice in the walls' light stone, where the build drew them in the dark cornice tone",
+      "status": "fixed",
+      "how": "T-1934: the stable's stone mouldings drawn in the light trim stone"
+    },
+    {
+      "what": "the corner bay's cap rising to a point over the corner",
+      "status": "fixed",
+      "how": "T-1934: a low slope onto a flat top, as the 1894 plate draws it; this print shows the corner through trees"
+    },
+    {
+      "what": "the corner bay: the print puts it about 1.4 m further west, standing directly against the drum, and reads it rounder than the build's three faces",
+      "status": "within tolerance",
+      "how": "two pictures disagree (the plate puts it about 0.8 m further east); the build stands between them"
+    },
+    {
+      "what": "the lantern: the print reads its dome taller and rounder, rising about 2 m over the cresting where the build's rises about 0.9 m",
+      "status": "within tolerance",
+      "how": "two pictures disagree: the 1894 plate reads the lantern's cap within about 0.3 m of the build"
+    },
+    {
+      "what": "the upper sash of two lights each in moulded frames",
+      "status": "within tolerance",
+      "how": "glazing bars under the bar; the openings' number, place and size agree"
+    },
+    {
+      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it",
+      "status": "open",
+      "how": "the lot's grounds, judged in the match (the owner, 2026-10-28); none of it is built"
+    },
+    {
+      "what": "the house is a light stone in the print, the build draws it red brick",
+      "status": "not shown",
+      "how": "the house's own records judge it (T-1881); rendered here for placement only"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

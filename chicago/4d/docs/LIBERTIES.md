@@ -35546,3 +35546,28 @@ shows the corner, the side or the opening's place, so all three are reconstructe
 wall's corner, or of its stair's foot clear of the street trees.
 **Ticket:** T-3234.
 **Recorded:** 2026-10-28 (T-3234).
+
+### L-pullman-stable-1934 — Pullman's stable dressed to its three pictures: an open belvedere, iron cresting with corner spires, a stone belt course, and a low cap on the corner bay
+
+**Decision:** T-1934 gave the stable (`pullman_house_1729_prairie_ranges`) its own reference views, the three
+cameras T-3193 solved in `data/reference_views/pullman_house_1729_prairie_conservatory/` re-anchored into the
+stable's frame, and worked what the owner named on 2026-10-28 (the belt course, the open belvedere, the crested
+deck) against them. **What is read.** The 1894 Inland plate shows the belvedere's balustrade as open balusters
+between plain dies, a die at each corner and at each side's middle, over a frieze; the plate, Taylor's 16554 and
+16555 show the deck ringed in dense open iron cresting with a tall spire at its corners; 16554 and the plate show
+the upper storey standing on a moulded stone belt course, about a third of a metre deep, with its sash on it,
+where the build had shown the lower roof's slope as a band of slate; the plate shows the corner bay's cap as a low
+slope from its cornice back onto the corner, not a point; all three show the stable's mouldings in the walls'
+light stone. **What is invented.** The cresting's pattern (three rails, a bar every 0.16 m, a spear on every
+third) stands for ironwork no picture resolves; the spires' 1.2 m and their presence on the corners no picture
+shows; the balusters' pitch (0.24 m) and turned section; the belt course's two members; the cap's 0.45 m slope;
+and the lower roof's eave cut on the diagonal under the corner wall (1.7 m along each eave), which no picture can
+see behind the belt course and the bay. The upper sash rise onto the course, from 4.3 m to 4.41 m on the 18th
+Street front and 4.60 m on the west face, where the lower slope (steeper there) meets the wall. **What is not.**
+The plan, the heights of the walls, cornices, deck and belvedere, and the openings' places are T-3192's and
+T-3193's. **How to resolve:** a full-size copy of the c. 1905 CHM negative i70232 would show the cresting and
+the bay's cap at a usable size.
+**Covers:** `pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-29 (T-1934).
