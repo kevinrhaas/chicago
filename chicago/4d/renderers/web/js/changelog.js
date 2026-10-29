@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2393, ts: '2026-10-29T01:49:26.095Z', date: 'Oct 28, 2026, 8:49 PM CT', title: 'Pullman\'s palm house now looks like its 1890s photographs', kind: 'improvement',
+    items: [
+      'The palm house at 1729 Prairie is an open colonnade again: round columns with bases and capitals, dark glass between them and a moulded cornice above.',
+      'Its parapets, the range\'s and the terrace\'s are open balusters, and urns stand on the terrace piers.',
+      'The range behind it has banded stonework and broad pilasters, and the dome is wider, lighter and closely ribbed.',
+      'The stable, the 18th Street wall and the planting are still to be matched to the pictures.',
+    ] },
+  { v: 2392, ts: '2026-10-29T01:49:26.095Z', date: 'Oct 28, 2026, 8:49 PM CT', title: '1812 Prairie\'s entrance bay lined up, and its door given depth', kind: 'fix',
+    items: [
+      'The second-storey window, the small arched window and the porch arch now share one axis on the middle of the north bay.',
+      'The arch stands on the bay\'s own face with an equal stone pier each side, and the projection\'s corner beside it is whole.',
+      'The door is set deeper in the arch, in dark varnished leaves with raised panels, and the fanlight\'s bars sit evenly under the arch.',
+      'Both photographs put these about a foot further south; the owner asked for them centred, and it is recorded as a liberty.',
+    ] },
+  { v: 2391, ts: '2026-10-28T17:50:55.158Z', date: 'Oct 28, 2026, 12:50 PM CT', title: 'The Pullman estate no longer claims to match its photographs', kind: 'fix',
+    items: [
+      'The Pullman house, palm house, stable and 18th Street glasshouses are marked as not yet matching their photographs. They don\'t, and their rework has started.',
+      'The built-so-far walk no longer lists the 18th Street glasshouses among the buildings that match their pictures.',
+      'A building whose work was split into smaller jobs can no longer finish without matching its pictures.',
+    ] },
+  { v: 2390, ts: '2026-10-28T17:50:55.158Z', date: 'Oct 28, 2026, 12:50 PM CT', title: 'An open loggia under the Kimball house\'s 18th Street gable', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the top storey of the gabled section on 18th Street is now an open loggia behind its stone balustrade: two dark openings on a slender post under the gable, where a glazed window stood before, as the c. 1895 photograph shows it.',
+    ] },
   { v: 2389, ts: '2026-10-28T16:10:31.588Z', date: 'Oct 28, 2026, 11:10 AM CT', title: '1901 Prairie\'s cornice gets its carved stone blocks', kind: 'change',
     items: [
       'The Ream house at 1901 Prairie now carries the deep cornice its two photographs show: a course of carved stone blocks under the cornice, standing on a plain frieze, all the way round the front, the cut corner and the side.',

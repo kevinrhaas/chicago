@@ -35439,6 +35439,32 @@ Chicagology's picture fitted on the curb and the stair feet as well as the front
 **Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3212.
 
+### L-k01-1812-wheeler-bay-3236 — 1812 Prairie's entrance bay centred at the owner's ask: its windows and porch arch on the bay's middle, the arch clear of the projection, and the door's panels
+
+**Decision:** the owner, 2026-10-28, looking at George H. Wheeler's house at 1812 Prairie from the
+street (T-3236): *"the windows are not aligned/centered correctly on the north side of the
+building. the top window is close but the 2nd story is off, and the door is not centered, and the
+left edging around the door is not on the face of the north side, like the right edging"*, *"the
+door is a bit hard to see, it looks flat"*. Both photographs (Albert Levy's print and the c. 1955
+photograph) set the north bay's second-storey window, the small arched window over it and the
+porch arch's mouth on one axis about 0.33 m south of the bay's middle, and run the arch's south
+jamb and moulding down the south projection's corner (L-k07-1812-porch-arch-jamb-3135). The build
+departs from both on purpose: the three stand on the bay's middle, 6.775 m along the front
+(halfway between the projection's north face at 5.05 m and the north corner at 8.5 m); the arch's
+mouth is 2.65 m (the prints' reads about 3.0 m), from 5.45 to 8.1 m, on the same 0.79 m rise, its
+moulded ring on the bay's own face with an equal 0.25 m rock-faced pier each side, and the
+projection's corner stands whole. The side light is 0.95 m (it had been 1.04 m) so the leaves keep
+1.41 m. The fanlight's two columns of small panes stand 0.42 m either side of the arch's axis,
+roughly even about the mouth as the Levy print has them. The door is set 0.55 m back in the arch
+(0.32 m before) and each leaf is three raised-and-fielded panels on rails at 0.95 and 1.9 m in a
+dark varnish: the photographs draw the leaves dark and too dark to read, so the panels, their
+sinking and the finish's colour are invented. The match records carry the departure as an
+`owner ruling`, a status added to the image gate for it.
+**How to resolve:** a sharper print of the entrance, a drawing of the front, or the owner's word
+to put the bay back on the photographs' axis.
+**Ticket:** T-3236.
+**Recorded:** 2026-10-28 (T-3236).
+
 ### L-kimball-1801-gable-loggia-1890 — 1801 Prairie's gabled section given an open loggia in its top storey
 
 **Decision:** the W. W. Kimball house's gabled section on 18th Street (`bays` p_gable, its third storey)
@@ -35456,3 +35482,31 @@ turned colonnette; the surround is the kit's.
 **How to resolve:** a nearer photograph of the 18th Street flank, or the house's drawings.
 **Ticket:** T-1890.
 **Recorded:** 2026-10-28 (T-1890).
+
+### L-pullman-palm-house-1934 — Pullman's palm house dressed as the Inland plate and Taylor's 16555 show it: an open colonnade, open balustrades, a rusticated range and urns
+
+**Decision:** `pullman_house_1729_prairie_conservatory` keeps the palm house's place, plan and
+heights from L-pullman-palm-house-3165 and replaces the parts of its dress that liberty drew plain,
+which the owner, on 2026-10-28, named as way off the pictures ("a faceted drum behind solid parapets on
+a blank wall"). **What is read**, off the 1894 Inland Architect plate (`inland_1894_pullman_palm_house_stable`)
+and Taylor's 16555 (`aic_taylor_16555_pullman_west_front`) through their solved cameras: the drum is an
+open colonnade, round columns with bases and capitals and dark glazing between them, not stone with
+strips of glass; its entablature is an architrave and frieze under a cornice that stands further out;
+the balustrades on the drum, on the range's parapet and on the terrace are open balusters between dies
+and piers, not solid parapets; the range's south face is banded rustication with a broad pilaster either
+side of the drum; the terrace piers carry urns; the dome is a broad ribbed dome, light in both pictures,
+its ribs close-set, about 4.6 m across (both pictures read it broader than the 3.8 m it had). **What is
+invented.** The balusters drawn as a square belly under a square neck at 0.30 m centres, 0.15 m across;
+the rustication's course (0.42 m) and its joints (0.06 m), drawn as courses a few centimetres proud so the
+joints read in the wall's own darker tone; the pilasters' width (0.8 m) and their place (4.4 m either side
+of the drum's centre); the columns' twelve-sided shafts and their square plinths, tori, capitals and
+abaci, sized from the 0.28 m shaft radius; the urns' profile (0.6 m across, 0.75 m high); the dome's 24
+ribs and its covering's light tone (the kit's `glass_sky`, glass or metal sheets still not legible); the
+glazing drawn dark by a dark face behind it, standing for the palm house's shaded interior. **What is not.**
+The place, plan, heights, the openings and the terrace's size stay L-pullman-palm-house-3165's. This
+supersedes that entry's octagonal shafts, solid balustrades and plain ashlar; the rest of it stands.
+**How to resolve:** a measured drawing of the palm house, or a sharper print of the colonnade and the
+balustrades.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`
+**Ticket:** T-1934.
+**Recorded:** 2026-10-28 (T-1934).

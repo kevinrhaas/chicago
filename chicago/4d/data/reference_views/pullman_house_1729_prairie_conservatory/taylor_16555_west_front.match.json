@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4",
+  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
   "camera_sha256": "d3d76dbbff22c2b16908df9297525e07aaeceb6a984adc477c2922cf0ca86250",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "b7baa93973de02beb2e5cee02ab8b4edf4841a4bf1a05a99be94a506f3a626b4"
+      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,9 +64,9 @@
       "glb_sha256": "97329083292a396c924d8e49b5bc6ceca4bf8cb425a9eb1d68b1d8f8efe996a1"
     }
   ],
-  "group_sha256": "f97d55fd3e12dabdb382408d011f9fc52f5a12aed7df1e1b60f413c5575c8a3b",
+  "group_sha256": "b3658f5d210ad9f50c11462127f086c4e5f5e12461c95cce18a294b02d0292f1",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the palm house: a round drum standing out of the wing's south face, about 7.6 m across its entablature (x 350-500 px), its centre 12.1 m east of the house wall",
@@ -104,13 +104,13 @@
       "how": "T-3165: a 1.4 m terrace 6 m deep with an eight-riser flight 6 m wide on the drum's axis and a 0.9 m balustrade either side; the flight's top at about the print's landing, the balustrades' tops within about 0.35 m; it stops at the house's east wall, behind the porch in this view"
     },
     {
-      "what": "the balustrades are open balusters, the columns round with bases and capitals, the wall rusticated with pilasters either side of the drum, and urns on the terrace piers",
-      "status": "within tolerance",
+      "what": "the balustrades are open balusters between dies and piers, the columns round with bases and capitals, the wall rusticated with a pilaster either side of the drum, and urns on the terrace piers (T-1934; were drawn solid, octagonal and plain)",
+      "status": "fixed",
       "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
     },
     {
-      "what": "the wing's face reads darker than the stable's in the print",
-      "status": "within tolerance",
+      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled",
+      "status": "open",
       "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
     },
     {
@@ -149,8 +149,8 @@
       "how": "T-3192; moved 1.2 m west by T-3193 from the plate"
     },
     {
-      "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course",
-      "status": "within tolerance",
+      "what": "the stable's roof meets its walls below the upper storey as a projecting band about 0.4 m deep where the print shows a moulded belt course (the owner named it, 2026-10-28)",
+      "status": "open",
       "how": "T-3192's ruling, unchanged: the line is in place; the difference is in relief"
     },
     {
@@ -163,9 +163,25 @@
       "status": "within tolerance"
     },
     {
-      "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb",
-      "status": "within tolerance",
+      "what": "in the foreground, the lot's 18th Street line east of the side wall's end (u 35 in the house's frame): square stone piers with a coping either side of the court's walk, and a run of posts on a lower curb; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open",
       "how": "T-3205: looked at again with the house's walks rebaked; the 18th Street side is not this record's building nor the house's way in (the Prairie front's is), and T-3160 left the run of posts unbuilt because the print does not resolve them. Not built; recorded as the lot's remaining gap (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the glazing between the columns reads dark, the palm house's shaded inside behind it, where the build showed the wing's pale stone through the glass (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the dome broad and light, about 4.6 m across, close-ribbed (x 512-680 px); the build's was 3.8 m and dark (T-1934)",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace",
+      "status": "open"
+    },
+    {
+      "what": "the planting: the four parkway and yard trees across the front, the clipped shrubs and potted palms on and before the terrace, none of them built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
