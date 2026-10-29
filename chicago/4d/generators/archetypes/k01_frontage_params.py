@@ -715,6 +715,12 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
            "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
     if m.get("side_parapet"):
         out["side_parapet"] = _mansard_side_parapet(m["side_parapet"], k5, out, eave, overhang, side_wall)
+    # T-1881: the lower faces' dormers may be faced in the front's own stone (1729's read in the
+    # walls' tone in every photograph), where K01's are a pale dressed stone
+    if "dormer_fabric" in m:
+        if m["dormer_fabric"] != "front_stone":
+            raise ParamError(f"mansard.dormer_fabric {m['dormer_fabric']!r}: front_stone, or leave it out")
+        out["dormer_fabric"] = "front_stone"
     return out
 
 
@@ -1097,6 +1103,26 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         elif "frame_m" in hd:
             raise ParamError(f"{what}.hood.frame_m: a frame stands in a slated face only")
         out["head_m"] = round(sht + ring + sf + hr, 4)
+    if "eared_hood" in d:
+        # T-1881: an eared architrave and hood round a round head's face (1729's dormers in the
+        # 1890 Albertype, the Detroit print and Taylor's photograph no. 1445)
+        eh = d["eared_hood"]
+        if head != "round":
+            raise ParamError(f"{what}.eared_hood: on a round head")
+        eh = {k: float(v) for k, v in eh.items()}
+        if set(d["eared_hood"]) - {"rise_m"} != {"band_m", "proud_m", "ear_m", "drop_m"}:
+            raise ParamError(f"{what}.eared_hood takes band_m, proud_m, ear_m, drop_m and an optional rise_m")
+        eh.setdefault("rise_m", 0.0)
+        ro, ri = sw / 2 + ring + eh["band_m"], sw / 2 + ring - 0.05
+        if not (0.08 <= eh["band_m"] <= 0.3 and 0.02 <= eh["proud_m"] <= 0.15 and 0.05 <= eh["ear_m"] <= 0.3
+                and 0.1 <= eh["drop_m"] <= 0.5):
+            raise ParamError(f"{what}.eared_hood: a 0.08-0.3 m band 0.02-0.15 m proud, its ears 0.05-0.3 m out "
+                             f"and 0.1-0.5 m deep")
+        # the ears stand `rise_m` over the springing, where the hood's arc is still outside the face
+        if not 0.0 <= eh["rise_m"] <= math.sqrt(max(0.0, ro * ro - (ri + 0.05) ** 2)):
+            raise ParamError(f"{what}.eared_hood.rise_m {eh['rise_m']}: the ears stand 0 m over the springing up "
+                             f"to where the hood's arc meets the face")
+        out["eared_hood"] = eh
     if head == "flat":
         # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
         # the surround's ring is only its jambs'), the cap K05's hip at a flat's fall
@@ -6057,7 +6083,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     try:
         pavilions = resolve_pavilions(val("street_front_pavilions"), width=width, stone=stone, openings=openings,
                                       mansard=mansard_roof, eave=pf + sum(heights),
-                                      wall_head=dict(val("wall_head", {}) or {}))
+                                      wall_head=dict(val("wall_head", {}) or {}), depth=depth, bays=bays)
     except PavilionError as e:
         raise ParamError(str(e)) from None
     from .k01_porte_cochere import ParamError as PorteError, resolve as resolve_porte

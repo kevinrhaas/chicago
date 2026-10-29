@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 19058027,
+  "content_version": 62858509,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 57 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 7 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 58 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 8 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -697,8 +697,8 @@
         "kind": "structure",
         "id": "elbridge_keith_house_1900_prairie"
       },
-      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: 1730 Prairie.",
-      "read_s": 15,
+      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Edson Keith House, 1906 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-33",
         "tour"
@@ -716,10 +716,10 @@
       "id": "stop-34",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
+        "id": "edson_keith_house_1906_prairie"
       },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
-      "read_s": 10,
+      "text": "Edson Keith House, 1906 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1730 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-34",
         "tour"
@@ -727,7 +727,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1730_prairie",
+          "id": "edson_keith_house_1906_prairie",
           "label": "About this building"
         }
       ],
@@ -737,10 +737,10 @@
       "id": "stop-35",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "house_1730_prairie"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1712 Prairie.",
-      "read_s": 12,
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-35",
         "tour"
@@ -748,7 +748,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "house_1730_prairie",
           "label": "About this building"
         }
       ],
@@ -758,9 +758,9 @@
       "id": "stop-36",
       "destination": {
         "kind": "structure",
-        "id": "house_1712_prairie"
+        "id": "house_1726_prairie"
       },
-      "text": "1712 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1636 Prairie.",
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1712 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-36",
@@ -769,7 +769,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1712_prairie",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -779,9 +779,9 @@
       "id": "stop-37",
       "destination": {
         "kind": "structure",
-        "id": "house_1636_prairie"
+        "id": "house_1712_prairie"
       },
-      "text": "1636 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
+      "text": "1712 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1636 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-37",
@@ -790,7 +790,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1636_prairie",
+          "id": "house_1712_prairie",
           "label": "About this building"
         }
       ],
@@ -800,9 +800,9 @@
       "id": "stop-38",
       "destination": {
         "kind": "structure",
-        "id": "house_1634_prairie"
+        "id": "house_1636_prairie"
       },
-      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1630 Prairie.",
+      "text": "1636 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-38",
@@ -811,7 +811,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1634_prairie",
+          "id": "house_1636_prairie",
           "label": "About this building"
         }
       ],
@@ -821,9 +821,9 @@
       "id": "stop-39",
       "destination": {
         "kind": "structure",
-        "id": "house_1630_prairie"
+        "id": "house_1634_prairie"
       },
-      "text": "1630 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1628 Prairie.",
+      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1628 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-39",
@@ -832,7 +832,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1630_prairie",
+          "id": "house_1634_prairie",
           "label": "About this building"
         }
       ],
@@ -1404,6 +1404,16 @@
     },
     {
       "id": "stood-34",
+      "text": "Edson Keith House, 1906 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicago_tribune_1898_01_09_residence_district"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the Tribune drew its front in January 1898 with the composition of the undated engraving; nothing read so far records an alteration before 1904."
+    },
+    {
+      "id": "stood-35",
       "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1412,7 +1422,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-35",
+      "id": "stood-36",
       "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1421,7 +1431,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-36",
+      "id": "stood-37",
       "text": "1712 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1430,7 +1440,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-37",
+      "id": "stood-38",
       "text": "1636 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1439,22 +1449,13 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-38",
+      "id": "stood-39",
       "text": "1634 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
-      "id": "stood-39",
-      "text": "1630 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). The register's 'Civil War era' is a chronology no source here states for 1630, so no building date is claimed."
     },
     {
       "id": "stood-40",

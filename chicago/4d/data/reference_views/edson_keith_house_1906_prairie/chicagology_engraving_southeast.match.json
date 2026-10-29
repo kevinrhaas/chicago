@@ -1,0 +1,65 @@
+{
+  "structure_id": "edson_keith_house_1906_prairie",
+  "view": "chicagology_engraving_southeast",
+  "glb": "assets/gltf/edson_keith_house_1906_prairie__as_mapped_1904.glb",
+  "glb_sha256": "758c0831ae976d1da0ecc83d0d18955856b87ced3a5aec54f54529b658d59b58",
+  "camera_sha256": "55d2a027939fbba527a7245284fbf9a4c89504e27c874a9c212a775bde4a5ffd",
+  "photo_sha256": "e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3",
+  "side_by_side": "docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's flat-roofed generic block is now the engraving's Italianate house, two storeys over a raised basement under a low hipped roof, the cornice's bed near 11.5 m; front on the right, shaded south flank receding left, as the engraving draws them",
+      "status": "fixed"
+    },
+    {
+      "what": "the deep cornice on paired scrolled brackets over a panelled frieze, carried along the front and the south flank",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch on columns at the stoop's head, its flat top a balcony with a stone balustrade before the arched window over the door",
+      "status": "fixed"
+    },
+    {
+      "what": "the high stoop onto a terrace across the front, its cheeks scrolled at their foot, and the front's round-headed windows under hoods with keystones in both storeys",
+      "status": "fixed"
+    },
+    {
+      "what": "the low stone wall along the walk, with the stoop's opening",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch: the engraving draws its balcony about twice as wide as the window spacing beside it allows (x 740-867 px against the render's narrower porch) and the window over the door at the balcony's north end; the porch's width and the place of the door under it want the 1898 vignette's camera beside this one (T-3239)",
+      "status": "open"
+    },
+    {
+      "what": "the left of the picture: the engraving's large block at the south flank's front, with its own bracketed cornice, a columned porch under a balustraded balcony and round-headed windows (x 100-430 px); the render has the canted bay at the front's south end and the sheet's brick range along the flank instead (T-3239)",
+      "status": "open"
+    },
+    {
+      "what": "the tower: the render's canted bay rises a full stage over the cornice, narrow and tall; the engraving's tower stage is lower and broader, with cresting, near the top left of the main roof (x 270-330, y 10-130 px)",
+      "status": "open"
+    },
+    {
+      "what": "the roof's balustraded deck and its tall stack over the south flank, which the render does not have",
+      "status": "open"
+    },
+    {
+      "what": "the curved flights of the stoop's foot: the engraving splays them out to the walk; the render's stoop is straight between scrolled cheeks",
+      "status": "open"
+    },
+    {
+      "what": "the terrace's balustrade along the front's south part, before the basement lights (x 100-560 px)",
+      "status": "open"
+    },
+    {
+      "what": "colour: the engraving is monochrome; the brownstone front and the brick flanks are the census ruling's and the rules'",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank, the rear wing and the rear, which the engraving does not see",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
