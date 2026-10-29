@@ -1,0 +1,28 @@
+{
+  "structure_id": "tremont_house_1",
+  "source_id": "gifford_tremont_house_no_1",
+  "photo": "../../../../reference/images/chicago/chicago_first_tremont_house_1833.jpg",
+  "image_px": [
+    1637,
+    796
+  ],
+  "principal_px": [
+    468.2747693455644,
+    460.63883228759966
+  ],
+  "focal_px": 1320.031937501163,
+  "eye": [
+    -47.51829894710495,
+    -37.89004630139154,
+    2.4453554996967415
+  ],
+  "yaw_deg": 28.15896409466343,
+  "sun_uvy": [
+    -1,
+    -0.4,
+    1.4
+  ],
+  "solve": "Retained conditional picture-match framing from six approximate envelope-corner picks, numerically fitted by bounded least squares with level, vertical-preserving pinhole projection. PointRMS3.546px, maximum point residual6.866px. The same existing15.24x9.14m/7.8m reconstructed envelope is retained; those metrics are not measured from Gifford. Focal/eye/principal coupling and retrospective drawing perspective prevent an independent lens, survey or absolute-size claim. Exact picks/residuals remain in docs/RESEARCH/frame-picture-match-T-2376-T-2385/tremont/camera-fit.json. Camera numeric values and provisional light are unchanged from the actual retained three-storey comparison. This supplies comparison framing, without an independent archival scale. UnderT3153, small camera/pose residuals alone do not invent a visible structural gap. Monochrome front-versus-side brightness motivates the provisional light, not historical pigment. Owner-approved attributed Gifford/Chicagology project reference use is retained; no public-domain finding. This is diagnostic comparison framing only. The reconstructed envelope and undated drawing do not establish a historical observer location; the card must not advertise From this spot. The existing held reference is now reachable inline through its credited native image-store record. No eye, optics, yaw, lighting, building placement or geometry value is changed.",
+  "diagnostic_only": true,
+  "library_image": "early-gifford-first-tremont"
+}
