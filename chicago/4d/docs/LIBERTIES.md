@@ -35753,3 +35753,24 @@ or a full-size copy of the c. 1905 CHM negative i70232, would show the wall's ea
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-29 (T-1934).
+
+### L-pullman-pavilion-curves-3164 — The Pullman conservatory's curves drawn smooth, and the plate's cresting and finials on its transept and arch
+
+**Decision:** both pictures of Beman's conservatory (the 1894 Inland plate, `inland_1894_pullman_conservatory`,
+and the c. 1897 Lowe photograph, `aic_lowe_pullman_conservatory_c1897`) show its pointed nave as one smooth
+arc, where the render drew four planar facets a half and the north arch read as a polygon. The vault, the
+transept's section and the dome are now drawn in eight facets a half (the dome in eight rings): on the nave's
+8.34 m span, radius 6.19 m, eight facets leave a chord at most 0.019 m inside the true arc, under the K13
+kit's own 0.02 m `max_sag_m` for a curved roof, where four left 0.074 m. The plate draws a light iron lattice
+along each transept arm's level crest, a finial over the arm's end and a small ornament over the nave's
+point; they are built in the frame's paint, as the plate reads them light against the sky. The house is
+re-budgeted to 11,000 triangles in the kit's `costs.houses`, with its reasoning there. **What is invented.**
+The cresting's pattern (a foot rail, a top rail 0.3 m up and square pickets every 0.15 m: the plate resolves
+a lattice about a foot high, not its design) and the finials' heights (0.6 m over the transept's end, 0.4 m
+over the arch), read against the dome's 0.5 m finial in the same plate. **What is not.** The arch's
+geometry: its span, springing and apex are T-3179's, unchanged; only the number of facets drawing it moved.
+**How to resolve:** a sharper print or a photograph of the transept's crest settles the cresting's design.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
