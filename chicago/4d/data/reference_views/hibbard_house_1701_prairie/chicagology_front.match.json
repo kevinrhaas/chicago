@@ -1,0 +1,78 @@
+{
+ "structure_id": "hibbard_house_1701_prairie",
+ "view": "chicagology_front",
+ "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
+ "glb_sha256": "cad426578cfbee929fec07fdf3a06e0e9917863e4651c6d80d52750132064572",
+ "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
+ "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
+ "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: the main block's two brick storeys over a stone basement, its south-west corner and its south-east corner where the photograph has them",
+   "status": "fixed",
+   "how": "T-3240: the 1911 sheet's main block (12.5 x 14.7 m) on K01; its south-west corner renders on the photograph's corner pilaster (x 905) and its far corner at x 1592, the cornice's bed at the pilaster's capital"
+  },
+  {
+   "what": "the two-storey stone bay on the front's south part, two round-headed lights a storey in its face, its own cornice under the main one",
+   "status": "fixed",
+   "how": "T-3240: K08's canted bay in stone at v 10.4, 3.6 m at the wall, 1.2 m out, two storeys to 8.6 m under a low tin hip; it renders over the photograph's bay within about 20 px. The sheet and the fit place its junctions up to about 2.5 m apart (the camera's solve); laid between them"
+  },
+  {
+   "what": "round-headed lights on both storeys of the front and of the south flank's upper storey, the flank's single light and its pair over the lower south range, and the pair toward the rear on both storeys",
+   "status": "fixed",
+   "how": "T-3240: K01's round heads on the front (street_front_round_heads) and the read lights on the south wall (north_bays in the K01 frame), sills about 2.6 and 6.75 m"
+  },
+  {
+   "what": "the light stone window hoods, eared and crested, over every light",
+   "status": "open",
+   "how": "T-1876's carving: built as K01's round head with its key block"
+  },
+  {
+   "what": "the stone quoin pilasters with carved capitals on the corners and at the bay",
+   "status": "open",
+   "how": "T-1876"
+  },
+  {
+   "what": "the deep cornice on paired brackets round the main block",
+   "status": "fixed",
+   "how": "T-3240: K10's bracketed cornice in pairs at 1.6 m, painted light"
+  },
+  {
+   "what": "the roof: slopes rising from the cornice to a flat deck railed with pierced panels, and the tall stack through its south half",
+   "status": "open",
+   "how": "T-3240 builds the hip at 35 degrees to its ridge and the stacks (the south stack renders on the photograph's); the deck and its rail are T-3241's"
+  },
+  {
+   "what": "the corner porch: a one-storey stone arcade on the front's north end, railed on top, and the front's recessed north part behind it",
+   "status": "open",
+   "how": "T-3241: not yet built; the kit's stoop stands at the door in the meantime"
+  },
+  {
+   "what": "the lower south range before the south flank: one storey over the basement, set back from the front corner, a railed balcony on top, a round-headed light under an eared hood in its west face",
+   "status": "open",
+   "how": "T-3241: not yet built; the main block's south wall stands bare to grade behind where it goes"
+  },
+  {
+   "what": "the entrance: a tall dark round arch between the porch and the bay",
+   "status": "open",
+   "how": "T-3241, with the porch: a K07 panelled door at the head of the kit's stoop until then"
+  },
+  {
+   "what": "the cast-iron fence of interlaced loops on a stone curb along the street line, its gate pier",
+   "status": "open",
+   "how": "T-1876's ironwork: built as K11's spear fence on its curb"
+  },
+  {
+   "what": "the brick's and the roof's colours",
+   "status": "not shown",
+   "how": "the photograph is monochrome"
+  },
+  {
+   "what": "the north wall and the rear",
+   "status": "not shown",
+   "how": "the camera sees the front and the south flank"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
