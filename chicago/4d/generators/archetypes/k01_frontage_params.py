@@ -5151,10 +5151,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         ters = ters if isinstance(ters, list) else [ters] if ters else []
         if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any(not isinstance(t, dict) or set(t) & {"out_m", "loggia", "parapet"} for t in ters) \
-                or set(cf) - {"kind", "foot_block_m", "bow"}:
+                or set(cf) - {"kind", "foot_block_m", "bow", "pierced"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop; "
-                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m "
-                             "and with a bow")
+                             "a terrace beside it only open, at the landing's depth), optionally on a foot_block_m, "
+                             "with a bow and pierced")
         door_kit["cheek_form"] = {"kind": "scrolled"}
         # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
         if "foot_block_m" in cf:
@@ -5169,6 +5169,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.cheek_form.bow: a scrolled cheek's sweep falls with a power of 1 "
                                  "(straight) to 2 (the concave default)")
             door_kit["cheek_form"]["bow"] = bw
+        # T-3186: a row of openings through both cheeks under their coping (1901's, the 1893 plate)
+        if "pierced" in cf:
+            pc = cf["pierced"]
+            if not isinstance(pc, dict) or set(pc) != {"count", "hole_m", "under_m", "span_m"} \
+                    or not 1 <= int(pc["count"]) <= 12 or len(pc["hole_m"]) != 2 \
+                    or not 0.05 <= float(pc["hole_m"][0]) <= 0.5 or not 0.05 <= float(pc["hole_m"][1]) <= 0.4 \
+                    or not 0.05 <= float(pc["under_m"]) <= 0.3 or not 0.3 <= float(pc["span_m"]) <= 6.0:
+                raise ParamError("entrance_kit.cheek_form.pierced on a scrolled cheek is {count 1-12, hole_m "
+                                 "[0.05-0.5 along, 0.05-0.4 high], under_m 0.05-0.3 under its top, span_m 0.3-6 "
+                                 "along the sweep from its head}")
+            door_kit["cheek_form"]["pierced"] = {"count": int(pc["count"]),
+                                                 "hole_m": [float(x) for x in pc["hole_m"]],
+                                                 "under_m": float(pc["under_m"]), "span_m": float(pc["span_m"])}
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \

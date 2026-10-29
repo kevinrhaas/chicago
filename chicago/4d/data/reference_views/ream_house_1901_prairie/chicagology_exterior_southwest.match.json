@@ -2,7 +2,7 @@
   "structure_id": "ream_house_1901_prairie",
   "view": "chicagology_exterior_southwest",
   "glb": "assets/gltf/ream_house_1901_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ca61ed002a1e08b382c620f243bd2d9e3c64e2234ac4be7a3111873c37f5d0e8",
+  "glb_sha256": "6b46379022f54ccbc6b119fe4ae5662cef4510c090bc36a177ab8b88e1e3539a",
   "camera_sha256": "60459980b416968efa474862ca399c308541ec8140c165adf1b09d832353cfed",
   "photo_sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3",
   "side_by_side": "docs/RESEARCH/photo-match/ream_house_1901_prairie/chicagology_exterior_southwest-side-by-side.jpg",
@@ -42,8 +42,9 @@
       "how": "T-3186: entrance_kit cheek_form {kind scrolled, bow 1.0}"
     },
     {
-      "what": "the cheeks' row of small openings under their tops, five or six to a cheek (x 560-690 px on the near one); K07's scrolled cheek is solid",
-      "status": "open"
+      "what": "the cheeks' row of small openings under their tops (five or six to a cheek, x 560-690 px on the near one): now five openings through each cheek under its coping, along the upper part of the sweep; the pictures' are rounded, the build's squared, a difference under the 1 ft bar",
+      "status": "fixed",
+      "how": "T-3186: entrance_kit cheek_form.pierced {count 5, hole_m [0.32, 0.2], under_m 0.12, span_m 2.5}, K07's pierced scrolled cheek (k07_entrances._scrolled_holes)"
     },
     {
       "what": "the porch's capitals: Corinthian, a deep bell of leaves under the abacus; now K01's carved hood capital, two tiers of leaves under a 0.1 m abacus",
@@ -83,7 +84,11 @@
       "what": "the walk and the entrance gate",
       "status": "within tolerance",
       "how": "seen from the south-west the open gate and walk T-3206 lays read behind the fence"
+    },
+    {
+      "what": "the stoop's height against its cheeks: both cameras put the build's cheek heads higher than the pictures' — the plate shows the porch's column plinths whole above the cheeks, their tops about 0.2 m under the plinths' foot (x 245-257 px, y 550-557 px), where the build's cheek top stands 0.85 m over the landing and hides them (y about 513 px); the plate's flight reads about 80 px from the walk to the landing (y about 635 to 553 px) where the build's projects to about 110 (649 to 540 px); and the pictures' cheeks run nearly parallel to the treads to a roll raised over the walk, pierced nearly to it, where the build's falls to the walk and its lowest metre is too low over the treads to hold an opening. One of the stoop's rise, its projection or the camera's depth (the 1898 solve's weakest number, and the stoop stands 6 m before the front it was fitted to) is wrong; which needs a camera fit against the stoop itself",
+      "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
