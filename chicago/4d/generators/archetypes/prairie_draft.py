@@ -286,14 +286,43 @@ def cone(m: Mesh, mat, ring, y0, apex_y):
     m.face("cornice", [(p[0], p[1], y0) for p in ring], cen)
 
 
-def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, chamfer=None, cresting="posts"):
+def bow_arc(a, b, corner, bulge, y, flare=0.0, seg=8):
+    """Points on a circular arc from `a` to `b` (u, v) that bows toward `corner`, its middle
+    `bulge` metres past the chord's middle along the line to the corner; `flare` pushes the
+    arc's inner points as far out and down, so an eave carried round it bells (T-3164)."""
+    mu, mv = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    du, dv = corner[0] - mu, corner[1] - mv
+    L = math.hypot(du, dv) or 1.0
+    du, dv = du / L, dv / L
+    half = math.hypot(b[0] - a[0], b[1] - a[1]) / 2
+    sag = L + bulge                          # the arc's middle stands this far off the chord
+    r = (half * half + sag * sag) / (2 * sag)
+    cu, cv = mu + du * (sag - r), mv + dv * (sag - r)
+    t0 = math.atan2(a[1] - cv, a[0] - cu)
+    tm = math.atan2(dv, du)                  # the sweep passes through the bulge's middle
+    t1 = math.atan2(b[1] - cv, b[0] - cu)
+    t1 = min((t1 + 2 * math.pi * j for j in (-2, -1, 0, 1, 2)),
+             key=lambda x: abs(math.remainder((t0 + x) / 2 - tm, 2 * math.pi)) + 1e-9 * abs(x - t0))
+    pts = []
+    for k in range(seg + 1):
+        t = t0 + (t1 - t0) * k / seg
+        w = math.sin(math.pi * k / seg) * flare
+        pts.append((cu + (r + w) * math.cos(t), cv + (r + w) * math.sin(t), y - w))
+    return pts
+
+
+def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, chamfer=None, cresting="posts",
+             bow=None):
     """A hipped roof cut off level `deck_h` over its eave: four sloped faces to a flat
     lead deck, and a ring of iron cresting round the deck. `insets` (u0, u1, v0, v1), the
     deck's edges in from the eave lines, gives each face its own pitch where a picture
     shows a steeper end. `chamfer` (corner, metres), the corner named as 'u1v1' and the like,
     cuts that corner of the eave on the diagonal, with its own slope up to the deck's corner,
     where an upper storey turns the corner on a diagonal (T-1934). `cresting` "open" rings the
-    deck in open ironwork (T-1934); otherwise posts and a rail. Returns the cresting's top."""
+    deck in open ironwork (T-1934); otherwise posts and a rail. `bow` (bulge, flare), with a
+    chamfer, carries the cut eave round an arc `bulge` metres proud of the chord's middle and
+    belled out and down by `flare`, the roof over it a fan to the deck's corner: the bowed
+    corner of the Pullman lodge in the 1894 plate (T-3164). Returns the cresting's top."""
     u0, u1, v0, v1 = u0 - o, u1 + o, v0 - o, v1 + o
     inset = min(deck_h / math.tan(math.radians(pitch)), (u1 - u0) / 2 - 0.3, (v1 - v0) / 2 - 0.3)
     yd = y + inset * math.tan(math.radians(pitch))
@@ -315,8 +344,14 @@ def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, cha
         p_in, p_out = toward(pa, L), toward(pb, L)
         faces[(c - 1) % 4] = [pa, p_in, hi[c], hi[(c - 1) % 4]]
         faces[c] = [p_out, pb, hi[(c + 1) % 4], hi[c]]
-        faces.append([p_in, p_out, hi[c]])
-        ring = lo[:c] + [p_in, p_out] + lo[c + 1:]
+        if bow:
+            arc = bow_arc(p_in, p_out, C, float(bow[0]), y, flare=float(bow[1]))
+            for k in range(len(arc) - 1):
+                faces.append([arc[k], arc[k + 1], hi[c]])
+            ring = lo[:c] + arc + lo[c + 1:]
+        else:
+            faces.append([p_in, p_out, hi[c]])
+            ring = lo[:c] + [p_in, p_out] + lo[c + 1:]
     for f_ in faces:
         m.face("roof", f_, cen)
     m.face("cornice", ring, cen)
@@ -538,6 +573,77 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
                          [P(e_ - pier / 2, 0.14, spring - 0.25), P(e_ + pier / 2, 0.14, spring - 0.25),
                           P(e_ + pier / 2, 0.14, spring), P(e_ - pier / 2, 0.14, spring)]], mat="trim")
             doors += 1
+        col = arc.get("columns")
+        if col:
+            # round columns standing proud of the piers between the openings, a loggia's
+            # rather than an arcade's (the Pullman lodge in the 1894 plate, T-3164)
+            r, n0 = float(col["radius_m"]), float(col.get("proud_m", float(col["radius_m"]) * 0.6))
+            ops = sorted((float(c_) - float(w_) / 2, float(c_) + float(w_) / 2)
+                         for c_, w_ in zip(arc["centres"], arc["spans_m"]))
+            at = [(ops[k][1] + ops[k + 1][0]) / 2 for k in range(len(ops) - 1)] + [float(x) for x in col.get("also_s", [])]
+            top = spring
+            for s in at:
+                ring = [P(s + r * math.cos(2 * math.pi * k / 12), n0 + r * math.sin(2 * math.pi * k / 12), 0.0)
+                        for k in range(12)]
+                prism(m, "trim", [(q[0], q[1]) for q in ring], sill + 0.3, top - 0.3)
+                for y0, y1, h in ((sill, sill + 0.3, r + 0.08), (top - 0.3, top, r + 0.1)):
+                    a, b = P(s - h, n0 - h, y0), P(s + h, n0 + h, y1)
+                    m.box("trim", min(a[0], b[0]), max(a[0], b[0]), min(a[1], b[1]), max(a[1], b[1]), y0, y1)
+            facts["loggia_columns"] = len(at)
+    bow = f.get("corner_bow")
+    if bow:
+        # the upper storey's corner rounded on an arc standing a little proud of the square
+        # corner, with its own cornice; the roof's eave follows it (hip_deck's bow, T-3164)
+        u0, v0, u1, v1 = rects[bow["part"]]
+        cu_ = u0 if bow["corner"][:2] == "u0" else u1
+        cv_ = v0 if bow["corner"][2:] == "v0" else v1
+        L = float(bow["chord_m"])
+        a = (cu_ + (L if cu_ == u0 else -L), cv_)
+        b = (cu_, cv_ + (L if cv_ == v0 else -L))
+        y0, y1 = float(bow["from_m"]), float(bow["top_m"])
+        arc = [(q[0], q[1]) for q in bow_arc(a, b, (cu_, cv_), float(bow["bulge_m"]), 0.0)]
+        mu, mv = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+        prism(m, wall, arc, y0, y1)
+
+        def out(q, o):
+            du, dv = q[0] - mu, q[1] - mv
+            n_ = math.hypot(du, dv) or 1.0
+            return (q[0] + du / n_ * o, q[1] + dv / n_ * o)
+        prism(m, "cornice", [out(q, 0.3) for q in arc], y1 - 0.4, y1)
+        prism(m, "trim", [out(q, 0.1) for q in arc], y0, y0 + 0.2)
+        facts["corner_bow_m"] = round(L, 3)
+    bal = f.get("balcony")
+    if bal:
+        # a balcony on the loggia's entablature, a stone floor and an open balustrade, its
+        # end turned on a quarter-round back to the wall (the Pullman lodge, T-3164)
+        P, inside, _ = face_of(bal)
+        s0, s1, d = float(bal["s0"]), float(bal["s1"]), float(bal["proj_m"])
+        fl, h = float(bal["floor_m"]), float(bal.get("h_m", 0.8))
+        g = 1.0 if s1 > s0 else -1.0
+        edge = [(s1, 0.0), (s1, d)]
+        for k in range(9):
+            t = math.pi / 2 * k / 8
+            edge.append((s0 + g * d - g * d * math.sin(t), d * math.cos(t)))
+        outline = [P(a_, n_, 0.0) for a_, n_ in edge]
+        prism(m, "trim", [(q[0], q[1]) for q in outline], fl - 0.22, fl)
+        rail, plinth, t = 0.12, 0.14, 0.11
+        n = 0
+        for k in range(1, len(edge) - 1):
+            (pa, pn), (qa, qn) = edge[k], edge[k + 1]
+            seg = math.hypot(qa - pa, qn - pn)
+            ta, tn = (qa - pa) / seg, (qn - pn) / seg
+            na, nn = tn, -ta
+            for y0, y1, w in ((fl, fl + plinth, t), (fl + h - rail, fl + h, t + 0.03)):
+                ring = [P(pa - ta * w + na * w, pn - tn * w + nn * w, 0.0), P(qa + ta * w + na * w, qn + tn * w + nn * w, 0.0),
+                        P(qa + ta * w - na * w, qn + tn * w - nn * w, 0.0), P(pa - ta * w - na * w, pn - tn * w - nn * w, 0.0)]
+                prism(m, "trim", [(q[0], q[1]) for q in ring], y0, y1)
+            j = max(1, round(seg / 0.22))
+            for i in range(j):
+                ba, bn = pa + (qa - pa) * (i + 0.5) / j, pn + (qn - pn) * (i + 0.5) / j
+                c = P(ba, bn, 0.0)
+                m.box("trim", c[0] - 0.05, c[0] + 0.05, c[1] - 0.05, c[1] + 0.05, fl + plinth, fl + h - rail)
+                n += 1
+        facts["balcony_balusters"] = n
     bay = f.get("canted_bay")
     if bay and bay.get("plan"):
         windows += corner_bay(m, bay, wall)
@@ -839,7 +945,8 @@ def build(params, structure_id: str):
             top = hip_deck(m, u0, u1, v0, v1, eave, pitch, float(p.get("deck_m", 3.0)),
                            insets=[float(x) for x in p["deck_insets_m"]] if p.get("deck_insets_m") else None,
                            chamfer=(ch["corner"], ch["m"]) if ch else None,
-                           cresting=p.get("cresting", "posts"))
+                           cresting=p.get("cresting", "posts"),
+                           bow=(ch["bow_m"], ch.get("flare_m", 0.0)) if ch and ch.get("bow_m") else None)
         elif roof == "gable":
             along = "u" if (u1 - u0) >= (v1 - v0) else "v"
             inset = float(gothic.get("gable_inset_v0_m", 0.0)) if gothic and role == "main" else 0.0
