@@ -287,6 +287,99 @@ def waistcoat_buttons(garment, bones, recipe, profile, lod, scale=1.):
     return result
 
 
+def _rounded_felt_hat_section(base, height, brim, rx, thickness, scale):
+    """Original optional finish, retaining the old seating and outer brim radius.
+
+    Millimetre returns, a rounded shoulder and a raised same-material band are
+    reconstruction choices. The period comparator supplies no measured pattern.
+    The inner crown remains at the original radius; the roof stays above hair.
+    """
+    mm = .001/scale
+    inner = 1-thickness/rx
+    outer = 1+brim/rx
+    top = base+height
+    shoulder = min(6*mm, height*.12)
+    shoulder_radius = 1-shoulder/rx
+    section = [
+        (inner, base),
+        (1+10*mm/rx, base-4.5*mm),
+        (1+.55*brim/rx, base-6*mm),
+        (outer-2*mm/rx, base-5*mm),
+        (outer-.35*mm/rx, base-4*mm),
+        (outer, base-2.5*mm),
+        (outer-.35*mm/rx, base-1.3*mm),
+        (outer-2*mm/rx, base-.7*mm),
+        (1+.55*brim/rx, base-1.5*mm),
+        (1+6*mm/rx, base+1.5*mm),
+        (1+2*mm/rx, base+3*mm),
+        (1, base+6*mm),
+        # A 14 mm high shallow raised band, not a separate intersecting overlay.
+        (1, base+10*mm),
+        (1+.45*mm/rx, base+10.5*mm),
+        (1+.7*mm/rx, base+11.3*mm),
+        (1+.7*mm/rx, base+22.7*mm),
+        (1+.45*mm/rx, base+23.5*mm),
+        (1, base+24*mm),
+        (1, top-shoulder),
+    ]
+    for angle in (30, 60, 90):
+        theta = math.radians(angle)
+        section.append((shoulder_radius+shoulder/rx*math.cos(theta),
+                        top-shoulder+shoulder*math.sin(theta)))
+    # A shallow curved roof avoids the old perfectly planar cylinder cap.
+    for radius, rise in ((.65, .7), (.30, 1.1), (0, 1.2)):
+        section.append((shoulder_radius*radius, top+rise*mm))
+    for radius, rise in ((0, 1.2), (.30, 1.1), (.65, .7), (1, 0)):
+        section.append((shoulder_radius*radius, top+rise*mm-thickness))
+    inner_shoulder = shoulder-thickness
+    for angle in (60, 30, 0):
+        theta = math.radians(angle)
+        section.append((shoulder_radius+inner_shoulder/rx*math.cos(theta),
+                        top-shoulder+inner_shoulder*math.sin(theta)))
+    return section
+
+
+def felt_roughness_pixels(size=128):
+    """Original scalar matte-felt variation, for a Non-Color packed image.
+
+    Every RGB channel is the same roughness value, .91 to .97. This changes
+    neither base colour nor alpha and needs no sampled textile or normal map.
+    A caller must opt in explicitly and export/inspect the actual packed image.
+    """
+    if type(size) is not int or size < 16 or size > 512 or size & (size-1):
+        raise ValueError('felt roughness size must be a power of two from16to512')
+    pixels = []
+    for y in range(size):
+        for x in range(size):
+            value = ((x*73856093) ^ (y*19349663) ^ 0x4F1BBCDC) & 0xffffffff
+            value ^= value >> 13
+            value = (value*1274126177) & 0xffffffff
+            roughness = .91+.06*(value & 65535)/65535
+            pixels.extend((roughness, roughness, roughness, 1.))
+    return pixels
+
+
+def rounded_felt_source_context(root):
+    """Fixed cleared comparator only; no geometry/image sampling or new fact."""
+    import hashlib
+    import json
+    from pathlib import Path
+    root = Path(root)
+    source_id = 'wild_1835_third_vine'
+    raw = (root/'data/sources'/f'{source_id}.json').read_bytes()
+    record = json.loads(raw)
+    if record.get('id') != source_id or record.get('rights_status') != 'public_domain' or record.get('asset_use') != 'cross_check':
+        raise ValueError('rounded hat finish needs its actual cleared bounded cross-check')
+    liberty = 'L-human-modular-workwear-1789'
+    if ('### '+liberty+' ') not in (root/'docs/LIBERTIES.md').read_text():
+        raise ValueError('rounded hat finish requires the existing declared workwear liberty')
+    return {'source_id': source_id, 'source_record_sha256': hashlib.sha256(raw).hexdigest(),
+            'liberty': liberty, 'grade': 'reconstructed',
+            'scope': 'Wild1835 tiny brim/crown silhouette cross-check only; no traced pixels or pattern, exact Chicago outfit, named possession, before-July1completion, colour, felt measurement or fillet/band dimensions attested',
+            'construction': 'Original optional rounded_felt_v1 shape and deterministic Non-Color roughness, existing colour/seating/brim extent retained',
+            'historical_likeness_or_photographic_acceptance': False}
+
+
 def work_hat(hair, bones, profile, lod, scale=1.):
     """Closed hollow felt-hat construction fitted around the unchanged hair.
 
@@ -296,6 +389,9 @@ def work_hat(hair, bones, profile, lod, scale=1.):
     spec = profile.get('hat')
     if spec is None:
         return None
+    finish = spec.get('finish')
+    if finish not in (None, 'rounded_felt_v1'):
+        raise ValueError('unsupported optional reconstructed hat finish')
     if lod not in range(4) or scale <= 0:
         raise ValueError('invalid hat LOD/scale')
     points = hair['positions_m']
@@ -320,6 +416,8 @@ def work_hat(hair, bones, profile, lod, scale=1.):
                (1+brim/rx, base-.003/scale), (1, base+thickness),
                (1, base+height), (0, base+height),
                (0, base+height-thickness), (1-thickness/rx, base+height-thickness)]
+    if finish:
+        section = _rounded_felt_hat_section(base, height, brim, rx, thickness, scale)
     n = (48, 32, 20, 12)[lod]
     result = {'name': 'work_hat', 'material': 'headwear__felt_hat',
               'positions_m': [], 'triangles': [], 'uvs': [], 'weights': [], 'corner_uvs': []}
@@ -360,4 +458,13 @@ def work_hat(hair, bones, profile, lod, scale=1.):
         result['corner_uvs'] = [uv[::-1] for uv in result['corner_uvs']]
     result['receipt'] = {'actual_hair_vertices_used': len(crown), 'body_or_hair_mutated': False,
                          'head_bone': 'head', 'grade': 'reconstructed', 'fit_accepted': False}
+    if finish:
+        result['receipt']['optional_finish'] = {
+            'mode': finish, 'seat_and_maximum_brim_radius_preserved': True,
+            'crown_shoulder_radius_m': min(.006, height*scale*.12), 'roof_rise_m': .0012,
+            'raised_band_height_m': .014, 'raised_band_maximum_m': .0007,
+            'roughness_pixels': 'optional original Non-Color .91..97 data; no colour change',
+            'source_scope': 'Wild1835 tiny brim/crown silhouettes only; dimensions, band and felt finish reconstructed, no named possession or exact period colour',
+            'native_generation_and_visual_acceptance': 'UNRUN',
+        }
     return result

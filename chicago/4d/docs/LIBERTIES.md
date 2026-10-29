@@ -35914,3 +35914,27 @@ T-2793 final structural scope: an actual90x55mm central reach reuses the license
 **Recorded:** 2026-10-26.
 
 **Period cross-check:** T-2793 bounded period cross-check: the personally viewed1835 Wild Cincinnati painting (`wild_1835_third_vine`) shows the four-wheel, smaller-front/larger-rear work-wagon family with a covered box. The held Buffalo Eagle Tavern print shows an open loaded box but depicts1825 in an undated19th-century print reproduced1912. Neither supplies this specimen, Chicago presence, calibrated dimensions, hidden gear, wood species, coating or eight-spoke count. The current model intentionally remains open and empty, with reconstructed gray/warm finishes; no canvas/team/driver claim is added. Actual image hashes, provenance and comparison limits are in docs/RESEARCH/farm-box-master-2793/REFERENCE-COMPARISON.md. Existing geometry, UVs, images, GLB exports and source rights remain unchanged.
+
+
+### L-human-dress-finishing-1789 - Optional reconstructed bonnet and clothing finishing (T-1789)
+
+**Decision:** The optional adult dress study may explicitly select finishing_version1: an original pale bonnet crown/open upper-side brim,27mm linen cuff overlays,25mm waist band/simple back ties,14mm self-cloth placket and six7mm covered buttons. The bonnet is fitted around the actual unchanged head/hair support; cuffs and closures sample actual garment triangles; ties remain pelvis-bound standing source. All dimensions, pattern, color, textile/fastening and outfit choices are conjectural engineering decisions. Original body, rig, hair and garment/UV arrays are retained.
+
+**Basis:** The actually viewed cleared Wild1835 Cincinnati painting, wild_1835_third_vine, provides only tiny head-covering/full-skirt silhouette analogues. It does not attest a dated before-July1bonnet pattern, Chicago wardrobe, material, sewing detail, dimensions or any personal possession of reconstructed Mary Flynn. No source-image pixels or traced contours enter these components. The finished-dress dye encoding correction preserves the declared linear color; it is not a newly attested historical color.
+
+**How to resolve:** Native source array/UV/skin/rest-clearance tests and unchanged defaults do not establish canonical export, continuous posed fit, reduced LODs, material realism or photographic quality. New canonical source/web images must review bonnet proportion, hair coverage, cuffs, waist and closure. Production eligibility, walking/seated/photo acceptance, scene placement and full T-1789 remain open. Original1cbb reproduction retains its absent-option path.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-10-26.
+
+
+### L-human-rounded-felt-hat-1789 - Optional rounded male hat finishing (T-1789)
+
+**Decision:** The existing Otis/Martin workwear hat profiles may explicitly opt into rounded_felt_v1. Original actual-hair seating, maximum brim extent, colors, head-bone ownership, bodies, rig, hair, identities and unopted/default/female paths are retained. Joseph remains bareheaded. The6mm rounded crown shoulder,3mm edge return,1.2mm shallow roof rise and14mm/0.7mm raised same-material band are original reconstructed choices. Deterministic128square Non-Color roughness(.91-.97) is project-authored scalar data, not sampled felt; it adds no basecolor/alpha/normal map or material slot.
+
+**Basis:** This follows the existing L-human-modular-workwear-1789 assembly. The actually viewed, registered public-domain Wild1835 Cincinnati painting (wild_1835_third_vine) supplies only tiny broad-brim/crown category silhouettes. Exact geometry, felt construction, color, pattern, personal possession, Chicago use and completion before1July are not attested. No painting pixels or traced contours enter the asset. Opted hatted outputs retain prior citations and add only that bounded comparator/context; female, bareheaded and unopted source values remain unchanged. Original generated content remains CC0-1.0 and generator code GPL-3.0-or-later; existing upstream notices remain.
+
+**How to resolve:** Closed source-mesh/UV/weight/default-array controls and unchanged female arrays do not qualify native export, material packing, rendered appearance, continuous fit or budgets. New actual canonical male generation and source/web views plus the3native Blender proof stills remain required on the checked pushed source. Canonical triangle/byte/memory costs and photographic acceptance are UNRUN; no cap or production eligibility is promoted.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-10-27.

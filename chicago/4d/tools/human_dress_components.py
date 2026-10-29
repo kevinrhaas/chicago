@@ -340,6 +340,251 @@ def construct(body):
                              'No canonical Blender master/export, LOD, photo, clipping-all-pose or world-placement acceptance'])
 
 
+def _finish_merge(target, addition):
+    """Reuse an existing material/object; preserve its original arrays exactly."""
+    need(target['material'] == addition['material'], 'finishing cannot substitute material slots')
+    offset = len(target['positions_m']); face_offset = len(target['triangles'])
+    if 'corner_uvs' not in target:
+        target['corner_uvs'] = [[list(target['uvs'][i]) for i in face] for face in target['triangles']]
+    for key in ('positions_m', 'uvs', 'weights'):
+        target[key].extend(copy.deepcopy(addition[key]))
+    target['triangles'].extend([[i+offset for i in face] for face in addition['triangles']])
+    target['corner_uvs'].extend(copy.deepcopy(addition.get('corner_uvs',
+                               [[addition['uvs'][i] for i in face] for face in addition['triangles']])))
+    target.setdefault('flat_face_indices', []).extend(face_offset+i for i in addition.get('flat_face_indices', []))
+    target.setdefault('receipt', {}).setdefault('optional_finishing_parts', []).append({
+        'name': addition['name'], 'first_vertex': offset, 'added_vertices': len(addition['positions_m']),
+        'first_triangle': face_offset, 'added_triangles': len(addition['triangles']),
+        'construction': copy.deepcopy(addition.get('receipt', {}))})
+
+
+def _finish_cuffs(bodice_mesh, bones):
+    """Small linen bands follow actual outer sleeve faces and their own skin."""
+    ps = bodice_mesh['positions_m']; fs = bodice_mesh['triangles']
+    skip = set(bodice_mesh.get('flat_face_indices', []))
+    outer = [face for fi, face in enumerate(fs) if fi not in skip]
+    used = sorted({i for face in outer for i in face}); remap = {i: j for j, i in enumerate(used)}
+    compact_normals = source_shared_normals([ps[i] for i in used],
+                        [[remap[i] for i in face] for face in outer], used)
+    ns = dict(zip(used, compact_normals))
+    wrist = abs(bones['hand_l']['head_m'][0])-.012
+    result = empty('source_fitted_linen_cuffs', 'garment_outer__plain_apron')
+    for side in (-1, 1):
+        shell = empty('left_cuff' if side > 0 else 'right_cuff', result['material']); cache = {}
+        for face in outer:
+            if max(side*ps[i][0] for i in face) < wrist-.029 or min(side*ps[i][0] for i in face) > wrist-.002:
+                continue
+            poly = [{'p': list(ps[i]), 'uv': list(bodice_mesh['uvs'][i]), 'n': ns[i],
+                     'w': bodice_mesh['weights'][i], 'basis': {i: 1.}} for i in face]
+            poly = _clip(poly, lambda v: side*v['p'][0]-(wrist-.029))
+            poly = _clip(poly, lambda v: (wrist-.002)-side*v['p'][0])
+            ids = []
+            for v in poly:
+                key = tuple((i, round(w, 13)) for i, w in sorted(v['basis'].items()))
+                if key not in cache:
+                    cache[key] = len(shell['positions_m']); length = math.hypot(*v['n'])
+                    need(length > 1e-12, 'undefined source sleeve normal')
+                    shell['positions_m'].append([v['p'][a]+.0025*v['n'][a]/length for a in range(3)])
+                    shell['uvs'].append(list(v['uv'])); shell['weights'].append(skin(v['w']))
+                ids.append(cache[key])
+            for j in range(1, len(ids)-1):
+                f = [ids[0], ids[j], ids[j+1]]
+                if len(set(f)) == 3:
+                    shell['triangles'].append(f); shell['corner_uvs'].append([list(shell['uvs'][i]) for i in f])
+        need(bool(shell['triangles']), 'empty optional cuff')
+        _finish_merge(result, finish_edges(shell, .001))
+    result['receipt']['scope'] = '27mm linen cuff overlays; original sleeve remains exact; source standing only'
+    return result
+
+
+def _finish_segments(mesh, y):
+    """Actual outer triangle/plane intersections, excluding physical edge returns."""
+    lines = []; skip = set(mesh.get('flat_face_indices', [])); ps = mesh['positions_m']
+    for fi, face in enumerate(mesh['triangles']):
+        if fi in skip: continue
+        points = []
+        for a, b in zip(face, face[1:]+face[:1]):
+            p, q = ps[a], ps[b]
+            if p[1] == y: points.append((p[0], p[2]))
+            if (p[1]-y)*(q[1]-y) < 0:
+                t = (y-p[1])/(q[1]-p[1]); points.append((p[0]+t*(q[0]-p[0]), p[2]+t*(q[2]-p[2])))
+        points = list(dict.fromkeys(points))
+        if len(points) == 2 and math.dist(*points) > 1e-12: lines.append(points)
+    return lines
+
+
+def _finish_radius(lines, angle):
+    sx, sz = math.sin(angle), math.cos(angle); hits = []
+    for (x, z), (xx, zz) in lines:
+        dx, dz = xx-x, zz-z; den = sx*dz-sz*dx
+        if abs(den) < 1e-14: continue
+        r = (x*dz-z*dx)/den; t = (sz*x-sx*z)/den
+        if r > 0 and -1e-10 <= t <= 1+1e-10: hits.append(r)
+    need(bool(hits), 'optional waist/tie has no actual garment support')
+    return max(hits)
+
+
+def _finish_waist(parts, bones):
+    waist = bones['spine_02']['head_m'][1]; segments = 96
+    out = empty('linen_waistband_and_back_ties', 'garment_outer__plain_apron')
+    # Sampling every layer prevents the belt from cutting through an apron fold.
+    for row, y in enumerate((waist-.010, waist+.015)):
+        lines = [line for mesh in parts[:3] for line in _finish_segments(mesh, y)]
+        for k in range(segments):
+            a = 2*math.pi*k/segments; r = _finish_radius(lines, a)+.0035
+            out['positions_m'].append([r*math.sin(a), y, r*math.cos(a)])
+            out['uvs'].append([k/segments, float(row)]); out['weights'].append({'pelvis': 1.})
+    for k in range(segments):
+        n = (k+1)%segments; a,b,c,d = k,n,segments+n,segments+k
+        for f, uv in (([a,b,c],[[k/segments,0],[(k+1)/segments,0],[(k+1)/segments,1]]),
+                      ([a,c,d],[[k/segments,0],[(k+1)/segments,1],[k/segments,1]])):
+            out['triangles'].append(f); out['corner_uvs'].append(uv)
+    out = finish_edges(out, .001)
+    for side in (-1,1):
+        tie = empty('back_tie_left' if side < 0 else 'back_tie_right', out['material'])
+        for row in range(9):
+            t = row/8; y = waist+.006-.15*t; lines = _finish_segments(parts[1], y)
+            for col in range(2):
+                a = math.pi+side*(.025+.15*t)+(col-.5)*.115
+                r = _finish_radius(lines, a)+.006+.002*math.sin(math.pi*t)
+                tie['positions_m'].append([r*math.sin(a), y, r*math.cos(a)])
+                tie['uvs'].append([float(col), t]); tie['weights'].append({'pelvis': 1.})
+        for row in range(8):
+            a,b,c,d = 2*row,2*row+1,2*row+3,2*row+2
+            for f in ([a,c,b],[a,d,c]):
+                tie['triangles'].append(f); tie['corner_uvs'].append([tie['uvs'][i] for i in f])
+        _finish_merge(out, finish_edges(tie, .001))
+    out['receipt']['scope'] = '25mm actual-garment fitted waistband and two simple back ties; conjectural cut/width'
+    return out
+
+
+def _finish_closure(bodice_mesh, bones):
+    from human_period_wardrobe import _front_sample
+    out = empty('self_cloth_front_closure', bodice_mesh['material'])
+    low = bones['spine_02']['head_m'][1]+.025
+    high = bones['neck_01']['head_m'][1]-.040
+    for row in range(17):
+        y = low+(high-low)*row/16
+        for col in range(3):
+            x = (col-1)*.007; z,w = _front_sample(bodice_mesh,x,y)
+            out['positions_m'].append([x,y,z+.0025]);out['uvs'].append([col/2,row/16]);out['weights'].append(w)
+    for row in range(16):
+        for col in range(2):
+            a=row*3+col;b=a+1;c=a+4;d=a+3
+            for f in ([a,b,c],[a,c,d]):
+                out['triangles'].append(f);out['corner_uvs'].append([out['uvs'][i] for i in f])
+    out=finish_edges(out,.001)
+    # Closed low-profile self-cloth buttons, not metallic circles or new slots.
+    buttons=empty('six_covered_buttons',out['material']);segments=12
+    for button in range(6):
+        x=.001;y=low+.018+(high-low-.036)*button/5;z,w=_front_sample(bodice_mesh,x,y);start=len(buttons['positions_m'])
+        for row,(depth,radius) in enumerate(((.0035,.003),(.005,.0035),(.006,.0028))):
+            for k in range(segments):
+                a=2*math.pi*k/segments
+                buttons['positions_m'].append([x+radius*math.cos(a),y+radius*math.sin(a),z+depth])
+                buttons['uvs'].append([k/segments,row/2]);buttons['weights'].append(dict(w))
+        for row in range(2):
+            for k in range(segments):
+                n=(k+1)%segments;a=start+row*segments+k;b=start+row*segments+n;c=b+segments;d=a+segments
+                for f,uv in (([a,b,c],[[k/segments,row/2],[(k+1)/segments,row/2],[(k+1)/segments,(row+1)/2]]),
+                             ([a,c,d],[[k/segments,row/2],[(k+1)/segments,(row+1)/2],[k/segments,(row+1)/2]])):
+                    buttons['triangles'].append(f);buttons['corner_uvs'].append(uv)
+        for row in (0,2):
+            center=len(buttons['positions_m']);depth=(.0035,.005,.006)[row]
+            buttons['positions_m'].append([x,y,z+depth]);buttons['uvs'].append([.5,.5]);buttons['weights'].append(dict(w))
+            for k in range(segments):
+                n=(k+1)%segments;f=[center,start+row*segments+k,start+row*segments+n]
+                if row==0:f.reverse()
+                uv=[[.5,.5] if i==center else [.5+.45*math.cos(2*math.pi*((i-start)%segments)/segments),.5+.45*math.sin(2*math.pi*((i-start)%segments)/segments)] for i in f]
+                buttons['triangles'].append(f);buttons['corner_uvs'].append(uv)
+    _finish_merge(out,buttons)
+    out['receipt']['scope']='14mm front placket and six 7mm self-covered buttons sampled from actual bodice; reconstructed fastening only'
+    return out
+
+
+def _finish_bonnet(hair, body):
+    """Original pale bonnet family silhouette, fitted around unchanged actual hair.
+
+    Cleared Wild1835 supplies only tiny head-covering/full-skirt analogues. This
+    crown/brim is a new conjectural construction, never traced/measured evidence.
+    """
+    head_y=next(b['head_m'][1] for b in body['skeleton'] if b['name']=='head')
+    fitting_points=list(hair['positions_m'])
+    for mesh in body['meshes']:
+        for p,w in zip(mesh['positions_m'],mesh['weights']):
+            if sum(w.get(b,0.) for b in ('head','jaw'))>.75 and p[1]>=head_y-.060 and (p[2]<.035 or p[1]>head_y+.050 or abs(p[0])>.055):
+                fitting_points.append(p)
+    points=fitting_points;center=[(min(p[a] for p in points)+max(p[a] for p in points))/2 for a in range(3)]
+    radii=[(max(p[a] for p in points)-min(p[a] for p in points))/2+.012 for a in range(3)]
+    support=max(math.sqrt(sum(((p[a]-center[a])/radii[a])**2 for a in range(3))) for p in points)
+    radii=[r*max(1.,support)*1.025 for r in radii]
+    out=empty('plain_linen_bonnet','headwear__linen_bonnet');segments=64;rows=14;theta0=1.25
+    def vertex(p,uv):
+        i=len(out['positions_m']);out['positions_m'].append(p);out['uvs'].append(uv);out['weights'].append({'head':1.});return i
+    def face(f,uv=None,front=False):
+        a,b,c=[out['positions_m'][i] for i in f];u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
+        normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+        direction=[0,0,1] if front else [sum(out['positions_m'][i][j]-center[j] for i in f) for j in range(3)]
+        uv=copy.deepcopy(uv or [out['uvs'][i] for i in f])
+        if sum(a*b for a,b in zip(normal,direction))<0:f=list(reversed(f));uv.reverse()
+        out['triangles'].append(f);out['corner_uvs'].append(uv)
+    for row in range(rows):
+        theta=theta0+(math.pi-.11-theta0)*row/(rows-1)
+        for k in range(segments):
+            phi=2*math.pi*k/segments
+            vertex([center[0]+radii[0]*math.sin(theta)*math.sin(phi),center[1]+radii[1]*math.sin(theta)*math.cos(phi),center[2]+radii[2]*math.cos(theta)],[k/segments,row/rows])
+    for row in range(rows-1):
+        for k in range(segments):
+            n=(k+1)%segments;a=row*segments+k;b=row*segments+n;c=b+segments;d=a+segments
+            face([a,b,c],[[k/segments,row/rows],[(k+1)/segments,row/rows],[(k+1)/segments,(row+1)/rows]])
+            face([a,c,d],[[k/segments,row/rows],[(k+1)/segments,(row+1)/rows],[k/segments,(row+1)/rows]])
+    pole=vertex([center[0],center[1],center[2]-radii[2]],[.5,1])
+    for k in range(segments):
+        face([(rows-1)*segments+k,(rows-1)*segments+(k+1)%segments,pole],[[k/segments,(rows-1)/rows],[(k+1)/segments,(rows-1)/rows],[(k+.5)/segments,1]])
+    # Open front brim covers upper/side hair while leaving the face/chin open.
+    start=len(out['positions_m']);columns=49
+    for row in range(4):
+        t=row/3
+        for col in range(columns):
+            phi=-2.13+4.26*col/(columns-1)
+            x=center[0]+radii[0]*math.sin(theta0)*math.sin(phi)*(1+.13*t)
+            y=center[1]+radii[1]*math.sin(theta0)*math.cos(phi)*(1+.04*t)
+            z=center[2]+radii[2]*math.cos(theta0)+t*(.045+.010*max(0.,math.cos(phi)))
+            vertex([x,y,z],[col/(columns-1),t])
+    for row in range(3):
+        for col in range(columns-1):
+            a=start+row*columns+col;b=a+1;c=b+columns;d=a+columns
+            face([a,b,c],front=True);face([a,c,d],front=True)
+    out=finish_edges(out,.001)
+    out['receipt']['construction']='Hair-bounded original bonnet crown and open upper/side brim, no traced source pattern; head-bound standing prototype'
+    out['receipt']['hair_envelope']={'center_m':center,'radii_m':radii,'maximum_hair_ellipsoid_norm':max(math.sqrt(sum(((p[a]-center[a])/radii[a])**2 for a in range(3))) for p in hair['positions_m']),'hair_vertices_unchanged':True}
+    return out
+
+
+def apply_dress_finishing(bundle, body, hair):
+    """Explicit v1 option; absent option preserves the original construction."""
+    need(bundle['body_semantic_sha256']==digest(body),'finishing body/source mismatch')
+    before_body=digest(body);before_hair=digest(hair);before_bundle=copy.deepcopy(bundle)
+    out=copy.deepcopy(bundle);bones={b['name']:b for b in body['skeleton']}
+    cuffs=_finish_cuffs(out['meshes'][0],bones)
+    waist=_finish_waist(out['meshes'],bones)
+    closure=_finish_closure(out['meshes'][0],bones)
+    _finish_merge(out['meshes'][2],cuffs);_finish_merge(out['meshes'][2],waist);_finish_merge(out['meshes'][0],closure)
+    bonnet=_finish_bonnet(hair,body);out['meshes'].append(bonnet)
+    out['materials'][bonnet['material']]={'base_color_linear':[.72,.68,.58,1],'roughness':.92}
+    for old,new in zip(before_bundle['meshes'],out['meshes']):
+        for key in ('positions_m','triangles','uvs','weights'):
+            need(new[key][:len(old[key])]==old[key], 'finishing changed original garment '+key)
+        if 'corner_uvs' in old:need(new['corner_uvs'][:len(old['triangles'])]==old['corner_uvs'],'finishing changed original corner UVs')
+    need(digest(body)==before_body and digest(hair)==before_hair,'finishing changed original body/hair')
+    out['optional_finishing']={'version':1,'source':'wild_1835_third_vine','grade':'reconstructed',
+        'scope':'Conjectural bonnet family silhouette, linen cuffs/waistband/back ties, self-cloth closure; actual source body/rig/hair retained',
+        'new_material_slots':1,'source_body_unchanged':True,'source_hair_unchanged':True,
+        'standing_source_only':True,'production_eligible':False,'walking_seated_or_photo_accepted':False}
+    out['limitations'].append('Optional finishing is an unrendered reconstructed standing-source proposal; no dated bonnet/cut/colour or personal possession is asserted')
+    return out
+
+
 def prepare_dress_assembly(root, recipe, variant, body):
     """The opt-in canonical builder's actual source consumer; never a world switch."""
     root = Path(root).resolve()
@@ -371,7 +616,13 @@ def prepare_dress_assembly(root, recipe, variant, body):
     record = json.loads((root/'data/sources'/f'{source_id}.json').read_text())
     need(record.get('id') == source_id and record.get('rights_status') == 'public_domain'
          and record.get('asset_use') == 'cross_check', 'dress reference is not the cleared bounded cross-check')
+    finishing = spec.get('finishing_version')
+    need(finishing is None or (type(finishing) is int and finishing == 1), 'unsupported dress finishing version')
     bundle = construct(body)
+    if finishing == 1:
+        from human_hair_short04 import fit
+        hair, _, _ = fit(body, recipe['hair_component'], root)
+        bundle = apply_dress_finishing(bundle, body, hair)
     for material, spec in bundle['materials'].items():
         need(recipe['colors_linear_rgba'].get(material) == spec['base_color_linear'], 'dress material recipe/source disagree')
     names = {b['name'] for b in body['skeleton']}

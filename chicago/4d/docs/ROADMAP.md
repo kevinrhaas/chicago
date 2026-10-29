@@ -5974,3 +5974,8 @@ Concrete separate source now preserves the licensed Old Cart's weathered boards,
 T-2793: finish current-source publisher/full-gate and world/photo release checks for the licensed articulated master. Current isolated desktop/mobile WebP appearance/control proof is separate; retain the four explicit source-only publication omissions without cap changes. No broad photographic or ticket completion is recorded here.
 
 T-2793 final-source qualification must use the separately owned actual reach/kingbolt candidate (8,465,076-bytewebset); old pre-reach captures do not qualify the added member. Preserve current80staticwagons/3finewoodstands until explicitworld-selection qualification.
+
+
+### T-1789 — finish the existing modular resident wardrobe delivery
+
+Keep current DEV's existing identities, era studies and Otis placement. Generate the already bounded optional female finishing and male rounded-hat families through the reviewed canonical workflow, female delivery fully before male on equivalent authoring source. The default remains artifact-only; the explicit fixed-branch delivery mode must complete native all-asset measurements and preflight before a normal feature commit. Install the actual masters/raw/web LODs, inspect the native Blender stills and current published views, then reconcile current DEV and merge only after required checks. Source controls alone leave photographic, continuous fit, occupied-use and final T-1789 acceptance open.

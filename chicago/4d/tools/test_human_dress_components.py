@@ -111,7 +111,10 @@ class DressComponents(unittest.TestCase):
 
     def test_actual_canonical_source_consumer_preserves_body(self):
         before = copy.deepcopy(self.body)
-        bundle = prepare_dress_assembly(ROOT, self.recipe, self.variant, self.body)
+        original_recipe = copy.deepcopy(self.recipe)
+        original_recipe['dress_components'].pop('finishing_version', None)
+        bundle = prepare_dress_assembly(ROOT, original_recipe, self.variant, self.body)
+        self.assertNotIn('optional_finishing', bundle)
         self.assertEqual(before, self.body)
         self.assertEqual(hashlib.sha256(self.raw).hexdigest(), BODY_SHA256)
         self.assertEqual(bundle['skeleton'], self.body['skeleton'])
@@ -122,6 +125,31 @@ class DressComponents(unittest.TestCase):
             for face in mesh['triangles']:
                 self.assertEqual(len(set(face)), 3)
         self.assertFalse(bundle['meshes'][1]['receipt']['walking_or_seated_accepted'])
+
+    def test_optional_finished_consumer_keeps_source_and_pose_bounds(self):
+        before = copy.deepcopy(self.body)
+        finished_recipe = copy.deepcopy(self.recipe)
+        finished_recipe['dress_components']['finishing_version'] = 1
+        bundle = prepare_dress_assembly(ROOT, finished_recipe, self.variant, self.body)
+        self.assertEqual(before, self.body)
+        self.assertEqual(bundle['skeleton'], before['skeleton'])
+        self.assertEqual(len(bundle['meshes']), 5)
+        self.assertEqual(bundle['meshes'][-1]['name'], 'plain_linen_bonnet')
+        self.assertTrue(all(w == {'head': 1.} for w in bundle['meshes'][-1]['weights']))
+        self.assertFalse(bundle['optional_finishing']['production_eligible'])
+        self.assertFalse(bundle['optional_finishing']['walking_seated_or_photo_accepted'])
+        self.assertTrue(bundle['optional_finishing']['source_hair_unchanged'])
+        self.assertLess(bundle['meshes'][-1]['receipt']['hair_envelope']['maximum_hair_ellipsoid_norm'], 1.)
+        for mesh in bundle['meshes']:
+            for face, uv in zip(mesh['triangles'], mesh.get('corner_uvs', [[mesh['uvs'][i] for i in f] for f in mesh['triangles']])):
+                self.assertEqual(len(set(face)), 3)
+                self.assertGreater(abs((uv[1][0]-uv[0][0])*(uv[2][1]-uv[0][1])
+                                       -(uv[1][1]-uv[0][1])*(uv[2][0]-uv[0][0])), 1e-16)
+        for bad in (0, 2, True, '1', {}):
+            invalid = copy.deepcopy(finished_recipe)
+            invalid['dress_components']['finishing_version'] = bad
+            with self.assertRaisesRegex(ValueError, 'finishing version'):
+                prepare_dress_assembly(ROOT, invalid, self.variant, self.body)
 
     def test_unqualified_pose_or_source_changes_are_refused(self):
         for key, bad, message in [('production_eligible', True, 'promotion'),

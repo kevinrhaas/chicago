@@ -220,6 +220,25 @@ def build(args):
             bsdf.inputs['Roughness'].default_value = .18
         if name in EYE_MATERIALS:bsdf.inputs['Roughness'].default_value=EYE_MATERIALS[name]['roughness']
         materials[name] = material
+    # BEGIN bounded optional rounded_felt_v1; all original/default/female paths skip.
+    hat_spec = (wardrobe or {}).get('hat') or {}
+    hat_context = None
+    if hat_spec.get('finish') == 'rounded_felt_v1':
+        from human_period_wardrobe import felt_roughness_pixels, rounded_felt_source_context
+        hat_context = rounded_felt_source_context(ROOT)
+        felt = bpy.data.images.new('original_reconstructed_felt_roughness', width=128, height=128, alpha=False)
+        felt.colorspace_settings.name = 'Non-Color'
+        felt.pixels = felt_roughness_pixels(128)
+        felt.file_format = 'PNG';felt.pack()
+        material = materials['headwear__felt_hat']
+        nodes, links = material.node_tree.nodes, material.node_tree.links
+        texture = nodes.new('ShaderNodeTexImage');texture.name = 'Original reconstructed matte felt roughness'
+        texture.image = felt;texture.interpolation = 'Linear'
+        channels = nodes.new('ShaderNodeSeparateColor');channels.mode = 'RGB'
+        links.new(texture.outputs['Color'], channels.inputs['Color'])
+        bsdf = nodes['Principled BSDF'];bsdf.inputs['Roughness'].default_value = 1.0
+        links.new(channels.outputs['Green'], bsdf.inputs['Roughness'])
+    # END bounded optional rounded_felt_v1.
     # Original opaque sclera/iris/pupil; no transparent shell/new extension.
     # Dimensions and brown color are reconstruction, not resident facts.
     iris=bpy.data.images.new('original_reconstructed_iris',width=512,height=256,alpha=False)
@@ -244,12 +263,19 @@ def build(args):
     weave.colorspace_settings.name='sRGB'
     cloth_material='garment_upper__plain_dress' if dress else 'garment_upper__shirt_linen'
     base=colors[cloth_material];pixels=[]
+    def encode_srgb(value):
+        return 12.92*value if value <= .0031308 else 1.055*value**(1/2.4)-.055
     for yy in range(256):
         for xx in range(256):
             # The old eight-texel ridges read as giant blocks on body UVs.
             # This original one-texel alternation has only one percent contrast.
             shade=.99+.01*((xx+yy)%2)
-            pixels.extend([base[0]*shade,base[1]*shade,base[2]*shade,1.])
+            if dress and recipe['dress_components'].get('finishing_version') == 1:
+                # Encode linear recipe dye in the PNG's declared sRGB space.
+                # Keep all original/default/male texture pixels unchanged.
+                pixels.extend([encode_srgb(base[0]*shade),encode_srgb(base[1]*shade),encode_srgb(base[2]*shade),1.])
+            else:
+                pixels.extend([base[0]*shade,base[1]*shade,base[2]*shade,1.])
     weave.pixels=pixels
     weave.file_format='PNG'
     weave.pack()
@@ -529,8 +555,12 @@ def build(args):
     for pose in rig.pose.bones:
         pose.location=(0,0,0)
         pose.rotation_mode='QUATERNION';pose.rotation_quaternion=(1,0,0,0)
-    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. '+variant.get('body_basis','Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.'),'sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':variant.get('recipe_path','data/humans/recipes/worker_1835.json'),'person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
+    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. '+variant.get('body_basis','Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.'),'sources':recipe['sources']+([hat_context['source_id']] if hat_context else []),'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':variant.get('recipe_path','data/humans/recipes/worker_1835.json'),'person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
     scene['chicago4d_human']['hair_source_json']=json.dumps(hair_report,sort_keys=True)
+    # BEGIN bounded optional rounded_felt_v1 provenance; original fields retained.
+    if hat_context:
+        scene['chicago4d_human']['hat_finish_source_json'] = json.dumps(hat_context,sort_keys=True)
+    # END bounded optional rounded_felt_v1 provenance.
     if wardrobe:
         scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({
             'assembly':variant['wardrobe_assembly'],'profile':wardrobe,

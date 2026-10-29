@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 856,
+  "count": 858,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60365,6 +60365,66 @@
       ],
       "work_refs": [
         "T-2793"
+      ]
+    },
+    {
+      "id": "L-human-dress-finishing-1789",
+      "title": "Optional reconstructed bonnet and clothing finishing",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The optional adult dress study may explicitly select finishing version1: an original pale bonnet crown/open upper-side brim,27mm linen cuff overlays,25mm waist band/simple back ties,14mm self-cloth placket and six7mm covered buttons. The bonnet is fitted around the actual unchanged head/hair support; cuffs and closures sample actual garment triangles; ties remain pelvis-bound standing source. All dimensions, pattern, color, textile/fastening and outfit choices are conjectural engineering decisions. Original body, rig, hair and garment/UV arrays are retained."
+        },
+        {
+          "label": "Basis",
+          "text": "The actually viewed cleared Wild1835 Cincinnati painting, J. C. Wild. Third and Vine Northside. 1835, provides only tiny head-covering/full-skirt silhouette analogues. It does not attest a dated before-July1bonnet pattern, Chicago wardrobe, material, sewing detail, dimensions or any personal possession of reconstructed Mary Flynn. No source-image pixels or traced contours enter these components. The finished-dress dye encoding correction preserves the declared linear color; it is not a newly attested historical color."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Native source array/UV/skin/rest-clearance tests and unchanged defaults do not establish canonical export, continuous posed fit, reduced LODs, material realism or photographic quality. New canonical source/web images must review bonnet proportion, hair coverage, cuffs, waist and closure. Production eligibility, walking/seated/photo acceptance, scene placement and full this work remain open. Original1cbb reproduction retains its absent-option path."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-26."
+        }
+      ],
+      "work_refs": [
+        "T-1789"
+      ]
+    },
+    {
+      "id": "L-human-rounded-felt-hat-1789",
+      "title": "Optional rounded male hat finishing",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The existing Otis/Martin workwear hat profiles may explicitly opt into rounded felt v1. Original actual-hair seating, maximum brim extent, colors, head-bone ownership, bodies, rig, hair, identities and unopted/default/female paths are retained. Joseph remains bareheaded. The6mm rounded crown shoulder,3mm edge return,1.2mm shallow roof rise and14mm/0.7mm raised same-material band are original reconstructed choices. Deterministic128square Non-Color roughness(.91-.97) is project-authored scalar data, not sampled felt; it adds no basecolor/alpha/normal map or material slot."
+        },
+        {
+          "label": "Basis",
+          "text": "This follows the existing “Reconstructed modular workwear for three existing residents” assembly. The actually viewed, registered public-domain Wild1835 Cincinnati painting (J. C. Wild. Third and Vine Northside. 1835) supplies only tiny broad-brim/crown category silhouettes. Exact geometry, felt construction, color, pattern, personal possession, Chicago use and completion before1July are not attested. No painting pixels or traced contours enter the asset. Opted hatted outputs retain prior citations and add only that bounded comparator/context; female, bareheaded and unopted source values remain unchanged. Original generated content remains CC0-1.0 and generator code GPL-3.0-or-later; existing upstream notices remain."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Closed source-mesh/UV/weight/default-array controls and unchanged female arrays do not qualify native export, material packing, rendered appearance, continuous fit or budgets. New actual canonical male generation and source/web views plus the3native Blender proof stills remain required on the checked pushed source. Canonical triangle/byte/memory costs and photographic acceptance are UNRUN; no cap or production eligibility is promoted."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-27."
+        }
+      ],
+      "work_refs": [
+        "T-1789"
       ]
     },
     {

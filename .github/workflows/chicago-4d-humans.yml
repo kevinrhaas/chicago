@@ -70,8 +70,12 @@ on:
         description: 'Build the reviewed reconstructed Mary Flynn dress SOURCE study; no production/photo approval'
         type: boolean
         default: false
+      deliver_generated_assets:
+        description: 'Optional: verify and commit this run’s fixed canonical family to the owned people PR branch only'
+        type: boolean
+        default: false
       source_ref:
-        description: 'Immutable reviewed source SHA, required only for the separate dress study'
+        description: 'Dress source: blank uses this definition SHA; otherwise only the original reviewed source or this definition SHA'
         type: string
         default: ''
 
@@ -89,7 +93,7 @@ jobs:
     outputs:
       dress_source_sha: ${{ steps.dress_binding.outputs.source_sha }}
     steps:
-      # A separate definition ref may execute only this reviewed source commit.
+      # Dress source is either the original reviewed commit or this actual definition SHA.
       # Validate inputs before checkout; default/PR/push checkout remains unchanged.
       - name: Validate opt-in study request before checkout
         if: github.event_name == 'workflow_dispatch'
@@ -99,16 +103,36 @@ jobs:
           TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
           SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
           SOURCE_REF: ${{ inputs.source_ref }}
+          DELIVERY_ENABLED: ${{ inputs.deliver_generated_assets }}
+          DEFINITION_SHA: ${{ github.workflow_sha }}
+          DEFINITION_REF: ${{ github.workflow_ref }}
         run: |
           python3 - <<'PY'
           import os,re
           source=os.environ['SOURCE_REF']
           dress=os.environ['DRESS_ENABLED']=='true'
+          if os.environ['DELIVERY_ENABLED']=='true':
+              owned='refs/heads/steward/t1789-people-photoquality-20261026'
+              repo='kevinrhaas/chicago'
+              definition=os.environ['GITHUB_SHA']
+              if (os.environ['GITHUB_REPOSITORY']!=repo or os.environ['GITHUB_REF']!=owned
+                  or os.environ['DEFINITION_REF']!=repo+'/.github/workflows/chicago-4d-humans.yml@'+owned
+                  or os.environ['DEFINITION_SHA']!=definition
+                  or definition=='1cbb1817508593562f99ed378b6932368b5699b9'
+                  or source not in ('',definition)
+                  or (os.environ['TEAMSTERS_ENABLED']=='true')==dress
+                  or os.environ['SEATED_ENABLED']=='true'):
+                  raise SystemExit('Delivery requires this trusted definition, exact owned repository/branch and one unseated family')
           if dress:
               if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
                   raise SystemExit('The dress study must run separately from teamster/seated studies')
-              if not re.fullmatch(r'[0-9a-f]{40}',source) or source!='1cbb1817508593562f99ed378b6932368b5699b9':
-                  raise SystemExit('Dress source_ref must equal the reviewed immutable source SHA')
+              definition=os.environ['GITHUB_SHA']
+              if not re.fullmatch(r'[0-9a-f]{40}',definition):
+                  raise SystemExit('The actual workflow definition SHA is invalid')
+              source=source or definition
+              if not re.fullmatch(r'[0-9a-f]{40}',source) or source not in {
+                  '1cbb1817508593562f99ed378b6932368b5699b9',definition}:
+                  raise SystemExit('Dress source_ref must equal the original reviewed source or actual definition SHA')
           elif source:
               raise SystemExit('source_ref applies only to the opt-in dress study')
           with open(os.environ['GITHUB_OUTPUT'],'a') as output:
@@ -133,7 +157,7 @@ jobs:
           import json,os,subprocess
           actual=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
           expected=os.environ['EXPECTED_SOURCE']
-          if actual!=expected or actual!='1cbb1817508593562f99ed378b6932368b5699b9':
+          if actual!=expected or actual not in {'1cbb1817508593562f99ed378b6932368b5699b9',os.environ['GITHUB_SHA']}:
               raise SystemExit('Fixture checkout does not match the reviewed dress source')
           print(json.dumps({'scope':'same-source fixture prerequisite','source_sha':actual,
               'workflow_definition_sha':os.environ['DEFINITION_SHA'],
@@ -188,18 +212,31 @@ jobs:
         working-directory: chicago/4d
         run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
 
-  # Explicit dispatch on the owner-visible authoring PR. No branch writes, scene
-  # placements or production promotion: canonical masters and measurements are
-  # reviewable artifacts. Existing fixture verification must pass first.
+  # Default dispatch remains artifact-only. An additional explicit opt-in can
+  # deliver a fixed family through the separately gated feature-only job below.
+  # No new world placements or photographic/production promotion.
   teamster-studies:
     if: github.event_name == 'workflow_dispatch' && (inputs.build_teamsters || inputs.build_seated_driver_study)
     needs: humans
+    outputs:
+      artifact_id: ${{ steps.delivery_upload.outputs.artifact-id }}
+      manifest_sha256: ${{ steps.delivery_bundle.outputs.manifest_sha256 }}
+    env:
+      DEFINITION_SHA: ${{ github.workflow_sha }}
+      DEFINITION_REF: ${{ github.workflow_ref }}
     # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
     # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The male write guard reads the prior female source's real ancestry.
+          # Keep artifact-only dispatch's default shallow checkout unchanged.
+          fetch-depth: ${{ inputs.deliver_generated_assets && '0' || '1' }}
+      - name: Require equivalent completed female delivery before optional male write mode
+        if: inputs.deliver_generated_assets
+        run: python3 chicago/4d/tools/human_delivery.py guard
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -363,6 +400,41 @@ jobs:
           NODE_PATH="$(npm root -g)" node tools/human_seated_driver.cjs /tmp/teamster-studies/seated-driver
           NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs . /tmp/teamster-studies/wagon-driver-source
           NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs ../../site/4d /tmp/teamster-studies/wagon-driver-published --published
+      - name: Render fixed existing assemblies as native Blender CPU stills
+        if: github.event_name == 'workflow_dispatch' && inputs.build_teamsters
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          DEFINITION_SHA: ${{ github.workflow_sha }}
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --disable-autoexec --factory-startup --python-exit-code 1 \
+            --python tools/render_human_assembly_stills.py 2>&1 | tee /tmp/teamster-blender-stills.log
+      - name: Preserve small native Blender assembly stills separately
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.build_teamsters
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-teamster-blender-stills-${{ github.sha }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            /tmp/teamster-blender-stills/
+            /tmp/teamster-blender-stills.log
+      - name: Prepare the fixed same-run male delivery bundle
+        if: inputs.deliver_generated_assets
+        id: delivery_bundle
+        run: python3 chicago/4d/tools/human_delivery.py bundle
+      - name: Preserve optional male delivery bundle by exact artifact ID
+        if: inputs.deliver_generated_assets
+        id: delivery_upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-delivery-teamsters-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+          path: /tmp/human-delivery-bundle/
       - name: Preserve masters, exports and inspection evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -385,6 +457,12 @@ jobs:
   dress-study:
     if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
     needs: humans
+    outputs:
+      artifact_id: ${{ steps.delivery_upload.outputs.artifact-id }}
+      manifest_sha256: ${{ steps.delivery_bundle.outputs.manifest_sha256 }}
+    env:
+      DEFINITION_SHA: ${{ github.workflow_sha }}
+      DEFINITION_REF: ${{ github.workflow_ref }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -403,7 +481,7 @@ jobs:
           python3 - <<'PY'
           import hashlib,json,os,pathlib,subprocess
           actual=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-          if actual!=os.environ['EXPECTED_SOURCE'] or actual!='1cbb1817508593562f99ed378b6932368b5699b9':
+          if actual!=os.environ['EXPECTED_SOURCE'] or actual not in {'1cbb1817508593562f99ed378b6932368b5699b9',os.environ['GITHUB_SHA']}:
               raise SystemExit('Dress checkout does not match the verified fixture source')
           root=pathlib.Path('/tmp/dress-study');root.mkdir(exist_ok=False)
           files=['generators/blender.pin','tools/human_teamster_blend.py','tools/human_dress_components.py',
@@ -564,6 +642,20 @@ jobs:
                 for p in files if p.is_file()]
           (root/'actual-output-manifest.json').write_text(json.dumps({'scope':'actual output bytes; partial files are not acceptance','files':rows},indent=2)+'\n')
           PY
+      - name: Prepare the fixed same-run female delivery bundle
+        if: inputs.deliver_generated_assets
+        id: delivery_bundle
+        run: python3 chicago/4d/tools/human_delivery.py bundle
+      - name: Preserve optional female delivery bundle by exact artifact ID
+        if: inputs.deliver_generated_assets
+        id: delivery_upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-delivery-dress-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+          path: /tmp/human-delivery-bundle/
       - name: Preserve actual dress source binding, master, exports, failures and images
         if: always()
         uses: actions/upload-artifact@v4
@@ -576,3 +668,89 @@ jobs:
             chicago/4d/assets/humans/flynn_mary_1835_dress_study.lod[0-3].glb
             chicago/4d/assets/humans/web/flynn_mary_1835_dress_study.lod[0-3].glb
             /tmp/dress-study/
+
+
+  # Sole writer. No pull_request, forks, legacy source, main/dev, arbitrary refs,
+  # downloaded code, external artifact hosts or automatic merge/ready operation.
+  # GITHUB_TOKEN pushes do NOT trigger ordinary PR checks: root must independently
+  # verify GATED-TREE/ACTUAL-PUSH then make a normal-authenticated same-tree followup.
+  deliver-canonical-family:
+    if: >-
+      always() && github.event_name == 'workflow_dispatch' && inputs.deliver_generated_assets &&
+      github.repository == 'kevinrhaas/chicago' && !github.event.repository.fork &&
+      github.ref == 'refs/heads/steward/t1789-people-photoquality-20261026' &&
+      github.workflow_sha == github.sha && github.sha != '1cbb1817508593562f99ed378b6932368b5699b9' &&
+      (inputs.source_ref == '' || inputs.source_ref == github.sha) && !inputs.build_seated_driver_study &&
+      inputs.build_dress_study != inputs.build_teamsters && needs.humans.result == 'success' &&
+      ((inputs.build_dress_study && needs.dress-study.result == 'success' && needs.teamster-studies.result == 'skipped') ||
+       (inputs.build_teamsters && needs.teamster-studies.result == 'success' && needs.dress-study.result == 'skipped'))
+    needs: [humans, teamster-studies, dress-study]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+    env:
+      DEFINITION_SHA: ${{ github.workflow_sha }}
+      DEFINITION_REF: ${{ github.workflow_ref }}
+      DELIVERY_ARTIFACT_ID: ${{ needs.dress-study.outputs.artifact_id || needs.teamster-studies.outputs.artifact_id }}
+      EXPECTED_MANIFEST_SHA256: ${{ needs.dress-study.outputs.manifest_sha256 || needs.teamster-studies.outputs.manifest_sha256 }}
+      FIXTURE_RESULT: ${{ needs.humans.result }}
+      PRODUCER_RESULT: ${{ inputs.build_dress_study && needs.dress-study.result || needs.teamster-studies.result }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify exact trusted source and current-run artifact identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 chicago/4d/tools/human_delivery.py guard
+          python3 chicago/4d/tools/test_human_delivery.py
+          python3 chicago/4d/tools/human_delivery.py artifact
+      - name: Download only this run’s exact producer artifact ID
+        uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ env.DELIVERY_ARTIFACT_ID }}
+          merge-multiple: true
+          path: /tmp/human-delivery-download
+      - name: Verify all fixed members and install only the canonical family
+        run: python3 chicago/4d/tools/human_delivery.py install
+      - name: Install native validator and browser dependencies
+        run: |
+          set -euo pipefail
+          pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Measure every actual human asset and refresh truthful rights/provenance
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write
+          node tools/human_fixture.mjs --check
+          python3 tools/human_delivery.py metadata
+      - name: Complete required-reader native preflight and seal the staged/source tree
+        run: python3 chicago/4d/tools/human_delivery.py gate
+      - name: Recheck actual gated tree and remote head, then normal feature-only push
+        run: python3 chicago/4d/tools/human_delivery.py commit
+      - name: Preserve actual delivery, native-gate and push receipts for independent review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-delivery-closure-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            /tmp/human-delivery-state/
+            /tmp/preflight-check.log
+            /tmp/preflight-cl.log
+            /tmp/preflight-ids.log

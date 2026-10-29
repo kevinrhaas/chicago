@@ -304,7 +304,8 @@
         "hat": {
           "crown_height_m": 0.105,
           "brim_m": 0.065,
-          "seating_depth_m": 0.045
+          "seating_depth_m": 0.045,
+          "finish": "rounded_felt_v1"
         },
         "jacket": null,
         "colors": {
@@ -354,7 +355,8 @@
         "hat": {
           "crown_height_m": 0.065,
           "brim_m": 0.038,
-          "seating_depth_m": 0.04
+          "seating_depth_m": 0.04,
+          "finish": "rounded_felt_v1"
         },
         "jacket": {
           "ease_m": 0.028,

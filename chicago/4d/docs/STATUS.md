@@ -25321,3 +25321,12 @@ A separately versioned wagon master now adapts the recovered licensed Old Cart g
 T-2793 source increment now has actual current WebP LODs8,433,236bytes total and desktop/mobile isolated captures with zero errors; full repository/published-world qualification remains pending. Continuous actual front-wheel/body envelopes and explicit detached/moved-geometry controls pass; artist pin/rim fit limits remain disclosed. Source-only publication exclusions preserve originals and live consumers; actual final publisher budget still pending.
 
 T-2793 required portable structural nodes now own actual reach/kingbolt geometry: one44-triangle reconstructed coupling reach and the original28-triangle pin split from front details. Current near/mid/far total8,465,076bytes,12materialbatches; prior8,433,236-byte views remain historical. Final current-source rendering, canonical tail, full publisher/preflight and photographic/world acceptance remain pending.
+
+
+## T-1789 current-source wardrobe delivery — 29 October 2026
+
+Current DEV already contains the earlier plain workwear/dress source studies and Otis standing model. This change restores the previously reviewed optional rounded felt hats, female bonnet/cuffs/waist/ties/fastening, and the three native Blender assembly-still producer against that current source. Existing bodies, rig, skin/hair source, identities, scene eligibility and absent-option defaults are preserved. No generated replacement is installed yet.
+
+Canonical delivery remains explicit and default-off. Only a manual run from the exact owned people feature branch may install its own successful fixture/producer run's fixed family, after exact artifact/member/source/run-attempt verification, all-asset native measurement, required-reader preflight, staged-tree sealing and an ordinary feature-only push. Complete female delivery precedes male delivery on byte-equivalent authoring source; no main/dev write, automatic ready/merge or photographic promotion is permitted. A GITHUB_TOKEN push leaves ordinary PR CI pending; the root must verify the exact gated tree and provide the normal authenticated same-tree follow-up.
+
+Local source/security controls are independent of native Blender/export/posed-fit/photo acceptance. Fresh female then male generation, four masters and 32 raw/web LOD ingestion, actual three Blender stills, published views and final current-world qualification remain pending.

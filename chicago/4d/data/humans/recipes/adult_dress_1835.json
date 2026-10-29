@@ -54,7 +54,7 @@
   "sources": [
     "wild_1835_third_vine"
   ],
-  "basis": "Original reusable bodice, gathered skirt, separate apron and source-fitted closed shoes. Cuts, seam construction, proportions, colours and outfit choice are conjectural. Complete source anatomy remains unchanged beneath clothing. No accepted photographic or historical personal likeness.",
+  "basis": "Original reusable bodice, gathered skirt, separate apron and source-fitted closed shoes. Cuts, seam construction, proportions, colours and outfit choice are conjectural. Complete source anatomy remains unchanged beneath clothing. No accepted photographic or historical personal likeness. Optional v1 finishing adds a conjectural pale bonnet, linen cuffs/waistband/back ties and self-cloth front fastening; no traced pattern, measured1835construction or personal possession claim.",
   "source_scope": "Actually viewed held John Caspar Wild1835 Cincinnati painting supplies only tiny full-skirt/bodice/head-covering silhouette analogues. Exact completion before1July is unknown; Cincinnati does not attest Chicago presence, personal wardrobe, material, seams or measurements. No source image pixels or traced garment shapes enter the asset.",
   "colors_linear_rgba": {
     "skin": [
@@ -92,6 +92,12 @@
       0.031,
       0.022,
       1.0
+    ],
+    "headwear__linen_bonnet": [
+      0.72,
+      0.68,
+      0.58,
+      1
     ]
   },
   "workwear_coverage": {
@@ -131,6 +137,7 @@
     "standing_source_only": true,
     "production_eligible": false,
     "walking_seated_or_photo_accepted": false,
-    "generator": "tools/human_dress_components.py"
+    "generator": "tools/human_dress_components.py",
+    "finishing_version": 1
   }
 }

@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 335,
-    "gated": 325,
-    "ungated": 10
+    "check_capable": 362,
+    "gated": 351,
+    "ungated": 11
   },
   "ungated": [
     {
@@ -20,6 +20,12 @@
       "other_modes_in_check_sh": [],
       "why_not_gated": "T-2206 is a dated candidate audit against frozen T-2200 cameras. Its --check verifies the exact audited master, Full, Light and data bytes; future completion tickets deliberately change those assets. A per-commit gate would force rewriting a historical audit or forbid legitimate model changes. Run --check on the audited snapshot and use an explicitly reviewed new candidate for later work. Six camera behavior tests and the published browser stale-asset warning protect the comparison method; T-2228 owns cross-version photographic sign-off.",
       "owner_ticket": "T-2228"
+    },
+    {
+      "tool": "tools/human_delivery.py",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "This Actions-only delivery orchestrator has no --check option: its argparse interface accepts only guard, bundle, artifact, install, metadata, gate and commit. The survey matches literal --check arguments forwarded to existing native child validators, not an ungated local derivation. Its real gate mode requires the exact trusted manual workflow/repository/feature ref, current successful producer artifact and installed canonical family; it runs complete required-reader preflight before a sealed normal feature-only push. It cannot be invoked as a generic offline --check without that run context. Run tools/test_human_delivery.py for the eleven local trust/path/history/native-schema controls; the optional delivery job requires those controls before any artifact installation, and native canonical generation plus all-asset browser qualification remain separate required workflow steps. T-1789 owns actual generated-family delivery and its remaining acceptance.",
+      "owner_ticket": "T-1789"
     },
     {
       "tool": "tools/measure_street_widths.py",
