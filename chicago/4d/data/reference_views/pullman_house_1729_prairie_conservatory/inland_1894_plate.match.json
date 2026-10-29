@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc"
+      "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
     }
   ],
-  "group_sha256": "21e9d9fc5dde5771f384ee2f23e985bc6874b488f848347a202401f7bea70fd9",
+  "group_sha256": "794028677866dfb91a9bb4da8b02eb492b4801e491c03b70849ed26f8ac2cbd5",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -76,7 +76,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 24,
+    "street_trees": 26,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -102,7 +102,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "5341791403498ec249aebf767a27b28f3794ed88826a18ba4fe299df5326d5f3",
+  "flora_sha256": "4c17c9bdecddaf90dc7bc2e483c6ad2056739fdf99f071f0e8d4a25d56de0552",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -244,7 +244,11 @@
       "how": "T-1934: read again at the plate's full size it is one object, not a lamp with an urn behind it: a squat turned urn under a flat lid on the fifth pier's cap (x 1805-1842 px, 52 px high, about 0.4 m by 0.5 m against the cap's 1.06 m); the four piers before it carry plain caps. Built: the K11 kit's urn stretched to 0.4 m by 0.5 m on that cap (data/structures/pullman_house_1729_prairie.json, boundary); the render's urn stands within about 5 px of the plate's in width and height"
     },
     {
-      "what": "the planting: the plate's two parkway trees stand on the north parkway at x 260-290 and 720-750, close before the wall; the street-tree layer the render now draws (camera flora) stands one far nearer the camera at x 280-590 and one at x 1020-1160; the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate",
+      "what": "the plate's two parkway trees before the palm house: the street-tree layer stood none where the plate's stand and one far nearer the camera, on 18th Street's south parkway. T-1934 planted them where the plate puts them (data/street_trees/pictured_1904.json, read through this camera at x 550 and 1487 of the plate's 2000 px, 50.9 and 58.8 m along the north parkway; the first planted 0.4 m east of the plate's reading, between it and Taylor's 16555) and withdrew the south parkway's trees this plate's foreground sees no trunk of: they now render at x 591 and 1475",
+      "status": "fixed"
+    },
+    {
+      "what": "the planting: the clipped evergreens and the shrubs behind the wall are fewer and lower in the render than in the plate",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards (camera flora)"
     },

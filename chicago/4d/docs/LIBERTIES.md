@@ -36254,3 +36254,25 @@ rather than a white-painted or white stone.
 showing the bond and the joints.
 **Ticket:** T-3244.
 **Recorded:** 2026-10-29 (T-3244).
+
+### L-pullman-18th-street-trees-1934 — The parkway trees before the Pullman estate, placed off Taylor's 16555 and the 1894 Inland plate
+
+**Decision:** 18th Street's parkway trees before 1729 Prairie's palm house and stable stand where
+the pictures show them, not where the parkway rule (L-prairie-parkway-elms-2473) put them: on the
+north parkway at 51.3, 58.8 and 64.1 m along the face (`e18th__prairie_ic_16_18`), round the
+Calumet corner at 3.3 and 10.3 m (`calumet__prairie_ic_16_18`), and one on the south parkway at
+the corner (`e18th__prairie_calumet_18_20`, 1.3 m); the rule's four trees on those stretches are
+withdrawn (`data/street_trees/pictured_1904.json`, T-1934). Taylor's 16555 camera was re-solved
+with the street's ground in its fit to read them (the eye in the garden across 18th Street).
+**What is read:** each trunk's place along its parkway, from its x in the picture through the
+picture's solved camera; that the stretches hold no other tree the pictures would show.
+**What is chosen:** where the two pictures disagree, the plate's (the later): one living tree at
+58.8 m where Taylor's print has a dead trunk 1.2 m east of it and a second tree at 56.3 m; the
+tree at 51.3 m between the plate's 50.9 and Taylor's 51.7. That the 1890s trees still stand in
+1904. Every tree's size, crown and species are the rule's; each tree's place across the parkway
+is the rule's planting line.
+**How to resolve:** a picture of this stretch nearer 1904, or a city forestry record.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
+`inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-29 (T-1934).

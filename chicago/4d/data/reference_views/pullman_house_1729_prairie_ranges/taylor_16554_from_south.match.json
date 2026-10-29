@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "f331b4deaaabc1c743287bd187a0d8ebe50008dfe16ef87b999dbd127fbf4bbc"
+      "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf"
     }
   ],
-  "group_sha256": "705dc8e6e4daf9097e516c83d55e70bf245b84b662c45efe76a2b653235ec368",
+  "group_sha256": "4ad61580b171cbe9ffa124949d0a1736c0d05f0e1255b48d1be748999b5f83f8",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -76,7 +76,7 @@
         "creeper": 6
       }
     ],
-    "street_trees": 30,
+    "street_trees": 32,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -102,7 +102,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "a5cfc0137230e9850e1aa8d2fc8f0ff65e811870feb7ab2db706f0cefb772e16"
+      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "c86765231ec59cb60c01a6d5e8a25a5b19dffe61652dd890611472e3db87ebae",
+  "flora_sha256": "7f657a0bbc66e2d3da308d73f0555a8d98d1c207845c4a8e66b34bdb32c89e3b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -185,7 +185,7 @@
       "how": "T-1934: an element missing"
     },
     {
-      "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render",
+      "what": "the planting: the print's bare yard and parkway trees stand at other places than the street-tree layer's (camera flora, winter), and the clipped shrubs along the wall's back are fewer in the render [T-1934, 2026-10-29: the 18th Street parkway's trees before the estate are now placed off Taylor's 16555 and the 1894 plate (data/street_trees/pictured_1904.json). Through this camera they render at x 439, 571, 675, 791 and 957; the print's trunks along the street's far side stand at about x 387, 417, 532, 550, 660, 711, 815 and 852, their feet at y 587-600 where this camera puts the parkway's at y 557-562, so which of the print's are parkway trees and which the yard's cannot be told through it, and nothing here was placed from it. Still open.]",
       "status": "open",
       "how": "T-1934 render with the scene's street trees and front yards"
     }
