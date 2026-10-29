@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 862,
+  "count": 863,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35284,8 +35284,12 @@
           "text": "`edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`, `edson_keith_house_1906_prairie.as_mapped_1904.form.yard`"
         },
         {
+          "label": "Revised (the sign-off)",
+          "text": "the pictures weighed. The mansard photograph Chicagology captions 1906 is the 1900 house (the study's ruling, held by, which solved its camera on 1900): its mansard, dormers and corner bay are not this house's, which both the engraving and the 1898 vignette draw under a low hip with a tower. The Tribune's 1896 item on Edson Keith's death is a lakeshore scene with portraits and no view of the house, set aside. The c. 1914 west-side elevation drawing (the Prairie library's, read from the image store, not ingested) draws 1906 third from the south, attached to 1908's gabled front; each house about 100 px wide, it stops the south bay at the main cornice and draws the hip flat-topped with a tall stack at the south end, and the front is already altered from the vignette's, so it is weighed for those two things only. The vignette's camera is solved (tribune 1898 front, a sketch, good to about 12 px, its pixel aspect the draughtsman's). Built since: the south tower broadened from a 2.0 to a 2.6 m ring and lowered from 15.54 to 13.24 m, 1.1 m over the main wall (K01's least clearance); the porch widened from 4.0 to 5.0 m; a turned stone balustrade on both terraces and down the stoop's cheeks. Invented in that: the balustrade's profile, pitch and newels (1620 Prairie's), and the tower's stage heights, set to the vignette's grades within K01's clearance. Still not built, and open on the engraving's match record (a sign-off under the project's rules rule 11, not split): the engraving's block at the south flank's front with its porch and balcony, which no other picture sees and K01 has no flank porch for; and the roof's railed deck and its tall stack, which K01's hip roof cannot take."
+        },
+        {
           "label": "Review",
-          "text": "an image in the research notes on photo match."
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
         },
         {
           "label": "Recorded",
@@ -35297,7 +35301,10 @@
         "T-1898",
         "T-3206",
         "T-1841",
-        "T-3239"
+        "T-3239",
+        "T-1837",
+        "T-3207",
+        "T-2450"
       ]
     },
     {
@@ -60444,6 +60451,49 @@
       ],
       "work_refs": [
         "T-1934",
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-lodge-west-part-3164",
+      "title": "The Pullman lodge's front in two parts: the west part's own lower hipped roof, and the loggia block set 2 m behind it",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_lodge_1800_calumet"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_lodge_1800_calumet",
+          "phase": "as_standing_1904",
+          "aspect": "form.draft_plan"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the lodge from the west or the north-west, or a plan from before the north range was built, gives the part's depth and which face the sheet drew."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
         "T-3164"
       ]
     },

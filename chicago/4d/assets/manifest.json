@@ -331,9 +331,9 @@
     "edson_keith_house_1906_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5104876,
+      "bytes": 6103324,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ad350ed0df1de8fd450a0eeb94280f3b6fe1ee94b2ab0af37d259ac285b8d95c",
+      "inputs_sha256": "1a57f10ec0e00b56e742d32fdd3fe1c4d6ba0f38277ee12ed14058231cebe707",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "edson_keith_house_1906_prairie"
@@ -4153,9 +4153,9 @@
     "pullman_lodge_1800_calumet__as_standing_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 199468,
+      "bytes": 183300,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "3526541176a62d1ce9b161ae096e32054f90dccdafbabd5b56954bf6763c2d03",
+      "inputs_sha256": "e3bbe572e535a9bb744c9aee2eb7d6099720a4b77b6e252a8572981be929b2a1",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_lodge_1800_calumet"

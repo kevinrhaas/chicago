@@ -24257,8 +24257,9 @@ for T-3239.
 photograph's attribution (the 1900 house) and the c. 1914 west-side elevation drawing, builds those, and
 brings every 1906 match record to `matches`.
 **Covers:** `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`, `edson_keith_house_1906_prairie.as_mapped_1904.form.yard`
+**Revised (T-3239, the sign-off):** the pictures weighed. The mansard photograph Chicagology captions 1906 is the 1900 house (the T-1837 study's ruling, held by T-3207, which solved its camera on 1900): its mansard, dormers and corner bay are not this house's, which both the engraving and the 1898 vignette draw under a low hip with a tower. The Tribune's 1896 item on Edson Keith's death is a lakeshore scene with portraits and no view of the house, set aside. The c. 1914 west-side elevation drawing (the Prairie library's, read from the image store, not ingested) draws 1906 third from the south, attached to 1908's gabled front; each house about 100 px wide, it stops the south bay at the main cornice and draws the hip flat-topped with a tall stack at the south end, and the front is already altered from the vignette's, so it is weighed for those two things only. The vignette's camera is solved (`tribune_1898_front`, a sketch, good to about 12 px, its pixel aspect the draughtsman's). Built since: the south tower broadened from a 2.0 to a 2.6 m ring and lowered from 15.54 to 13.24 m, 1.1 m over the main wall (K01's least clearance); the porch widened from 4.0 to 5.0 m; a turned stone balustrade on both terraces and down the stoop's cheeks. Invented in that: the balustrade's profile, pitch and newels (1620 Prairie's, T-2450), and the tower's stage heights, set to the vignette's tiers within K01's clearance. Still not built, and open on the engraving's match record (a sign-off under AGENTS.md rule 11, not split): the engraving's block at the south flank's front with its porch and balcony, which no other picture sees and K01 has no flank porch for; and the roof's railed deck and its tall stack, which K01's hip roof cannot take.
 **Ticket:** T-3238 (piece 1 of T-1898).
-**Review:** `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg`.
+**Review:** `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/chicagology_engraving_southeast-side-by-side.jpg`, `docs/RESEARCH/photo-match/edson_keith_house_1906_prairie/tribune_1898_front-side-by-side.jpg`.
 **Recorded:** 2026-10-29 (T-3238).
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
@@ -35981,6 +35982,32 @@ places, and the deck's corner spires, which the plate shows.
 **How to resolve:** a nearer or sharper picture of the lodge, or one from its east side, gives the bow's
 plan, the balcony's parapet and the columns' orders.
 **Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_elevation`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).
+### L-pullman-lodge-west-part-3164 — The Pullman lodge's front in two parts: the west part's own lower hipped roof, and the loggia block set 2 m behind it
+
+**Decision:** the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested
+deck. The 1894 Inland plate (`inland_1894_pullman_conservatory`) and Lowe's print
+(`aic_lowe_pullman_conservatory_c1897`) both draw its north front in two parts: west of the loggia's
+west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the
+loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the
+deck's height (T-3164). It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a
+hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both
+pictures put the step at about 2 m (the return's width and the eave's rise through the solved
+cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge,
+and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the
+range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures
+draw it (x 940 on the plate, 576 on Lowe's print).
+**What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m)
+and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and
+the north range's glass end against the loggia block, which no picture shows either (both pictures
+predate the north range).
+**What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height
+against the deck, which both pictures show.
+**How to resolve:** a picture of the lodge from the west or the north-west, or a plan from before the north
+range was built, gives the part's depth and which face the sheet drew.
+**Covers:** `pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`
 **Ticket:** T-3164.
 **Review:** `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/inland_1894_lodge-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg` and their match records.
 **Recorded:** 2026-10-29 (T-3164).
