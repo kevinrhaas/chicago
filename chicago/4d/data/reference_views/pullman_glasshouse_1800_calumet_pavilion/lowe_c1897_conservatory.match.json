@@ -99,10 +99,10 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "116b5d0a6f3f4c97af2589ac1b7a9f43d1035d224d583bc50e6bb9059dabfa6d"
+      "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007"
     }
   ],
-  "group_sha256": "ed066fe42e9f23db7c5ff8f5df8cf585fc8fe8be1383d95dc77251e628f28c7c",
+  "group_sha256": "104fe39cfa1ba7b84eb6cc3200a0b35fea814f57470677932feb39c0cdc823bd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -192,7 +192,7 @@
     {
       "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
       "status": "open",
-      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open."
+      "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
       "what": "the lodge's bowed north-east corner: the upper storey turned on an arc standing a little proud of the square corner, with the eave carried round it and belled out and down over it (T-3164)",
@@ -216,8 +216,8 @@
     },
     {
       "what": "the lodge's lower hipped roof over the front's west part (plate x 1055-1135), which the render carries on as the one hipped roof",
-      "status": "open",
-      "how": "T-3164: still one hipped roof over the whole front; the west part's lower roof needs a second part on the plan, which the 1911 sheet does not draw, and was not built in this pass"
+      "status": "fixed",
+      "how": "T-3164 (west part): a second part on the plan, 4.85 m wide from u 4.1 (the loggia's west end) to the west wall, its face on the sheet's north wall and its own hipped roof at the main roof's 52 degrees, ridge 11.75 m, under the deck's 11.9 m; the loggia block behind its front now stands 2 m back. Read in both pictures: the part's quoined east return (plate x 1052-1058, Lowe x 660-668), its eave a few px over the loggia block's (plate y 705-712 against 718, Lowe 396-398 against 402) and its north-east hip rising from the return to about the deck's height (plate x 1058,712 to 1118,625; Lowe x 667,397 to 703,345). Through the plate's camera the built hip runs x 1046,716 to 1101,633 and the return x 1044-1053, about 10 px east of the picture's, under the 0.3 m bar at this distance along the line of sight; the picture's part beyond x 1085 is behind the render's transept arm (that arm's east end is the pavilion record's own item)"
     },
     {
       "what": "the dome and its drum stand about 25 px (0.6 m) west of the plate's (Lowe shows the same, about 20 px)",
