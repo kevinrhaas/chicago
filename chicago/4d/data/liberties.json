@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 846,
+  "count": 847,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -59903,6 +59903,53 @@
       "work_refs": [
         "T-3179",
         "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-stable-1934",
+      "title": "Pullman's stable dressed to its three pictures: an open belvedere, iron cresting with corner spires, a stone belt course, and a low cap on the corner bay",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_house_1729_prairie",
+        "pullman_house_1729_prairie_conservatory",
+        "pullman_house_1729_prairie_ranges"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_house_1729_prairie_ranges",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work gave the stable (1729 Prairie Avenue — the Pullman estate's stable and one-storey ranges) its own reference views, the three cameras later work solved in the pullman house 1729 prairie conservatory data re-anchored into the stable's frame, and worked what the owner named on 2026-10-28 (the belt course, the open belvedere, the crested deck) against them. **What is read.** The 1894 Inland plate shows the belvedere's balustrade as open balusters between plain dies, a die at each corner and at each side's middle, over a frieze; the plate, Taylor's 16554 and 16555 show the deck ringed in dense open iron cresting with a tall spire at its corners; 16554 and the plate show the upper storey standing on a moulded stone belt course, about a third of a metre deep, with its sash on it, where the build had shown the lower roof's slope as a band of slate; the plate shows the corner bay's cap as a low slope from its cornice back onto the corner, not a point; all three show the stable's mouldings in the walls' light stone. **What is invented.** The cresting's pattern (three rails, a bar every 0.16 m, a spear on every third) stands for ironwork no picture resolves; the spires' 1.2 m and their presence on the corners no picture shows; the balusters' pitch (0.24 m) and turned section; the belt course's two members; the cap's 0.45 m slope; and the lower roof's eave cut on the diagonal under the corner wall (1.7 m along each eave), which no picture can see behind the belt course and the bay. The upper sash rise onto the course, from 4.3 m to 4.41 m on the 18th Street front and 4.60 m on the west face, where the lower slope (steeper there) meets the wall. **What is not.** The plan, the heights of the walls, cornices, deck and belvedere, and the openings' places are later work's and later work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a full-size copy of the c. 1905 CHM negative i70232 would show the cresting and the bay's cap at a usable size."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_house_1729_prairie_ranges.draft_1904.form.draft_elevation`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, the taylor 16554 from south side by side image and the taylor 16555 west front side by side image, with their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1934)."
+        }
+      ],
+      "work_refs": [
+        "T-1934",
+        "T-3193",
+        "T-3192"
       ]
     },
     {
