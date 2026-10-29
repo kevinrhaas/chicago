@@ -133,6 +133,9 @@ function treeCard(t, doc) {
   const sp = doc.species ?? {};
   const pl = doc.placement ?? {};
   const young = t.kind === 'young';
+  // T-1934: a tree a solved picture places carries its reading and sources; its spot is
+  // inferred from the picture, not the rule's reconstruction
+  const pictured = t.placed === 'pictured';
   return {
     id: t.id,
     sidecar: {
@@ -141,13 +144,15 @@ function treeCard(t, doc) {
       change_note: (young
         ? 'A young elm planted in a gap in the parkway file, as the 1901 photograph of 1700 Prairie shows one. '
         : 'One of the elms in the grass parkway between the walk and the curb. ')
-        + 'The 1887-91 photograph from this walk at 18th Street shows a single file of tall elms; '
-        + 'this tree\'s spot is our reconstruction.',
+        + (pictured
+          ? 'It stands where photographs of the 1890s show a tree on this parkway.'
+          : 'The 1887-91 photograph from this walk at 18th Street shows a single file of tall elms; '
+            + 'this tree\'s spot is our reconstruction.'),
       placement: {
         symbolic_location: t.face,
-        position_confidence: pl.tier ?? 'reconstructed',
-        position_sources: [],
-        position_note: pl.note ?? '',
+        position_confidence: pictured ? 'inferred' : pl.tier ?? 'reconstructed',
+        position_sources: pictured ? t.sources ?? [] : [],
+        position_note: pictured ? t.note ?? '' : pl.note ?? '',
       },
       attributes: {
         species: {
@@ -156,13 +161,17 @@ function treeCard(t, doc) {
         },
         position: {
           value: `${Math.round(t.e * 10) / 10} E, ${Math.round(t.n * 10) / 10} N`,
-          confidence: pl.tier ?? 'reconstructed', sources: [],
-          note: `About ${pl.spacing_ft ?? 30} ft from the next tree, nearer the curb than the walk. ${pl.liberty ?? ''}`.trim(),
+          confidence: pictured ? 'inferred' : pl.tier ?? 'reconstructed',
+          sources: pictured ? t.sources ?? [] : [],
+          note: pictured ? t.note ?? ''
+            : `About ${pl.spacing_ft ?? 30} ft from the next tree, nearer the curb than the walk. ${pl.liberty ?? ''}`.trim(),
         },
       },
       citations: [],
       research_doc: 'docs/RESEARCH/prairie_1904_street_trees.md',
-      research_note: `Tree ${t.id} of data/street_trees/1904.json (T-2473). ${pl.liberty ?? ''}`.trim(),
+      research_note: pictured
+        ? `Tree ${t.id} of data/street_trees/1904.json, placed by data/street_trees/pictured_1904.json (T-1934).`
+        : `Tree ${t.id} of data/street_trees/1904.json (T-2473). ${pl.liberty ?? ''}`.trim(),
     },
   };
 }
