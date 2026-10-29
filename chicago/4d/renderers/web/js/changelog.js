@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2417, ts: '2026-10-29T17:44:47.340Z', date: 'Oct 29, 2026, 12:44 PM CT', title: '1801 Prairie\'s stone wall gable stands at its south-east corner', kind: 'improvement',
+    items: [
+      'The Kimball house\'s south wall now rises at its rear corner into the steep coped stone gable that the 1965 survey photograph shows behind the rear chimney, with a pair of small windows at its foot just over the cornice.',
+      'Its height, outline and windows were matched to the photograph; its depth and the half the chimney hides are our reconstruction, and the cornice that should run on beneath it is still to come.',
+    ] },
   { v: 2416, ts: '2026-10-29T17:02:38.005Z', date: 'Oct 29, 2026, 12:02 PM CT', title: 'Tremont\'s pictured hotel and Green Tree\'s wagon bay', kind: 'improvement',
     items: [
       'The first Tremont keeps Gifford\'s pictured three storeys and shutters, with the yellow walls Gale described. Gale\'s smaller two-storey account remains a separately labelled version; no dated enlargement is claimed.',
