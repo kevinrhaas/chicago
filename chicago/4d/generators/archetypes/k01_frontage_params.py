@@ -3000,6 +3000,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             columns = {"diameter_m": d, "from_m": y0, "to_m": y1, "base_m": hb, "capital_m": hc,
                        "at": tuple(at)}
         dress = _bay_dress(e, v, top, columns) if e.get("dress") is not None else None
+        mansard_dormers = _bay_mansard_dormers(e, v) if "mansard_dormers" in e else None
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         brick_above = None
@@ -3034,7 +3035,47 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"strips": tuple(strips)} if strips else {}),
                     **({"columns": columns} if columns else {}),
                     **({"dress": dress} if dress else {}),
+                    **({"mansard_dormers": mansard_dormers} if mansard_dormers else {}),
                     **({"brick_above_m": brick_above} if brick_above is not None else {})})
+    return tuple(out)
+
+
+def _bay_mansard_dormers(e: dict, v: dict) -> tuple:
+    """T-1881: round-headed dormers on a square projection's own mansard (1729's forward block
+    in the Detroit print, and its 18th Street pavilion's two in Taylor's photograph no. 1445),
+    each the main mansard's lower-face dormer (`_round_dormer`) on the projection's front face,
+    `at_m` from its centre along it (+ to the right seen from outside). Each stands clear of the
+    face's hips under the curb, as the main mansard's do, and its head stays under the curb."""
+    mn, pts = v["roof"].get("mansard"), v["plan"]["points"]
+    square = v["kind"] == "projection" and v["plan"]["kind"] == "polyline" and len(pts) == 4 \
+        and abs(pts[0][1]) < 1e-9 and abs(pts[3][1]) < 1e-9 and abs(pts[0][0] - pts[1][0]) < 1e-9 \
+        and abs(pts[2][0] - pts[3][0]) < 1e-9 and abs(pts[1][1] - pts[2][1]) < 1e-9
+    entries = e["mansard_dormers"]
+    if not mn or not square or not isinstance(entries, list) or not entries:
+        raise ParamError(f"bays: {e['id']}'s mansard_dormers stand on a square projection's own mansard")
+    rise, deg = float(mn["rise_m"]), float(mn["lower_pitch_deg"])
+    run = rise / math.tan(math.radians(deg))
+    ov = float((v.get("overrides") or {}).get("eaves", {}).get("overhang_m", 0.0))
+    half = (float(pts[2][0]) - float(pts[1][0])) / 2 + ov - run - 0.3
+    out, spans = [], []
+    for i, q in enumerate(entries):
+        what = f"bays: {e['id']}.mansard_dormers[{i}]"
+        if not isinstance(q, dict) or q.get("face", "front") != "front" or "at_m" not in q:
+            raise ParamError(f"{what}: a dormer on the projection's front face, at_m from its centre")
+        d = _round_dormer({k: x for k, x in q.items() if k not in ("face", "at_m")}, what, run)
+        if d["head"] != "round":
+            raise ParamError(f"{what}.head {d['head']!r}: a projection's dormer is round-headed")
+        c, r = float(q["at_m"]), d["width_m"] / 2
+        if abs(c) + r > half + 1e-9:
+            raise ParamError(f"{what}.at_m {c}: its face stands clear of the hips only within {half - r:.2f} m "
+                             f"of the front's centre")
+        top = mansard_face_height(d["face_setback_m"], rise, deg, 0.0, "convex") + d["sill_m"] + d["head_m"]
+        if top > rise - 0.1:
+            raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {rise} m")
+        if any(c - r < b and a < c + r for a, b in spans):
+            raise ParamError(f"{what}: it meets another dormer on the face")
+        spans.append((c - r, c + r))
+        out.append(dict(d, at_m=c))
     return tuple(out)
 
 
