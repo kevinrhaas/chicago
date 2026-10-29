@@ -1,6 +1,13 @@
 {
  "structure_id": "pullman_house_1729_prairie_conservatory",
  "scene": "1904",
+ "flora": {
+  "front_yards": [
+   "prairie_1729"
+  ],
+  "street_trees_m": 70,
+  "season": "winter"
+ },
  "also_render": [
   "pullman_house_1729_prairie",
   "pullman_house_1729_prairie_ranges"
