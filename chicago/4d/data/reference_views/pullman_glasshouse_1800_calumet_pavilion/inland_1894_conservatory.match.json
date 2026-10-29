@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "81f5840332b7f85c827aa5aa2446fdf3d4637cf53e250366fce961296b210147",
+  "glb_sha256": "0bcc50e1a7c3fcde7adc8cf0185027b8d193066cf94360007d959bbcb3227149",
   "camera_sha256": "8d8d966626799ed10be76b11e0b50622a4fbe0be80a28169fe4f96a950b6ce8d",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "81f5840332b7f85c827aa5aa2446fdf3d4637cf53e250366fce961296b210147"
+      "glb_sha256": "0bcc50e1a7c3fcde7adc8cf0185027b8d193066cf94360007d959bbcb3227149"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "38b61660a451591c087776f23c88754ff6167f211b37a10afcb562e4a1215215"
     }
   ],
-  "group_sha256": "9088c201bf1dd06828e1b8c93bf57d9f7e10a8107389d1b6152e9cfbb3353e7b",
+  "group_sha256": "d0bb9c868e9f97d6d7abc780c44246a91bb89a78458ac17a27678f2cb2dc69da",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -177,14 +177,16 @@
       "how": "T-3153: heights, places and outlines agree within about 0.3 m; the difference is relief and openwork under the bar, drawn as plain lights, ashlar and octagonal shafts Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-3164: the range's panels, sill and base courses are now built; the band's arched heads and tracery, the podium's rustication and the heavier pilasters and columns are not."
     },
     {
-      "what": "iron cresting along the transept's crest and the range's coping, and the small ornaments at the nave's apex and the transept's end",
-      "status": "open",
-      "how": "T-3153: each under 1 ft in section; not built Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "what": "a light iron cresting along the transept's level crest from its hipped end to the nave, a finial over the transept's end and a small ornament over the nave's apex (T-3164)",
+      "status": "fixed"
     },
     {
-      "what": "the nave's arch is a smooth curve; the render's is four planar facets a half",
-      "status": "open",
-      "how": "the chords fall at most about 0.08 m inside the arc (the kit's glass is planar and its triangle budget holds the facets to four); the outline agrees within a few pixels Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "what": "iron cresting along the east range's coping (the transept's is built; the range's is not yet)",
+      "status": "open"
+    },
+    {
+      "what": "the nave's arch is a smooth curve (the render's was four planar facets a half): now eight a half, the chord inside the arc at most 0.02 m, and the transept's section and the dome drawn as smoothly; the arch reads as one curve from 18th Street (T-3164)",
+      "status": "fixed"
     },
     {
       "what": "the glass reads pale (the sky in it) on the transept, the drum and the domes",

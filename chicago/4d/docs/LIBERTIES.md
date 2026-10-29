@@ -35706,3 +35706,50 @@ the bay's cap at a usable size.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
 **Recorded:** 2026-10-29 (T-1934).
+
+### L-kimball-1801-flank-round-1890 — 1801 Prairie's 18th Street section: its west corner rounded over the corbel table, from the Taylor print and HABS photograph 2
+
+**Decision:** the three-storey section on the 18th Street flank stood square at its west corner, where
+both pictures that see it, J. W. Taylor's c. 1895 print (`taylor_c1895_kimball_residence_1801`) and HABS
+photograph 2 (June 1965, `habs_kimball_photo_02_nw_1965`), turn it round from the corbel table up, with
+one light in the round and a low railed roof behind its cornice (T-1890). **What is read.** Through the
+two solved cameras: the round's place on the corner and its outer edge (within about 10 px in each), its
+one small light (sill about on the section's pair beside it, head under theirs), its foot on the corbel
+table's line at 9.45 m, its cornice at the section's own wall top (12.4 m) and a rail over it. Built:
+`bays.flank_round`, a K08 round oriel 2.0 m across and 1.0 m out of the wall, centred 0.3 m east of
+the corner so its ring buries the square corner, on the kit's new `over_corner` placement
+(`k01_frontage_params._bays`: an oriel on a projection's storey line, its wall top the projection's,
+standing over the house's eave with its back closed on the wall plane), its light 0.75 by 1.3 m turned
+20 degrees toward the avenue, in place of the single light the section's top storey carried on its
+square corner. **What is invented or held by the kit.** The round's diameter is fitted to its
+silhouette in two pictures, not measured; it stands on four of the kit's plain stepped corbel courses
+reaching 0.6 m back from its face, where the print carries the section's carved corbel table round
+under it; its flat roof and its stone balustrade are gable_oriel's, where the pictures show only that
+a rail stands there; its light is the kit's two-over-two sash. **What it stops short of.** The corbel
+table runs straight along the section's face under the round rather than turning with it.
+**How to resolve:** a nearer or higher picture of the corner settles the rail's form and the round's
+diameter; a carved-corbel course in the K08 kit that follows a curve.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-1890).
+
+### L-pullman-pavilion-curves-3164 — The Pullman conservatory's curves drawn smooth, and the plate's cresting and finials on its transept and arch
+
+**Decision:** both pictures of Beman's conservatory (the 1894 Inland plate, `inland_1894_pullman_conservatory`,
+and the c. 1897 Lowe photograph, `aic_lowe_pullman_conservatory_c1897`) show its pointed nave as one smooth
+arc, where the render drew four planar facets a half and the north arch read as a polygon. The vault, the
+transept's section and the dome are now drawn in eight facets a half (the dome in eight rings): on the nave's
+8.34 m span, radius 6.19 m, eight facets leave a chord at most 0.019 m inside the true arc, under the K13
+kit's own 0.02 m `max_sag_m` for a curved roof, where four left 0.074 m. The plate draws a light iron lattice
+along each transept arm's level crest, a finial over the arm's end and a small ornament over the nave's
+point; they are built in the frame's paint, as the plate reads them light against the sky. The house is
+re-budgeted to 11,000 triangles in the kit's `costs.houses`, with its reasoning there. **What is invented.**
+The cresting's pattern (a foot rail, a top rail 0.3 m up and square pickets every 0.15 m: the plate resolves
+a lattice about a foot high, not its design) and the finials' heights (0.6 m over the transept's end, 0.4 m
+over the arch), read against the dome's 0.5 m finial in the same plate. **What is not.** The arch's
+geometry: its span, springing and apex are T-3179's, unchanged; only the number of facets drawing it moved.
+**How to resolve:** a sharper print or a photograph of the transept's crest settles the cresting's design.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3164.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+**Recorded:** 2026-10-29 (T-3164).

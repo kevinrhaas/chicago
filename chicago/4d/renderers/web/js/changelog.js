@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2405, ts: '2026-10-29T10:20:22.887Z', date: 'Oct 29, 2026, 5:20 AM CT', title: 'Pullman\'s conservatory arch drawn smooth, with its iron cresting', kind: 'improvement',
+    items: [
+      '1904, 18th Street east of Prairie: the Pullman conservatory\'s great pointed arch is now one smooth curve, as the 1894 plate and the c. 1897 photograph show it, where it was four flat facets a side; the transept and the dome round off with it.',
+      'A light iron cresting runs along the transept\'s crest, with a finial over its end and a small ornament over the arch\'s point, as the plate draws them. Their pattern and heights are reconstructed.',
+    ] },
+  { v: 2404, ts: '2026-10-29T09:31:28.097Z', date: 'Oct 29, 2026, 4:31 AM CT', title: 'The Kimball house\'s 18th Street corner turns round, as photographed', kind: 'feature',
+    items: [
+      'At 1801 Prairie, the tall section on the 18th Street side now has a rounded west corner above its row of corbels, with one small window in the curve and a stone railing on top. The c. 1895 and 1965 photographs both show it this way. Before, the corner was square.',
+    ] },
   { v: 2403, ts: '2026-10-29T08:40:51.825Z', date: 'Oct 29, 2026, 3:40 AM CT', title: '1901 Prairie\'s stoop cheeks pierced, and its photograph dated', kind: 'improvement',
     items: [
       'The two stone cheeks beside the Ream house\'s front steps are now pierced by a row of five openings under their coping, as the photographs show them.',
