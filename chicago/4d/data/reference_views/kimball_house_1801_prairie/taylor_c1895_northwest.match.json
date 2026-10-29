@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2aa7927295025904def2cec5bfdc8b602899231913ede868acd44f0dbc2b745c",
+  "glb_sha256": "e881d43731c71973672a31385f3fe2718673164def9d62ab621db78e132c940d",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -258,6 +258,11 @@
       "what": "the low coping along the lawn on Prairie and 18th Street, and the walk to the stair",
       "status": "fixed",
       "how": "T-3206 lays K11's 0.35 m stone coping on the street line, returned along 18th Street and cut where the K14 walk leaves the stair; the print shows a low edge to the lawn and no fence, which the render's low line reads as; height and section within tolerance"
+    },
+    {
+      "what": "the side door under the east range's round-arched light (T-1890, seen while working HABS photograph 2's): the print shows a tall framed opening at the walk under the light (x 307-317, y 1027-1100 px), its east jamb behind the tree's trunk; the build's frontispiece ran blank to the walk",
+      "status": "fixed",
+      "how": "T-1890 cuts the door HABS photograph 2 shows in bays.p_door's lowest storey (0.75 by 2.0 m, a glazed leaf in a moulded surround, the plinth broken under it); re-rendered it falls at about x 338-345, about 30 px east of the print's with the frontispiece itself, which HABS photograph 2's record carries as the frontispiece's place"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

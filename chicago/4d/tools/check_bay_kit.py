@@ -137,14 +137,18 @@ def rule_data(v, data, b):
                          f"closer than {pier} m to its end")
         k = w["storey"]
         floor = levels[k] + (band["height_m"] / 2 if k else (plinth["height_m"] if v["base"] == "grade" else 0))
+        if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
+            floor = levels[0] - k06["parts"]["sill"]["height_m"]
         ceil = levels[k + 1] - (band["height_m"] / 2 if k + 1 < len(levels) - 1 else 0)
         if w["y_all"][0] < floor - EPS or w["y_all"][1] > ceil + EPS:
             fails.append(f"storey: {w['opening']} on storey {k} spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, "
                          f"outside its storey's clear wall {floor:.3f}..{ceil:.3f}")
     for i, w1 in enumerate(b.windows):
         for w2 in b.windows[i + 1:]:
+            # T-1890: two in one storey overlap only where they share height too (a door under a light)
             if (w1["run"], w1["storey"]) == (w2["run"], w2["storey"]) and \
-                    w1["s_extent"][0] < w2["s_extent"][1] and w2["s_extent"][0] < w1["s_extent"][1]:
+                    w1["s_extent"][0] < w2["s_extent"][1] and w2["s_extent"][0] < w1["s_extent"][1] and \
+                    w1["y_all"][0] < w2["y_all"][1] and w2["y_all"][0] < w1["y_all"][1]:
                 fails.append(f"overlap: two windows on run {w1['run']} storey {w1['storey']} share s "
                              f"{max(w1['s_extent'][0], w2['s_extent'][0]):.3f}..{min(w1['s_extent'][1], w2['s_extent'][1]):.3f}")
     for st in v["storeys"]:
