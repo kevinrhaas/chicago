@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 865,
+  "count": 866,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60451,6 +60451,49 @@
       ],
       "work_refs": [
         "T-1934",
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-lodge-west-part-3164",
+      "title": "The Pullman lodge's front in two parts: the west part's own lower hipped roof, and the loggia block set 2 m behind it",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_lodge_1800_calumet"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_lodge_1800_calumet",
+          "phase": "as_standing_1904",
+          "aspect": "form.draft_plan"
+        }
+      ],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the lodge from the west or the north-west, or a plan from before the north range was built, gives the part's depth and which face the sheet drew."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_lodge_1800_calumet.as_standing_1904.form.draft_plan`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
         "T-3164"
       ]
     },
