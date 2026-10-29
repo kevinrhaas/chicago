@@ -2120,6 +2120,60 @@ def pavilion(h: House, ps: dict):
                         W / 2 + dr["radius_m"] * math.sin(math.tau * (k + 0.5) / dr["sides"])) for k in range(dr["sides"])],
            dr["base_m"], dr["top_m"])
     h.meta["pavilion"] = {"top_m": round(_dome(h, ps["dome"], xd, W / 2, dr["top_m"], "sky_glass"), 3)}
+    if ps.get("gate"):
+        gate(h, ps["gate"])
+
+
+def _roll(h: House, role, x0, x1, y, z, r, sides=12):
+    """T-3164: a scroll's roll, a cylinder lying across x from x0 to x1 about (y, z), capped."""
+    ring = [(y + r * math.sin(math.tau * k / sides), z + r * math.cos(math.tau * k / sides)) for k in range(sides)]
+    for k in range(sides):
+        (ya, za), (yb, zb) = ring[k], ring[(k + 1) % sides]
+        h.face(role, [(x0, ya, za), (x1, ya, za), (x1, yb, zb), (x0, yb, zb)], (0.0, (ya + yb) / 2 - y, (za + zb) / 2 - z))
+    for x, sx in ((x0, -1.0), (x1, 1.0)):
+        h.face(role, [(x, yy, zz) for yy, zz in ring], (sx, 0.0, 0.0))
+
+
+def gate(h: House, gs: dict):
+    """T-3164: the estate's gate on 18th Street, as the 1894 Inland plate draws it in its
+    foreground: two square stone piers on a plinth under a stepped cap, each with a low wing
+    returning toward the drive along the street line, its top sweeping down from the pier to a
+    scroll's roll over a block at the drive's edge. Placed in this record's frame (x = u south
+    from the north-east corner, z = -v) where the plate's camera puts their bases."""
+    xn, s = gs["north_u_m"], gs["pier_m"]
+    x0, x1 = xn, xn + s
+    rect = lambda a, b, c, d: [(a, c), (b, c), (b, d), (a, d)]
+    w = gs["wing"]
+    for p in gs["piers"]:
+        za, zb = sorted((-p["v_m"][0], -p["v_m"][1]))
+        po, pl = gs["plinth_out_m"], gs["plinth_m"]
+        _prism(h, "stonework", rect(x0 - po, x1 + po, za - po, zb + po), 0.0, pl)
+        _prism(h, "stonework", rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
+        cap = gs["cap"]                         # the cap's courses, bottom up, each `out` past the shaft
+        for i, (out, y0, y1) in enumerate(cap):
+            below, above = cap[i - 1][0] if i else 0.0, cap[i + 1][0] if i + 1 < len(cap) else -1.0
+            # a course's top or underside is drawn only where it shows past its neighbour
+            _prism(h, "stonework", rect(x0 - out, x1 + out, za - out, zb + out), y0, y1,
+                   top=above < out, bottom=out > below)
+        # the wing: from the pier's face toward the drive (z grows with `sg`), centred on the pier
+        zp, zw = -p["wing_v_m"][0], -p["wing_v_m"][1]
+        sg = 1.0 if zw > zp else -1.0
+        L, t, r = abs(zw - zp), w["thickness_m"], w["scroll_r_m"]
+        xa, xb = x0 + (s - t) / 2, x0 + (s + t) / 2
+        hi, lo, n = w["high_m"], w["low_m"], w.get("segments", 8)
+        run = L - w["end_m"]                      # the sweep's run, from the pier to the roll's crown
+        top = [(run * k / n, lo + (hi - lo) * (1.0 - k / n) ** 2) for k in range(n + 1)]
+        for (d0, y0), (d1, y1) in zip(top, top[1:]):
+            z0_, z1_ = zp + sg * d0, zp + sg * d1
+            for x, sx in ((xa, -1.0), (xb, 1.0)):
+                h.face("stonework", [(x, 0.0, z0_), (x, 0.0, z1_), (x, y1, z1_), (x, y0, z0_)], (sx, 0.0, 0.0))
+            h.face("stonework", [(xa, y0, z0_), (xb, y0, z0_), (xb, y1, z1_), (xa, y1, z1_)], (0.0, d1 - d0, sg * (y0 - y1)))
+        # the roll at the sweep's foot, and the block under it out to the drive's edge
+        zr = zp + sg * run
+        _roll(h, "stonework", xa - 0.02, xb + 0.02, lo - r, zr, r)
+        eb = w["block_m"]
+        zc, zd = sorted((zr - sg * r, zw))
+        _prism(h, "stonework", rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
