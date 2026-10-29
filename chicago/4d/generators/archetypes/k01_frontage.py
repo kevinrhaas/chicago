@@ -4370,7 +4370,7 @@ class Assembly:
         mid = snap(((x0 + x1) / 2, y_e - self.BAY_SKIRT_M / 2, z1 / 2))
         for (xa, za), (xb, zb) in zip(ring, ring[1:] + ring[:1]):
             quad = [snap((xa, y0, za)), snap((xb, y0, zb)), snap((xb, y_e, zb)), snap((xa, y_e, za))]
-            ctr = tuple(sum(q[k] for q in quad) / 4 for k in range(3))
+            ctr = tuple(math.fsum(q[k] for q in quad) / 4 for k in range(3))
             solid.append(k5.oriented(quad, "wall", _sub(ctr, mid)))
         solid.append(k5.oriented([snap((x, y0, z)) for x, z in ring], "wall", _mul(Y, -1)))
         # each dormer on the front face: the K05 frame is the world's (u, y, -v), so the face is
@@ -5229,8 +5229,9 @@ def _poly_area(poly):
 def _weld_shell(pts, tris):
     """Merge the shell's points that lie within SHELL_WELD_M of each other (into the lowest
     index) and drop the triangles that collapse: the edge collapse a 1 mm quantum would
-    otherwise read as a degenerate face. The roof gate (check_roof_kit.py) proves the
-    result still closed and one shell."""
+    otherwise read as a degenerate face, and flip what is left flat into its neighbour
+    (_flip_slivers). The roof gate (check_roof_kit.py) proves the result still closed and one
+    shell."""
     cell = {}
     for i, p in enumerate(pts):
         cell.setdefault(tuple(math.floor(c / SHELL_WELD_M) for c in p), []).append(i)
@@ -5251,13 +5252,47 @@ def _weld_shell(pts, tris):
                     if a != b:
                         root[max(a, b)] = min(a, b)
     if all(find(i) == i for i in range(len(pts))):
-        return pts, tris
+        return _flip_slivers(pts, tris)
     out = []
     for a, b, c, role, n in tris:
         a, b, c = find(a), find(b), find(c)
         if len({a, b, c}) == 3:
             out.append((a, b, c, role, n))
-    return pts, out
+    return _flip_slivers(pts, out)
+
+
+SLIVER_AREA_M2 = 1e-6   # the roof gate's min_triangle_area_m2 (k05_roofs.json measure)
+
+
+def _flip_slivers(pts, tris):
+    """T-1881: a flat triangle the weld left — its third point on its long edge, further from
+    either end than SHELL_WELD_M (K05's plain fan of a BSP fragment whose run carries a point a
+    hair off straight: 1729's 18th Street mansard beside its u 5.2 dormer, 2.92 -> 4.546 ->
+    4.55 m along the curb's course line) — is dropped, and the neighbour across its long edge
+    split at that point, so every edge still pairs and the shell stays closed. A shell with no
+    such triangle comes back as it went in."""
+    def area(t):
+        n = _cross(_sub(pts[t[1]], pts[t[0]]), _sub(pts[t[2]], pts[t[0]]))
+        return math.sqrt(_dot(n, n)) / 2
+    tris = list(tris)
+    for _ in range(len(tris)):
+        flat = next((i for i, t in enumerate(tris) if area(t) < SLIVER_AREA_M2), None)
+        if flat is None:
+            return pts, tris
+        t = tris[flat]
+        k = max(range(3), key=lambda j: math.dist(pts[t[j]], pts[t[(j + 1) % 3]]))
+        u, w, m = t[k], t[(k + 1) % 3], t[(k + 2) % 3]
+        nb = next((i for i, o in enumerate(tris) if i != flat and any(
+            (o[j], o[(j + 1) % 3]) == (w, u) for j in range(3))), None)
+        if nb is None:
+            return pts, tris          # nothing to flip into: the gate reads it as it stands
+        o = tris[nb]
+        j = next(j for j in range(3) if (o[j], o[(j + 1) % 3]) == (w, u))
+        x = o[(j + 2) % 3]
+        role, n = o[3], o[4]
+        tris[nb] = (w, m, x, role, n)
+        tris[flat] = (m, u, x, role, n)
+    return pts, tris
 
 
 def _breaks(xs):
