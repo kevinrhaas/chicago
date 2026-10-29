@@ -84,9 +84,12 @@ def spec(params) -> dict | None:
     if params.boundary.get("layout") in OPEN_LAYOUTS:
         return open_spec(params, y)
     # T-3215: a boarded street line unbroken across the side yard's mouth (1616's) has no side
-    # gate, and its yard no service walk. T-3216: nor has an iron front with no passage to gate
-    unbroken = params.boundary.get("fence") == k11_frontage.BOARDS or (
-        k11_frontage._side_passage_m(params.boundary) < k11_frontage._gate_clear_min())
+    # gate, and its yard no service walk. T-3212: nor has a front railed on one side of its
+    # entrance (1706's and 1700's, under one roof). T-3216: nor has an iron front with no passage
+    # to gate
+    unbroken = params.boundary.get("fence") == k11_frontage.BOARDS \
+        or len(params.boundary.get("runs", k11_frontage.RUNS)) == 1 \
+        or k11_frontage._side_passage_m(params.boundary) < k11_frontage._gate_clear_min()
     if not params.boundary.get("side_gate") and params.boundary.get("layout") != "stone_posts_rails" \
             and not (unbroken and "service_walk" not in y):
         raise ValueError("a yard's service walk runs through the K11 side gate, and this boundary names none")

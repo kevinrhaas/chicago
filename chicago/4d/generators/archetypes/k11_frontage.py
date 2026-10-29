@@ -41,6 +41,13 @@ What the record's `boundary` names, and what is built for it:
             a pier at the foot of the stoop's cheek (1736's c. 1890 photograph; its
             curbstone, photographed in place in 2015). No gate and no opening.
 
+  runs      (T-3212) an iron front laid on one side of its entrance only: `runs: ["south"]`
+            stops the fence at the entrance's north pier and leaves the rest of the front
+            open; `runs: ["north"]` starts it at the entrance's south pier. Such a front is
+            built to its lot's side lines, so it has no side passage and names no side gate (1706's and 1700's, the mirrored pair
+            under one roof: Chicagology's photograph shows 1706's railing run on from 1708's
+            to the piers at its walk and stop, and 1700's start at its own walk's piers).
+
   open      (T-3215) `layout: open`: no boundary at all. 1621's and 1623's 1886 drawings
             and 1625's 1890 photograph show each front yard running straight out to the
             public walk with no fence, wall or coping across it, so nothing is laid; the
@@ -81,6 +88,8 @@ GARDEN = "front_garden"
 COPING = "stone_coping_wall"
 # T-3215: a front yard with no boundary across it (1621's and 1623's drawings, 1625's photograph)
 OPEN = "open"
+# T-3212: the street line's two runs, either side of the entrance; a record may lay one alone
+RUNS = ("south", "north")
 
 
 def _kit():
@@ -111,11 +120,21 @@ def spec(params) -> dict | None:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
     if "entrance_gate" not in t:
         raise ValueError("boundary.entrance_gate: every front is gated on the walk to its door")
+    runs = t.get("runs", RUNS)
+    if not runs or set(runs) - set(RUNS) or len(set(runs)) != len(runs):
+        raise ValueError(f"boundary.runs names one or both of {list(RUNS)}")
+    if len(runs) == 1 and (FENCES[t["fence"]] != "spear" or t.get("wall") or t.get("side_fence") or t.get("fence_end")):
+        raise ValueError("boundary.runs: a one-sided front is a spear railing with no wall, side fence or end pier")
+    if len(runs) == 1:
+        # T-3212: a one-sided front is a house built to its lot's side lines (the pair at
+        # 1700-1706 under one roof, against 1708): no side passage, so no side gate
+        if "side_gate" in t:
+            raise ValueError("boundary.side_gate: a one-sided front (boundary.runs) has no side passage to gate")
     # T-2455: only a boarded street line may close the side yard's mouth without a gate.
     # T-3216: unless there is no passage to gate: a house built so near its south lot line that
     # less than the gate's own clear is left between them (the 1600 block's row fronts), whose
     # iron runs on unbroken from the lot line to the entrance
-    if "side_gate" not in t and FENCES[t["fence"]] != "boards" and _side_passage_m(t) >= _gate_clear_min():
+    elif "side_gate" not in t and FENCES[t["fence"]] != "boards" and _side_passage_m(t) >= _gate_clear_min():
         raise ValueError(f"boundary.side_gate: an iron front gates its side passage; only {BOARDS!r} may close it")
     if FENCES[t["fence"]] == "boards":
         if not 1.2 <= t.get("board_height_m", 0) <= 2.2:
@@ -298,12 +317,22 @@ def dress(a):
     # the entrance's, and from the entrance's to an end post whose curb stops on the north
     # lot line
     s0 = sb + ps if S else s_south
-    if not S and style != "boards":
+    runs = t.get("runs", RUNS)
+    if not S and style != "boards" and len(runs) == 2:
         s0 = s_south + 0.12                                     # T-3216: its end post's curb stops on the lot line
     if style == "boards":
         H = t["board_height_m"]
         south = _board_run(var, s0, ea - ps, H, "south run")
         north = _board_run(var, eb + ps, n_end, H, "north run")
+    elif len(runs) == 1:
+        # T-3212: one run, from the lot line (or the side gate's pier) to the entrance's south
+        # pier, or from its north pier to the end post; the other side of the front lies open
+        if runs == ["south"]:
+            south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name if S else None, host_b=pe1.name)
+            north, s0, n_end = [], s0, eb
+        else:
+            north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
+            south, s0 = [], ea
     else:
         south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name if S else None, host_b=pe1.name)
         if FE:
@@ -335,8 +364,15 @@ def dress(a):
         for pc in wv.pieces:
             _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    posts = len(south) + len(north) - (0 if style == "boards" else 3 if S else 2)
-    run = {"length_m": round((ea - ps) - s0 + n_end - (eb + ps), 4), "runs": 2, "posts": posts}
+    if style == "boards":
+        hosted = 0
+    elif len(runs) == 1:
+        hosted = 1 if runs == ["north"] or not S else 2      # the runs' ends hung on a pier
+    else:
+        hosted = 3 if S else 2
+    posts = len(south) + len(north) - hosted
+    laid = (((ea - ps) - s0) if south else 0.0) + ((n_end - (eb + ps)) if north else 0.0)
+    run = {"length_m": round(laid, 4), "runs": len(runs) if style != "boards" else 2, "posts": posts}
     if style == "boards":
         run["height_m"] = t["board_height_m"]
     a.instance(fence, "fence", run, {"line_south": (line, 0.0, -s0), "line_north": (line, 0.0, -n_end)})
@@ -361,6 +397,8 @@ def dress(a):
                   # T-3206: the curb's house face, and every opening a visitor walks through
                   "inner_x_m": round(line - P["curb"]["width_m"] / 2, 4),
                   "openings_s_m": [[round(ea, 4), round(eb, 4)]] + ([[round(sa, 4), round(sb, 4)]] if S else [])
+                  + ([[round(eb + ps, 4), round(s_north, 4)]] if runs == ["south"] else [])
+                  + ([[round(s_south, 4), round(ea - ps, 4)]] if runs == ["north"] else [])
                   + ([[round(n_end + Pr["section_m"], 4), round(s_north, 4)]] if FE and s_north - n_end > Pr["section_m"] + 0.9 else [])}
 
 
