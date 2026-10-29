@@ -34645,7 +34645,7 @@ blank party walls and 1700's blank north wall; the windows in the rear walls.
 The two 1901 construction photographs and the 1702 address association are T-3212's.
 **How to resolve:** the 1901 construction photographs (T-3212); a measured height anywhere on the
 townhouses' front, which fixes every camera's scale; a picture of the rear.
-**Covers:** `george_glessner_house_1706_prairie.as_mapped_1904.form.north_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.rear_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_covering`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_pitch_deg`, `george_glessner_house_1706_prairie.as_mapped_1904.form.service_wall_brick`, `george_glessner_house_1706_prairie.as_mapped_1904.form.side_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stair_tread_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stoop_width_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_front_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_side_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.window_kit`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.north_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.rear_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_covering`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_pitch_deg`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.service_wall_brick`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.side_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stair_tread_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stoop_width_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_front_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_side_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.window_kit`
+**Covers:** `george_glessner_house_1706_prairie.as_mapped_1904.form.north_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.rear_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_covering`, `george_glessner_house_1706_prairie.as_mapped_1904.form.roof_pitch_deg`, `george_glessner_house_1706_prairie.as_mapped_1904.form.side_bays`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stair_tread_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.stoop_width_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_front_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.wall_thickness_side_m`, `george_glessner_house_1706_prairie.as_mapped_1904.form.window_kit`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.north_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.rear_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_covering`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.roof_pitch_deg`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.side_bays`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stair_tread_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.stoop_width_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_front_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.wall_thickness_side_m`, `glessner_lee_house_1700_prairie.as_mapped_1904.form.window_kit`
 **Ticket:** T-3211 (piece 1 of T-1871).
 **Recorded:** 2026-10-27 (T-3211).
 
@@ -36064,6 +36064,29 @@ elevation, settles the bay's slate and where it meets the main face.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
 
+### L-k01-1729-pullman-bay-dormers-1881 — 1729 Prairie's dormers on its forward block and 18th Street pavilion, placed off its photographs, their sizes reconstructed
+
+**Decision:** T-1881 stood three of the Pullman house's (`pullman_house_1729_prairie`) round-headed dormers on the
+mansards of the two projections that carry their own (`bays.p_forward` and `bays.p_18th`, each now taking
+`mansard_dormers`), where until now the K08 bay kit could lay none and the three stood on the main mansard behind the
+projections, hidden by them. **What is read.** The Detroit print (LC-D4-12551) draws one dormer on the forward
+section's own mansard, centred on the section: through its solved camera the hood at x 322-353 px, about v 4.2 on the
+block's face. Taylor's photograph no. 1445 draws two on the 18th Street pavilion's mansard, each over a window group:
+over the pair (the light at x 657-670) and over the triple (739-750), so at s 10.0 and 15.4, the groups' own places.
+Each is round-headed under an eared hood, as the main mansard's are (L-k01-1729-pullman-belt-hoods-1881). **What is
+invented.** The forward block's dormer keeps the size the main mansard's north-west dormer had (a 0.8 x 1.6 m light in
+a 0.3 m surround). The pavilion's two are 0.7 x 1.6 m in a 0.2 m surround, narrower than the main mansard's: the
+photograph reads their lights about 0.7 m across at about 15 px a metre, and the dormer over the pair stands 0.85 m
+from the pavilion's west hip, where nothing wider stays clear of it. Their heights, sills and hoods are the main
+mansard's. **What is not resolved.** The forward block itself stands about 1 m south of where the Detroit print draws
+its section (the print's block about v 1.2-7.3 at its eaves, the build's 1.7-8.8), so the dormer sits north of the
+block's middle where the print has it in the middle; and the 1890 Albertype draws the flank's dormers elsewhere than
+Taylor's photograph does. Both stay on the match records. **How to resolve:** the CHM 1905 views, still to be solved,
+see the front and the flank closer.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`, `detroit_det_4a08065-side-by-side.jpg` and `albertype_1890-side-by-side.jpg`, with their match records.
+**Recorded:** 2026-10-29 (T-1881).
+
 ### L-k01-hibbard-1701-3240 — 1701 Prairie, the Hibbard house, refined from the district draft to a K01 main block and rear range read off the 1911 sheet and two photographs
 
 **Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.entrance_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`
@@ -36133,6 +36156,7 @@ gable's width, depth and the cornice's run under it.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-29 (T-1890).
 
+<<<<<<< HEAD
 ### L-pullman-18th-street-trees-1934 — The parkway trees before the Pullman estate, placed off Taylor's 16555 and the 1894 Inland plate
 
 **Decision:** 18th Street's parkway trees before 1729 Prairie's palm house and stable stand where
@@ -36154,3 +36178,29 @@ is the rule's planting line.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`,
 `inland_1894_plate-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_street_trees.md`.
 **Recorded:** 2026-10-29 (T-1934).
+=======
+### L-k01-1700-1708-colour-3244 — 1700, 1706 and 1708 Prairie laid in red-brown brick, and the pair's porches, cornice, dormers and sash painted white, read from the tones of three monochrome photographs
+
+**Decision:** the owner, 2026-10-29 (T-3243, T-3244): *"you need to make sure that you picture match
+analysis on what the most likely color would have been according to research and hypothesis
+analysis, this holds for everything on the block"*. Read against two references in each picture,
+the porches' white paint and the house's own slate (docs/RESEARCH/colour-1700-block-T-3244/README.md):
+the pair's brick prints darker than its slate in all three photographs, which a buff brick cannot do
+on a blue or orthochromatic plate, and at 0.05-0.08 of the white paint in Chicagology's (the
+clearest); the Christmas print (highlights compressed) and the fresh wall of 1901 read lighter.
+The pair is laid in the K03 library's `rough_red_brown_running` panel, every brick slot, its units
+cut from the same brick, where it had been the common buff brick; 1708's street front over its
+stone basement, which prints as dark as the pair's in the same light, in the same panel, its
+unseen side walls left common brick. The pair's porches (columns, entablature, deck), cornice,
+dormer faces and sash print white with each other in all three pictures and whiter than the stone
+sills: painted timber in white, linear (0.86, 0.85, 0.80), where they had been beige stone, a
+light grey-beige, limestone and the kit's dark green. Invented: the hue (the pictures fix only
+tone: a red-brown fits the three readings better than the library's pressed red, and Chicagology's
+close view shows light joints, which the pressed red's tight dark joints would hide), the bond
+(not readable; the library's running bond), the white's exact shade, and the porches being timber
+rather than a white-painted or white stone.
+**How to resolve:** a coloured view, a paint or brick finding, or a sharper print of the front
+showing the bond and the joints.
+**Ticket:** T-3244.
+**Recorded:** 2026-10-29 (T-3244).
+>>>>>>> origin/dev
