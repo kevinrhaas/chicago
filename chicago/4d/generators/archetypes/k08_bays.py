@@ -35,6 +35,9 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
                light from its head to the string course, their joints fanned, as 1621's
                drawing draws over its basement lights
+  doors        (T-1890) a window entry's `door`: a K06 door in a grade bay's lowest storey, its
+               hole run down through the plinth to the step and the plinth broken square
+               either side of it (1801's side door under its frontispiece, HABS photograph 2)
   floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
                front under the window it serves: a stone slab and a stone balustrade on it
   frieze       (T-2778) a windowless storey's carved frieze: on every run a dressed panel
@@ -1111,6 +1114,21 @@ class _Cut:
         return self.run.L if self.end_cut else self.run.s_end(z)
 
 
+class _Span(_Cut):
+    """T-1890: a stretch of a run cut square at `a` and/or `b` along it (None keeps the run's
+    own end): a plinth broken either side of a door that stands on grade."""
+
+    def __init__(self, run, a=None, b=None):
+        super().__init__(run, a is not None, b is not None)
+        self.a, self.b = a, b
+
+    def s_start(self, z):
+        return self.a if self.a is not None else self.run.s_start(z)
+
+    def s_end(self, z):
+        return self.b if self.b is not None else self.run.s_end(z)
+
+
 def gable_face(v: dict):
     """T-2998: the run a gable roof is carried up from, or None under any other roof. A gable
     stands on a projection's square plan (a return, the front, a return), the front square
@@ -1241,6 +1259,7 @@ class Bay:
             raise ValueError(f"{v['id']}: its walls start at {y_wall0:.3f} m, over its lowest storey")
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
+            doors = []   # T-1890: the doors on grade in this run, (from, to) along it
             for k in range(len(v["storeys"])):
                 holes = []
                 trim_holes = []
@@ -1262,7 +1281,15 @@ class Bay:
                         guard(o, w["guard"])
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
-                        holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
+                        if w.get("door"):
+                            # T-1890: a door on grade runs down through the plinth to the step;
+                            # the wall over the plinth is opened from its foot, and the plinth is
+                            # broken outside its surround's jambs, so they stand to the step
+                            su = w.get("surround") or {"band_m": 0.0, "proud_m": 0.0}
+                            doors.append((sh[0][0] - su["band_m"], sh[1][0] + su["band_m"], su["proud_m"]))
+                            holes.append((sh[0][0], sh[1][0], lo, sh[2][1], sh[2:], len(sh) == 4))
+                        else:
+                            holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
                         if v.get("shallow"):
                             xs = sorted(run.world(q[0], 0.0, 0.0)[0] for q in sh)
                             ys = [q[1] for q in sh]
@@ -1331,7 +1358,19 @@ class Bay:
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
             if v.get("pilasters"):
                 self._pilasters(flat, run, i, levels, y_wall0, band["height_m"])
-            if grade:
+            if grade and doors:
+                # T-1890: the plinth broken square either side of each door, its cut ends closed
+                ph, pp = plinth["height_m"], plinth["proud_m"]
+                cuts = [None, *[x for door in sorted(doors) for x in door[:2]], None]
+                for a_, b_ in zip(cuts[::2], cuts[1::2]):
+                    proud(flat, "plinth", _Span(run, a_, b_), 0.0, ph, pp, bottom=False)
+                for x0, x1, d_ in doors:   # from the jamb's front (the wall's face, without one)
+                    if not d_ < pp:
+                        raise ValueError(f"{v['id']}: a door's surround {d_} m proud stands out of its {pp} m plinth")
+                    for x, hx in ((x0, 1.0), (x1, -1.0)):
+                        flat.face("plinth", [flat.P(x, 0.0, -d_), flat.P(x, 0.0, -pp), flat.P(x, ph, -pp),
+                                             flat.P(x, ph, -d_)], (hx, 0.0, 0.0))
+            elif grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             if v.get("cap_band"):
@@ -1463,7 +1502,8 @@ class Bay:
                 "y_all": [round(min(q[1] for q in allp), 4), round(max(q[1] for q in allp), 4)],
                 "y": [round(min(q[1] for q in bk), 4), round(max(q[1] for q in bk), 4)],
                 "recess_m": round(-z_lo, 4), "footprint": hull(foot), "panes": panes,
-                "why_not_ordinary": w.get("why_not_ordinary")}
+                "why_not_ordinary": w.get("why_not_ordinary"),
+                **({"door": True} if w.get("door") else {})}
 
     # supports ----------------------------------------------------------------------------
     def _corbel_layout(self, y0):

@@ -513,6 +513,18 @@ class Opening:
             sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
             inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, day.y0, top_y=sash_top), d_out, sa, mu,
                                      panes, (st, st, br, tr), "casement")
+        elif op == "door_glazed":
+            # T-1890: a glazed door, one leaf hung in the frame (1801's side door under the
+            # frontispiece, HABS photograph 2): its lower `panel_m` a solid timber panel framed
+            # by its stiles and bottom rail, its upper part glass over a lock rail
+            y_p = day.y0 + v["panel_m"]
+            outer = box(day.s0, day.s1, day.y0, y_p)
+            inner = box(day.s0 + st, day.s1 - st, day.y0 + br, y_p)
+            self.ring("sash_outer", outer, inner, d_out)
+            self.tube("sash_outer", inner, d_out, d_out + sa["thickness_m"] / 2)
+            self.plane("sash_outer", inner, d_out + sa["thickness_m"] / 2)
+            inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, y_p, top_y=top_flat), d_out, sa, mu,
+                                     panes, (st, st, mr, tr), "leaf")
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":
