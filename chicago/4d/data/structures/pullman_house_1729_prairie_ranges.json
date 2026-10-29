@@ -120,7 +120,9 @@
                 "eave_chamfer": {
                   "corner": "u1v1",
                   "m": 1.7
-                }
+                },
+                "cresting": "open",
+                "eave_cornice": "stone_band"
               },
               {
                 "id": "r4",
@@ -135,7 +137,9 @@
                   1.5
                 ],
                 "from": "s20fp-1729-b1 p3 (main, stone): the east building's narrower north block, from the sheet's offset at v 1.5 to its north wall (T-3178)",
-                "deck_m": 4.6
+                "deck_m": 4.6,
+                "cresting": "open",
+                "eave_cornice": "stone_band"
               },
               {
                 "id": "r5",

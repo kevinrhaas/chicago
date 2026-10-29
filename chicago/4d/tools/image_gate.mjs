@@ -50,6 +50,7 @@ import crypto from 'node:crypto';
 import os from 'node:os';
 import {renderGroup, groupReview} from './photo_match_group.mjs';
 import {enclosureReview} from './photo_match_enclosures.mjs';
+import {floraReview} from './photo_match_flora.mjs';
 import {testRenderGroups} from './test_photo_match_group.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -95,6 +96,9 @@ function malformed(structureId, v) {
   if (cam.enclosures !== undefined) {
     try { enclosureReview(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
   }
+  if (cam.flora !== undefined) {
+    try { floraReview(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
+  }
   if (fs.existsSync(v.matchFile)) {
     let m;
     try { m = JSON.parse(fs.readFileSync(v.matchFile, 'utf8')); } catch (e) { return [...out, `${rel(v.matchFile)}: not JSON (${e.message})`]; }
@@ -123,6 +127,9 @@ function blocker(structureId, v) {
   const enclosures = enclosureReview(ROOT, camera);
   if (enclosures && m.enclosures_sha256 !== enclosures.review.enclosures_sha256)
     return `${v.view}: a rendered enclosure, native renderer or its anchor placement changed after the match — rerun photo_match`;
+  const flora = floraReview(ROOT, camera);
+  if (flora && m.flora_sha256 !== flora.review.flora_sha256)
+    return `${v.view}: a rendered plant, its renderer or its anchor placement changed after the match — rerun photo_match`;
   if ((members || m.photo_sha256) && m.photo_sha256 !== sha(path.resolve(path.dirname(v.cameraFile), camera.photo)))
     return `${v.view}: the reference picture changed after the match — rerun photo_match`;
   const open = (m.differences || []).filter((d) => d.status === 'open');

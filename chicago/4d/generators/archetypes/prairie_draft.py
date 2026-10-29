@@ -286,13 +286,14 @@ def cone(m: Mesh, mat, ring, y0, apex_y):
     m.face("cornice", [(p[0], p[1], y0) for p in ring], cen)
 
 
-def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, chamfer=None):
+def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, chamfer=None, cresting="posts"):
     """A hipped roof cut off level `deck_h` over its eave: four sloped faces to a flat
     lead deck, and a ring of iron cresting round the deck. `insets` (u0, u1, v0, v1), the
     deck's edges in from the eave lines, gives each face its own pitch where a picture
     shows a steeper end. `chamfer` (corner, metres), the corner named as 'u1v1' and the like,
     cuts that corner of the eave on the diagonal, with its own slope up to the deck's corner,
-    where an upper storey turns the corner on a diagonal (T-1934). Returns the cresting's top."""
+    where an upper storey turns the corner on a diagonal (T-1934). `cresting` "open" rings the
+    deck in open ironwork (T-1934); otherwise posts and a rail. Returns the cresting's top."""
     u0, u1, v0, v1 = u0 - o, u1 + o, v0 - o, v1 + o
     inset = min(deck_h / math.tan(math.radians(pitch)), (u1 - u0) / 2 - 0.3, (v1 - v0) / 2 - 0.3)
     yd = y + inset * math.tan(math.radians(pitch))
@@ -319,7 +320,9 @@ def hip_deck(m: Mesh, u0, u1, v0, v1, y, pitch, deck_h, o=0.35, insets=None, cha
     for f_ in faces:
         m.face("roof", f_, cen)
     m.face("cornice", ring, cen)
-    return open_cresting(m, a0, a1, b0, b1, yd)
+    if cresting == "open":
+        return open_cresting(m, a0, a1, b0, b1, yd)
+    return crested_cap(m, [(a0, b0), (a1, b0), (a1, b1), (a0, b1)], (a0 + a1) / 2, (b0 + b1) / 2, yd)
 
 
 def open_cresting(m: Mesh, a0, a1, b0, b1, y, h=0.75, pitch=0.16):
@@ -827,11 +830,16 @@ def build(params, structure_id: str):
         elif roof == "hip_deck":
             # a hipped roof stopped at a flat deck inside an iron cresting, the stable roof of
             # the Pullman estate's 1894 plate (T-3178); `deck_m` is the deck over the eave
-            m.box("trim", u0 - 0.3, u1 + 0.3, v0 - 0.3, v1 + 0.3, eave - 0.15, eave)
+            if p.get("eave_cornice") == "stone_band":
+                # a thin stone band under the eave, where a belt course stands over it (T-1934)
+                m.box("trim", u0 - 0.3, u1 + 0.3, v0 - 0.3, v1 + 0.3, eave - 0.15, eave)
+            else:
+                m.box("cornice", u0 - 0.3, u1 + 0.3, v0 - 0.3, v1 + 0.3, eave - 0.4, eave)
             ch = p.get("eave_chamfer")
             top = hip_deck(m, u0, u1, v0, v1, eave, pitch, float(p.get("deck_m", 3.0)),
                            insets=[float(x) for x in p["deck_insets_m"]] if p.get("deck_insets_m") else None,
-                           chamfer=(ch["corner"], ch["m"]) if ch else None)
+                           chamfer=(ch["corner"], ch["m"]) if ch else None,
+                           cresting=p.get("cresting", "posts"))
         elif roof == "gable":
             along = "u" if (u1 - u0) >= (v1 - v0) else "v"
             inset = float(gothic.get("gable_inset_v0_m", 0.0)) if gothic and role == "main" else 0.0
