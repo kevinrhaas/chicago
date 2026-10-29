@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2418, ts: '2026-10-29T18:19:40.871Z', date: 'Oct 29, 2026, 1:19 PM CT', title: 'Pullman\'s 18th Street wall gets its urn', kind: 'improvement',
+    items: [
+      '1729 Prairie\'s 18th Street wall now carries the stone urn that the 1894 Inland Architect plate shows on its fifth pier, in front of the stable. Read at full size, it is a single squat lidded urn about 0.4 m across. The turned shape is the shared kit\'s; the size comes from the plate.',
+    ] },
   { v: 2417, ts: '2026-10-29T17:44:47.340Z', date: 'Oct 29, 2026, 12:44 PM CT', title: '1801 Prairie\'s stone wall gable stands at its south-east corner', kind: 'improvement',
     items: [
       'The Kimball house\'s south wall now rises at its rear corner into the steep coped stone gable that the 1965 survey photograph shows behind the rear chimney, with a pair of small windows at its foot just over the cornice.',

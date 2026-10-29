@@ -35861,8 +35861,11 @@ pier beyond it. **What is invented.** The piers' section (0.9 m square under a 0
 shows a deeper moulded cap and a sunk panel); the low walls' curve, laid as a concave quarter-circle in ten
 facets between heights read at its ends and middle; the opening's 3.0 m at the carriage way and the pier east of
 it, read off 1445 at a small size; the wall's height (0.9 m) along the stable, read off 16554 at a small size; and
-the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court, the
-globe lamp and urn on the piers are not built. **How to resolve:** a picture of 18th Street east of the stable,
+the wall's stop at the stable's east wall, past which no picture held reaches. The lamp post near the court is not built (only 16554, whose
+rights are unresolved, shows it). The fifth pier's urn, read at the plate's full size as one squat lidded urn
+about 0.4 m by 0.5 m (an earlier reading made it a globe lamp with an urn behind it), is the K11 kit's turned
+urn stretched to that size: its profile, and its lid's small point where the plate's lid is flat, are the
+kit's. **How to resolve:** a picture of 18th Street east of the stable,
 or a full-size copy of the c. 1905 CHM negative i70232, would show the wall's east end and the piers' caps.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `taylor_16554_from_south-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with their match records.
