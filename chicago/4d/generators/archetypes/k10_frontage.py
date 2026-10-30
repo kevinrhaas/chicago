@@ -763,7 +763,9 @@ def _mansard_cornice(a, K, data, bays, conf):
             raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the stone cornice at {y_c:.3f} m")
     cut, into = [], []
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
-        if wall in names and top > y_c - 0.005:
+        # T-1890: but a shallow pavilion the cornice is carried across stands behind it (1801's
+        # wall gable, HABS photograph 1: the course runs on under its lights to the corner)
+        if wall in names and top > y_c - 0.005 and not b.get("cornice_across"):
             i = names.index(wall)
             cut.append((cum[i] + s0, cum[i] + s1))
             into.append(b["id"])

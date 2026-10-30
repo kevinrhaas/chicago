@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 868,
+  "count": 869,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60856,6 +60856,38 @@
       "work_refs": [
         "T-1890",
         "T-3047"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-gable-cornice-1890",
+      "title": "1801 Prairie's main cornice carried on under the wall gable's lights, from HABS photograph 1",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-29",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "HABS photograph 1 (June 1965, Harold Allen for HABS, 'View: west (Prairie Ave.) and south (court)…) carries the heavy main cornice on under the wall gable's pair of lights to the south wall's rear corner (y 617-663 px, to x 1238), where the build had stopped K10's moulded course and the mansard's eave box square at the gable's west cheek (“1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1”, its \"still open\"). The gable now carries cornice across: K10's course runs on in front of the gable's face to the corner and is capped there, the eave box runs on with it, and only the slate over the box is cut away before the face, leaving the box's top as a ledge under the lights; the gutter still stops at the gable's west cheek. **What is read.** The cornice's run and height under the lights, against the print through its solved camera. **What is invented or held by the kit.** The course's section is the kit's generic one, as along the rest of the wall (“1801 Prairie's main cornice raised to the bow's and moulded under the mansard; the south pavilion's frieze roundel and carved gable panel”); the box's ledge and the gutter's stop under the gable, and the course's end at the corner (capped, where the print turns out of sight behind the corner), are not shown and are reconstructed. **What is still open.** Nothing in this view; the gable's depth and west half stay as “1801 Prairie's wall gable at the south wall's rear corner, from HABS photograph 1” has them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the HABS drawings' south or east elevation, or a view of the rear, shows how the cornice ends at the corner."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and its match record."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-29 (T-1890)."
+        }
+      ],
+      "work_refs": [
+        "T-1890"
       ]
     },
     {
