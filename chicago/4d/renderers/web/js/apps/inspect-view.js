@@ -41,6 +41,7 @@ import { storyTimeline, renderStory } from '../inspect-story.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 import { MODE_ATTR } from '../researcher.js';
+import { personModel, renderPersonCard } from '../person-card.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -53,6 +54,7 @@ let host = null;
 let drawnFor = null;
 let lastTab = 'overview';
 let tabFor = null;            // the building the remembered tab belongs to
+let personLinked = null;      // the last link whose person card was opened (T-3265)
 const TABS = [['overview', 'Overview'], ['people', 'People'], ['design', 'Design'],
   ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources'], ['research', 'Research']];
 /** T-3022: the tabs only Expert research shows (Settings; js/researcher.js). They are drawn
@@ -322,6 +324,10 @@ function render(root, ctx) {
   const linked = ctx.link?.app === 'inspect' && ctx.link.id === id && TABS.some(([k]) => k === ctx.link.tab) ? ctx.link.tab : null;
   let tab = tabFor === id ? lastTab : (linked ?? 'overview');
   if (EXPERT_TABS.has(tab) && !expertOn(doc)) tab = 'overview';
+  // T-3265: a link to a person (the People app, a map pin) opens People on their card, once.
+  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person && ctx.link !== personLinked
+    ? ctx.link.person : null;
+  if (person) { personLinked = ctx.link; tab = 'people'; }
   tabFor = id;
   const bar = el(doc, 'nav', 'insp-tabs');
   bar.setAttribute('role', 'tablist');
@@ -359,7 +365,7 @@ function render(root, ctx) {
   }
   head.append(bar);
   root.append(head, panes);
-  root._insp = { id, sum, ctx };
+  root._insp = { id, sum, ctx, person };
   selectTab(root, tab);
   drawnFor = id;
 }
@@ -494,20 +500,72 @@ async function fillPeople(pane, sec, ctx, id) {
     pane.append(el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
     return;
   }
-  const block = el(doc, 'section', 'insp-sec');
+  const block = el(doc, 'section', 'insp-sec insp-people-home');
   block.append(heading(doc, 'Who was here'));
+  // T-3265: a tap opens that person's own card here, in place of this list, with Back to it.
+  pane._people = new Map(here.map((r) => [r.id, r]));
   // T-3258: the family before its staff — head, spouse, children, kin, then the servants the
   // 1900 census names — so a house of twelve servants still opens on the people it is named for.
   const order = (r) => RANK[r.relationship] ?? 3;
   for (const r of [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
     const b = el(doc, 'button', 'nav-person insp-person-link');
     b.type = 'button';
-    b.dataset.person = r.id;
+    b.dataset.personCard = r.id;
     b.append(line(doc, 'span', 'nav-person-name', r.name, r.grade),
       el(doc, 'span', 'nav-sub', [r.household_name, r.relationship === 'head' ? 'head of the household' : r.relationship].filter(Boolean).join(' · ')));
     block.append(b);
   }
   pane.append(block);
+  const linked = pane.closest('.insp-panes')?.parentElement?._insp?.person;
+  if (linked && pane._people.has(linked)) void openPersonCard(pane, linked, ctx);
+}
+
+/**
+ * T-3265: one person's card in place of the household list (person-card.js). It draws at once
+ * from the directory's row, then again once their household's record and the scene's
+ * citations are read; Back puts the list back, on the row just read.
+ */
+async function openPersonCard(pane, personId, ctx) {
+  const doc = pane.ownerDocument;
+  const row = pane._people?.get(personId);
+  const home = pane.querySelector('.insp-people-home');
+  if (!row || !home) return false;
+  pane.querySelector('.insp-person-card')?.remove();
+  const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
+  const draw = (m) => {
+    const card = renderPersonCard(doc, m, { dot });
+    const was = pane.querySelector('.insp-person-card');
+    if (was) was.replaceWith(card); else pane.append(card);
+    return card;
+  };
+  home.hidden = true;
+  pane.dataset.person = personId;
+  const first = draw(personModel({ row, sceneYear }));
+  const scroller = pane.closest('.insp-panes')?.parentElement;
+  if (scroller) scroller.scrollTop = 0;
+  first.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  const [household, citations] = await Promise.all([
+    Promise.resolve(ctx?.actions?.householdRecord?.(row.file)).catch(() => null),
+    Promise.resolve(ctx?.actions?.residentCitations?.()).catch(() => null),
+  ]);
+  if (pane.dataset.person !== personId) return false; // Back, or another person, in the meantime
+  const person = (household?.persons ?? []).find((p) => p.id === personId) ?? null;
+  const card = draw(personModel({ row, person, household, citations, sceneYear }));
+  if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person\u2019s household record could not be read.'));
+  if (doc.activeElement === doc.body || !doc.activeElement) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  return true;
+}
+
+/** Back from a person's card to their household's list, on their row. */
+function closePersonCard(pane) {
+  const id = pane.dataset.person;
+  delete pane.dataset.person;
+  pane.querySelector('.insp-person-card')?.remove();
+  const home = pane.querySelector('.insp-people-home');
+  if (home) home.hidden = false;
+  const row = id ? pane.querySelector(`[data-person-card="${CSS.escape(id)}"]`) : null;
+  row?.scrollIntoView?.({ block: 'center' });
+  row?.focus?.({ preventScroll: true });
 }
 
 /** Clicks inside Inspect: tabs, the card's own "why" toggles, a picture, a person. */
@@ -515,6 +573,9 @@ function onClick(e) {
   const root = e.currentTarget;
   const st = root._insp ?? {};
   if (e.target.closest('[data-insp-back]')) { void st.ctx?.navigator?.back?.(); return; }
+  const card = e.target.closest('[data-person-card]');
+  if (card) { void openPersonCard(card.closest('.insp-pane'), card.dataset.personCard, st.ctx); return; }
+  if (e.target.closest('[data-person-back]')) { closePersonCard(e.target.closest('.insp-pane')); return; }
   const tab = e.target.closest('[data-insp-tab]');
   if (tab) {
     selectTab(root, tab.dataset.inspTab);

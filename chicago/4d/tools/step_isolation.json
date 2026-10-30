@@ -2836,6 +2836,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_jaunt_views.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_joint_floor.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5838,6 +5842,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_dressings.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_hood_flare.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6019,6 +6027,10 @@
       "wrote_ignored": []
     },
     "tools/test_people_scene.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_person_card.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

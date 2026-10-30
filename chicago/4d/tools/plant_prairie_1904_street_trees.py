@@ -142,11 +142,13 @@ def walk_marks(pts, acc, walks):
     return out
 
 
-def pictured_trees(face_id, pts, acc, stretch, views=None, liberty=""):
-    """The trees a picture places on one stretch of a face (T-1934)."""
+def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
+    """The trees a picture places on one stretch of a face (T-1934). `first` numbers them on
+    from the face's earlier stretches (T-1881: 18th Street's north parkway has two), so every
+    id stays unique."""
     views = views or {}
     out = []
-    for k, t in enumerate(sorted(stretch["trees"], key=lambda t: t["at_m"])):
+    for k, t in enumerate(sorted(stretch["trees"], key=lambda t: t["at_m"]), start=first):
         s = t["at_m"]
         if not (stretch["from_m"] <= s <= stretch["to_m"] and 0.0 <= s <= acc[-1]):
             raise ValueError(f"{face_id}: pictured tree at {s} m is off its stretch or its face")
@@ -225,9 +227,11 @@ def plant(grid, walks_by_face=None, pictured=None):
                 continue
             trees.append(tree)
             planted += 1
-        for st in stretches.get(face["id"], []):
+        first = 0
+        for st in sorted(stretches.get(face["id"], []), key=lambda st: st["from_m"]):
             got = pictured_trees(face["id"], pts, acc, st, (pictured or {}).get("views"),
-                                 (pictured or {}).get("liberty", ""))
+                                 (pictured or {}).get("liberty", ""), first)
+            first += len(got)
             trees.extend(got)
             planted += len(got)
         faces_out.append({"face": face["id"], "street": face["street"], "length_m": round(length, 1),

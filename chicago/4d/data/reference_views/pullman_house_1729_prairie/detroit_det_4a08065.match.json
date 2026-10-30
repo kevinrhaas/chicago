@@ -16,7 +16,7 @@
         "creeper": 7
       }
     ],
-    "street_trees": 31,
+    "street_trees": 33,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "2f50a7ec1e40e3c6a0c73077a0d9ed5e5334aadb7f451e4e68ce5888cf287fe1",
+  "flora_sha256": "7805c6979e424f670868e3f8fc36e1385ae26a8203e4c760494c1feefadefd70",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -227,7 +227,12 @@
     {
       "what": "the parkway and lawn trees: the picture's are slender young trees, where the render draws the app's grown street trees, thicker, set off the picture's places by up to about 40 px and missing some; in winter the app's bare trees draw as a few coarse limbs, not the picture's fine crowns [Looked at again for T-1934, 2026-10-29: the six 18th Street parkway trees it placed off Taylor's 16555 and the 1894 Inland plate (data/street_trees/pictured_1904.json) stand east of the flank, at x 864-1048 through this camera, far down the street behind the picture's own trees; this item is unchanged.]",
       "status": "open",
-      "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture"
+      "how": "T-1881: the planting is now drawn into this render (the owner, 2026-10-28: the property's wall and flora are part of the match), the street trees from data/street_trees/1904.json within 70 m and the lot's own from data/front_yards/1904.json; their places, sizes and the winter tree model are the street-tree and front-yard layers', not yet worked to this picture. T-1881, 2026-10-30: 18th Street's north parkway west of T-1934's stretch (0-46.9 m) is now planted off Taylor's photograph no. 1445, five trees at its trunks' places (data/street_trees/pictured_1904.json); still open are the trees' size and crowns (the app's grown trees against the picture's slender ones), the Prairie Avenue parkway and the lawn trees inside the walls (the slender saplings behind the 18th Street wall, the front lawn's three lindens), none yet worked to the pictures."
+    },
+    {
+      "what": "18th Street's north parkway trees beside the house (x 686-860): the print's trunks at x 691, 735.5, 786, 806, 821.5, 838 and 846",
+      "status": "within tolerance",
+      "how": "T-1881: the stretch is planted off Taylor's photograph no. 1445, which sees it at 20-30 px a metre against this print's 4-6 and which the house's record already rules governs along this flank (data/street_trees/pictured_1904.json); through this camera the trees render at x 705, 765, 805, 837 and 852. Three agree with this print's trunks within 2-14 px (806, 838, 846; the corner's at 691 is moved clear of the Prairie walk); its trunks at 735.5, 786 and 821.5 are the two pictures' disagreement along the flank, Taylor's view of those places showing the coping wall clear"
     },
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",

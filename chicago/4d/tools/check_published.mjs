@@ -77,6 +77,10 @@ const COPIES = [
   // the source, and the Guide reads faq.json the first time it opens.
   ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
+  // T-3265: a later scene's own household cards, which a person's card in Inspect › People reads;
+  // copied verbatim (690 KB together) by publish.sh's loop over data/residents_<scene>/.
+  ['data/residents_1812/', 'data/residents_1812/'],
+  ['data/residents_1904/', 'data/residents_1904/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
