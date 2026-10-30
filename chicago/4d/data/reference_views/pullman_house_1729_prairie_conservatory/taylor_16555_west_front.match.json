@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
+  "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271",
   "camera_sha256": "3256272d16b906547b153fa4cd655768dba21389f2b4369884eb43aa58d9f9d2",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
+      "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
+      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
     }
   ],
-  "group_sha256": "88f4b370fd6a96b0cac7d11ed02eec84f1f62022369068cb118997bf66bcfd04",
+  "group_sha256": "579ba53e2131bee8e540589a5b82b34fafa97bd9d881c7bb4e0ddc1ff85b46b0",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -80,6 +80,7 @@
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
       "lamp.corner.prairie.e18th.ne",
       "lamp.pictured.pullman_court",
       "lamp.rule.calumet__prairie_ic_16_18#00",
@@ -137,7 +138,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "5df01affd04712c8eab02b206462354a8d7675bed58457c3a627d704260d3b4a",
+  "flora_sha256": "e75821eb8147269f063beed558a40a1fab09ce3f10455091d63919073ad10236",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,7 +185,7 @@
     {
       "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
       "status": "open",
-      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
+      "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print) [T-1934, 2026-10-30 (the owner on Taylor's 16554): the drum's stone now prints with the wing's and the stable's; the wing's face itself is unchanged]"
     },
     {
       "what": "the dome's covering: glass or metal sheets between the ribs",
@@ -283,13 +284,18 @@
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     },
     {
-      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later",
+      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later [T-1934, 2026-10-30: the lamp is now drawn in its own form, the pale globe post 16554 shows, 4.9 m to its cap; it renders before the stable's corner bay as before, and this print, the earlier, still shows none there.] [T-3267, 2026-10-30: the globe post is withdrawn; the lamp is drawn as the district's post, and this print, the earlier, still shows none there.]",
       "status": "within tolerance"
     },
     {
       "what": "the near parkway trunk (the print's x 873, foot y 760) renders at x 750, about 125 px west of it",
       "status": "within tolerance",
       "how": "T-3164 (parkway pass, 2026-10-30): moved 1.7 m west, to 3.0 m along 18th Street's south parkway (e 1472.5), because the uncropped 1894 conservatory plate sees its old place clear (it stood before the plate's west gate pier) and Lowe's c. 1897 print puts the trunk there. This camera, solved on the north side's ground (T-1934), stands that west gate pier (placed off the plate by T-3164; not rendered in this view) about 180 px west of the print's own (its west face at x 786, the print's at x 965), so its reading of the south parkway carries that offset: read against the pier, 90 px west of its face, the print's trunk stands 1.7 to 3.5 m along the parkway, and it is planted at 3.0 m (T-3153: two camera fits disagree). Its girth is the print's: scale 0.6 read off the conservatory plate's trunk."
+    },
+    {
+      "what": "the palm house's stone (podium, columns, entablature, balustrade, terrace and flight) in the house's own tone, and its glazing a grid of panes between the columns; the build drew the stone white and the glass as dark slots",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): the stonework takes the stable's dressed-stone shade (0.372, 0.335, 0.27); horizontal bars about 0.55 m apart and a transom at 5.2 m across each bay"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

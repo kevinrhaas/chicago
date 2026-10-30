@@ -55,6 +55,8 @@ MATERIALS = {
     "roof":   {"color": (0.13, 0.14, 0.17), "roughness": 0.75},
     "glass":  {"color": (0.05, 0.06, 0.07), "roughness": 0.15, "metallic": 0.1},
     "door":   {"color": (0.18, 0.10, 0.06), "roughness": 0.6},
+    # T-1934: an ashlar wall's joints, a shade under its stone (a record's `tint` sets it)
+    "joint":  {"color": (0.24, 0.21, 0.17), "roughness": 0.95},
 }
 ORDER = tuple(MATERIALS)
 
@@ -486,6 +488,77 @@ def belt(spec: dict):
     return ((0.42, top - 0.36, top - 0.08), (0.3, top - 0.08, top))
 
 
+def framed_window(m: Mesh, P, s, sill, w, h, sash: dict):
+    """A sash window set in a raised stone architrave on a projecting sill, its lights divided
+    by stone mullions and each light's sash by a meeting rail (T-1934: the Pullman stable's
+    windows in Taylor's 16554 read as paired lights in plain surrounds over deep sills, where a
+    flat dark panel had stood). `P(s, n, y)` is the wall's own frame, `n` out of it."""
+    Q = lambda x, y, z: P(x, z, y)  # noqa: E731  board order (along, up, out) for obox
+    aw, ao = float(sash.get("architrave_m", 0.14)), float(sash.get("architrave_out_m", 0.07))
+    so, sh = float(sash.get("sill_out_m", 0.12)), float(sash.get("sill_m", 0.12))
+    lh = float(sash.get("lintel_m", 0.22))
+    a, b = s - w / 2, s + w / 2
+    obox(m, "trim", Q, a - aw, a, sill, sill + h, 0.0, ao)
+    obox(m, "trim", Q, b, b + aw, sill, sill + h, 0.0, ao)
+    obox(m, "trim", Q, a - aw, b + aw, sill + h, sill + h + lh, 0.0, ao + 0.02)
+    obox(m, "trim", Q, a - aw - 0.08, b + aw + 0.08, sill - sh, sill, 0.0, so)
+    m.face("glass", [P(a, 0.03, sill), P(b, 0.03, sill), P(b, 0.03, sill + h), P(a, 0.03, sill + h)],
+           P(s, -5.0, sill))
+    n = int(sash.get("lights", 1))
+    mw = float(sash.get("mullion_m", 0.12))
+    lw = (w - (n - 1) * mw) / n
+    rail = float(sash.get("rail_at", 0.55))
+    for k in range(n):
+        x0 = a + k * (lw + mw)
+        if k:
+            obox(m, "trim", Q, x0 - mw, x0, sill, sill + h, 0.0, ao - 0.01)
+        # the sash's frame round the light and its meeting rail, painted dark (the window kit's)
+        for y0, y1 in ((sill, sill + 0.06), (sill + h - 0.06, sill + h),
+                       (sill + h * rail - 0.03, sill + h * rail + 0.03)):
+            obox(m, "door", Q, x0, x0 + lw, y0, y1, 0.0, 0.045)
+        for x_ in (x0, x0 + lw - 0.05):
+            obox(m, "door", Q, x_, x_ + 0.05, sill, sill + h, 0.0, 0.045)
+
+
+def ashlar(m: Mesh, rects: dict, spec: dict, a: dict, windows: list, facts: dict):
+    """The joints of an ashlar wall drawn on its face (T-1934, the owner, 2026-10-30: "the stable
+    is still not have much surface detail"): a bed joint at every course and head joints
+    breaking joint course over course, each a narrow strip in the `joint` material standing a
+    hair proud of the wall. `spec`: the face ("r1:v1"), its stretch `s` and heights `y`; `a`: the
+    course and the stones' lengths. Openings' surrounds stand prouder and cover the joints."""
+    part, side = spec["face"].split(":")
+    u0, v0, u1, v1 = rects[part]
+    at = {"u0": u0, "u1": u1, "v0": v0, "v1": v1}[side]
+    P = _on_face(side, at)
+    sa, sb = sorted(float(x) for x in spec["s"])
+    ya, yb = (float(x) for x in spec["y"])
+    course, jw, out = float(a["course_m"]), float(a.get("joint_m", 0.02)), float(a.get("out_m", 0.008))
+    lens = [float(x) for x in a["stone_m"]]
+    inside = P((sa + sb) / 2, -5.0, (ya + yb) / 2)
+    n = 0
+    y = ya + course
+    k = 0
+    while y < yb - 0.05:
+        m.face("joint", [P(sa, out, y - jw / 2), P(sb, out, y - jw / 2), P(sb, out, y + jw / 2),
+                         P(sa, out, y - jw / 2 + jw)], inside)
+        n += 1
+        y += course
+    y = ya
+    while y < yb - 0.05:
+        top = min(y + course, yb)
+        x = sa + (lens[k % len(lens)] / 2 if k % 2 else 0.0) + lens[(k + 1) % len(lens)]
+        j = k
+        while x < sb - 0.2:
+            m.face("joint", [P(x - jw / 2, out, y), P(x + jw / 2, out, y), P(x + jw / 2, out, top),
+                             P(x - jw / 2, out, top)], inside)
+            n += 1
+            j += 1
+            x += lens[j % len(lens)]
+        y += course
+        k += 1
+    facts["ashlar_joints"] = facts.get("ashlar_joints", 0) + n
+
+
 def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple[int, int]:
     """The Pullman stable's elevation from its pictures (T-3178), every number the record's:
     sash and round-headed lights on named faces, an arcade of round arches, a canted bay,
@@ -500,6 +573,9 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         P = _on_face(side, at)
         return P, (lambda s, y: P(s, -5.0, y)), sign
 
+    sash = f.get("sash")
+    for a in f.get("ashlar", {}).get("faces", []):
+        ashlar(m, rects, a, f["ashlar"], f.get("windows", []), facts)
     for w in f.get("windows", []):
         P, inside, _ = face_of(w)
         s, sill, ww, hh = float(w["s"]), float(w["sill_m"]), float(w["w_m"]), float(w["h_m"])
@@ -507,6 +583,8 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
             spring = sill + hh - ww / 2
             round_head(m, "trim", P, s, ww + 0.3, sill - 0.1, spring, 0.03, inside(s, sill))
             round_head(m, "glass", P, s, ww, sill, spring, 0.06, inside(s, sill))
+        elif sash:
+            framed_window(m, P, s, sill, ww, hh, sash)
         else:
             m.face("trim", [P(s - ww / 2 - 0.12, 0.03, sill - 0.1), P(s + ww / 2 + 0.12, 0.03, sill - 0.1),
                             P(s + ww / 2 + 0.12, 0.03, sill + hh + 0.15), P(s - ww / 2 - 0.12, 0.03, sill + hh + 0.15)],
@@ -700,6 +778,11 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         ns = int(lan.get("sides", 8))
         ringf = lambda rad: [(cu + rad * math.cos(2 * math.pi * (k + 0.5) / ns),  # noqa: E731
                               cv + rad * math.sin(2 * math.pi * (k + 0.5) / ns)) for k in range(ns)]
+        if lan.get("plinth_m"):
+            # a plinth lifting the drum clear of the deck's cresting (T-1934, 16554)
+            pl = float(lan["plinth_m"])
+            prism(m, "trim", ringf(r + 0.12), y0 - 0.25, y0 + pl)
+            y0 += pl
         prism(m, "cornice", ringf(r + 0.15), y0 - 0.25, y0)
         prism(m, "trim", ringf(r), y0, y0 + dh)
         rg = ringf(r + 0.02)
@@ -707,10 +790,54 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
             a_, b_ = rg[k], rg[(k + 1) % ns]
             ca, cb = a_[0] + (b_[0] - a_[0]) * 0.22, a_[1] + (b_[1] - a_[1]) * 0.22
             da, db = a_[0] + (b_[0] - a_[0]) * 0.78, a_[1] + (b_[1] - a_[1]) * 0.78
-            m.face("glass", [(ca, cb, y0 + 0.25), (da, db, y0 + 0.25), (da, db, y0 + dh - 0.3),
-                             (ca, cb, y0 + dh - 0.3)], (cu, cv, y0 + dh / 2))
+            if lan.get("lights") == "round":
+                # a round-headed light in each face, its head a half-circle on the light's width
+                # (T-1934: the cupola's arched openings in Taylor's 16554)
+                half = math.hypot(da - ca, db - cb) / 2
+                ma, mb = (ca + da) / 2, (cb + db) / 2
+                ta, tb = (da - ca) / (2 * half), (db - cb) / (2 * half)
+                spring = y0 + dh - 0.2 - half
+                pts = [(ca, cb, y0 + 0.2), (da, db, y0 + 0.2)]
+                for j in range(7):
+                    t = math.pi * j / 6
+                    pts.append((ma + ta * half * math.cos(t), mb + tb * half * math.cos(t),
+                                spring + half * math.sin(t)))
+                m.face("glass", pts, (cu, cv, y0 + dh / 2))
+            else:
+                m.face("glass", [(ca, cb, y0 + 0.25), (da, db, y0 + 0.25), (da, db, y0 + dh - 0.3),
+                                 (ca, cb, y0 + dh - 0.3)], (cu, cv, y0 + dh / 2))
             windows += 1
         prism(m, "cornice", ringf(r + 0.2), y0 + dh, y0 + dh + 0.22)
+        if lan.get("dome_profile"):
+            # a bell dome on its own profile, (radius over the drum's, height over the dome's)
+            # pairs from foot to crown, ribbed at each angle of the drum, under a ball finial
+            # (T-1934: 16554 shows an ogee dome about as tall as the drum, not a flat cap)
+            yb = y0 + dh + 0.22
+            prof = [(float(a_) * (r + 0.1), yb + float(b_) * dome) for a_, b_ in lan["dome_profile"]]
+            for (r0, h0), (r1, h1) in zip(prof, prof[1:]):
+                lo, hi = ringf(r0), ringf(r1)
+                for j in range(ns):
+                    m.face("roof", [(lo[j][0], lo[j][1], h0), (lo[(j + 1) % ns][0], lo[(j + 1) % ns][1], h0),
+                                    (hi[(j + 1) % ns][0], hi[(j + 1) % ns][1], h1), (hi[j][0], hi[j][1], h1)],
+                           (cu, cv, yb))
+                # the ribs: a narrow fillet standing on each angle of the dome
+                for j in range(ns):
+                    ang = 2 * math.pi * (j + 0.5) / ns
+                    ca_, sa_ = math.cos(ang), math.sin(ang)
+                    pa = (cu + (r0 + 0.04) * ca_, cv + (r0 + 0.04) * sa_)
+                    pb = (cu + (r1 + 0.04) * ca_, cv + (r1 + 0.04) * sa_)
+                    ta, tb = -sa_ * 0.035, ca_ * 0.035
+                    m.face("cornice", [(pa[0] - ta, pa[1] - tb, h0), (pa[0] + ta, pa[1] + tb, h0),
+                                       (pb[0] + ta, pb[1] + tb, h1), (pb[0] - ta, pb[1] - tb, h1)], (cu, cv, yb))
+            top_r, top_h = prof[-1]
+            m.face("roof", [(p_[0], p_[1], top_h) for p_ in ringf(top_r)], (cu, cv, yb))
+            ball = float(lan.get("ball_m", 0.0))
+            if ball:
+                prism(m, "cornice", ringf(ball / 2), top_h + 0.05, top_h + 0.05 + ball)
+            m.box("cornice", cu - 0.04, cu + 0.04, cv - 0.04, cv + 0.04, top_h, top_h + ball + fin)
+            facts["lantern_top_m"] = round(top_h + ball + fin, 3)
+            lan = None
+    if lan:
         # the dome in four rings to its crown
         yb = y0 + dh + 0.22
         prev = ringf(r + 0.1)

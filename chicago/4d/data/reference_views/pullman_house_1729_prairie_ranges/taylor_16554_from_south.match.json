@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_ranges",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
-  "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d",
+  "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81",
   "camera_sha256": "b7fb4107a2d92faf618f854cb031ce06dfbad62ed73c1986206a0256a312a976",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
+      "glb_sha256": "0db7d8f97ce8de8f0607120303697777fcba7c2dc7505e1462e29a5a78ad7a81"
     },
     {
       "structure_id": "pullman_house_1729_prairie_conservatory",
@@ -42,7 +42,7 @@
         2.4319498013560494
       ],
       "rotation_y": 3.1490277562032887,
-      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
+      "glb_sha256": "eaa753c79caa122be9b5f911358398cc24f55d7d85ba9dbb7b5c5747a95de271"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "1f5c76e419c00f5419202a2c377f34a5bd44a45c0db224edcceb4888747d7dab"
     }
   ],
-  "group_sha256": "9af74d0a78b46be474b751cbc37be6ab56ae8d75d7fb6a6635768e1ae196adc3",
+  "group_sha256": "e17f5a590b0d71d8609380a8571d23b3749a690de1e4412cf8be360e3de3f00c",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -80,6 +80,7 @@
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
       "lamp.corner.prairie.e18th.ne",
       "lamp.corner.prairie.e18th.nw",
       "lamp.corner.prairie.e18th.se",
@@ -140,7 +141,7 @@
       "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "a5a6d228767c527a8f8e5162b8197a89d3073f48f0dbd3bdb132553c1d8a0dea",
+  "flora_sha256": "e2d859802136198874a5cc786a068a945b2e76a4c3cd4a569509ea3f58fad613",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -176,13 +177,13 @@
     },
     {
       "what": "the lantern: the print reads its dome taller and rounder, rising about 2 m over the cresting where the build's rises about 0.9 m",
-      "status": "within tolerance",
-      "how": "two pictures disagree: the 1894 plate reads the lantern's cap within about 0.3 m of the build"
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): the cupola rebuilt as the print shows it: an octagonal drum of round-headed lights about 2 m across on a plinth clear of the cresting, under a ribbed bell dome about as tall as the drum and a ball finial, 0.6 m further east (x 947)"
     },
     {
       "what": "the upper sash of two lights each in moulded frames",
-      "status": "within tolerance",
-      "how": "glazing bars under the bar; the openings' number, place and size agree"
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): each window a pair of lights divided by a stone mullion in a raised architrave on a projecting sill"
     },
     {
       "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it",
@@ -214,8 +215,23 @@
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     },
     {
-      "what": "the lamp's post and head: the print's post stands taller than the district's 3.1 m one (102 px from its foot to its head, against the render's 65 px at the same place: about 4.5-5 m through this camera) under a shallow round globe, where the build draws every lamp of the district with one post and its square tapered lantern (T-1934, 2026-10-30) [T-3267, 2026-10-30: the owner, comparing this print, reads the lamp as the district's post, and at 13 px across its head is that post's lantern seen small (a ladder bar under a narrow foot flaring to a wide sky-lit glazed top under a small dark roof), not a globe; T-1934's globe post is withdrawn and the lamp is drawn with the district's one post. Its height is not read: this camera puts the walk's ground about 45 px higher than the print does, so it cannot scale the post.]",
+      "what": "the lamp's post and head: the print's post stands taller than the district's 3.1 m one (102 px from its foot to its head, against the render's 65 px at the same place: about 4.5-5 m through this camera) under a shallow round globe, where the build draws every lamp of the district with one post and its square tapered lantern (T-1934, 2026-10-30) [T-1934, 2026-10-30: built. The lamp is now its own class, the globe post (data/street_furniture/1904.json kinds.gas_lamp.model_by_class.globe_post, drawn by renderers/web/js/street-furniture.js), read off this print's column at x 795: a plain post painted pale (it prints 180-200 against the hedge's 60 and lighter than the sunlit stone's 170), a small dark bar at y 537, a wide shallow globe at y 507-515, 13 px across, lit above and dark beneath, and a small dark cap from y 503. Through this camera the render's post now stands 103 px from its foot (y 557) to its cap (y 454) against the print's 102, its globe 11 px across at y 455-463 and its cap dark above it, and the post renders lighter than the wall behind it, as in the print. Its foot renders 48 px above the print's (y 557 against 605), as the parkway's ground does in this camera (the planting item: y 557-562 against the print's 587-600); the post's 4.9 m is read through the camera as it stands and is re-read if a re-solve moves the walk nearer.] [T-3267, 2026-10-30: the owner, comparing this print, reads the lamp as the district's post, and at 13 px across its head is that post's lantern seen small (a ladder bar under a narrow foot flaring to a wide sky-lit glazed top under a small dark roof), not a globe; T-1934's globe post is withdrawn and the lamp is drawn with the district's one post, painted as the others (the owner). Its height is not read: this camera puts the walk's ground about 45 px higher than the print does, so it cannot scale the post.]",
       "status": "owner ruling"
+    },
+    {
+      "what": "the stable's 18th Street front ends at the stack under the hip's own end, with the hedge and open ground past it; the build ran a 4 m east section (r5) on past it under a lower roof, facing the lake",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): r5 taken off (the 1911 sheet draws nothing there either); the front's east end renders at x 1095 against the print's about 1095"
+    },
+    {
+      "what": "the stable's walls: dressed ashlar, its windows paired lights in plain stone surrounds over projecting sills, where the build drew flat walls with dark rectangles",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): ashlar joints (0.45 m courses, broken joint), raised architraves, sills, a stone mullion between two lights, dark sash with meeting rails; the joints' sizes are reconstructed (the print is too small to read them)"
+    },
+    {
+      "what": "a post hydrant on the walk at the foot of the low wall before the stable (x 1060-1070, y 570-588), about 3.7 m short of the stable's east end",
+      "status": "fixed",
+      "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): hydrant.pictured.pullman_stable in data/street_furniture/1904.json, placed on the print's ray (x 1065) at the walk's street edge"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

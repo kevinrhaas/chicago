@@ -263,7 +263,19 @@
                 "abacus_m": 0.15
               },
               "arc_per_facet": 4,
-              "interior_dark": true
+              "interior_dark": true,
+              "color": [
+                0.372,
+                0.335,
+                0.27
+              ],
+              "glazing_bars": {
+                "every_m": 0.55,
+                "bar_m": 0.045,
+                "out_m": 0.03,
+                "transom_m": 5.2,
+                "transom_bar_m": 0.1
+              }
             }
           },
           "confidence": "reconstructed",
@@ -271,7 +283,7 @@
             "aic_taylor_16555_pullman_west_front",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome (2.3 m in radius since T-1934) springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). T-1934 dressed it as the 1894 Inland plate and Taylor's 16555 both show it: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade and a broad, light, close-ribbed dome 4.6 m across, which both pictures read wider than the 3.8 m it had. RECONSTRUCTED: the dome's covering (light, opaque, so no line of sight crosses two glass envelopes), the columns' mouldings, the baluster's shape, the 24 ribs and the rotunda's north half inside the wing (L-pullman-palm-house-3165, L-pullman-palm-house-1934). No gutter is drawn: the drum sheds behind its balustrade."
+          "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome (2.3 m in radius since T-1934) springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). T-1934 dressed it as the 1894 Inland plate and Taylor's 16555 both show it: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade and a broad, light, close-ribbed dome 4.6 m across, which both pictures read wider than the 3.8 m it had. RECONSTRUCTED: the dome's covering (light, opaque, so no line of sight crosses two glass envelopes), the columns' mouldings, the baluster's shape, the 24 ribs and the rotunda's north half inside the wing (L-pullman-palm-house-3165, L-pullman-palm-house-1934). No gutter is drawn: the drum sheds behind its balustrade. T-1934 (the owner, 2026-10-30, on Taylor's 16554: \"the center white area currently is probably more like the color of the rest of the house\" and \"a fair amount of detail work to do on the glass atrium\"): the palm house's stone (podium, columns, entablature, balustrade, dome collar, and the terrace and its flight) takes the stable's dressed-stone shade (0.372, 0.335, 0.27), a shade over the walls', where the kit's pale stone (0.74, 0.70, 0.62) had read white; every picture prints the drum's stone in the walls' tone (16554 and 16555 in the same light as the house, the stable and the wing). Each bay of glass between the columns is crossed by light horizontal bars about 0.55 m apart and a deeper transom at 5.2 m, as 16554 and the 1894 plate show a grid of panes. The bars' spacing and the transom's height are reconstructed (L-pullman-palm-house-1934)."
         }
       }
     }
