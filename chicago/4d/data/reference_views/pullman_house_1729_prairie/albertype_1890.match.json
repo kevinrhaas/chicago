@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc",
+  "glb_sha256": "9509cf592d98f9a20c2b6612ff2c8197aa038433768f3915b05ddf5c8e35dff9",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -116,8 +116,8 @@
     },
     {
       "what": "the large Prairie dormer's hood rises into a broken pediment over its arch, where the build's eared hood follows the arch (L-k01-1729-pullman-belt-hoods-1881) (the plate's at about x 1200)",
-      "status": "open",
-      "how": "T-1881: not built; the plate is the only picture that draws the pediment at a readable size"
+      "status": "fixed",
+      "how": "T-1881: built (eared_hood.pediment, the K01 dormer kit's new broken pediment): two raking cornice arms at 18 degrees, each 0.25 m deep and 0.15 m proud, rising inward from 1.5 m out of the arch's centre, their feet on the ears' feet (0.25 m over the springing), dying into the hood's band about 0.77 m over the springing, so the crown (1.1 m) rises through the gap between them. Through this camera the render's arms rise from past the ears to the arch's shoulders as the plate's dark wedges do, the right arm reaching about 31 px out of the arch's centre against the plate's about 25 px; the arms' section and pitch are read at the vignette's 22 px a metre and are reconstructed (L-k01-1729-pullman-belt-hoods-1881)."
     },
     {
       "what": "the iron cresting round the deck, and the low stone wall on piers along the Prairie Avenue line",
@@ -163,6 +163,11 @@
       "what": "the walls' tone: the plate draws the walls as a light, evenly toned ashlar of one stone with the dressings; the build's brownstone rendered a dark red-brown (owner, 2026-10-29: the walls read as red brick)",
       "status": "fixed",
       "how": "T-1881: laid in K02 sandstone_fawn, a light fawn-brown under hairline joints, walls and dressings one tone (trim_in_walling)"
+    },
+    {
+      "what": "the large Prairie dormer as a whole (its light, hood and pediment) draws about 20-30 px left of the plate's (x 1152-1213 against 1183-1233), about 1 m at the vignette's scale",
+      "status": "open",
+      "how": "T-1881: seen while judging the pediment; the dormer's place on the front (v 11.45) is the Detroit print's, which lands it within a few px there, so this is the plate's camera along the front or the dormer's place, not yet resolved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
