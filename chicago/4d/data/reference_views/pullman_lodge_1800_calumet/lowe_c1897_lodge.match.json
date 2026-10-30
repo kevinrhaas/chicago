@@ -2,7 +2,7 @@
   "structure_id": "pullman_lodge_1800_calumet",
   "view": "lowe_c1897_lodge",
   "glb": "assets/gltf/pullman_lodge_1800_calumet__as_standing_1904.glb",
-  "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007",
+  "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae",
   "camera_sha256": "f6d4fdee8d1c046d16f3d2cbb186164edab940e84078987fbb093cd5e0345917",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0f96c1c8b25bf4677dfd58d7e8e9d84a4b43ad113f33d902d3d509d0fd3c1007"
+      "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
@@ -42,7 +42,7 @@
         36.35058159007709
       ],
       "rotation_y": 1.5707963267948963,
-      "glb_sha256": "577c68200d3390d3b795642b611f5a3337f4d29aab5b436141f425208c315951"
+      "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "678b21132c9ee3878db794ccac6d19c7364d2683ff4281af06f9a6e5c7b7450f"
     }
   ],
-  "group_sha256": "1d8e62fd114f315c8fed48ef21b5f1fb0ec957675ce64575ce83d5b8bcad796a",
+  "group_sha256": "34f99dd0d903fea9fd8cdaa4106038529f3d0aed35f24f12a6d5f513ed4129cd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_lodge_1800_calumet/lowe_c1897_lodge-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
