@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
+  "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
   "camera_sha256": "b45ebbae0b2c24759d3945c30a308a960e0259a64da6cd6e572654b4ee26a7f5",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+      "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc"
+      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,19 +61,19 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "b44cc805a7ad26115c6c380faa1a2fcc841d1fe89cb6b18af0d14aa261eef37d"
+      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
     }
   ],
-  "group_sha256": "77eb2224170e3fe77fd81466ee1dbb5fa0d772e8782723aa76642d4651787eb2",
+  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
   "rendered_flora": {
     "season": "winter",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 10,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 0
       }
     ],
     "street_trees": 26,
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "5381018096fe58f7c3680787bb9c53f21e48e3c2de88c3999cef2689a00ababa",
+  "flora_sha256": "cc0c0a243d8b04fec8bcaeb871e6e0590749f0d60b96cb2a96c5b7316e71eeff",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -194,6 +194,11 @@
     {
       "what": "the tub plants (T-1934, 2026-10-29): this winter print shows the terrace bare, and the render draws no tub in the winter Season (tub plants were wintered under glass); the slim clipped column by the wall's east pier, planted in the ground, is drawn, an evergreen, at x about 736 px of the render, where the print's ground behind the wall is too far and too low to show one or not",
       "status": "not shown"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

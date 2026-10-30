@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d793edc6656cdffeb59a5b164123cc5be6090c2ad145f462edc1ee781a93abcc",
+  "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 10,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 0
       }
     ],
     "street_trees": 31,
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "cba105ee5cfac6c740704416df6e6fd5f664ffbf88b7257883b7d0dc7705f399",
+  "flora_sha256": "54694d8582618992eba7d87140fa3f218665612811dcb95ec978ed9eb54f72bb",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -182,6 +182,11 @@
       "what": "the walls' tone: the photograph prints the lit walls 193-204, lighter than the mansard (165-175) and near the stone coping wall along Prairie Avenue (197); the build's brownstone rendered a dark red-brown, darker than every stone round it (owner, 2026-10-29: the walls read as red brick)",
       "status": "fixed",
       "how": "T-1881: laid in K02 sandstone_fawn, a light fawn-brown under hairline joints; the walls now render lighter than the mansard and a little under the coping wall, as the photograph draws them"
+    },
+    {
+      "what": "the way under the porte-cochère: the gap in the wall east of the house",
+      "status": "fixed",
+      "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-cochère's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
