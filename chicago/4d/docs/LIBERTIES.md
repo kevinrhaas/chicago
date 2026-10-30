@@ -36512,3 +36512,30 @@ written specification of the stable's stone.
 **Review:** `docs/RESEARCH/colour-pullman-stable-T-1934/README.md`; the photo-match side-by-sides of
 `pullman_house_1729_prairie`, `_ranges` and `_conservatory`.
 **Recorded:** 2026-10-30 (T-1934).
+
+### L-kimball-1801-cant-top-1890 — 1801 Prairie's canted face stopped under a cornice over its light, the mansard's slate carried down over it, from HABS photograph 1
+
+**Decision:** HABS photograph 1 (June 1965, `habs_kimball_photo_01_sw_1965`) stops the south
+pavilion's canted face, over the round bay, at a cornice just over its small light, with the house's
+slate over it from there (x 640-745 px, y 405-446 at the cornice); the build carried the cant's wall
+on up to the gable's shoulder at 13.6 m, a tall blank face beside the gable, which
+L-kimball-1801-cant-light-1890 left open. p_south's chamfer now takes `top_m` 11.65: K08 stops the
+cant's wall there under a cornice course and carries the course's top back over the wall as deep as
+a recess reaches, and carries the front's end on up from it to the wall top as a stone cheek; K01
+cuts the main roof over the cant only up to it, and from there only over the pavilion's square
+part, so the mansard's own hipped corner comes down onto the cornice. 11.65 m is where the
+mansard's hip crosses the cant's face, so the slate meets the course at the cant's middle and
+stands behind it either side, with no step. **What is read.** The course's height, about 0.8 m over
+the light's opening: it renders at about y 427 px against the print's y 405-420 over the light, and
+the slate over it. **What is invented or held by the kit.** The course's section is the bay's floor
+band (the print's cornice is a few pixels of moulding), the slate's line is the mansard's own pitch
+and hip, and the course runs level where the print's falls about 40 px toward the cant's far end
+(within tolerance, the match record). **What is still open.** Right of the light the print carries
+the cant's wall to a sloped edge with the side slope's slate in front of the rest; the build stands
+the closing face K01 lays in the south wall's plane there, a block of stone to the cornice (in the
+match record).
+**How to resolve:** a nearer view of the south-west corner, or the HABS drawings' west and south
+elevations, shows the cornice's section and how the cant's far end meets the side slope.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1890).

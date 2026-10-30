@@ -2806,7 +2806,9 @@ class Assembly:
                 proud = max(float(q[1]) for q in v["plan"]["points"])
                 deep = -(K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05)
                 zc = -ch[2] if ch is not None else 0.0
-                y0, y1 = b.get("eave_m", p.eave_m), wall_top
+                # T-1890: up to a canted face's cornice, over which the house's slate is not cut
+                ct = self.chamfer_top(b) if ch is not None else None
+                y0, y1 = b.get("eave_m", p.eave_m), wall_top if ct is None else min(wall_top, ct)
                 pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
                         R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
             if past and not shallow:
@@ -4029,18 +4031,32 @@ class Assembly:
                 if b.get("flush_corner") == "left":
                     inner[:2] = [(-behind, s0), (proud + 0.005, s0)]
                 inner, outer = Q(inner), Q([(proud, near), (2.0, near), (2.0, far), (proud, far)])
-            out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
+            # T-1890: over a canted face stopped under its cornice (1801's, HABS photograph 1) the
+            # house's slate comes down over the cant: from there up only the pavilion's square
+            # part is cut, out to its front's end, and nothing outside the cant
+            ch = k01_frontage_params.chamfer_of(b)
+            ct = self.chamfer_top(b) if ch is not None else None
+            if ct is not None and b["wall"] == "k01.wall.street_front":
+                sq = [list(q) for q in inner]
+                for q in sq:
+                    if ch[0] == "right" and q[1] > s1 - ch[1]:
+                        q[1] = s1 - ch[1]
+                    if ch[0] == "left" and q[1] < s0 + ch[1]:
+                        q[1] = s0 + ch[1]
+                out.append(k5.extrude(inner, bot, ct, P, "wall", floor, "wall"))
+                out.append(k5.extrude([tuple(q) for q in sq], ct, top, P, "wall", "wall", "wall"))
+            else:
+                out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
             out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
-            ch = k01_frontage_params.chamfer_of(b)
             if ch is not None:
                 side, along, behind, _ = ch
                 cut = ([(D + proud, s1 - along), (D + 2.0, s1 - along), (D + 2.0, s1 + 1.0), (D - behind, s1 + 1.0),
                         (D - behind, s1)] if side == "right" else
                        [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
                         (D - behind, s0)])
-                out.append(k5.extrude(cut, yf - 0.5, top, P, "return", "wall", "wall"))
+                out.append(k5.extrude(cut, yf - 0.5, top if ct is None else ct, P, "return", "wall", "wall"))
                 # T-1890: and inside the canted face, as deep as a light's recess on it reaches
                 # (1801's over its round bay, HABS photograph 1), on hidden faces as the box's are:
                 # the cut above closes in the cant's own plane, over the light's opening. Up to
@@ -4063,8 +4079,19 @@ class Assembly:
                     ring = [at(pts[0], 0.005), at(pts[1], 0.005), at(pts[1], -deep), at(pts[0], -deep)]
                     if math.fsum(a[0] * c[1] - c[0] * a[1] for a, c in zip(ring, ring[1:] + ring[:1])) < 0.0:
                         ring.reverse()
-                    out.append(k5.extrude(ring, bot, max(hi for _, hi, _ in lit) + 0.5, P, "wall", floor, "wall"))
+                    head = max(hi for _, hi, _ in lit) + 0.5
+                    out.append(k5.extrude(ring, bot, head if ct is None else min(head, ct), P, "wall", floor, "wall"))
         return out
+
+    @staticmethod
+    def chamfer_top(b):
+        """T-1890: where a chamfered pavilion's canted face stops under its cornice, in metres
+        over grade (K08's `plan.chamfer_top_m` over the bay's base), or None."""
+        v = b["variant"]
+        ct = v["plan"].get("chamfer_top_m")
+        if ct is None:
+            return None
+        return float(ct) + (0.0 if v.get("base", "grade") == "grade" else float(v["base"]))
 
     @staticmethod
     def cant_lights(b) -> list:
