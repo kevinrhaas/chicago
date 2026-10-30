@@ -1,0 +1,85 @@
+{
+  "id": "hh_bellas_t_h",
+  "scene": "1904",
+  "name": "The Bellas household at 1634 Prairie Avenue",
+  "head": "pa1904_bellas_t_h",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "The household is listed at 1634 Prairie Avenue in both the 1904 and 1905 editions of the Blue Book, which bracket 1 July 1904, but not with the same people: the 1905 list prints 1634 Erastus Foote; 1634 Mrs. T. H. Bellas & dr.. Each person's own note says which of them the later list drops or adds."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1634_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1634, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_bellas_t_h",
+      "name": "T. H. Bellas",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
+      "note": "The 1905 edition lists Mrs. T. H. Bellas & dr. without him, so his presence on 1 July 1904 is not documented."
+    },
+    {
+      "id": "pa1904_bellas_mrs_t_h",
+      "name": "Mrs. T. H. Bellas",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs."
+    },
+    {
+      "id": "pa1904_bellas_daughters",
+      "name": "The Misses Bellas",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name."
+    },
+    {
+      "id": "pa1904_foote_erastus",
+      "name": "Erastus Foote",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1634 Erastus Foote",
+      "note": "Listed first at 1634 in both editions. The Blue Book does not say how he was related to the Bellases, or which of them headed the house; the card is anchored on the couple."
+    }
+  ]
+}
