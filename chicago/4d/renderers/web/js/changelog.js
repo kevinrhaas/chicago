@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2438, ts: '2026-10-30T05:25:14.848Z', date: 'Oct 30, 2026, 12:25 AM CT', title: 'The Pullman conservatory\'s stone podium and the lodge\'s spirelet', kind: 'improvement',
+    items: [
+      'Pullman\'s conservatory on 18th Street now stands on a dressed stone podium, as the 1894 plate and Lowe\'s photograph show it: pale piers at its corners, darker banded stone between them, and a moulded course under the glass.',
+      'The gardener\'s lodge beside it gains the slender slated spirelet the plate draws on its west roof.',
+    ] },
+  { v: 2437, ts: '2026-10-30T04:42:53.613Z', date: 'Oct 29, 2026, 11:42 PM CT', title: 'Prairie Avenue\'s 1904 houses have their families', kind: 'feature',
+    items: [
+      '71 houses from 16th to 22nd Street now list who lived there, 183 people in all, up from the Glessners alone.',
+      'Families come from the 1904 society Blue Book, checked against the 1905 edition so each one is bracketed across July 1904.',
+      'Children appear where a source names them: the Glessner grandchildren at 1700 and 1706, young Arthur Meeker, the Field boys.',
+      'The Glessners\' cook, Mattie Williamson, joins their card. Other servants wait on the 1900 census, not yet read.',
+      'Unnamed daughters stay unnamed, and anyone listed only in 1905 is marked inferred.',
+    ] },
   { v: 2436, ts: '2026-10-30T04:16:32.099Z', date: 'Oct 29, 2026, 11:16 PM CT', title: 'The Pullman house\'s walls no longer look like red brick', kind: 'fix',
     items: [
       'At 1729 Prairie the walls are now a light fawn-brown sandstone, where they were a dark red-brown that read as brick. Both old photographs of the house show the walls lighter than the slate roof above them, and a red-brown stone could not photograph that way.',

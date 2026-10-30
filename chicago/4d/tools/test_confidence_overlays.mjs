@@ -83,9 +83,11 @@ await check('people pins: one per address in the directory, absent people left o
   const flagged = new Set(rows.filter((r) => r.review_required === true).map((r) => r.id));
   for (const pl of p35.places) for (const x of pl.people) assert.equal(x.review, flagged.has(x.id), x.id);
   const p04 = O.pinPlaces(scenes['1904'].people.people, scenes['1904'].where);
-  assert.equal(p04.places.length, 1);
-  assert.equal(p04.places[0].id, 'glessner_house');
-  assert.equal(p04.places[0].people.length, 2);
+  // T-3253: the Blue Book households put people at most of the street's houses.
+  assert.ok(p04.places.length >= 60, `1904: ${p04.places.length} places`);
+  const gl = p04.places.find((pl) => pl.id === 'glessner_house');
+  assert.ok(gl, 'the Glessner house carries a pin');
+  assert.equal(gl.people.length, 3);
   const p12 = O.pinPlaces(scenes['1812'].people.people, scenes['1812'].where);
   assert.equal(p12.people, 1);
   assert.equal(p12.places.length, 1);

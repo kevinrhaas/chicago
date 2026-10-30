@@ -1,0 +1,67 @@
+{
+  "id": "hh_wood_casey_a",
+  "scene": "1904",
+  "name": "The Wood household at 2005 Prairie Avenue",
+  "head": "pa1904_wood_casey_a",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2005 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903); the 1905 edition (canvass begun September 1904) prints 2005 Mrs. O. R. Keith. The household left within that year, and whether it was still in the house on 1 July 1904 is not documented."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2005_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2005. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_wood_casey_a",
+      "name": "Casey A. Wood",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2005 Dr. & Mrs. Casey A. Wood",
+      "occupation": {
+        "value": "physician",
+        "confidence": "attested",
+        "sources": [
+          "chicago_blue_book_1904"
+        ],
+        "note": "The Blue Book prints him as 'Dr.'."
+      }
+    },
+    {
+      "id": "pa1904_wood_mrs_casey_a",
+      "name": "Mrs. Casey A. Wood",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2005 Dr. & Mrs. Casey A. Wood"
+    }
+  ]
+}

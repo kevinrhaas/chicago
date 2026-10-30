@@ -700,11 +700,13 @@ for (const phone of [true, false]) {
   const screen = dom4.byId.get('nav-app-people');
   assert(screen && !screen.hidden, '1904: People opens its own screen');
   assert.equal(reads, 1, 'read once, on first open');
-  const block = screen.children[0];
-  assert.equal(block.children[1].textContent, 'The Glessner household at 1800 Prairie Avenue');
+  // T-3253: every Blue Book household is a block of its own; the Glessners' is one of them.
+  assert(screen.children.length >= 60, `1904: ${screen.children.length} households`);
+  const block = screen.children.find((b) => b.children[1]?.textContent === 'The Glessner household at 1800 Prairie Avenue');
+  assert(block, 'the Glessner household has its block');
   const people = block.children.filter((c) => c.classList.contains('nav-person'));
-  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner'], 'the head first');
-  assert.deepEqual(people.map((p) => p.children[1].textContent), ['Head of the household · Attested', 'Wife · Attested'], 'their place and the record\u2019s grade, in the locked terms');
+  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner', 'Martha L. (Mattie) Williamson'], 'the head first');
+  assert.deepEqual(people.map((p) => p.children[1].textContent), ['Head of the household · Attested', 'Wife · Attested', 'Servant · Attested'], 'their place and the record\u2019s grade, in the locked terms');
   people[0].dispatch('click');
   assert.deepEqual(inspected, ['glessner_house'], 'a tap takes you to the house they live in');
   await nav4.select('home'); await nav4.select('people');
