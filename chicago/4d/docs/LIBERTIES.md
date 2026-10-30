@@ -24277,7 +24277,7 @@ brings every 1906 match record to `matches`.
 
 ### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
 the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
@@ -24317,6 +24317,9 @@ read off the Chicagology photograph, under `L-k01-1827-doane-3171`, under the sa
 house stays this draft's.
 **1901 retired from this liberty by T-3185 (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house
 read off the 1898 Chicagology photograph, under `L-k01-1901-ream-1903`, under the same id; its draft attributes are gone. Its coach
+house stays this draft's.
+**1905 retired from this liberty by T-3260 (2026-10-30):** Marshall Field's house now stands as the K01 brick house
+read off the 1893 Pictorial Chicago plate, under `L-k01-1905-field-3260`, under the same id; its draft attributes are gone. Its coach
 house stays this draft's.
 **Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
@@ -34824,6 +34827,43 @@ every 1900 match record to `matches`.
 **Ticket:** T-3207 (piece 1 of T-1897).
 **Review:** `docs/RESEARCH/photo-match/elbridge_keith_house_1900_prairie/glessner_oblique-side-by-side.jpg`.
 **Recorded:** 2026-10-27 (T-3207).
+
+### L-k01-1905-field-3260 — 1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate
+
+**Decision:** the house at 1905 Prairie Avenue, Marshall Field's (T-3260, piece 1 of T-1904), is no
+longer a district draft. It stands, under the draft's own id `marshall_field_house_1905_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`, against the 1893 Pictorial Chicago plate
+(`rand_mcnally_pictorial_chicago_1893_field`, public domain): two storeys of brick over a raised stone
+basement, a bracketed cornice over a frieze, a tall slated mansard with dormers and an iron cresting,
+the door in the front's second window column from the north, the south flank's curved conservatory, the
+1911 sheet's rear rectangle, and the scroll-pattern iron fence.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1905-b1, census
+s28-1905-front): the main body's place and plan (21.0 by 15.25 m), its brick, the rear rectangle and the
+conservatory's bulge off the south flank. From the plate, through its solved camera
+(`data/reference_views/marshall_field_house_1905_prairie/pictorial_1893_plate.json`, about 15 px RMS on
+six corner points): the front's four window columns and its door, both storeys' window heights, the
+belt, the frieze and the cornice's height, the mansard's rise and its dormers' places, the
+conservatory's place, the basement lights and the fence.
+**Where the picture and the sheet disagree.** The plate cuts the front's south-west corner on a broad
+canted face, blank in both storeys with a dormer over it, about 3.4 m back each way through its camera;
+the sheet draws the corner square. K01's canted corner is built only on an all-stone house under a
+moulded stone cornice, so the sheet's corner stands here and the cut is open on the match record for
+T-3261. The plate's visible front reads about 3 m longer than the sheet's 15.25 m through its camera;
+the sheet's length is kept and the window columns are placed in proportion.
+**What is invented.** wall_thickness_front_m, wall_thickness_side_m, service_wall_brick, roof_pitch_deg, stair_tread_m, rainwater, window_kit, side_bays, rear_bays, chimneys, yard: the walls' thickness, the north and rear walls' windows (no picture sees them), the
+stacks, the mansard deck's pitch and covering, the treads, the rainwater, the sash pattern and the
+yard's walks; the rear wing's floors, height, windows and deck; the conservatory's height and its roof
+(the plate's curved glass roof is a flat tin cone here).
+**What is not built.** The canted south-west corner and its dormer's place on it; the iron balconies
+before the chamber windows and on the conservatory's roof; the carved window crests, the frieze's
+roundels and the dormers' carved cheeks; the conservatory's glazing bars and glass roof; the sheet's
+two-storey north range at the rear: open on the match record for T-3261.
+**How to resolve:** T-3261 builds those, solves the c. 1905 Daily News photograph (DN-0003324), the
+undated '923' print and the 1893 engraving, and brings every 1905 match record to `matches`.
+**Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.service_wall_brick`, `marshall_field_house_1905_prairie.as_mapped_1904.form.roof_pitch_deg`, `marshall_field_house_1905_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rainwater`, `marshall_field_house_1905_prairie.as_mapped_1904.form.window_kit`, `marshall_field_house_1905_prairie.as_mapped_1904.form.side_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rear_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.chimneys`, `marshall_field_house_1905_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-3260 (piece 1 of T-1904).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg`.
+**Recorded:** 2026-10-30 (T-3260).
 
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
