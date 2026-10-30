@@ -36678,6 +36678,36 @@ elevations, shows the cornice's section and how the cant's far end meets the sid
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-10-30 (T-1890).
 
+### L-pullman-1729-oculus-pier-1881 — 1729 Prairie's oculus pier on the 18th Street pavilion and the flank's banded east corner pier: their places read, their sections reconstructed
+
+**Decision:** the 18th Street pavilion's second storey carries a banded pier between its pair and its
+triple, 1.1 m broad and 0.12 m proud, from over the belt course (7.7 m) in 0.4 m courses parted by
+0.1 m channels to 10.2 m, then a plain block to the wall head; in the block a round light 0.36 m
+across its glass, centred 10.65 m over grade, in a stone ring 0.08 m broad standing 0.04 m past the
+pier (`bays[p_18th].storeys[1].pier`, a new K08 option). The flank's east end is turned by a banded
+corner pier 1.2 m broad (s 26.55-27.75), the cornice and the belt broken forward over it as they are
+over the south-west corner pier (`street_front_pavilions.piers[]` with `wall: k01.wall.side.north`,
+a new K01 option); it does not return onto the rear.
+**What is read, not invented.** J. W. Taylor's photograph no. 1445 (`aic_taylor_1445_pullman_from_sw`)
+through its solved camera. The oculus: its dark glass at x 708-717, y 384-393 px (centre x 712.5, y
+388.5), about 8.5 px high at 23.7 px a metre on the pavilion's 20.4 m plane, so 0.36 m across, its
+centre at s 13.04 and 10.65 m; the pier round it banded below it at x 702-718 px (s 12.31-13.43).
+The east corner: banded stone at x 830-845 px under a cornice whose modillions run on to x 850-856 px
+past the wall's edge, on the flank's 17.93 m plane from s 25.9 to the corner.
+**What is invented.** The ring's breadth and proud (the print draws a light edge about a pixel wide
+round the glass); the courses' height and channels, which are the forward block's banded corners';
+where the courses stop and the plain block starts; the oculus centred in the pier (the print puts
+it about 0.15 m east of the pier's centre, under a pixel and a half); the corner pier's west edge,
+behind a tree's trunk at x 816-830 px, so its 1.2 m breadth is the south-west corner pier's; and that
+it stops at the corner, where the 1911 sheet's one-storey brick block stands against the rear and
+no picture sees the face over it. The oculus's glass is laid on the wall's face behind a reveal cut
+through the pier, not through the wall, since nothing is seen through it.
+**How to resolve:** the CHM 1905 views or the Beman-addition side views, once solved, see the flank
+nearer and squarer and can place the corner pier's west edge and the ring's moulding.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg` and its match record.
+**Recorded:** 2026-10-30 (T-1881).
+
 ### L-pullman-north-block-deck-1934 — Pullman's stable: the north block's deck lowered to the 1894 plate's cresting and carried to the block's north end
 
 **Decision:** the stable's narrower north block (`pullman_house_1729_prairie_ranges`, part r4) kept its

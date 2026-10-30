@@ -2596,6 +2596,39 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             st["head_frieze"] = {"run": int(hf["run"]), "at": float(hf["at"]), "roundel": {
                 "radius_m": float(rd["radius_m"]), "ring_m": float(rd["ring_m"]), "proud_m": float(rd["proud_m"]),
                 "segments": int(rd["segments"])}, **{k: float(hf[k]) for k in ("from_m", "to_m", "border_m", "proud_m")}}
+        # T-1881: a banded pier between a storey's windows with an oculus in its head (1729's 18th
+        # Street pavilion, Taylor's photograph no. 1445): on a stone bay, clear of its lights
+        for st in v["storeys"]:
+            sp = st.get("pier")
+            if sp is None:
+                continue
+            keys, bk, ok_ = {"run", "at", "width_m", "proud_m", "from_m", "block_m", "bands", "oculus"}, \
+                {"course_m", "channel_m"}, {"centre_m", "radius_m", "ring_m", "proud_m", "segments"}
+            bd = sp.get("bands") if isinstance(sp, dict) else None
+            oc = sp.get("oculus") if isinstance(sp, dict) else None
+            ok = isinstance(bd, dict) and isinstance(oc, dict) and set(sp) == keys and set(bd) == bk \
+                and set(oc) == ok_ and e.get("fabric", "stone") != "frame"
+            if ok:
+                w_, d_, f_, b_ = (float(sp[k]) for k in ("width_m", "proud_m", "from_m", "block_m"))
+                r_, rr, rp, yc = (float(oc[k]) for k in ("radius_m", "ring_m", "proud_m", "centre_m"))
+                R = r_ + rr
+                ok = 0 <= int(sp["run"]) and 0.0 < float(sp["at"]) < 1.0 and 0.4 <= w_ <= 1.6 \
+                    and 0.05 <= d_ <= 0.25 and 0.0 <= f_ < b_ - 0.5 and b_ + 2 * R + 0.1 <= float(st["height_m"]) \
+                    and 0.2 <= float(bd["course_m"]) <= 0.8 and 0.02 <= float(bd["channel_m"]) <= float(bd["course_m"]) / 3 \
+                    and 0.1 <= r_ <= 0.5 and 0.03 <= rr <= 0.2 and 0.01 <= rp <= 0.08 \
+                    and int(oc["segments"]) % 8 == 0 and 16 <= int(oc["segments"]) <= 48 \
+                    and R + 0.05 <= w_ / 2 and b_ + R + 0.05 <= yc <= float(st["height_m"]) - R - 0.05
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s pier takes {sorted(keys)}: a stone pier 0.4-1.6 m broad and "
+                                 f"0.05-0.25 m proud, banded (bands {sorted(bk)}: courses 0.2-0.8 m, channels "
+                                 f"0.02 m to a third of them) from from_m to block_m, and an oculus "
+                                 f"({sorted(ok_)}: glass 0.1-0.5 m in radius, a ring 0.03-0.2 m broad and "
+                                 f"0.01-0.08 m proud, 16-48 segments in eights) inside the block over block_m "
+                                 f"and inside the pier, not {sp}")
+            st["pier"] = {"run": int(sp["run"]), "at": float(sp["at"]), "width_m": w_, "proud_m": d_, "from_m": f_,
+                          "block_m": b_, "bands": {k: float(bd[k]) for k in sorted(bk)},
+                          "oculus": {"centre_m": yc, "radius_m": r_, "ring_m": rr, "proud_m": rp,
+                                     "segments": int(oc["segments"])}}
         # T-1890: a corbel table carrying a storey in place of its floor band (1801's 18th Street
         # section, the Taylor print and HABS photograph 2): a stone course on a row of corbels
         for k, st in enumerate(v["storeys"]):
