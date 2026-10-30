@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2455, ts: '2026-10-30T13:56:47.445Z', date: 'Oct 30, 2026, 8:56 AM CT', title: '1905 Prairie\'s iron balconies on the front', kind: 'feature',
+    items: [
+      'Marshall Field\'s house at 1905 Prairie now carries the three iron balconies the 1893 Pictorial Chicago plate shows on its front: before the upper windows of the north, door and south columns, each on scrolled stone consoles at the upper floor\'s belt. The low door hood that stood in for the middle one is gone.',
+    ] },
   { v: 2454, ts: '2026-10-30T12:41:23.053Z', date: 'Oct 30, 2026, 7:41 AM CT', title: '1905 Prairie: the Marshall Field house stands', kind: 'feature',
     items: [
       'Marshall Field\'s house at 1905 Prairie Avenue is no longer a plain draft block: two storeys of brick over a light stone basement, a tall slated mansard with dormers and iron cresting, the door in its second bay, the curved conservatory on the south side and the scroll-pattern iron fence, built from Rand McNally\'s 1893 Pictorial Chicago photograph.',
