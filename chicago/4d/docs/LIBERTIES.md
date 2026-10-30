@@ -36234,8 +36234,6 @@ main block with a corner recess would cut the porch's back wall where the sheet 
 
 ### L-k01-hibbard-1701-3242 — 1701 Prairie's two-level rear veranda and the 1874 range's oriel, read off its rear photograph
 
-**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.rear_veranda`
-
 **Decision:** T-3242 (piece 3 of T-1875) builds the two things Glessner House Museum's rear
 photograph (`glessner_blog_1701_hibbard_rear_photo`) shows on the rear of the Hibbard house and
 T-3240 and T-3241 left out, each read through the camera T-3240 solved
@@ -36254,7 +36252,7 @@ balustrade round both decks; the flight coming down off the lower deck's front i
 toward the camera. The oriel's place, s 11.9-15.4 along the range's south face (centre 13.65 from
 the main block), its front about 0.8 m out, its floor at the range's second floor (6.3 m), its
 corbelling down to about 4.6 m, its wall top under the range's cornice, a pair of round-headed
-lights in its front and one in each cheek; the range's south-face windows moved to the three the
+lights in its front and a square-headed one in each cheek; the range's south-face windows moved to the three the
 photograph's lower storey shows (s 2.6, 7.2 and 10.0), none under the oriel.
 **What is invented.** The posts' 0.13 m section and 0.14 m pair gap, the stations evenly spaced
 (the photograph's are not quite), the deck's 0.22 m thickness, the balustrade's 0.85 m height, its
@@ -36262,7 +36260,7 @@ rails and its square 0.06 m balusters at 0.16 m (the photograph's are turned), t
 depth and its spindles, the flight's 1.0 m width, 0.3 m treads and stone, its cheeks and rails; the
 whole veranda painted the light trim colour (the photograph is monochrome and reads it pale). The
 posts carried down to grade where the photograph's planting hides what stands under the lower deck.
-The oriel's plan (2.6 m front, 0.45 m cants), its stone and its five corbel courses for the
+The oriel's plan (2.6 m front, 0.45 m cants), its stone and its seven corbel courses for the
 photograph's carved brackets, and its low hip for the carved cresting over it. The range's upper
 storey keeps a light at s 7.2 that the photograph shows only in its lower storey (a K01 wing cuts
 one list of lights through every storey).
