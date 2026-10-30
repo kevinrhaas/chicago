@@ -1,0 +1,57 @@
+{
+  "id": "hh_gorton_frank_s",
+  "scene": "1904",
+  "name": "The Gorton household at 2120 Prairie Avenue",
+  "head": "pa1904_gorton_frank_s",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2120 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903); the 1905 edition (canvass begun September 1904) prints nothing at 2120. The household left within that year, and whether it was still in the house on 1 July 1904 is not documented."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2120_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2120. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_gorton_frank_s",
+      "name": "Frank S. Gorton",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2120 Mr. & Mrs. Frank S. Gorton"
+    },
+    {
+      "id": "pa1904_gorton_mrs_frank_s",
+      "name": "Mrs. Frank S. Gorton",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2120 Mr. & Mrs. Frank S. Gorton"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_frank_orren_lowden",
+  "type": "website",
+  "citation": "Wikipedia, 'Frank Orren Lowden'. Read 30 October 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/Frank_Orren_Lowden",
+  "locator": "The biography: his wife Florence, 'the daughter of George Pullman'; that he 'practiced law in Chicago for about 20 years'; his seat on the Republican National Committee 1904-1912.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-30 (T-3253) through a fetch that returned the article in short quoted segments. No archived snapshot verified.",
+  "note": "Encyclopedia biography. It does not give his Chicago address or name his children; the Blue Book puts the couple at 1912 Prairie Avenue.",
+  "what_it_supplies": [
+    "Mrs. Lowden's first name and parentage",
+    "his occupation in 1904"
+  ],
+  "what_it_does_not_supply": [
+    "his address",
+    "his children"
+  ]
+}

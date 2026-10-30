@@ -1,6 +1,6 @@
 # Prairie Avenue 1904 stone library (K02)
 
-Version 1.0.0 (T-2288, piece 1 of T-1844): **six seamless, metric stone fabrics** for the 1904
+Version 1.0.0 (T-2288, piece 1 of T-1844): **seven seamless, metric stone fabrics** (the seventh, `sandstone_fawn`, added by T-1881) for the 1904
 programme's walls, trim and foundations, built by one deterministic script,
 `tools/generate_prairie_1904_stone.py`, that samples no photograph.
 
@@ -8,6 +8,7 @@ programme's walls, trim and foundations, built by one deterministic script,
 |---|---|---|---|---|
 | `granite_rock_faced` | 1.60 m | split-face facets 4-10 cm | 12 mm | a house whose record names granite; none of the register's 62 rows does |
 | `sandstone_brown` | 1.20 m | drove-tooled, bedded | 1.5 mm | the register's brownstone and brown-sandstone fronts |
+| `sandstone_fawn` | 1.20 m | rubbed nearly smooth, bedded | 0.9 mm | a brownstone front its photographs print light: 1729 Prairie (T-1881) |
 | `limestone_lemont` | 1.20 m | hammer-dressed, pitted, iron-stained | 4.6 mm | the register's Lemont-limestone row |
 | `limestone_bedford` | 1.20 m | crandalled oolite | 0.6 mm | the register's Bedford-stone envelope |
 | `dressed_trim` | 0.90 m | rubbed smooth | 0.4 mm | sills, lintels, belts, copings, voussoirs, carving |

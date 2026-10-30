@@ -1,0 +1,72 @@
+{
+  "id": "hh_hamline_john_h",
+  "scene": "1904",
+  "name": "The Hamline household at 1621 Prairie Avenue",
+  "head": "pa1904_hamline_john_h",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "The household is listed at 1621 Prairie Avenue in both the 1904 and 1905 editions of the Blue Book, which bracket 1 July 1904, but not with the same people: the 1905 list prints 1621 Mrs. John H. Hamline. Each person's own note says which of them the later list drops or adds."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_1621_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1621, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_hamline_john_h",
+      "name": "John H. Hamline",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "1621 Mr. & Mrs. John H. Hamline",
+      "note": "The 1905 edition lists Mrs. John H. Hamline alone at 1621; when he left the household, or died, is not on either page, so his presence on 1 July 1904 is not documented."
+    },
+    {
+      "id": "pa1904_hamline_mrs_john_h",
+      "name": "Mrs. John H. Hamline",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1621 Mr. & Mrs. John H. Hamline"
+    },
+    {
+      "id": "pa1904_mead_george_a",
+      "name": "George A. Mead",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "1621 George A. Mead",
+      "note": "Listed at 1621 in the 1904 edition only. The Blue Book does not say how he was related to the Hamlines."
+    }
+  ]
+}
