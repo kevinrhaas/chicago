@@ -34855,7 +34855,7 @@ stacks, the mansard deck's pitch and covering, the treads, the rainwater, the sa
 yard's walks; the rear wing's floors, height, windows and deck; the conservatory's height and its roof
 (the plate's curved glass roof is a flat tin cone here).
 **What is not built.** The canted south-west corner and its dormer's place on it; the iron balconies
-before the chamber windows and on the conservatory's roof; the carved window crests, the frieze's
+before the window behind that corner and on the conservatory's roof; the carved window crests, the frieze's
 roundels and the dormers' carved cheeks; the conservatory's glazing bars and glass roof; the sheet's
 two-storey north range at the rear: open on the match record for T-3261.
 **How to resolve:** T-3261 builds those, solves the c. 1905 Daily News photograph (DN-0003324), the
@@ -34864,6 +34864,12 @@ undated '923' print and the 1893 engraving, and brings every 1905 match record t
 **Ticket:** T-3260 (piece 1 of T-1904).
 **Review:** `docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg`.
 **Recorded:** 2026-10-30 (T-3260).
+**Revised:** 2026-10-30 (T-3261) — the front's three iron balconies are built: before the chamber windows of the
+north, door and wide columns, on the belt at the chamber floor on two consoles each, read off the plate against its
+window columns (`street_front_iron`). Invented in them: their guards' pierced scroll pattern (K01's balconette band),
+their 0.7 m projection and 0.2 m slab, and the consoles' form (the kit's short scrolled blocks, where the plate's
+door-column pair run down beside the door's surround). The door column's is built 3.0 m, the kit's longest, where the
+plate reads about 3.5 m. The door hood T-3260 stood in for that balcony, about 1.4 m low, is withdrawn.
 
 ### L-pullman-stable-3192 — Pullman's stable refined to J. W. Taylor's 18th Street photograph: a hipped roof to a crested deck and lantern, an arcade, a polygonal bay and an upper storey carried up through the roof, with a 4 m east section the 1911 sheet does not draw
 
