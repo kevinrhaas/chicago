@@ -1,0 +1,154 @@
+{
+  "schema": "human_natural_idle_derivation_v1",
+  "recipe_sha256": "1b98eb613aea60a315857a96307ba8e6712c6b13e60c412d22e75c313ee5cf7f",
+  "generator_sha256": "fd4c802f5c7a6f604ff7395cf8c367452b03230135d355deb55e05a301942e85",
+  "files": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "sha256": "821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f",
+      "bytes": 8673076,
+      "original_bin_bytes": 8549656,
+      "original_bin_sha256": "b33eebabfcbf69baa586b9f74125ef6e7afd10622280cd1ad7cdf99dd37364d7",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod1.glb",
+      "parent_sha256": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+      "sha256": "4752182f829f21e9e959c700d98e2aa4c75b97a7ea1b58814148bb3a7cded854",
+      "bytes": 8034376,
+      "original_bin_bytes": 7910992,
+      "original_bin_sha256": "1c04f2377ac720bd13c08bdb3ea0658cf8f1f0ac6b31cebb73b2aedac6ac6d6a",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod2.glb",
+      "parent_sha256": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+      "sha256": "c4a99b4ba9f1a375a4490383322506d772ee6b588959aa645d686f7dddd1a68f",
+      "bytes": 7482072,
+      "original_bin_bytes": 7360656,
+      "original_bin_sha256": "8fcf33be7e4feac5864213f75be14ce563180d256b32a2eadd0a1daf9ea772d0",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "sha256": "18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1",
+      "bytes": 7258004,
+      "original_bin_bytes": 7136600,
+      "original_bin_sha256": "b78a2c2196259af8b661c917d9c2a20e080bea2b69f5eee67c08a0ceebc2ed62",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "sha256": "d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf",
+      "bytes": 4463076,
+      "original_bin_bytes": 4339124,
+      "original_bin_sha256": "69a1aeef579ff77213ffb22beeaa97eff0765e4c3ea7d4a257a566a502edbc1c",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+      "parent_sha256": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+      "sha256": "aef139f58ee352ef7c8e73d945bc0af5d1bbf5d4f27e4f43fb5ed8b739b16bc3",
+      "bytes": 1585036,
+      "original_bin_bytes": 1461156,
+      "original_bin_sha256": "09788dc65c413efa48fcc094ceb04ca416c32280001f7c3324dd4fb4ab9bb2d9",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+      "parent_sha256": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+      "sha256": "dd12e07063c142628cfe3c0f2d7b42a38c018376722af669b27ee768fc8408ad",
+      "bytes": 636028,
+      "original_bin_bytes": 514504,
+      "original_bin_sha256": "ad6b9a4a08bcfc1afeba2ddc569a09c6414d7adcf19f86ba18e2a105b206f0a8",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "sha256": "bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7",
+      "bytes": 325492,
+      "original_bin_bytes": 204020,
+      "original_bin_sha256": "fc9ccd9f094071e712fd8fc1773a4a957ff9d3a7ac7103e979ec92ee931d849a",
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "idle_natural_v1",
+      "changed_rotation_targets": [
+        "spine_02",
+        "neck_01",
+        "head"
+      ],
+      "lower_body_channels_unchanged": true
+    }
+  ],
+  "scope": "Generated animation derivative; exact-BIN metadata bridge to original finite native-129 assets recorded separately. Actual browser measurements and world visual acceptance pending.",
+  "actual_native_qualified": false,
+  "photographic_accepted": false
+}

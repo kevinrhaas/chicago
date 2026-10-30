@@ -13,7 +13,7 @@
     "anchor": "terrain"
   },
   "animation": {
-    "clip": "idle",
+    "clip": "idle_natural_v1",
     "loop": true,
     "phase": 0
   },
@@ -32,7 +32,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Initial reconstructed standing depiction of existing reconstructed resident Otis Bardwell in the west-side Wolf Point Tavern yard near an existing unhitched wagon. Exact mechanically qualified canonical run39736567239/head96c4da4b1fe68e6dec3b18c15da2f14c596a60c5 supplies the reusable body, clothing and idle pose. His name, age band and teamster role are model records, not documentary identity or likeness. This stand is an invented demonstration, not an observed action, tavern employment or wagon ownership. Simplified garment/skin/hair appearance is an initial visible increment; period-complete tailoring, full animated fit and photographic quality remain open. The connected upper waistcoat panels are repaired in this source increment; broader photographic materials, complete garment fit and occupied interfaces remain open.",
+    "basis": "Initial reconstructed standing depiction of existing reconstructed resident Otis Bardwell in the west-side Wolf Point Tavern yard near an existing unhitched wagon. Exact mechanically qualified canonical run39736567239/head96c4da4b1fe68e6dec3b18c15da2f14c596a60c5 supplies the reusable body, clothing and idle pose. His name, age band and teamster role are model records, not documentary identity or likeness. This stand is an invented demonstration, not an observed action, tavern employment or wagon ownership. Simplified garment/skin/hair appearance is an initial visible increment; period-complete tailoring, full animated fit and photographic quality remain open. The connected upper waistcoat panels are repaired in this source increment; broader photographic materials, complete garment fit and occupied interfaces remain open. He looks around and breathes in a separately authored ordinary standing pose. This motion is reconstructed, not an observed historical action; the original canonical qualification describes the parent asset, and the animation derivative has its own qualification.",
     "sources": [
       "mount_1835_bargaining_for_a_horse",
       "mount_1835_bar_room_scene"

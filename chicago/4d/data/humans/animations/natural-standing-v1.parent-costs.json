@@ -1,0 +1,716 @@
+{
+  "format": "qualified_resident_asset_costs_v1",
+  "resident_id": "rc_bardwell_otis",
+  "asset_id": "bardwell_otis_1835",
+  "canonical_source_sha": "96c4da4b1fe68e6dec3b18c15da2f14c596a60c5",
+  "canonical_run_id": 39736567239,
+  "canonical_artifact_id": 12408480668,
+  "canonical_artifact_zip_sha256": "9ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5",
+  "mechanical_qualified": true,
+  "photographic_accepted": false,
+  "scope": "Actual canonical asset costs; one initial reconstructed standing depiction. Scene p95/GPU/phone and occupied interfaces are not established by these asset measurements.",
+  "lod_policy": {
+    "full": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "balanced": [
+      1,
+      2,
+      3
+    ],
+    "light": [
+      2,
+      3
+    ]
+  },
+  "lod_bands_m": [
+    8,
+    20,
+    45
+  ],
+  "assets": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "lod": 0,
+      "sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "triangles": 41555,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.34481910064451937,
+          -2.34999802946638e-07,
+          -0.12348011572920232
+        ],
+        "max": [
+          0.34481910064451937,
+          1.75351580016368,
+          0.17827892568588982
+        ],
+        "height": 1.7535160351634829
+      },
+      "footwear_min_y_m": {
+        "left": -2.34999802946638e-07,
+        "right": -2.34999802946638e-07
+      },
+      "bytes": 8656876,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2057
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod1.glb",
+      "lod": 1,
+      "sha256": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+      "triangles": 25301,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.34474291238704224,
+          -2.3500138770988034e-07,
+          -0.12349512232266574
+        ],
+        "max": [
+          0.3447429123870638,
+          1.75351580016368,
+          0.1782789256866001
+        ],
+        "height": 1.7535160351650676
+      },
+      "footwear_min_y_m": {
+        "left": -2.3500138770988034e-07,
+        "right": -2.3500138770988034e-07
+      },
+      "bytes": 8018176,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2057
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod2.glb",
+      "lod": 2,
+      "sha256": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+      "triangles": 12509,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.34513030665143374,
+          -2.350046021007516e-07,
+          -0.12308794766022825
+        ],
+        "max": [
+          0.34513017765465115,
+          1.75351580016368,
+          0.17827892568754497
+        ],
+        "height": 1.753516035168282
+      },
+      "footwear_min_y_m": {
+        "left": -2.350046021007516e-07,
+        "right": -2.350046021007516e-07
+      },
+      "bytes": 7465876,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2057
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "lod": 3,
+      "sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "triangles": 6098,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.34465572672696454,
+          -2.9497273997848907e-05,
+          -0.12403268796222483
+        ],
+        "max": [
+          0.3446557267269643,
+          1.75351580016368,
+          0.17827892568906578
+        ],
+        "height": 1.7535452974376777
+      },
+      "footwear_min_y_m": {
+        "left": -2.3502289003534464e-07,
+        "right": -2.3502289003534464e-07
+      },
+      "bytes": 7241808,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2057
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "lod": 0,
+      "sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "triangles": 41555,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.34479872209589363,
+          1.2484731585882258e-05,
+          -0.12343965072572047
+        ],
+        "max": [
+          0.34479872209589363,
+          1.7534856511245587,
+          0.17823846495114015
+        ],
+        "height": 1.7534731663929728
+      },
+      "footwear_min_y_m": {
+        "left": 1.2484731585882258e-05,
+        "right": 1.2484731585882258e-05
+      },
+      "bytes": 4447008,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 2039,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 2048,
+              "height": 2048
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+      "lod": 1,
+      "sha256": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+      "triangles": 25301,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.3447393200566979,
+          3.049288731138411e-05,
+          -0.12344715461547465
+        ],
+        "max": [
+          0.3447393200566979,
+          1.7535036517018734,
+          0.17823094107544712
+        ],
+        "height": 1.753473158814562
+      },
+      "footwear_min_y_m": {
+        "left": 3.049288731138411e-05,
+        "right": 3.049288731138411e-05
+      },
+      "bytes": 1568968,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 1020,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 1024,
+              "height": 1024
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+      "lod": 2,
+      "sha256": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+      "triangles": 12509,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.3451540190895995,
+          2.8792061251614598e-05,
+          -0.123081570768931
+        ],
+        "max": [
+          0.3451540190895995,
+          1.753486731164156,
+          0.17827255495425698
+        ],
+        "height": 1.7534579391029044
+      },
+      "footwear_min_y_m": {
+        "left": 2.8792061251614598e-05,
+        "right": 2.8792061251614598e-05
+      },
+      "bytes": 619964,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 510,
+              "height": 512
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 512
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 512,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "lod": 3,
+      "sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "triangles": 6098,
+      "skinned_meshes": 9,
+      "bone_count": 56,
+      "standing_frame": {
+        "min": [
+          -0.3446950185828938,
+          1.6740131675296865e-05,
+          -0.12405328617406129
+        ],
+        "max": [
+          0.3446950185828938,
+          1.7534695122505861,
+          0.17829954174717538
+        ],
+        "height": 1.7534527721189108
+      },
+      "footwear_min_y_m": {
+        "left": 1.6740131675296865e-05,
+        "right": 1.6740131675296865e-05
+      },
+      "bytes": 309428,
+      "draw_material_slots": 9,
+      "decoded_images": [
+        {
+          "material": "hair__makehuman_short04",
+          "textures": {
+            "map": {
+              "width": 255,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "skin",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_upper__shirt_linen",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 256
+            }
+          }
+        },
+        {
+          "material": "garment_outer__waistcoat_wool",
+          "textures": {}
+        },
+        {
+          "material": "garment_lower__highwaist_pantaloons",
+          "textures": {}
+        },
+        {
+          "material": "footwear__closed_leather_shoes",
+          "textures": {}
+        },
+        {
+          "material": "eyes__sclera",
+          "textures": {}
+        },
+        {
+          "material": "eyes__iris",
+          "textures": {
+            "map": {
+              "width": 256,
+              "height": 128
+            }
+          }
+        },
+        {
+          "material": "eyes__pupil",
+          "textures": {}
+        }
+      ]
+    }
+  ]
+}

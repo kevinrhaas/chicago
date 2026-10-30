@@ -5130,7 +5130,9 @@ async function boot() {
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);
-    api.humans?.update(dt, camera, walker.state);
+    // Consume the same real elapsed interval as walking and the standing horse.
+    // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
+    api.humans?.update(frameDt, camera, walker.state);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

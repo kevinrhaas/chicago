@@ -1,6 +1,7 @@
 {
+  "_doc": "T-1787: the portable-human export path, measured in the browser by tools/human_fixture.mjs on the CI fixture that tools/human_export.sh builds (tools/human_fixture_blend.py -> tools/human_export.py -> gltf-transform meshopt). docs/HUMAN-ASSET-CONTRACT.md § 8 publishes the budgets from it. Frame times are SwiftShader (software) and only compare LODs with each other. tools/human_fixture.mjs --check (in tools/check.sh) holds every sha256 here to the committed GLB, so a rebuild that is not re-measured fails.",
   "ticket": "T-1787",
-  "measured": "2026-10-22",
+  "measured": "2026-10-29",
   "viewports": {
     "desktop": {
       "width": 1280,
@@ -11,14 +12,42 @@
       "height": 780
     }
   },
-  "_doc": "New Bardwell8 same-file actual canonical readings plus unchanged installed fixture readings. Separate measurement origins retained; no local browser/town or photographic acceptance claimed.",
+  "tiers": {
+    "full": {
+      "lods": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "web_bytes_if_all_fetched": 7009632,
+      "nearest_lod_triangles": 41555
+    },
+    "balanced": {
+      "lods": [
+        1,
+        2,
+        3
+      ],
+      "web_bytes_if_all_fetched": 2546556,
+      "nearest_lod_triangles": 25301
+    },
+    "light": {
+      "lods": [
+        2,
+        3
+      ],
+      "web_bytes_if_all_fetched": 961520,
+      "nearest_lod_triangles": 12509
+    }
+  },
   "files": [
     {
       "file": "assets/humans/bardwell_otis_1835.lod0.glb",
-      "sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "sha256": "821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8656876,
+      "bytes": 8673076,
       "meshopt": false,
       "triangles": 41555,
       "vertices": 23209,
@@ -67,17 +96,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 184.6,
-        "mobile": 181.8
+        "desktop": 343.3,
+        "mobile": 200
       },
       "frame_ms_median": {
-        "desktop": 0.5,
-        "mobile": 0.4
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -164,10 +198,10 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod1.glb",
-      "sha256": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+      "sha256": "4752182f829f21e9e959c700d98e2aa4c75b97a7ea1b58814148bb3a7cded854",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 8018176,
+      "bytes": 8034376,
       "meshopt": false,
       "triangles": 25301,
       "vertices": 14636,
@@ -216,17 +250,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 177.5,
-        "mobile": 178.5
+        "desktop": 130.3,
+        "mobile": 146.4
       },
       "frame_ms_median": {
-        "desktop": 0.4,
-        "mobile": 0.4
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -313,10 +352,10 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod2.glb",
-      "sha256": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+      "sha256": "c4a99b4ba9f1a375a4490383322506d772ee6b588959aa645d686f7dddd1a68f",
       "lod": 2,
       "derivative_of": null,
-      "bytes": 7465876,
+      "bytes": 7482072,
       "meshopt": false,
       "triangles": 12509,
       "vertices": 7799,
@@ -361,17 +400,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 188.4,
-        "mobile": 184.8
+        "desktop": 132.5,
+        "mobile": 122
       },
       "frame_ms_median": {
-        "desktop": 0.3,
-        "mobile": 0.3
+        "desktop": 0.1,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -443,10 +487,10 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "sha256": "18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7241808,
+      "bytes": 7258004,
       "meshopt": false,
       "triangles": 6098,
       "vertices": 4230,
@@ -491,17 +535,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 290.9,
-        "mobile": 237
+        "desktop": 149,
+        "mobile": 128.8
       },
       "frame_ms_median": {
-        "desktop": 0.2,
-        "mobile": 0.3
+        "desktop": 0.1,
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -610,12 +659,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 15.8,
-        "mobile": 13.6
+        "desktop": 21.7,
+        "mobile": 23.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.2
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -739,8 +788,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 17.6,
-        "mobile": 15.7
+        "desktop": 21.5,
+        "mobile": 29.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -864,8 +913,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 14.3,
-        "mobile": 10.4
+        "desktop": 12.5,
+        "mobile": 15.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -974,8 +1023,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 12.4,
-        "mobile": 11.1
+        "desktop": 14.3,
+        "mobile": 8.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1051,10 +1100,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
-      "sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "sha256": "d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf",
       "lod": 0,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod0.glb",
-      "bytes": 4447008,
+      "bytes": 4463076,
       "meshopt": true,
       "triangles": 41555,
       "vertices": 23209,
@@ -1103,17 +1152,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 127.1,
-        "mobile": 148.2
+        "desktop": 114.9,
+        "mobile": 99.7
       },
       "frame_ms_median": {
-        "desktop": 0.3,
-        "mobile": 0.2
+        "desktop": 0.1,
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -1210,10 +1264,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
-      "sha256": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+      "sha256": "aef139f58ee352ef7c8e73d945bc0af5d1bbf5d4f27e4f43fb5ed8b739b16bc3",
       "lod": 1,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod1.glb",
-      "bytes": 1568968,
+      "bytes": 1585036,
       "meshopt": true,
       "triangles": 25301,
       "vertices": 14636,
@@ -1262,17 +1316,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 58,
-        "mobile": 57.4
+        "desktop": 52.6,
+        "mobile": 38.2
       },
       "frame_ms_median": {
-        "desktop": 0.3,
-        "mobile": 0.2
+        "desktop": 0.1,
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -1369,10 +1428,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
-      "sha256": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+      "sha256": "dd12e07063c142628cfe3c0f2d7b42a38c018376722af669b27ee768fc8408ad",
       "lod": 2,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod2.glb",
-      "bytes": 619964,
+      "bytes": 636028,
       "meshopt": true,
       "triangles": 12509,
       "vertices": 7799,
@@ -1417,17 +1476,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 33.5,
-        "mobile": 39.1
+        "desktop": 33.9,
+        "mobile": 28.4
       },
       "frame_ms_median": {
         "desktop": 0.2,
-        "mobile": 0.2
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -1509,10 +1573,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
-      "sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "sha256": "bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7",
       "lod": 3,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "bytes": 309428,
+      "bytes": 325492,
       "meshopt": true,
       "triangles": 6098,
       "vertices": 4230,
@@ -1557,16 +1621,21 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "idle_natural_v1": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 38.3,
-        "mobile": 21.7
+        "desktop": 25.4,
+        "mobile": 22.7
       },
       "frame_ms_median": {
-        "desktop": 0.3,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1686,12 +1755,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 22.2,
-        "mobile": 24.1
+        "desktop": 13.5,
+        "mobile": 15.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1825,8 +1894,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 17.7,
-        "mobile": 21.2
+        "desktop": 16.6,
+        "mobile": 13.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1960,8 +2029,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 17.6,
-        "mobile": 41.5
+        "desktop": 12.6,
+        "mobile": 9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2080,8 +2149,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 16.2,
-        "mobile": 14.5
+        "desktop": 9.9,
+        "mobile": 9.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2164,229 +2233,6 @@
           "got": "316 tris"
         }
       ]
-    }
-  ],
-  "tiers": {
-    "full": {
-      "lods": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "web_bytes_if_all_fetched": 6945368,
-      "nearest_lod_triangles": 41555
-    },
-    "balanced": {
-      "lods": [
-        1,
-        2,
-        3
-      ],
-      "web_bytes_if_all_fetched": 2498360,
-      "nearest_lod_triangles": 25301
-    },
-    "light": {
-      "lods": [
-        2,
-        3
-      ],
-      "web_bytes_if_all_fetched": 929392,
-      "nearest_lod_triangles": 12509
-    }
-  },
-  "measurement_sources": [
-    {
-      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
-      "entry_sha256": "6a41a48b89405a427850b6383fc7661f99a85ebcecb5f49747560a398f255336",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/bardwell_otis_1835.lod1.glb",
-      "entry_sha256": "9b5c7159e3e70cfb99f3022f1db120109e12cac832e60429d4c4770a4135d8fa",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/bardwell_otis_1835.lod2.glb",
-      "entry_sha256": "9ef2324da47a2b6b0fea72d6a7d98f94f11960736eae44ef9fe2f5a17730d0e0",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "entry_sha256": "88bb6b97f07b15e641798df512e1ae35c27dcb48cc04ba4e35eb7f308b659784",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
-      "entry_sha256": "37960a4a61f68a2c300d7b3b9ce8ea72cf91e447556c35fd8a065fb4d5f9a232",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
-      "entry_sha256": "059eb9e10675ec1c5607857f0b279f5a1e97bb9101cc181079fb1598eabc34b7",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
-      "entry_sha256": "382df15d204da0cd8274ef7459799f6db55fbd06b189abd332700032e0a2e7ad",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
-      "entry_sha256": "541a810d64cbbacf6de1e4efb9594d39dbd7bf2d9e54351f53defec1c64b2000",
-      "origin": "new canonical same-file actual registry",
-      "registry_member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-      "registry_member_sha256": "b228e168b71cb2e08c555b342a1d0d0f97d537ad2dbd4a1776473c7b85aec3ac",
-      "run_id": 39736567239
-    },
-    {
-      "file": "assets/humans/c4d_fixture.lod0.glb",
-      "entry_sha256": "8859eced48c8f8e8de8ed901ed07eb2e4831640a793718ddba6efca2155fb5f1",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/c4d_fixture.lod1.glb",
-      "entry_sha256": "f40e7e05b819049b9daba2ba364ee5b8c69e36147803073d10a5ccf7c87bb361",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/c4d_fixture.lod2.glb",
-      "entry_sha256": "2dfc7ffbf4cc6a8083094cef80e25d9c2e8de5f1deeec1c51a95ed0e52c74a22",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/c4d_fixture.lod3.glb",
-      "entry_sha256": "06c1be8c47cbea7d56ff9ccc4bf1156b868a81db0cba7caaa587e27a43b93e25",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/web/c4d_fixture.lod0.glb",
-      "entry_sha256": "0c9c6d13e3c05814232dc94a12a45b71adfe546823bd77fe123566d904dee9c3",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/web/c4d_fixture.lod1.glb",
-      "entry_sha256": "0368b8e1c20d4cdc7089c309830db9d71bbb3dc14c65cdffb5808b22d82db916",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/web/c4d_fixture.lod2.glb",
-      "entry_sha256": "b49b8ecaecc780a600fd861347d3a200dbeff172f6c707e2108583e8f24f9e58",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
-    },
-    {
-      "file": "assets/humans/web/c4d_fixture.lod3.glb",
-      "entry_sha256": "46a55ef2775ed81688a35d664be432b04c04b880daad58afe760d84a4d3a8711",
-      "origin": "retained unchanged installed actual measurement",
-      "original_measurement_source": {
-        "run_id": 39712579846,
-        "head": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-        "artifact_id": 12398870779,
-        "artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
-        "member": "home/runner/work/chicago/chicago/chicago/4d/data/humans/fixture.measure.json",
-        "member_sha256": "64e1ccf40c799e5c8ff3c11fc969cfc8c6d7d69e3ea3527cf5479bfa82cfea12",
-        "original_file_count": 32,
-        "selected_file_count": 16,
-        "selection": "Exactly all files currently under assets/humans and assets/humans/web; entries are original canonical browser results verbatim in value and JSON entry serialization"
-      }
     }
   ]
 }

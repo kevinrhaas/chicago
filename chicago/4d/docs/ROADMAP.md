@@ -5975,3 +5975,13 @@ Corrective PR after1337: restore pictured three-storey Tremont, keep Gale-readin
 ## Original image-case ending, 2026-10-29
 
 T-2385 has genuine current picture acceptance and actual both-viewport app/viewer review; finish only after the qualified corrective code PR merges. T-2376 ships the bounded sash/wagon-bay corrections while its substantial enclosed annex remains on the original discrepancy register. No new photo follow-up is filed.
+
+
+### T-1790 first visible standing-motion increment
+
+Prioritize the owner's stiff-Otis/quiet-horse report in the actual DEV scene. First deliver a bounded natural look and breath on the existing Otis rig, with planted feet, unchanged original geometry/appearance, actual desktop/phone review and ordinary gates. Human elapsed-time advancement must remain correct on slow displays and preserve arrival/capture holds. The first idle increment does not close the shared animation library, horse gait, populated routes, fitted riders/drivers or boarding/riding work. Exact parent canonical qualification is preserved as parent history; derivative native and visual proof is separate.
+
+
+T-1790 update (2026-10-29): the exact native-qualified animation-only derivatives are selected for the existing Otis stand. All eight files pass the finite native CPU/contact/anatomical-reference scope; actual desktop/phone near/mid motion and clothing, native browser cost measurement, publication, full gates and ordinary PR delivery are still required. The broader people/horse/vehicle interaction program remains open.
+
+T-1790 current native qualification (2026-10-29): the unchanged browser fixture freshly measures all 16 human GLBs in both viewport sizes, including all eight natural-standing derivatives. Their exact original finite native-129 qualification is preserved, with a separate metadata-only equivalence bridge for the shared rig-pose source field. The latest DEV architecture changes are integrated without changing the human runtime or eight animation/geometry BINs. Native metadata owners settle in two actual tail laps. Published-world motion/clothing and real resident-card interaction in desktop/phone near/mid views, full gates and ordinary PR delivery remain open; this is not the complete animation/route/rider/driver program.

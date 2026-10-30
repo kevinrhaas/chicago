@@ -439,6 +439,14 @@ step "Hierarchy control refuses nonidentity frames and object animation before m
 
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
+step "Every selected natural-standing derivative reproduces from its exact canonical parent (T-1790)" \
+  python3 tools/human_natural_idle.py --check
+step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
+  python3 tools/test_human_natural_idle.py
+step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
+  node tools/test_human_frame_time.mjs
+step "BODY ray broad phase preserves native ray hits at faces, edges and grid boundaries (T-1790)" \
+  node tools/test_human_body_ray_grid.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \

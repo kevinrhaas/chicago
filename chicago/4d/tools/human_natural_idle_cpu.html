@@ -1,0 +1,193 @@
+<!doctype html><meta charset="utf-8"><link rel="icon" href="data:,">
+<script type="importmap">{"imports":{"three":"/renderers/web/vendor/three-0.185.1/three.module.js","three/addons/":"/renderers/web/vendor/three-0.185.1/addons/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {loadMeshoptDecoder,disposeLoadedAsset} from '/renderers/web/js/scene-loader.js';
+import {createHumanLayer} from '/renderers/web/js/humans.js';
+import {rayTriangleCandidates} from './human_body_ray_grid.mjs';
+let webglRequests=0;
+for(const Type of [globalThis.HTMLCanvasElement,globalThis.OffscreenCanvas])if(Type){
+  const original=Type.prototype.getContext;
+  Type.prototype.getContext=function(type,...args){if(/^webgl/.test(type))webglRequests++;return original.call(this,type,...args);};
+}
+const loader=new GLTFLoader();loader.setMeshoptDecoder(await loadMeshoptDecoder());
+const vector=new T.Vector3(),triangle=new T.Triangle(),nearest=new T.Vector3(),normal=new T.Vector3(),offset=new T.Vector3();
+const cell=.035,key=(x,y,z)=>`${x},${y},${z}`;
+function meshes(root){const out=[];root.traverse(n=>{if(n.isSkinnedMesh)out.push(n);});return out;}
+function surface(mesh){const a=new Float64Array(mesh.geometry.attributes.position.count*3);for(let i=0;i<a.length/3;i++){mesh.getVertexPosition(i,vector).applyMatrix4(mesh.matrixWorld);vector.toArray(a,i*3);}return a;}
+function update(root){root.updateMatrixWorld(true);root.traverse(n=>{if(n.isSkinnedMesh)n.skeleton.update();});}
+function distance(a,b){let m=0;for(let i=0;i<a.length;i+=3)m=Math.max(m,Math.hypot(a[i]-b[i],a[i+1]-b[i+1],a[i+2]-b[i+2]));return m;}
+function bodyGrid(body,positions){
+  const index=body.geometry.index.array,grid=new Map(),minimum=[Infinity,Infinity,Infinity],maximum=[-Infinity,-Infinity,-Infinity];
+  for(let i=0;i<positions.length;i++){minimum[i%3]=Math.min(minimum[i%3],positions[i]);maximum[i%3]=Math.max(maximum[i%3],positions[i]);}
+  for(let i=0;i<index.length;i+=3){
+    const points=[index[i]*3,index[i+1]*3,index[i+2]*3];
+    const bounds=[0,1,2].map(axis=>[Math.floor(Math.min(...points.map(p=>positions[p+axis]))/cell),Math.floor(Math.max(...points.map(p=>positions[p+axis]))/cell)]);
+    for(let x=bounds[0][0];x<=bounds[0][1];x++)for(let y=bounds[1][0];y<=bounds[1][1];y++)for(let z=bounds[2][0];z<=bounds[2][1];z++){
+      const k=key(x,y,z);if(!grid.has(k))grid.set(k,[]);grid.get(k).push(i);
+    }
+  }
+  return {grid,index,positions,minimum,maximum};
+}
+function clearance(grid,points){
+  const out=new Float64Array(points.length/3);out.fill(NaN);out.triangleIds=new Int32Array(out.length);out.triangleIds.fill(-1);
+  for(let i=0;i<points.length;i+=3){
+    vector.fromArray(points,i);const x=Math.floor(vector.x/cell),y=Math.floor(vector.y/cell),z=Math.floor(vector.z/cell),ids=new Set();
+    for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++)for(let dz=-1;dz<=1;dz++)for(const id of grid.grid.get(key(x+dx,y+dy,z+dz))??[])ids.add(id);
+    let best=Infinity,signed=NaN,bestId=-1;
+    for(const id of ids){
+      triangle.a.fromArray(grid.positions,grid.index[id]*3);triangle.b.fromArray(grid.positions,grid.index[id+1]*3);triangle.c.fromArray(grid.positions,grid.index[id+2]*3);
+      triangle.closestPointToPoint(vector,nearest);const d=nearest.distanceToSquared(vector);
+      if(d<best){best=d;bestId=id/3;triangle.getNormal(normal);signed=Math.sqrt(d)*(offset.copy(vector).sub(nearest).dot(normal)<0?-1:1);}
+    }
+    out[i/3]=signed;out.triangleIds[i/3]=bestId;
+  }
+  return out;
+}
+function release(gltf){const skeletons=new Set();gltf.scene.traverse(n=>{if(n.skeleton)skeletons.add(n.skeleton);});for(const s of skeletons)s.dispose();disposeLoadedAsset(gltf);}
+function penetrationTransition(parentInside,currentInside,unsigned,parentMaximum){
+  if(currentInside&&!parentInside)return {reason:'newly inside BODY',excess_m:unsigned};
+  if(currentInside&&parentInside&&unsigned>parentMaximum+1e-5)return {reason:'inherited inside depth increased',excess_m:unsigned-parentMaximum-1e-5};
+  return null;
+}
+function rayParity(positions,index,point,broadphase=null){
+  return [[1,.381,.627],[-.27,1,.431],[.183,-.361,1]].map(direction=>{
+    const ray=new T.Ray(point,new T.Vector3(...direction).normalize()),a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3(),hit=new T.Vector3(),hits=[];
+    const candidates=broadphase?rayTriangleCandidates(broadphase.grid,broadphase.minimum,broadphase.maximum,point.toArray(),ray.direction.toArray(),cell):Array.from({length:index.length/3},(_,i)=>i*3);
+    for(const k of candidates){a.fromArray(positions,index[k]*3);b.fromArray(positions,index[k+1]*3);c.fromArray(positions,index[k+2]*3);if(ray.intersectTriangle(a,b,c,false,hit))hits.push(point.distanceTo(hit));}
+    hits.sort((a,b)=>a-b);const unique=hits.filter((d,i)=>i===0||Math.abs(d-hits[i-1])>1e-8);
+    return {direction,intersections:unique.length,inside:unique.length%2===1,nearest_forward_hit_m:unique[0]??null,triangles_tested:candidates.length};
+  });
+}
+window.inspectClearanceWitness=async function(file){
+  const gltf=await loader.loadAsync('/candidate/'+file),root=gltf.scene,skin=meshes(root),body=skin.find(m=>[].concat(m.material).some(m=>m.name==='skin')),garment=skin.find(m=>m.name.includes('waistcoat'));
+  const mixer=new T.AnimationMixer(root),clip=gltf.animations.find(c=>c.name==='idle_natural_v1');mixer.clipAction(clip).play();
+  const out={file,scope:'Actual posed BODY and garment witnesses; three independent nonaxis ray parities disambiguate signed nearest-face orientation',samples:[]};
+  try{
+    const cube=new T.BoxGeometry(1,1,1),cubePos=Float64Array.from(cube.attributes.position.array),cubeIndex=cube.index.array;
+    out.metric_controls={cube_inside:rayParity(cubePos,cubeIndex,new T.Vector3(0,0,0)),cube_outside:rayParity(cubePos,cubeIndex,new T.Vector3(2,2,2)),cube_outside_edge:rayParity(cubePos,cubeIndex,new T.Vector3(.51,.51,0))};cube.dispose();
+    if(!out.metric_controls.cube_inside.every(r=>r.inside)||out.metric_controls.cube_outside.some(r=>r.inside)||out.metric_controls.cube_outside_edge.some(r=>r.inside))throw Error('Independent ray-parity controls failed');
+    for(const time of [0,.6875,.75,1.8125,6.1875]){
+      mixer.setTime(time);update(root);const bp=surface(body),gp=surface(garment),grid=bodyGrid(body,bp),dist=clearance(grid,gp),witnesses=[];
+      for(const vertex of [60,61,957,958]){
+        const point=new T.Vector3().fromArray(gp,vertex*3),id=dist.triangleIds[vertex],indices=Array.from(grid.index.slice(id*3,id*3+3));
+        triangle.a.fromArray(bp,indices[0]*3);triangle.b.fromArray(bp,indices[1]*3);triangle.c.fromArray(bp,indices[2]*3);triangle.closestPointToPoint(point,nearest);triangle.getNormal(normal);
+        const bary=triangle.getBarycoord(nearest,new T.Vector3()),dot=offset.copy(point).sub(nearest).dot(normal);
+        witnesses.push({vertex,point:point.toArray(),triangle:id,indices,body_triangle:[triangle.a.toArray(),triangle.b.toArray(),triangle.c.toArray()],nearest:nearest.toArray(),normal:normal.toArray(),barycentric:bary.toArray(),signed_m:dist[vertex],normal_dot_m:dot,unsigned_m:point.distanceTo(nearest),parity:rayParity(bp,grid.index,point)});
+      }
+      const pelvis=root.getObjectByName('pelvis').getWorldPosition(new T.Vector3()),bounds=new T.Box3().setFromArray(bp),outside=bounds.max.clone().addScalar(1);
+      const controls={pelvis:rayParity(bp,grid.index,pelvis),outside:rayParity(bp,grid.index,outside)};
+      if(!controls.pelvis.every(r=>r.inside)||controls.outside.some(r=>r.inside))throw Error('Actual BODY inside/outside controls failed');
+      out.samples.push({time_s:time,witnesses,actual_body_controls:controls});
+    }
+    out.webgl_requests=webglRequests;return out;
+  }finally{mixer.stopAllAction();mixer.uncacheRoot(root);release(gltf);}
+};
+
+window.inspectNatural=async function(file,controlOldIdle=false,referenceFile='assets/humans/bardwell_otis_1835.lod0.glb'){
+  const gltf=await loader.loadAsync('/candidate/'+file),root=gltf.scene;
+  const skin=meshes(root),body=skin.find(m=>[].concat(m.material).some(m=>m.name==='skin'));
+  const reference=file===referenceFile?gltf:await loader.loadAsync('/candidate/'+referenceFile),referenceRoot=reference.scene;
+  const referenceBody=meshes(referenceRoot).find(m=>[].concat(m.material).some(m=>m.name==='skin'));
+  const garments=skin.filter(m=>[].concat(m.material).some(m=>/^garment_(upper|outer)__/.test(m.name)));
+  const footwear=skin.filter(m=>[].concat(m.material).some(m=>m.name.startsWith('footwear')));
+  const clip=gltf.animations.find(c=>c.name===(controlOldIdle?'idle':'idle_natural_v1')),idle=gltf.animations.find(c=>c.name==='idle');
+  if(!body||!referenceBody||garments.length!==2||!footwear.length||!clip||(!controlOldIdle&&clip.duration!==8)||!idle)throw Error('Actual loaded body/garment/footwear/clip census changed');
+  const mixer=new T.AnimationMixer(root),referenceMixer=reference===gltf?null:new T.AnimationMixer(referenceRoot);
+  const referenceIdle=reference.animations.find(c=>c.name==='idle');
+  let maximumBoneMatrixDifference=0;
+  const pose=(which,time)=>{
+    mixer.stopAllAction();mixer.clipAction(which).reset().setLoop(T.LoopRepeat,Infinity).play();mixer.setTime(time);update(root);
+    if(referenceMixer){const referenceClip=reference.animations.find(c=>c.name===which.name);if(!referenceClip||Math.abs(referenceClip.duration-which.duration)>1e-6)throw Error('Reference clip/time domain mismatch');referenceMixer.stopAllAction();referenceMixer.clipAction(referenceClip).reset().setLoop(T.LoopRepeat,Infinity).play();referenceMixer.setTime(time);update(referenceRoot);}
+    if(referenceBody.morphTargetInfluences?.some(v=>v!==0))throw Error('Closed BODY reference must retain actual zero morph weights');
+    for(const bone of referenceBody.skeleton.bones){const actual=body.skeleton.bones.find(b=>b.name===bone.name);if(!actual)throw Error('Reference/subject bone identity mismatch');for(let i=0;i<16;i++)maximumBoneMatrixDifference=Math.max(maximumBoneMatrixDifference,Math.abs(actual.matrixWorld.elements[i]-bone.matrixWorld.elements[i]));}
+    if(maximumBoneMatrixDifference>1e-5)throw Error('Native reference/subject bone world matrices disagree beyond numerical alignment bound: '+maximumBoneMatrixDifference);
+  };
+  pose(idle,0);
+  const initial=new Map(skin.map(m=>[m,surface(m)])),baseGrid=bodyGrid(referenceBody,surface(referenceBody)),actualBaseGrid=bodyGrid(body,initial.get(body));
+  const bases=new Map(garments.map(m=>[m,clearance(baseGrid,initial.get(m))]));
+  const envelopes=new Map(garments.map(m=>[m,{min:Float64Array.from(bases.get(m),Math.abs),max:Float64Array.from(bases.get(m),Math.abs),signs:Uint8Array.from(bases.get(m),x=>x>=0?1:2)}]));
+  const actualEnvelopes=new Map(garments.map(m=>{const values=clearance(actualBaseGrid,initial.get(m));return [m,{min:Float64Array.from(values,Math.abs),max:Float64Array.from(values,Math.abs)}];}));
+  const parentKeys=[...new Set([...idle.tracks,...referenceIdle.tracks].flatMap(t=>Array.from(t.times)))].sort((a,b)=>a-b),parentTimes=parentKeys.flatMap((t,i)=>i===0?[t]:[(t+parentKeys[i-1])/2,t]);
+  const result={file,clip:clip.name,anatomical_reference_file:referenceFile,anatomical_reference_same_native_clip_and_time:true,reference_body_morph_weights:referenceBody.morphTargetInfluences??[],reference_bone_matrix_numerical_bound:1e-5,diagnostic_only:controlOldIdle,clip_duration_s:clip.duration,old_clips:gltf.animations.map(a=>a.name),samples:[],tracked_vertex_61:[],parent_idle_samples:parentTimes,footwear_maximum_displacement_m:0,upper_body_maximum_displacement_m:0,new_clearance_failures:[],inherited_inside_vertices_observed:[],robust_classifications:0,face_sign_ambiguities_resolved:0,actual_render_body_unsigned_distance_maximum_increase_m:0,actual_render_body_unsigned_distance_maximum_decrease_m:0,clearance_scope:'Finite actual shirt/waistcoat vertex probe against the same-phase native CLOSED master-LOD0 anatomical BODY, with actual subject-garment/original-idle key+midpoint reference-BODY distance envelopes. Coarse render BODYs are open; their unsigned-distance deltas are separately reported, never treated as global inside. Departures or face-sign changes use three agreeing nonaxis ray parities: reject newly inside vertices or increased inherited inside depth beyond the parent envelope plus numerical allowance. This explicit reference criterion is not an official tailoring budget, complete coarse-garment triangle fit or continuous/photographic proof.',numerical_allowance_m:1e-5};
+  const baselineClasses=new Map(),started=performance.now();
+  function classify(positions,index,point,label,broadphase){const rays=rayParity(positions,index,point,broadphase);if(!rays.every(r=>r.inside===rays[0].inside))throw Error('Ambiguous independent BODY ray parities: '+JSON.stringify({file,label,point:point.toArray(),rays}));return {inside:rays[0].inside,rays};}
+  function baselineClass(mesh,i){const key=mesh.name+':'+i;if(!baselineClasses.has(key)){const value=classify(baseGrid.positions,baseGrid.index,new T.Vector3().fromArray(initial.get(mesh),i*3),{where:'parent rest',mesh:mesh.name,vertex:i,unsigned_m:Math.abs(bases.get(mesh)[i]),nearest_triangle:bases.get(mesh).triangleIds[i]},baseGrid);baselineClasses.set(key,value);if(value.inside)result.inherited_inside_vertices_observed.push({mesh:mesh.name,vertex:i,parent_rest_unsigned_distance_m:Math.abs(bases.get(mesh)[i])});}return baselineClasses.get(key);}
+  try{
+    for(const [sample,time] of parentTimes.entries()){
+      pose(idle,time);const grid=bodyGrid(referenceBody,surface(referenceBody)),actualGrid=reference===gltf?grid:bodyGrid(body,surface(body));
+      for(const mesh of garments){const points=surface(mesh),values=clearance(grid,points),env=envelopes.get(mesh),actual=reference===gltf?values:clearance(actualGrid,points),actualEnv=actualEnvelopes.get(mesh);for(let i=0;i<values.length;i++){if(!Number.isFinite(values[i])||!Number.isFinite(actual[i]))throw Error('Parent garment envelope lacks nearby actual BODY triangle');env.min[i]=Math.min(env.min[i],Math.abs(values[i]));env.max[i]=Math.max(env.max[i],Math.abs(values[i]));env.signs[i]|=values[i]>=0?1:2;actualEnv.min[i]=Math.min(actualEnv.min[i],Math.abs(actual[i]));actualEnv.max[i]=Math.max(actualEnv.max[i],Math.abs(actual[i]));}}
+      if(sample%8===0)console.log(JSON.stringify({file,phase:'parent envelope',sample,time_s:time,wall_s:(performance.now()-started)/1000}));
+    }
+    // A measured outside garment vertex moved to the actual BODY pelvis must
+    // fail as newly inside. Nothing in the candidate asset is edited.
+    let outsideVertex=null;
+    for(const mesh of garments){for(let i=0;i<initial.get(mesh).length/3;i+=37){if(!baselineClass(mesh,i).inside){outsideVertex={mesh:mesh.name,vertex:i};break;}}if(outsideVertex)break;}
+    if(!outsideVertex)throw Error('No actual outside garment vertex available for penetration negative control');
+    pose(idle,0);const pelvis=referenceRoot.getObjectByName('pelvis').getWorldPosition(new T.Vector3()),injected=classify(baseGrid.positions,baseGrid.index,pelvis,{where:'injected pelvis negative control'},baseGrid);
+    const injectedRejection=penetrationTransition(false,injected.inside,.01,0);
+    if(injectedRejection?.reason!=='newly inside BODY')throw Error('Injected actual pelvis penetration negative control was not rejected');
+    const outsideClass=baselineClass(garments.find(m=>m.name===outsideVertex.mesh),outsideVertex.vertex);
+    result.penetration_negative_control={passed:true,source_outside_vertex:outsideVertex,source_outside_rays:outsideClass.rays,injected_point:pelvis.toArray(),injected_inside_rays:injected.rays,rejection:injectedRejection,candidate_asset_modified:false};
+    const shoe=initial.get(footwear[0]),movedShoe=shoe.slice();movedShoe[0]+=.005;
+    const injectedFootDistance=distance(shoe,movedShoe);
+    if(!(injectedFootDistance>1e-9))throw Error('Injected footwear drift was not rejected');
+    result.foot_drift_negative_control={passed:true,actual_shoe_vertices:shoe.length/3,injected_vertex_displacement_m:injectedFootDistance,candidate_asset_modified:false};
+    const waistcoat=garments.find(m=>m.name.includes('waistcoat'));
+    if(waistcoat)for(const id of [60,61,957,958])if(id<bases.get(waistcoat).length)baselineClass(waistcoat,id);
+    for(let k=0;k<=128;k++){
+      pose(clip,8*k/128);
+      const posed=new Map(skin.map(m=>[m,surface(m)])),grid=bodyGrid(referenceBody,surface(referenceBody)),actualGrid=reference===gltf?grid:bodyGrid(body,posed.get(body));
+      let foot=0,motion=0;
+      for(const mesh of footwear)foot=Math.max(foot,distance(initial.get(mesh),posed.get(mesh)));
+      for(const mesh of skin)motion=Math.max(motion,distance(initial.get(mesh),posed.get(mesh)));
+      result.footwear_maximum_displacement_m=Math.max(result.footwear_maximum_displacement_m,foot);
+      result.upper_body_maximum_displacement_m=Math.max(result.upper_body_maximum_displacement_m,motion);
+      let newCount=0,worst=0,actualIncrease=0,actualDecrease=0;
+      for(const mesh of garments){
+        const now=clearance(grid,posed.get(mesh)),base=bases.get(mesh);
+        const actual=reference===gltf?now:clearance(actualGrid,posed.get(mesh)),actualEnv=actualEnvelopes.get(mesh);
+        for(let i=0;i<now.length;i++){
+          if(!Number.isFinite(now[i])||!Number.isFinite(base[i])||!Number.isFinite(actual[i]))throw Error('Garment vertex has no actual nearby BODY triangle');
+          actualIncrease=Math.max(actualIncrease,Math.abs(actual[i])-actualEnv.max[i]);actualDecrease=Math.max(actualDecrease,actualEnv.min[i]-Math.abs(actual[i]));
+          const env=envelopes.get(mesh),unsigned=Math.abs(now[i]),sign=now[i]>=0?1:2;
+          const departure=unsigned<env.min[i]-1e-5||unsigned>env.max[i]+1e-5||!(env.signs[i]&sign);
+          if(departure){
+            const parentClass=baselineClass(mesh,i),current=classify(grid.positions,grid.index,new T.Vector3().fromArray(posed.get(mesh),i*3),{where:'candidate',mesh:mesh.name,vertex:i,time_s:8*k/128,unsigned_m:unsigned,parent_envelope_m:[env.min[i],env.max[i]],nearest_triangle:now.triangleIds[i]},grid);result.robust_classifications++;
+            const rejection=penetrationTransition(parentClass.inside,current.inside,unsigned,env.max[i]);
+            if(rejection){newCount++;worst=Math.max(worst,rejection.excess_m);if(result.new_clearance_failures.length<20)result.new_clearance_failures.push({sample:k,time_s:8*k/128,mesh:mesh.name,vertex:i,...rejection,parent_inside:parentClass.inside,candidate_inside:current.inside,parent_envelope_m:[env.min[i],env.max[i]],posed_unsigned_m:unsigned,parent_rays:parentClass.rays,candidate_rays:current.rays});}
+            else if(!(env.signs[i]&sign))result.face_sign_ambiguities_resolved++;
+          }
+        }
+        if(mesh.name.includes('waistcoat')&&now.length>61)result.tracked_vertex_61.push({time_s:8*k/128,baseline_m:base[61],posed_m:now[61],baseline_triangle:base.triangleIds[61],posed_triangle:now.triangleIds[61],position:Array.from(posed.get(mesh).slice(61*3,61*3+3))});
+      }
+      result.actual_render_body_unsigned_distance_maximum_increase_m=Math.max(result.actual_render_body_unsigned_distance_maximum_increase_m,actualIncrease);result.actual_render_body_unsigned_distance_maximum_decrease_m=Math.max(result.actual_render_body_unsigned_distance_maximum_decrease_m,actualDecrease);
+      result.samples.push({time_s:8*k/128,footwear_displacement_m:foot,maximum_surface_motion_m:motion,new_or_deeper_penetration_vertices:newCount,maximum_excess_m:worst,actual_render_body_unsigned_distance_increase_m:actualIncrease,actual_render_body_unsigned_distance_decrease_m:actualDecrease});
+      if(k%8===0)console.log(JSON.stringify({file,phase:'candidate',sample:k,time_s:8*k/128,wall_s:(performance.now()-started)/1000,robust_classifications:result.robust_classifications,actual_new_failures:newCount}));
+      if(newCount>0)break;
+    }
+    result.passed=result.samples.length===129&&result.footwear_maximum_displacement_m<1e-9&&result.upper_body_maximum_displacement_m>.01&&result.new_clearance_failures.length===0;
+    result.webgl_requests=webglRequests;
+    result.maximum_reference_subject_bone_world_matrix_difference=maximumBoneMatrixDifference;
+    if(webglRequests!==0)throw Error('CPU inspection requested WebGL');
+    return result;
+  }catch(e){result.error=e.stack??String(e);result.passed=false;result.webgl_requests=webglRequests;result.maximum_reference_subject_bone_world_matrix_difference=maximumBoneMatrixDifference;return result;}finally{mixer.stopAllAction();mixer.uncacheRoot(root);if(referenceMixer){referenceMixer.stopAllAction();referenceMixer.uncacheRoot(referenceRoot);release(reference);}release(gltf);}
+};
+window.inspectLifecycle=async function(){
+  const gltf=await loader.loadAsync('/candidate/assets/humans/web/bardwell_otis_1835.lod0.glb');
+  const instance=await fetch('/data/humans/instances/1835/hi_rc_bardwell_otis_1835.json').then(r=>r.json());
+  instance.animation.clip='idle_natural_v1';instance.lod={policy:'fixed',fixed:0};
+  let acquired=0,released=0;const assets={acquire:async()=>{acquired++;return gltf;},release:()=>released++};
+  const layer=createHumanLayer({assets,heightAt:()=>0}),actor=layer.add(instance);
+  try{
+    await actor.setLod(0);const camera=new T.PerspectiveCamera();camera.position.copy(actor.root.position).add(new T.Vector3(0,1.7,3));
+    for(let i=0;i<4;i++)layer.update(.25,camera,{e:instance.placement.local_e,n:instance.placement.local_n});
+    if(actor.clipName!=='idle_natural_v1'||Math.abs(actor.body.action.time-1)>1e-9)throw Error('Actual native HumanActor did not advance natural clip one second');
+    const time=actor.body.action.time;layer.remove(instance.id);layer.dispose();
+    if(released!==acquired||layer.count!==0)throw Error('Actual native actor lease/lifecycle did not close');
+    return {passed:true,clip:'idle_natural_v1',slow_frame_elapsed_s:time,acquired,released,remaining_actors:layer.count,webgl_requests: webglRequests};
+  }finally{layer.dispose();release(gltf);}
+};
+window.cpuReady=true;
+</script>

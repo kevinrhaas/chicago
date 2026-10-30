@@ -36157,3 +36157,12 @@ rather than a white-painted or white stone.
 showing the bond and the joints.
 **Ticket:** T-3244.
 **Recorded:** 2026-10-29 (T-3244).
+
+
+### L-natural-standing-1790 — a reconstructed standing look and breath
+
+**What is reconstructed:** Otis Bardwell is the existing reconstructed resident, not a documented likeness. An original eight-second portable animation derivative adds a small head/neck look and breathing to his existing rig. Amplitudes and timing are project-authored, ordinary standing choices, not a witnessed action, occupation, greeting, cultural gesture or historical fact. The same source body, clothing, appearance, location, lower-body and original arm/elbow channels remain. No walking route, dialogue, driver, rider or new person is introduced. The original canonical GLBs and their qualification describe the parents only; the new animation needs its own actual native, contact, sampled garment and published scene review. This is a bounded idle increment; continuous fit, photographic quality and the rest of T-1790 stay open.
+
+**How to resolve:** Better qualified animation and tailoring, reviewed in the published town; retain reconstructed action and timing unless documentary evidence supports a narrower statement.
+**Ticket:** T-1790.
+**Recorded:** 2026-10-29 (T-1790).

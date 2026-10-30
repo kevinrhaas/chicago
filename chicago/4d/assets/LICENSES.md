@@ -1532,3 +1532,19 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-young.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
 | `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-female.json. |
+
+
+### T-1790 original natural-standing animation derivative
+
+The eight existing `bardwell_otis_1835` master/web LODs below append the project-authored `idle_natural_v1` standing look and breath. Original geometry, images, skinning, inverse binds, nodes, materials, arm/lower-body animation channels and all original clips remain preserved. Original MakeHuman/other graphical notices above continue to apply. New animation curve arrays are dedicated CC0-1.0; generator/probe code remains GPL-3.0-or-later. Timings and amplitudes are reconstructed ordinary standing, not a witnessed action, named gesture or documentary likeness (liberty L-natural-standing-1790). Original canonical metadata identifies the parents only; exact derivation and separate native qualification are filed under data/humans/animations/. Finite native CPU checks are not photographic or complete clothing/scene acceptance.
+
+|Path relative to assets/|Licence|Bytes|SHA256|
+|---|---|---:|---|
+|`humans/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|8673076|`821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f`|
+|`humans/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|8034376|`4752182f829f21e9e959c700d98e2aa4c75b97a7ea1b58814148bb3a7cded854`|
+|`humans/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|7482072|`c4a99b4ba9f1a375a4490383322506d772ee6b588959aa645d686f7dddd1a68f`|
+|`humans/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|7258004|`18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1`|
+|`humans/web/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|4463076|`d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf`|
+|`humans/web/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|1585036|`aef139f58ee352ef7c8e73d945bc0af5d1bbf5d4f27e4f43fb5ed8b739b16bc3`|
+|`humans/web/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|636028|`dd12e07063c142628cfe3c0f2d7b42a38c018376722af669b27ee768fc8408ad`|
+|`humans/web/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|325492|`bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7`|
