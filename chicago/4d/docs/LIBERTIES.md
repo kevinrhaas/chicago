@@ -35219,7 +35219,11 @@ parkway (T-3231: the owner doubted the raised footings once drawn at every corne
 and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811,
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
-eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
+eleven are attested. A twelfth (T-1934) stands where J. W. Taylor's no. 16554 shows it, at the turn
+of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, read for its place only
+(the print's taller globe-headed post is drawn with the district's one post); and the rule stands no
+lamp on 18th Street's north walk from Prairie Avenue to that turn, which 16554 and the Detroit
+Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`) see whole and show empty. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
 same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
@@ -35236,7 +35240,7 @@ Pullman house (`ghm_blog_pullman_completed`), the Ward Bros. engraving of 1887
 (`nypl_dennis_tucker_1010_prairie_stereo`); the mid-block lamps from the photographs of the houses
 they stand before. That 1904 is gas: every electric standard in the Prairie library is in a picture
 dated after it.
-**What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
+**What is invented:** every lamp's place but the twelve pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
@@ -36245,7 +36249,7 @@ see the front and the flank closer.
 
 ### L-k01-hibbard-1701-3240 — 1701 Prairie, the Hibbard house, refined from the district draft to a K01 main block and rear range read off the 1911 sheet and two photographs
 
-**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.entrance_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`
+**Covers:** `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_front_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.wall_thickness_side_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.service_wall_brick`, `hibbard_house_1701_prairie.as_mapped_1904.form.eave_overhang_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_tread_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stair_landing_depth_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.stoop_width_m`, `hibbard_house_1701_prairie.as_mapped_1904.form.side_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.rear_bays`, `hibbard_house_1701_prairie.as_mapped_1904.form.roof_covering`, `hibbard_house_1701_prairie.as_mapped_1904.form.rainwater`, `hibbard_house_1701_prairie.as_mapped_1904.form.window_kit`, `hibbard_house_1701_prairie.as_mapped_1904.form.yard`
 
 **Decision:** the William G. Hibbard house at 1701 Prairie Avenue (T-3240, piece 1 of T-1875) is no
 longer a district draft. It stands, under the draft's own id, as a `k01_frontage` record built by
@@ -36287,6 +36291,9 @@ house fixes both cameras' scale; a picture of the north side places the rear ran
 **Amended by T-3241 (2026-10-29):** the railed deck, the lower south range and the corner porch now
 stand, and the hip's 35 degrees became 45 with the eave's overhang 0.5 m; see
 `L-k01-hibbard-1701-3241`.
+**Amended by T-3256 (2026-10-30):** the entrance is no longer the kit's panelled door under a flat
+head: it stands in the photograph's tall round arch, read through its camera (`entrance_kit`, now
+`inferred`), and this entry no longer covers it; see `L-k01-hibbard-1701-3256`.
 
 ### L-k01-hibbard-1701-3241 — 1701 Prairie's railed roof deck, lower south range and corner porch, read off its photograph
 
@@ -36571,6 +36578,33 @@ the porch lay no basement light); the match record keeps them open.
 **How to resolve:** a colour view or a description naming the stone; a nearer picture of the fence.
 **Recorded:** 2026-10-30 (T-3254).
 
+### L-k01-hibbard-1701-3255 — 1701 Prairie's eared, crested window hoods and its corner pilaster, read off its photograph
+
+**Decision:** T-3255 (piece 2 of T-1876) dresses the Hibbard house as Chicagology's photograph
+(`chicagology_1701_hibbard_photo`) shows it, read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`): every round-headed light
+of the front and the south flank under a light stone hood (`eared_round_heads`, a new K01 form built
+by `generators/archetypes/k01_dressings.py`), the front's south-west corner as a tall stone pilaster
+under a capital (`corner_pilasters`). The canted bay's angles, light stone on light stone, are
+left as their arrises (K08's pilasters there would cost its light tier past budget).
+The hood replaces K06's arch band and the key block the front's round heads carried until now.
+**What is read, not invented.** Each hood's shape: a broad pale band round the arch, its feet stepped
+out into ears at the springing and hanging a short way down the jambs, a pointed crest standing up
+off the crown; the flank's paired lights meeting ear to ear. Their size at the scale of the lights
+the record already sizes: the band about 0.2 m, the ears about 0.12 m past it and 0.3 m down, the
+crest about 0.3 m wide and 0.25 m tall. The pilaster on the corner from the basement's top to a
+capital under the cornice's frieze, about 0.45 m broad.
+**What is invented.** All the carving: the hoods' mouldings, the crest's leafage, the pilaster's
+carved bands (the photograph shows it banded at each floor) and its capital's leaves are drawn as
+plain stone, the capital as two stepped blocks (a bell and an abacus); the band's 0.06 m and the
+crest's 0.08 m projection, and the pilaster's 0.1 m, which a frontal photograph does not give. The
+front's north corner stands behind the corner porch and the flank's rear corner reads plain brick, so
+neither is dressed; the north flank, which no picture shows, keeps its plain heads.
+**What is still not built.** The hoods over the bay's paired lights and the lower south range's lights
+keep K08's arch band (they stand in K08 faces); the match record holds them within tolerance.
+**How to resolve:** a nearer photograph of the hoods and the pilaster, or a description of the carving.
+**Recorded:** 2026-10-30 (T-3255).
+
 ### L-pullman-carriage-ways-1934 — Pullman's two carriage drives, the gateways kept clear, and the stable's stone toned from the winter print
 
 **Decision:** the 1729 Prairie yard (`yard.drives` on `pullman_house_1729_prairie`, laid by
@@ -36699,3 +36733,30 @@ CHM side views of the Beman addition), or a closer copy of the plate.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg`, with its match record.
 **Recorded:** 2026-10-30 (T-1934).
+
+### L-k01-hibbard-1701-3256 — 1701 Prairie's entrance in its tall round arch, read off its photograph and the engraving
+
+**Decision:** T-3256 (piece 3 of T-1876) stands the Hibbard house's entrance as Chicagology's
+photograph (`chicagology_1701_hibbard_photo`) shows it, read through the camera T-3240 solved
+(`data/reference_views/hibbard_house_1701_prairie/chicagology_front.json`): a tall round arch in the
+front's middle bay, between the corner porch and the stone bay, its leaves deep in shadow. Built as
+K07's round-headed pair of leaves (`k07.entrance.double_door_deep_arch`) in a 0.95 m reveal under
+K01's door arch, laid over the brick front's stone basement as 1834 Prairie's is (T-2526, T-3184),
+in place of the panelled door under a flat head T-3240 stood there. The stoop is widened to the
+deep-arch entrance's own 2.5 m so it is as broad as the arch it climbs to.
+**What is read, not invented.** The arch's place and span: its jambs at about v 5.9 and 8.15 along the
+front (x 513-595 px), centred on the entrance bay the record already places at v 7.0; its crown at
+y about 710 px, about 3.8 m over the principal floor. The engraving (`a16-cgy-1701-hibbard-engraving`,
+the image store) draws the same tall arch with a light surround beside the porch.
+**What is invented.** The crown is built at 3.6 m over the floor and the span at 2.2 m, the kit's
+tallest round mouth and its widest, about 0.2 m under the reading's crown and within the camera's
+stated 0.3 m in heights. The ring round the arch (0.25 m of light stone, a curved extrados 0.05 m
+proud) and the small key at its crown: the photograph shows the arch's face light against the brick,
+but a tree and the shadow hide its mouldings, and the engraving is too small to give them. The
+leaves, their panels and the vestibule behind them are the kit's; no picture shows them. The stoop's
+width; the fence hides the stoop in the photograph.
+**What is still not built.** From the photograph's camera the bay, laid between the 1911 sheet's place
+and the photograph's (the record's bays note), hides the arch's south half and the stone pier the
+picture shows before the bay; the match record holds that open.
+**How to resolve:** a nearer photograph of the entrance, or a plan of the front's bay.
+**Recorded:** 2026-10-30 (T-3256).
