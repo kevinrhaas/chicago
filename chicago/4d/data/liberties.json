@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 870,
+  "count": 871,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60828,6 +60828,37 @@
         "T-1876",
         "T-3241",
         "T-3240"
+      ]
+    },
+    {
+      "id": "L-k01-hibbard-1701-3242",
+      "title": "1701 Prairie's two-level rear veranda and the 1874 range's oriel, read off its rear photograph",
+      "section": "per_subject",
+      "subjects": [
+        "hibbard_house_1701_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work builds the two things Glessner House Museum's rear photograph ([William G. Hibbard house, 1701 S. Prairie Avenue - rear (east) side with the…) shows on the rear of the Hibbard house and earlier work left out, each read through the camera earlier work solved (the ghm rear data): the open veranda of two decks against the main block's rear wall south of the 1874 range, with its garden steps (rear veranda, new module the k01 rear veranda generator, a kit piece any K01 house can carry), and the corbelled oriel on the range's south face at the upper storey (a K08 canted oriel on the wing's wall, which K01 already carried; the wing now leaves its wall standing behind an oriel, as a main wall does, instead of cutting it from grade as it does for a tower). **What is read, not invented.** The veranda's run along the rear wall, v 7.9-14.7 (its north end about 1.1 m clear of the range, its south end the main block's corner), and about 2.6 m out; its lower deck about 1.7-2.0 m over grade (built 1.85, a step under the principal floor) and its upper about 5.1-5.5 m (built 5.2: the rail's top crosses under the upper storey's sills, as the photograph shows); five stations of paired posts along its front, a band of spindles under the upper deck, a balustrade round both decks; the flight coming down off the lower deck's front in its north bay toward the camera. The oriel's place, s 11.9-15.4 along the range's south face (centre 13.65 from the main block), its front about 0.8 m out, its floor at the range's second floor (6.3 m), its corbelling down to about 4.6 m, its wall top under the range's cornice, a pair of round-headed lights in its front and a square-headed one in each cheek; the range's south-face windows moved to the three the photograph's lower storey shows (s 2.6, 7.2 and 10.0), none under the oriel. **What is invented.** The posts' 0.13 m section and 0.14 m pair gap, the stations evenly spaced (the photograph's are not quite), the deck's 0.22 m thickness, the balustrade's 0.85 m height, its rails and its square 0.06 m balusters at 0.16 m (the photograph's are turned), the frieze's 0.35 m depth and its spindles, the flight's 1.0 m width, 0.3 m treads and stone, its cheeks and rails; the whole veranda painted the light trim colour (the photograph is monochrome and reads it pale). The posts carried down to grade where the photograph's planting hides what stands under the lower deck. The oriel's plan (2.6 m front, 0.45 m cants), its stone and its seven corbel courses for the photograph's carved brackets, and its low hip for the carved cresting over it. The range's upper storey keeps a light at s 7.2 that the photograph shows only in its lower storey (a K01 wing cuts one list of lights through every storey). **What is still not built.** The range's heavy bracketed cornice (its deck's fascia stands in for it), the veranda's turned posts and balusters and its brackets, and the photograph's veranda running on south past the main block's corner as the model's main block is built (the camera reads the block about 2 m wider than 's footprint; that is the block's, not the veranda's)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a second picture of the rear, or a measured drawing of the veranda, fixes its sections and heights; a K01 wing with storeys of their own lights fixes the range's upper storey."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3242)."
+        }
+      ],
+      "work_refs": [
+        "T-1875",
+        "T-3240",
+        "T-3242",
+        "T-3241"
       ]
     },
     {

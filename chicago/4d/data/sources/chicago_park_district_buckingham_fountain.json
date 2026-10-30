@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "chicago_park_district_buckingham_fountain",
+  "type": "website",
+  "citation": "Chicago Park District, 'Clarence F. Buckingham Memorial Fountain' (history page).",
+  "author": "Chicago Park District",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1927",
+  "url": "https://www.chicagoparkdistrict.com/node/9009",
+  "locator": "The page's history section.",
+  "rights_note": "A City agency page, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3250) through a fetch that returned the history in short quoted fragments.",
+  "note": "Fragments read: 'Philanthropist and art patron Kate Sturges Buckingham (1858-1937)' gave the funds; the fountain was 'dedicated to her brother, philanthropist and businessman Clarence Buckingham (1854-1913)'; it opened to the public on 26 May 1927 and was dedicated on 26 August 1927; Edward Bennett designed it with the French sculptor Marcel Francois Loyau and the engineer Jacques H. Lambert; modelled on the Latona Basin at Versailles, it 'is twice the size'; its major display sprays water 150 feet high.",
+  "what_it_supplies": [
+    "Kate Sturges Buckingham as the donor and Clarence Buckingham as the brother it honours",
+    "the 1927 opening and dedication dates, its designers, its size against the Latona fountain and its 150-foot jet"
+  ],
+  "what_it_does_not_supply": [
+    "where the Buckinghams lived, which the 1904 Blue Book's Prairie Avenue list gives"
+  ]
+}
