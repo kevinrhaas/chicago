@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The two live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1636 Mrs. H. Morris Johnston"
+      "printed_as": "1636 Mrs. H. Morris Johnston",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 32, leaf n667",
+        "as_enumerated": "Johnston, Mary L",
+        "relation_as_enumerated": "Mother"
+      },
+      "note": "The 1900 census lists Mary L. Johnston here as mother, born March 1841, in Ohio, widowed (ED 36, sheet 2A, line 32, leaf n667)."
     },
     {
       "id": "pa1904_johnston_h_mcb",
@@ -53,10 +63,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1636 H. McB. Johnston",
-      "note": "A son is read from the shared surname under a widow's listing; the Blue Book does not state the relationship."
+      "note": "A son is read from the shared surname under a widow's listing; the Blue Book does not state the relationship. The 1900 census lists Hugh McB. Johnston here as head, born June 1869, in Ohio, single, agt. fire ins. (ED 36, sheet 2A, line 31, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 31, leaf n667",
+        "as_enumerated": "Johnston, Hugh McB.",
+        "relation_as_enumerated": "Head"
+      }
     },
     {
       "id": "pa1904_johnston_morris_l",
@@ -65,10 +83,84 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "1636 Morris L. Johnston",
-      "note": "A son is read from the shared surname under a widow's listing; the Blue Book does not state the relationship. The 1905 edition lists 'Mr. & Mrs. Morris L. Johnston' here, a wife this card does not carry because the 1904 edition does not."
+      "note": "A son is read from the shared surname under a widow's listing; the Blue Book does not state the relationship. The 1905 edition lists 'Mr. & Mrs. Morris L. Johnston' here, a wife this card does not carry because the 1904 edition does not. The 1900 census lists Morris L. Johnston here as brother, born January 1871, in Ohio, single, lawyer (ED 36, sheet 2A, line 33, leaf n667).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 33, leaf n667",
+        "as_enumerated": "Johnston, Morris L",
+        "relation_as_enumerated": "Brother"
+      }
+    },
+    {
+      "id": "pa1904_johnston_mrs_h_morris_c1900_kate_ennis",
+      "name": "Kate Ennis",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1856",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives August 1856, age 43 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "housemaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Housemaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 34, leaf n667",
+        "as_enumerated": "Ennis, Kate",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housemaid); born August 1856, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_johnston_mrs_h_morris_c1900_kate_kennedy",
+      "name": "Kate Kennedy",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1868",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1868, age 32 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 2A, line 35, leaf n667",
+        "as_enumerated": "Kennedy, Kate",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born March 1868, in Iowa, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }

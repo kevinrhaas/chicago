@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jeannie Rothschild (the eldest daughter in 1900; which daughter is the 1904 \"& dr.\" is not known, so the daughters are named in that line's note); Maurice Rothschild (a grown son (given name hard to read) the 1904 Blue Book does not list at the house). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "2112 Mrs. M. M. Rothschild & dr."
+      "printed_as": "2112 Mrs. M. M. Rothschild & dr.",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 26, leaf n822",
+        "as_enumerated": "Rothschild, Rose",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Rose Rothschild here as head, born April 1860, in Illinois, widowed (ED 40, sheet 15A, line 26, leaf n822)."
     },
     {
       "id": "pa1904_rothschild_daughter",
@@ -53,10 +63,11 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2112 Mrs. M. M. Rothschild & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Rothschild' is the book's own form of address, not a recorded name."
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Rothschild' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Jeannie Rothschild (born November 1878 (the figures are hard to read), in Illinois, single; ED 40, sheet 15A, line 27, leaf n822). She is very likely the one the book means, but the book does not say."
     },
     {
       "id": "pa1904_rothschild_jesse",
@@ -65,10 +76,249 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2112 Jesse Rothschild",
-      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship. The 1900 census lists Jesse Rothschild here as son, born February 1886 (the figures are hard to read), in Illinois, at school (ED 40, sheet 15A, line 29, leaf n822).",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 29, leaf n822",
+        "as_enumerated": "Rothschild, Jesse",
+        "relation_as_enumerated": "Son"
+      }
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_emma_rothschild",
+      "name": "Emma Rothschild",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1887",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1887, age 12 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "at school",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"At school\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 30, leaf n822",
+        "as_enumerated": "Rothschild, Emma",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head (at school); born December 1887, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_gertrude_rothschild",
+      "name": "Gertrude Rothschild",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1885",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1885, age 15 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "at school",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"At school\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 31, leaf n822",
+        "as_enumerated": "Rothschild, Gertrude",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head (at school); born January 1885 (the figures are hard to read), in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_may_dick",
+      "name": "May Dick",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1873",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1873, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "companion",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Companion\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 32, leaf n822",
+        "as_enumerated": "Dick, May",
+        "relation_as_enumerated": "Companion"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a companion; born February 1873, in England, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_charlotte_carlson",
+      "name": "Charlotte Carlson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives November 1870, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "parlor maid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Parlor maid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 33, leaf n822",
+        "as_enumerated": "Carlson, Charlotte",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born November 1870 (the figures are hard to read), in Sweden, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_augusta_johnson",
+      "name": "Augusta Johnson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1875",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives October 1875, age 24 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "chambermaid",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Chambermaid\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 34, leaf n822",
+        "as_enumerated": "Johnson, Augusta",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born October 1875 (the figures are hard to read), in Sweden, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_may_swanson",
+      "name": "May Swanson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives April 1871, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "laundress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Laundress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 35, leaf n822",
+        "as_enumerated": "Swanson, May",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born April 1871, in Sweden, came to the United States in 1890, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_rothschild_mrs_m_m_c1900_christ_jorgensen",
+      "name": "Christ Jorgensen",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1871, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "horseman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Horseman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 15A, line 36, leaf n822",
+        "as_enumerated": "Jorgensen, Christ",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (horseman); born May 1871 (the figures are hard to read), in Denmark, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
     }
   ]
 }

@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1812 Mr. & Mrs. Lawrence A. Young"
+      "printed_as": "1812 Mr. & Mrs. Lawrence A. Young",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 33, leaf n802",
+        "as_enumerated": "Young, Lawrence A.",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Lawrence A. Young here as head, born May 1870, in Kentucky, married, lawyer (ED 40, sheet 5A, line 33, leaf n802)."
     },
     {
       "id": "pa1904_young_mrs_lawrence_a",
@@ -53,9 +63,307 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1812 Mr. & Mrs. Lawrence A. Young"
+      "printed_as": "1812 Mr. & Mrs. Lawrence A. Young",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 34, leaf n802",
+        "as_enumerated": "Young, Mattie W.",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Mattie W. Young here as wife, born September 1873, in Illinois, married (ED 40, sheet 5A, line 34, leaf n802)."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_henry_w_young",
+      "name": "Henry W. Young",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1894",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1894, age 5 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "at school",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"At school\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 35, leaf n802",
+        "as_enumerated": "Young, Henry W.",
+        "relation_as_enumerated": "Son"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (at school); born December 1894, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_alice_young",
+      "name": "Alice Young",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1898",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1898, age 2 on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 36, leaf n802",
+        "as_enumerated": "Young, Alice",
+        "relation_as_enumerated": "Daughter"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_katie_lyden",
+      "name": "Katie Lyden",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1874",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1874, age 26 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Waitress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 37, leaf n802",
+        "as_enumerated": "Lyden, Katie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born March 1874, in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_rose_annie_colwell",
+      "name": "Rose Annie Colwell",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1853",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives May 1853, age 47 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "laundress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Laundress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 38, leaf n802",
+        "as_enumerated": "Colwell, Rose Annie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born May 1853, in Ireland, came to the United States in 1868, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_elizabeth_mcgregor",
+      "name": "Elizabeth McGregor",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives December 1871, age 28 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 39, leaf n802",
+        "as_enumerated": "McGregor, Elizabeth",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born December 1871, in Scotland, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_lizzie_hale",
+      "name": "Lizzie Hale",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives January 1871, age 29 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "nurse (children)",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Nurse (children)\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 40, leaf n802",
+        "as_enumerated": "Hale, Lizzie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born January 1871, in England, came to the United States in 1895, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_margaret_flaherty",
+      "name": "Margaret Flaherty",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1869",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1869, age 31 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "nurse (infant)",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Nurse (infant)\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 41, leaf n802",
+        "as_enumerated": "Flaherty, Margaret",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (infant)); born March 1869, in Wisconsin, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_thomas_goodwin",
+      "name": "Thomas Goodwin",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1871",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives June 1871, age 28 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 42, leaf n802",
+        "as_enumerated": "Goodwin, Thomas",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1871 (the figures are hard to read), in England, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_young_lawrence_a_c1900_william_wellington",
+      "name": "William Wellington",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1872",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1872, age 27 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "groom",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Groom\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 5A, line 43, leaf n802",
+        "as_enumerated": "Wellington, William",
+        "relation_as_enumerated": "Roomer"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a roomer (groom); born February 1872, in England, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }

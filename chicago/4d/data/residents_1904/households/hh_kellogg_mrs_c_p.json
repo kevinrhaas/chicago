@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: Charles Kellogg (written \"abroad\"; the surname is hard to read). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -57,6 +58,39 @@
       ],
       "printed_as": "1923 Mrs. Lois Kellogg",
       "note": "Listed at 1923 in both editions. The Blue Book does not say how she was related to Mrs. C. P. Kellogg."
+    },
+    {
+      "id": "pa1904_kellogg_mrs_c_p_c1900_thomas_nelson",
+      "name": "Thomas Nelson",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1866",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives February 1866, age 33 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "coachman",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 4B, line 56, leaf n801",
+        "as_enumerated": "Nelson, Thomas",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born February 1866, in Sweden, came to the United States in 1884, married. Living with him: Nellie Nelson (wife), Hilda Nelson (daughter), Eugenie Nelson (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }

@@ -29,9 +29,10 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The two live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
     "sources": [
-      "chicago_blue_book_1904"
+      "chicago_blue_book_1904",
+      "census_1900_chicago_t623_roll245"
     ]
   },
   "persons": [
@@ -42,9 +43,18 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1608 Mr. & Mrs. Henry L. Frank"
+      "printed_as": "1608 Mr. & Mrs. Henry L. Frank",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 5, leaf n669",
+        "as_enumerated": "Frank, Henry L",
+        "relation_as_enumerated": "Head"
+      },
+      "note": "The 1900 census lists Henry L. Frank here as head, born December 1839, in Germany, came to the United States in 1852, married, real estate dealer (ED 36, sheet 3A, line 5, leaf n669)."
     },
     {
       "id": "pa1904_frank_mrs_henry_l",
@@ -53,9 +63,84 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1900_chicago_t623_roll245"
       ],
-      "printed_as": "1608 Mr. & Mrs. Henry L. Frank"
+      "printed_as": "1608 Mr. & Mrs. Henry L. Frank",
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 6, leaf n669",
+        "as_enumerated": "Frank, Henriette",
+        "relation_as_enumerated": "Wife"
+      },
+      "note": "The 1900 census lists Henriette Frank here as wife, born June 1854, in Illinois, married (ED 36, sheet 3A, line 6, leaf n669)."
+    },
+    {
+      "id": "pa1904_frank_henry_l_c1900_maggie_biehl",
+      "name": "Maggie Biehl",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1861",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1861, age 39 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "cook",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 7, leaf n669",
+        "as_enumerated": "Biehl, Maggie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born March 1861, in Pennsylvania, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+    },
+    {
+      "id": "pa1904_frank_henry_l_c1900_jennie_mickel",
+      "name": "Jennie Mickel",
+      "relationship": "servant",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "born": {
+        "value": "1869",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The census gives March 1869, age 31 on 1 June 1900."
+      },
+      "occupation": {
+        "value": "waitress",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Written as \"Waitress\" in the occupation column on 1 June 1900."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 36, sheet 3A, line 8, leaf n669",
+        "as_enumerated": "Mickel, Jennie",
+        "relation_as_enumerated": "Servant"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born March 1869, in Iowa, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
     }
   ]
 }
