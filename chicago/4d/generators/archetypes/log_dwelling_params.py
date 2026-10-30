@@ -137,16 +137,16 @@ LIGHT_HALF_H_M = 0.40
 # no archetype could read them for as long as `from_phase` took only a phase, and it
 # is what `docs/RESEARCH/materials.md` §4 finding 4 was pointing at.
 CONSUMED = frozenset({
-    "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction", "roof_ridge_axis", "front_gable_cladding",
+    "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction", "roof_ridge_axis", "front_gable_cladding", "end_gable_courses",
     "loft", "chimneys", "sign", "sign_mount", "sign_device", "frame_paint",
     "frame_addition", "frame_addition_side", "frame_addition_width_m",
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
-    "frame_addition_cladding",
+    "frame_addition_cladding", "frame_addition_ridge_stack", "frame_addition_upper_windows", "frame_addition_front_set_out", "frame_addition_roof_pitch_deg",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
     "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
-    "ridge_stack_w_m", "ridge_stack_head_m", "hip_end", "hip_inset_m",
+    "ridge_stack_w_m", "ridge_stack_head_m", "ridge_stack_cap_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition", "roof_colour", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
 })
@@ -215,6 +215,8 @@ class LogDwellingParams:
     # Optional school-reference horizontal courses on the +Y core gable only.
     # None preserves all existing legacy outputs; exact section is reconstructed.
     front_gable_cladding: str | None = field(default=None, kw_only=True)
+    # Pictured horizontal courses on the +X gable only; None leaves legacy caps.
+    end_gable_courses: str | None = field(default=None, kw_only=True)
 
     # a sleeping or storage loft under the roof. From outside this is a gable-end
     # opening and nothing else, which is honest: a loft leaves no other external
@@ -241,6 +243,16 @@ class LogDwellingParams:
     frame_addition_height_m: float | None = None
     # Opt-in pictured finish; the default preserves every existing frame block.
     frame_addition_cladding: str = field(default="clapboard", kw_only=True)
+    # Pictured short flue through the addition's own ridge: (fraction, width, head
+    # above ridge). None keeps the existing exterior end stack. All metric choices
+    # are reconstructed; this never relocates the log core's separate first stack.
+    frame_addition_ridge_stack: tuple | None = field(default=None, kw_only=True)
+    # A pictured upper front row on a two-storey front addition. None preserves
+    # the existing pair; ground-floor windows/door and end additions never change.
+    frame_addition_upper_windows: int | None = field(default=None, kw_only=True)
+    # Opt-in front rectangles of the frame range, local to its own x origin.
+    frame_addition_front_set_out: tuple | None = field(default=None, kw_only=True)
+    frame_addition_roof_pitch_deg: float | None = field(default=None, kw_only=True)
     frame_paint: str = "unpainted"
 
     # THE PIAZZA (T-2497): a full-front porch on posts under its own shed roof, the
@@ -285,6 +297,8 @@ class LogDwellingParams:
     # How far that stack's head stands over the ridge, in metres (T-2485). None keeps
     # the builder's 0.95 m.
     ridge_stack_head_m: float | None = None
+    # (projection beyond each shaft face, thickness), reconstructed metres.
+    ridge_stack_cap_m: tuple | None = field(default=None, kw_only=True)
     # ONE END HIPPED (T-2485): "min" or "max", the end of the ridge's axis whose roof
     # a picture draws as a hip plane falling from the ridge's end to the eave, rather
     # than a gable. None keeps the gable at both ends, which every other record has.
@@ -405,12 +419,33 @@ class LogDwellingParams:
         return max((self.conf(a) for a in attrs), default=1.0)
 
     @property
+    def resolved_addition_roof_pitch_deg(self) -> float:
+        return self.roof_pitch_deg if self.frame_addition_roof_pitch_deg is None else self.frame_addition_roof_pitch_deg
+
+    @property
     def addition_height_m(self) -> float:
         if self.frame_addition_height_m is not None:
             return self.frame_addition_height_m
         return 2.55 if self.frame_addition_stories == 1 else 4.7
 
     def validate(self) -> None:
+        if self.end_gable_courses not in (None, "+x"):
+            raise ParamError("end_gable_courses is None or +x")
+        if self.end_gable_courses is not None:
+            if (self.roof_type != "gable" or self.hip_end is not None or
+                    self.compound_parts or self.frame_addition or self.loft or
+                    self.front_gable_cladding is not None or
+                    resolved_core_ridge_axis(self) != "x"):
+                raise ParamError("end gable courses require a simple +X gable without hip, compound, frame addition or loft")
+        if self.ridge_stack_cap_m is not None:
+            cap = self.ridge_stack_cap_m
+            if (self.chimney_ridge_at is None or self.compound_parts or
+                    len(self.chimney_ridge_at) != 1 or not isinstance(cap, (tuple, list)) or
+                    len(cap) != 2 or any(isinstance(v, bool) or not isinstance(v, (int, float)) or
+                                         not math.isfinite(v) for v in cap)):
+                raise ParamError("ridge_stack_cap_m needs one simple ridge stack and two finite dimensions")
+            if not (0.02 <= cap[0] <= 0.20 and 0.04 <= cap[1] <= 0.25):
+                raise ParamError("ridge_stack_cap_m needs 0.02..0.20m projection and 0.04..0.25m thickness")
         if self.front_gable_cladding not in (None, "log_courses"):
             raise ParamError("front_gable_cladding is None or log_courses")
         if self.front_gable_cladding is not None:
@@ -586,6 +621,59 @@ class LogDwellingParams:
             if not 1.5 <= self.lean_to_wall_m <= self.wall_height_m:
                 raise ParamError(f"lean_to_wall_m {self.lean_to_wall_m} outside "
                                  f"1.5..{self.wall_height_m}: a lean-to is lower than the house")
+        if self.frame_addition_roof_pitch_deg is not None:
+            v = self.frame_addition_roof_pitch_deg
+            if not self.frame_addition or isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or not 15 <= v <= 55:
+                raise ParamError("frame_addition_roof_pitch_deg needs an addition and a finite15..55 degree pitch")
+        if self.frame_addition_front_set_out is not None:
+            if not self.frame_addition or self.frame_addition_side != "end" or self.frame_addition_stories != 2:
+                raise ParamError("frame_addition_front_set_out needs a two-storey end addition")
+            if self.frame_addition_upper_windows is not None:
+                raise ParamError("use either explicit frame front set-out or upper count, never both")
+            spec = self.frame_addition_front_set_out
+            if not isinstance(spec, tuple) or not 1 <= len(spec) <= 12:
+                raise ParamError("frame_addition_front_set_out needs 1..12 rectangles")
+            for row in spec:
+                if not isinstance(row, (tuple, list)) or len(row) != 5 or row[0] not in ("window", "door"):
+                    raise ParamError("frame front rectangle is (kind,u0,u1,z0,z1)")
+                kind, u0, u1, z0, z1 = row
+                if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in row[1:]):
+                    raise ParamError("frame front rectangle needs finite numeric coordinates")
+                if not 0.15 <= u0 < u1 <= self.frame_addition_width_m-0.15 or not 0 <= z0 < z1 <= self.addition_height_m-0.15:
+                    raise ParamError("frame front rectangle exceeds wall bounds")
+                if kind == "door" and (z0 > 0.05 or z1 > self.addition_height_m/2-0.15):
+                    raise ParamError("frame front door must stand on ground below upper floor")
+            for story in range(2):
+                lo, hi = story*self.addition_height_m/2, (story+1)*self.addition_height_m/2
+                if not any(row[0] == "window" and lo <= row[3] < row[4] <= hi for row in spec):
+                    raise ParamError("explicit frame front needs a window band in each storey")
+            if sum(row[0] == "door" for row in spec) != 1:
+                raise ParamError("explicit frame front needs one ground door")
+            for i, a in enumerate(spec):
+                for b in spec[i+1:]:
+                    if max(a[3],b[3]) < min(a[4],b[4]) and max(a[1]-b[2],b[1]-a[2]) < 0.15:
+                        raise ParamError("frame front rectangles overlap or lack pier clearance")
+        if self.frame_addition_upper_windows is not None:
+            n = self.frame_addition_upper_windows
+            if isinstance(n, bool) or not isinstance(n, int) or not 1 <= n <= 3:
+                raise ParamError("frame_addition_upper_windows is a whole count in 1..3")
+            if not self.frame_addition or self.frame_addition_side != "front" or self.frame_addition_stories != 2:
+                raise ParamError("frame_addition_upper_windows needs a two-storey front addition")
+            span = self.frame_addition_width_m
+            if span * 0.22 < ADDITION_WIN_HALF_M or (n > 1 and span * 0.56 / (n - 1) <= 2 * ADDITION_WIN_HALF_M):
+                raise ParamError("frame_addition_upper_windows overlaps its neighbour or wall edge")
+        if self.frame_addition_ridge_stack is not None:
+            if not self.frame_addition or self.chimneys != 2 or self.chimney_ridge_at is not None:
+                raise ParamError("frame_addition_ridge_stack needs one core stack and one "
+                                 "addition stack, not a core-ridge list")
+            spec = self.frame_addition_ridge_stack
+            if len(spec) != 3 or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                                     or not math.isfinite(v) for v in spec):
+                raise ParamError("frame_addition_ridge_stack is (ridge fraction, width m, head m)")
+            f, width, head = spec
+            if not 0.05 <= f <= 0.95 or not 0.4 <= width <= 1.2 or not 0.3 <= head <= 1.5:
+                raise ParamError("frame_addition_ridge_stack needs fraction 0.05..0.95, "
+                                 "width 0.4..1.2 m and head 0.3..1.5 m")
         if self.chimney_ridge_at is not None:
             if len(self.chimney_ridge_at) != self.chimneys:
                 raise ParamError(f"chimney_ridge_at names {len(self.chimney_ridge_at)} stacks "
@@ -695,7 +783,7 @@ class LogDwellingParams:
                                  f"in the gable above it, not both")
 
     def _validate_set_out(self) -> None:
-        if self.stories != 1 or self.frame_addition:
+        if self.stories != 1 or (self.frame_addition and self.frame_addition_side != "end"):
             raise ParamError("front_set_out states a one-storey log front; this record "
                              "has an upper storey or a frame addition")
         x0, _y0, x1, _y1 = core_extent(self)
@@ -809,6 +897,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         roof_ridge_axis=(None if val("roof_ridge_axis") is None
                          else str(val("roof_ridge_axis"))),
         front_gable_cladding=val("front_gable_cladding"),
+        end_gable_courses=val("end_gable_courses"),
         loft=bool(val("loft", False)),
         chimneys=int(val("chimneys", 1)),
         frame_addition=bool(val("frame_addition", False)),
@@ -819,6 +908,13 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
                                          round(depth * 0.5, 3))),
         frame_addition_stories=int(val("frame_addition_stories", 2)),
         frame_addition_cladding=str(val("frame_addition_cladding", "clapboard")),
+        frame_addition_ridge_stack=(None if val("frame_addition_ridge_stack") is None
+                                    else tuple(val("frame_addition_ridge_stack"))),
+        frame_addition_upper_windows=val("frame_addition_upper_windows"),
+        frame_addition_roof_pitch_deg=val("frame_addition_roof_pitch_deg"),
+        frame_addition_front_set_out=(None if val("frame_addition_front_set_out") is None else
+            tuple((o["kind"], o["u0"], o["u1"], o["z0"], o["z1"])
+                  for o in val("frame_addition_front_set_out"))),
         frame_addition_height_m=(None if val("frame_addition_height_m") is None
                                  else float(val("frame_addition_height_m"))),
         frame_paint=str(val("frame_paint", "unpainted")),
@@ -851,6 +947,8 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
                          else float(val("ridge_stack_w_m"))),
         ridge_stack_head_m=(None if val("ridge_stack_head_m") is None
                             else float(val("ridge_stack_head_m"))),
+        ridge_stack_cap_m=(None if val("ridge_stack_cap_m") is None
+                           else tuple(val("ridge_stack_cap_m"))),
         hip_end=(None if val("hip_end") is None else str(val("hip_end"))),
         hip_inset_m=(None if val("hip_inset_m") is None else float(val("hip_inset_m"))),
         lean_to=bool(val("lean_to", False)),
@@ -1052,6 +1150,9 @@ def addition_front_rects(p: "LogDwellingParams") -> list[tuple]:
     if not p.frame_addition:
         return []
     ax0, _ay0, ax1, _ay1 = addition_extent(p)
+    if p.frame_addition_front_set_out is not None:
+        return [(kind, ax0+u0, ax0+u1, z0, z1)
+                for kind,u0,u1,z0,z1 in p.frame_addition_front_set_out]
     az = p.addition_height_m
     xm = (ax0 + ax1) / 2.0
     story_h = az / max(p.frame_addition_stories, 1)
@@ -1061,7 +1162,12 @@ def addition_front_rects(p: "LogDwellingParams") -> list[tuple]:
         out.append(("door", xm - 0.55, xm + 0.55, 0.02, 2.05))
     for story in range(p.frame_addition_stories):
         z0 = story * story_h + story_h * 0.32
-        for fx in (0.22, 0.78):
+        fractions = (0.22, 0.78)
+        if story > 0 and p.frame_addition_upper_windows is not None:
+            n = p.frame_addition_upper_windows
+            fractions = ((0.5,) if n == 1 else
+                         tuple(0.22 + (0.78 - 0.22) * k / (n - 1) for k in range(n)))
+        for fx in fractions:
             u = ax0 + (ax1 - ax0) * fx
             if story == 0 and front and abs(u - xm) < 0.9:
                 continue
@@ -1094,6 +1200,9 @@ def front_wall(p: "LogDwellingParams") -> dict:
         if p.frame_addition and p.frame_addition_side == "end":
             rects += addition_front_rects(p)
             u1 = p.width_m
+            if p.frame_addition_front_set_out is not None:
+                # Bounding envelope of the explicitly mixed-height front.
+                top = max(top, p.addition_height_m)
     openings = [{"kind": k, "u0": a, "u1": c, "z0": z0, "z1": z1}
                 for k, a, c, z0, z1 in rects]
     if p.sign is not None and p.sign_mount == "bracket":

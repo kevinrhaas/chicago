@@ -52,8 +52,8 @@
     {
       "scene": "1835",
       "structure": "hogan_store",
-      "picture": "cameron_c1900_first_post_office",
-      "why": "Cameron's retrospective halftone shows the whole log building at left, including its roof and two elevations, and its printed caption identifies Chicago's first post office in 1833. This is a reasonable picture of the building under rule 12; it does not attest dimensions, hidden elevations, continued survival/use on 1 July 1835 or a solved historical camera. Local caption inspected for T-2377, 2026-10-22."
+      "picture": "early-cameron-first-post-office-1833",
+      "why": "Cameron's retrospective halftone shows the whole log building at left, including its roof and two elevations, and its printed caption identifies Chicago's first post office in 1833. This is a reasonable picture of the building under rule 12; it does not attest dimensions, hidden elevations, continued survival/use on 1 July 1835 or a solved historical camera. Local caption inspected for T-2377, 2026-10-22. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
     },
     {
       "scene": "1835",
@@ -70,8 +70,8 @@
     {
       "scene": "1835",
       "structure": "miller_house",
-      "picture": "blanchard_shober_1867_wolf_point",
-      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2381, depicts Miller House whole at right: tall main block, log lower storey, vertically boarded upper storey/gable and adjoining low cabin. This is a reasonable retrospective picture under rule 12, not proof of surveyed dimensions, unchanged July 1835 appearance, occupancy or a completed match. Existing per-attribute inferred/reconstructed grades remain."
+      "picture": "early-blanchard-shober-1867-wolf-point",
+      "why": "The actual NYPL Wolf's Point in 1833 lithograph (published 1867), inspected 2026-10-23 for T-2381, depicts Miller House whole at right: tall main block, log lower storey, vertically boarded upper storey/gable and adjoining low cabin. This is a reasonable retrospective picture under rule 12, not proof of surveyed dimensions, unchanged July 1835 appearance, occupancy or a completed match. Existing per-attribute inferred/reconstructed grades remain. The canonical library id aliases this same held composition, rather than adding a second independent picture; original source credit and per-attribute grades remain."
     },
     {
       "scene": "1835",
@@ -118,8 +118,8 @@
     {
       "scene": "1835",
       "structure": "chicago_lighthouse_1832",
-      "picture": "castelnau_1842_chicago_harbor",
-      "why": "The identified 1842 Castelnau harbour print shows the distinct full visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a solved camera or unchanged July 1835 detail. Circa 1838-to 1835 continuity remains inferred and every source comparison still differs."
+      "picture": "early-castelnau-1842-chicago-harbor",
+      "why": "The identified 1842 Castelnau harbour print shows the distinct visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a historical viewing station or unchanged July 1835 detail. Circa 1838-to-1835 continuity remains inferred. The canonical Castelnau comparison now matches under T-3153; the Kellogg aperture/proportion and Baker cap disagreements remain explicit conflicting-picture readings, not literal matches. Tiny or occluded features and the original source/date/rights limits remain qualified in the seven-picture review."
     }
   ],
   "not_pictured": [
