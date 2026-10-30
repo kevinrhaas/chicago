@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie_conservatory",
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
-  "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29",
+  "glb_sha256": "e233704a5b133904c8e799e0e55ed60d37fc888855ecc1b5eee25493a7152492",
   "camera_sha256": "5900f5ed1e51c04bb5271483786beb3b193afee05bbb422f6883656fef5a1f9f",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "502e8e67f677689132a23f0c81a7757b8b3e697a5ec9a04324411125bfd01c29"
+      "glb_sha256": "e233704a5b133904c8e799e0e55ed60d37fc888855ecc1b5eee25493a7152492"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf"
+      "glb_sha256": "6d1b13e5ffee5726fa819c988dfc1af83421dc64bb1d1377a72b9a2171f57b72"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,19 +61,19 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "ef7e920e85f86ca2eadd287434236af4fd94e92d0dc65e9e499b20250d8ce5fb"
+      "glb_sha256": "bd90124bfae8b9a902b12bf84f0dc5698ba3c80f5cbfd1c57736b5a71c518b8f"
     }
   ],
-  "group_sha256": "794028677866dfb91a9bb4da8b02eb492b4801e491c03b70849ed26f8ac2cbd5",
+  "group_sha256": "d68a2c7766f5b2d3b6d49384b060e7e474210db2516b2d5af07127c64344ea2b",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 10,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 0
       }
     ],
     "street_trees": 26,
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "9f1dc94e5a3c7a6a48e3d38a468a5eb6427de53a28d608709b854d7deb527187",
+  "flora_sha256": "04e0c84cee1305cdd9c665e268b92d5d5adac7be646c717e5b4115e4ada77672",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -170,7 +170,7 @@
       "how": "T-3153: drawn as solid parapets, octagonal shafts and a plain wall; heights, places and outlines agree within about 0.3 m, so the difference is in relief and openwork under the bar"
     },
     {
-      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled",
+      "what": "the wing's face reads darker than the stable's in the print, the build draws both in a light stone; whether that is the stone or the trees' shade over it is not settled [T-1934, 2026-10-30: the wing, its rustication and pilasters and the stable are now one mid-toned stone, read from the winter print 16554, where the two print alike; this print's darker wing is left to the trees' shade. Still open here, since this print alone cannot tell stone from shade.]",
       "status": "open",
       "how": "in the trees' shade (the print's own shadows); the 1894 Inland plate shows the range and the stable in the same light stone, which the render follows. Colour itself is not shown (a monochrome print)"
     },
@@ -237,7 +237,7 @@
       "status": "fixed"
     },
     {
-      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace Through T-1934's re-solved camera: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [The pixel positions above were read through the camera before T-1934's second re-solve; through the new one the build's piers either side of the flight render at x 265-300 and 350-380, where the print's stand at x 280-303 and 355-375, and the print's two flights and cheek walls are still one flight in the build.]",
+      "what": "the terrace's approach: two flights rising from the walk between low curved cheek walls and square piers (x 210-830 px), where the build has one flight from grade to the terrace Through T-1934's re-solved camera: the print's low curved cheek wall falls from the pier at x 280-303 (the build's second pier west of the drum renders there) east to behind the dead tree, where the build's curving low wall stands between its third and fourth piers (x 436-621); the print's piers east of the drum stand at x 483-517, 528-553 (set back, at the head of a short flight), 577-605 and 772-800, with a curving way into the court about 4 m wide between the last two; the build's fourth and fifth piers render at x 621-660 and 700-738 with a 0.95 m opening between them. The 1894 Inland plate's camera, fitted on these pier bases, puts the build's fifth pier and its urn within 30 px, so the two pictures disagree on this stretch and neither is built over the other yet [The pixel positions above were read through the camera before T-1934's second re-solve; through the new one the build's piers either side of the flight render at x 265-300 and 350-380, where the print's stand at x 280-303 and 355-375, and the print's two flights and cheek walls are still one flight in the build.] [T-1934, 2026-10-30: the wall now opens 3.35 m at the court's mouth (the build's 0.95 m opening is gone), and a gravel drive (reconstructed) runs through it up the court to the stable's central arch; in the side-by-side the opening falls about where the print's curving way into the court does, judged by eye, not measured. Still open: the piers' places either side of it and the print's curving cheek walls (L-pullman-carriage-ways-1934).]",
       "status": "open"
     },
     {
@@ -264,6 +264,11 @@
     {
       "what": "the terrace's tub plants (T-1934, 2026-10-29): the 1894 plate sets a ball clipped on its tub just east of its flight, where this print has the urn on the pier and slim cones; tubs were carried in each winter and set out again, so the two summers' arrangements are not one building's difference. Built to the plate",
       "status": "within tolerance"
+    },
+    {
+      "what": "the stable's and the palm house range's walls: the print sets both in one mid-toned stone, a little over the slate's tone and about 1.5 times the brownstone's, where the build drew the stable in the draft's light stone and the range, its rustication and pilasters lighter still",
+      "status": "fixed",
+      "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.232, 0.209, 0.168), read off the winter print 16554 (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

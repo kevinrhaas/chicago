@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fba95baf7ef467be98af89c3567a0bbb511d261224c8e1bf31f3c95b626602cf",
+  "glb_sha256": "6d1b13e5ffee5726fa819c988dfc1af83421dc64bb1d1377a72b9a2171f57b72",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 27,
+        "shrubs": 10,
         "trees": 3,
         "beds": 0,
-        "creeper": 6
+        "creeper": 0
       }
     ],
     "street_trees": 31,
@@ -65,7 +65,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "02bbccccbd042439d667c8507add36e833e76dc7c1640ace5c3934f67e0bc018",
+  "flora_sha256": "6974a35e42ff7fa0f00189b83c1257a1e96ab7be6d1c18edff47595fdf3a9de9",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -71,6 +71,9 @@ ROLE_MATERIAL = {
     "bench": "staging", "plant": "foliage", "floor": "floor",
     "wall": "house_wall", "ground": "ground",
     "host_band": "house_wall",
+    # T-1934: the wing's own dressed face (its rustication, pilasters and cornice) is the wall's
+    # stone, which the record's `host_wall.color` sets; the drum's dress stays the kit's `stone`
+    "host_stone": "house_wall",
     "stonework": "stone", "dome": "glass_substitute", "dome_rib": "frame", "opening": "dark",
     "sky_glass": "glass_sky", "sash": "sash", "interior": "interior_shade",
 }
@@ -1540,7 +1543,9 @@ def _wall_dress(h: House, host: dict, x0: float, x1: float):
     """T-1934: the wing's south face as the Inland plate and Taylor's 16555 show it: banded
     rustication (courses standing a few centimetres proud of the wall, so each joint reads as a
     line of the wall's own darker tone), broad pilasters with caps, and a moulded cornice under
-    the parapet. Courses stop at the palm house, at each opening and behind each pilaster."""
+    the parapet. Courses stop at the palm house, at each opening and behind each pilaster. All of it
+    is the wall's own stone (`host_stone`): in the winter print the face prints as dark as the
+    wall, and only the drum's columns print lighter."""
     H = host["height_m"]
     ru, pi_, co = host.get("rustication"), host.get("pilasters"), host.get("cornice")
     if ru:
@@ -1564,22 +1569,22 @@ def _wall_dress(h: House, host: dict, x0: float, x1: float):
                 runs.append((cur, x1))
             for a, b in runs:
                 if b - a > 0.1:
-                    h.face("stonework", [(a, ya, d), (b, ya, d), (b, yb, d), (a, yb, d)], (0, 0, 1))
-                    h.face("stonework", [(a, yb, 0.0), (b, yb, 0.0), (b, yb, d), (a, yb, d)], Y)
-                    h.face("stonework", [(a, ya, d), (b, ya, d), (b, ya, 0.0), (a, ya, 0.0)], (0, -1, 0))
+                    h.face("host_stone", [(a, ya, d), (b, ya, d), (b, yb, d), (a, yb, d)], (0, 0, 1))
+                    h.face("host_stone", [(a, yb, 0.0), (b, yb, 0.0), (b, yb, d), (a, yb, d)], Y)
+                    h.face("host_stone", [(a, ya, d), (b, ya, d), (b, ya, 0.0), (a, ya, 0.0)], (0, -1, 0))
             y += ru["course_m"]
     if pi_:
         w, out, y0 = pi_["width_m"], pi_["out_m"], pi_.get("from_m", 0.0)
         y1 = H - (co["height_m"] if co else 0.0)
         for c in pi_["at_m"]:
-            _prism(h, "stonework", [(c - w / 2, -0.02), (c + w / 2, -0.02), (c + w / 2, out), (c - w / 2, out)],
+            _prism(h, "host_stone", [(c - w / 2, -0.02), (c + w / 2, -0.02), (c + w / 2, out), (c - w / 2, out)],
                    y0, y1 - pi_["cap_m"], top=False)
-            _prism(h, "stonework", [(c - w / 2 - 0.06, -0.02), (c + w / 2 + 0.06, -0.02), (c + w / 2 + 0.06, out + 0.06),
+            _prism(h, "host_stone", [(c - w / 2 - 0.06, -0.02), (c + w / 2 + 0.06, -0.02), (c + w / 2 + 0.06, out + 0.06),
                                     (c - w / 2 - 0.06, out + 0.06)], y1 - pi_["cap_m"], y1, top=False, bottom=True)
     if co:    # stopped either side of the drum, whose own cornice carries it round
         g = co["clear_of_drum_m"]
         for a, b in ((x0, -g), (g, x1)):
-            _prism(h, "stonework", [(a, -0.025), (b, -0.025), (b, co["out_m"]), (a, co["out_m"])],
+            _prism(h, "host_stone", [(a, -0.025), (b, -0.025), (b, co["out_m"]), (a, co["out_m"])],
                    H - co["height_m"], H + 0.02, bottom=True)
 
 

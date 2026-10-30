@@ -47,6 +47,13 @@ engraving), whose walk comes out from the stoop's foot through the gap the stoop
 between the garden's wall and its fence. And a boarded street line that closes its side yard's
 mouth unbroken (1616's, `k11.fence.side_boards` with no side gate) lays no service walk: there is
 no gate for one to come through.
+
+T-1934: a yard can name carriage `drives` (1729 Prairie's two): each a gravel ribbon `width_m`
+wide along its `centre_m` points [x, s, lift], its bends rounded, worn in two wheel tracks at a
+carriage's gauge (`path_wear` drive), and opening into any `aprons_m` [x0, x1, s0, s1, lift]
+before a door. A drive can run far beyond the front yard (1729's to the stable's arch), over
+ground that rises above the house's base, so each point carries the rise measured under it and
+the drive is laid after the front yard's grade lift, which knows only the front yard's.
 """
 
 from __future__ import annotations
@@ -69,6 +76,7 @@ SURFACES = {"turf": "yard_turf", "earth": "yard_earth", "cinder": "yard_cinder",
             "stone_flags": "stoop_stone"}
 UP = (0.0, 1.0, 0.0)
 LAWN, FRONT_WALK, SERVICE_WALK = "k14.yard.lawn", "k14.yard.front_walk", "k14.yard.service_walk"
+DRIVE = "k14.yard.drive"
 # the boundary layouts whose yard `dress_open` lays: a coping wall (T-3206), an open front and a
 # front garden (T-3215), each handing K14 its back face (`inner_x_m`) and its openings
 OPEN_LAYOUTS = (k11_frontage.COPING, k11_frontage.OPEN, k11_frontage.GARDEN)
@@ -222,11 +230,18 @@ def dress(a):
         return
     g = _grade_spec(y)
     if g is None:
-        return _dress(a, y)
-    marks = {m: len(a.prims[m].pos) if m in a.prims else 0 for m in YARD_MATS}
-    out = _dress(a, y)
-    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == k11_frontage.STREET_FRONT)
-    _lift(a, g, marks, p.stoop_s_m(door.s_m), p.depth_m + p.entrance_kit["front_yard_m"])
+        out = _dress(a, y)
+    else:
+        marks = {m: len(a.prims[m].pos) if m in a.prims else 0 for m in YARD_MATS}
+        out = _dress(a, y)
+        door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == k11_frontage.STREET_FRONT)
+        _lift(a, g, marks, p.stoop_s_m(door.s_m), p.depth_m + p.entrance_kit["front_yard_m"])
+    # T-1934: the drives after the lift, which measures only the front yard's rise: a drive
+    # carries its own, point by point, measured where it runs
+    if y.get("drives"):
+        K = _cond()
+        n = lay_drives(a, y, K.Condition(), K.property_seed(a.sid), float(y["built"]), p.conf("yard"))
+        a.yard["drive_triangles"] = n
     return out
 
 
@@ -414,7 +429,100 @@ def open_spec(params, y: dict) -> dict:
             raise ValueError("yard.service_walk: a cinder or stone_flags walk down the 'south' or 'north' passage")
         if not 0.62 <= float(sw["wear_tone"]) <= 1.0:
             raise ValueError(f"yard.service_walk.wear_tone {sw['wear_tone']} is under the kit's floor (0.62)")
+    for i, d in enumerate(y.get("drives") or ()):
+        if d.get("surface") != "gravel":
+            raise ValueError(f"yard.drives[{i}]: a carriage drive is laid in 'gravel'")
+        if not 2.0 <= float(d.get("width_m", 0)) <= 4.5:
+            raise ValueError(f"yard.drives[{i}].width_m: a carriage drive is 2.0-4.5 m wide")
+        if not 0.62 <= float(d.get("wear_tone", 0)) <= 1.0:
+            raise ValueError(f"yard.drives[{i}].wear_tone is under the kit's floor (0.62)")
+        line = d.get("centre_m") or []
+        if len(line) < 2 or any(len(q) != 3 for q in line):
+            raise ValueError(f"yard.drives[{i}].centre_m: two or more [x, s, lift] points")
+        for ap in d.get("aprons_m") or ():
+            if len(ap) != 5 or ap[1] <= ap[0] or ap[3] <= ap[2]:
+                raise ValueError(f"yard.drives[{i}].aprons_m: [x0, x1, s0, s1, lift] with x0 < x1 and s0 < s1")
+        if not all(0.0 <= float(q[-1]) <= 0.3 for q in list(line) + list(d.get("aprons_m") or ())):
+            raise ValueError(f"yard.drives[{i}]: a lift is the ground's rise over the house's base, 0-0.3 m")
     return y
+
+
+DRIVE_STEP_M = 0.75     # a drive's rows along its centre line
+DRIVE_ROUND_M = 2.5     # a drive's bend is rounded over this far either side of its corner
+DRIVE_PROUD_M = 0.02    # a drive's gravel stands this far over the ground measured under it
+
+
+def _drive_line(pts):
+    """The drive's centre line, its corners rounded (a quadratic curve from DRIVE_ROUND_M before
+    each corner to as far after it) and sampled every DRIVE_STEP_M: [(x, s, lift, along), ...],
+    its lift (the ground's rise over the house's base, measured where it runs) interpolated."""
+    P = [tuple(map(float, q)) for q in pts]
+    path = [P[0]]
+    for a, b, c in zip(P, P[1:], P[2:]):
+        la, lc = math.dist(a[:2], b[:2]), math.dist(b[:2], c[:2])
+        r = min(DRIVE_ROUND_M, la / 2, lc / 2)
+        p0 = tuple(b[j] + (a[j] - b[j]) * r / la for j in range(3))
+        p2 = tuple(b[j] + (c[j] - b[j]) * r / lc for j in range(3))
+        path.append(p0)
+        for k in range(1, 6):
+            t = k / 6
+            path.append(tuple((1 - t) ** 2 * p0[j] + 2 * (1 - t) * t * b[j] + t * t * p2[j] for j in range(3)))
+        path.append(p2)
+    path.append(P[-1])
+    out, run = [], 0.0
+    for q0, q1 in zip(path, path[1:]):
+        L = math.dist(q0[:2], q1[:2])
+        if L < 1e-9:
+            continue
+        n = max(1, math.ceil(L / DRIVE_STEP_M - 1e-9))
+        for i in range(n):
+            t = i / n
+            out.append((*(q0[j] + (q1[j] - q0[j]) * t for j in range(3)), run + L * t))
+        run += L
+    out.append((*path[-1], run))
+    return out
+
+
+def lay_drives(a, y, cond, seed, built, conf):
+    """T-1934: a carriage drive in gravel along its centre line, worn in two wheel tracks at a
+    carriage's gauge (`path_wear` drive), and any apron it opens into before a door. Each stands
+    DRIVE_PROUD_M over the ground its record measures under it (the lift of each centre point and
+    apron over the house's base), since the app beds the house on the lowest ground under its
+    walls and a drive far from them can stand on higher ground. Returns its triangles."""
+    tris = 0
+    mat = SURFACES["cinder"]
+    for i, d in enumerate(y.get("drives") or ()):
+        half = float(d["width_m"]) / 2
+        k = 1.0 - float(d["wear_tone"])
+        line = _drive_line(d["centre_m"])
+        offs = sorted({max(-half, min(half, o)) for o in
+                       (-half, -1.05, -0.75, -0.45, 0.0, 0.45, 0.75, 1.05, half)})
+        rows = []
+        for j, (x, s, lift, run) in enumerate(line):
+            xa, sa = line[max(0, j - 1)][:2]
+            xb, sb = line[min(len(line) - 1, j + 1)][:2]
+            L = math.hypot(xb - xa, sb - sa)
+            nx, ns = -(sb - sa) / L, (xb - xa) / L
+            top = lift + DRIVE_PROUD_M
+            rows.append([(x + nx * o, top, -(s + ns * o),
+                          1.0 - k * float(cond.path_wear(o, run, use="drive", built=built, seed=seed)))
+                         for o in offs])
+        n = _up_grid(a, mat, rows, conf)
+        aprons = []
+        for x0, x1, s0, s1, lift in d.get("aprons_m") or ():
+            nx_ = max(1, math.ceil((x1 - x0) / 2.0 - 1e-9))
+            ns_ = max(1, math.ceil((s1 - s0) / 2.0 - 1e-9))
+            top = lift + DRIVE_PROUD_M - 0.002
+            grid = [[(x0 + (x1 - x0) * c / nx_, top, -(s0 + (s1 - s0) * r / ns_), 1.0)
+                     for c in range(nx_ + 1)] for r in range(ns_ + 1)]
+            n += _up_grid(a, mat, grid, conf)
+            aprons.append([round(v, 4) for v in (x0, x1, s0, s1)])
+        a.instance(DRIVE, "yard", {"width_m": round(2 * half, 4), "length_m": round(line[-1][3], 4),
+                                   "triangles": n, "aprons_m": aprons, "to": d.get("to", "")},
+                   {"from": (line[0][0], line[0][2] + DRIVE_PROUD_M, -line[0][1]),
+                    "to": (line[-1][0], line[-1][2] + DRIVE_PROUD_M, -line[-1][1])})
+        tris += n
+    return tris
 
 
 def _start(a, axis, w):
