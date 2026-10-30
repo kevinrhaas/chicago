@@ -9,6 +9,7 @@
 //   QA_TAG=before QA_BEFORE_REF=origin/dev node tools/qa_jaunt_views_t3263.mjs
 //   QA_SCENES=1904 QA_SHOTS=jones_house_1834_prairie node tools/qa_jaunt_views_t3263.mjs
 import fs from 'node:fs';
+import os from 'node:os';
 import http from 'node:http';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -17,7 +18,7 @@ import { frontView, VIEW_BLOCKED, VIEW_NEAR_BLOCKED } from '../renderers/web/js/
 const root = process.cwd(), require = createRequire(path.join(root, 'tools/qa.mjs'));
 let chromium; try { ({ chromium } = require('playwright')); } catch { ({ chromium } = await import('/opt/node-tools/node_modules/playwright/index.mjs')); }
 const site = path.resolve(root, process.env.QA_SITE || '../../site/4d');
-const out = process.env.QA_OUT || path.join(root, 'docs/RESEARCH/jaunt-views-3263');
+const out = process.env.QA_OUT || path.join(os.tmpdir(), 'jaunt-views-3263');
 const TAG = process.env.QA_TAG || 'after';
 // A "before" reading serves route.js as it stands at this git ref: the rule without trunks.
 const BEFORE_REF = process.env.QA_BEFORE_REF || null;
