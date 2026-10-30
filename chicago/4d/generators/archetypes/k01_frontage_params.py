@@ -2352,9 +2352,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 v[k] = _copy.deepcopy(e[k])
         # T-1881: a pavilion's mansard slated as the house's own lower faces (1729's: each
         # forward section carries the main roof's slate round its own curb in every photograph)
+        # T-1890: and a tower's or corner turret's cone (1801's two, slated as the mansard in the
+        # Taylor print and both HABS photographs), whole round its apex, so its slate is mapped
+        # round the cone (k01_frontage.cone_slate_uv); a bow's half cone leans on its wall
         if v["roof"].get("slated_as_house") is not None:
-            if v["roof"]["slated_as_house"] is not True or not v["roof"].get("mansard"):
-                raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard")
+            whole_cone = v["roof"].get("kind") == "cone" and (v["kind"] == "tower" or v.get("cap_whole"))
+            if v["roof"]["slated_as_house"] is not True or not (v["roof"].get("mansard") or whole_cone):
+                raise ParamError(f"bays: {e['id']}'s roof.slated_as_house is true, on a mansard or a "
+                                 f"tower's or corner turret's whole cone")
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
         # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
