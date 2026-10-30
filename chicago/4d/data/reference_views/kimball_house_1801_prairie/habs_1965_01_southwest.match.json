@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4faead3b93b8e37a60bfca2118f76ec833437599ce1696488432917b91a6d1f5",
+  "glb_sha256": "6f00a6c42b325e9ecbe3d2df09994357b56107b54585acaa2f670831cbda9a45",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -39,6 +39,11 @@
     },
     {
       "what": "the light behind the corner balcony: a small window on the canted face over the round bay (x 640-680, y 445-500); the build's chamfer face is blank there (T-3108 tried K08's sash on the cant and its recess rendered occluded, so it was taken out)",
+      "status": "fixed",
+      "how": "T-1890: p_south's third storey carries a two-over-two sash on the canted face (at 0.72 of its runs, 0.65 by 1.45 m on a 9.4 m sill): it renders about 40 by 70 px standing on the round's balustrade, against the print's 40 by 70, about 0.3 m further from the pavilion's corner pilaster than the print's. T-3108's sash had been hidden by the chamfer cut's closing face, which lay in the cant's own plane over the opening; K01 now cuts the main roof away inside a lit cant as deep as the recess reaches, up to the light's head (L-kimball-1801-cant-light-1890)"
+    },
+    {
+      "what": "the canted face's top over that light: the print stops the cant's wall at a cornice just over the light's head (about y 430-445 px), with the mansard's slate over it from there; the build carries the cant's wall on up to the pavilion's gable shoulder at 13.6 m, a tall blank face beside the gable (seen by T-1890)",
       "status": "open"
     },
     {
