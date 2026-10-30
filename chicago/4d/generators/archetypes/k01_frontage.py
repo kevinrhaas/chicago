@@ -988,6 +988,34 @@ class Assembly:
             ov = (-course_v / tv) % 1.0
         return (origin, au, av, tu, tv, (seed & 0xFFFF) / 65536.0, ov)
 
+    @staticmethod
+    def cone_slate_uv(src, pitch, tile_u, course_v):
+        """T-1890: a K08 cone's covering in metres, round it and up its slope: {vertex: (u, v)}.
+
+        u is the angle round the apex carried out to whole tiles round the eave's circle,
+        so the courses close on themselves; the slates narrow toward the apex as a cone's
+        tapered slates do. v is the distance up the slope from the eave, its first butt
+        put on the eave by the fabric's course phase (`basis`'s course_v). Each K08 face
+        owns its vertices, so a face across the angle's seam is unwrapped about its own
+        middle, and the apex takes the angle of the face it closes."""
+        pos, idx = src.pos, src.idx
+        cx, _, cz = max(pos, key=lambda q: q[1])   # the apex
+        y0 = min(q[1] for q in pos)
+        r = [math.hypot(q[0] - cx, q[2] - cz) for q in pos]
+        n = max(1, round(2 * math.pi * max(r) / tile_u))
+        k = math.hypot(1.0, pitch) / pitch          # a metre of rise, in metres of slope
+        ang = lambda i: math.atan2(pos[i][2] - cz, pos[i][0] - cx)
+        out = {}
+        for t in range(0, len(idx), 3):
+            tri = idx[t:t + 3]
+            ph = [ang(i) for i in tri if r[i] > 1e-6]
+            mid = math.atan2(math.fsum(math.sin(a) for a in ph), math.fsum(math.cos(a) for a in ph))
+            for i in tri:
+                a = ang(i) if r[i] > 1e-6 else mid
+                a = mid + (a - mid + math.pi) % (2 * math.pi) - math.pi
+                out[i] = (a / (2 * math.pi) * n * tile_u, (pos[i][1] - y0) * k - course_v)
+        return out
+
     # -- boxes proud of a wall: front, top, bottom and ends; never the back --------
     def proud_box(self, mat, frame, s0, s1, y0, y1, d, seed, conf):
         O, R, N = frame
@@ -2680,6 +2708,16 @@ class Assembly:
             if self.p.roof_form != "mansard":
                 raise ValueError(f"{b['id']} is slated as the house's mansard, on a house with none")
             cover = "mansard_slate" if self.p.roof.get("lower_covering") else "slate_covering"
+        # T-1890: a cone slated as the house (1801's tower and turret, every picture of them):
+        # the kit's plan-projected UVs would stretch the slate's courses up so steep a cone, so
+        # its covering is mapped round the cone and up its slope (cone_slate_uv); a finial the
+        # record lays in no metal of its own stays the kit's plain slate
+        cone_uv = None
+        if v["roof"].get("slated_as_house") and v["roof"]["kind"] == "cone":
+            fab_c = self.fabric[cover]
+            cone_uv = self.cone_slate_uv(built.prims["roof"], float(v["roof"]["pitch"]), self.tiles[fab_c][0],
+                                         ((_k04_fabric(fab_c) or {}).get("course_phase_m", [0.0, 0.0]))[1])
+            roles = roles | {"finial": "bay_slate"}
         if b.get("finial_fabric"):   # T-1890: a finial in a sheet metal of its own, not the cap's slate
             roles = roles | {"finial": k01_frontage_params.FINIAL_FABRICS[b["finial_fabric"]]}
         for role, src in built.prims.items():
@@ -2710,10 +2748,13 @@ class Assembly:
                 # the grid keeps its millimetre there and the two tiers read the same faces.
                 world = [tuple(round(c * 1000) / 1000 for c in W(q)) for q in src.pos]
                 remap = {v_: k_ for k_, v_ in enumerate(keep)}
-                for q, n, uv, w in ((src.pos[v_], src.nrm[v_], src.uv[v_], world[v_]) for v_ in keep):
+                for v_ in keep:
+                    q, n, uv, w = src.pos[v_], src.nrm[v_], src.uv[v_], world[v_]
                     dst.pos.append(w)
                     dst.nrm.append(_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
-                    if spec.get("courses") and abs(n[1]) < 0.5:
+                    if cone_uv is not None and role == "roof":
+                        dst.uv.append((cone_uv[v_][0] / tu + ou, cone_uv[v_][1] / tv))
+                    elif spec.get("courses") and abs(n[1]) < 0.5:
                         dst.uv.append((uv[0] / tu + ou, -q[1] / tv))   # v = 0 at grade, as K03's walls
                     else:
                         dst.uv.append((uv[0] / tu + ou, uv[1] / tv + ov) if fab else uv)
