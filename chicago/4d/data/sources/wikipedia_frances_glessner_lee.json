@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_frances_glessner_lee",
+  "type": "website",
+  "citation": "Wikipedia, 'Frances Glessner Lee'. Read 30 October 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/Frances_Glessner_Lee",
+  "locator": "The biography: her marriage to 'a lawyer', Blewett Harrison Lee; three children; 'The marriage ended in divorce in 1914'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-30 (T-3253) through a fetch that returned the article in short quoted segments. No archived snapshot verified.",
+  "note": "Encyclopedia biography. It does not give the couple's address or the children's names; the museum's family page does.",
+  "what_it_supplies": [
+    "Blewett Lee's profession",
+    "the divorce of 1914"
+  ],
+  "what_it_does_not_supply": [
+    "the address",
+    "the children's names"
+  ]
+}
