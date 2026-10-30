@@ -2293,13 +2293,13 @@ class Bay:
 
     def _chamfer_cornice(self, flat, run, ct, band):
         """T-1890: the canted face's top, stopped under the house's slate: a cornice course
-        the floor bands' depth proud, its top carried back over the wall as deep as a recess
-        reaches (0.05 m past it), which is how far its host cuts the roof behind the cant, so
-        the cut is closed over and the slate takes over behind it."""
+        the floor bands' depth proud, its top carried back square over the wall from end to
+        end of the face as deep as a recess reaches, where its host cuts the roof behind the
+        cant, so the cut is closed over and the slate takes over behind it."""
         h, out = band["height_m"], band["proud_m"]
-        t = part(self.v, self.data, "recess")["depth_m"] + 0.05
+        t = part(self.v, self.data, "recess")["depth_m"]
         proud(flat, "band", run, ct - h, ct, out)
-        ledge(flat, "band", run, ct, -t, 0.0, Y)
+        flat.face("band", [flat.P(0.0, ct, t), flat.P(run.L, ct, t), flat.P(run.L, ct, 0.0), flat.P(0.0, ct, 0.0)], Y)
         self.meta["chamfer_top"] = {"top_m": round(ct, 4), "cap_m": round(t, 4)}
 
     def _chamfer_cheek(self, world, ct, y_top):
