@@ -1041,6 +1041,49 @@ DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat"
 HIPPED_HEADS = ("hip", "flat")
 
 
+
+def broken_pediment_meets(ped, rm):
+    """T-1881: where an eared hood's broken pediment's two raking lines, each rising inward
+    from its arm's outer end at `reach_m` from the arch's centre (the bottom `foot_m` over the
+    springing, the top `depth_m` above it), meet the circle `rm` round the arch's centre: the
+    (x, y) of each meeting nearest the outer end, or None where a line passes over the circle."""
+    t, X = math.tan(math.radians(ped["pitch_deg"])), ped["reach_m"]
+    out = []
+    for y0 in (ped["foot_m"], ped["foot_m"] + ped["depth_m"]):
+        # (y0 + t (X - x))^2 + x^2 = rm^2, the larger root
+        k = y0 + t * X
+        a, b, c = 1 + t * t, -2 * k * t, k * k - rm * rm
+        disc = b * b - 4 * a * c
+        if disc < 0:
+            out.append(None)
+            continue
+        x = (-b + math.sqrt(disc)) / (2 * a)
+        out.append((x, y0 + t * (X - x)) if 0 < x < rm else None)
+    return out
+
+
+def _broken_pediment(ped, eh, ro, what):
+    """T-1881: the broken pediment over a hooded round dormer (1729's large Prairie dormer, in
+    the 1890 Albertype plate and Taylor's photograph no. 1445): two raking cornice arms, each
+    rising inward from past the hood's ear to die against the hood's band below the crown, so
+    the arch rises through the gap between them."""
+    if not isinstance(ped, dict) or set(ped) != {"pitch_deg", "reach_m", "foot_m", "depth_m", "proud_m"}:
+        raise ParamError(f"{what} takes pitch_deg, reach_m, foot_m, depth_m and proud_m")
+    ped = {k: float(v) for k, v in ped.items()}
+    if not (10 <= ped["pitch_deg"] <= 40 and ro < ped["reach_m"] <= ro + eh["ear_m"] + 0.5
+            and 0.1 <= ped["depth_m"] <= 0.5 and eh["proud_m"] < ped["proud_m"] <= 0.3):
+        raise ParamError(f"{what}: a 10-40 degree rake, its arms 0.1-0.5 m deep, reaching past the hood's "
+                         f"band ({ro:.2f} m) up to 0.5 m beyond its ears, and standing out further than the "
+                         f"hood, up to 0.3 m")
+    if not 0.0 <= ped["foot_m"] <= eh["rise_m"]:
+        raise ParamError(f"{what}.foot_m {ped['foot_m']}: an arm stands on the springing up to the ears' top")
+    bot, top = broken_pediment_meets(ped, ro - eh["band_m"] / 2)
+    if bot is None or top is None or top[0] < 0.1:
+        raise ParamError(f"{what}: both of an arm's lines must die into the hood's band short of the crown, "
+                         f"or the pediment is not broken")
+    return ped
+
+
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
@@ -1128,9 +1171,11 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         eh = d["eared_hood"]
         if head != "round":
             raise ParamError(f"{what}.eared_hood: on a round head")
-        eh = {k: float(v) for k, v in eh.items()}
-        if set(d["eared_hood"]) - {"rise_m"} != {"band_m", "proud_m", "ear_m", "drop_m"}:
-            raise ParamError(f"{what}.eared_hood takes band_m, proud_m, ear_m, drop_m and an optional rise_m")
+        if set(eh) - {"rise_m", "pediment"} != {"band_m", "proud_m", "ear_m", "drop_m"}:
+            raise ParamError(f"{what}.eared_hood takes band_m, proud_m, ear_m, drop_m and an optional rise_m "
+                             f"and pediment")
+        ped = eh.get("pediment")
+        eh = {k: float(v) for k, v in eh.items() if k != "pediment"}
         eh.setdefault("rise_m", 0.0)
         ro, ri = sw / 2 + ring + eh["band_m"], sw / 2 + ring - 0.05
         if not (0.08 <= eh["band_m"] <= 0.3 and 0.02 <= eh["proud_m"] <= 0.15 and 0.05 <= eh["ear_m"] <= 0.3
@@ -1141,6 +1186,8 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 0.0 <= eh["rise_m"] <= math.sqrt(max(0.0, ro * ro - (ri + 0.05) ** 2)):
             raise ParamError(f"{what}.eared_hood.rise_m {eh['rise_m']}: the ears stand 0 m over the springing up "
                              f"to where the hood's arc meets the face")
+        if ped is not None:
+            eh["pediment"] = _broken_pediment(ped, eh, ro, f"{what}.eared_hood.pediment")
         out["eared_hood"] = eh
     if head == "flat":
         # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
