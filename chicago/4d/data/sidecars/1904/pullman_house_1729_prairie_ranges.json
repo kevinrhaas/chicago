@@ -141,20 +141,6 @@
             "eave_cornice": "stone_band"
           },
           {
-            "id": "r5",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "hip",
-            "pitch_deg": 30,
-            "rect": [
-              -40.4,
-              7.0,
-              -36.4,
-              14.27
-            ],
-            "from": "not on the 1911 sheet: the stable's 18th Street front carried on east of the sheet's east wall, as J. W. Taylor's 18th Street photograph shows it under a lower roof (T-3178); its depth is reconstructed"
-          },
-          {
             "id": "r2",
             "role": "range",
             "storeys": 1,
@@ -180,7 +166,7 @@
         "aic_taylor_16555_pullman_west_front",
         "inland_1894_pullman_palm_house_stable"
       ],
-      "note": "The sheet's rectangles the K01 house does not carry, in the Pullman house draft's frame. The stable (T-3192): its south block r1 between the sheet's west and east walls, its narrower north block r4 at the sheet's offset, and r5, an east section the 1911 sheet does not draw: Taylor's 18th Street photograph shows the stable's two-storey front running on about 4 m past the hipped roof under a lower roof, with a third bay of sash, so r5 stands there at the photograph's length and the front's height; its 7.3 m depth is reconstructed (liberty L-pullman-stable-3192). The 1B range stays at one storey under a flat roof, as the sheet letters it. Roofs per piece other than the stable's are the draft rules' (reconstructed). T-3193: the north block r4 is one storey to the stable's eave under a hipped roof to a low crested deck, as the 1894 Inland plate's one oblique view of it reads (the west face's eave runs on unbroken from the south block to it; liberty L-pullman-stable-3193). T-1934 lowers that deck to 8.2 m and carries it north to the block's north end, where the plate's cresting runs along the deck's west edge behind the belvedere (liberty L-pullman-north-block-deck-1934). T-1881 (the owner, 2026-10-29: \"there is a big box in there\" on the 18th Street face): the draft's porte-cochere r3 (s20fp-1729-b1 p4, u 15.17-19.84, a flat-roofed one-storey block with one sash) is taken off. The house record has stood the porte-cochere itself since T-3160 (pullman_house_1729_prairie, porte_cochere: an arcaded block on the sheet's footprint, u 15.0-19.5, under a balustraded deck), so the draft's copy stood inside and in front of it, a low grey box across its arches that no picture shows: Taylor's no. 1445 and the Detroit print show the arcade and nothing before it. A draft copy left standing beside the refined build is the defect the district draft's rule names."
+      "note": "The sheet's rectangles the K01 house does not carry, in the Pullman house draft's frame. The stable (T-3192): its south block r1 between the sheet's west and east walls and its narrower north block r4 at the sheet's offset. T-3192 had stood r5, a 4 m east section past the sheet's east wall under a lower roof, off Taylor's 16555, where the front's wall seems to run on past the hip; T-1934 takes it off (the owner, 2026-10-30: \"you have a side on the stable that is facing the lake that i think is not in that pic\"): Taylor's 16554, which looks at the stable's east end from the south-east, shows the front ending at the stack under the hip's own end (x 1095 px, the build's r1 east wall at x 1095), with the hedge and open ground past it, and the 1911 sheet draws nothing there. 16555's apparent run past the hip is the east hip's foot seen along the front. The 1B range stays at one storey under a flat roof, as the sheet letters it. Roofs per piece other than the stable's are the draft rules' (reconstructed). T-3193: the north block r4 is one storey to the stable's eave under a hipped roof to a low crested deck, as the 1894 Inland plate's one oblique view of it reads (the west face's eave runs on unbroken from the south block to it; liberty L-pullman-stable-3193). T-1934 lowers that deck to 8.2 m and carries it north to the block's north end, where the plate's cresting runs along the deck's west edge behind the belvedere (liberty L-pullman-north-block-deck-1934). T-1881 (the owner, 2026-10-29: \"there is a big box in there\" on the 18th Street face): the draft's porte-cochere r3 (s20fp-1729-b1 p4, u 15.17-19.84, a flat-roofed one-storey block with one sash) is taken off. The house record has stood the porte-cochere itself since T-3160 (pullman_house_1729_prairie, porte_cochere: an arcaded block on the sheet's footprint, u 15.0-19.5, under a balustraded deck), so the draft's copy stood inside and in front of it, a low grey box across its arches that no picture shows: Taylor's no. 1445 and the Detroit print show the arcade and nothing before it. A draft copy left standing beside the refined build is the defect the district draft's rule names."
     },
     "draft_elevation": {
       "value": {
@@ -206,8 +192,7 @@
             "kind": "stable_dress",
             "dressed_faces": [
               "r1:v1",
-              "r1:u1",
-              "r5:v1"
+              "r1:u1"
             ],
             "arcade": {
               "part": "r1",
@@ -334,15 +319,48 @@
             ],
             "lantern": {
               "at": [
-                -28.4,
+                -29.0,
                 7.9
               ],
               "base_m": 10.2,
-              "radius_m": 0.8,
-              "drum_m": 1.1,
-              "dome_m": 0.35,
-              "finial_m": 0.6,
-              "sides": 8
+              "radius_m": 1.0,
+              "drum_m": 0.85,
+              "dome_m": 0.95,
+              "plinth_m": 0.3,
+              "finial_m": 0.35,
+              "sides": 8,
+              "ball_m": 0.18,
+              "lights": "round",
+              "dome_profile": [
+                [
+                  1.0,
+                  0.0
+                ],
+                [
+                  1.04,
+                  0.12
+                ],
+                [
+                  1.0,
+                  0.3
+                ],
+                [
+                  0.85,
+                  0.5
+                ],
+                [
+                  0.6,
+                  0.7
+                ],
+                [
+                  0.35,
+                  0.86
+                ],
+                [
+                  0.14,
+                  1.0
+                ]
+              ]
             },
             "belvedere": {
               "rect": [
@@ -414,7 +432,96 @@
                 "top_m": 6.0,
                 "belt_top_m": 4.6
               }
-            ]
+            ],
+            "sash": {
+              "lights": 2,
+              "mullion_m": 0.12,
+              "architrave_m": 0.14,
+              "architrave_out_m": 0.07,
+              "sill_out_m": 0.12,
+              "sill_m": 0.12,
+              "lintel_m": 0.22,
+              "rail_at": 0.55
+            },
+            "ashlar": {
+              "course_m": 0.45,
+              "joint_m": 0.02,
+              "out_m": 0.008,
+              "stone_m": [
+                1.05,
+                0.8,
+                1.3,
+                0.95
+              ],
+              "faces": [
+                {
+                  "face": "r1:v1",
+                  "s": [
+                    -24.4,
+                    -36.4
+                  ],
+                  "y": [
+                    0.0,
+                    6.0
+                  ]
+                },
+                {
+                  "face": "r1:u1",
+                  "s": [
+                    -6.0,
+                    12.6
+                  ],
+                  "y": [
+                    0.0,
+                    3.95
+                  ]
+                },
+                {
+                  "face": "r1:u1",
+                  "s": [
+                    1.5,
+                    12.76
+                  ],
+                  "y": [
+                    3.95,
+                    6.0
+                  ]
+                },
+                {
+                  "face": "r1:u0",
+                  "s": [
+                    1.5,
+                    14.27
+                  ],
+                  "y": [
+                    0.0,
+                    3.95
+                  ]
+                },
+                {
+                  "face": "r4:u0",
+                  "s": [
+                    -6.0,
+                    1.5
+                  ],
+                  "y": [
+                    0.0,
+                    3.95
+                  ]
+                },
+                {
+                  "face": "r4:v0",
+                  "s": [
+                    -21.0,
+                    -32.4
+                  ],
+                  "y": [
+                    0.0,
+                    3.95
+                  ]
+                }
+              ]
+            }
           }
         ],
         "tint": {
@@ -427,12 +534,17 @@
             0.372,
             0.335,
             0.27
+          ],
+          "joint": [
+            0.24,
+            0.215,
+            0.175
           ]
         },
         "v_toward": "south"
       },
       "confidence": "reconstructed",
-      "note": "DRESSED BY T-1934 to its three pictures through its own reference views (data/reference_views/pullman_house_1729_prairie_ranges/, T-3193's cameras re-anchored): the belvedere's balustrade open balusters between dies at its corners and middles, over a frieze (the 1894 plate); the deck ringed in open iron cresting with a tapered spire at each corner (the plate, Taylor's 16554 and 16555); the upper storey on a moulded stone belt course about 0.36 m deep, its top where the lower roof's slope meets the wall (belt_top_m: 4.41 m on the 18th Street front, 4.60 m on the steeper west face), and the upper sash raised onto it from 4.3 m (16554 and the plate show them sitting on it); the corner bay's cap a low slope onto a flat top back to the corner, not a point (the plate); the stable's mouldings in the walls' light stone. The cresting's pattern, the spires' height, the balusters' pitch and the course's members are reconstructed (liberty L-pullman-stable-1934). RE-PLANNED BY T-3193 through three solved cameras (the 1894 Inland plate, Taylor's 16554 and 16555 re-solved; data/reference_views/pullman_house_1729_prairie_conservatory/): the arcade stands on the west face across the court from the drum (three arches 2.9, 7.2 and 10.9 m along it, spans 2.6, 3.4 and 2.6 m, springing 1.95 m, heads rising 1.0-1.15 m, crowns about 3.0-3.1 m, the broad middle one open); the upper storey runs along the west face with two small sash and turns the south-west corner on a 2.1 m diagonal (corner_walls); a polygonal bay of three round-headed lights stands across that corner, its cornice at 4.5 m (canted_bay.plan); the front's three bays of sash moved west with the bay to 4.7, 8.3 and 11.2 m east of the corner; the belvedere 1.2 m west, its top 9.3 m; the lantern 0.8 m in radius under a flat dome; the deck 6.1 m over the eave. The bay's exact place along the corner is between the plate's and 16554's readings (liberty L-pullman-stable-3193). WHAT T-3192 READ, as amended: The stable's elevation is T-3192's, read from its pictures; the rest is the draft rules' service elevation (T-1880). READ THROUGH TAYLOR'S 18TH STREET CAMERA (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json, 23.8 px/m at the stable's front, about 10% scale uncertainty): the first-floor cornice 3.95 m over grade, from which the hipped roof springs at 53 degrees to a flat deck at 10.2 m inside iron cresting; the upper storey carried up through the roof's lower slope as one long wall with its own cornice at 6.0 m, a low attic band with two small square lights over the arcade; the arcade's three round arches (crowns about 3.0-3.2 m) between the west wall and the polygonal bay; the bay 4.8 m across, projecting 1.4 m, its cornice at 4.9 m and a round-headed light in each of its three faces (heads about 2.65 m); three bays of sash east of it on both storeys (ground sills 1.2 m, heads 3.2 m; upper sills 4.3 m); the deck's west edge 3.3 m in from the eave, read off the photograph's corner finial. FROM THE 1894 INLAND PLATE AND TAYLOR'S SOUTH-WEST VIEW, READ FOR FORM ONLY (their cameras are T-3193's): the arcade's broad open middle arch between two narrower lights, the lantern (an octagonal drum of lights under a dome and finial, placed toward the deck's west end, its size scaled from the south-west view), the stack at the front's east end rising about 1.3 m past the deck, and the square belvedere with cornice and balustrade over the range's parapet at the wing's east end (its top about 10.3 m through Taylor's camera at the range's face; its depth behind the parapet is reconstructed). RECONSTRUCTED, and kept at that tier for the field as a whole: the deck's other three insets, the lantern's and the stack's exact places, the north block's and the east section's roofs, the belvedere's depth, and the north, east and west faces' sash (the draft rules'). Liberty L-pullman-stable-3192 (and L-draft-prairie-16-18-east-2335 for what the draft rules still set). T-1934 (the owner, 2026-10-30: \"the surfaces and color of the stable\"): the walls' stone set by `tint` to the draft's stone at 0.83 of its value, linear (0.332, 0.299, 0.241), and the dressed trim a shade over it (0.372, 0.335, 0.27), read from Taylor's winter print 16554, where the stable's wall prints 1.4-1.5 times the house's own wall in the same light; the house's walls are T-1881's sandstone_fawn, and the draft's stone would print about 1.7 times them. The hue is the draft's, which no monochrome print can test (docs/RESEARCH/colour-pullman-stable-T-1934/).",
+      "note": "DRESSED BY T-1934 to its three pictures through its own reference views (data/reference_views/pullman_house_1729_prairie_ranges/, T-3193's cameras re-anchored): the belvedere's balustrade open balusters between dies at its corners and middles, over a frieze (the 1894 plate); the deck ringed in open iron cresting with a tapered spire at each corner (the plate, Taylor's 16554 and 16555); the upper storey on a moulded stone belt course about 0.36 m deep, its top where the lower roof's slope meets the wall (belt_top_m: 4.41 m on the 18th Street front, 4.60 m on the steeper west face), and the upper sash raised onto it from 4.3 m (16554 and the plate show them sitting on it); the corner bay's cap a low slope onto a flat top back to the corner, not a point (the plate); the stable's mouldings in the walls' light stone. The cresting's pattern, the spires' height, the balusters' pitch and the course's members are reconstructed (liberty L-pullman-stable-1934). RE-PLANNED BY T-3193 through three solved cameras (the 1894 Inland plate, Taylor's 16554 and 16555 re-solved; data/reference_views/pullman_house_1729_prairie_conservatory/): the arcade stands on the west face across the court from the drum (three arches 2.9, 7.2 and 10.9 m along it, spans 2.6, 3.4 and 2.6 m, springing 1.95 m, heads rising 1.0-1.15 m, crowns about 3.0-3.1 m, the broad middle one open); the upper storey runs along the west face with two small sash and turns the south-west corner on a 2.1 m diagonal (corner_walls); a polygonal bay of three round-headed lights stands across that corner, its cornice at 4.5 m (canted_bay.plan); the front's three bays of sash moved west with the bay to 4.7, 8.3 and 11.2 m east of the corner; the belvedere 1.2 m west, its top 9.3 m; the lantern 0.8 m in radius under a flat dome; the deck 6.1 m over the eave. The bay's exact place along the corner is between the plate's and 16554's readings (liberty L-pullman-stable-3193). WHAT T-3192 READ, as amended: The stable's elevation is T-3192's, read from its pictures; the rest is the draft rules' service elevation (T-1880). READ THROUGH TAYLOR'S 18TH STREET CAMERA (data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json, 23.8 px/m at the stable's front, about 10% scale uncertainty): the first-floor cornice 3.95 m over grade, from which the hipped roof springs at 53 degrees to a flat deck at 10.2 m inside iron cresting; the upper storey carried up through the roof's lower slope as one long wall with its own cornice at 6.0 m, a low attic band with two small square lights over the arcade; the arcade's three round arches (crowns about 3.0-3.2 m) between the west wall and the polygonal bay; the bay 4.8 m across, projecting 1.4 m, its cornice at 4.9 m and a round-headed light in each of its three faces (heads about 2.65 m); three bays of sash east of it on both storeys (ground sills 1.2 m, heads 3.2 m; upper sills 4.3 m); the deck's west edge 3.3 m in from the eave, read off the photograph's corner finial. FROM THE 1894 INLAND PLATE AND TAYLOR'S SOUTH-WEST VIEW, READ FOR FORM ONLY (their cameras are T-3193's): the arcade's broad open middle arch between two narrower lights, the lantern (an octagonal drum of lights under a dome and finial, placed toward the deck's west end, its size scaled from the south-west view), the stack at the front's east end rising about 1.3 m past the deck, and the square belvedere with cornice and balustrade over the range's parapet at the wing's east end (its top about 10.3 m through Taylor's camera at the range's face; its depth behind the parapet is reconstructed). RECONSTRUCTED, and kept at that tier for the field as a whole: the deck's other three insets, the lantern's and the stack's exact places, the north block's and the east section's roofs, the belvedere's depth, and the north, east and west faces' sash (the draft rules'). Liberty L-pullman-stable-3192 (and L-draft-prairie-16-18-east-2335 for what the draft rules still set). T-1934 (the owner, 2026-10-30: \"the surfaces and color of the stable\"): the walls' stone set by `tint` to the draft's stone at 0.83 of its value, linear (0.332, 0.299, 0.241), and the dressed trim a shade over it (0.372, 0.335, 0.27), read from Taylor's winter print 16554, where the stable's wall prints 1.4-1.5 times the house's own wall in the same light; the house's walls are T-1881's sandstone_fawn, and the draft's stone would print about 1.7 times them. The hue is the draft's, which no monochrome print can test (docs/RESEARCH/colour-pullman-stable-T-1934/). T-1934 (the owner, 2026-10-30, on Taylor's 16554: \"the stable is still not have much surface detail\", \"the cupola on the stable also\"): the walls laid as ashlar, a bed joint every 0.45 m course and head joints breaking joint course over course (`ashlar`, the joint a shade under the stone); the windows set in raised stone architraves on projecting sills, each a pair of lights divided by a stone mullion, with dark sash frames and meeting rails (`sash`), where 16554 shows paired lights in plain surrounds over deep sills; the lantern rebuilt as the print's cupola: an octagonal drum of round-headed lights, 2 m across and 0.85 m tall on a 0.3 m plinth clear of the cresting, under a ribbed bell dome about 0.95 m high and a ball finial (drum, dome and finial about 0.23, 0.84, 0.92 and 0.38 m in the print at 21.8 px/m), 0.6 m further east (its centre at x 947 px in 16554, where the flat-domed lantern had rendered at x 934). The course height, the stones' lengths, the architraves' and sills' sections and the dome's profile are reconstructed (liberty L-pullman-stable-1934); the print is too small to read joints.",
       "sources": [
         "aic_taylor_16554_pullman_from_sw",
         "aic_taylor_16555_pullman_west_front",
