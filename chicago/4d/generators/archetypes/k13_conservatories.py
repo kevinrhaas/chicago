@@ -1644,6 +1644,35 @@ def palm_house(h: House, sw: dict):
         _balustrade_ring(h, eo - 0.05 - b["thickness_m"] / 2, m_arc, e1, b["height_m"], b)
     else:
         _ring(h, "stonework", eo - 0.05, eo - 0.05 - b["thickness_m"], n, e1, e1 + b["height_m"])
+    gb = sw.get("glazing_bars")
+    if gb:
+        # T-1934 (the owner, 2026-10-30: "a fair amount of detail work to do on the glass atrium"):
+        # the drum's lights crossed by horizontal bars, a transom among them, as 16554 and the 1894
+        # plate show each bay between the columns divided into a grid of panes; a strip a little
+        # proud of each facet's glass, stopped short of the columns
+        bw, out, step = gb["bar_m"], gb.get("out_m", 0.03), gb["every_m"]
+        ys, y = [], base + step
+        while y < he - 0.25:
+            ys.append(y)
+            y += step
+        tr = gb.get("transom_m")
+        pts = _arc(R, n)
+        for k in range(n):
+            (ax, az), (bx, bz) = pts[k], pts[k + 1]
+            mx, mz = (ax + bx) / 2, (az + bz) / 2
+            L = math.hypot(mx, mz) or 1.0
+            nx, nz = mx / L * out, mz / L * out
+            cut = col * 1.1 / (math.hypot(bx - ax, bz - az) or 1.0)
+            a0 = (ax + (bx - ax) * cut + nx, az + (bz - az) * cut + nz)
+            b0 = (bx - (bx - ax) * cut + nx, bz - (bz - az) * cut + nz)
+            for yy in ys + ([tr] if tr else []):
+                hw = (gb.get("transom_bar_m", bw * 2) if yy == tr else bw) / 2
+                h.face(gb.get("role", "dome_rib"), [(a0[0], yy - hw, a0[1]), (b0[0], yy - hw, b0[1]),
+                                                   (b0[0], yy + hw, b0[1]), (a0[0], yy + hw, a0[1])], (mx, 0.0, mz))
+    if sw.get("color"):
+        # T-1934: the palm house's stone is the house's own (every picture prints its columns,
+        # entablature, balustrade and terrace in the walls' tone; the kit's pale stone read white)
+        h.meta["stone_color"] = list(sw["color"])
     if sw.get("interior_dark"):
         # T-1934: the palm house's depth behind its glass, drawn dark a centimetre off the wing's
         # face, so the drum reads as the pictures show it (glazing in shadow, palms against it)
@@ -2472,19 +2501,22 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
 
 def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
     name = f"{structure_id}__{phase_id}"
-    return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), node_name=name, node_extras={
+    return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), stone_color=h.meta.get("stone_color"),
+                  node_name=name, node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids)},
         extras={"ticket": "T-2306", "structure": f"data/structures/{structure_id}.json"})
 
 
 def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
-           extras: dict | None = None, host_color=None) -> bytes:
+           extras: dict | None = None, host_color=None, stone_color=None) -> bytes:
     mats = materials(data)
     if node_extras:     # a structure in the scene carries only the materials it draws (T-2306)
         used = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
         mats = {k: m for k, m in mats.items() if k in used}
         if "house_wall" in mats and host_color:
             mats["house_wall"] = {**mats["house_wall"], "color": tuple(host_color)}
+        if "stone" in mats and stone_color:
+            mats["stone"] = {**mats["stone"], "color": tuple(stone_color)}
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
 

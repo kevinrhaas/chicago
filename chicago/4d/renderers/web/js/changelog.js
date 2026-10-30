@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2474, ts: '2026-10-30T23:47:47.404Z', date: 'Oct 30, 2026, 6:47 PM CT', title: '1904 Prairie houses list their former residents', kind: 'feature',
+    items: [
+      'A 1904 Prairie Avenue house\'s People tab now lists who lived there before 1904. The family the house is named for comes first, like the Keiths at 1808 under the Fields.',
+      'Read from 16 editions of the Chicago Blue Book, 1890-1910, the 1900 census and the district markers: 116 earlier households in 57 houses.',
+      'A house nobody is listed in for 1904, such as the Coleman house at 1811 or the Doane house at 1827, now says why, and who came after.',
+    ] },
+  { v: 2473, ts: '2026-10-30T23:31:02.453Z', date: 'Oct 30, 2026, 6:31 PM CT', title: 'Pullman\'s stable and palm house closer to Taylor\'s photograph', kind: 'improvement',
+    items: [
+      'Stable cupola rebuilt: arched lights under a ribbed bell dome.',
+      'Stable walls laid as dressed stone; windows paired in stone surrounds with sills.',
+      'Stable\'s extra east section removed: the photograph and the 1911 map show none.',
+      'Palm house stone now matches the house, no longer white; its glass shows a grid of panes.',
+      'Hydrant added on 18th Street by the stable, where the photograph shows it.',
+    ] },
   { v: 2472, ts: '2026-10-30T22:41:12.981Z', date: 'Oct 30, 2026, 5:41 PM CT', title: '1801 Prairie\'s tower and turret roofed in the house\'s slate', kind: 'fix',
     items: [
       'The Kimball house\'s round tower and its little corner turret had smooth, pale grey cones that stood out from the dark slate roof beside them.',
