@@ -5,7 +5,9 @@
  "liberty": "L-pullman-18th-street-trees-1934",
  "views": {
   "taylor_16555": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16555_west_front.json", "source_id": "aic_taylor_16555_pullman_west_front", "date": "1892 to May 1894 (its content)"},
-  "inland_1894": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json", "source_id": "inland_1894_pullman_palm_house_stable", "date": "1894 (published)"}
+  "inland_1894": {"camera": "data/reference_views/pullman_house_1729_prairie_conservatory/inland_1894_plate.json", "source_id": "inland_1894_pullman_palm_house_stable", "date": "1894 (published)"},
+  "inland_1894_conservatory": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json", "source_id": "inland_1894_pullman_conservatory", "date": "1894 (published)"},
+  "lowe_c1897": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory.json", "source_id": "aic_lowe_pullman_conservatory_c1897", "date": "c. 1897 (its view)"}
  },
  "stretches": [
   {
@@ -38,10 +40,20 @@
    "face": "e18th__prairie_calumet_18_20",
    "from_m": 0.0,
    "to_m": 21.9,
-   "seen_by": ["taylor_16555 x 0-1200 (0-12.6 m)", "inland_1894 x 0-2000 (13.7-21.9 m: below the plate's frame, where a parkway tree's trunk would rise through its foreground)"],
+   "seen_by": ["taylor_16555 x 0-1200 (0-12.6 m)", "inland_1894 x 0-2000 (13.7-21.9 m: below the plate's frame, where a parkway tree's trunk would rise through its foreground)", "inland_1894_conservatory x 1343-1690 (0-2.5 m: the photograph's right edge, x 1692, cuts the parkway at e 1472.9)", "lowe_c1897 x 904-1200 (0-2.5 m)"],
    "note": "18th Street's south parkway opposite the estate, where Taylor stood behind it in the garden across the street.",
    "trees": [
-    {"at_m": 1.3, "kind": "mature", "read": ["taylor_16555 x 873 (base y 764, 760 predicted): 1.3 m, the one trunk on the near parkway"], "note": "At the Calumet corner."}
+    {"at_m": 3.0, "kind": "mature", "read": ["taylor_16555 x 873 (base y 764, 760 predicted): 1.3 m through its camera, which stands the estate's west gate pier (T-3164's, placed off the conservatory plate) about 180 px west of the print's (west face x 786 drawn, x 965 in the print); read against that pier, 90 px west of its west face, the trunk stands at 1.7 to 3.5 m", "lowe_c1897 x 1110 (base y 710): 3.0 m", "inland_1894_conservatory x 1343-1690: no trunk, so nothing stands at 0-2.5 m; its trunk (about 0.45 m) would show at the frame's edge nearer than 2.9 m"], "note": "At the Calumet corner, before the estate's west gate pier. Taylor's print is the earliest and its camera was solved on the north side's ground; the plate, the one uncropped picture, sees this parkway clear to 2.5 m, and Lowe and Taylor read against the pier put the trunk just past that edge. Moved 1.7 m west from Taylor's raw reading (T-3164)."}
+   ]
+  },
+  {
+   "face": "calumet__prairie_calumet_18_20",
+   "from_m": 264.0,
+   "to_m": 270.99,
+   "seen_by": ["inland_1894_conservatory x 320-1343 (264.0 m to the corner)", "lowe_c1897 x 0-904 (265.3 m to the corner)"],
+   "note": "Calumet Avenue's west parkway where it turns into 18th Street, before the east pier of the glasshouse ground's gate (T-3164).",
+   "trees": [
+    {"at_m": 266.9, "kind": "mature", "read": ["inland_1894_conservatory x 744 (base y 1160): 266.9 m, its foot 0.85 m nearer the curb than the planting line", "lowe_c1897 x 394 (base y 739): 267.5 m"], "note": "Both pictures, a full-grown trunk before the east gate pier; planted at the plate's reading, the uncropped picture the estate's places are read from."}
    ]
   }
  ]
