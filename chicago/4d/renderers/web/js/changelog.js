@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2444, ts: '2026-10-30T07:27:39.618Z', date: 'Oct 30, 2026, 2:27 AM CT', title: 'The moving-frames check runs as two jobs and stops timing out', kind: 'chore',
+    items: [
+      'The walk-and-flight frame check and the phone\'s memory check now run side by side, each under a time limit it can meet, so a passing change is no longer cancelled by the clock on a busy day and can merge without a blind merge.',
+    ] },
+  { v: 2443, ts: '2026-10-30T07:27:39.618Z', date: 'Oct 30, 2026, 2:27 AM CT', title: 'Pullman\'s carriage ways and stable stone', kind: 'improvement',
+    items: [
+      'A gravel carriage drive now comes in off 18th Street through a gateway in the Pullman wall, as J. W. Taylor\'s photograph shows it, and up the court to the stable\'s big arch.',
+      'A second drive comes in through the wall\'s gap east of the house and runs under the porte-cochère to a turning apron, so a carriage can reach the side door.',
+      'No shrub stands in any gateway or drive now: the 18th Street border starts east of the house, where the c.1900 photograph shows it, and two of the tub plants moved off the drives.',
+      'The stable and the palm house range are one stone now, read from the winter photograph against the house\'s own walls: a little darker than the stable was built, and much darker than the palm house range\'s pale stone.',
+    ] },
   { v: 2442, ts: '2026-10-30T06:49:18.434Z', date: 'Oct 30, 2026, 1:49 AM CT', title: 'Clipped evergreens in tubs on Pullman\'s palm-house terrace', kind: 'improvement',
     items: [
       'The Pullman estate\'s summer tub plants now stand where the 1894 Inland Architect plate shows them: a clipped ball on its tub on the palm house\'s terrace, and a ball on a clear stem in a painted tub before the stable\'s arches.',
