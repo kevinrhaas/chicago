@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_house_1905_prairie",
   "view": "pictorial_1893_plate",
   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
-  "glb_sha256": "76becf108dbca3833e727ff5f972397de568fdd41e5c5444f3e171933dad7336",
+  "glb_sha256": "b42b916f215826876558fc39099799afe6164fbe3fa7ebf71e715816ad707872",
   "camera_sha256": "f41b5754d650dad29e0e6b1361ba4a03b35b6fd82524b514c9cb5f5115eec945",
   "photo_sha256": "d49b47b1f31f50b0ce0d4e99b234d0ae9c80f42c57cab75f8338ed0396d397dd",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie/pictorial_1893_plate-side-by-side.jpg",
@@ -45,7 +45,19 @@
       "status": "open"
     },
     {
-      "what": "the iron balconies: the plate has one before each chamber window of the front's north, door and wide columns and before the window behind the canted corner, and one on the conservatory's roof; the render has only the door's, and it stands about 1.4 m low (K01 keeps a hood's railing under the window above it)",
+      "what": "the front's three iron balconies (T-3261): before the chamber windows of the north, door and wide columns and none before the narrow one, each on the stone belt at the chamber floor on two scrolled consoles, its pierced guard before the foot of the light; the door hood that stood in for the door column's, about 1.4 m low, is withdrawn, so the door stands in its surround with nothing over it, as in the plate",
+      "status": "fixed"
+    },
+    {
+      "what": "the door column's balcony: the plate's runs about 3.5 m (x 240-415 px), the render's 3.0 m, the kit's longest balconette",
+      "status": "open"
+    },
+    {
+      "what": "the balconies' consoles: the plate's door-column pair are tall scrolled consoles running down beside the door's surround, the render's the kit's short ones under the slab",
+      "status": "open"
+    },
+    {
+      "what": "the other two iron balconies: before the window behind the canted south-west corner (waits on the corner itself) and on the conservatory's roof; K01 lays balconettes on the street front only",
       "status": "open"
     },
     {

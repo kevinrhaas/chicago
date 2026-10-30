@@ -190,6 +190,47 @@
       ],
       "note": "Every window of the plate's front stands in a light stone surround under a moulded head with a cornice: K09's lintel with a cornice hood on both storeys (the heads' carved crests are not modelled)."
     },
+    "street_front_iron": {
+      "value": {
+        "balconettes": [
+          {
+            "from_s_m": 1.6,
+            "to_s_m": 4.0,
+            "floor_m": 7.4,
+            "proud_m": 0.7,
+            "height_m": 0.9,
+            "slab_m": 0.2,
+            "consoles": 2,
+            "before_light": true
+          },
+          {
+            "from_s_m": 4.9,
+            "to_s_m": 7.9,
+            "floor_m": 7.4,
+            "proud_m": 0.7,
+            "height_m": 0.9,
+            "slab_m": 0.2,
+            "consoles": 2,
+            "before_light": true
+          },
+          {
+            "from_s_m": 9.95,
+            "to_s_m": 12.45,
+            "floor_m": 7.4,
+            "proud_m": 0.7,
+            "height_m": 0.9,
+            "slab_m": 0.2,
+            "consoles": 2,
+            "before_light": true
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "rand_mcnally_pictorial_chicago_1893_field"
+      ],
+      "note": "T-3261: the plate's three iron balconies on the front, read against its window columns: one before the chamber window of the north column, one before the door column's (over the door) and one before the wide column's, none before the narrow column's. Each stands on the stone belt at the chamber floor (2.2 + 5.2 = 7.4 m) on two scrolled stone consoles, its guard about 0.9 m high before a chamber light that runs down behind it to a sill 0.3 m over the floor. Lengths from the plate's pixels scaled by the column spacing (47-52 px a metre locally): the north one about 2.3 m, the door column's about 3.5 m, the wide column's about 2.5 m, each centred on its window (their fronts read north of the windows only by the oblique view's parallax); the door column's is built 3.0 m, the kit's longest (open on the match record). About 0.7 m proud and the slab 0.2 m deep, inferred from the plate's consoles. The undated photograph from the west side of the avenue (chicagology_1905_field_photo, cross-check only, not a source of this) shows the same three and the narrow column without one. The pierced panels' scroll pattern is the kit's, RECONSTRUCTED."
+    },
     "wall_head": {
       "value": {
         "cornice": "k10.cornice.bracketed_timber",
@@ -455,29 +496,7 @@
       "value": {
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
-          "front_yard_m": 9.4,
-          "hood": {
-            "soffit_m": 6.0,
-            "width_m": 3.2,
-            "out_m": 1.0,
-            "fascia_m": 0.35,
-            "cornice": {
-              "height_m": 0.25,
-              "proud_m": 0.15
-            },
-            "brackets": "k08.bay.canted_hooded",
-            "railing": {
-              "height_m": 0.9,
-              "post_m": 0.1,
-              "baluster_m": 0.03,
-              "pitch_m": 0.12,
-              "rail_m": [
-                0.08,
-                0.06
-              ]
-            },
-            "railing_fabric": "iron"
-          }
+          "front_yard_m": 9.4
         }
       },
       "confidence": "inferred",
@@ -485,7 +504,7 @@
         "rand_mcnally_pictorial_chicago_1893_field",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The plate's door under an iron balcony carried on stone brackets (K01's door hood with an iron railing on brackets, its scrolled ironwork the kit's), at the stoop's head. The plate's balcony stands at the chamber floor before the window over the door; K01 keeps a hood's railing under the window above it, so its soffit stands at 6.0 m and its rail stops under that window's sill, about 1.4 m low (open on the match record); the front yard to the street line is the 1904 parcel's (street_u 30.40 - 21.0 m)."
+      "note": "The plate's door at the stoop's head in its stone surround, with no hood over it: the iron balcony the plate shows over the door stands at the chamber floor on its own consoles, one of the front's three balconettes (street_front_iron, T-3261), so the door hood T-3260 stood in for it at 6.0 m, about 1.4 m low, is withdrawn. The front yard to the street line is the 1904 parcel's (street_u 30.40 - 21.0 m)."
     },
     "boundary": {
       "value": {

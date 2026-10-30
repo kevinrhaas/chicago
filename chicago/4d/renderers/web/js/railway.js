@@ -163,6 +163,8 @@ function trackPath(line, terrain) {
     for (let j = Math.max(0, i - k); j <= Math.min(raw.length - 1, i + k); j += 1) { sum += raw[j]; c += 1; }
     return sum / c;
   });
+  // Only grade is read by the returned path; the sampling scratch is finished.
+  raw.length = 0;
   const gradeAt = (s) => {
     const x = Math.max(0, Math.min(grade.length - 1, s / STEP));
     const i = Math.floor(x); const f = x - i;
@@ -432,6 +434,43 @@ function installTieCache(near, far, cache) {
   if (far.boundingBox !== null) far.computeBoundingBox();
   near.computeBoundingSphere();
   far.boundingSphere = near.boundingSphere;
+}
+
+// Uniform crossed-card transforms can store six matrix lanes and R/B only.
+// Relations are tested AFTER Float32 conversion; sign-zero is part of equality.
+function packTuftCache(final) {
+  const upright = packTieCache(final);
+  if (upright.stride !== 11) return upright;
+  for (let i = 0; i < upright.count; i += 1) {
+    const o = i * 19;
+    if (!Object.is(final[o], final[o + 10])
+        || !Object.is(final[o + 8], -final[o + 2])
+        || !Object.is(final[o + 16], final[o + 17])) return upright;
+  }
+  const values = new Float32Array(upright.count * 8);
+  for (let i = 0; i < upright.count; i += 1) {
+    const o = i * 19;
+    [0, 2, 5, 12, 13, 14, 16, 18].forEach((lane, k) => { values[i * 8 + k] = final[o + lane]; });
+  }
+  return { count: upright.count, stride: 8, values };
+}
+
+function installTuftCache(mesh, cache, wantedCount) {
+  let upright = cache;
+  if (cache.stride === 8) {
+    const values = new Float32Array(cache.count * 11);
+    for (let i = 0; i < cache.count; i += 1) {
+      const o = i * 8;
+      values.set([cache.values[o], cache.values[o + 1], cache.values[o + 2],
+        -cache.values[o + 1], cache.values[o], cache.values[o + 3], cache.values[o + 4],
+        cache.values[o + 5], cache.values[o + 6], cache.values[o + 6], cache.values[o + 7]], i * 11);
+    }
+    upright = { count: cache.count, stride: 11, values };
+  }
+  // The old sphere covered the complete built payload before density trimming.
+  installTieCache(mesh, mesh, upright);
+  mesh.count = wantedCount;
+  if (mesh.boundingBox !== null) mesh.computeBoundingBox();
 }
 
 function railMesh(name, out, level, mat, castShadow) {
@@ -1086,15 +1125,18 @@ export async function createRailway({
     z.ties = null;
     if (tuftGeo && z.tufts.length) {
       z.tufts.sort((a, b) => a.keep - b.keep);
-      const mesh = new THREE.InstancedMesh(tuftGeo, tuftMat, z.tufts.length);
+      const mesh = new THREE.InstancedMesh(tuftGeo, tuftMat, 0);
+      mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(0), 3);
+      const final = new Float32Array(z.tufts.length * 19);
       z.tufts.forEach((t, k) => {
         q.setFromAxisAngle(up, t.yaw);
         const h = tuftLib.sheet.height_m * t.scale;
         m4.compose(v3.set(wx(t.e), t.y, wz(t.n)), q, s3.set(h, h, h));
-        mesh.setMatrixAt(k, m4);
-        mesh.setColorAt(k, c.setRGB(t.tone, t.tone, t.tone * 0.92));
+        m4.toArray(final, k * 19);
+        c.setRGB(t.tone, t.tone, t.tone * 0.92);
+        final.set([c.r, c.g, c.b], k * 19 + 16);
       });
-      mesh.computeBoundingSphere();
+      z.tuftCache = packTuftCache(final);
       mesh.name = `railway-tufts-z${zi}`;
       mesh.castShadow = false; mesh.receiveShadow = true;
       z.tuftKeeps = z.tufts.map((t) => t.keep);
@@ -1245,7 +1287,8 @@ export async function createRailway({
       if (!z.tuftMesh) continue;
       const ratio = want / full;
       let n = 0; while (n < z.tuftKeeps.length && z.tuftKeeps[n] < ratio) n += 1;
-      z.tuftMesh.count = n;
+      z.tuftWanted = n;
+      if (!z.tuftCache) z.tuftMesh.count = n;
       out.census.tufts += n;
     }
   };
@@ -1316,7 +1359,15 @@ export async function createRailway({
         }
         z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties;
       }
-      if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
+      if (z.tuftMesh) {
+        const wanted = z.tuftWanted ?? z.tuftMesh.count;
+        const visible = d < r.tufts && wanted > 0;
+        if (visible && z.tuftCache) {
+          installTuftCache(z.tuftMesh, z.tuftCache, wanted);
+          z.tuftCache = null;
+        }
+        z.tuftMesh.visible = visible;
+      }
       if (z.rockMeshes) {
         // the blocks lie along the water, not the yard's middle: measured from their own line
         const dr = Math.hypot(dn, Math.max(0, Math.abs(cx - z.rockCentre) - 10), Math.max(0, cy - 20));
@@ -1395,6 +1446,7 @@ export async function createRailway({
       dropNearRails(z);
       dropFarRails(z);
       z.tieCache = null;
+      z.tuftCache = null;
       z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
       for (const m of z.rockMeshes ?? []) m.dispose();
     }
