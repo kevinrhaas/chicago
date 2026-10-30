@@ -36589,6 +36589,22 @@ pictures show behind the 18th Street wall are lawn trees, left to the front-yard
 1890s trees still stand in 1904, and every tree's size, crown and species, are the rule's as above.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`,
 `detroit_det_4a08065-side-by-side.jpg` and their match records.
+**Extended (T-1881, 2026-10-30, the Prairie parkway):** the house's own Prairie Avenue parkway, from
+before its north end to the 18th Street corner's curbed bed (228.5-257.5 m along `prairie__prairie_ic_16_18`),
+is planted off the Detroit print (`loc_det_4a08065_pullman_residence`, 1897-1901), which sees the Prairie
+front squarely: four trees at 232.0, 238.8, 246.4 and 256.0 m, where the rule had three elms (232.8,
+242.1 and 251.4 m). **Read:** each trunk's x in the print carried to the planting line through its
+solved camera; the trunks before the portico and at the corner are checked by the 1890 Albertype plate
+(library image `a16-albertype-1890-pullman-residence`, which has no source record yet, so it is a check
+and not a citation), whose camera puts them 1.6 and 1.2 m south, the offset it shows along this front
+for the large dormer too. **Chosen:** every tree on the planting line, though the print stands the
+north one's foot about 1 m behind it and the corner one's about 0.5 m in front of it, in a low curbed
+bed that is not built; the corner (257.5 m to the face's end), where the print shows one more trunk on
+neither planting line and Taylor's no. 1445 one trunk planted on 18th Street, is left out of the stretch;
+and the corner tree stands though Taylor's no. 1445, between the two pictures in date, draws that
+parkway clear. The trees' size, crown and species are the rule's as above.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`albertype_1890-side-by-side.jpg`, `taylor_1445_album-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
