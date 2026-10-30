@@ -456,6 +456,19 @@ MINIFY
   # record and holds it deep-equal to its source. The repository's records are untouched.
   python3 tools/pack_letter_list.py "$SITE/data/residents"
 fi
+# A later scene's own household cards (data/residents_<scene>/, T-2702) — 1904's 71
+# Prairie Avenue households, 1812's one — are what a person's card in Inspect › People
+# reads (T-3265): its directory row points at the household file, and the record is
+# what the card renders. Copied verbatim (690 KB together): unlike the 1835 layer they
+# are small enough not to need the minifying above, and tools/check_published.mjs
+# compares them byte for byte (a new scene's directory needs its row there).
+for own in data/residents_*/; do
+  [ -d "$own/households" ] || continue
+  name=$(basename "$own")
+  rm -rf "$SITE/data/$name"
+  mkdir -p "$SITE/data/$name"
+  cp -a "$own/households" "$SITE/data/$name/households"
+done
 
 # The business layer. 196 firms compiled from the register — and 166 of them
 # have no roof in this town, so a card in the Businesses directory is the ONLY

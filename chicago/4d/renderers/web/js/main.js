@@ -4153,7 +4153,7 @@ async function boot() {
   // it go, back to where the Navigator was (docked, if it was docked).
   let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id) {
+  function openBuilding(id, { person = null } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -4165,7 +4165,9 @@ async function boot() {
     const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
     handInspect = hand;
     inspectHold = id;
-    void Promise.resolve(navigatorUi.openLink({ app: 'inspect', id })).finally(() => {
+    // T-3265: a person's own card, on the People tab of the house they lived in.
+    const link = person ? { app: 'inspect', id, tab: 'people', person } : { app: 'inspect', id };
+    void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
     });
@@ -4619,6 +4621,21 @@ async function boot() {
   });
 
   // ---- the Navigator (T-2617) ------------------------------------------- //
+  // T-3265: the household records a person's card reads, by the directory row's `file`.
+  // Only a scene whose directory names its own `residents_root` (1904); 1835's cards are
+  // the drawer's People section's, which reads its records its own way.
+  const householdRecords = new Map();
+  let residentCitations = null;
+  async function householdRecord(file) {
+    const root = String((await peopleDirectory.load())?.residents_root ?? '').replace(/^data\//, '');
+    if (!root || !file) return null;
+    if (!householdRecords.has(file)) {
+      householdRecords.set(file, fetch(new URL(`${root}/${file}`, resolveBases().dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+        .catch((err) => { householdRecords.delete(file); throw err; }));
+    }
+    return householdRecords.get(file);
+  }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {
     const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase);
@@ -4894,13 +4911,25 @@ async function boot() {
           return popup.sections(record);
         },
         // A person by directory id: in the drawer's People section where the scene has one
-        // (1835), else the Navigator's People screen (1904, T-1740).
-        openPerson: (id) => {
+        // (1835), else their own card in Inspect on the house they lived or worked in
+        // (T-3265), else the Navigator's People screen (1904, T-1740).
+        openPerson: async (id) => {
           if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
             hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
           }
+          const row = (await peopleDirectory.load().catch(() => null))?.people?.find((r) => r.id === id);
+          const at = [row?.lives_at, row?.works_at].find((s) => s && loaded.registry.has(s));
+          if (at) return !!openBuilding(at, { person: id });
           return navigatorUi?.select?.('people');
         },
+        // T-3265: a person's card reads their household's own record (the scene's
+        // data/residents_<scene>/, published by publish.sh) and the citations it cites,
+        // each once, when a card first asks.
+        householdRecord: (file) => householdRecord(file),
+        residentCitations: () => (residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
+          .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+          .then((doc) => doc?.citations ?? {})
+          .catch((err) => { residentCitations = null; throw err; })),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),
