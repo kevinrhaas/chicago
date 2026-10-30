@@ -1290,7 +1290,11 @@ class Bay:
                             holes.append((sh[0][0], sh[1][0], lo, sh[2][1], sh[2:], len(sh) == 4))
                         else:
                             holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
-                        if v.get("shallow"):
+                        # T-1890: a light on a chamfer's canted face (1801's, over the round bay
+                        # in HABS photograph 1) stands behind the wall's face, past where the host
+                        # was cut under it, so there is no host face to open round it; its recess
+                        # runs into the main roof, which the host cuts behind the cant
+                        if v.get("shallow") and "side" not in (run.start, run.end):
                             xs = sorted(run.world(q[0], 0.0, 0.0)[0] for q in sh)
                             ys = [q[1] for q in sh]
                             self.host_holes.append((xs[0], xs[-1], min(ys), max(ys)))
