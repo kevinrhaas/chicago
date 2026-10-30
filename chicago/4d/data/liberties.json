@@ -24424,7 +24424,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-09-29",
-      "revised": null,
+      "revised": "2026-10-30",
       "fields": [
         {
           "label": "Decision",
@@ -24445,6 +24445,10 @@
         {
           "label": "Recorded",
           "text": "2026-09-29 (T-1767)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-30, T-3264. The jaunt is now a ten-stop walk all the way round the house: the corner, three stands on Eighteenth Street, the alley, the front door, the carriage passage and three stands in the courtyard, each its own `glessner_tour_*` scene anchor placed so no tree, lamp or pole stands between the visitor and the part of the house the stop names. The order, the stands, the narration's story framing, the leg lines and the keepsake are the same kind of modern interpretation; every factual line still cites HABS, its drawings, Glessner's 1923 account or the house museum."
         }
       ],
       "work_refs": []

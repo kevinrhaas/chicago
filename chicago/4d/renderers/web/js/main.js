@@ -46,7 +46,7 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
-import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
+import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -3459,6 +3459,7 @@ async function boot() {
     occluders: standOccluders,
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
+    passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,
   });
   let travel = null;
   api.router = router;
