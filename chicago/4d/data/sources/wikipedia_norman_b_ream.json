@@ -1,0 +1,22 @@
+{
+  "id": "wikipedia_norman_b_ream",
+  "type": "website",
+  "citation": "Wikipedia, 'Norman B. Ream'. Read 30 October 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/Norman_B._Ream",
+  "locator": "The biography: his marriage in 1876 to Caroline Thompson Putnam; the couple at '1901 Prairie Avenue'; five sons and three daughters, of whom it names four sons and two daughters without dates.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-30 (T-3253) through a fetch that returned the article in short quoted segments. No archived snapshot verified.",
+  "note": "Encyclopedia biography. It supplies Mrs. Ream's name and the address; it does not say which children lived at home in 1904.",
+  "what_it_supplies": [
+    "Mrs. Ream's own name",
+    "the Reams' address"
+  ],
+  "what_it_does_not_supply": [
+    "which children were at home in 1904"
+  ]
+}

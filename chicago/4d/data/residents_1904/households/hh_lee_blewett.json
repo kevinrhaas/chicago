@@ -1,0 +1,110 @@
+{
+  "id": "hh_lee_blewett",
+  "scene": "1904",
+  "name": "The Lee household at 1700 Prairie Avenue",
+  "head": "pa1904_lee_blewett",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1700 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1700 Mr. & Mrs. Blewett Lee."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "glessner_lee_house_1700_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905",
+        "glessner_house_family_page"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1700, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_lee_blewett",
+      "name": "Blewett Lee",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "glessner_house_family_page",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1700 Mr. & Mrs. Blewett Lee",
+      "occupation": {
+        "value": "lawyer",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_frances_glessner_lee"
+        ],
+        "note": "Wikipedia: Frances Glessner 'married a lawyer', Blewett Harrison Lee."
+      }
+    },
+    {
+      "id": "pa1904_lee_frances_glessner",
+      "name": "Frances Glessner Lee",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "glessner_house_family_page",
+        "wikipedia_frances_glessner_lee",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1700 Mr. & Mrs. Blewett Lee",
+      "note": "The Blue Book prints her as Mrs. Blewett Lee. The museum's family page puts the couple at 1700 S. Prairie Avenue 'within a few years' of the 1898 wedding; the marriage ended in divorce in 1914 (Wikipedia). Later the maker of the Nutshell Studies of Unexplained Death."
+    },
+    {
+      "id": "pa1904_lee_john_glessner",
+      "name": "John Glessner Lee",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "born": {
+        "value": "1898",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_family_page"
+        ],
+        "note": "Born 1898 (the museum's family page)."
+      },
+      "note": "About six on the scene date. The family page names him among the Lees' three children; his place in his parents' house is inferred."
+    },
+    {
+      "id": "pa1904_lee_frances",
+      "name": "Frances Lee",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "born": {
+        "value": "1903",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_family_page"
+        ],
+        "note": "Born 1903 (the museum's family page)."
+      },
+      "note": "An infant on the scene date; her place in her parents' house is inferred. The third child, Martha, was born in 1906 and is not on the 1904 card."
+    }
+  ]
+}

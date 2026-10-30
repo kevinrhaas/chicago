@@ -1,0 +1,74 @@
+{
+  "id": "hh_brown_george_f",
+  "scene": "1904",
+  "name": "The Brown household at 1612 Prairie Avenue",
+  "head": "pa1904_brown_george_f",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "The household is listed at 1612 Prairie Avenue in both the 1904 and 1905 editions of the Blue Book, which bracket 1 July 1904, but not with the same people: the 1905 list prints 1612 Charles Edward Brown; 1612 George F. Brown jr.. Each person's own note says which of them the later list drops or adds."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "goodman_house_1612_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1612, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_brown_george_f",
+      "name": "George F. Brown",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "1612 George F. Brown",
+      "note": "Listed at 1612 in the 1904 edition and not in the 1905 one, which prints only Charles Edward Brown and George F. Brown jr. there; whether he was still in the house on 1 July 1904 is not documented."
+    },
+    {
+      "id": "pa1904_brown_george_f_jr",
+      "name": "George F. Brown jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1612 George F. Brown jr.",
+      "note": "'jr.' is the Blue Book's; that he is George F. Brown's son is read from the name, which the book does not state."
+    },
+    {
+      "id": "pa1904_brown_charles_edward",
+      "name": "Charles Edward Brown",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1612 Charles Edward Brown",
+      "note": "Listed at the house in both editions. The Blue Book does not say how he was related to George F. Brown."
+    }
+  ]
+}
