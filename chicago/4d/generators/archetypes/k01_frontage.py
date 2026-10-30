@@ -1085,8 +1085,11 @@ class Assembly:
             cid = f"k01.wall.wing.{w['id']}.{side}"
             ops = [o for o in w["openings"] if o.wall == cid]
             # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
+            # (T-3242: not an oriel: it stands on its corbels before the wall, which runs on
+            # behind it as a main wall does behind its oriel — 1701's range, its rear photograph)
             cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
-                + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays if b["wall"] == cid]
+                + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
+                   if b["wall"] == cid and b["variant"]["kind"] != "oriel"]
             # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
             hs = [hole(o) for o in ops] + cover
             if frame_wing:
@@ -5725,6 +5728,10 @@ def build(params, structure_id: str):
         # T-3241: the rail round the deck the hip is cut off at (1701's)
         from . import k01_hip_deck
         k01_hip_deck.dress(a)
+    if p.rear_veranda:
+        # T-3242: the two-level veranda on the rear wall and its garden flight (1701's)
+        from . import k01_rear_veranda
+        k01_rear_veranda.dress(a)
     if (p.mansard or {}).get("deck"):
         # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
         from . import k01_mansard_deck
