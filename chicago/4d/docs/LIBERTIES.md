@@ -35222,8 +35222,9 @@ and Tucker pictures show their posts in grass). Seven lamps stand where a photog
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
 eleven are attested. A twelfth (T-1934) stands where J. W. Taylor's no. 16554 shows it, at the turn
-of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, read for its place only
-(the print's taller globe-headed post is drawn with the district's one post); and the rule stands no
+of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, in the form the same print
+shows (T-1934's globe post): a plain post painted pale, about 4.9 m to its cap, a small bar a third
+of the way down, a slim neck and a wide shallow globe under a small dark cap; and the rule stands no
 lamp on 18th Street's north walk from Prairie Avenue to that turn, which 16554 and the Detroit
 Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`) see whole and show empty. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
@@ -35240,14 +35241,19 @@ view (`loc_det_4a08065_pullman_residence`), the Glessner House Museum's halftone
 Pullman house (`ghm_blog_pullman_completed`), the Ward Bros. engraving of 1887
 (`ghm_ward_1887_prairie_north_from_20th`) and the Greene stereograph of the Tucker house
 (`nypl_dennis_tucker_1010_prairie_stereo`); the mid-block lamps from the photographs of the houses
-they stand before. That 1904 is gas: every electric standard in the Prairie library is in a picture
-dated after it.
+they stand before; the globe post's form from J. W. Taylor's no. 16554
+(`aic_taylor_16554_pullman_from_sw`), its heights read through that print's solved camera. That 1904
+is gas: every electric standard in the Prairie library is in a picture dated after it (the globe
+post's print, of the 1890s, cannot say what it burned).
 **What is invented:** every lamp's place but the twelve pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
 the boss's leaves drawn as eight plain lobes; a lantern drawn as plain glass; the arms' bend and the
-glazed top's frame drawn as a plain cup and four hips.
+glazed top's frame drawn as a plain cup and four hips; the globe post's pale paint drawn a light
+grey (the monochrome print gives its tone, not its colour), its base plain and its globe milky glass,
+which the print is too small to tell, and its 4.9 m read through a camera that puts 18th Street's walk
+further off than the print's ground does, so the height moves if that camera is re-solved.
 **How to resolve:** a city record of the lamps (a gas-lighting contract or a list of lamp posts by
 street), or more dated photographs of the faces, would place them; a picture of another corner
 without a lamp removes that one.
