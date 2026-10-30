@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "fdcb1e17a5be7372ef96ecbcc145d7aa5fa0733f5703944cb0d283f7f852db25"
+      "glb_sha256": "38fc7c48ffa44991d2edcdd420e652685d1a2d6433fc3dc3aa39e80229aa2e16"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -61,10 +61,10 @@
         2.3485375627495597
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "896ce63602b0f92e8d43df39b393c21f0eda3972050770ed52a0ccfe597b5141"
+      "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d"
     }
   ],
-  "group_sha256": "4272bb2cf82d1db9ff4fb1dd09e536545b871bf63781b1e22301c518ccd2d01a",
+  "group_sha256": "8d31681f79bd126361ae1fd008f8331c60ff73e77bd9b077c3277778b7179693",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "c9cec82777a37eeb5772298c336cf8032e99db82c250f01944b638ec8f961c57",
+  "flora_sha256": "84c20c1c40087d78f54c0d5b7079a74f720b6479fcedf62bbd0216fe4aeee8c0",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -181,8 +181,8 @@
     },
     {
       "what": "the north block's lower roof: the plate shows its cresting about 1.5 m further north and 0.5 m lower than the build's deck",
-      "status": "open",
-      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof; carried in the stable's own record (data/reference_views/pullman_house_1729_prairie_ranges/inland_1894_plate.match.json)"
+      "status": "fixed",
+      "how": "seen only in this picture, at the belvedere's edge and through a tree, with no corner of the block to place it by; a visitor on 18th Street sees it behind the stable's main roof; carried in the stable's own record (data/reference_views/pullman_house_1729_prairie_ranges/inland_1894_plate.match.json) T-1934, 2026-10-30: the north block's deck lowered to 8.2 m (4.25 m over the eave, was 8.55 m) and its west edge carried from v 0.3 north to 0.6 m inside the north eave (was v -1.6 to -2.9, a strip 1.3 m long), read off the plate through this camera: the cresting's foot along the deck's west edge (x 1060-1250 px, y 478-502 px), back-projected onto the 53-degree west slope, stands at 8.1-8.4 m from v 0.3 to past the 1911 sheet's north wall. In the side-by-side the build's cresting now runs from behind the belvedere to the deck's south-west spire at x 1265, its foot within about 10 px (0.15 m) of the plate's at x 1200, where it stood as a short crested box at x 1180-1360 about 25-40 px higher. Left as they read: the plate shows the run on under the belvedere's cornice to x 1065, where the build's belvedere body covers it (the belvedere's own place), and the plate's run meets the main roof at x 1250 where the build's main roof's north-west hip stands about 50 px further right, so about 80 px of the deck's south edge shows there; both follow the main deck's place, which the plate and Taylor's 16555 disagree on (the deck's south-west corner, within tolerance). The north end's steep face is reconstructed: no picture sees it (L-pullman-north-block-deck-1934)."
     },
     {
       "what": "the palm house's drum: the plate reads its balustrade about 0.6 m lower than the build; Taylor's 16555 reads it within 0.3 m, so the two camera fits disagree. Its dome the plate reads broader, about 4.7 m: now 4.6 m (T-1934)",

@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2456, ts: '2026-10-30T15:03:44.646Z', date: 'Oct 30, 2026, 10:03 AM CT', title: 'Pullman\'s stable: the back roof sits lower and runs the full length', kind: 'improvement',
+    items: [
+      'The 1894 Inland Architect plate of Pullman\'s palm house and stable shows a long run of iron cresting along the back part of the stable\'s roof, lower down and behind the lookout tower. In the 1904 walk that roof had been a short crested box standing too high. Its flat top now sits about a third of a metre lower and runs back to the far end of the building, so from 18th Street the cresting lines up with the plate\'s.',
+    ] },
   { v: 2455, ts: '2026-10-30T13:56:47.445Z', date: 'Oct 30, 2026, 8:56 AM CT', title: '1905 Prairie\'s iron balconies on the front', kind: 'feature',
     items: [
       'Marshall Field\'s house at 1905 Prairie now carries the three iron balconies the 1893 Pictorial Chicago plate shows on its front: before the upper windows of the north, door and south columns, each on scrolled stone consoles at the upper floor\'s belt. The low door hood that stood in for the middle one is gone.',

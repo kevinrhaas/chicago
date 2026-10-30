@@ -4143,9 +4143,9 @@
     "pullman_house_1729_prairie_ranges__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 408284,
+      "bytes": 435740,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "ee2045dc94143a8f5ae9f0b80db608cffc90e459dbb79aa6879669b7700e3a07",
+      "inputs_sha256": "e9ab00e5b3909b997149c0e32d0a4c661adefadef51df82254cac11be4762e44",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "pullman_house_1729_prairie_ranges"
