@@ -4622,7 +4622,30 @@ class Assembly:
         a, c = sorted((back + sg * self.HOOD_BACK_M, nf + sg * pr))
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
-        return [k5.extrude(outline, a, c, P, "dormer_face", *ends)]
+        out = [k5.extrude(outline, a, c, P, "dormer_face", *ends)]
+        if e.get("pediment"):
+            out += self.dormer_broken_pediment(e, k5, P, ends, sg, nf, back, centre, ro - b / 2, spring)
+        return out
+
+    PEDIMENT_BACK_M = 0.08   # T-1881: a broken pediment's arms stop this far short of the face's
+                             # back, off the hood's own back, buried in the roof as it is
+
+    def dormer_broken_pediment(self, e, k5, P, ends, sg, nf, back, centre, rm, spring):
+        """T-1881: a hooded dormer's broken pediment, as two closed solids for the roof's union
+        (1729's large Prairie dormer, in the 1890 Albertype plate and Taylor's photograph
+        no. 1445): each arm a raking cornice `depth_m` deep, rising at `pitch_deg` inward from
+        `reach_m` out of the arch's centre, its bottom `foot_m` over the springing, standing
+        `proud_m` out of the face, its inner end dying into the hood's band along the band's
+        middle arc `rm` (never into the light), so the arch rises through the gap between them."""
+        pd = e["pediment"]
+        X, f, dp = pd["reach_m"], pd["foot_m"], pd["depth_m"]
+        (xb, yb), (xt, yt) = k01_frontage_params.broken_pediment_meets(pd, rm)
+        ab, at_ = math.atan2(yb, xb), math.atan2(yt, xt)
+        rim = [(rm * math.cos(ab + (at_ - ab) * i / 6), rm * math.sin(ab + (at_ - ab) * i / 6)) for i in range(1, 6)]
+        half = [(X, f), (xb, yb)] + rim + [(xt, yt), (X, f + dp)]
+        a, c = sorted((back + sg * self.PEDIMENT_BACK_M, nf + sg * pd["proud_m"]))
+        return [k5.extrude([(centre + side * x, spring + y) for x, y in half], a, c, P, "dormer_face", *ends)
+                for side in (1.0, -1.0)]
 
     FRAME_PROUD_M = 0.04   # T-1890: a slated face's stone frame stands this far out of it
     FRAME_BED_M = 0.02     # ... and is bedded this far into it
