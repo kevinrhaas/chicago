@@ -38,6 +38,7 @@ import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
+import { formerResidentsBlock } from './former-residents.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 import { MODE_ATTR } from '../researcher.js';
@@ -477,6 +478,9 @@ async function fillPeople(pane, sec, ctx, id) {
   let dir = null;
   try { dir = await ctx.actions?.peopleDirectory?.(); } catch { dir = null; }
   const rows = Array.isArray(dir?.people) ? dir.people : [];
+  // T-3266: who lived here before the scene date (and, in a house nobody is listed in, why
+  // not and who came after), drawn under whoever this tab lists.
+  const history = () => formerResidentsBlock(doc, dir?.former_residents?.[id], { el, line, heading });
   if (sec.hasResidents) {
     const d = el(doc, 'div', 'insp-card');
     d.innerHTML = sec.people;
@@ -492,12 +496,15 @@ async function fillPeople(pane, sec, ctx, id) {
       links.append(b);
     }
     if (links.children.length) pane.append(links);
+    const past = history();
+    if (past) pane.append(past);
     return;
   }
   const here = rows.filter((r) => r.lives_at === id || r.works_at === id);
   if (sec.people.includes('pop-flag')) { const f = el(doc, 'div', 'insp-card'); f.innerHTML = sec.people; pane.append(f); }
   if (!here.length) {
-    pane.append(el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
+    const past = history();
+    pane.append(past ?? el(doc, 'p', 'nav-sub', 'Nobody in our records lives or works here.'));
     return;
   }
   const block = el(doc, 'section', 'insp-sec insp-people-home');
@@ -516,6 +523,8 @@ async function fillPeople(pane, sec, ctx, id) {
     block.append(b);
   }
   pane.append(block);
+  const past = history();
+  if (past) pane.append(past);
   const linked = pane.closest('.insp-panes')?.parentElement?._insp?.person;
   if (linked && pane._people.has(linked)) void openPersonCard(pane, linked, ctx);
 }
@@ -539,6 +548,8 @@ async function openPersonCard(pane, personId, ctx) {
     return card;
   };
   home.hidden = true;
+  const former = pane.querySelector('.insp-former-wrap');   // T-3266: the house's past goes with its list
+  if (former) former.hidden = true;
   pane.dataset.person = personId;
   const first = draw(personModel({ row, sceneYear }));
   const scroller = pane.closest('.insp-panes')?.parentElement;
@@ -563,6 +574,8 @@ function closePersonCard(pane) {
   pane.querySelector('.insp-person-card')?.remove();
   const home = pane.querySelector('.insp-people-home');
   if (home) home.hidden = false;
+  const former = pane.querySelector('.insp-former-wrap');
+  if (former) former.hidden = false;
   const row = id ? pane.querySelector(`[data-person-card="${CSS.escape(id)}"]`) : null;
   row?.scrollIntoView?.({ block: 'center' });
   row?.focus?.({ preventScroll: true });
