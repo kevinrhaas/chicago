@@ -749,6 +749,16 @@ def stable_dress(m: Mesh, f: dict, rects: dict, wall: str, facts: dict) -> tuple
         m.box(wall, su - hw, su + hw, sv - hd, sv + hd, float(st.get("from_m", 4.0)), float(st["top_m"]))
         m.box("cornice", su - hw - 0.12, su + hw + 0.12, sv - hd - 0.12, sv + hd + 0.12,
               float(st["top_m"]) - 0.3, float(st["top_m"]))
+    for pn in f.get("pinnacles", []):
+        # T-3164: a slated spirelet standing on a ridge, its foot sunk into the slopes either
+        # side, under an iron spike: the Pullman lodge's, over its front's west roof in the plate
+        pu, pv = pn["at"]
+        hw, y0, y1 = float(pn["w_m"]) / 2, float(pn["from_m"]), float(pn["top_m"])
+        cone(m, "roof", [(pu - hw, pv - hw), (pu + hw, pv - hw), (pu + hw, pv + hw), (pu - hw, pv + hw)], y0, y1)
+        sp = float(pn.get("spike_m", 0.0))
+        if sp:
+            m.box("cornice", pu - 0.03, pu + 0.03, pv - 0.03, pv + 0.03, y1 - 0.25, y1 + sp)
+        facts.setdefault("pinnacle_tops_m", []).append(round(y1 + sp, 3))
     return windows, doors
 
 

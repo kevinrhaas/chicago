@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 872,
+  "count": 873,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -60500,7 +60500,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
+          "text": "the lodge was one rectangle on the 1911 sheet's outline under one hipped roof to a crested deck. The 1894 Inland plate (Inland Architect Press. Conservatory of Geo) and Lowe's print (Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) both draw its north front in two parts: west of the loggia's west end (plate x 1052, Lowe x 662) a part with a quoined east return, its eave a few pixels over the loggia block's, under a hipped roof of its own whose north-east hip rises from the return to about the deck's height. It is built as a second part, 4.85 m wide from u 4.1 to the west wall, with a hipped roof at the main roof's 52 degrees and its ridge at 11.75 m, just under the deck's 11.9 m. Both pictures put the step at about 2 m (the return's width and the eave's rise through the solved cameras). The part's face is put on the sheet's north wall, where the 1911 north range abuts the lodge, and the loggia block is set 2 m back behind it. The alternative was the part standing 2 m out over the range. The pictures cannot tell the two apart, and this way the block's corner lands where both pictures draw it (x 940 on the plate, 576 on Lowe's print). **What is invented.** Which face the sheet's line is (above); the part's depth behind the front (6 m) and so its ridge's length; the roof's back slopes, which no picture shows; the 2 m recess's floor and the north range's glass end against the loggia block, which no picture shows either (both pictures predate the north range). The spirelet on the ridge ('s pinnacle pass), the dark pointed form the plate draws over this roof, about 1 m across at the ridge and 2.5 m tall: built 0.9 m square with an iron spike, on the ridge's middle; its plan, its place along the ridge (the plate looks at the ridge nearly end-on) and the spike are invented. **What is not.** The part's width, its return, its eave's step, its hipped roof and that roof's height against the deck, which both pictures show."
         },
         {
           "label": "How to resolve",
@@ -60560,6 +60560,49 @@
         {
           "label": "Recorded",
           "text": "2026-10-29 (T-3164)."
+        }
+      ],
+      "work_refs": [
+        "T-3164"
+      ]
+    },
+    {
+      "id": "L-pullman-podium-1800-calumet-3164",
+      "title": "The Pullman conservatory's podium: corner piers, banded rustication and its courses, read off Lowe's print",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "both pictures of the conservatory (Inland Architect Press. Conservatory of Geo, Unknown photographer. Pullman, George M., Residence [the conservatory from 18th…) show its 2.3 m stone podium dressed, not plain: under the glass band a moulded cap course standing proud; a pale pier at each outer corner (the north front's north-east pier reads x 1240-1268 on the plate and 802-822 on Lowe's print, about 0.6 m at 46 and 34 px/m through their solved cameras); and between the piers a darker field crossed by faint level joints, about four courses in the podium's height. Built: a 0.3 m base course 0.05 m proud, a 0.22 m cap course 0.1 m proud, 0.6 m piers 0.06 m proud at every outer corner of the podium and of the transept's two arms, and between them four courses of banded rustication 0.02 m proud with 0.04 m joints, so each field reads as a panel sunk behind its piers. The courses and the piers stop at the north entrance's surround. **What is invented.** The courses' profiles (drawn as plain slabs), their projections, the joint count (four, from the print's faint lines), and the dress carried round the faces neither picture sees: the west arm, the west flank and the faces south of the transept. **What is not.** The podium's height and plan, which were already built; the piers' places at the corners and their width, and the cap course over the field, read off both pictures through their cameras."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or sharper picture of the podium gives the mouldings and the coursing."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3164)."
         }
       ],
       "work_refs": [
