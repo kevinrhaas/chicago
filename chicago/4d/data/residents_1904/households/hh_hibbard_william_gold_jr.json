@@ -1,0 +1,62 @@
+{
+  "id": "hh_hibbard_william_gold_jr",
+  "scene": "1904",
+  "name": "The Hibbard household at 1637 Prairie Avenue",
+  "head": "pa1904_hibbard_william_gold_jr",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "attested",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 1637 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903) and again in the 1905 edition (canvass begun September 1904), which bracket 1 July 1904. The 1905 list prints: 1637 Mr. & Mrs. Wm. Gold Hibbard jr.."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "spalding_house_1637_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [
+        "chicago_blue_book_1905"
+      ],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 1637, and the 1905 list again. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_hibbard_william_gold_jr",
+      "name": "William Gold Hibbard jr.",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1637 Mr. & Mrs. Wm. Gold Hibbard",
+      "note": "The 1904 OCR prints 'Wm. Gold Hibbard' at 1637 and the 1905 edition 'Wm. Gold Hibbard jr.'; the father's widow is listed separately at 1701 in both, so this is the son."
+    },
+    {
+      "id": "pa1904_hibbard_mrs_william_gold_jr",
+      "name": "Mrs. William Gold Hibbard jr.",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "printed_as": "1637 Mr. & Mrs. Wm. Gold Hibbard"
+    }
+  ]
+}

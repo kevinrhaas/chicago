@@ -1,0 +1,57 @@
+{
+  "id": "hh_free_w_c",
+  "scene": "1904",
+  "name": "The Free household at 2001 Prairie Avenue",
+  "head": "pa1904_free_w_c",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+      "chicago_blue_book_1904",
+      "chicago_blue_book_1905"
+    ],
+    "note": "Listed at 2001 Prairie Avenue in the Blue Book for 1904 (canvass begun September 1903); the 1905 edition (canvass begun September 1904) prints nothing at 2001. The household left within that year, and whether it was still in the house on 1 July 1904 is not documented."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "house_2001_prairie",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "chicago_blue_book_1904",
+      "also_sources": [],
+      "note": "The Blue Book's Prairie Avenue street list prints the household at 2001. The book gives no date the household came or went, so neither end is dated here."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. A house of this kind kept live-in staff, and the 1900 and 1910 censuses name them; neither was read for this card, so no staff are listed. A person goes on this card when a source names them, and not before.",
+    "sources": [
+      "chicago_blue_book_1904"
+    ]
+  },
+  "persons": [
+    {
+      "id": "pa1904_free_w_c",
+      "name": "W. C. Free",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2001 Mr. & Mrs. W. C. Free"
+    },
+    {
+      "id": "pa1904_free_mrs_w_c",
+      "name": "Mrs. W. C. Free",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "printed_as": "2001 Mr. & Mrs. W. C. Free"
+    }
+  ]
+}

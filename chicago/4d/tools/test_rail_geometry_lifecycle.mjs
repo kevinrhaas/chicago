@@ -5,9 +5,12 @@ if(process.argv.slice(2).some(v=>v!=='--self-test'))throw Error('Only --self-tes
 import {createHash} from 'node:crypto';
 const root=fileURLToPath(new URL('../',import.meta.url)).replace(/\/$/,''),base=await fs.readFile(`${root}/renderers/web/js/railway.js`,'utf8'),proposed=base;
 const THREE=await import(pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href);
+const {compactStreams}=await import(pathToFileURL(`${root}/renderers/web/js/compact-streams.js`).href);
+const {compactNormals}=compactStreams(THREE);
 const producer=s=>s.slice(s.indexOf('function railProfile('),s.indexOf('/* -------------------------------------------------------------------------- */\n/* the layer'));
 // Geometry fixture below pins the output; lifecycle functions are the actual producer.
-const funcs=Function('THREE','GROUND','STEEL','RUST','HEAD_SIDE','wx','wz',producer(base)+';return {railProfile,laySection,railMesh};')(THREE,{bed:{lift:.024}},new THREE.Color(0xa3a4a6),new THREE.Color(0x4f3527),new THREE.Color(0x6b5546),e=>e,n=>-n);
+const producerWith=pack=>Function('THREE','compactNormals','GROUND','STEEL','RUST','HEAD_SIDE','wx','wz',producer(base)+';return {railProfile,laySection,railMesh};')(THREE,pack,{bed:{lift:.024}},new THREE.Color(0xa3a4a6),new THREE.Color(0x4f3527),new THREE.Color(0x6b5546),e=>e,n=>-n);
+const funcs=producerWith(compactNormals),legacy=producerWith(src=>new THREE.Float32BufferAttribute(src,3));
 const trackCode=base.slice(base.indexOf('function trackPath('),base.indexOf('/* -------------------------------------------------------------------------- */\n/* draped ribbons'));
 const trackPath=Function(trackCode+';return trackPath;')();
 const spec={gauge_m:1.435,rail:{base_m:.125,base_depth_m:.018,web_m:.013,head_width_m:.065,height_m:.145,head_depth_m:.034},ties:{exposed_m:.025}};
@@ -22,8 +25,31 @@ const releaseSource=await fs.readFile(`${root}/renderers/web/js/upload-release.j
 const release=await import('data:text/javascript;base64,'+Buffer.from(releaseSource.replace("import * as THREE from 'three';",`import * as THREE from '${pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href}';`).replace("import { isSharedImage, retireSharedImage } from './shared-images.js';",'const isSharedImage=()=>false,retireSharedImage=()=>{};')).toString('base64'));
 function make(){const group=new THREE.Group();group.name='railway';let marks=0;const zone={index:0,nHi:0,nLo:-110,centre:new THREE.Vector3(0,0,55),level:.5,sections:[[0,0,70],[1,10,100]]};const zones=[zone];const out=Function('THREE','group','paths','profNear','profFar','spec','railMat','onGeometry','laySection','railMesh','zones','REACH',`const out={census:{nearZones:0}},ZONE_M=110;let level='light';const capPile=null,pileSpots=[],groundPairs=[],geometries=[],materials=[],maps=new Map();${headers}${update}${dispose}return {...out,zone:zones[0],farRails,dropFarRails,nearRails,dropNearRails,setLevel:(v)=>{level=v;}};`)(THREE,group,paths,profNear,profFar,spec,mat,g=>{marks++;release.releaseAfterUpload(g);},funcs.laySection,funcs.railMesh,zones,reach);return{...out,group,get marks(){return marks;}};}
 const hashMesh=m=>createHash('sha256').update(Buffer.concat([...Object.entries(m.geometry.attributes).map(([k,a])=>Buffer.concat([Buffer.from(k),Buffer.from(a.array.buffer,a.array.byteOffset,a.array.byteLength)])),Buffer.from(m.geometry.index.array.buffer,m.geometry.index.array.byteOffset,m.geometry.index.array.byteLength)])).digest('hex');
-function eager(){const b={pos:[],nrm:[],col:[],idx:[]};for(const[i,s0,s1]of [[0,0,70],[1,10,100]])funcs.laySection(paths[i],s0,s1,profFar,spec,b);return funcs.railMesh('railway-rails-far-z0',b,.5,mat,false);}
-const expected=eager(),expectedHash=hashMesh(expected);assert.equal(expectedHash,'87c4ce9d4ed5fa06e903dcef68b2b162c35aeca4fa783499b207450c61f3edfb');let checks=1;
+function eager(implementation=funcs){const b={pos:[],nrm:[],col:[],idx:[]};for(const[i,s0,s1]of [[0,0,70],[1,10,100]])funcs.laySection(paths[i],s0,s1,profFar,spec,b);return implementation.railMesh('railway-rails-far-z0',b,.5,mat,false);}
+const expected=eager(),expectedHash=hashMesh(expected),legacyExpected=eager(legacy);
+// The immutable float-layout golden still protects every original producer stream.
+assert.equal(hashMesh(legacyExpected),'87c4ce9d4ed5fa06e903dcef68b2b162c35aeca4fa783499b207450c61f3edfb');let checks=1;
+assert.deepEqual(Object.keys(expected.geometry.attributes),Object.keys(legacyExpected.geometry.attributes));checks++;
+for(const[name,a]of Object.entries(expected.geometry.attributes))if(name!=='normal'){
+ const b=legacyExpected.geometry.getAttribute(name);assert.equal(a.itemSize,b.itemSize);assert.equal(a.normalized,b.normalized);assert.deepEqual(a.array,b.array);checks+=3;
+}
+assert.deepEqual(expected.geometry.index.array,legacyExpected.geometry.index.array);checks++;
+for(const key of ['name','material','castShadow','receiveShadow']){assert.equal(expected[key],legacyExpected[key]);checks++;}
+function normalPrecision(original,packed){
+ assert.ok(packed.array instanceof Int8Array);assert.equal(packed.itemSize,4);assert.equal(packed.normalized,true);assert.equal(packed.count,original.count);
+ let maxComponentError=0,maxAngleDeg=0;
+ for(let i=0;i<original.count;i++){
+  assert.equal(packed.array[i*4+3],0);const a=[original.getX(i),original.getY(i),original.getZ(i)],b=[packed.getX(i),packed.getY(i),packed.getZ(i)];
+  for(let j=0;j<3;j++)maxComponentError=Math.max(maxComponentError,Math.abs(a[j]-b[j]));
+  const al=Math.hypot(...a),bl=Math.hypot(...b);if(al>0&&bl>0)maxAngleDeg=Math.max(maxAngleDeg,Math.acos(Math.max(-1,Math.min(1,a.reduce((v,x,j)=>v+x*b[j],0)/al/bl)))*180/Math.PI);
+ }
+ assert.ok(maxComponentError<=1/254+1e-6);assert.ok(maxAngleDeg<1);return{maxComponentError,maxAngleDeg};
+}
+const oldNormal=legacyExpected.geometry.getAttribute('normal'),packedNormal=expected.geometry.getAttribute('normal'),precision=normalPrecision(oldNormal,packedNormal);checks++;
+assert.throws(()=>normalPrecision(oldNormal,compactNormals(Array(oldNormal.count*3).fill(1))));checks++;
+assert.notEqual(expectedHash,hashMesh(legacyExpected));checks++;
+assert.equal(expectedHash,'d846925237edd1a8a22d7549b09eac324d90d886213235077ea9be06c1214a99');checks++;
+console.log(JSON.stringify({legacyFloatGeometrySHA256:hashMesh(legacyExpected),packedGeometrySHA256:expectedHash,normalBytesSaved:oldNormal.array.byteLength-packedNormal.array.byteLength,...precision,allOtherStreamsAndMetadataExact:true,wrongNormalControlRejected:true}));
 const eye=n=>({position:new THREE.Vector3(0,1,-n)});
 {
  const f=make();assert.equal(f.group.children.length,0);assert.equal(f.marks,0);checks+=2;

@@ -377,7 +377,7 @@ function laySection(path, s0, s1, prof, spec, out) {
 function railMesh(name, out, level, mat, castShadow) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.Float32BufferAttribute(out.pos, 3));
-  geo.setAttribute('normal', new THREE.Float32BufferAttribute(out.nrm, 3));
+  geo.setAttribute('normal', compactNormals(out.nrm));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(out.col, 3));
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(out.pos.length / 3).fill(level), 1));
   geo.setIndex(out.pos.length / 3 > 65535 ? new THREE.Uint32BufferAttribute(out.idx, 1) : new THREE.Uint16BufferAttribute(out.idx, 1));
