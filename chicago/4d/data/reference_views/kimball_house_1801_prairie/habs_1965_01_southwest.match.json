@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b364d0b5e06eac00072c892a8469932cf52d936c4e820a18ee53166f8a52be75",
+  "glb_sha256": "4faead3b93b8e37a60bfca2118f76ec833437599ce1696488432917b91a6d1f5",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -66,8 +66,8 @@
       "status": "fixed"
     },
     {
-      "what": "the main cornice under the wall gable's lights: the print carries it on under the pair to the corner (y 617-663, to x 1238); the build stops the mansard's eave box square at the gable's west cheek (k01_frontage.shallow_bay_cutters, as at the front's south pavilion), so the cornice is missing across the gable's 2.3 m, under its lights (T-1890)",
-      "status": "open"
+      "what": "the main cornice under the wall gable's lights: the print carries it on under the pair to the corner (y 617-663, to x 1238); the build stops the mansard's eave box square at the gable's west cheek (k01_frontage.shallow_bay_cutters, as at the front's south pavilion), so the cornice is missing across the gable's 2.3 m, under its lights (T-1890). Built (T-1890): the gable carries `cornice_across`, so K10's moulded course and the mansard's eave box run on in front of its face under the pair to the corner, the course capped there, only the slate over the box cut away and the gutter stopped at the gable's west cheek; re-rendered, the cornice runs under the lights to the corner as the print's does, its top at about y 617 under the pair",
+      "status": "fixed"
     },
     {
       "what": "the recessed range behind the south-east corner: set back from the wall, tall glazed openings under a carved head at about the cornice (x 1225-1300 px, y 610-770); the build's rear wings stand there plain (T-3109). The 1911 sheet steps the wall back to about v 9.8 east of u 6.87 (the bay's east end), where the build's rectangle holds v 11.0 to the corner",

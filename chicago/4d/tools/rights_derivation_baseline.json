@@ -489,6 +489,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.hip_deck": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "edson_keith_house_1906_prairie/as_mapped_1904/form.principal_floor_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -519,6 +527,14 @@
         "chicagology_1906_keith_engraving"
       ],
       "sole_support": true,
+      "confidence": "inferred"
+    },
+    "edson_keith_house_1906_prairie/as_mapped_1904/form.side_porch": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1906_keith_engraving"
+      ],
+      "sole_support": false,
       "confidence": "inferred"
     },
     "edson_keith_house_1906_prairie/as_mapped_1904/form.stair_landing_depth_m": {

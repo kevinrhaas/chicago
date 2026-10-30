@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "verified": true,
+  "id": "jwa_encyclopedia_hannah_greenebaum_solomon",
+  "type": "website",
+  "citation": "Beth Wenger, 'Hannah Greenebaum Solomon', Shalvi/Hyman Encyclopedia of Jewish Women, Jewish Women's Archive.",
+  "author": "Beth Wenger",
+  "date": "accessed 2026-10-30",
+  "describes_date": "1858-1942",
+  "url": "https://jwa.org/encyclopedia/article/solomon-hannah-greenebaum",
+  "locator": "The article body, the paragraphs on the Chicago Woman’s Club and the National Council of Jewish Women.",
+  "rights_note": "Modern encyclopedia text, cited in words only.",
+  "access_notes": "Read 2026-10-30 (T-3250) through a fetch that returned short quoted fragments.",
+  "note": "Fragments read: 'Solomon and her sister Henrietta Frank became the first Jewish members of the prestigious Chicago Woman's Club in 1876.' 'Hannah Greenebaum Solomon founded and served as the first president of the National Council of Jewish Women (NCJW).'",
+  "what_it_supplies": [
+    "Henrietta Frank and her sister Hannah Solomon as the first Jewish members of the Chicago Woman's Club, 1876",
+    "Hannah Solomon as founder and first president of the National Council of Jewish Women"
+  ],
+  "what_it_does_not_supply": [
+    "Henrietta Frank's address, which the Worlds of Prairie Avenue essay gives as 1608"
+  ]
+}

@@ -503,10 +503,20 @@ export function boxPick(meshes, ndc, camera, far = pickReach(camera)) {
     point: ray.ray.at(best.distance, new THREE.Vector3()) };
 }
 
-/** The raycast the layers used before: the oracle while the page arrays exist. */
+const forward = new THREE.Vector3();
+
+/**
+ * The raycast the layers used before: the oracle while the page arrays exist.
+ * It starts at the camera's near plane, as the GPU pick and the frame do: a
+ * surface nearer than that is clipped, so no tap can land on it (T-3248 — an
+ * eye stood 9 cm off a tavern's woodpile, and the raycast answered the pile
+ * the frame had cut away). The plane is flat, so off the axis a ray reaches it
+ * further out; an orthographic ray already starts on it.
+ */
 export function raycastPick(meshes, ndc, camera, far = pickReach(camera)) {
   ray.setFromCamera(ndc, camera);
-  ray.near = 0;
+  ray.near = camera.isPerspectiveCamera
+    ? camera.near / ray.ray.direction.dot(camera.getWorldDirection(forward)) : 0;
   ray.far = far;
   const hits = ray.intersectObjects(meshes, false);
   if (!hits.length) return null;
