@@ -35211,12 +35211,6 @@
           "domain": "structure",
           "structure": "edson_keith_house_1906_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.hip_deck"
-        },
-        {
-          "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.north_bays"
         },
         {
@@ -35248,12 +35242,6 @@
           "structure": "edson_keith_house_1906_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.side_porch"
         },
         {
           "domain": "structure",
@@ -35293,7 +35281,7 @@
         },
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`, `edson_keith_house_1906_prairie.as_mapped_1904.form.yard`, `edson_keith_house_1906_prairie.as_mapped_1904.form.side_porch`, `edson_keith_house_1906_prairie.as_mapped_1904.form.hip_deck`"
+          "text": "`edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_front_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.wall_thickness_side_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.service_wall_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.roof_covering`, `edson_keith_house_1906_prairie.as_mapped_1904.form.stair_tread_m`, `edson_keith_house_1906_prairie.as_mapped_1904.form.sash_by_storey`, `edson_keith_house_1906_prairie.as_mapped_1904.form.north_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rear_bays`, `edson_keith_house_1906_prairie.as_mapped_1904.form.chimneys`, `edson_keith_house_1906_prairie.as_mapped_1904.form.rainwater`, `edson_keith_house_1906_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Revised (the sign-off)",
