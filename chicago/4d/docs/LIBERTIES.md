@@ -35289,7 +35289,11 @@ the yard (1720, 1736, 1801, 1811, 1816, 1905, 2120 Prairie) are drawn as those p
 mown lawn behind the fence or coping, no shrub. Pullman's yard at 1729 keeps what the Detroit
 Publishing views show: ivy over the west front (off the porch, below), young
 lindens in the lawn and the shrub border inside the 18th Street coping (attested). 1912 keeps the
-ivy over its front (inferred for 1904). On every other lot about a third are left as open lawn
+ivy over its front (inferred for 1904). Pullman's glasshouse ground at 1800 Calumet keeps what the
+1894 Inland plate and Lowe's c. 1897 print show before the conservatory (T-3164): two clipped
+standards in square planting boxes, each with a dense mass over its box (drawn as the sheared
+ball), and tall shrubs along the drive's far edge, read through both pictures' solved cameras
+(inferred for 1904; a pictured lot takes no rule bed). On every other lot about a third are left as open lawn
 and the rest are planted in one of the period's few ways, drawn per lot from a seed of the
 parcel's id: a matched pair of shrubs at the stoop's foot (a sheared arborvitae ball, smooth
 hydrangea, Van Houtte's spiraea or a garden rose), a lilac or a sheared arborvitae cone at a front
@@ -35314,12 +35318,14 @@ Publishing views of the Pullman house (`loc_det_4a08065_pullman_residence` and
 `docs/RESEARCH/prairie_1904_front_yards.md`.
 **What is invented:** every plant on a lot no picture shows; which lots are planted and how; the
 species, sizes and spacing; the beds and their bedding; the ivy's exact extent on both pictured
-houses; the bare lots' lawns hide whatever a picture's fence or angle did not show.
+houses; the bare lots' lawns hide whatever a picture's fence or angle did not show; at 1800
+Calumet, the boxed plants' species (a standard and a mass the yards' plant set can draw) and their
+standing in 1904, seven to ten summers after the pictures.
 **How to resolve:** a dated photograph of a lot's front yard replaces that lot's rule planting with
 what it shows (its shrubs, beds and urns placed and graded attested); a nursery bill, a garden
 writer's account of a Prairie Avenue yard, or a society-page description would name species.
-**Ticket:** T-3203, T-3223.
-**Recorded:** 2026-10-27 (T-3203); revised 2026-10-28 (T-3223).
+**Ticket:** T-3203, T-3223, T-3164.
+**Recorded:** 2026-10-27 (T-3203); revised 2026-10-28 (T-3223); revised 2026-10-30 (T-3164).
 
 ### L-k14-walks-1800-block-3206 — Walks, gates and front boundaries of the 1800- and 1900-block Prairie houses read off their photographs; each house given a front walk from the public walk to its door
 **Recorded:** 2026-10-27.
