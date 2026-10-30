@@ -3988,6 +3988,7 @@ class Assembly:
         reach, they are cut on hidden faces (its walls and its back, closed on the plane, stand
         in front of them); in front of its face the eave box stops square at its cheek and, past
         a corner it is flush with, at its face, each end closed in the eave's trim (`return`)."""
+        from . import k08_bays as K8
         out = []
         D, P = self.p.depth_m, lambda a, b_, c: (a, c, -b_)
         cr = (self.p.mansard or {}).get("crown") or {}
@@ -4037,6 +4038,43 @@ class Assembly:
                        [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
                         (D - behind, s0)])
                 out.append(k5.extrude(cut, yf - 0.5, top, P, "return", "wall", "wall"))
+                # T-1890: and inside the canted face, as deep as a light's recess on it reaches
+                # (1801's over its round bay, HABS photograph 1), on hidden faces as the box's are:
+                # the cut above closes in the cant's own plane, over the light's opening. Up to
+                # the highest light's head, so the slate over the cant's top keeps its face
+                lit = self.cant_lights(b)
+                if lit:
+                    pts = [(D + proud, s1 - along), (D - behind, s1)] if side == "right" else \
+                          [(D - behind, s0), (D + proud, s0 + along)]
+                    (ua, va), (ub, vb) = pts
+                    L = math.hypot(ub - ua, vb - va)
+                    n = ((vb - va) / L, -(ub - ua) / L)      # out of the canted face
+                    if n[0] < 0.0:
+                        n = (-n[0], -n[1])
+                    deep = K8.part(b["variant"], K8.load(), "recess")["depth_m"] + 0.05
+                    at = lambda q, k: (q[0] + n[0] * k, q[1] + n[1] * k)
+                    ring = [at(pts[0], 0.005), at(pts[1], 0.005), at(pts[1], -deep), at(pts[0], -deep)]
+                    if math.fsum(a[0] * c[1] - c[0] * a[1] for a, c in zip(ring, ring[1:] + ring[:1])) < 0.0:
+                        ring.reverse()
+                    out.append(k5.extrude(ring, bot, max(hi for _, hi in lit) + 0.5, P, "wall", floor, "wall"))
+        return out
+
+    @staticmethod
+    def cant_lights(b) -> list:
+        """T-1890: the lights a chamfered shallow pavilion carries on its canted face (the last
+        of its plan's runs at a right corner, the first at a left), by K08's own `at`: each
+        (sill, head) in metres over grade."""
+        v = b["variant"]
+        pts = v["plan"]["points"]
+        lens = [math.hypot(q[0] - p_[0], q[1] - p_[1]) for p_, q in zip(pts, pts[1:])]
+        total, right = math.fsum(lens), v["plan"].get("side_end") == "right"
+        out, y = [], 0.0 if v.get("base", "grade") == "grade" else float(v["base"])
+        for st in v["storeys"]:
+            for w in st.get("windows") or ():
+                if any(f * total > total - lens[-1] + 1e-9 if right else f * total < lens[0] - 1e-9
+                       for f in w.get("at") or ()):
+                    out.append((y + float(w["sill_m"]), y + float(w["sill_m"]) + float(w["clear_height_m"])))
+            y += float(st["height_m"])
         return out
 
     def flat_roof(self):
