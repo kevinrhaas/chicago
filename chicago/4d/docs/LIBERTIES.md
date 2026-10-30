@@ -35219,7 +35219,11 @@ parkway (T-3231: the owner doubted the raised footings once drawn at every corne
 and Tucker pictures show their posts in grass). Seven lamps stand where a photograph shows them in front of a house (1801/1811,
 1708, opposite 1721, 1816, 1905, 2120, 2140), and four corner lamps where a picture shows them
 (Glessner's and Pullman's at 18th Street, the Ward engraving's at 20th, Tucker's at 22nd); these
-eleven are attested. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
+eleven are attested. A twelfth (T-1934) stands where J. W. Taylor's no. 16554 shows it, at the turn
+of 18th Street's walk into Calumet Avenue before Pullman's palm-house wing, read for its place only
+(the print's taller globe-headed post is drawn with the district's one post); and the rule stands no
+lamp on 18th Street's north walk from Prairie Avenue to that turn, which 16554 and the Detroit
+Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`) see whole and show empty. Every other lamp is placed by rule: about one per 160 ft of face, the two sides
 of a street staggered, on the parkway 0.4 m off the walk, moved along the parkway clear of an elm
 (1.6 m), a carriage walk or an alley mouth, and none within 14 m of a face's end. Every post is the
 same, read part by part off the 1811 photograph (T-3219): a plain round foot on a plinth, a moulded
@@ -35236,7 +35240,7 @@ Pullman house (`ghm_blog_pullman_completed`), the Ward Bros. engraving of 1887
 (`nypl_dennis_tucker_1010_prairie_stereo`); the mid-block lamps from the photographs of the houses
 they stand before. That 1904 is gas: every electric standard in the Prairie library is in a picture
 dated after it.
-**What is invented:** every lamp's place but the eleven pictured; the 160-ft spacing and the
+**What is invented:** every lamp's place but the twelve pictured; the 160-ft spacing and the
 stagger; the 1.5-ft corner inset and the 0.4-m offset from the walk; a lamp at every corner, where
 the pictures show four; one post for the
 whole district, at the measures read off the 1811 print (Taylor 2135's taller foot is not drawn);
