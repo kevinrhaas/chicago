@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 876,
+  "count": 877,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1539,7 +1539,7 @@
     },
     {
       "id": "marshall_field_house_1905_prairie",
-      "name": "1905 Prairie Avenue — Field Sr. Second Empire"
+      "name": "1905 Prairie Avenue — the Marshall Field house (Second Empire)"
     },
     {
       "id": "marshall_field_house_1905_prairie_coach_house",
@@ -35444,18 +35444,6 @@
         },
         {
           "domain": "structure",
-          "structure": "marshall_field_house_1905_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "marshall_field_house_1905_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "marshall_field_house_1905_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35508,7 +35496,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -35516,7 +35504,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
+          "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's. **1811 retired from this liberty by later work (2026-10-16):** the house now stands as the K01 stone-front house under `“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”`, under the same id; its draft attributes are gone, and its stable keeps 1811 S. Prairie Avenue — the alley building of the house at 1811 here. **1815 retired from this liberty by later work (2026-10-25):** the house now stands as the K01 stone-front house under `“1815 Prairie refined from the district draft to a K01 stone-front house under a mansard, its pavilion, corner bay and balcony read off its photographs”`, under the same id; its draft attributes are gone, and its coach house keeps 1815 S. Prairie Avenue — the alley building of the house at 1815 here. **1823 retired from this liberty by later work (2026-10-26):** the house now stands as the K01 stone-front house under `“1823 Prairie refined from the district draft to a K01 stone-front house under a mansard, its south pavilion, window groups and stacks read off its pictures”`, under the same id; its draft attributes are gone. **1827 retired from this liberty by later work (2026-10-26):** the Doane house's main block now stands as the K01 stone house read off the Chicagology photograph, under `“1827 Prairie refined from the district draft to a K01 stone house under a mansard, its pavilion, porch and heights read off the Chicagology photograph”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1901 retired from this liberty by later work (2026-10-27):** Norman B. Ream's house now stands as the K01 stone house read off the 1898 Chicagology photograph, under `“1901 Prairie refined from the district draft to a K01 stone house under a dormered mansard, its porch and balcony read off its photographs”`, under the same id; its draft attributes are gone. Its coach house stays this draft's. **1905 retired from this liberty by later work (2026-10-30):** Marshall Field's house now stands as the K01 brick house read off the 1893 Pictorial Chicago plate, under `“1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate”`, under the same id; its draft attributes are gone. Its coach house stays this draft's."
         },
         {
           "label": "Review",
@@ -35541,7 +35529,8 @@
         "T-3155",
         "T-3162",
         "T-3171",
-        "T-3185"
+        "T-3185",
+        "T-3260"
       ]
     },
     {
@@ -58467,6 +58456,111 @@
         "T-3207",
         "T-1897",
         "T-3208"
+      ]
+    },
+    {
+      "id": "L-k01-1905-field-3260",
+      "title": "1905 Prairie refined from the district draft to a K01 brick Second Empire house under a crested, dormered mansard, its front and conservatory read off the 1893 Pictorial Chicago plate",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_house_1905_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-30",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1905 Prairie Avenue, Marshall Field's, is no longer a district draft. It stands, under the draft's own id 1905 Prairie Avenue — the Marshall Field house (Second Empire), as a k01 frontage record built by the k01 emit generator, against the 1893 Pictorial Chicago plate ('Residence of Mr. Marshall Field, 1905 Prairie Avenue.' Halftone plate…, public domain): two storeys of brick over a raised stone basement, a bracketed cornice over a frieze, a tall slated mansard with dormers and an iron cresting, the door in the front's second window column from the north, the south flank's curved conservatory, the 1911 sheet's rear rectangle, and the scroll-pattern iron fence. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1905-b1, census s28-1905-front): the main body's place and plan (21.0 by 15.25 m), its brick, the rear rectangle and the conservatory's bulge off the south flank. From the plate, through its solved camera (the pictorial 1893 plate data, about 15 px RMS on six corner points): the front's four window columns and its door, both storeys' window heights, the belt, the frieze and the cornice's height, the mansard's rise and its dormers' places, the conservatory's place, the basement lights and the fence. **Where the picture and the sheet disagree.** The plate cuts the front's south-west corner on a broad canted face, blank in both storeys with a dormer over it, about 3.4 m back each way through its camera; the sheet draws the corner square. K01's canted corner is built only on an all-stone house under a moulded stone cornice, so the sheet's corner stands here and the cut is open on the match record for later work. The plate's visible front reads about 3 m longer than the sheet's 15.25 m through its camera; the sheet's length is kept and the window columns are placed in proportion. **What is invented.** wall thickness front (m), wall thickness side (m), service wall brick, roof pitch (deg), stair tread (m), rainwater, window kit, side bays, rear bays, chimneys, yard: the walls' thickness, the north and rear walls' windows (no picture sees them), the stacks, the mansard deck's pitch and covering, the treads, the rainwater, the sash pattern and the yard's walks; the rear wing's floors, height, windows and deck; the conservatory's height and its roof (the plate's curved glass roof is a flat tin cone here). **What is not built.** The canted south-west corner and its dormer's place on it; the iron balconies before the chamber windows and on the conservatory's roof; the carved window crests, the frieze's roundels and the dormers' carved cheeks; the conservatory's glazing bars and glass roof; the sheet's two-storey north range at the rear: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds those, solves the c. 1905 Daily News photograph (DN-0003324), the undated '923' print and the 1893 engraving, and brings every 1905 match record to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_front_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.wall_thickness_side_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.service_wall_brick`, `marshall_field_house_1905_prairie.as_mapped_1904.form.roof_pitch_deg`, `marshall_field_house_1905_prairie.as_mapped_1904.form.stair_tread_m`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rainwater`, `marshall_field_house_1905_prairie.as_mapped_1904.form.window_kit`, `marshall_field_house_1905_prairie.as_mapped_1904.form.side_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.rear_bays`, `marshall_field_house_1905_prairie.as_mapped_1904.form.chimneys`, `marshall_field_house_1905_prairie.as_mapped_1904.form.yard`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-30 (T-3260)."
+        }
+      ],
+      "work_refs": [
+        "T-3260",
+        "T-1904",
+        "T-3261"
       ]
     },
     {
