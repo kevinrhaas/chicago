@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2457, ts: '2026-10-30T15:22:35.338Z', date: 'Oct 30, 2026, 10:22 AM CT', title: '1801 Prairie\'s canted corner ends cleanly against its slate', kind: 'fix',
+    items: [
+      'A block of stone stood at the far end of the Kimball house\'s canted corner, over the round bay, in front of the roof\'s slate. It is gone.',
+      'The canted wall now ends where the 1965 survey photograph shows it ending, with the slate showing beyond it down to the balustrade.',
+    ] },
   { v: 2456, ts: '2026-10-30T15:03:44.646Z', date: 'Oct 30, 2026, 10:03 AM CT', title: 'Pullman\'s stable: the back roof sits lower and runs the full length', kind: 'improvement',
     items: [
       'The 1894 Inland Architect plate of Pullman\'s palm house and stable shows a long run of iron cresting along the back part of the stable\'s roof, lower down and behind the lookout tower. In the 1904 walk that roof had been a short crested box standing too high. Its flat top now sits about a third of a metre lower and runs back to the far end of the building, so from 18th Street the cresting lines up with the plate\'s.',
