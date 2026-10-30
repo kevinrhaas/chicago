@@ -1867,12 +1867,28 @@
       "sole_support": false,
       "confidence": "attested"
     },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.corner_pilasters": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "hibbard_house_1701_prairie/as_mapped_1904/form.corner_porch": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1701_hibbard_photo"
       ],
       "sole_support": false,
+      "confidence": "inferred"
+    },
+    "hibbard_house_1701_prairie/as_mapped_1904/form.eared_round_heads": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1701_hibbard_photo"
+      ],
+      "sole_support": true,
       "confidence": "inferred"
     },
     "hibbard_house_1701_prairie/as_mapped_1904/form.entrance_bay": {

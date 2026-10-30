@@ -126,6 +126,7 @@ import struct
 from pathlib import Path
 
 from . import k01_arched_front
+from . import k01_dressings
 from . import k03_brick
 from . import k09_frontage
 from . import k10_frontage
@@ -1277,6 +1278,14 @@ class Assembly:
         seed = self.instance(op.component, "opening", params,
                              {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
                               "sash_plane": P(op.s_m, y0, -(recess if door else recess + 0.012))})
+        if op.component in ROUND_CUT and k01_dressings.dresses(p, op):
+            # T-3255: a round head under an eared and crested stone hood, in place of the arch
+            # band and its key or of a plain head (1701's front and south flank, its photograph)
+            self.glaze(op, frame, body_mat, stone_trim, seed,
+                       max(conf, p.conf("street_front_round_heads" if op.wall == "k01.wall.street_front" else
+                                        "north_bays" if op.wall == "k01.wall.side.north" else "side_bays")))
+            k01_dressings.hood(self, op, frame, stone_trim, seed, max(conf, p.conf("eared_round_heads")))
+            return
         if op.component == ROUND_HOODED:
             # T-2410: a round-headed street window keeps K06's arch band as its moulded hood,
             # spring to spring, and stands a key block on the hood's crown
@@ -5747,6 +5756,9 @@ def build(params, structure_id: str):
         # T-3239: a side wall's columned porch under its balustraded balcony (1906's)
         from . import k01_porte_cochere
         k01_porte_cochere.dress_side_porch(a)
+    if p.corner_pilasters:
+        # T-3255: the main block's corners as stone pilasters under capitals (1701's)
+        k01_dressings.corner_pilasters(a, frames)
     if p.hip_deck:
         # T-3241: the rail round the deck the hip is cut off at (1701's)
         from . import k01_hip_deck

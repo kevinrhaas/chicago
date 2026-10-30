@@ -232,6 +232,11 @@ class K01FrontageParams:
     # T-3242: a two-level timber veranda against the main rear wall, its garden flight off the
     # lower deck (`rear_veranda`, k01_rear_veranda; 1701's, off its rear photograph)
     rear_veranda: dict = field(default_factory=dict)
+    # T-3255: round-headed lights under eared and crested stone hoods on the walls it names
+    # (`eared_round_heads`), and the main block's corners as stone pilasters under capitals
+    # (`corner_pilasters`), k01_dressings; 1701's, off its photograph
+    eared_hoods: dict = field(default_factory=dict)
+    corner_pilasters: dict = field(default_factory=dict)
     # T-3239: a columned porch on a side wall under a balustraded balcony, on a podium
     # (`side_porch`, k01_porte_cochere; 1906's on its south flank, off the engraving)
     side_porch: dict = field(default_factory=dict)
@@ -310,7 +315,7 @@ CONSUMED = frozenset({
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
-    "hip_deck", "rear_veranda", "side_porch",
+    "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -4627,12 +4632,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # T-2960: or segmental-headed (`head`), under K09's cornice hood on its consoles (`hood`)
     # in place of the arch band and its key block
     rh = val("street_front_round_heads") or {}
+    # T-3255: a front its eared hoods dress takes neither key nor hood: the crest stands there
+    eared_front = "k01.wall.street_front" in ((val("eared_round_heads") or {}).get("walls") or ())
     if rh:
         if not {"storeys"} <= set(rh) <= {"storeys", "key", "head", "rise_over_span", "hood"} \
-                or ("key" in rh) == ("hood" in rh) \
+                or (("key" in rh or "hood" in rh) if eared_front else ("key" in rh) == ("hood" in rh)) \
                 or ("key" in rh and set(rh["key"]) != {"width_m", "height_m", "proud_m"}):
             raise ParamError("street_front_round_heads takes storeys [k, ...] and either key {width_m, height_m, "
-                             "proud_m} or hood, and may name head and rise_over_span")
+                             "proud_m} or hood (neither under eared_round_heads), and may name head and "
+                             "rise_over_span")
         if rh.get("head", "round") not in ("round", "segmental"):
             raise ParamError("street_front_round_heads.head cuts a 'round' or a 'segmental' head")
         if "rise_over_span" in rh and (rh.get("head") != "segmental" or not 0.05 <= rh["rise_over_span"] < 0.5):
@@ -4657,7 +4665,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})), "head": rh.get("head", "round"),
               **({"rise_over_span": float(rh["rise_over_span"])} if "rise_over_span" in rh else {}),
               **({"key": {k: float(x) for k, x in rh["key"].items()}} if "key" in rh else
-                 {"hood": {"variant": hood["variant"], "overhang_m": float(hood["overhang_m"])}})}
+                 {"hood": {"variant": hood["variant"], "overhang_m": float(hood["overhang_m"])}} if hood else {})}
     # T-2437: as T-2366 rules for the principal floor, the contract's starting range binds a
     # sash height the record reconstructs; one read off a source stands on that source
     sba = form.get("sash_by_storey") or {}
@@ -6246,6 +6254,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                     pitch=pitch, overhang=float(val("eave_overhang_m")), roof_form=roof_form)
     except DeckError as e:
         raise ParamError(str(e)) from None
+    from .k01_dressings import ParamError as DressError, resolve_hoods, resolve_pilasters
+    try:
+        eared_hoods = resolve_hoods(val("eared_round_heads"), openings=openings, round_cut=ROUND_CUT,
+                                    eave=pf + sum(heights))
+        corner_pilasters = resolve_pilasters(val("corner_pilasters"), floor=pf, eave=pf + sum(heights))
+    except DressError as e:
+        raise ParamError(str(e)) from None
     from .k01_rear_veranda import ParamError as VerandaError, resolve as resolve_veranda
     try:
         rear_veranda = resolve_veranda(val("rear_veranda"), width=width, eave=pf + sum(heights), wings=wings,
@@ -6330,6 +6345,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, side_porch=side_porch, shutters=shutters,
+        eared_hoods=eared_hoods, corner_pilasters=corner_pilasters,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
