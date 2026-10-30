@@ -1169,6 +1169,13 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
 
+# T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
+# block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
+# the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,
+# the pilaster wrapped round its corner; unknown keys, corners and over-high crests refused.
+step "a K01 house's round-headed lights stand under eared, crested hoods and its corner under a pilaster (T-3255)" \
+  python3 tools/test_k01_dressings.py
+
 # T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
 # holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection
 # carried past the main eave is closed on the wall plane behind it and at its cap's end (one
