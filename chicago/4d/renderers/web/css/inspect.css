@@ -267,3 +267,38 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
 .insp-fold[open] > summary::after { content: '−'; }
 .insp-fold > summary:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
 .insp-fold > .pop-pane { padding: 0 0 12px; }
+
+/* T-3265: a person's own card, opened from the People tab in place of the household list.
+   Back is a full-width 44 px row naming the household it returns to; the census line reads
+   in the mono face, as the enumerator's hand is quoted; every colour is a skin token. */
+.insp-people-home[hidden] { display: none; }
+.insp-person-card { display: flex; flex-direction: column; gap: 12px; color: var(--ink); overflow-wrap: anywhere; }
+.insp-person-back { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; min-height: 44px;
+  margin-left: -8px; padding: 0 12px 0 6px; border: 0; border-radius: var(--r-control, 4px); background: transparent;
+  color: var(--ink-dim); cursor: pointer;
+  font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; }
+.insp-person-back:hover { color: var(--ink); }
+.insp-person-back:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.insp-person-head { display: flex; flex-direction: column; gap: 8px; }
+.insp-person-hh { text-transform: none; letter-spacing: .02em; }
+.insp-person-why { padding: 10px 12px; border: 1px solid var(--edge); border-left-width: 3px; border-radius: 6px;
+  background: var(--panel-raised, transparent); }
+.insp-person-why[data-grade="attested"] { border-left-color: var(--grade-attested, var(--accent, currentColor)); }
+.insp-person-why[data-grade="inferred"] { border-left-color: var(--grade-inferred, var(--ink-dim)); }
+.insp-person-why-title { display: flex; align-items: center; gap: 6px; margin: 0 0 4px;
+  font: 600 0.9375rem/1.35 var(--font-body, inherit); }
+.insp-person-why-text { margin: 0; font: 400 0.9375rem/1.5 var(--font-body, inherit); color: var(--ink); }
+.insp-person-census { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; padding: 10px 12px;
+  border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 6px; }
+.insp-person-census .nav-sub { margin: 0; }
+.insp-person-as { margin: 2px 0; font: 500 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink); }
+.insp-person-leaf { align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: var(--accent, var(--ink));
+  font: 500 0.9375rem/1.2 var(--font-body, inherit); }
+.insp-person-note { margin: 10px 0 0; font: 400 0.875rem/1.5 var(--font-body, inherit); color: var(--ink-dim); }
+.insp-person-how > .nav-k { display: block; margin-top: 12px; }
+.insp-person-sources { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none;
+  font: 400 0.875rem/1.45 var(--font-body, inherit); }
+.insp-person-sources a { color: var(--ink); }
+.insp-person-reading { margin: 6px 0 0; font: 400 0.875rem/1.5 var(--font-body, inherit); color: var(--ink); }
+.insp-person-card .insp-key { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }

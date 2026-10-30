@@ -284,11 +284,13 @@ function makeHeap(capacity = 4096) {
  * @param {number} [o.radius=0.34]  WALK.radius — the capsule half-width
  * @param {number} [o.stepUp=0.35]  WALK.stepUp — the plank-walk rule
  * @param {number} [o.inflate=0.6]  extra clearance around footprints beyond the radius
+ * @param {number} [o.passageNeed=0]  the headroom a footprint's passage lane must clear to be
+ *   walked (T-3264: the walker's eye plus its margin; a lower soffit stays a wall)
  */
 export function createRouter({
   terrain = null, streets = null, footprints = [], decks = [], surfaceAt = null,
   streetGrid = null, walks = [], occluders = null,
-  cell = 2, radius = 0.34, stepUp = 0.35, inflate = 0.6,
+  cell = 2, radius = 0.34, stepUp = 0.35, inflate = 0.6, passageNeed = 0,
 } = {}) {
   const stats = {
     cells: 0, blocked: 0, streetCells: 0, deckCells: 0, fineCells: 0,
@@ -526,6 +528,22 @@ export function createRouter({
         for (let i = s.i0; i <= s.i1; i++) {
           const e = cE(i);
           if (inside(e, n, fp.pts) || boundaryDist(e, n, fp.pts) < R) cls[j * cols + i] = CLS_BLOCKED;
+        }
+      }
+    }
+    // 4b. T-3264: a passage the walker may use (walker.js laneAt: Glessner's carriage
+    //    passage) is reopened through its footprint, cell centres held the capsule's
+    //    width off the passage's side walls, so a route plans what the walker walks.
+    for (const fp of footprints) {
+      for (const lane of lanesOf(fp)) {
+        const s = span(bboxOf(lane.lane), 0);
+        for (let j = s.j0; j <= s.j1; j++) {
+          const n = cN(j);
+          for (let i = s.i0; i <= s.i1; i++) {
+            const e = cE(i), k = j * cols + i;
+            if (fine[k] || !inLane(lane, e, n, radius + inflate)) continue;
+            cls[k] = CLS_OPEN;
+          }
         }
       }
     }
@@ -793,14 +811,26 @@ export function createRouter({
       const enter = search(a.k, a.k, { stopWhen: preferred, cost: () => 1 });
       const leave = search(b.k, b.k, { stopWhen: preferred, cost: () => 1, reverse: true });
       if (!enter || !leave) return null;
-      const middle = search(enter.at(-1), leave.at(-1), {
-        allowed: onStreet,
-        cost: k => mode === 'walk'
-          ? (grid.cls[k] === CLS_WALK || grid.cls[k] === CLS_CROSSING ? 0.35 : grid.cls[k] === CLS_TRACK ? 8 : 1)
-          : 0.35,
-      });
-      if (!middle) return null;
-      cells = [...enter, ...middle.slice(1), ...leave.reverse().slice(1)];
+      // T-3264: two points off the network that are nearer each other than the street
+      // is to them (two stands in one courtyard) are walked between directly: out to
+      // the sidewalk and back in by the same gate is not a route. Tried only when the
+      // straight line is shorter than the two access legs, so a ride between houses
+      // that stand at their walks still keeps to the street.
+      const access = (enter.length - 1) + (leave.length - 1);
+      if (enter.length > 1 && leave.length > 1 && Math.hypot(b.e - a.e, b.n - a.n) < access * cell) {
+        const direct = search(a.k, b.k);
+        if (direct && direct.length - 1 <= access) cells = direct;
+      }
+      if (!cells) {
+        const middle = search(enter.at(-1), leave.at(-1), {
+          allowed: onStreet,
+          cost: k => mode === 'walk'
+            ? (grid.cls[k] === CLS_WALK || grid.cls[k] === CLS_CROSSING ? 0.35 : grid.cls[k] === CLS_TRACK ? 8 : 1)
+            : 0.35,
+        });
+        if (!middle) return null;
+        cells = [...enter, ...middle.slice(1), ...leave.reverse().slice(1)];
+      }
     }
     else if (a.k === b.k) cells = [a.k];
     else {
@@ -835,6 +865,16 @@ export function createRouter({
     return { points, length_m: length };
   }
 
+  /** T-3264: the passages of a footprint that clear `passageNeed` (walker.js laneAt). */
+  function lanesOf(fp) {
+    return (fp?.passages ?? []).filter(l => l.clear >= passageNeed && l.lane?.length >= 3);
+  }
+  /** Inside a passage's lane and at least `clear` metres off each of its side walls. */
+  function inLane(lane, e, n, clear) {
+    return inside(e, n, lane.lane)
+      && lane.walls.every(([[ax, ay], [bx, by]]) => segDist(e, n, ax, ay, bx, by) >= clear);
+  }
+
   /** Exact capsule check for the short connection from an arbitrary start to
    * the grid, and for the controller's next step. No snapping across a wall. */
   function clearSegment(ae, an, be, bn) {
@@ -849,7 +889,8 @@ export function createRouter({
     if (prev === null) return false;
     for (let i = 0; i <= steps; i++) {
       const e = ae + (be - ae) * i / steps, n = an + (bn - an) * i / steps;
-      if (near.some(f => inside(e, n, f.pts) || boundaryDist(e, n, f.pts) < radius)) return false;
+      if (near.some(f => (inside(e, n, f.pts) || boundaryDist(e, n, f.pts) < radius)
+        && !lanesOf(f).some(l => inLane(l, e, n, radius)))) return false;
       const h = exactHeight(e, n);
       if (h === null || h - prev > stepUp) return false;
       prev = h;

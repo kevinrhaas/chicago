@@ -77,6 +77,20 @@ const footprints = footprintsFrom(registry), fp = footprints.find(f => f.id === 
 const centre = { e: fp.pts.reduce((s, p) => s + p[0], 0) / fp.pts.length, n: fp.pts.reduce((s, p) => s + p[1], 0) / fp.pts.length };
 const terrain = { ...dry, heightfield: { loaded: true, originE: 1100, originN: -3800, widthM: 700, depthM: 900 } };
 const city = createRouter({ terrain, streetGrid: read('street_grid/1904.json'), footprints, cell: 1, inflate: 0.1 });
+// T-3264: two stands in Glessner's courtyard, ten metres apart, are walked between across
+// the court, not out of the alley gate to 18th Street's walk and back in.
+for (const mode of ['walk', 'horse', 'wagon']) {
+  const inCourt = city.plan({ e: 1360.7, n: -3239.0 }, { e: 1370.6, n: -3234.6 }, { mode }); safe(city, inCourt);
+  assert(inCourt.length_m < 20, `${mode}: a courtyard hop stays in the courtyard (${inCourt.length_m.toFixed(1)} m)`);
+}
+// …and the court is reached from Prairie Avenue's walk through the carriage passage the
+// walker can use (T-2943), not round the block and in through the closed alley gate.
+const viaPassage = city.plan({ e: 1393.4, n: -3237.4 }, { e: 1360.7, n: -3239.0 }, { mode: 'walk' }); safe(city, viaPassage);
+assert(viaPassage.length_m < 50, `the court is entered by the passage (${viaPassage.length_m.toFixed(1)} m)`);
+const lowSoffit = createRouter({ terrain, streetGrid: read('street_grid/1904.json'), footprints, cell: 1, inflate: 0.1, passageNeed: 3 });
+assert(lowSoffit.plan({ e: 1393.4, n: -3237.4 }, { e: 1360.7, n: -3239.0 }, { mode: 'walk' }).length_m > 100,
+  'a passage too low for the eye stays a wall');
+
 // The start stands on Indiana Avenue's east walk in front of 1809, the far side of the block from
 // Glessner's front. Until T-3151 it stood at e 1300, open ground behind T-3011's background row;
 // the sheet-27 drafts put 1809's house on that spot, so the walker starts at its street instead.

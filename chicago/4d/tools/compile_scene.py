@@ -768,6 +768,12 @@ def compile_residents_sources(scene_id: str, sources: dict, outdir: Path) -> int
     directory_path = DATA / "residents" / "directory_1844.json"
     if directory_path.exists():
         walk(load(directory_path))
+    # A later scene's own household cards (T-2702) are what its person card opens
+    # (Inspect › People): a census servant's card quotes the census the way an 1835
+    # card quotes its poll list, not a bare source id.
+    if has_own_people(scene_id):
+        for household_path in sorted((residents_root(scene_id) / "households").glob("*.json")):
+            walk(load(household_path))
 
     citations = cite(sorted(cited), sources)
     emit(outdir / "residents_sources.json", {

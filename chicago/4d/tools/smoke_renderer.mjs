@@ -20334,8 +20334,24 @@ for (const [label, viewport, touch] of [
           const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
           await open('glessner_house');
           const people = await tab('people');
-          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person] .nav-person-name')].map((n) => n.textContent.trim()),
-            story: (await tab('story')).text.includes('1885') };
+          const out = { people: [...root().querySelectorAll('[data-insp-pane="people"] [data-person-card] .nav-person-name')].map((n) => n.textContent.trim()) };
+          // T-3265: a person opens their own card in place (never the full People list), with
+          // their story, How we know and the census line; Back returns to the household, on them.
+          const pane = root().querySelector('[data-insp-pane="people"]');
+          pane.querySelector('[data-person-card="pa1904_glessner_john_j_c1900_august_billings"]')?.click();
+          await wait(() => !!pane.querySelector('.insp-person-card .insp-person-census'));
+          const card = pane.querySelector('.insp-person-card');
+          out.card = { app: a.navigator.app, listHidden: !!pane.querySelector('.insp-people-home')?.hidden,
+            name: card?.querySelector('.insp-person-name')?.textContent ?? '',
+            back: card?.querySelector('[data-person-back]')?.textContent.trim() ?? '',
+            lead: card?.querySelector('.insp-person-story [data-composed]')?.textContent ?? '',
+            why: card?.querySelector('.insp-person-why-title')?.textContent ?? '',
+            leaf: card?.querySelector('.insp-person-leaf')?.getAttribute('href') ?? '',
+            sources: card?.querySelectorAll('.insp-person-sources li').length ?? 0 };
+          card?.querySelector('[data-person-back]')?.click();
+          out.back = { card: !!pane.querySelector('.insp-person-card'), listShown: !pane.querySelector('.insp-people-home')?.hidden,
+            focus: document.activeElement?.dataset?.personCard ?? null };
+          out.story = (await tab('story')).text.includes('1885');
           await tab('photos');
           // T-3266: a house's former residents, the family it is named for among them, and a
           // house nobody is listed in for 1904 saying so instead of "nobody in our records".
@@ -20355,6 +20371,13 @@ for (const [label, viewport, touch] of [
           await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
           return out;
         });
+        check(`${label}: a person on Inspect's People tab opens their own card, with Back to the household (T-3265)`,
+          inspectTabs1904.card?.app === 'inspect' && inspectTabs1904.card.listHidden && inspectTabs1904.card.name === 'August Billings'
+          && inspectTabs1904.card.back === 'The Glessner household' && /found August Billings/.test(inspectTabs1904.card.lead)
+          && /^Inferred/.test(inspectTabs1904.card.why) && /12thcensusofpopu245unit\/page\/n803/.test(inspectTabs1904.card.leaf)
+          && inspectTabs1904.card.sources >= 1 && !inspectTabs1904.back.card && inspectTabs1904.back.listShown
+          && inspectTabs1904.back.focus === 'pa1904_glessner_john_j_c1900_august_billings',
+          JSON.stringify({ card: inspectTabs1904.card, back: inspectTabs1904.back }));
         check(`${label}: Inspect's People tab lists the Glessner household; 1808 lists its former residents and 1811 why nobody is listed (T-3266); a new building opens on Overview and the same keeps its tab (T-2639)`,
           inspectTabs1904.people.includes('John J. Glessner') && inspectTabs1904.people.includes('Frances M. Glessner')
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design'
