@@ -327,6 +327,10 @@ step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
   node tools/test_street_travel.mjs
+step "Every 1904 jaunt stop stands clear of parkway trunks and lamp posts, with a view of its house (T-3263)" \
+  node tools/check_jaunt_views.mjs
+selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule is not told of the trees (T-3263)" \
+  node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \

@@ -30,11 +30,11 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
     },
     {
       "file": "renderers/web/js/front-yards.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
     }
   ],
-  "flora_sha256": "cd1101114805c02cc920657fdb63324a3a1ef198b4d10e8be8ca48e9956a3981",
+  "flora_sha256": "0ff33ea23476bcecbc0f2f5b5898e2625225408a3e6dc683c1ea6bf4b6ee669e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

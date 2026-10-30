@@ -3,7 +3,7 @@
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
   "glb_sha256": "4c921a7e5ea1f8ede04c10f93c6ec719dfdb056758e6c544f78c04bbc01cf978",
-  "camera_sha256": "b45ebbae0b2c24759d3945c30a308a960e0259a64da6cd6e572654b4ee26a7f5",
+  "camera_sha256": "27a680ad9c4ae0fb676438973e74057fdc296788c61f09bbeec3d0274e9a5fb5",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
     {
@@ -77,7 +77,15 @@
       }
     ],
     "street_trees": 27,
-    "street_trees_m": 70
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
   },
   "flora_anchor": {
     "local_e": 1467.58,
@@ -90,11 +98,11 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
     },
     {
       "file": "renderers/web/js/front-yards.js",
@@ -122,10 +130,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "1b8e4287048d361fc7c442b53f8e92990afff6e587b11a458530818b38672623",
+  "flora_sha256": "11ec286881aab9c1c4d43b9591c352e7639fb86e91786aec037ce219beddf8dc",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -182,8 +194,8 @@
       "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
     {
-      "what": "the lamp post standing behind the wall near the court (x about 795, about u 10 in this frame) is not built",
-      "status": "open",
+      "what": "the lamp post standing behind the wall near the court (x about 795, about u 10 in this frame) is not built [T-1934, 2026-10-30: it is not behind the wall but at the street edge of 18th Street's walk, where the curb turns into Calumet Avenue (read at native size: x 795, its foot at y 607, its head at y 505-513): through this camera u 10.0 m. It now stands there (data/street_furniture/1904.json, lamp.pictured.pullman_court, attested, read for its place only, as 16555's trees are): the render's post is at x about 774, 1.25 m west of the print's place to keep the district's 1.6 m clear of the parkway elm 16555 places 0.8 m further out, two pictures' readings disagreeing by about a metre. The rule's mid-block lamp on 18th Street (lamp.rule.e18th__prairie_ic_16_18#00, which rendered before the house's 18th Street porch at x 206, where this print shows none, nor does the Detroit Publishing view of c. 1900) is withdrawn: the walk is a pictured-empty stretch. The lamp's form is the item below.]",
+      "status": "fixed",
       "how": "T-1934: an element missing"
     },
     {
@@ -199,6 +211,10 @@
       "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
       "status": "fixed",
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
+    },
+    {
+      "what": "the lamp's post and head: the print's post stands taller than the district's 3.1 m one (102 px from its foot to its head, against the render's 65 px at the same place: about 4.5-5 m through this camera) under a shallow round globe, where the build draws every lamp of the district with one post and its square tapered lantern (T-1934, 2026-10-30)",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

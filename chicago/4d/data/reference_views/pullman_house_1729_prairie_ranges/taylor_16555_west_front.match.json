@@ -3,7 +3,7 @@
   "view": "taylor_16555_west_front",
   "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
   "glb_sha256": "27c5a7b6f6a0d17ecb3a5cb142d4574bf1c0ffd67c6de00466398cfb5708ae1d",
-  "camera_sha256": "a5427c29c85ac29b5197a9a9172363fa821752e33a479368275428994764f581",
+  "camera_sha256": "6322aa25eac46e5b694ddfabdf97501eab736cb2c844b90075cb92675b056a80",
   "photo_sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1",
   "rendered_members": [
     {
@@ -77,7 +77,18 @@
       }
     ],
     "street_trees": 33,
-    "street_trees_m": 70
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
   },
   "flora_anchor": {
     "local_e": 1456.387,
@@ -90,11 +101,11 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "6ef1a3bc53e2107f72dfa4179d65cc39af0a5d0bfcf27c196f503d4a079dd3f5"
+      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "cdba1657b79088654ea4e920bb6691f97532ac336e331adfc90cee0c3becf183"
+      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
     },
     {
       "file": "renderers/web/js/front-yards.js",
@@ -122,10 +133,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
+      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "7fee7fdef39a226a70017be8fa79edecb507a763999de036f6b71cc2ffdc0230"
     }
   ],
-  "flora_sha256": "e20dfe1632c1b82bb521c87b0fc357903b12ad04b438bc6f0435a408df91e218",
+  "flora_sha256": "6f8659b51d0f6a62bf7c90f9ef0c5c884c238cf956e032eda9023b9f4a8acc82",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -203,6 +218,10 @@
       "what": "the stable's and the palm house range's walls: the winter print sets both in one stone, the stable's wall printing 1.4-1.5 times the house's own wall in the same light, where the build drew the stable a little lighter than that and the range, its rustication and pilasters, far lighter",
       "status": "fixed",
       "how": "T-1934 (the owner, 2026-10-30): both in one stone, linear (0.332, 0.299, 0.241), read off the winter print 16554 against the house's T-1881 sandstone_fawn (docs/RESEARCH/colour-pullman-stable-T-1934/); its hue stays the draft's, which no monochrome print settles (L-pullman-carriage-ways-1934)"
+    },
+    {
+      "what": "the gas lamp at the turn of 18th Street's walk into Calumet Avenue (data/street_furniture/1904.json, lamp.pictured.pullman_court) renders before the stable's corner bay (x about 640) where this print shows the court's gate pier and no post. Taylor's 16554 shows the post there, and it is the later picture: the dead Fort Dearborn 'massacre tree' this print shows before the wing, felled on 18 May 1894, does not stand in it. So the lamp is taken as set after this print, and stands for 1904 (T-1934, 2026-10-30): two pictures of different dates, the build following the later",
+      "status": "within tolerance"
     },
     {
       "what": "the near parkway trunk (the print's x 873, foot y 760) renders at x 750, about 125 px west of it",

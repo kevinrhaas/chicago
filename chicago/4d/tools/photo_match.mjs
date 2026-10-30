@@ -41,7 +41,8 @@
 //                  raked by the review sun
 //   flora          optional planting drawn with the app's own grown plants (T-1881): lots of
 //                  the scene's front yards and the parkway trees near the anchor, in the
-//                  picture's season (tools/photo_match_flora.mjs)
+//                  picture's season, and optionally the street furniture near it: its gas
+//                  lamps, hydrants and poles (tools/photo_match_flora.mjs)
 //   near_m         optional near depth (>0, <500 m); distant drawing cameras need
 //                  a near plane close to their subject to resolve millimetre layers
 //   clip_planes    optional section cuts: {normal:[east,north,up],constant:metres};
@@ -99,7 +100,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], enclosures: enclosures ? {anchor: enclosures.anchor, ids: cam.enclosures} : null, flora: flora ? {anchor: flora.anchor, scene: cam.scene, season: flora.season, yards: !!flora.docs.front_yards, street: !!flora.docs.street_trees} : null, members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], enclosures: enclosures ? {anchor: enclosures.anchor, ids: cam.enclosures} : null, flora: flora ? {anchor: flora.anchor, scene: cam.scene, season: flora.season, yards: !!flora.docs.front_yards, street: !!flora.docs.street_trees, furniture: !!flora.docs.street_furniture} : null, members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
@@ -168,6 +169,12 @@ Promise.all(c.members.map(async member=>{
    if(!fy.stats.lots)throw Error('flora: no front yard drawn: '+problems.join('; '));
    layers.push(fy);
   }
+  if(c.flora.furniture){
+   const {createStreetFurniture}=await import('/renderers/web/js/street-furniture.js');
+   const sf=await createStreetFurniture({dataBase:base,sceneId:c.flora.scene,terrain,problems});
+   if(!sf.stats.items)throw Error('flora: no street furniture drawn: '+problems.join('; '));
+   layers.push(sf);
+  }
   if(problems.length)throw Error('flora review failed: '+problems.join('; '));
   s.updateMatrixWorld(true);cam.updateMatrixWorld(true);
   const eye={position:inner.worldToLocal(cam.getWorldPosition(new THREE.Vector3()))};
@@ -184,7 +191,7 @@ const server = http.createServer((req, res) => {
   if (u === '/__photo_match.html') { res.writeHead(200, {'Content-Type': 'text/html'}); return res.end(page_html); }
   if (u === '/__photo') { res.writeHead(200, {'Content-Type': 'image/jpeg'}); return fs.createReadStream(photo).pipe(res); }
   if (flora && u.startsWith('/__photo_flora/')) {
-    const m = /^\/__photo_flora\/(front_yards|street_trees)\/([a-z0-9_]+)\.json$/.exec(u);
+    const m = /^\/__photo_flora\/(front_yards|street_trees|street_furniture)\/([a-z0-9_]+)\.json$/.exec(u);
     if (!m || m[2] !== cam.scene || !flora.docs[m[1]]) { res.writeHead(404); return res.end(); }
     res.writeHead(200, {'Content-Type': 'application/json'});
     return res.end(JSON.stringify(flora.docs[m[1]]));
