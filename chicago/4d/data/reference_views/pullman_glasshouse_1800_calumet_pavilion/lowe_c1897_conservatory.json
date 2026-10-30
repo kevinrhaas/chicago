@@ -27,5 +27,12 @@
  "solve": "Fitted by T-3179 as the plate's cross-check, in the same frame (u along the conservatory, south; v across it, east). The five plan points the plate was fitted on read here at x 808 and 1088 (the north front's springing), 582 (the lodge's north-east corner), 222 (the range's north face at its round end) and 170 (the round end's centre). THE PRINT IS CROPPED, so its principal point is not its centre, and with that free the five points fix a line of solutions rather than one: from u -30 (f 1211, cx 958) to u -50 (f 1837, cx 612), every one inside 2 px. The fit chosen is u -35.0, v 10.54, heading 110.76 degrees, f 1380 px, principal x 904, because it stands the tallest child (feet y 715, 137 px tall) at the drive's west gate pier on the estate's line, where the print shows her, at about 1.27 m; the plate's own camera stood about 4 m further back. HEIGHT: the north front's band (y 462 to 510, 2.3 to 3.6 m) reads 37 px/m, so with a 1.75 m eye the horizon is y 527. Through it the far range's coping falls about 14 px (0.6 m) above the print's and the lodge about 30 px (1.4 m) west of it, the residue of the family of fits; the plate's camera, which is not cropped, is the one heights are read from. Diagnostic only: its pose is not offered as a historical spot. LIGHT: the tree's shade lies under it and the walls throw nothing sharp; rendered overcast. CONTEXT as the plate's: the lodge is rendered for placement only and is its own record's; the children, piers, walks and planting are not built here.",
  "source_id": "aic_lowe_pullman_conservatory_c1897",
  "sky": "overcast",
- "diagnostic_only": true
+ "diagnostic_only": true,
+ "flora": {
+  "front_yards": [
+   "calumet_1800"
+  ],
+  "street_trees_m": 70,
+  "season": "summer"
+ }
 }

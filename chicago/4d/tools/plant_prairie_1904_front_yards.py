@@ -129,7 +129,9 @@ PICTURED = {
                  "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the "
                          "stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball "
                          "on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, "
-                         "which Taylor's photograph 16555 shows too). Inferred for 1 July 1904: tub plants "
+                         "which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and "
+                         "the slim column beside the drum that both pictures show, and the palm set out before "
+                         "the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants "
                          "were wintered under glass and set out again each summer, and no picture nearer "
                          "1904 shows the terrace.",
                  "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front"],
@@ -148,6 +150,24 @@ PICTURED = {
                       "inside the wall before its east pier; Taylor's 16555 shows it at x 650 px. Read at "
                       "e 1474.0, in the mouth of the court's carriage way that 16555 shows; stood 0.9 m "
                       "west, behind the pier, within the plate's and 16555's 1 m disagreement (T-1934)"},
+                     # T-1934, the second reading: three more both pictures place, each fixed in
+                     # plan by crossing the plate's pixel column with 16555's (the two cameras
+                     # stand 16 degrees apart, so the depth is good to about a metre), its top
+                     # read on that spot
+                     {"plant": "arborvitae", "e": 1471.75, "n": -3169.2, "on": "floor", "top_m": 3.49, "w": 0.88,
+                      "tub_m": 0.5, "read": "the cone in its tub before the wing's arched door east of the drum: "
+                      "plate x 727-782 px, its top at y 750 px and its tub's foot at y 895 px; 16555 x 500-523 px; "
+                      "crossed at 4.1 m east of the drum's centre and 1.8 m off the wing (16555 reads its top "
+                      "about 1.2 m higher: two pictures, within tolerance)"},
+                     {"plant": "arborvitae", "e": 1463.17, "n": -3169.79, "on": "floor", "top_m": 4.17, "w": 0.45,
+                      "tub_m": 0.5, "read": "the slim column on the terrace against the drum's west side, behind "
+                      "the balustrade (its tub hidden in both pictures): plate x 212-240 px, its top at y 697 px; "
+                      "16555 x 325-342 px; crossed at 4.4 m west of the drum's centre and 2.3 m off the wing"},
+                     {"plant": "palm", "e": 1467.25, "n": -3172.47, "on": "floor", "top_m": 3.73, "w": 2.35,
+                      "tub_m": 0.58, "read": "the palm in its tub on the terrace before the drum, in 16555 only: "
+                      "x 393-443 px, its fronds' top at y 587 px and its tub's at y 617 px, read on the terrace's "
+                      "front, 5.0 m before the drum's centre; the plate's elm trunk stands across that place and "
+                      "nothing of it shows above the balustrade's east pier there"},
                  ]},
     },
     "prairie_1912": {
@@ -157,6 +177,55 @@ PICTURED = {
                     "note": "Ivy over the north part of the front and the round bay to the third storey in "
                             "the photograph; the print shows an electric lamp, so it is after 1904, and ivy "
                             "of that reach was growing years before it."},
+    },
+    # T-3164: the glasshouse ground across 18th Street, as the 1894 Inland plate and Lowe's c. 1897
+    # print show it from the street gate, read through their solved cameras
+    # (data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json,
+    # the gate's camera, and lowe_c1897_conservatory.json, diagnostic). Two square planting boxes
+    # on legs in the lawn before the conservatory's front, each holding a clipped standard on a
+    # clear stem with a dense mass spilling over the box (the plate shows each standard rising
+    # straight out of its mass, at the mass's own x; Lowe's print shows the boxes and their legs),
+    # and a row of tall shrubs along the far edge of the drive. Where both pictures see a plant it
+    # stands between their readings; `read` keeps the pixels. Inferred for 1904, as Pullman's tubs
+    # across the street are: the pictures are of 1894-97 and boxes are set out each summer.
+    "calumet_1800": {
+        "sources": ["inland_1894_pullman_conservatory", "aic_lowe_pullman_conservatory_c1897"],
+        "pictures": ["a16-inland-1894-pullman-conservatory", "a16-aic-lowe-pullman-conservatory-c1897"],
+        "tubs": {"grade": "inferred",
+                 "note": "Two clipped standards on clear stems, each in a square planting box with a dense "
+                         "leafy mass spilling over it, in the lawn before the conservatory's front, and tall shrubs "
+                         "along the far edge of the drive, as the 1894 Inland Architect plate and Lowe's "
+                         "c. 1897 photograph show them in summer. Inferred for 1 July 1904: the pictures are "
+                         "seven to ten summers before the scene, and boxed plants were wintered under glass.",
+                 "sources": [],
+                 # (a third tall shrub, plate x 983 before the lodge's loggia, stood where the 1904
+                 # record's north range has its base wall, half a metre off it: not drawn)
+                 "plants": [
+                     {"plant": "standard", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 2.9, "w": 1.0,
+                      "tub_m": 0.57, "read": "the near box, east of the conservatory's front: plate x 1152, the "
+                      "mass's foot y 985 (35.0 m), the standard's crown y 813-865, 53 px wide; Lowe x 730, the "
+                      "box's front leg y 617 (26.8 m), the box 0.58 m tall, the crown top y 478. The two "
+                      "fits put the box 3.9 m apart along the line of sight; stood between them, its crown "
+                      "top between the plate's 2.94 m and Lowe's 2.70 m"},
+                     {"plant": "globe", "e": 1472.48, "n": -3231.49, "on": "grade", "top_m": 1.36, "w": 1.5,
+                      "tub_m": 0.0, "read": "the near box's mass: plate y 907 over its foot (1.36 m), 93 px "
+                      "wide (1.63 m); Lowe 1.36 m, 1.33 m wide, white flowers in it. Drawn as the yard's "
+                      "sheared ball, the one dense clipped form the yards grow: the plate shows a close, "
+                      "rounded mass down to the lawn, which an open hydrangea did not read as"},
+                     {"plant": "standard", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 3.05, "w": 1.07,
+                      "tub_m": 0.57, "read": "the box by the gate: plate x 1349, the mass's foot y 1031 "
+                      "(24.0 m), the crown y 763-840, 83 px wide; Lowe x 857, the box's leg y 653 (19.2 m), "
+                      "the box 0.56 m tall, the crown top y 445. The fits agree on the box within 1.1 m; "
+                      "its crown top between the plate's 3.19 m and Lowe's 2.89 m"},
+                     {"plant": "globe", "e": 1472.55, "n": -3221.85, "on": "grade", "top_m": 1.44, "w": 1.65,
+                      "tub_m": 0.0, "read": "the gate box's mass: plate 1.44 m tall, 153 px wide (1.83 m); "
+                      "Lowe 1.43 m, 1.44 m wide"},
+                     {"plant": "lilac", "e": 1475.59, "n": -3260.67, "on": "grade", "top_m": 2.52, "w": 2.0,
+                      "tub_m": 0.0, "read": "plate x 840, the shrubs' foot at the drive's far edge y 942 "
+                      "(61.4 m), their tops y 860: the east half of the mass before the east range"},
+                     {"plant": "lilac", "e": 1473.86, "n": -3260.41, "on": "grade", "top_m": 2.52, "w": 1.8,
+                      "tub_m": 0.0, "read": "plate x 897, the same mass's west half, y 942 and 860"},
+                 ]},
     },
 }
 # The lots a photograph shows with a bare lawn: drawn bare (the trees in those prints stand in
@@ -181,6 +250,7 @@ PLANTS = {
     "arborvitae": {"name": "American arborvitae, sheared to a cone", "h": [2.0, 3.2], "w": [0.9, 1.3]},
     "globe": {"name": "arborvitae sheared to a ball", "h": [0.8, 1.15], "w": [0.9, 1.25]},
     "standard": {"name": "evergreen clipped to a ball on a clear stem, in a tub", "h": [1.4, 2.6], "w": [1.1, 1.6]},
+    "palm": {"name": "palm from the palm house, set out in its tub", "h": [1.4, 2.4], "w": [1.8, 2.6]},
     "maple": {"name": "young sugar maple", "h": [5.5, 8.5], "w": [2.6, 4.0]},
     "linden": {"name": "young linden", "h": [5.0, 8.0], "w": [2.6, 4.2]},
 }
@@ -699,7 +769,9 @@ def plant_lot(p, plan: Plan, house, sids):
             put(tree_key, i, pic.get("trees", {}).get("grade"))
 
     # a bed in the lawn: on a quarter of the planted lots deep enough to hold one
-    if not bare and scheme != "lawn" and front >= 6.5 and rng.random() < 0.25:
+    # (never on a pictured lot, which carries what its pictures show; the roll is still taken, so
+    # the lots after it keep their plantings: T-3164)
+    if not bare and scheme != "lawn" and front >= 6.5 and rng.random() < 0.25 and not pic:
         kind = rng.choice(["round", "round", "oval"])
         a_ = rng.uniform(0.85, 1.15) if kind == "round" else rng.uniform(1.2, 1.5)
         b_ = a_ if kind == "round" else a_ * rng.uniform(0.55, 0.7)
@@ -719,7 +791,19 @@ def plant_lot(p, plan: Plan, house, sids):
         H = y.H
         sh = int(round(0.5 / RES))
         behind = ndimage.shift(H.astype(np.uint8), (-y.nu[1] * sh, -y.nu[0] * sh), order=0, cval=0) > 0
-        hugc = (y.inlot & ~H & (y.dh <= 0.3) & behind & (d < front + 6.0) & (y.terms["a walk"] >= 0.0)
+        # The street face is the house's main front, not its nearest part: measured from a
+        # porch brought forward (T-1881 stood Pullman's entry 3.5 m before the front wall) the
+        # band stopped short of the wall the picture shows the ivy on, and the creeper went
+        # with it. So the wall along the middle of the face's metre-by-metre front line is in
+        # the band too, however far a porch stands before it.
+        hs = np.flatnonzero(H)
+        bins = np.floor(s.flat[hs]).astype(np.int64)
+        face = {}
+        for b, dd in zip(bins, d.flat[hs]):
+            face[b] = min(face.get(b, np.inf), dd)
+        face_d = float(np.median(list(face.values())))
+        hugc = (y.inlot & ~H & (y.dh <= 0.3) & behind & ((d < front + 6.0) | (d < face_d + 0.6))
+                & (y.terms["a walk"] >= 0.0)
                 & (y.terms["a door or the way to it"] >= 0.0))
         cand = list(np.flatnonzero(hugc))
         rng.shuffle(cand)

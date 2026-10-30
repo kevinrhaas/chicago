@@ -22,9 +22,9 @@
  *   beds      a round or oval bed cut in the lawn, bedded out as the period's books lay them:
  *             scarlet or pink geraniums massed, or edged with coleus;
  *   creeper   Boston ivy held flat up the walls a picture shows it on (Pullman's, 1912's);
- *   tubs      Pullman's summer tub plants (T-1934): a clipped standard or column in a painted
- *             tub, at grade or up on the palm house's terrace, where the 1894 plate stands
- *             them. Their rows carry two more numbers, what the tub stands on above the
+ *   tubs      Pullman's summer tub plants (T-1934): a clipped standard, cone or column, or a
+ *             palm out of the palm house, in a painted tub, at grade or up on the palm house's
+ *             terrace, where the 1894 plate and Taylor's 16555 stand them. Their rows carry two more numbers, what the tub stands on above the
  *             ground (the terrace floor, read off the baked model) and the tub's height.
  *
  * WHAT IS EVIDENCE. Pullman's ivy and its shrub border along 18th Street are in the Detroit
@@ -72,6 +72,10 @@ export const YARD_PLANTS = {
   standard: { speciesId: 'standard_ball', common: 'evergreen clipped to a ball on a clear stem',
     h: [1.4, 2.6], crownW: [1.1, 1.6], dbh: [0.03, 0.05], dark: 0x213a1c, light: 0x55723a,
     bark: 0x7a6e5e, evergreen: true },
+  // T-1934: the palm house's palm set out on its terrace for the summer (Taylor's 16555).
+  palm: { speciesId: 'phoenix_tub', common: 'palm from the palm house, set out in its tub',
+    h: [1.4, 2.4], crownW: [1.8, 2.6], dbh: [0.05, 0.07], dark: 0x2a4320, light: 0x6f8a45,
+    bark: 0x6a5a44, evergreen: true },
   maple: { speciesId: 'acer_saccharum', common: 'young sugar maple', h: [5.5, 8.5], dbh: [0.09, 0.15],
     spreadK: 0.55, dark: 0x2c4a20, light: 0x6b8c40, bark: 0x6a6258 },
   linden: { speciesId: 'tilia_americana', common: 'young linden', h: [5.0, 8.0], dbh: [0.09, 0.14],

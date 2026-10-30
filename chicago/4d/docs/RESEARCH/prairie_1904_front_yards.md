@@ -32,7 +32,10 @@ a picture records.
 
 * **Pictured lots** are drawn as their pictures show them: the seven lots above with a bare lawn
   are bare (`BARE` in the tool), and Pullman and 1912 keep their ivy (off the porch front), Pullman
-  its young lindens and its 18th Street border (attested; 1912 inferred).
+  its young lindens and its 18th Street border (attested; 1912 inferred). Pullman's glasshouse
+  ground at 1800 Calumet (T-3164) keeps the two boxed standards before the conservatory and the
+  tall shrubs along the drive that the 1894 Inland plate and Lowe's c. 1897 print show, each read
+  through both pictures' solved cameras and stood between their readings (inferred for 1904).
 * **Every other lot** is reconstructed (liberty `L-prairie-front-yards-3203`). About a third are
   left as open lawn. The rest get one of the few plantings the period's yards and garden books
   describe, chosen per lot from a seed of its parcel id: a matched pair of shrubs at the stoop's
@@ -79,3 +82,18 @@ second flight are planted from the plate (`PICTURED["prairie_1729"]["tubs"]` in 
 read through the plate's solved camera on a stated plane, and graded `inferred` for 1904; a tub on
 the terrace stands on the terrace floor read off the baked model, which `--check` re-measures. The
 renderer draws the tubs and their plants in every Season but winter (L-pullman-terrace-tubs-1934).
+
+The second reading (T-1934, 2026-10-30) stands three more where both pictures place them. Each is
+fixed in plan by crossing the plate's pixel column with 16555's (the two cameras stand 16 degrees
+apart, so the depth is good to about a metre) and its top read off the plate where it shows: the
+slim column on the terrace against the drum's west side, the cone in its tub before the wing's
+arched door east of the drum (the plate's "cone at the flight's head": it stands on the terrace
+behind the flight, not on it), and the palm in its tub before the drum, which only the print shows
+(the plate's elm trunk stands across that place). The palm grows on its own habit,
+`phoenix_tub` in `tree-model.js`: a short stem and arching pinnate fronds, no clipped shell.
+
+The planter's ivy band now reaches the house's main face as well as its nearest part. T-1881
+brought Pullman's entry porch 3.5 m before the front wall, and measured from the porch the band
+(`front + 6 m`) stopped short of the wall the Detroit photograph shows the ivy on, so a re-run left
+the lot with none; the band now also takes the wall along the median of the face's metre-by-metre
+front line. 1912 Prairie's ivy is unchanged by it.

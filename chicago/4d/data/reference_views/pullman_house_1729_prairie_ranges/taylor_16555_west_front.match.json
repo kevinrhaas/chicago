@@ -70,10 +70,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 10,
+        "shrubs": 13,
         "trees": 3,
         "beds": 0,
-        "creeper": 0
+        "creeper": 7
       }
     ],
     "street_trees": 32,
@@ -98,7 +98,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "9f8814401b861dbe96c798e019cfdc11f0b11be8428571b19f026719340203a8"
+      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "522877e0a64c80d6e7ab18596a67557f4ee118485ff8babd2956aa18eaaeb131"
+      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -125,7 +125,7 @@
       "sha256": "765c0c1ec648c68ed7a066a77262c3b7fc7909c379d6dc7c0eadde46baae1be5"
     }
   ],
-  "flora_sha256": "72076b27090047db998450b9fc4eda5543521b67d35cf525af94888c9d1b3bfd",
+  "flora_sha256": "432ee8edc537fa50ea6eebaa54786c35ba4b6fb541c4890f3b4c5dd083d6076b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -183,7 +183,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. Still open: the potted palms and the slim columns on the terrace before the drum.]",
+      "what": "the planting: the clipped shrubs and potted palms on and before the terrace [T-1934, 2026-10-29: the slim clipped column inside the wall by the east pier (the print's at x 650-680) now stands there, behind the parkway trunk at x 610-675 from this camera; the 1894 plate's ball on its tub east of its flight renders at x 527, where this print stands the urn on the flight's east pier with slim clipped cones behind it. T-1934, 2026-10-30: a palm in its tub now stands on the terrace before the drum (the print's x 393-443 px, its fronds' top at y 587; its crown renders about 0.25 m under the print's), with the slim column against the drum's west side (x 325-342) and the cone before the wing's arched door (x 500-523), each placed where this camera's pixel columns cross the 1894 plate's; the print reads the column about 0.6 m and the cone about 1.2 m taller than the plate does (two pictures: within tolerance). Still open: the shrubs the build stands before the terrace, where the print shows its flights open from the walk, cross the palm's tub and the cone's foot from this camera.]",
       "status": "open"
     },
     {
