@@ -20342,9 +20342,11 @@ for (const [label, viewport, touch] of [
           await open('keith_house_1808_prairie');
           const keith = await tab('people');
           out.keith = /Former residents/.test(keith.text) && /Keith/.test(keith.text) && /Stanley Field/.test(keith.text);
+          if (!out.keith) out.keithSeen = { structure: root()?.dataset.structure, filled: keith.filled, shown: keith.shown, text: keith.text.slice(0, 160) };
           await open('coleman_ames_house_1811_prairie');
           const coleman = await tab('people');
           out.coleman = /Nobody listed in 1904/.test(coleman.text) && /Coleman/.test(coleman.text) && !/Nobody in our records/.test(coleman.text);
+          if (!out.coleman) out.colemanSeen = { structure: root()?.dataset.structure, filled: coleman.filled, shown: coleman.shown, text: coleman.text.slice(0, 160) };
           await open('pullman_house_1729_prairie');
           out.newOpensOn = current();
           await tab('design');
