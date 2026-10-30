@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Residents",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-notable-women",
+  "scene": "1904",
+  "title": "Women of Prairie Avenue",
+  "premise": "Walk south past six houses tied to women who changed Chicago and beyond: nursing, forensic science, a forty-year journal, suffrage, a famous fountain and the street's last great household.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "WALK: WOMEN OF PRAIRIE AVENUE. Six houses, 1608 to 2115 Prairie, north to south on foot. Each stop names the woman a source ties to the house and why she still matters. Exteriors only; who was home on 1 July 1904 is not claimed.",
+    "read_s": 16
+  },
+  "stops": [
+    {
+      "id": "frank",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1608_prairie"
+      },
+      "text": "1608 Prairie, the Frank household in 1904. Henrietta Greenebaum Frank worked for nursing education at the Illinois Training School for Nurses. In 1876 she and her sister Hannah Solomon became the first Jewish members of the Chicago Woman's Club; Hannah went on to found the National Council of Jewish Women.",
+      "read_s": 20,
+      "evidence": [
+        "frank-listing",
+        "frank-nursing",
+        "frank-club",
+        "tour"
+      ],
+      "next": "lee"
+    },
+    {
+      "id": "lee",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_lee_house_1700_prairie"
+      },
+      "text": "1700 Prairie, built by the Glessners for their daughter. Frances Glessner Lee later built eighteen tiny crime-scene dioramas, the Nutshell Studies of Unexplained Death, still used to train investigators. She helped found Harvard's Department of Legal Medicine and in 1943 became the first woman police captain in the United States.",
+      "read_s": 20,
+      "evidence": [
+        "lee-listing",
+        "lee-house",
+        "lee-nutshell",
+        "lee-nlm",
+        "tour"
+      ],
+      "next": "glessner"
+    },
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie, Glessner House. Frances Macbeth Glessner kept a journal from 1879 for forty years; the house museum writes the family's story from it. In 1904, the year of this scene, she set up a silversmith's workbench in the basement. She also kept bees and ran a Monday Morning Reading Class here from 1893.",
+      "read_s": 20,
+      "evidence": [
+        "glessner-frances",
+        "glessner-journal",
+        "glessner-present",
+        "tour"
+      ],
+      "next": "jones"
+    },
+    {
+      "id": "jones",
+      "destination": {
+        "kind": "structure",
+        "id": "jones_house_1834_prairie"
+      },
+      "text": "1834 Prairie, the Fernando Jones house. Jane Grahame Jones was a longtime and outspoken activist for woman suffrage; her husband's scrapbook keeps clippings on the Illinois Woman Suffrage Association from 1875. In 1913 Illinois became the first state east of the Mississippi to let women vote for president.",
+      "read_s": 18,
+      "evidence": [
+        "jones-listing",
+        "jones-suffrage",
+        "jones-scrapbook",
+        "illinois-1913",
+        "tour"
+      ],
+      "next": "buckingham"
+    },
+    {
+      "id": "buckingham",
+      "destination": {
+        "kind": "structure",
+        "id": "buckingham_house_2036_prairie"
+      },
+      "text": "2036 Prairie, the Buckingham house, where the 1904 Blue Book lists Clarence Buckingham. In 1927 his sister Kate Sturges Buckingham gave Chicago the Buckingham Fountain in his memory: twice the size of the Versailles fountain it copies, with a centre jet that throws water 150 feet high.",
+      "read_s": 18,
+      "evidence": [
+        "buckingham-listing",
+        "buckingham-fountain",
+        "buckingham-same",
+        "tour"
+      ],
+      "next": "armour"
+    },
+    {
+      "id": "armour",
+      "destination": {
+        "kind": "structure",
+        "id": "armour_house_2115_prairie"
+      },
+      "text": "2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here. As the great families died or left for suburbs like Lake Forest she stayed, and the district marker says Armour's widow was among the last residents of the street, dying here in 1927.",
+      "read_s": 18,
+      "evidence": [
+        "armour-listing",
+        "armour-last",
+        "armour-leaving",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the walk at 2115 Prairie. These are six of the women the sources tie to the avenue; many more lived in its houses unrecorded.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "prairie-notable-women-list",
+    "title": "Prairie Avenue women's roll",
+    "text": "An interpretive list of six women and their houses, not a historical document."
+  },
+  "evidence": [
+    {
+      "id": "frank-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Henry L. Frank household at 1608.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+    },
+    {
+      "id": "frank-nursing",
+      "text": "Henrietta Greenebaum Frank (1608) and Ella Walker (1720) worked steadily for quality nursing education at the Illinois Training School for Nurses.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's paragraph on the residents' causes, which gives each woman's house number in parentheses."
+    },
+    {
+      "id": "frank-club",
+      "text": "Solomon and her sister Henrietta Frank became the first Jewish members of the prestigious Chicago Woman's Club in 1876. Hannah Greenebaum Solomon founded and served as the first president of the National Council of Jewish Women.",
+      "confidence": "attested",
+      "sources": [
+        "jwa_encyclopedia_hannah_greenebaum_solomon"
+      ],
+      "locator": "The article's paragraphs on the Chicago Woman's Club and the National Council of Jewish Women."
+    },
+    {
+      "id": "lee-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Blewett Lee household at 1700.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+    },
+    {
+      "id": "lee-house",
+      "text": "1700 and 1706 Prairie were twin townhouses John and Frances Glessner built for their two married children; the daughter Frances, married to Blewett Lee in February 1898, moved into 1700 within a few years. George Glessner photographed the pair under construction in 1901.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "locator": "The family page's biography of Frances Glessner Lee; the blog's 1901 construction photograph and caption."
+    },
+    {
+      "id": "lee-nutshell",
+      "text": "Frances Glessner Lee's later work in legal medicine: the Nutshell Studies of Unexplained Death, miniature crime scenes still used in training.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Glessner Lee."
+    },
+    {
+      "id": "lee-nlm",
+      "text": "She helped to establish the Department of Legal Medicine at Harvard (1931); built a series of eighteen miniature crime-scene dioramas for student analysis; and in 1943 was appointed a captain in the New Hampshire State Police, the first woman in the United States to hold such a position.",
+      "confidence": "attested",
+      "sources": [
+        "nlm_visible_proofs_frances_glessner_lee"
+      ],
+      "locator": "The biography paragraph."
+    },
+    {
+      "id": "glessner-frances",
+      "text": "Frances Macbeth Glessner kept a journal from 1879 for forty years; in 1904 she set up a silversmith's workbench in the basement of the house; she kept bees; and she held the Monday Morning Reading Class in the library from 1893.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "glessner-journal",
+      "text": "The house museum's biographies of the family are written from its collection, Frances Glessner's journal among it.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The page as a whole; the source record's note says what it is written from."
+    },
+    {
+      "id": "glessner-present",
+      "text": "John and Frances Glessner lived in the house from 1 December 1887 until their deaths (1936 and 1932).",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data pages pp. 1-2 and 9, as data/residents_1904/households/hh_glessner_john_j.json carries them."
+    },
+    {
+      "id": "jones-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Fernando Jones household at 1834.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+    },
+    {
+      "id": "jones-suffrage",
+      "text": "Jane Grahame Jones (1834) fought for woman suffrage.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's paragraph on the residents' causes."
+    },
+    {
+      "id": "jones-scrapbook",
+      "text": "Prairie Avenue resident Jane G. Jones was a longtime and outspoken activist for women suffrage; the document is the Fernando Jones Scrapbook's clippings on the Illinois Woman Suffrage Association, 1875.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_fernando_jones_scrapbook"
+      ],
+      "locator": "The caption under the document image."
+    },
+    {
+      "id": "illinois-1913",
+      "text": "Illinois became the first state east of the Mississippi River to give women the right to vote for president, in 1913.",
+      "confidence": "attested",
+      "sources": [
+        "nprillinois_2019_illinois_led_suffrage"
+      ],
+      "locator": "The paragraph on the 1913 law."
+    },
+    {
+      "id": "buckingham-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the E. Buckingham household and Clarence Buckingham at 2036.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+    },
+    {
+      "id": "buckingham-fountain",
+      "text": "Philanthropist and art patron Kate Sturges Buckingham (1858-1937) gave the funds for the fountain, dedicated to her brother, philanthropist and businessman Clarence Buckingham (1854-1913); dedicated 26 August 1927; twice the size of the Latona Basin at Versailles that inspired it; its major display sprays water 150 feet high.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_park_district_buckingham_fountain"
+      ],
+      "locator": "The page's history section."
+    },
+    {
+      "id": "buckingham-same",
+      "text": "The Clarence Buckingham of the 1904 listing is the Clarence Buckingham (1854-1913) the fountain honours.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_park_district_buckingham_fountain"
+      ],
+      "reasoning": "The Blue Book lists a Clarence Buckingham in the E. Buckingham household of 2036 Prairie; the fountain honours a Chicago philanthropist and businessman of that name living in 1904 (1854-1913). Same name, same city, same years; no source read here states the identity in words."
+    },
+    {
+      "id": "armour-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints Mrs. Philip D. Armour at 2115.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "reasoning": "The Prairie library's civic dossier (chicago/prairie_1904_v1/research/civic-dossier.json) reads the 1904 Blue Book's Prairie Avenue list, printed pp. 186-187, from the item's OCR; its own flag is that a visual check of the page is pending, so the listing is carried as inferred rather than attested."
+    },
+    {
+      "id": "armour-last",
+      "text": "David Kelley-Philip D. Armour Residence: for nearly 50 years the home of the family of meatpacker Philip D. Armour; Armour's widow was among the last residents of the street, dying here in 1927.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-leaving",
+      "text": "After the 1890s many of the leading Prairie Avenue families died or moved to suburbs such as Lake Forest.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's closing paragraph on the street's decline."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    }
+  ],
+  "liberties": [
+    "L-jaunt-prairie-walks"
+  ]
+}
