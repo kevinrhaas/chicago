@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2429, ts: '2026-10-30T00:21:40.153Z', date: 'Oct 29, 2026, 7:21 PM CT', title: 'The Pullman conservatory\'s 18th Street gate gets its carving', kind: 'improvement',
+    items: [
+      'Each stone wing of the gate across 18th Street now carries the carved scroll and trailing leaves the 1894 plate and Lowe\'s photograph show by the pier, over a plain base.',
+      'Each gate pier\'s shaft has its sunk panel under the cap.',
+    ] },
+  { v: 2428, ts: '2026-10-30T00:20:32.920Z', date: 'Oct 29, 2026, 7:20 PM CT', title: 'Phones draw the far railway yard cheaper; elm leaves look real', kind: 'improvement',
+    items: [
+      'On a phone, the Illinois Central yard\'s cinders, ballast and lake edge more than about 240 m away are drawn from a coarser copy of the same ground, with the same colours. Looking down Prairie Avenue from 18th Street that is about 11% less for the phone to draw, and about a quarter less on the lakeside. The yard looks the same, from the street and from the air. Desktop is unchanged.',
+      'The elms\' leaves take their surface from a real American elm leaf: its veins and mottle, photographed by Steven J. Baskauf (Bioimages, Vanderbilt University, CC BY 4.0). Their shapes and their July colour are unchanged.',
+    ] },
   { v: 2427, ts: '2026-10-29T23:19:24.493Z', date: 'Oct 29, 2026, 6:19 PM CT', title: 'Pullman\'s 18th Street trees stand where the photographs put them', kind: 'improvement',
     items: [
       'The elms along 18th Street before the Pullman palm house and stable now stand where J. W. Taylor\'s photograph and the 1894 Inland Architect plate show them: three before the palm house, two round the Calumet corner, and one on the far side.',
