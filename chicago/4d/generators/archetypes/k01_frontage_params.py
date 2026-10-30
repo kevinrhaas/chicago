@@ -2021,7 +2021,8 @@ def bracketed_section(k10: dict, overhang: float) -> list:
 
 def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
           floors: tuple = (), eave: float = 0.0, overhang: float = 0.0, front_coursed: bool = False,
-          wing_corner: bool = False, eave_front: float | None = None):
+          wing_corner: bool = False, eave_front: float | None = None,
+          basement_top: float | None = None):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -2519,10 +2520,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 w["voussoirs"] = {k: (int(h[k]) if k == "stones" else float(h[k])) for k in sorted(h)}
         # T-2525: a plinth read off a picture: its height only, the kit's proud and stone kept
         # (T-3133: down to 0.05 m, 1811's bay on the Chicagology print, its lights' sills on it)
+        # T-3254: or, on a brick front over a stone basement, the basement's own top
+        # (1701's lower south range, which the photograph carries on the house's stone basement
+        # up to its water table at the principal floor, brick only over it)
         if "plinth_m" in e:
             ph = float(e["plinth_m"])
-            if v["base"] != "grade" or not 0.05 <= ph <= 0.6:
-                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m")
+            on_basement = basement_top is not None and abs(ph - basement_top) < 1e-6
+            if v["base"] != "grade" or not (0.05 <= ph <= 0.6 or on_basement):
+                raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m, or the "
+                                 f"stone basement's top (stone_front.brick_above_m)")
             v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
         if "cap_band" in e:
             # T-2815: a carved band round the bay under its cap, read off a picture (Keith's
@@ -5972,7 +5978,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
                  float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")),
                  eave_front=(eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
-                             if roof_form in ("hip", "gable") else None))
+                             if roof_form in ("hip", "gable") else None),
+                 basement_top=(val("stone_front") or {}).get("brick_above_m"))
     # T-2780: a round-headed window over a bay is cut after the kit was read, so its variant
     # is held here to what the street front's round heads are held to: one round-headed sash
     for o in openings:

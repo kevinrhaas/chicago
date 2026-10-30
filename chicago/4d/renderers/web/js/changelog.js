@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2450, ts: '2026-10-30T10:07:30.156Z', date: 'Oct 30, 2026, 5:07 AM CT', title: '1701 Prairie\'s stone basement and its looped iron fence', kind: 'feature',
+    items: [
+      'The Hibbard house at 1701 Prairie now stands on a light stone basement up to the principal floor, across the front, round the south side and under the lower south wing, with brick only above it, as its old photograph shows.',
+      'Its street fence is now cast iron in rows of interlaced loops on a stone curb, in place of a plain spear fence.',
+    ] },
+  { v: 2449, ts: '2026-10-30T10:07:30.156Z', date: 'Oct 30, 2026, 5:07 AM CT', title: 'Pullman\'s conservatory garden gets its boxed standards and shrubs', kind: 'feature',
+    items: [
+      'Two clipped standards in square planting boxes now stand in the lawn before Pullman\'s conservatory across 18th Street, each with a dense green mass over its box, where the 1894 Inland Architect plate and Lowe\'s photograph of about 1897 show them.',
+      'Tall shrubs line the far edge of the drive in front of the glasshouse range.',
+    ] },
+  { v: 2448, ts: '2026-10-30T09:24:39.664Z', date: 'Oct 30, 2026, 4:24 AM CT', title: 'A palm and two clipped evergreens on Pullman\'s palm-house terrace', kind: 'improvement',
+    items: [
+      'A palm from the palm house now stands out in its tub on the terrace before the glass drum, as J. W. Taylor\'s photograph shows it in summer.',
+      'A slim clipped evergreen column stands against the drum\'s west side, and a clipped cone in its tub before the arched door east of it, where both the 1894 Inland Architect plate and Taylor\'s photograph place them.',
+      'Pullman\'s ivy is back on the house\'s west front: bringing its porch forward had dropped it from the planting.',
+      'Like the other tub plants, they are wintered under glass: switch the Season to winter and they are gone.',
+    ] },
+  { v: 2447, ts: '2026-10-30T09:24:39.664Z', date: 'Oct 30, 2026, 4:24 AM CT', title: '1729 Prairie\'s big front dormer under its broken pediment', kind: 'improvement',
+    items: [
+      'The large dormer on the Pullman house\'s Prairie front now carries the broken pediment its pictures show: two raking stone arms rise from past the hood\'s ears and stop against the arch, so the arch\'s crown stands up through the gap between them.',
+      'Read off the 1890 Albertype plate and Taylor\'s photograph no. 1445, with the Detroit print agreeing; the arms\' rake, depth and reach are drawn at the precision those pictures allow.',
+    ] },
   { v: 2446, ts: '2026-10-30T08:10:43.061Z', date: 'Oct 30, 2026, 3:10 AM CT', title: 'Pullman\'s garden colonnade stands in its pictures\' proportions', kind: 'improvement',
     items: [
       'The domed colonnade at the east end of Pullman\'s glasshouse range across 18th Street now rises from a taller stone podium to a deep entablature, with shorter columns between them, as the 1894 Inland Architect plate and Lowe\'s c. 1897 photograph both show it.',
